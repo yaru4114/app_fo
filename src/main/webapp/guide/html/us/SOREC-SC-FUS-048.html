@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>일반 회원가입 완료 | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+
+    <!-- header include -->
+    <div class="header-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+        <!-- //header include -->
+        
+        <!-- container -->
+        <div class="container">
+            <!-- 본문 -->
+            <div class="section us">
+                <div class="inwrap">              
+                <div class="signup-t-center"><img src="/guide/images/us/icon_signup_user_done.png" alt=""></div>
+                <div class="hgroup mt60">
+                    <div>
+                    <h2 class="h2">일반 회원가입 완료</h2>
+                    <p class="fs20 mt40 fc-orange">서린닷컴 일반회원 가입이 완료되었습니다.</p>
+                    <p class="signup-txt-info">
+                        <span class="sign-user">서린닷컴 주문 서비스는 기업회원 계정에서 거래 가능합니다.<br>
+                            주문 서비스를 이용하실 고객님께서는 기업회원가입 후 이용해 주세요.
+                        </span>
+                    </p>                      
+                    </div>
+                </div> 
+                <div class="btn-wrap singup-btn-wrap">
+                    <a href="#" class="btn-blue-big full">메인으로 이동하기</a>
+                </div>
+            
+                </div>            
+            </div>
+            <!--// 본문 -->
+        </div>
+        <!-- //container -->
+    
+        <!-- footer include -->
+        <div class="footer-wrap include-wrap"></div>
+        <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+        <!-- //footer include -->
+
+    </div>
+
+    <!-- script core -->
+    <script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/guide/js/select2/select2.min.js"></script>
+    <!-- script extra -->
+    <script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+    <!-- script custom -->
+    <script src="/guide/js/sorin.js"></script>
+    <script src="/guide/js/sorin-layout.js"></script>
+    <!-- embedded -->
+    <script>
+        $(document).ready(function() {    
+            // 동의 자세히 보기
+            $(document).on('click', '.info-more', function() {
+            var infoTxt = $(this).parent().siblings('.box-agree-info');
+            if(infoTxt.hasClass('on')) {
+                infoTxt.removeClass('on');
+            }else {
+                infoTxt.addClass('on');
+            }
+            });
+            $(document).on('click', '.info-box-close', function() {
+            $(this).parent().removeClass('on');
+            });      
+        });  
+    </script>
+
+</body>
+</html>

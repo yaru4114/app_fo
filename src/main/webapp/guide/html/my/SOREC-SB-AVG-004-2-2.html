@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>평균가 주문 상세(대기월) - 프라이싱 설정 후 및 출고 확정 처리 | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>    
+</head>
+<body>
+<div class="wrapper">
+    <!-- header include -->
+    <div class="header-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+    <!-- //header include --> 
+    <div class="container">
+   		<!-- dashboard include -->
+      	<div class="dashboard-wrap include-wrap"></div>
+      	<script type="text/javascript"> $(".dashboard-wrap").load("/guide/html/include/my/dashboard.html");</script>
+        <!-- //dashboard include -->
+        <div class="section my">
+            <div class="inwrap table">
+            	<!-- lnb include -->            	
+                <div class="lnb-wrap include-wrap"></div>
+   				<script type="text/javascript"> $(".lnb-wrap").load("/guide/html/include/my/lnb.html");</script>
+                <!-- lnb include -->
+                
+                
+                <div class="content content-avg order-pricing">
+                
+                	<!-- 1. 평균가 주문 간략 정보 table/ 평균가 계약월 TAB 슬라이드/ 주문 진행 현황 시작 {-->
+                    <div class="section">
+                        <div class="hgroup">
+                            <h2 class="h2">평균가 주문 상세</h2>
+                            <div class="btns">
+                                <button type="button" class="btn-stroke-md btn-avg-orderlist w140px">평균가 주문 목록</button>
+                            </div>
+                        </div>
+                         <table class="tbl-v th-left">
+                            <colgroup>
+								<col width="160"/>
+								<col width="310"/>
+								<col width="160"/>
+								<col width="310"/>
+							</colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">계약번호</th>
+                                    <td>
+                                    	<span class="avg-contract-num">A 20230524-001</span>
+                                    	<button type="button" class="btn-stroke-sm blue btn-avg-contract">계약서</button>
+                                    ​</td>
+                                    <th scope="row">아이템</th>
+                                    <td>알루미늄 순괴(P1020)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">권역</th>
+                                    <td>인천/부산</td>
+                                    <th scope="row">브랜드</th>
+                                    <td>서구산/비서구산</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">계약기간</th>
+                                    <td>4개월</td>
+                                    <th scope="row">주문 톤 수</th>
+                                    <td>2,000MT</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                       
+						<!-- average-price-tab {-->
+						<div class="avg-price-tab">
+							<div class="slide-wrap swiper-container">
+							    <div class="slide-inner swiper-wrapper">
+							        							        <div class="swiper-slide">
+						        		<span class="date">2023.07</span>
+										<span class="status">진행</span>
+									</div>
+							        <div class="swiper-slide">
+						        		<span class="date">2023.08</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="swiper-slide">
+						        		<span class="date">2023.09</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="swiper-slide">
+						        		<span class="date">2023.10</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="swiper-slide">
+						        		<span class="date">2023.11</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="swiper-slide">
+						        		<span class="date">2023.12</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="swiper-slide">
+						        		<span class="date">2024.01</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="swiper-slide">
+						        		<span class="date">2024.02</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="swiper-slide">
+						        		<span class="date">2024.03</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="swiper-slide">
+						        		<span class="date">2024.04</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="swiper-slide">
+						        		<span class="date">2024.05</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="swiper-slide">
+						        		<span class="date">2024.06</span>
+										<span class="status">대기</span>
+									</div>
+							    </div>
+						    </div>
+						    <div class="arrows-wrap">
+						    	<div class="arrow arrow-prev"></div>
+						    	<div class="arrow arrow-next"></div>
+						    </div>
+						    <div class="swiper-pagination"></div>
+						</div>
+						<!--} // average-price-tab -->
+						
+						<!-- 평균가 진행 현황 bar(현재 step > 대기월 프라이싱 설정 후 > 발주 단계 처리 화면) {-->
+						<div class="avg-progress-bar">
+							<div class="legend">단위 : MT</div>
+							<ul class="flex-ac-jsb">
+								<li class="step-done">
+									<div class="bar"></div>
+									<span class="tootip"></span>
+									<span class="txt">프라이싱</span>
+								</li>
+								<li class="step-now">
+									<div class="bar"></div>
+									<span class="tootip"></span>
+									<span class="txt">발주</span>
+								</li>
+								<li>
+									<div class="bar"></div>
+									<span class="tootip"></span>
+									<span class="txt">결제</span>
+								</li>
+								<li>
+									<div class="bar"></div>
+									<span class="tootip"></span>
+									<span class="txt">배송</span>
+									
+								</li>
+								<li>
+									<div class="bar"></div>
+									<span class="tootip"></span>
+									<span class="txt">완료</span>
+								</li>
+							</ul>
+						</div>
+						<!--} // 평균가 진행 현황 bar(현재 step > 대기월 프라이싱 설정 후 > 발주 단계 처리 화면) -->
+                    </div>
+					<!-- // 1. 평균가 주문 간략 정보 table/ 평균가 계약월 TAB 슬라이드/ 주문 진행 현황 끝 -->
+
+					<!-- 2. 프라이상 확정 정보 table 시작 {-->
+                    <div class="section">
+                        <div class="hgroup">
+                            <h2 class="h4">프라이싱 확정 정보</h2>
+                        </div>
+                        <table class="tbl-v th-left">
+                        	<colgroup>
+								<col width="160"/>
+								<col width="310"/>
+								<col width="160"/>
+								<col width="310"/>
+							</colgroup>
+                            <tbody>
+                                <tr>
+                                	<th scope="row">라이브 구매 톤 수</th>
+                                    <td>100MT​</td>
+                                    <th scope="row">평균가 구매 톤 수</th>
+                                    <td>400MT​</td>
+                                </tr>
+                                <tr>
+                                	<th scope="row">프라이싱 확정기한</th>
+                                    <td colspan="3" class="emphasis-red bold">D-97일 17:50:46</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+					<!--} //2. 프라이상 확정 정보 table 끝 -->
+
+					<!-- 3. 주문정보 table 시작
+						대기 월의 경우 
+						* 주문정보 table: 해당 월은 대기이나, 상품은 계약 된 상태임으로 정보는 노출해줌.​​
+					 { -->
+                    <div class="section">
+                        <div class="hgroup">
+                            <h2 class="h4">주문정보</h2>
+                        </div>
+                        <table class="tbl-scope-col">
+						    <colgroup>
+						        <col width="120">
+						        <col width="120">
+						        <col width="200">
+						        <col width="75">
+						        <col width="125">
+						        <col width="180">
+						        <col width="*">
+						    </colgroup>
+						    <thead>
+						        <tr>
+						            <th scope="col">권역</th>
+						            <th scope="col">브랜드그룹</th>
+						            <th scope="col" colspan="2">브랜드</th>
+						            <th scope="col">톤 수</th>
+						            <th scope="col">적용 프리미엄</th>
+						            <th scope="col">톤 수 합계</th>
+						        </tr>
+						    </thead>
+						    <tbody>
+						    	<tr>
+						    		<td colspan="4">재고 할당 중</td>
+						    		<td>
+						    			75MT
+						    		</td>
+						    		<td class="emphasis-red td-border-rt">2,960,000</td>
+						    		<td rowspan="8">500MT</td>
+						    	</tr>
+								
+								<tr>
+						    		<td rowspan="5" class="th-center-top">인천</td>
+						    		<td rowspan="4" class="th-center-top">서구산</td>
+						    		<td rowspan="3" class="brand">
+										<div class="flex-ac">
+											<div class="flag-img flex-ac-jac">
+												<img src="/guide/images/sample/img_nation_sample3.png" alt="국기 이미지">
+											</div>
+											PMB
+										</div>
+						    		</td>
+									<td class="pdf">
+										<button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+						    		</td>
+						    		<td>
+						    			75MT
+						    		</td>
+						    		<td class="emphasis-red td-border-rt">2,960,000</td>
+						    	</tr>
+						    	
+						    	<tr>
+									<td class="pdf">
+										<button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+						    		</td>
+						    		<td>
+						    			75MT
+						    		</td>
+						    		<td class="emphasis-red td-border-rt">2,960,000</td>
+						    	</tr>
+						    	<tr>
+									<td class="pdf">
+										<button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+						    		</td>
+						    		<td>
+						    			75MT
+						    		</td>
+						    		<td class="emphasis-red td-border-rt">2,960,000</td>
+						    	</tr>
+								<tr>
+						    		<td class="brand bd-right-zero">
+										<div class="flex-ac">
+											<div class="flag-img flex-ac-jac">
+												<img src="/guide/images/sample/img_nation_sample2.png" alt="국기 이미지">
+											</div>
+											PMB
+										</div>
+						    		</td>
+						    		<td class="pdf">
+										<button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+						    		</td>
+						    		<td>
+						    			150MT
+						    		</td>
+						    		<td class="emphasis-red td-border-rt">2,934,000</td>
+						    	</tr>
+						    	<tr>
+						    		<td>비서구산</td>
+						    		<td class="brand bd-right-zero">
+										<div class="flex-ac">
+											<div class="flag-img flex-ac-jac">
+												<img src="/guide/images/sample/img_nation_sample2.png" alt="국기 이미지">
+											</div>
+											PMB
+										</div>
+						    		</td>
+						    		<td class="pdf">
+										<button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+						    		</td>
+						    		<td>
+						    			150MT
+						    		</td>
+						    		<td class="emphasis-red td-border-rt">2,934,000</td>
+						    	</tr>
+						    	<tr>
+						    		<td rowspan="2" class="th-center-top">부산</td>
+						    		<td class="th-center-top">서구산</td>
+						    		<td class="brand bd-right-zero">
+										<div class="flex-ac">
+											<div class="flag-img flex-ac-jac">
+												<img src="/guide/images/sample/img_nation_sample2.png" alt="국기 이미지">
+											</div>
+											PMB
+										</div>
+						    		</td>
+									<td class="pdf">
+										<button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+						    		</td>
+						    		<td>
+						    			50MT
+						    		</td>
+						    		<td class="emphasis-red td-border-rt">2,975,000</td>
+						    	</tr>
+						    	<tr>
+						    		<td class="th-center-top">비서구산</td>
+						    		<td class="brand bd-right-zero">
+										<div class="flex-ac">
+											<div class="flag-img flex-ac-jac">
+												<img src="/guide/images/sample/img_nation_sample2.png" alt="국기 이미지">
+											</div>
+											PMB
+										</div>
+						    		</td>
+									<td class="pdf">
+										<button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+						    		</td>
+						    		<td>
+						    			150MT
+						    		</td>
+						    		<td class="emphasis-red td-border-rt">2,934,000</td>
+						    	</tr>
+						    	
+						        <!-- no-data {-->
+						        <tr id="noData">
+						            <td colspan="7">
+						                <div class="no-data">상품 할당 전 입니다.</div>
+						            </td>
+						        </tr>
+						        <!--} // no-data-->
+						    </tbody>
+						</table>
+                    </div>
+					<!--} // 3. 주문정보 table 끝 -->
+					
+					<!-- 4. 대기월 > 출고 처리 업무 시작 {-->
+                    <div class="section section-avg-ex">
+                        <div class="hgroup">
+                            <h2 class="h4">출고 처리 업무</h2>
+                        </div>
+
+						<div class="tbl-v t3 th-left">
+							<table class="tbl-scope-row">
+								<colgroup>
+									<col width="160"/>
+									<col width="310"/>
+									<col width="160"/>
+									<col width="310"/>
+								</colgroup>
+								<tbody>
+									<tr class="reject">
+	                                	<td colspan="4" class="emphasis-red h150px">현재 07월 진행 중입니다. <br>최종 확정 정산 후 진행됩니다.</td>
+	                                </tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+                    <!--} // 4. 대기월 > 출고 처리 업무 끝 -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer include -->
+    <div class="footer-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+    <!-- //footer include -->
+</div>
+
+
+
+<!-- MODAL POPUP : pdf -->
+<div class="popup modal" id="sorinModalReport">
+    <div class="modal-content w700px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+
+            <h1 class="h2-pd" style="text-align: left;">성적서 다운로드</h1>
+            <div class="div-scroll-y">
+                <div class="section">
+                    <div class="article">
+                        <table class="tbl t3 center">
+                        <colgroup>
+                        <col style="width:40%;">
+                        <col style="width:23%;">
+                        <col style="width:15%;">
+                        
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">B/L</th>
+                                <th scope="col">중량(MT)</th>
+                                <th scope="col">성적서</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody id="screofeList"><tr>   <td>KT-HINDAD-AL-0001</td>   <td>100MT</td>   <td>       <a href="/Common/commonDownLoad?jobSeCode=IT&amp;docFileRealCours=https://sorincorp.blob.core.windows.net/secs-t/it/COA/KIT204_1688091895165.pdf&amp;downFileNm=성적서.pdf" download=""><img src="/images/my/icon_pdf.svg" alt="PDF 다운로드"></a>   </td></tr></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div><!-- // .div-scroll-y -->
+			<div class="mt30" style="text-align: center;"><button type="button" class="btn-blue-big modal-x">확인</button></div>
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!-- // MODAL POPUP : pdf -->
+
+
+<!--// Modal Popup -->
+<!-- script core -->
+<script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="/guide/js/select2/select2.min.js"></script>
+<!-- script extra -->
+<script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+<script src="/guide/js/swiper/6.7.0/swiper.js"></script>
+<!-- script custom -->
+<script src="/guide/js/sorin.js"></script>
+<script src="/guide/js/sorin-my.js"></script>
+<script src="/guide/js/sorin-layout.js"></script>
+<!-- script embedded -->
+<script>
+
+	/* ::::: 평균가 script 시작 ::::: */
+	
+		/* 1. 평균가 주문 상세 > .average-price-tab */
+		// 1-1. swiper slide option
+		var avtTabSwiper = new Swiper('.slide-wrap', {
+			initialSlide : 1, // 필요시 대기월 index 확인 후 설정 (진행월은 0)
+		    slidesPerView: 'auto',
+		    preventClicks: true,
+		    preventClicksPropagation: false,
+		    observer: true,
+		    observeParents: true,
+		    navigation: {  
+		        prevEl: ".arrow-prev",
+		        nextEl: ".arrow-next",
+		    }
+		});
+	
+		// 1-2. click한 .swiper-slide 활성화
+	   $('.avg-price-tab .swiper-slide').on('click', function(){
+			$('.avg-price-tab .swiper-slide').removeClass('swiper-slide-prev')
+			$('.avg-price-tab .swiper-slide').removeClass('swiper-slide-active')
+			$('.avg-price-tab .swiper-slide').removeClass('swiper-slide-next')
+			$(this).prev().addClass('swiper-slide-prev')
+			$(this).addClass('swiper-slide-active')
+			$(this).next().addClass('swiper-slide-next')
+		});
+	   
+		// 1-3. .arrow 갯수 별 스타일(.swiper-slide 갯수가 1개면 .arrow 비활성화, 2개 이상이면 활성화)
+		let avgPriceTab = $('.avg-price-tab')
+		let avgPriceTabSlide = avgPriceTab.find('.swiper-slide')
+		let avgPriceTabSlideLen = avgPriceTab.find('.swiper-slide').length;
+		let avgPriceTabArrows = avgPriceTab.find('.arrows-wrap')
+	
+		if (avgPriceTabSlideLen == 1) {
+			avgPriceTabArrows.removeClass('active')
+		} else {
+			avgPriceTabArrows.addClass('active')
+		}
+	
+	/* ::::: 평균가 script 종료 ::::: */
+	
+</script>
+
+</body>
+</html>

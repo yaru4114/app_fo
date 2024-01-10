@@ -1,0 +1,157 @@
+@charset "utf-8";
+
+/******** ma ********/
+/* Main Popup */
+.pop-main {width:50rem; height:50rem; padding:3rem 3rem 10rem 3rem; position:absolute; top:5rem; right:0; background-color:#fff; border:1px solid #e6e6e7; border-radius:1.5rem; box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.25); z-index:11}
+.pop-main.w300px {width:30rem;}
+.pop-main.w500px {width:50rem;}
+.pop-main.w800px {width:80rem;}
+.pop-main .pop-close {position:absolute; width:2.19rem; height:2.19rem; top:3rem; right:3rem; z-index:1}
+.pop-main .pop-close button, .pop-close .pop-x {display:block; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); line-height:1; font-family:'S-CoreDream-2'; font-size:4.4rem; color:#000; padding:initial; background-color: initial; outline:initial; border-radius:0;}
+.pop-main .pop-h1 {position:relative; padding:0; margin:0 0 3rem; display:block; font-size:1.8rem; line-height:1;}
+.pop-main .pop-h1::after {content:''; width:3rem; height:.3rem; position:absolute; bottom:-1.3rem; left:0; background-color:#1d5fd0;}
+.pop-main .pop-con {position:relative; line-height:1.7;}
+.pop-main .pop-btn {width:100%; height:6rem; padding:0 3rem; display:flex; justify-content:space-between; align-items:center; border-top:1px solid #dedede; position:absolute; left:0; bottom:0;}
+.pop-main .pop-btn .btns button {display:inherit; width:5.9rem;}
+/* 알람 설정 Popup */
+.target-price-set > span {display:inline-block; vertical-align:middle;}
+.target-price-set > span + button {margin-left:.4rem;}
+#sorinModalAlarm .tbl-oneclick {margin-top:0; border-top:0; visibility:hidden; position:absolute; opacity:0;}
+#sorinModalAlarm .tbl-oneclick.active {visibility:visible; position:relative; opacity:1;}
+/* .target-price-set input {font-family:'S-CoreDream-5'; font-size:1.8rem; text-align:center; color:#fb1a31;} */
+.target-price-set input {width:27rem;}
+.datepicker-wrap {display:inline-block; width:100%;}
+.datepicker-wrap .datepicker {width:calc(100% - 3.1rem);}
+
+/******** pd ********/
+/* 장바구니 :바틈시트 */
+.popup .payments {display:flex; justify-content:space-between; align-items:stretch; margin-top:3rem;}
+.popup .payments > div {width:calc(33.3333% - .7rem); padding:1.6rem; border:1px solid #dedede; border-radius:.9rem;}
+.popup .payments > div > label, 
+.popup .payments > div > div {text-align:center;}
+.popup .payments .e-pay {background-color:#efefef;}
+.popup .payments .e-pay .btn-add-pay {width:100%; height:100%; background:transparent; color:#666;}
+.icon-plus-circle {width:2.4rem; height:2.4rem; display:inline-block; border:2px solid #707070; border-radius:50%; text-align:center; color:#707070; font-size:2.8rem; line-height:1.8rem;}
+.popup .payments .e-pay .btn-add-pay .icon-plus-circle {display:block; margin:auto auto 1.1rem;}
+.popup .payments label .e-wallet-1,
+.popup .payments label .e-wallet-account,
+.popup .payments label .e-wallet-price, 
+.popup .payments label .e-logo,
+.popup .payments label .e-price {display:block;}
+.popup .payments .e-wallet-1 {font-size:1.2rem; color:#fe9813; margin-top:-2.5rem; margin-bottom:.5rem;}
+.popup .payments .e-wallet-account {font-size:1.2rem; color:#666; margin-bottom:.9rem;}
+.popup .payments .e-wallet-price, .popup .payments .e-wallet-price span{font-family:'S-CoreDream-5'; font-size:1.6rem; color:#000;}
+.popup .payments .e-wallet-price .unit {margin-left:.4rem;}
+.popup .payments .btns {margin-top:.6rem;}
+.popup .payments .btns .btn-stroke-sm .material-icons {font-size:1.4rem;}
+.popup .payments .btns .btn-reload {width:auto; background:none;}
+.popup .payments .e-logo {height:1.95rem; overflow:hidden; margin-bottom:.9rem;}
+.popup .payments .e-logo img {height:100%;}
+.popup .payments .e-price .price {font-family:'S-CoreDream-5'; font-size:1.6rem; color:#fb1a31;}
+.popup .payments .e-price .unit {font-family:'S-CoreDream-5'; font-size:1.6rem; color:#000;}
+.popup .pay-notice {position:relative; margin:1.6rem 0 2rem; text-align:center; color:#fb1a31; font-size:1.2rem;}
+.popup .pay-notice::before {content:'i'; display:inline-block; width:2rem; height:2rem; margin-right:.3rem; line-height:1.6rem; color:#fb1a31;border:2px solid #fb1a31; border-radius:50%; text-align:center; font-weight:700;}
+.popup .agree-box {width:80%; padding:.85rem 1.5rem; position:relative; margin:2rem auto 0; border-radius:.3rem; border:1px solid #dedede; background-color:#efefef; display:flex; justify-content:space-between; align-items:center;}
+/* .popup .agree-box::after {content:''; display:block; position:absolute; top:50%; right:1.78rem; transform:translateY(-50%); width:0; height:0; border-left:.45rem solid transparent; border-right:.45rem solid transparent; border-top:.72rem solid #999999;} */
+.popup .agree-box .form-chk [type="checkbox"]:not(:checked) + label, 
+.popup .agree-box .form-chk [type="checkbox"]:checked + label {color:#666;}
+.popup .agree-box .form-chk [type="checkbox"]:not(:checked) + label:before, 
+.popup .agree-box .form-chk [type="checkbox"]:checked + label:before {border:2px solid #666;}
+/* .popup .agree-box .form-chk [type="checkbox"]:not(:checked) + label:after, 
+.popup .agree-box .form-chk [type="checkbox"]:checked + label:after {top:1rem; left:.25rem;} */
+.popup .agree-text {margin:3.7rem 0 -1rem; text-align:center;}
+#sorinModalOrder .agree-box .form-chk {cursor:pointer;}/* SOREC-SC-FPD-005 */
+.popup .agree-box .btn-detail-contract {color:#999aa9; font-size:1.2rem; background-color:transparent;}
+
+/******** us ********/
+
+/******** my ********/
+/* 신규배송지 등록 팝업 */
+.popup .tbl-v.new-shipping-wrap tbody th, 
+.popup .tbl-v.new-shipping-wrap tbody td {padding:.6rem 1.5rem;}
+.popup .tbl-v.new-shipping-wrap td input {width:100%; height:3.4rem; line-height:3.4rem;}
+.popup .tbl-v.new-shipping-wrap td .dropdown.selectDropdown > span {padding:.9rem;}
+.popup .tbl-v td .input-address span.button {width:13rem;}
+.popup .tbl-v td .btn-zipcode {width:12rem; height:3.4rem;}
+
+.address-wrap {display:table; width:100%;}
+.address-wrap > div {display:table-cell; position:relative; width:50%; vertical-align:middle;}
+.address-wrap > div:first-of-type {padding-right:.5rem;}
+.address-wrap > div:last-of-type {padding-left:.5rem;}
+.input-address {display:table; width:100%; margin-bottom:1rem;}
+.input-address > span {display:inline-block;}
+.input-address span.input, 
+.input-address span.button {display:table-cell; vertical-align:middle;}
+.input-address span.button {width:10rem;}
+.input-address .input.zipcode {width:7rem;}
+.input-address .input.zipcode input {text-align:center;}
+.input-address .input.address {width:calc(100% - 8rem); margin-left:1rem;}
+.tbl-v td .input-address span.input {padding:0;}
+.tbl-v td .input-address span.input  input {width:100%;}
+/* .popup .tbl-v.inquire-wrap tbody th, 
+.popup .tbl-v.inquire-wrap tbody td {padding:1rem 1.5rem;} */
+/* .popup .tbl-v.inquire-wrap tbody th {padding-left:3rem;} */
+.popup .tbl-v.inquire-wrap td input {width:100%; }/*height:4rem; line-height:4rem;*/
+.popup .tbl-v.inquire-wrap td textarea {border:1px solid #cdcdcd;}
+.select-combo-wrap {display:table; width:100%; table-layout:fixed;}
+.select-combo-wrap > div {display:table-cell; position:relative; vertical-align:middle; padding-right:.5rem; padding-left:.5rem;}
+.select-combo-wrap > div:first-of-type {padding-left:0;}
+.select-combo-wrap > div:last-of-type {padding-right:0;}
+.input-address.readonly span.button {display:none;}
+.select-combo-wrap .input-complex {display:block;}
+.select-combo-wrap .input-complex .btn-stroke-md {height:3.4rem;}
+.select-combo-wrap .input-complex .input,
+.w50per .input-complex .input {width:calc(100% - 10rem); margin-right:1rem;}
+
+.select-combo-wrap [name=ipUserEmail] {width:calc(100% - 3rem) !important; position:relative;}
+.select-combo-wrap .email-at {width:2.3rem; display:inline-block; text-align:right;}
+
+.my span.limit-width, 
+.cs span.limit-width, 
+.inquire-wrap span.limit-width {display:inline-block; vertical-align:middle;}
+.my span.limit-width + .t-info, 
+.cs span.limit-width + .t-info, 
+.inquire-wrap span.limit-width + .t-info {margin-left:1.5rem; vertical-align:middle;}
+.my span.limit-width input, 
+.my span.limit-width button,
+.cs span.limit-width input, 
+.cs span.limit-width button,
+.inquire-wrap span.limit-width input, 
+.inquire-wrap span.limit-width button {width:100%;}
+
+/* 재주문하기 */
+.popup .my .payments {justify-content:center;}
+
+/* 멤버 관리 */
+.label-cate {display:block; width:6.6rem; padding:.4rem 1rem; margin-top:.5rem ; font-size:1.2rem; color:#fff; text-align:center; background-color:#999;}
+.label-cate.use {background-color:#1d5fd0;}
+.label-cate.before {background-color:#75aa0c;}
+.label-cate.stop {background-color:#2b425f;}
+.label-cate.break {background-color:#999aa9;}
+.label-cate.quit {background-color:#cdcdcd;}
+
+/* 멤버정보관리 */
+.user-id-state {margin-right:1rem;}
+.user-id-state .label-cate {margin-right:.5rem; display:inline-block;}
+.user-id-state span {font-weight:700;}
+.user-id-state + .form-chk label {padding-top:.2rem; font-size:1.2rem; color:#999aa9;}
+
+/* 문의하기 답변등록 전 팝업 추가 2021-10-21 */
+#sorinModalInquire .modal-content {overflow: visible;}
+#sorinModalInquire .inquire-privacy h2 {font-size:1.6rem; margin-top:4rem}
+#sorinModalInquire .inquire-privacy .box-stroke {width: 100%; padding: 2.2rem 3rem;border: 1px solid #dedede; border-radius: 1.5rem;}
+#sorinModalInquire .inquire-privacy .scroll-y{line-height: 1.6; font-size: 1.2rem;color: #666;}
+#sorinModalInquire .inquire-privacy .c-tit {font-family: 'S-CoreDream-5'; color: #000;font-size: 1.2rem; margin-bottom: 1.8rem;}
+#sorinModalInquire .inquire-privacy .box-agree {padding:1rem 0 0 0.7rem}
+
+/* 주문 모달 창 스크롤 추가 / 로고 추가 */
+#sorinModalOrder .modal-content {overflow-y:auto}
+#sorinModalOrder .payments .e-wallet {position:relative}
+#sorinModalOrder .payments .e-wallet-1 {text-align:left; background:url(/images/my/icon_logo_hanabank.png) right 0 no-repeat}
+#sorinModalOrder .payments label:before,
+#sorinModalOrder .payments label:after {display:none}
+#sorinModalOrder .payments .btns .material-icons {display:inline-block; text-indent:-9999px; width: 3rem;height: 3rem;background: url(/images/icon-reload.png) 50% 50% no-repeat;}
+ 
+/* 배송지 신규 등록 셀렉트 크기 조정 */
+#sorinModalNewAddress .dropdown,
+#sorinModalMemberInfo .dropdown  {min-height:3.4rem}

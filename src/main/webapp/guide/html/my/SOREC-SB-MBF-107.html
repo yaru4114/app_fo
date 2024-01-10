@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>결제내역 | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <!-- header include -->
+    <div class="header-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+    <!-- //header include --> 
+    <div class="container">
+   		<!-- dashboard include -->
+      	<div class="dashboard-wrap include-wrap"></div>
+      	<script type="text/javascript"> $(".dashboard-wrap").load("/guide/html/include/my/dashboard.html");</script>
+        <!-- //dashboard include -->       
+        <div class="section my">
+            <div class="inwrap table">
+            	<!-- lnb include -->            	
+                <div class="lnb-wrap include-wrap"></div>
+   				<script type="text/javascript"> $(".lnb-wrap").load("/guide/html/include/my/lnb.html");</script>
+                <!-- lnb include -->
+                <div class="content">
+                    <div class="section">
+                        <div class="hgroup">
+                            <h2 class="h2">결제 내역 조회</h2>
+                            <!-- <span class="btns"><button type="button" class="btn-stroke-md"  data-popup="modal" data-target="sorinModalEwallet">e-Wallet 알아보기</button></span> -->
+                        </div>
+                    </div>
+                    <div class="btn-toggle-wrap tab-wrap">
+                        <div><button type="button" class="toggle tab-button active" data-tab-section="tab-section-1"><span>전체</span></button></div>
+                        <div><button type="button" class="toggle tab-button" data-tab-section="tab-section-2"><span>e-Wallet</span></button></div>
+                        <div><button type="button" class="toggle tab-button" data-tab-section="tab-section-3"><span>담보보증</span></button></div>
+                        <div><button type="button" class="toggle tab-button" data-tab-section="tab-section-4"><span>대출보증</span></button></div>
+                    </div>
+                    <div class="tab-wrapCon">
+                        <div class="section mt20 active" id="tab-section-1">
+                            <div class="box-blue summary-wrap">
+                                <dl>
+                                    <dt class="tit">보증번호</dt>
+                                    <dd class="txt">SORIN20221423D00023</dd>
+                                    <dt class="tit">보증 계약한도</dt>
+                                    <dd class="txt">700,000,000 원</dd>
+                                    <dt class="tit">사용 보증한도</dt>
+                                    <dd class="txt">500,000,000 원</dd>
+                                    <dt class="tit">남은 보증한도</dt>
+                                    <dd class="txt fc-red">200,000,000 원</dd>
+                                </dl>
+                            </div>
+                            <div class="pay-lookup-select flex-between mt20">
+                                <div class="select-wrap">
+                                    <p class="sel-tit">검색조건</p>
+                                    <select class="dropdown" name="payListLook1" id="payListLook1" title="검색조건">
+                                        <option selected>전체</option>
+                                        <option>결제완료</option>
+                                    </select>
+                                </div>
+                                <div class="select-wrap">
+                                    <p class="sel-tit">검색조건</p>
+                                    <select class="dropdown" name="payListLook2" id="payListLook2" title="검색조건">
+                                        <option selected>전체</option>
+                                        <option>결제완료</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <input type="text" name="" id="" title="주문번호" placeholder="주문번호">
+                                </div>
+                            </div>
+                            <div class="search-wrap mt20">
+                                <div class="order-period-wrap flex-start">
+                                    <div class="period-box flex-between">
+                                        <div class="datepicker-wrap"><p class="date-tit">기간</p><input type="text" class="datepicker center pd-datepicker"></div>
+                                        <span>~</span>
+                                        <div class="datepicker-wrap"><p class="date-tit">기간</p><input type="text" class="datepicker center pd-datepicker"></div>
+                                    </div>
+                                    <div class="input-button-wrap ml10">
+                                        <label class="radio-btn"><input type="radio"><span>오늘</span></label>
+                                        <label class="radio-btn"><input type="radio"><span>1주일</span></label>
+                                        <label class="radio-btn"><input type="radio"><span>1개월</span></label>
+                                        <label class="radio-btn"><input type="radio"><span>6개월</span></label>
+                                    </div>
+                                    <div class="order-period-btns ml10">
+                                        <button type="button" class="btn-blue-md btn-search">조회</button>
+                                    </div>
+                                </div>
+                            </div><!--// .search-wrap -->
+                        </div>
+
+                        <div class="section mt20" id="tab-section-2">
+                            <!-- <div class="box-blue summary-wrap">
+                                <dl>
+                                    <dt class="tit">보증번호</dt>
+                                    <dd class="txt">SORIN20221423D00023</dd>
+                                    <dt class="tit">보증 계약한도</dt>
+                                    <dd class="txt">700,000,000 원</dd>
+                                    <dt class="tit">사용 보증한도</dt>
+                                    <dd class="txt">500,000,000 원</dd>
+                                    <dt class="tit">남은 보증한도</dt>
+                                    <dd class="txt fc-red">200,000,000 원</dd>
+                                </dl>
+                            </div> -->
+                            <div class="pay-lookup-select flex-between mt20">
+                                <div class="select-wrap big">
+                                    <p class="sel-tit">유형</p>
+                                    <select class="dropdown" name="payListLook3" id="payListLook3" title="검색조건">
+                                        <option selected>전체</option>
+                                        <option>결제완료</option>
+                                    </select>
+                                </div>
+                                <div class="select-wrap type2">
+                                    <p class="sel-tit">검색구분</p>
+                                    <select class="dropdown" name="payListLook4" id="payListLook4" title="검색조건">
+                                        <option selected>전체</option>
+                                        <option>결제완료</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <input type="text" name="" id="" title="주문번호" placeholder="주문번호" class="type2">
+                                </div>
+                            </div>
+                            <div class="search-wrap mt20">
+                                <div class="order-period-wrap flex-start">
+                                    <div class="period-box flex-between">
+                                        <div class="datepicker-wrap"><p class="date-tit">기간</p><input type="text" class="datepicker center pd-datepicker"></div>
+                                        <span>~</span>
+                                        <div class="datepicker-wrap"><p class="date-tit">기간</p><input type="text" class="datepicker center pd-datepicker"></div>
+                                    </div>
+                                    <div class="input-button-wrap ml10">
+                                        <label class="radio-btn"><input type="radio"><span>오늘</span></label>
+                                        <label class="radio-btn"><input type="radio"><span>1주일</span></label>
+                                        <label class="radio-btn"><input type="radio"><span>1개월</span></label>
+                                        <label class="radio-btn"><input type="radio"><span>6개월</span></label>
+                                    </div>
+                                    <div class="order-period-btns ml10">
+                                        <button type="button" class="btn-blue-md btn-search">조회</button>
+                                    </div>
+                                </div>
+                            </div><!--// .search-wrap -->
+                        </div>
+                        <div class="section mt20 guarantee-lookup" id="tab-section-3">
+                            <div class="box-blue summary-wrap">
+                                <dl>
+                                    <dt class="tit">보증번호</dt>
+                                    <dd class="guarantee-num-box">
+                                        <select class="dropdown" name="guaranteeNum" id="guaranteeNum" title="보증번호">
+                                            <option class="fs12" selected>SORIN20221423D00023</option>
+                                            <option class="fs12">SORIN20221423D00024</option>
+                                        </select>
+                                    </dd>
+                                    <dt class="tit">보증 계약한도</dt>
+                                    <dd class="txt">700,000,000 원</dd>
+                                    <dt class="tit">사용 보증한도</dt>
+                                    <dd class="txt">500,000,000 원</dd>
+                                    <dt class="tit">남은 보증한도</dt>
+                                    <dd class="txt fc-red">200,000,000 원</dd>
+                                </dl>
+                                <button class="dropdown-btn"></button>
+                            </div>
+                            <div class="dropdown-contents flex-between">
+                            	<div class="left-area">
+                            		<dl>
+                            			<dt class="tit">보증기간</dt>
+                            			<dd>2023.01.01 ~ 2023.12.31</dd>
+                            		</dl>
+                            		<dl>
+                            			<dt class="tit">요구매출액</dt>
+                            			<dd>100,000,000 <span class="unit">원</span></dd>
+                            		</dl>
+                            		<dl>
+                            			<dt class="tit">누적매출액(전자상거래)</dt>
+                            			<dd>56,400,000 <span class="unit">원</span></dd>
+                            		</dl>
+                            		<dl class="tooltip-wrap">
+                            			<dt class="tit">달성률<i class="tooltip-info">i</i></dt>
+                            			<dd>56.4<span class="unit">%</span></dd>
+                            			<div class="tooltip-con">
+                                            <p>달성률 100% 충족 시 마일리지로 지원금액을 적립해 드립니다.</p>
+	                                    </div>
+                            		</dl>
+                            	</div>
+                            	<div class="right-area">
+                        			<dl>
+                            			<dt class="tit">보증수수료</dt>
+                            			<dd>1,000,000 <span class="unit">원</span></dd>
+                            		</dl>
+                            		<dl>
+                            			<dt class="tit">지원금액</dt>
+                            			<dd>1,000,000 <span class="unit">원</span></dd>
+                            		</dl>
+                            		<dl>
+                            			<dt class="tit">달성금액</dt>
+                            			<dd>564,000 <span class="unit">원</span></dd>
+                            		</dl>
+                            		<dl>
+                            			<dt class="tit">남은금액</dt>
+                            			<dd>436,000 <span class="unit">원</span></dd>
+                            		</dl>
+                            	</div>
+                            </div>
+                            <div class="pay-lookup-select flex-between mt20">
+                                <div class="select-wrap">
+                                    <p class="sel-tit">검색조건</p>
+                                    <select class="dropdown" name="payListLook5" id="payListLook5" title="검색조건">
+                                        <option selected>전체</option>
+                                        <option>결제완료</option>
+                                    </select>
+                                </div>
+                                <div class="select-wrap">
+                                    <p class="sel-tit">검색조건</p>
+                                    <select class="dropdown" name="payListLook6" id="payListLook6" title="검색조건">
+                                        <option selected>전체</option>
+                                        <option>결제완료</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <input type="text" name="" id="" title="주문번호" placeholder="주문번호">
+                                </div>
+                            </div>
+                            <div class="search-wrap mt20">
+                                <div class="order-period-wrap flex-start">
+                                    <div class="period-box flex-between">
+                                        <div class="datepicker-wrap"><p class="date-tit">기간</p><input type="text" class="datepicker center pd-datepicker"></div>
+                                        <span>~</span>
+                                        <div class="datepicker-wrap"><p class="date-tit">기간</p><input type="text" class="datepicker center pd-datepicker"></div>
+                                    </div>
+                                    <div class="input-button-wrap ml10">
+                                        <label class="radio-btn"><input type="radio"><span>오늘</span></label>
+                                        <label class="radio-btn"><input type="radio"><span>1주일</span></label>
+                                        <label class="radio-btn"><input type="radio"><span>1개월</span></label>
+                                        <label class="radio-btn"><input type="radio"><span>6개월</span></label>
+                                    </div>
+                                    <div class="order-period-btns ml10">
+                                        <button type="button" class="btn-blue-md btn-search">조회</button>
+                                    </div>
+                                </div>
+                            </div><!--// .search-wrap -->
+                        </div>
+                        <div class="section mt20" id="tab-section-4">
+                            <!-- <div class="box-blue summary-wrap">
+                                <dl>
+                                    <dt class="tit">보증번호</dt>
+                                    <dd class="txt">SORIN20221423D00023</dd>
+                                    <dt class="tit">보증 계약한도</dt>
+                                    <dd class="txt">700,000,000 원</dd>
+                                    <dt class="tit">사용 보증한도</dt>
+                                    <dd class="txt">500,000,000 원</dd>
+                                    <dt class="tit">남은 보증한도</dt>
+                                    <dd class="txt fc-red">200,000,000 원</dd>
+                                </dl>
+                            </div> -->
+                            <div class="pay-lookup-select flex-between mt20">
+                                <div class="select-wrap">
+                                    <p class="sel-tit">검색조건</p>
+                                    <select class="dropdown" name="payListLook7" id="payListLook7" title="검색조건">
+                                        <option selected>전체</option>
+                                        <option>결제완료</option>
+                                    </select>
+                                </div>
+                                <div class="select-wrap">
+                                    <p class="sel-tit">검색조건</p>
+                                    <select class="dropdown" name="payListLook8" id="payListLook8" title="검색조건">
+                                        <option selected>전체</option>
+                                        <option>결제완료</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <input type="text" name="" id="" title="주문번호" placeholder="주문번호">
+                                </div>
+                            </div>
+                            <div class="search-wrap mt20">
+                                <div class="order-period-wrap flex-start">
+                                    <div class="period-box flex-between">
+                                        <div class="datepicker-wrap"><p class="date-tit">기간</p><input type="text" class="datepicker center pd-datepicker"></div>
+                                        <span>~</span>
+                                        <div class="datepicker-wrap"><p class="date-tit">기간</p><input type="text" class="datepicker center pd-datepicker"></div>
+                                    </div>
+                                    <div class="input-button-wrap ml10">
+                                        <label class="radio-btn"><input type="radio"><span>오늘</span></label>
+                                        <label class="radio-btn"><input type="radio"><span>1주일</span></label>
+                                        <label class="radio-btn"><input type="radio"><span>1개월</span></label>
+                                        <label class="radio-btn"><input type="radio"><span>6개월</span></label>
+                                    </div>
+                                    <div class="order-period-btns ml10">
+                                        <button type="button" class="btn-blue-md btn-search">조회</button>
+                                    </div>
+                                </div>
+                            </div><!--// .search-wrap -->
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="tbl-list-summary my-eWallet flex-between">
+                            <div class="bold">총 <span class="fc-red bold" id="ewalletMngLen"></span>건이 조회 되었습니다.</div>
+                            <button type="button" class="btn-stroke-md btn btn-w120">엑셀 다운로드</button>
+                        </div>
+                        <table class="tbl tbl-s t3 pay-list-tbl">
+                            <caption>Aluminium Ingot P1020 (알루미늄괴)에 대한 아이템, 원산지, 브랜드, 현재단가</caption>
+                            <colgroup>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col style="width: 26rem;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">거래일시</th>
+                                    <th scope="col"><div class="order-num flex-center">주문번호<span class="up-down-btn down"></span></div></th>
+                                    <th scope="col">유형</th>
+                                    <th scope="col">결제방식</th>
+                                    <th scope="col">결제수단</th>
+                                    <th scope="col">금액</th>
+                                    <th scope="col">적요</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="center"><!-- tr 에서 일괄 지정할 수 있고, td 에서 개별 지정할 수 있습니다 -->
+                                    <td>2022-03-05 17:20:49</td>
+                                    <td>20220510-S00285</td>
+                                    <td>상환</td>
+                                    <td>외상100%</td>
+                                    <td>e-Wallet</td>
+                                    <td>124,400,000</td>
+                                    <td>조기상환 : 차액 200,000원 (마일리지적립)</td>
+                                </tr>
+                                <tr class="center">
+                                    <td>2022-03-05 17:20:49</td>
+                                    <td>20220510-S00285</td>
+                                    <td>결제</td>
+                                    <td>현금100%</td>
+                                    <td>e-Wallet</td>
+                                    <td>124,860,000</td>
+                                    <td>결제(외상100%)</td>
+                                </tr>
+                                <tr class="center">
+                                    <td>2022-03-05 17:20:49</td>
+                                    <td>20220510-S00285</td>
+                                    <td>정산</td>
+                                    <td>현금100%</td>
+                                    <td>담보보증</td>
+                                    <td>540,000</td>
+                                    <td>E-wallet 상환</td>
+                                </tr>
+                                <tr class="center">
+                                    <td>2022-03-05 17:20:49</td>
+                                    <td>20220510-S00285</td>
+                                    <td>정산</td>
+                                    <td>계약금</td>
+                                    <td>e-Wallet</td>
+                                    <td>540,000</td>
+                                    <td>정산(계약금)</td>
+                                </tr>
+                                <tr class="center">
+                                    <td>2022-03-05 17:20:49</td>
+                                    <td>20220510-S00285</td>
+                                    <td>잔액결제</td>
+                                    <td>계약금</td>
+                                    <td>e-Wallet</td>
+                                    <td>62,700,000</td>
+                                    <td>정산(계약금)</td>
+                                </tr>
+                                <tr class="center">
+                                    <td>2022-03-05 17:20:49</td>
+                                    <td>20220510-S00285</td>
+                                    <td>정산</td>
+                                    <td>현금100%</td>
+                                    <td>대출보증</td>
+                                    <td>540,000</td>
+                                    <td>잔액결제</td>
+                                </tr>
+                                <tr class="center">
+                                    <td>2022-03-05 17:20:49</td>
+                                    <td>20220510-S00285</td>
+                                    <td>부분결제</td>
+                                    <td>계약금</td>
+                                    <td>e-Wallet</td>
+                                    <td>62,700,000</td>
+                                    <td>잔액결제(계약금)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="btn-wrap">
+                            <button type="button" class="btn-gray-big wide">더보기</button>
+                        </div>
+                    </div>
+
+                </div><!--// .content-->
+            </div>
+        </div>
+        
+        
+    </div>
+    <!-- footer include -->
+    <div class="footer-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+    <!-- //footer include -->
+</div>
+
+<!-- Modal Popup : e-Wallet 알아보기 -->
+<div class="popup modal" id="sorinModalEwallet">
+    <div class="modal-content">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <h1 class="h3">e-Wallet 알아보기</h1>
+            <div class="context-box scroll-y scroll-trans" style="height:570px">
+                <span class="e-wallet-img"><img src="/guide/images/my/img_e-wallet.png" alt="안내"></span>
+                <table class="tbl t3 my">
+                    <caption>ewallet 관련 설명 사항</caption>
+                    <colgroup>
+                    <col style="width:12%;">
+                    <col style="width:28%;">
+                    <col style="width:60%;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">거래구분</th>
+                            <th scope="col">통장적요</th>
+                            <th scope="col">거래흐름</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="center">
+                            <td><span class="ico-next">입금</span></td>
+                            <td>서린닷컴 입금</td>
+                            <td class="left">하나은행 고객계좌에서 고객전용 하나은행 에스크로 계좌로 입금</td>
+                        </tr>
+                        <tr class="center">
+                            <td><span class="ico-next">결제</span></td>
+                            <td>예금주(가상계좌 예금주 명)</td>
+                            <td class="left">주문시 주문수량 + 중량변동금 + 배송비를 자동 결제</td>
+                        </tr>
+                        <tr class="center">
+                            <td><span class="ico-prev">정산</span></td>
+                            <td>예금주(서린닷컴 예금주 명)</td>
+                            <td class="left">출고시 주문수량과 확정수량의 차액만큼을 자동 정산</td>
+                        </tr>
+                        <tr class="center">
+                            <td><span class="ico-prev">출금</span></td>
+                            <td>서린닷컴 출금</td>
+                            <td class="left">고객전용 하나은행 에스크로 계좌에서 하나은행 고객계좌로 출금</td>
+                        </tr>
+                    </tbody>
+                </table>                
+            </div>
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// Modal Popup -->
+
+<!-- script core -->
+<script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="/guide/js/select2/select2.min.js"></script>
+<!-- script extra -->
+<script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+<script src="/guide/js/swiper/6.7.0/swiper.js"></script>
+<!-- script custom -->
+<script src="/guide/js/common.js"></script>
+<script src="/guide/js/sorin.js"></script>
+<script src="/guide/js/sorin-my.js"></script>
+<script src="/guide/js/sorin-layout.js"></script>
+<!-- script embedded -->
+<script>
+$('.radio-btn').on('click', function(e){
+    e.preventDefault();
+    if($(this).hasClass('disabled')){
+        $(this).off('click');            
+    } else {
+        $(this).addClass('active').siblings().removeClass('active');
+        $(this).siblings().children('input').attr('checked',false)
+        $(this).children('input').attr('checked',true);
+    }
+});
+
+//탭 이벤트
+tab('.tab-wrap', 4);
+
+//담보보증 탭 드롭다운 기능
+$('.dropdown-btn').on('click', function(){
+	
+	$(this).toggleClass('open');
+	
+	if($(this).hasClass('open')){
+		console.log('open');
+		$('.dropdown-contents').addClass('open');
+	}else{
+		$('.dropdown-contents').removeClass('open');
+	}
+})
+
+//담보보증 툴팁
+$('.guarantee-lookup .dropdown-contents .left-area .tit .tooltip-info').mouseenter(function(){
+	$('.guarantee-lookup .dropdown-contents .left-area .tooltip-con').addClass('active');
+})
+$('.guarantee-lookup .dropdown-contents .left-area .tit .tooltip-info').mouseleave(function(){
+	$('.guarantee-lookup .dropdown-contents .left-area .tooltip-con').removeClass('active');
+})
+
+</script>
+
+</body>
+</html>

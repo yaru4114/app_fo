@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>내정보관리 마스터계정 | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <!-- header include -->
+    <div class="header-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+    <!-- //header include --> 
+    <div class="container">
+   		<!-- dashboard include -->
+      	<div class="dashboard-wrap include-wrap"></div>
+      	<script type="text/javascript"> $(".dashboard-wrap").load("/guide/html/include/my/dashboard.html");</script>
+        <!-- //dashboard include --> 
+        <div class="section my">
+            <div class="inwrap table">
+            	<!-- lnb include -->            	
+                <div class="lnb-wrap include-wrap"></div>
+   				<script type="text/javascript"> $(".lnb-wrap").load("/guide/html/include/my/lnb.html");</script>
+                <!-- lnb include --> 
+                <div class="content">
+                    <div class="section">
+                        <div class="hgroup">
+                            <h2 class="h2">내정보관리</h2>
+                        </div>
+
+                        <div class="section mt5">
+                            <div class="hgroup">
+                                <h3 class="h4">기본 정보 변경</h3>
+                            </div>
+                            <table class="tbl-v t3 th-left">
+                            <caption>내정보관리 - 아이디, 비밀번호 및 변경, 이름, 휴대폰번호, 전화번호, 이메일 주소, 정보수신여부, 뉴스레터 신청 제공 </caption>
+                            <colgroup>
+                            <col style="width:18rem;">
+                            <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">아이디</th>
+                                    <td>honggildong1 (마스터)</td>
+                                <tr>
+                                <tr>
+                                    <th scope="row">비밀번호</th>
+                                    <td>
+                                        <div>
+                                            <div class="w50per flag show">
+                                                <button type="button" class="btn-stroke-md blue full btn-change-pw" data-popup="modal" data-target="sorinModalChangePW">비밀번호 변경</button>
+                                            </div>
+                                            <div class="w50per hide">
+                                                <button type="button" class="btn-stroke-md blue full btn-change-pw-cancel">취소</button>
+                                            </div>
+                                            <div class="w50per hide">
+                                                <input type="password" class="full" placeholder="기존 비밀번호를 입력해 주세요.">
+                                            </div>
+                                            <div class="w50per hide">
+                                                <input type="password" class="full" placeholder="새 비밀번호를 입력해 주세요.">
+                                            </div>
+                                            <div class="w50per hide">
+                                                <input type="password" class="full" placeholder="새 비밀번호를 한번 더 입력해 주세요.">
+                                            </div>
+                                            <div class="w50per hide">
+                                                <button type="button" class="btn-blue-md full mb10 btn-change-pw-confirm">확인</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">이름</th>
+                                    <td>홍길동</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">휴대폰번호</th>
+                                    <td>
+                                        <span class="w50per">
+                                            <span class="input-complex">
+                                                <input type="text" name="ipUserCell" id="ipUserCell" class="input" value="010-1234-5678" readonly title="휴대폰번호"><button type="button" class="btn-stroke-md blue btn-change-cell">변경</button><!-- 줄바꿈 금지 -->
+                                            </span>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="ipUserPhone">전화번호</label></th>
+                                    <td>
+                                        <span class="w50per">
+                                            <input type="tel" name="ipUserPhone" id="ipUserPhone" class="full" placeholder="전화번호를 입력해 주세요.">
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="ipUserEmail">이메일 주소</label></th>
+                                    <td>
+                                        <div class="select-combo-wrap">
+                                            <div>
+                                                <input type="text" name="ipUserEmail" id="ipUserEmail" class="full" placeholder="이메일을 입력해 주세요.">
+                                                <span class="email-at">@</span>
+                                            </div>
+                                            <div>
+                                                <input type="text" name="ipUserEmailD" id="ipUserEmailD" class="full" placeholder="도메인을 입력해 주세요." title="이메일 도메인 직접 입력">
+                                            </div>
+                                            <div>
+                                                <select name="" id="" class="dropdown" title="이메일 도메인 선택">
+                                                    <option selected>직접입력</option>
+                                                    <option>naver.com</option>
+                                                    <option>daum.net</option>
+                                                    <option>gmail.com</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">정보수신여부</th>
+                                    <td>
+                                        <div class="textarea2">
+                                            <p>SORIN.COM의 다양한 정보를 받아봅니다.</p>
+                                            <div class="select-combo-wrap form-chk agree-notice-wrap">
+                                                <div>
+                                                    <dl class="agree-email-wrap">
+                                                        <dt class="fc-gray">이메일</dt>
+                                                        <dd><input type="radio" name="rEmail" id="rEmailY" title="이메일 받음" checked><label for="rEmailY">받음</label></dd>
+                                                        <dd><input type="radio" name="rEmail" id="rEmailN" title="이메일 받음"><label for="rEmailN">받지 않음</label></dd>
+                                                    </dl>
+                                                </div>
+                                                <div>
+                                                    <dl class="agree-sns-wrap">
+                                                        <dt class="fc-gray">SMS</dt>
+                                                        <dd><input type="radio" name="rSns" id="rSnsY" title="SNS 받음" checked><label for="rSnsY">받음</label></dd>
+                                                        <dd><input type="radio" name="rSns" id="rSnsN" title="SNS 받지 않음"><label for="rSnsN">받지 않음</label></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                            <div class="t-info">
+                                                주문, 배송, 회원 서비스와 관련된 정보는 선택과 무관하게 발송 됩니다.
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">뉴스레터 신청</th>
+                                    <td>
+                                        <div class="form-chk">
+                                            <dl class="agree-newsletter-wrap">
+                                                <dt class="hidden">뉴스레터S</dt>
+                                                <dd><input type="radio" name="rNewsletter" id="rNewsletterY" title="뉴스레터 받음" checked><label for="rNewsletterY">받음</label></dd>
+                                                <dd><input type="radio" name="rNewsletter" id="rNewsletterN" title="뉴스레터 받지 않음"><label for="rNewsletterN">받지 않음</label></dd>
+                                            </dl>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                            <div class="btn-wrap">
+                                <button type="button" class="btn-blue-big wide">저장</button>
+                            </div>
+                        </div>
+                        
+                        <div class="section">
+                            <div class="hgroup">
+                                <h3 class="h4">회원 탈퇴</h3>
+                            </div>
+                            <table class="tbl-v t3 th-left">
+                            <caption>회원 탈퇴 - 회원사 탈퇴, 회원 탈퇴 제공</caption>
+                            <colgroup>
+                            <col style="width:16rem;">
+                            <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">회원사 탈퇴</th>
+                                    <td>
+                                        <div class="flex-between">
+                                            <div class="fc-orange">
+                                                탈퇴 시 모든 멤버의 계정도 탈퇴 처리 됩니다. 
+                                            </div>
+                                            <div>
+                                                <button type="button" class="btn-gray-md w120px">회원사 탈퇴</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                <tr>
+                                <tr>
+                                    <th scope="row">회원 탈퇴</th>
+                                    <td>
+                                        <div class="flex-between">
+                                            <div class="fc-orange">
+                                                회원 탈퇴 시 맴버가 삭제됩니다.
+                                            </div>
+                                            <div>
+                                                <button type="button" class="btn-gray-md w120px">회원 탈퇴</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div><!--// .content-->
+            </div>
+        </div>    
+    </div>
+    <!-- footer include -->
+    <div class="footer-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+    <!-- //footer include -->
+</div>
+
+<!-- script core -->
+<script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="/guide/js/select2/select2.min.js"></script>
+<!-- script extra -->
+<script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+<script src="/guide/js/swiper/6.7.0/swiper.js"></script>
+<!-- script custom -->
+<script src="/guide/js/sorin.js"></script>
+<script src="/guide/js/sorin-my.js"></script>
+<script src="/guide/js/sorin-layout.js"></script>
+<!-- script embedded -->
+<script>
+$('.btn-change-pw').on('click', function(){
+    if ($(this).parent('.w50per').hasClass('show')) {
+        $(this).parent('.w50per').removeClass('show').addClass('hide').siblings('.w50per').removeClass('hide').addClass('show');
+    }
+});
+$('.btn-change-pw-cancel').on('click', function(){
+    $(this).parent('.w50per.show').attr('class','w50per hide').siblings('.w50per.show').attr('class','w50per hide');
+    $(this).parent('.w50per').siblings('.w50per.flag.hide').attr('class','w50per flag show');
+});
+$('.btn-change-pw-confirm').on('click', function(){
+    $(this).parent('.w50per.show').attr('class','w50per hide').siblings('.w50per.show').attr('class','w50per hide');
+    $(this).parent('.w50per').siblings('.w50per.flag.hide').attr('class','w50per flag show');
+});
+</script>
+
+</body>
+</html>

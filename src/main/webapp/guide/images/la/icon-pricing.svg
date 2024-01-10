@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+    <g data-name="그룹 19">
+        <g data-name="사각형 43" style="fill:#fff;stroke:#0d7dc8;stroke-width:5px">
+            <rect width="80" height="80" rx="40" style="stroke:none"/>
+            <rect x="2.5" y="2.5" width="75" height="75" rx="37.5" style="fill:none"/>
+        </g>
+        <text data-name="PRICING ENGINE" transform="translate(40 39)" style="fill:#0d7dc8;font-size:14px;font-family:Helvetica95-Black,Helvetica95;font-weight:800;letter-spacing:-.08em"><tspan x="-27.489" y="0">PRICING</tspan><tspan x="-25.459" y="14">ENGINE</tspan></text>
+    </g>
+</svg>

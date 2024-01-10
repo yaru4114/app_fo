@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>회사 정보 관리 | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <!-- header include -->
+    <div class="header-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+    <!-- //header include --> 
+    <div class="container">
+   		<!-- dashboard include -->
+      	<div class="dashboard-wrap include-wrap"></div>
+      	<script type="text/javascript"> $(".dashboard-wrap").load("/guide/html/include/my/dashboard.html");</script>
+        <!-- //dashboard include -->  
+        <div class="section my">
+            <div class="inwrap table">
+            	<!-- lnb include -->            	
+                <div class="lnb-wrap include-wrap"></div>
+   				<script type="text/javascript"> $(".lnb-wrap").load("/guide/html/include/my/lnb.html");</script>
+                <!-- lnb include --> 
+                <div class="content">
+                    <div class="section">
+                        <div class="hgroup">
+                            <h2 class="h2">회사 정보 관리</h2>
+                        </div>
+                        <div class="hgroup">
+                            <h3 class="h4">기본정보
+                                <span class="fc-orange notice">※ 2021년 03월 25일 사업자등록정보 변경신청이 접수되었습니다.</span>
+                                <!-- 접수 후 승인 전까지 노출 -->
+                                <!-- <span class="error">※ 2021년 03월 25일 사업자등록정보 변경신청이 처리되었습니다.</span> -->
+                                <!-- 승인 처리 후 1주일간 노출 -->
+                            </h3>
+                            <div class="btns editable">
+                                <button type="button" class="btn-stroke-md blue btn-edit-coinfo">정보 변경</button>
+                            </div>
+                            <div class="btns editable off">
+                                <button type="button" class="btn-stroke-md btn-cancel-coinfo">취소</button>
+                                <button type="button" class="btn-stroke-md blue  btn-confirm-coinfo">정보 변경 확인</button>
+                            </div>
+                        </div>
+                        
+                        <table class="tbl-v th-left t3">
+                        <caption>회사정보관리 - 사업자등록번호, 법인등록번호, 업태, 업종, 대표자명, 회사 주소 제공</caption>
+                        <colgroup>
+                        <col style="width:18rem;">
+                        <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><label for="ipCoLicenseNo">사업자등록번호</label></th>
+                                <td>110-82-65981</td>
+								<th scope="row"><label for="ipCoRegiNo">법인등록번호</label></th>
+                                <td>2021-25-36987</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="ipCoType">업태</label></th>
+                                <td>
+                                    <span class="w50per">
+                                        <input type="text" name="ipCoType" id="ipCoType" value="제조" class="full trans" readonly>
+                                    </span>
+                                </td>
+								<th scope="row"><label for="ipCoCate">업종</label></th>
+                                <td>
+                                    <span class="w50per">
+                                        <input type="text" name="ipCoCate" id="ipCoCate" value="압출" class="full trans" readonly>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="ipCoCeo">대표자명</label></th>
+                                <td colspan="3">
+                                    <span>
+                                        <input type="text" name="ipCoCeo" id="ipCoCeo" value="홍길동" class="full trans" readonly>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">회사 주소</th>
+                                <td colspan="3">
+                                    <div class="textarea2">
+                                        <div class="address-readonly">전북 군산시 오식도동 884-3 (주)성일특수강</div>
+                                        <div class="address-edit hide">
+                                            <div class="input-address readonly">
+                                                <span class="button"><button type="button" class="btn-stroke-md blue btn-zip">주소 찾기</button></span>
+                                                <span class="input"><input type="text" name="ipRoadBase" id="ipRoadBase" title="도로명 주소" value="전북 군산시 오식도동 884-3" readonly></span>
+                                            </div>
+                                            <div>
+                                                <input type="text" name="ipRoadBase2" id="ipRoadBase2" title="도로명 상세 주소 입력" placeholder="도로명 상세 주소 입력" class="full" value="(주)성일특수강" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- -->
+                            <tr class="editable off">
+                                <th scope="row"><label for="ipAttachFile">변경사업자등록증</label></th>
+                                <td>
+                                    <span class="limit-width">
+                                        <span class="input-file">
+                                            <input type="file" name="ipAttachFile" id="ipAttachFile" class="hidden-file">
+                                            <button type="button" class="btn-stroke-md blue">파일찾기</button>
+                                        </span>
+                                    </span>
+                                    <span class="t-info">PDF, JPG, JPEG, PNG 파일로 첨부해주세요.</span>
+                                </td>
+                            </tr>
+                            <!--// -->
+                        </tbody>
+                        </table>
+                    </div>
+
+                    <div class="section hasTitle">
+                        <div class="hgroup">
+                            <h2 class="h4">회사 연락처</h2>
+                        </div>
+                        <table class="tbl-v t3 th-left">
+                        <caption>회사 연락처 - 회사전화번호, 팩스번호 제공</caption>
+                        <colgroup>
+                        <col style="width:18rem;">
+                        <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row"><label for="ipCoPhone">회사전화 번호</label></th>
+                                <td>
+                                    <span class="w50per">
+                                        <input type="text" name="ipCoPhone" id="ipCoPhone" value="070-2658-2477" class="full">
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="ipCoFax">팩스 번호</label></th>
+                                <td>
+                                    <span class="w50per">
+                                        <input type="text" name="ipCoFax" id="ipCoFax" value="070-6589-2566" class="full">
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+
+                    <!-- 거래대금 환불 계좌 -->
+					<div class="section hasTitle">
+					    <div class="hgroup">
+                            <h2 class="h4">거래대금 환불 계좌</h2>
+                            <span class="icon-info-txt fs12">환불계좌 정보를 수정할 수 없는 업체입니다.(가상계좌 잔액 존재)</span>
+                        </div>
+					    <table class="tbl-v t3 th-left">
+					        <caption>거래대금 환불 계좌 - 은행, 계좌명의/계좌번호, 파일첨부 제공</caption>
+					        <colgroup>
+					            <col style="width:18rem;">
+					            <col>
+					        </colgroup>
+					        <tbody>
+					            <tr>
+					                <th scope="row">은행선택</th>
+					                <td>
+					                    <span class="w50per">
+					                        <select name="selBank" id="selBank" class="dropdown" title="은행선택">
+					                        	<option>하나은행</option>
+					                        </select>
+					                    </span>
+					                </td>
+					            </tr>
+					            <tr>
+					                <th scope="row"><label for="ipAccountHolder">계좌명의 / 계좌번호</label></th>
+					                <td>
+					                    <div class="select-combo-wrap">
+					                        <div>
+					                            <input type="text" name="ipAccountHolder" id="ipAccountHolder" class="full" value="홍길동">
+					                        </div>
+					                        <div>
+					                            <input type="text" name="ipBankAccount" id="ipBankAccount" class="full" value="123-345-678901" title="계좌번호 입력">
+					                        </div>
+					                    </div>
+					                </td>
+					            </tr>
+					            <tr>
+					                <th scope="row"><label for="ipAttachBank">통장파일 첨부</label></th>
+					                <td>
+					                    <span class="limit-width">
+					                        <span class="input-file">
+					                            <input type="file" name="ipAttachBank" id="ipAttachBank" class="hidden-file">
+					                            <button type="button" class="btn-stroke-md blue">통장사본 첨부</button>
+					                        </span>
+					                    </span>
+					                    <span class="t-info">PDF, JPG, JPEG, PNG 포맷의 5M이내 파일로 첨부해주세요.</span>
+					                </td>
+					            </tr>
+					        </tbody>
+					    </table>
+					</div>
+					
+					<!-- 추가 결제수단-->
+					<div class="section hasTitle">
+					    <div class="hgroup">
+					        <h2 class="h4">추가 결제 수단</h2>
+					    </div>
+					    <table class="tbl-v t3 th-left">
+					        <caption>추가 결제 수단</caption>
+					        <colgroup>
+					            <col style="width: 16rem;">
+					            <col style="width: 60rem;">
+					            <col>
+					        </colgroup>
+					        <tbody>
+					            <!-- 증거금 시작 -->
+					            <tr>
+					                
+					                <th scope="row"><label for="ipAccountHolder">증거금</label></th>
+					                <td>
+					                        <!-- 증거금 신청여부, 사용여부(승인여부), 해지여부 -->
+					                        <!-- 사용신청 이후 관리자가 사용여부 Y(사용)로 승인했을때 -->
+					                    <table class="tbl-v t5 th-left mt20 mb20" id="tableWrtmSttus">
+					                        <colgroup>
+					                            <col style="width: 18rem;">
+					                            <col>
+					                        </colgroup>
+					                        <tbody>
+					                            <tr>
+					                                <th scope="row">신청일</th>
+					                                <td>2022-07-05</td>
+					                            </tr>
+					                            <tr>
+					                                <th scope="row">구매성향등급</th>
+					                                <td>안정구매형(48~52%)</td>
+					                            </tr>
+					                        </tbody>
+					                    </table>
+					
+					                    <div class="flex-between" id="divWrtmSttus" style="display: none;">
+					                        <span id="spanWrtm">사용신청이 해지 되었습니다.</span>
+					                    </div>
+					                </td>
+					                <td>
+					                    <input type="hidden" id="entrpsEvlGrad" value="B0">
+					                    <input type="hidden" id="wrtmReqstAt" value="">
+					                    <input type="hidden" id="wrtmTrmnatAt" value="">
+					                    <div class="flex-end">
+						                    <!-- 사용신청 이후 관리자가 사용여부 Y(사용)로 승인했을때 -->
+						                    <button type="button" class="btn-blue-md" id="btnWrtmTrmnat">해지 신청</button>
+						                    <button type="button" class="btn-blue-md" data-popup="modal" data-target="sorinModalCancelAppli" id="btnWrtmTrmnat2" style="display: none;">해지 신청</button>
+					                    </div>
+					                </td>
+					            </tr>
+					            <!-- 전자상거래보증 시작 -->
+					            <tr>
+					                <th scope="row"><label for="">전자상거래보증</label></th>
+					                <td>
+					                    <input type="hidden" id="mrtggGrntyReqstAt">
+					                    <input type="hidden" id="mrtggGrntyTrmnatAt">
+					                    <div class="flex-between">
+					                        <span id="spanMrtggGrnty">사용신청을 하지 않았습니다.</span>
+					                    </div>
+					                </td>
+					                <!-- 전자상거래보증 버튼 -->
+					                <td>
+					                    <div class="flex-end">
+					                    	<button type="button" class="btn-blue-md" id="btnWrtmTrmnat">사용 신청</button>
+					                    </div>
+					                </td>
+					            </tr>
+					            <tr>
+					                <!-- 구매자금 시작 -->
+					                <th scope="row"><label for="">구매자금</label></th>
+					                <td>
+					                    <input type="hidden" id="lonGrntyReqstAt">
+					                    <input type="hidden" id="lonGrntyTrmnatAt">
+					                    <!-- 구매자금 사용신청Y, 승인여부 N (관리자 확인중)-->
+					                    <div class="flex-between">
+					                        <span class="fc-orange" id="spanLonGrnty">관리자 확인 중에 있습니다.</span>
+					                    </div>
+					                </td>
+					                <td>
+					                    <div class="flex-end">
+					                        <!-- 구매자금 사용신청Y, 승인여부 N (관리자 확인중)-->
+					                        <button type="button" class="btn-blue-md" id="btnWrtmTrmnat">사용 신청</button>
+					                    </div>
+					                </td>
+					            </tr>
+					            <!-- 서린크레딧 시작 -->
+					            <tr>
+					                <th scope="row"><label for="">서린크레딧</label></th>
+					                <td>
+					                    <div class="flex-between">
+					                        <span id="spanMrtggGrnty02">사용신청을 하지 않았습니다.</span>
+					                    </div>
+					                </td>
+					                <!-- 서린크레딧 버튼 -->
+					                <td>
+					                    <div class="flex-end">
+						                    <!-- 1. '사용 신청' 버튼 클릭시 한도 금액 작성 접수 화면 -->
+						                    <button type="button" class="btn-blue-md" id="btnWrtmTrmnat">사용 신청</button>
+						                    <!-- 2. '검토 중' 버튼 클릭시 검토 중 안내 알럿 처리​ -->
+						                    <button type="button" class="btn-gray-md">검토 중</button>
+						                    <!-- 3. 'KYC 접수하기​' 버튼 클릭시 KYC 작성 화면​ 이동 -->
+						                    <button type="button" class="btn-blue-md">KYC 접수하기​</button>
+						                    <!-- 4. '한도 승인검토중​​' 버튼 클릭시 검토 중 안내 알럿 처리​ -->
+						                    <button type="button" class="btn-blue-md">한도 승인 검토 중​</button>
+						                    <!-- 5. '보류​' 보류 안내 노티​ -->
+						                    <button type="button" class="btn-blue-md">보류​</button>
+										</div>
+					                </td>
+					            </tr>
+					        </tbody>
+					    </table>
+					</div>
+					
+					<!-- 구매 담당자 -->
+					<div class="section hasTitle">
+					    <div class="hgroup">
+					        <h2 class="h4">구매 담당자</h2>
+					    </div>
+					    <table class="tbl-v t3 th-left">
+					    <caption>구매 담당자 정보</caption>
+					    <colgroup>
+					    <col style="width:16rem;">
+					    <col>
+					    </colgroup>
+					    <tbody>
+					        <tr>
+					            <th scope="row"><label for="email">이메일</label></th>
+					            <td>
+					                <div class="select-combo-wrap">
+					                    <div>
+					                        <input type="text" name="email" id="email" class="full" placeholder="이메일을 입력해 주세요." maxlength="30" desc="이메일 주소" style="width:205px !important; height: 34px !important;" onkeyup="this.value=this.value.replace(/[^a-zA-Z-_0-9.]/g,'');">
+					                        <span class="email-at">@</span>
+					                    </div>
+					                    <div>
+					                        <input type="text" name="domain" id="domain" maxlength="20" class="full" placeholder="도메인을 입력해 주세요." title="이메일 도메인 직접 입력" onkeyup="this.value=this.value.replace(/[^a-zA-Z-_0-9.]/g,'');">
+					                    </div>
+					                    <div>
+					                        <select name="selMberEmailDomain" id="selMberEmailDomain" class="dropdown select2-hidden-accessible" title="이메일 도메인 선택" data-select2-id="select2-data-selMberEmailDomain" tabindex="-1" aria-hidden="true">
+					                            <option value="write" selected="" data-select2-id="select2-data-6-kwub">직접입력</option>
+					                            <option value="naver.com">naver.com</option>
+					                            <option value="daum.net">daum.net</option>
+					                            <option value="gmail.com">gmail.com</option>
+					                            <option value="hotmail.com">hotmail.com</option>
+					                            <option value="kakao.com">kakao.com</option>
+					                        </select>
+					                    </div>
+					                </div>
+					            </td>
+					        </tr>
+					    </tbody>
+					    </table>
+					    <div class="btn-wrap">
+					        <button type="button" class="btn-gray-big btn-more" id="btnCancel">취소</button>
+					        <button type="button" id="btnSave" class="btn-blue-big btn-more">저장</button>
+					    </div>
+					</div>
+					
+                </div><!--// .content-->
+            </div>
+        </div>
+        
+    </div>
+    <!-- footer include -->
+    <div class="footer-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+    <!-- //footer include -->
+</div>
+
+
+
+
+<!-- 1. Modal Popup : 서린크레딧 > 사용신청 버튼 클릭시 팝업 노출 -->
+<div class="popup modal modal-credit active">
+    <div class="modal-content w900px new">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+                <form class="form-chk">
+                    <div class="section">
+                        <div class="article">
+                            <h1 class="h2-pd">서린크레딧 사용 신청</h1>
+                            <table class="tbl-v tbl-kyc left">
+                                <caption>Aluminium Ingot P1020 (알루미늄괴)에 대한 아이템, 원산지, 브랜드, 현재단가</caption>
+                                <colgroup>
+                                	<col style="width: 15rem">
+                                	<col>
+                                	<col style="width: 15rem">
+                                	<col>
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th>신청일</th>
+                                        <td>2022-06-13</td>
+                                        <th>결제수단</th>
+                                        <td>서린크레딧</td>
+                                    </tr>
+                                    <tr>
+                                        <th>희망한도</th>
+                                        <td colspan="3">
+                                            <div>
+	                                            <input type="text" name="creditLimit" id="creditLimit" value="" class="fill-gray w250px" placeholder="필요한 희망 한도를 입력하세요.">
+	                                            <span>원</span>
+	                                        </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="mt30 text-center">
+                                <span class="icon-info-txt display-inline-block">신청한 한도는 서린닷컴 확인 후, 가능한 한도를 알려드립니다.</span>
+                                <p class="fs18 bold center mt30">신청 하시겠습니까?</p>
+                            </div>
+                            <div class="btn-wrap">
+                                <button type="button" class="btn-gray-big btn-cancel">취소</button>
+                                <button type="button" class="btn-blue-big btn-confirm">확인</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //1. Modal Popup : 서린크레딧 > 사용신청 버튼 클릭시 팝업 노출 -->
+
+<!-- 2. Modal Popup : '검토중' 버튼 클릭시 팝업 -->
+<div class="popup modal confirm active">
+    <div class="modal-content w490px">
+		<div class="modal-header">
+            <h1>알림메세지</h1>
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+        </div>
+        <div class="max-width">
+            <div class="alert-con">
+				희망 한도 금액 신청 되었습니다.<br>​
+				서린닷컴 관리자가 검토 후 한도 발급 가능한 경우 안내 드립니다.<br>​
+				(서린크레딧 승인 시 전자상거래보증은 사용 불가능하며, <br>​
+				증거금, 구매자금은 이용 가능합니다.)​
+			</div>
+        </div><!--// .max-width -->
+        <div class="modal-btns">
+            <button type="button" class="btn-blue-big">확인</button> <!-- 확인 클릭시: 이전 페이지: 검토중 버튼으로 변경 노출 -->
+        </div>
+    </div>
+</div>
+<!-- //2. Modal Popup : '검토중' 버튼 클릭시 팝업 -->
+
+<!-- 3. Modal Popup : 신청 완료 확인 팝업 -->
+<div class="popup modal highlight active">
+    <div class="modal-content w700px">
+		<div class="modal-header">
+            <h1>알림메세지</h1>
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+        </div>
+        <div class="max-width">
+            <div class="alert-con">
+				서린닷컴 담당자가 검토 중입니다. 한도 발급 가능 대상자인 경우 안내드립니다.<br>​
+				빠른 시일내에 연락드리겠습니다.
+				<p class="icon-info-txt fs12">서린크레딧 승인 시 전자상거래보증은 사용 불가능하며, 증거금, 구매자금은 이용 가능합니다.</p>​
+				<div class="con-highlight">
+					<dl class="amount">
+						<dt>희망 한도 금액:</dt>
+						<dd>640,000,000</dd>
+					</dl>		
+					<dl class="date">
+						<dt>신청일:</dt>
+						<dd>yyyy-mm-dd</dd>
+					</dl>
+				</div>
+			</div>
+        </div>
+        <!--// .max-width -->
+        <div class="modal-btns">
+            <button type="button" class="btn-blue-big">확인</button>
+        </div>
+    </div>
+</div>
+<!-- //3. Modal Popup : 신청 완료 확인 팝업 -->
+
+<!-- 4. Modal Popup: 한도 승인검토 중 버튼 클릭시 팝업 -->
+<div class="popup modal confirm active">
+    <div class="modal-content w490px">
+		<div class="modal-header">
+            <h1>알림메세지</h1>
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+        </div>
+        <div class="max-width">
+			<div class="alert-con">
+				귀사는 서린크레딧 발급 대상자입니다.<br>​
+				최종 KYC접수 내용 검토 중이며<br>​
+				사용 가능한도 금액을 안내드릴 예정입니다.<br>​
+				(3~7일 소요 예정)​
+			</div> 
+        </div>
+        <!--// .max-width -->
+        <div class="modal-btns">
+            <button type="button" class="btn-blue-big">확인</button>
+        </div>
+    </div>
+</div>
+<!-- //4. Modal Popup: 한도 승인검토 중 버튼 클릭시 팝업 -->
+
+<!-- 5. Modal Popup : '보류' 버튼 클릭시 팝업 -->
+<div class="popup modal highlight active">
+    <div class="modal-content w490px">
+		<div class="modal-header">
+            <h1>알림메세지</h1>
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+        </div>
+        <div class="max-width">
+            <div class="alert-con">
+				귀사는 서린크레딧 신청 보류 되었습니다. <br>​
+				다른 여신 결제 수단을 이용하시기 바랍니다.​
+				<div class="con-highlight">
+					<dl>
+						<dt>보류 사유:</dt>
+						<dd> 신용도가 낮아 발급이 어렵습니다.</dd>
+					</dl>
+				</div>
+			</div>
+        </div>
+        <!--// .max-width -->
+        <div class="modal-btns">
+            <button type="button" class="btn-blue-big">확인</button>
+        </div>
+    </div>
+</div>
+
+<!-- //5. Modal Popup : '보류' 버튼 클릭시 팝업 -->
+
+
+<!-- script core -->
+<script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="/guide/js/select2/select2.min.js"></script>
+<!-- script extra -->
+<script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+<script src="/guide/js/swiper/6.7.0/swiper.js"></script>
+<!-- script custom -->
+<script src="/guide/js/sorin.js"></script>
+<script src="/guide/js/sorin-my.js"></script>
+<script src="/guide/js/sorin-layout.js"></script>
+<!-- script embedded -->
+<script>
+$('.btn-edit-coinfo').on('click', function(){
+    $('.address-readonly').addClass('hide');
+    $('.address-edit').removeClass('hide');
+    $('#ipCoType').removeAttr('readonly').addClass('edited');
+    $('#ipCoCate').removeAttr('readonly').addClass('edited');
+    $('#ipCoCeo').removeAttr('readonly').addClass('edited');
+    $('#ipRoadBase2').removeAttr('readonly').addClass('edited');
+    $('.input-address').removeClass('readonly').addClass('edited');
+    $('.editable').toggleClass('off');
+});
+$('.btn-confirm-coinfo').on('click', function(){
+    $('#ipCoType').attr('readonly', true).removeClass('edited');
+    $('#ipCoCate').attr('readonly', true).removeClass('edited');
+    $('#ipCoCeo').attr('readonly', true).removeClass('edited');
+    $('#ipRoadBase2').attr('readonly', true).removeClass('edited');
+    $('.input-address').addClass('readonly').removeClass('edited');
+    $('.editable').toggleClass('off');
+});
+$('.btn-cancel-coinfo').on('click', function(){
+    $('#ipCoType').attr('readonly', true).removeClass('edited');
+    $('#ipCoCate').attr('readonly', true).removeClass('edited');
+    $('#ipCoCeo').attr('readonly', true).removeClass('edited');
+    $('#ipRoadBase2').attr('readonly', true).removeClass('edited');
+    $('.input-address').addClass('readonly').removeClass('edited');
+    $('.editable').toggleClass('off');
+});
+
+</script>
+
+</body>
+</html>

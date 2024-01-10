@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>[고도화 3차] 쿠폰내역 | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <!-- header include -->
+    <div class="header-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+    <!-- //header include --> 
+    <div class="container">
+   		<!-- dashboard include -->
+      	<div class="dashboard-wrap include-wrap"></div>
+      	<script type="text/javascript"> $(".dashboard-wrap").load("/guide/html/include/my/dashboard.html");</script>
+        <!-- //dashboard include -->        
+        <div class="section my">
+            <div class="inwrap table">
+            	<!-- lnb include -->            	
+                <div class="lnb-wrap include-wrap"></div>
+   				<script type="text/javascript"> $(".lnb-wrap").load("/guide/html/include/my/lnb.html");</script>
+                <!-- lnb include --> 
+                <div class="content content-coupon">
+                    <div class="section">
+                        <div class="hgroup flex-ac-jsb">
+                            <h2 class="h2">쿠폰내역</h2>
+                            <button type="button" class="btn-stroke blue btn-coupon-regi" data-popup="modal" data-target="sorinModalmyCoupon">쿠폰 번호 등록</button>                    
+                        </div>
+                    </div>
+					<div class="btn-toggle-wrap tab-wrap mb40">
+                        <div class="active"><button type="button" class="toggle tab-button active"><span>전체(05)</span></button></div>
+                        <div><button type="button" class="toggle tab-button"><span>사용 가능 쿠폰(02)</span></button></div>
+                        <div><button type="button" class="toggle tab-button"><span>마감 쿠폰(03)</span></button></div>
+                    </div>
+                    <div class="section">
+						<div class="coupon-list flex-jsb">
+						<!--
+						::: 마이페이지 > case별 쿠폰 상태값 > 작업 guide :::
+						[case 1] 사용 가능: 사용 가능한 쿠폰으로 유효기한이 남은 쿠폰
+						 - 배송비 무료 쿠폰(.coupon-delivery)
+						 - 단가할인쿠폰 (.coupon-price)
+						[case 2] 사용 완료 (.coupon-used): 상품 구매 차감 결제까지 진행한 사용 완료 쿠폰
+						[case 3] 사용 중지 (.coupon-stop): 사용 가능 상태였으나, BO에서 편집​(비활성/ 삭제)후 중지된 쿠폰 
+						[case 4] 기한 만료 (.coupon-expired): 사용은 하지 않은 상태에서 유효 기한이 만료 된 쿠폰
+						-->
+							<!-- [case 1-1] 사용 가능(배송비 무료 쿠폰) 시작 {-->
+							<div class="coupon coupon-delivery flex-ac-jsb">
+								<div class="coupon-info">
+									<h3 class="coupon-name">배송비 무료 쿠폰</h3>
+									<p class="coupon-num">CP-230230305-01</p>
+									<em class="coupon-title">지정구간 <span>1차량 무료</span></em>
+									<div class="coupon-detail">
+										<dl class="flex-ac">
+											<dt>사용조건</dt>
+											<dd>메탈-전체 / 브랜드-전체</dd>
+										</dl>
+										<dl class="flex-ac">
+											<dt>사용기한</dt>
+											<dd>2023.03.03 ~ 2023.04.02</dd>
+										</dl>
+									</div>
+								</div>
+								<div class="coupon-state flex-ac">
+									<span>사</span>
+									<span>용</span>
+									<span>가</span>
+									<span>능</span>
+								</div>
+							</div>	
+							<!--} // [case 1-1] 사용 가능(배송비 무료 쿠폰) 종료 -->			
+							
+							<!-- [case 1-2] 사용 가능(단가할인쿠폰) 시작 {-->						
+							<div class="coupon coupon-price flex-ac-jsb">
+								<div class="coupon-info">
+									<h3 class="coupon-name">단가할인쿠폰</h3>
+									<p class="coupon-num">CP-230230305-01</p>
+									<em class="coupon-title">25MT <span>1,000원 할인</span></em>
+									<div class="coupon-detail">
+										<dl class="flex-ac">
+											<dt>사용조건</dt>
+											<dd>메탈-전체 / 브랜드-전체</dd>
+										</dl>
+										<dl class="flex-ac">
+											<dt>사용기한</dt>
+											<dd>2023.03.03 ~ 2023.04.02</dd>
+										</dl>
+									</div>
+								</div>
+								<div class="coupon-state flex-ac">
+									<span>사</span>
+									<span>용</span>
+									<span>가</span>
+									<span>능</span>
+								</div>
+							</div>
+							<!--} // [case 1-2] 사용 가능(단가할인쿠폰) 종료 -->
+							
+							<!-- [case 2] 사용 완료 쿠폰 시작 {-->
+							<div class="coupon coupon-used coupon-gray flex-ac-jsb">
+								<div class="coupon-info">
+									<h3 class="coupon-name">단가할인쿠폰</h3>
+									<p class="coupon-num">CP-230230305-01</p>
+									<em class="coupon-title">25MT <span>1,000원 할인</span></em>
+									<div class="coupon-detail">
+										<dl class="flex-ac">
+											<dt>사용조건</dt>
+											<dd>메탈-전체 / 브랜드-전체</dd>
+										</dl>
+										<dl class="flex-ac">
+											<dt>사용기한</dt>
+											<dd>2023.03.03 ~ 2023.04.02</dd>
+										</dl>
+									</div>
+								</div>
+								<div class="coupon-state flex-ac">
+									<span>사</span>
+									<span>용</span>
+									<span>완</span>
+									<span>료</span>
+									<p class="date">22.03.06</p>
+								</div>
+							</div>
+							<!--} // [case 2] 사용 완료 쿠폰 종료 -->
+							
+							<!-- [case 3] 사용 중지 쿠폰 시작 {-->
+							<div class="coupon coupon-stop coupon-gray flex-ac-jsb">
+								<div class="coupon-info">
+									<h3 class="coupon-name">단가할인쿠폰</h3>
+									<p class="coupon-num">CP-230230305-01</p>
+									<em class="coupon-title">25MT <span>1,000원 할인</span></em>
+									<div class="coupon-detail">
+										<dl class="flex-ac">
+											<dt>사용조건</dt>
+											<dd>메탈-전체 / 브랜드-전체</dd>
+										</dl>
+										<dl class="flex-ac">
+											<dt>사용기한</dt>
+											<dd>2023.03.03 ~ 2023.04.02</dd>
+										</dl>
+									</div>
+								</div>
+								<div class="coupon-state flex-ac">
+									<span>사</span>
+									<span>용</span>
+									<span>중</span>
+									<span>지</span>
+								</div>
+							</div>
+							<!--} // [case 3] 사용 중지 쿠폰 종료 -->							
+							
+							<!-- [case 4] 기한 만료 쿠폰 시작 {-->
+							<div class="coupon coupon-expired coupon-gray flex-ac-jsb">
+								<div class="coupon-info">
+									<h3 class="coupon-name">단가할인쿠폰</h3>
+									<p class="coupon-num">CP-230230305-01</p>
+									<em class="coupon-title">25MT <span>1,000원 할인</span></em>
+									<div class="coupon-detail">
+										<dl class="flex-ac">
+											<dt>사용조건</dt>
+											<dd>메탈-전체 / 브랜드-전체</dd>
+										</dl>
+										<dl class="flex-ac">
+											<dt>사용기한</dt>
+											<dd>2023.03.03 ~ 2023.04.02</dd>
+										</dl>
+									</div>
+								</div>
+								<div class="coupon-state flex-ac">
+									<span>기</span>
+									<span>한</span>
+									<span>만</span>
+									<span>료</span>
+								</div>
+							</div>
+							<!--} // [case 4] 기한 만료 쿠폰 종료 -->
+						</div>
+                    </div>
+                </div><!--// .content-->
+            </div>
+        </div>
+    </div>
+    <!-- footer include -->
+    <div class="footer-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+    <!-- //footer include -->
+</div>
+
+
+<!-- 23.04.06 | MODAL POPUP : 마이페이지 > 쿠폰등록 -->
+<div class="popup modal" id="sorinModalmyCoupon">
+	<div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close">
+				<button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button>
+			</div>
+            <h1 class="h2-pd">쿠폰등록</h1>
+            <div class="div-scroll-y">
+                <div class="section">
+					<div class="tbl-v center">
+						<input type="text" name="couponNum" id="couponNum" class="fill-gray coupon-input" placeholder="쿠폰번호를 입력해 주세요.">
+						<div class="mt20">
+							<span class="tooltip-txt">(-)를 반드시 입력 등록해주세요.</span>
+							<!-- <span class="tooltip-txt orange">유효하지 않은 쿠폰 번호입니다. 다시 확인 등록해주세요.</span> -->
+						</div>
+					</div>
+                    <div class="btn-wrap">
+                        <button type="button" class="btn-gray-big modal-x">취소</button>
+                        <button type="button" class="btn-blue-big">등록</button>
+                    </div>
+
+                </div><!--// .section -->
+
+            </div><!-- // .div-scroll-y -->  
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// 23.04.06 | MODAL POPUP : 마이페이지 > 쿠폰등록 -->
+
+
+
+<!-- script core -->
+<script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="/guide/js/select2/select2.min.js"></script>
+<!-- script extra -->
+<script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+<script src="/guide/js/swiper/6.7.0/swiper.js"></script>
+<!-- script custom -->
+<script src="/guide/js/sorin.js"></script>
+<script src="/guide/js/sorin-my.js"></script>
+<script src="/guide/js/sorin-layout.js"></script>
+<!-- script embedded -->
+<script>
+</script>
+
+</body>
+</html>

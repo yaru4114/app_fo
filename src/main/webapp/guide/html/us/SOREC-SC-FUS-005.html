@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>회원사 로그인 | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+
+        <!-- header include -->
+        <div class="header-wrap include-wrap"></div>
+        <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+        <!-- //header include -->
+        
+        <!-- container -->
+        <div class="container">
+            <!-- 본문 -->
+            <div class="section us us2">
+                <div class="inwrap">
+                    <div class="hgroup">
+                        <div>
+                            <h2 class="h2">로그인</h2>
+                            <!-- <p class="p">회원사 가입으로 <strong>SORIN.COM</strong>의 서비스를 이용해 보세요.</p> -->
+                        </div>
+                    </div>
+
+                    <!-- 로그인 영역 -->
+                    <div class="login-wrapper flex-jsb">
+                        <div class="login-wrap">
+                            <div class="btn-toggle-wrap full">
+                                <div><button type="button" class="toggle active"><span>기업회원</span></button></div>
+                                <div><button type="button" class="toggle"><span>일반회원</span></button></div>
+                            </div>
+        
+                            <div class="tr limit-width full">
+                                <input type="text" title="아이디" placeholder="아이디">
+                            </div>
+                            <div class="tr limit-width full">
+                                <input type="password" title="비밀번호" placeholder="비밀번호">
+                            </div>
+                            <div class="tr limit-width full login__info-txt">
+                                아이디 비밀번호를 입력 후 인증번호 요청 해 주세요.
+                            </div>
+                            <div class="tr limit-width full" id="substep1">
+                                <button type="button" class="btn-blue-big full btn-ask-certify">인증번호 요청</button>
+                            </div>
+                            <div class="tr hide" id="substep2">
+                                <div class="tr limit-width full">
+                                    <div class="input-complex">
+                                        <span class="input certify-no">
+                                            <input type="tel" title="인증번호" placeholder="인증번호를 입력해 주세요.">
+                                            <span class="countdown" id="certifyCountdown">05:00</span>
+                                        </span>
+                                        <span class="button">
+                                            <button type="button" class="btn-stroke-big blue">인증번호 요청</button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="tr limit-width full">
+                                    <button type="button" class="btn-blue-big full">로그인 하기</button>
+                                </div>
+                            </div>
+                            <div class="tr flex-between tr--check">
+                                <div class="form-chk">
+                                    <input type="checkbox" id="userId">
+                                    <label for="userId">아이디 저장</label>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn-alink">아이디 찾기</button>
+                                    <button type="button" class="btn-alink">비밀번호 찾기</button>
+                                </div>
+                            </div>                  
+                            <div class="btns">
+                                <div><button type="button" class="btn-stroke-big full blue">회원사 가입 하기</button></div>
+                                <div><button type="button" class="btn-stroke-big full blue">맴버계정 시작하기</button></div>
+                            </div>
+                    
+                        </div>
+                        <!-- //로그인 영역 -->
+                        
+                        <!-- 22.12.15 우측 배너 추가(친구추가 이벤트/ 자투리 번들) -->
+                        <div class="event-wrap">
+                            <!-- 1. 친구 추천 이벤트 -->
+                            <!--
+								[관리자 페이지에서]
+								type 1. > 링크 등록 할 경우: 해당 페이지 이동
+								type 2. > 이미지만 등록할 경우: 이미지만 노출
+								
+								[등록 이미지 사이즈]: 362*355
+							-->
+                            <div class="top-event">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="swiper-con">
+                                            <a href="#n">
+                                                <img src="/guide/images/us/event-sb.png" alt="서린닷컴 카카오톡 채널추가 이벤트">
+                                            </a>
+                                        </div>
+                                    </div>
+                                	<!--type 1. -->
+                                    <div class="swiper-slide"> 
+                                        <div class="swiper-con">
+                                            <a href="#n"> 
+                                                <img src="/guide/images/us/top-event.png" alt="친구추천 이벤트">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!--type 2. -->
+                                    <div class="swiper-slide">
+                                        <div class="swiper-con">
+                                            <img src="/guide/images/popup_birthday.png" alt="친구추천 이벤트"> 
+                                        </div>
+                                    </div>   
+                                    <!--type 1. -->
+                                    <div class="swiper-slide">
+                                        <div class="swiper-con">
+                                            <a href="#n">
+                                                <img src="/guide/images/us/btm-event.png" alt="친구추천 이벤트">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 2. 25톤 이하 자투리 번들 -->
+                            <div class="btm-event">
+                                <a href="#n">
+                                    <img src="/guide/images/us/btm-event.png" alt="자투리 번들 이벤트"> 
+                                </a>
+                            </div>
+                            <!--
+                            <div class="btm-event">
+                                <a href="">
+
+                                </a>
+                            </div>
+                            -->
+                        </div>
+                        <!-- 22.12.15 우측 배너 추가(친구추가 이벤트/ 자투리 번들) -->
+                    </div>
+                    
+                </div>            
+            </div>
+            <!--// 본문 -->
+        </div>
+        <!-- //container -->
+    
+        <!-- footer include -->
+        <div class="footer-wrap include-wrap"></div>
+        <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+        <!-- //footer include -->
+        
+    </div>
+
+
+    <!-- script core -->
+    <script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/guide/js/select2/select2.min.js"></script>
+    <!-- script extra -->  
+    <script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+    <script src="/guide/js/swiper/6.7.0/swiper.js"></script>
+    <script src="/guide/js/toastr/toastr.js"></script>
+    <!-- script custom -->
+    <script src="/guide/js/sorin.js"></script>
+    <script src="/guide/js/sorin-layout.js"></script>
+    <!-- embedded -->
+    <script>
+        $(document).on('click', '.btn-ask-certify', function(){
+            $('#substep1').hide();
+            $('#substep2').show(function(){
+                countdown( "certifyCountdown", 5, 0 );
+            }).removeClass('hide').removeAttr('style');
+        
+        });
+        
+        // 22.12.05 로그인 영역 하단 이벤트 배너 추가
+        var loginEventBanner = new Swiper(".top-event", {
+	        spaceBetween: 0,
+            loop: true,
+	        centeredSlides: true,
+	        autoplay: {
+	          delay: 2500,
+	          disableOnInteraction: false,
+	        },
+			navigation: {
+            // nextEl: ".swiper-button-next",
+            // prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+            // el: ".swiper-pagination",
+            // clickable: true,
+            }
+        });
+
+    </script>
+
+</body>
+</html>

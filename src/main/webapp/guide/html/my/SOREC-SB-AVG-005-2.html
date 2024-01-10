@@ -1,0 +1,2219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>주문 배송 내역 > 주문 상세 내역 | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <!-- header include -->
+    <div class="header-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+    <!-- //header include -->
+    <!-- container -->
+    <div class="container">
+   		<!-- dashboard include -->
+      	<div class="dashboard-wrap include-wrap"></div>
+      	<script type="text/javascript"> $(".dashboard-wrap").load("/guide/html/include/my/dashboard.html");</script>
+        <!-- //dashboard include --> 
+        <div class="section my">
+            <div class="inwrap table">
+            	<!-- lnb include -->            	
+                <div class="lnb-wrap include-wrap"></div>
+   				<script type="text/javascript"> $(".lnb-wrap").load("/guide/html/include/my/lnb.html");</script>
+                <!-- lnb include --> 
+                <div class="content content-avg order-detail">
+                    <div class="section">
+                        <div class="hgroup">
+                            <h2 class="h2">주문 상세 내역</h2>
+                            <div class="btns">
+                                <button type="button" class="btn-stroke-md btn-orderlist">주문목록</button>
+                                <button type="button" class="btn-stroke-md btn-orderquest">주문관련 문의</button>
+                                <button type="button" class="btn-stroke-md blue btn-doc">서류 관리 가기</button>
+                                <button type="button" class="btn-stroke-md blue btn-doc">차량 정보 등록</button>
+                            </div>
+                        </div>
+                        <div class="box-states my">
+                            <div class="active"><span class="hidden">현재 페이지</span><span>주문완료</span></div>
+                            <div><span>배송준비</span></div>
+                            <div><span>출고지시</span></div>
+                            <div><span>배차중</span></div>
+                            <div><span>배송중</span></div>
+                            <div><span>배송완료</span></div>
+		                </div>
+                    </div>
+                    
+					<!-- 1. 평균가 > 거래정보 시작 {-->
+                    <div class="section">
+                        <div class="hgroup">
+                            <h2 class="h4">거래정보</h2>
+                        </div>
+                        <table class="tbl-v th-left">
+                            <caption>거래정보 - 주문 번호, 평균가 계약 월, 계약 일자, 계약 번호, 회사명, 사업자등록번호, 계약 담당자 정보 제공</caption>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">주문번호</th>
+                                    <td>A 20230524-001​</td>
+                                    <th scope="row">평균가 계약 월</th>
+                                    <td>4개월</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">계약 일자</th>
+                                    <td>2023-07-23 20:50:34</td>
+                                    <th scope="row">계약번호</th>
+                                    <td>
+                                    	<div class="flex-ac">
+	                                    	A 20230524-001
+	                                    	<button type="button" class="btn-stroke-sm blue btn-w70 ml10 btn-avg-contract">계약서</button>
+                                    	</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">회사명</th>
+                                    <td>서린상사</td>
+                                    <th scope="row">사업자등록번호</th>
+                                    <td>211-81-19597</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">계약 담당자</th>
+                                    <td colspan="3">홍길동</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+					<!-- // 1. 평균가 > 거래정보 끝 {-->
+					
+					<!-- 2. 평균가 > 주문 결제 정보 시작 {-->
+					<div class="section section-avg-order section-avg-order-detail">
+					  <div class="hgroup">
+					      <h2 class="h4">주문 결제 정보</h2>
+					      <div class="btns">
+					          <button type="button" class="btn-stroke-md blue w160px" data-popup="modal" data-target="sorinModalAvgPayDetail" onclick="sorinModalAvgPayDetail()">평균가 결제 처리 이력 상세</button>
+					      </div>
+					  </div>
+					  <ul class="list od-list t2">
+					    <li>
+					        <div class="order-history-result">
+					            <figure class="order-item-img figure">
+					                <img src="https://sorincorp.blob.core.windows.net/secs-t/it/zinc1_300x300_1639137546843_1664341333870.jpg" alt="" class="w">
+					            </figure>
+					
+					            <div class="order-detail figure-con">
+					                <div class="flex-ac-jsb mt20">
+					                    <div>
+					                        <div class="pd-brand-info">
+					                            <p class="pd-brand">
+					                                <span class="pd-label">AL</span>
+					                                <span class="brand-nation"><img src="https://sorincorp.blob.core.windows.net/secs-t/odflag/flag_mcht_india.png"></span>
+					                                HINDALCO AD
+					                            </p>
+					                        </div>
+					                        <div class="pd-name">
+					                            <span class="">10월 평균가</span>
+					                            <span class="item">프라이머리 알루미늄 INGOT (P1020)</span>
+					                            <span class="brand-group">알루미늄(비서구산)</span>
+					                            <span class="">인천</span>
+					                        </div>
+					                    </div>
+					                        <div class="right w120px">
+					                            <button type="button" class="btn-stroke-md w120px bntScreofePackng" data-popup="modal" data-target="sorinModalReport" id="bntScreofePackng">성적서&amp;패킹리스트</button>
+					                            <!-- <button type="button" class="btn-stroke-md w120px mt5 bntScreofePackng"  id="bntScreofePackng2">세금계산서 확인</button> -->
+					                        </div>
+					                    </div>
+					
+					                    <div class="flex-afs-jsb mt20">
+					                        <div class="timeline">
+					                            <div class="timeline-box "><!-- active -->
+					                                <p class="top flex-ac">
+					                                    <span class="num">1</span>
+					                                    <span class="tit flex-ac">주문일 :
+					                                      
+					                                      10월 06일
+					                                      <button class="btn-stroke-sm blue" data-popup="modal" data-target="sorinModalAvgPriceTbl">적용평균가</button>
+					                                    </span>
+					                                </p>
+					                                <ul class="list">
+					                                    <li>가단가</li>
+					                                    <li>가중량</li>
+					                                    <li>세금계산서 발행</li>
+					                                </ul>
+					                            </div>
+					
+					                            <!-- 출고, 평균가 확정 동적 영역 -->
+					                                <!-- 출고가 우선일때 -->
+					                                <div class="timeline-box active">
+					                                    <p class="top flex-ac">
+					                                        <span class="num">2</span>
+					                                        <span class="tit">상품 출고일 :
+					                                            
+					                                            10월 19일
+					                                        </span>
+					                                    </p>
+					                                    <ul class="list">
+					                                        <li>중량 확정 예정</li>
+					                                    </ul>
+					                                </div>
+					                                <div class="timeline-box ">
+					                                    <p class="top flex-ac">
+					                                        <span class="num">3</span>
+					                                        <span class="tit">확정 평균가 :
+					                                            
+					                                            10월 31일
+					                                        </span>
+					                                    </p>
+					                                    <ul class="list">
+					                                        <li>중량 확정</li>
+					                                        <li>단가 확정 예정</li>
+					                                        <li>(최종)세금계산서 발행</li>
+					                                    </ul>
+					                                </div>
+					                            <!-- // 출고, 평균가 확정 동적 영역 -->
+					                        </div>
+					
+					                        <!-- 평균가 내역 테이블 -->
+					                        <table class="tbl-scope-row tbl-timeline">
+					                            <colgroup>
+					                                <col width="146">
+					                                <col width="177">
+					                                <col width="177">
+					                            </colgroup>
+					                            <tbody>
+					                            <tr>
+					                                <th>항목</th>
+					                                <th>주문</th>
+					                                <th>확정</th>
+					                            </tr>
+					                            <tr>
+					                                <th scope="row">주문수량</th>
+					                                <td class="brd-rt">25MT</td class="brd-rt">
+					                                <!-- 예정 -->
+					                                <td>예정</td>
+					                            </tr>
+					                            <tr>
+					                                <th scope="row">상품단가</th>
+					                                <td class="brd-rt">3,430,000 원</td>
+					                                <!-- 예정 -->
+					                                <td>예정</td>
+					                            </tr>
+					                            
+					                            <tr>
+					                                <th scope="row">단가할인</th>
+					                                <td colspan="2">- 원/MT</td>
+					                            </tr>
+					                            <tr>
+					                                <th scope="row">등급할인</th>
+					                                <td colspan="2">10,000 원/MT</td>
+					                            </tr>
+					                            <tr>
+					                                <th scope="row">야간장이용료</th>
+					                                <td colspan="2">무료</td>
+					                            </tr>
+					                            <tr>
+					                                <th scope="row">최종상품단가</th>
+					                                <td class="brd-rt">
+					                                	<div class="avg-card">
+							                                <span class="card card-blue">가단가</span>
+							                                <span class="emphasis-red">199,984,500 원</span>
+						                                </div>
+					                                </td>
+					                                <!-- 예정 -->
+					                                <td>
+					                                	<div class="avg-card">
+						                                	<span class="card card-red">확정단가</span>
+						                                	<span>예정</span>
+					                                	</div>
+					                                </td>
+					                            </tr>
+					                            </tbody>
+					                        </table>
+					                        <!-- // 평균가 내역 테이블 -->
+					                    </div>
+					                    <p class="tooltip-txt mt20">
+					                        평균가의 경우, 진행 단계에 따라 결제금액이 변동되며, 최종 정산 시 환불 또는 추가납입이 있을 수 있습니다.
+					                    </p>
+					            </div>
+					        </div>
+					    </li>
+					  </ul>
+					</div>
+					<!--} // 2. 평균가 > 주문 결제 정보 시작 -->
+
+
+                    <!--} 3. 평균가 > 결제 정보 시작 -->
+                    <div class="section">
+                        <div class="hgroup">
+                            <h2 class="h4">결제 정보</h2>
+                            <div class="btns">
+                            	<button type="button" class="btn-stroke-md btn-print" data-popup="modal" data-target="sorinModalContracts">매매계약서 출력</button>
+                             </div>
+                        </div>
+                        <!-- e-wallet 결제일 경우 -->
+                        <table class="tbl-v th-left pay-detail hide">
+                            <caption>결제정보 - 결제수단, 결제승인일시, 총 결제 금액 제공</caption>
+                            <colgroup>
+                                <col style="width:16rem;">
+                                <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" class="pl30 left">결제 수단</th>
+                                    <td>
+                                        <div class="info-box pay-condition type2 flex-start">
+                                            <div class="info pay-type flex-center">
+                                                <span class="item bold pay-detail">e-Wallet</span>
+                                            </div>
+                                            <span class="item stroke-black hide">예정</span>
+                                            <span class="item stroke-black hide">대기</span>
+                                            <span class="item fill-black hide">사고</span>
+                                            <span class="item fill-red hide">연체</span>
+                                            <span class="item fill-red hide">미납</span>
+                                            <span class="item fill-green">완료</span>
+                                        </div>
+                                        <table class="tbl t4 mb20">
+                                            <colgroup>
+                                                <col span="4" style="width:25%;">
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">결제일시</th>
+                                                    <th scope="col">결제액</th>
+                                                    <th scope="col">남은 결제액</th>
+                                                    <th scope="col">적요</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="td-padding">2022-04-28 15:20:38</td>
+                                                    <td>20,000,000</td>
+                                                    <td>0</td>
+                                                    <td>현금결제</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">정산 금액</th>
+                                    <td>
+                                        <div>출고 수량 X 주문 단가 : 배송완료 시 확정됩니다.</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">환불 금액</th>
+                                    <td>
+                                        <div>정산금액 – 주문금액 : 배송완료 시 확정됩니다.</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- //e-wallet 결제일 경우 -->
+
+                        <!-- 계약금 결제일 경우 -->
+                        <table class="tbl-v mt5 down-pay">
+                            <caption>결제 상세 내역</caption>
+                            <colgroup>
+                                <col style="width:16rem;">
+                                <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">결제 수단</th>
+                                    <td>
+                                        <div class="info-box pay-condition type2 flex-start mt10 mb10">
+                                            <div class="info pay-type flex-center">
+                                                <span class="item bold pay-detail">계약금</span>
+                                            </div>
+                                            <span class="item stroke-black">예정</span>
+                                            <span class="item stroke-black hide">대기</span>
+                                            <span class="item fill-black hide">사고</span>
+                                            <span class="item fill-red hide">연체</span>
+                                            <span class="item fill-red hide">미납</span>
+                                            <span class="item fill-green hide">완료</span>
+                                        </div>
+                                        <table class="tbl-v mt5 down-pay-detail">
+                                            <caption>결제 상세 내역</caption>
+                                            <colgroup>
+                                                <col style="width: 12rem">
+                                                <col>
+                                                <col style="width: 12rem">
+                                                <col>
+                                            </colgroup>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">주문 금액</th>
+                                                    <td class="pr20">
+                                                        <p class="flex-between">
+	                                                        100,000,000 원
+	                                                        <button type="button" class="btn-stroke-sm btn-w70 ml10" btn-coupon-detail" data-popup="modal" data-target="sorinModalDpositConfirm">입금확인서</button>
+                                                        </p>
+                                                    </td>
+                                                    <th scope="row">결제 예정일</th>
+                                                    <td>
+                                                        <p>2022-04-28</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">결제 예정액</th>
+                                                    <td colspan="3" class="pr0">
+                                                        <p class="flex-between fc-red">
+                                                        	80,000,000 원
+                                                        	<button class="btn-blue-sm btn-w70">상환하기</button>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table class="tbl t4 mb20">
+                                            <colgroup>
+                                                <col span="4" style="width: 25%">
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">결제일시</th>
+                                                    <th scope="col">결제액</th>
+                                                    <th scope="col">남은 결제액</th>
+                                                    <th scope="col">적요</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="td-padding">2022-04-28 15:20:38</td>
+                                                    <td>20,000,000</td>
+                                                    <td>80,000,000</td>
+                                                    <td>최초결제</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td-import td-padding">2022-04-28 15:20:38</td>
+                                                    <td class="td-import">50,000,000</td>
+                                                    <td class="td-import fc-red">30,000,000</td>
+                                                    <td class="td-import">잔액결제</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- //계약금 결제일 경우 -->
+
+                        <!-- 담보보증 결제일 경우 -->
+                        <table class="tbl-v mt5 guarantee-pay hide">
+                            <caption>결제 상세 내역</caption>
+                            <colgroup>
+                                <col style="width:16rem;">
+                                <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">결제 수단</th>
+                                    <td>
+                                        <div class="info-box pay-condition type2 flex-start mt10 mb10">
+                                            <div class="info pay-type flex-center">
+                                                <span class="item bold pay-detail">담보보증</span>
+                                            </div>
+                                            <span class="item stroke-black">예정</span>
+                                            <span class="item stroke-black hide">대기</span>
+                                            <span class="item fill-black hide">사고</span>
+                                            <span class="item fill-red hide">연체</span>
+                                            <span class="item fill-red hide">미납</span>
+                                            <span class="item fill-green hide">완료</span>
+                                        </div>
+                                        <table class="tbl-v mt5 down-pay-detail">
+                                            <caption>결제 상세 내역</caption>
+                                            <colgroup>
+                                                <col style="width:12rem;">
+                                                <col>
+                                                <col style="width:12rem;">
+                                                <col>
+                                            </colgroup>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">주문 금액</th>
+                                                   	<td class="pr20">
+                                                        <p class="flex-between">
+	                                                        100,000,000 원
+	                                                        <button type="button" class="btn-stroke-sm btn-w70 ml10" btn-coupon-detail" data-popup="modal" data-target="sorinModalDpositConfirm">입금확인서</button>
+                                                        </p>
+                                                    </td>
+                                                    <th scope="row">결제 예정일</th>
+                                                    <td>
+                                                        <p>2022-04-28 11:57:32</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">결제 예정액</th>
+                                                    <td>
+                                                        <p class="flex-between fc-red">80,000,000 원</p>
+                                                    </td>
+                                                    <th scope="row">남은 결제액</th>
+                                                    <td>
+                                                        <p class="flex-between fc-red">30,000,000 원 <button class="btn-blue-sm btn-w70">상환하기</button></p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table class="tbl t4 mb20">
+                                            <colgroup>
+                                                <col span="3" style="width:33.33%;">
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">결제일시</th>
+                                                    <th scope="col">결제액</th>
+                                                    <th scope="col">적요</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="4">결제 정보가 없습니다.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- //담보보증 결제일 경우 -->
+
+                        <!-- 담보보증 결제일 경우 2 -->
+                        <table class="tbl-v mt5 guarantee-pay hide">
+                            <caption>결제 상세 내역</caption>
+                            <colgroup>
+                                <col style="width:16rem;">
+                                <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">결제 수단</th>
+                                    <td>
+                                        <div class="info-box pay-condition type2 flex-start mt10 mb10">
+                                            <div class="info pay-type flex-center">
+                                                <span class="item bold pay-detail">담보보증</span>
+                                            </div>
+                                            <span class="item stroke-black">예정</span>
+                                            <span class="item stroke-black hide">대기</span>
+                                            <span class="item fill-black hide">사고</span>
+                                            <span class="item fill-red hide">연체</span>
+                                            <span class="item fill-red hide">미납</span>
+                                            <span class="item fill-green hide">완료</span>
+                                        </div>
+                                        <table class="tbl-v mt5 down-pay-detail">
+                                            <caption>결제 상세 내역</caption>
+                                            <colgroup>
+                                                <col style="width:12rem;">
+                                                <col>
+                                                <col style="width:12rem;">
+                                                <col>
+                                            </colgroup>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">주문 금액</th>
+                                                    <td class="pr20">
+                                                        <p class="flex-between">
+	                                                        100,000,000 원
+	                                                        <button type="button" class="btn-stroke-sm btn-w70 ml10" btn-coupon-detail" data-popup="modal" data-target="sorinModalDpositConfirm">입금확인서</button>
+                                                        </p>
+                                                    </td>
+                                                    <th scope="row">결제 예정일</th>
+                                                    <td>
+                                                        <p>2022-04-28 11:57:32</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">결제 예정액</th>
+                                                    <td>
+                                                        <p class="flex-between fc-red">80,000,000 원</p>
+                                                    </td>
+                                                    <th scope="row">남은 결제액</th>
+                                                    <td>
+                                                        <p class="flex-between fc-red">30,000,000 원 <button class="btn-blue-sm btn-w70">상환하기</button></p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table class="tbl t4 mb20">
+                                            <colgroup>
+                                                <col span="3" style="width:33.33%;">
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">결제일시</th>
+                                                    <th scope="col">결제액</th>
+                                                    <th scope="col">적요</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="td-import td-padding">2022-04-28 15:20:38</td>
+                                                    <td class="td-import">50,000,000</td>
+                                                    <td class="td-import">현금결제</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- //담보보증 결제일 경우 2 -->
+
+                    </div>
+                    <!--} // 3. 평균가 > 결제 정보 끝 -->
+
+                    <!--} 4. 평균가 > 출고 정보 시작 -->
+                    <div class="section">
+                        <div class="hgroup">
+                            <h2 class="h4">출고 정보</h2>
+                        </div>
+                        <table class="tbl-v th-left pay-detail">
+                            <caption>결제정보 - 결제수단, 결제승인일시, 총 결제 금액 제공</caption>
+                            <colgroup>
+                                <col style="width:16rem;">
+                                <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">출고 권역</th>
+                                    <td>
+                                        <div>인천</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">출고 물류 센터</th>
+                                    <td>
+                                        <div>BS1_CST 인천 연수구 인천신항대로 886-7 1F / 홍형석 010-3559-0305</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">제품 정보</th>
+                                    <td>
+                                        <div class="bold product-info-tit">PRIMARY AL INGOT P1020 알루미늄</div>
+                                        <table class="tbl t4 mb20">
+                                            <colgroup>
+                                                <col span="5" style="width:20%;">
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">브랜드</th>
+                                                    <th scope="col">B/L번호</th>
+                                                    <th scope="col">주문수량</th>
+                                                    <th scope="col">번들수량</th>
+                                                    <th scope="col">서류</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>비서구산</td>
+                                                    <td>COSU6322402780</td>
+                                                    <td>
+                                                        100MT
+                                                    </td>
+                                                    <td class="td-padding car-regist"><span>104개<button type="button" class="btn-stroke-sm blue btn-w70 ml10" data-popup="modal" data-target="sorinModalRegTrans">차량등록<span class="ripple"></span></button></span></td>
+                                                    <td><button type="button" class="btn-stroke-sm blue btn-w70">출고지시서<span class="ripple"></span></button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--} // 4. 평균가 > 출고 정보 끝 -->
+                    
+					
+					<!-- 5. 평균가 > 배송 정보 시작 {-->
+                    <div class="section">
+                        <div class="hgroup">
+                            <h2 class="h4">배송정보</h2>
+                            <div class="btns">
+                                <button type="button" class="btn-stroke-md btn-modify-address">배송지 수정</button>
+                                <button type="button" class="btn-stroke-md blue btn-modify-addressd-done hide">배송지 수정 완료</button>
+                            </div>
+                        </div>
+                        <table class="tbl-v t3 th-left">
+                            <caption>배송정보 - 배송 방법, 배송지명, 배송지(도로명/ 지번), 배송지 담당자, 담당자 이메일, 배송 요청 내용 제공</caption>
+                            <colgroup>
+                                <col style="width:15rem;">
+                                <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">배송방법</th>
+                                    <td>서린배송</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">배송지명</th>
+                                    <td>액션캣 창고</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">배송지 (도로명)</th>
+                                    <td>
+                                        <div class="read">경기도 부천시 경인로 92번길 21</div>
+                                        <div class="textarea2 edit">
+                                            <div class="input-address">
+                                                <span class="button"><button type="button" class="btn-blue-md">주소 찾기</button></span>
+                                                <span class="input zipcode"><input type="text" name="ipZip" id="ipZip" title="우편번호" readonly></span>
+                                                <span class="input address"><input type="text" name="ipRoadBase" id="ipRoadBase" title="도로명 주소" readonly></span>
+                                            </div>
+                                            <div>
+                                                <input type="text" name="ipRoadBase2" id="ipRoadBase2" title="도로명 상세 주소 입력" placeholder="도로명 상세 주소 입력" class="full">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">배송지 (지번)</th>
+                                    <td>
+                                        <div class="read">충남 서산 갈산동 659-3(갈산동) 123</div>
+                                        <div class="textarea2 edit">
+                                            <div class="input-address">
+                                                <input type="text" name="ipParcelBase" id="ipParcelBase" title="지번 주소" readonly class="full">
+                                            </div>
+                                            <div>
+                                                <input type="text" name="ipParcelBase2" id="ipParcelBase2" title="지번 상세 주소 입력" placeholder="지번 상세 주소 입력" class="full" readonly>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">배송지 담당자</th>
+                                    <td>
+                                        <div class="read">홍형석</div>
+                                        <!-- <div class="edit">
+                                            <input type="text" name="ipUserName" id="ipUserName" title="배송지 담당자" value="홍길동" class="full">
+                                        </div> -->
+                                    </td>
+                                </tr>
+								<tr>
+                                    <th scope="row">휴대폰번호</th>
+                                    <td>
+                                        <div class="read">010-3658-9653</div>
+                                        <div class="edit">
+                                            <input type="text" name="ipUserCell" id="ipUserCell" title="휴대폰번호" value="010-3658-9653" class="full">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr scope="row">
+                                    <th>담당자 이메일</th>
+                                    <td>
+                                        <div>actioncat@sorincorp.com</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">배송요청내용</th>
+                                    <td>
+                                        <div class="read">도착전 연락주세요</div>
+                                        <div class="edit">
+                                            <input type="text" name="ipShippingCon" id="ipShippingCon" title="배송요청내용" value="도착전 연락주세요" class="full">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+					<!--} // 5. 평균가 > 배송 정보 끝 -->
+					
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    <!-- footer include -->
+    <div class="footer-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+    <!-- //footer include -->
+</div>
+
+
+<!-- MODAL POPUP : 평균가 결제 처리 이력 -->
+<div class="popup modal modal-avg-pay-detail" id="sorinModalAvgPayDetail">
+    <div class="modal-content w1200px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+
+            <div class="hgroup">
+                <h1 class="h2 center mb0">평균가 결제 처리 이력</h1>
+            </div>
+            <div class="div-scroll-y mt30">
+                <div class="section">
+					<div class="article">
+					
+						<table class="tbl-v th-left">
+                            <colgroup>
+								<col width="140">
+								<col width="235">
+								<col width="140">
+								<col width="235">
+								<col width="140">
+								<col width="235">
+							</colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">아이템</th>
+                                    <td>​알루미늄 순괴(P1020)</td>
+                                    <th scope="row">권역</th>
+                                    <td>인천/부산</td>
+                                    <th scope="row">브랜드그룹</th>
+                                    <td>브랜드 무관</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">브랜드</th>
+                                    <td>
+                                    	<p class="pd-brand flex-ac">
+		                                    <span class="brand-nation mr5">
+		                                        <img src="https://sorincorp.blob.core.windows.net/secs/odflag/flag_mcht_default.png">
+		                                    </span>
+		                                    TOMAGO
+		                                </p>
+                                    </td>
+                                    <th scope="row">계약월</th>
+                                    <td>6월</td>
+                                    <th scope="row">주문톤수</th>
+                                    <td>25MT</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="mt40">
+                        	<h4 class="h4 mb20">주문상세</h4>
+                        	<table class="tbl-scope-col">
+							    <colgroup>
+							        <col width="185">
+							        <col width="375">
+							        <col width="185">
+							        <col width="185">
+							        <col width="185">
+							    </colgroup>
+							    <thead>
+							        <tr>
+							            <th scope="col">구분</th>
+							            <th scope="col">항목</th>
+							            <th scope="col">주문</th>
+							            <th scope="col">확정</th>
+							            <th scope="col">정산(확정-주문)</th>
+							        </tr>
+							    </thead>
+							    <tbody>
+							    	<tr>
+							    		<td rowspan="7">상품금액</td>
+							    		<td class="left">① 주문중량</td>
+							    		<td>
+							    			<span class="card card-blue">가중량</span>
+							    			25.0
+							    		</td>
+							    		<td>
+							    			<span class="card card-red">확정중량</span>
+							    			25.3
+							    		</td>
+							    		<td>0.300</td>
+							    	</tr>
+							    	<tr>
+							    		<td class="left">② 상품단가(105%)</td>
+							    		<td>
+							    			<span class="card card-blue">가단가</span>
+							    			3,160,500
+							    		</td>
+							    		<td>
+							    			<span class="card card-red">확정단가</span>
+							    			3,023,000
+							    		</td>
+							    		<td>
+							    			<span class="unit">-</span>137,500
+							    		</td>
+							    	</tr>
+							    	<tr>
+							    		<td class="left">③ 단가할인</td>
+							    		<td>
+							    			9,000
+							    		</td>
+							    		<td></td>
+							    		<td></td>
+							    	</tr>
+							    	<tr>
+							    		<td class="left">④ 등급할인</td>
+							    		<td>
+							    			9,000
+							    		</td>
+							    		<td></td>
+							    		<td></td>
+							    	</tr>
+							    	<tr>
+							    		<td class="left">⑤ 야간장이용료</td>
+							    		<td></td>
+							    		<td></td>
+							    		<td></td>
+							    	</tr>
+							    	<tr>
+							    		<td class="left">⑥ 최종상품단가(② - ③ - ④ - ⑤)</td>
+							    		<td>3,142,500</td>
+							    		<td>3,005,000</td>
+							    		<td>
+							    			<span class="unit">-</span>137,500
+							    		</td>
+							    	</tr>
+							    	<tr>
+							    		<td class="left">합계(① * ⑥)</td>
+							    		<td>78,562,500</td>
+							    		<td>76,026,500</td>
+							    		<td>
+							    			<span class="unit">-</span>2,256,000
+							    		</td>
+							    	</tr>
+							    	<tr>
+							    		<td rowspan="3">중량변동금</td>
+							    		<td class="left">⑦ 주문수량</td>
+							    		<td>1.5</td>
+							    		<td></td>
+							    		<td>
+											<span class="unit">-</span>1.5
+										</td>
+							    	</tr>
+							    	<tr>
+							    		<td class="left">⑧ 최종상품단가</td>
+							    		<td>3,142,500</td>
+							    		<td></td>
+							    		<td>
+							    			<span class="unit">-</span>3,142,500
+							    		</td>
+							    	</tr>
+							    	<tr>
+							    		<td class="left">합계(⑦ * ⑧)</td>
+							    		<td>4,713,750</td>
+							    		<td></td>
+							    		<td>
+							    			<span class="unit">-</span>4,713,750
+							    		</td>
+							    	</tr>
+							    	<tr>
+							    		<td rowspan="3">배송비</td>
+							    		<td class="left">⑨ 배송비</td>
+							    		<td>150,000</td>
+							    		<td>150,000</td>
+							    		<td></td>
+							    	</tr>
+							    	<tr>
+							    		<td class="left">⑩ 배송비할인</td>
+							    		<td>9,000</td>
+							    		<td>9,000</td>
+							    		<td></td>
+							    	</tr>
+							    	<tr>
+							    		<td class="left">합계(⑨ * ⑩)</td class="left">
+							    		<td>141,000</td>
+							    		<td>141,000</td>
+							    		<td></td>
+							    	</tr>
+							    	<tr>
+							    		<td>공급가액</td>
+							    		<td class="left">상품금액 + 중량변동금 + 배송비</td>
+							    		<td>83,417,250</td>
+							    		<td>76,167,500</td>
+							    		<td>
+							    			<span class="unit">-</span>7,249,750
+							    		</td>
+							    	</tr>
+							    	<tr>
+							    		<td>부가가치세</td>
+							    		<td class="left">공급가액의 10%</td>
+							    		<td>8,341,725</td>
+							    		<td>7,616,750</td>
+							    		<td>
+							    			<span class="unit">-</span>724,975
+							    		</td>
+							    	</tr>
+							    	<tr>
+							    		<td>결제금액</td>
+							    		<td class="left">공급가액 + 부가가치세</td>
+							    		<td>91,758,975</td>
+							    		<td>83,784,250</td>
+							    		<td>7,974,725</td>
+							    	</tr>
+							        <!-- no-data {
+							        <tr id="noData">
+							            <td colspan="7">
+							                <div class="no-data">상품 할당 전 입니다.</div>
+							            </td>
+							        </tr>-->
+							        <!--} // no-data-->
+							    </tbody>
+							</table>
+                        </div>
+					</div>
+                    <div class="btn-wrap mt40">
+                        <button type="button" class="btn-blue-big modal-x">확인</button>
+                    </div>
+
+                </div><!--// .section -->
+            </div><!-- // .div-scroll-y -->
+
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// MODAL POPUP : 평균가 결제 처리 이력 -->
+
+<!-- MODAL POPUP : 차량정보 등록-->
+<div class="popup modal modal-reg-trans" id="sorinModalRegTrans">
+    <div class="modal-content w1200px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+
+            <div class="hgroup">
+                <h1 class="h2 center mb0">차량정보 등록</h1>
+                <div class="right mt-10">
+					<button type="button" class="btn-stroke-sm blue btn-coupon-regi w100px h30px" data-popup="modal" data-target="sorinModalNewTruck">신규 차량 등록</button>
+					<button type="button" class="btn-stroke-sm blue btn-coupon-regi w100px h30px" data-popup="modal" data-target="sorinModalNewDriver">신규 기사 등록</button>
+					<button type="button" class="btn-stroke-sm blue w100px h30px">차량 추가</button>
+                </div>
+            </div>
+            <div class="div-scroll-y mt10">
+                <div class="section">
+                    <div class="article">
+                    	<div class="table-wrap">
+	                        <table class="tbl t3 center">
+		                        <caption>차량정보 등록 - 차수, 차량정보, 주문번들, 차량입고일, 차량번호, 기사정보, 수정일시 정보제공</caption>
+		                        <colgroup>
+		                            <col width="85px" />
+		                            <col width="105px" />
+		                            <col width="138px" />
+		                            <col width="150px" />
+		                            <col width="150px" />
+		                            <col width="265px" />
+		                            <col width="*" />
+		                        </colgroup>
+		                        <thead>
+		                            <tr>
+		                                <th scope="col">차수</th>
+		                                <th scope="col">차량정보</th>
+		                                <th scope="col">주문번들</th>
+		                                <th scope="col">차량 입고일</th>
+		                                <th scope="col">차량번호</th>
+		                                <th scope="col">기사정보</th>
+		                                <th scope="col">마지막 수정일시</th>
+		                            </tr>
+		                        </thead>
+		                        <tbody>
+		                        	<!-- [case1] 서린몰/ 공동구매 시작 {-->
+		                            <tr>
+		                                <th scope="row">1회차</th>
+		                                <td>
+		                                    <select class="dropdown full" data-placeholder="선택">
+		                                    	<option></option>
+		                                    	<option selected>15톤</option>
+		                                    	<option>20톤</option>
+		                                    </select>
+		                                </td>
+		                                <td>
+		                                	<div>
+												<input type="text" value="52" class="w120px center">
+											</div>
+		                                </td>
+		                                <td>
+		                                    <div class="datepicker-wrap">
+												<input type="text" value="2023-06-29" class="datepicker w130px" readonly>
+											</div>
+		                                </td>
+		                                <td>
+		                                	<div class="switch-box switch-box1 w110px">
+				                            	<select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    		<option></option>
+				                                	<option selected>경기 1거1234</option>
+				                                	<option>경기 2거1234</option>
+				                                	<option class="direct-option">직접입력</option>
+				                                </select>
+			                                	<div class="input-wrap">
+			                                    	<input type="text" class="full" placeholder="차량번호">
+			                                    	<button type="button" class="btn-reset"></button>
+			                                    </div>
+		                                    </div>
+		                                </td>
+		                                <td>
+		                                	<div class="driver-info switch-box switch-box2 flex-ac-jac">
+			                                	<div class="w80px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option selected>홍길동</option>
+					                                	<option>김수현</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="기사명">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+				                                <div class="w150px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option selected>010-1234-5678</option>
+					                                	<option>010-1234-5678</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="연락처">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+			                                </div>
+		                                    
+		                                </td>
+		                                <td class="modify-date">
+		                                    2022-10-13 17:38
+		                                    <button type="button" class="btn-row-remove"></button>
+		                                </td>
+		                            </tr>
+		                            <!--} //[case1] 서린몰/ 공동구매   -->
+		                            <!-- [case2] 라이브/ 지정가 시작 {-->
+		                            <tr>
+		                                <th scope="row">2회차</th>
+		                                <td>
+		                                    <select class="dropdown full" data-placeholder="선택">
+		                                    	<option></option>
+		                                    	<option>15톤</option>
+		                                    	<option>20톤</option>
+		                                    </select>
+		                                </td>
+		                                <td>
+		                                    <div>
+												<input type="text" value="" class="w120px center" placeholder="48남음">
+											</div>
+		                                </td>
+		                                <td>
+		                                    <div class="datepicker-wrap">
+												<input type="text" value="" class="datepicker w130px" placeholder="선택">
+											</div>
+		                                </td>
+		                                <td>
+		                                	<div class="switch-box switch-box1 w110px">
+				                            	<select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    		<option></option>
+				                                	<option>경기 1거1234</option>
+				                                	<option>경기 2거1234</option>
+				                                	<option class="direct-option">직접입력</option>
+				                                </select>
+			                                	<div class="input-wrap">
+			                                    	<input type="text" class="full" placeholder="차량번호">
+			                                    	<button type="button" class="btn-reset"></button>
+			                                    </div>
+		                                    </div>
+		                                </td>
+		                                <td>
+		                                	<div class="driver-info switch-box switch-box2 flex-ac-jac">
+			                                	<div class="w80px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option>홍길동</option>
+					                                	<option>김수현</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="기사명">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+				                                <div class="w150px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option>010-1234-5678</option>
+					                                	<option>010-1234-5678</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="연락처">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+			                                </div>
+		                                </td>
+		                                <td class="modify-date">
+		                                    2022-10-13 17:38
+		                                    <button type="button" class="btn-row-remove"></button>
+		                                </td>
+		                            </tr>
+		                            <!--} //[case2] 라이브/ 지정가 끝 -->
+		                            
+		                           <!-- 3회차 부터 scroll 확인 시작 { -->
+		                           <tr>
+		                                <th scope="row">3회차</th>
+		                                <td>
+		                                   <input type="text" name="" id="" class="w110px center" value="25톤 카고" disabled="">
+		                                    
+		                                </td>
+		                                <td>
+		                                    <div>
+												<input type="text" value="" class="w120px center" placeholder="48남음">
+											</div>
+		                                </td>
+		                                <td>
+		                                    <div class="datepicker-wrap">
+												<input type="text" value="" class="datepicker w130px" placeholder="선택">
+											</div>
+		                                </td>
+		                                <td>
+		                                	<div class="switch-box switch-box1 w110px">
+				                            	<select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    		<option></option>
+				                                	<option>경기 1거1234</option>
+				                                	<option>경기 2거1234</option>
+				                                	<option class="direct-option">직접입력</option>
+				                                </select>
+			                                	<div class="input-wrap">
+			                                    	<input type="text" class="full" placeholder="차량번호">
+			                                    	<button type="button" class="btn-reset"></button>
+			                                    </div>
+		                                    </div>
+		                                </td>
+		                                <td>
+		                                	<div class="driver-info switch-box switch-box2 flex-ac-jac">
+			                                	<div class="w80px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option>홍길동</option>
+					                                	<option>김수현</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="기사명">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+				                                <div class="w150px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option>010-1234-5678</option>
+					                                	<option>010-1234-5678</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="연락처">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+			                                </div>
+		                                </td>
+		                                <td class="modify-date">
+		                                    2022-10-13 17:38
+		                                </td>
+		                            </tr>
+		                            <tr>
+		                                <th scope="row">4회차</th>
+		                                <td>
+		                                   <input type="text" name="" id="" class="w110px center" value="25톤 카고" disabled="">
+		                                    
+		                                </td>
+		                                <td>
+		                                    <div>
+												<input type="text" value="" class="w120px center" placeholder="48남음">
+											</div>
+		                                </td>
+		                                <td>
+		                                    <div class="datepicker-wrap">
+												<input type="text" value="" class="datepicker w130px" placeholder="선택">
+											</div>
+		                                </td>
+		                                <td>
+		                                	<div class="switch-box switch-box1 w110px">
+				                            	<select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    		<option></option>
+				                                	<option>경기 1거1234</option>
+				                                	<option>경기 2거1234</option>
+				                                	<option class="direct-option">직접입력</option>
+				                                </select>
+			                                	<div class="input-wrap">
+			                                    	<input type="text" class="full" placeholder="차량번호">
+			                                    	<button type="button" class="btn-reset"></button>
+			                                    </div>
+		                                    </div>
+		                                </td>
+		                                <td>
+		                                	<div class="driver-info switch-box switch-box2 flex-ac-jac">
+			                                	<div class="w80px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option>홍길동</option>
+					                                	<option>김수현</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="기사명">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+				                                <div class="w150px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option>010-1234-5678</option>
+					                                	<option>010-1234-5678</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="연락처">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+			                                </div>
+		                                </td>
+		                                <td class="modify-date">
+		                                    2022-10-13 17:38
+		                                </td>
+		                            </tr>
+		                            <tr>
+		                                <th scope="row">5회차</th>
+		                                <td>
+		                                   <input type="text" name="" id="" class="w110px center" value="25톤 카고" disabled="">
+		                                    
+		                                </td>
+		                                <td>
+		                                    <div>
+												<input type="text" value="" class="w120px center" placeholder="48남음">
+											</div>
+		                                </td>
+		                                <td>
+		                                    <div class="datepicker-wrap">
+												<input type="text" value="" class="datepicker w130px" placeholder="선택">
+											</div>
+		                                </td>
+		                                <td>
+		                                	<div class="switch-box switch-box1 w110px">
+				                            	<select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    		<option></option>
+				                                	<option>경기 1거1234</option>
+				                                	<option>경기 2거1234</option>
+				                                	<option class="direct-option">직접입력</option>
+				                                </select>
+			                                	<div class="input-wrap">
+			                                    	<input type="text" class="full" placeholder="차량번호">
+			                                    	<button type="button" class="btn-reset"></button>
+			                                    </div>
+		                                    </div>
+		                                </td>
+		                                <td>
+		                                	<div class="driver-info switch-box switch-box2 flex-ac-jac">
+			                                	<div class="w80px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option>홍길동</option>
+					                                	<option>김수현</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="기사명">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+				                                <div class="w150px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option>010-1234-5678</option>
+					                                	<option>010-1234-5678</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="연락처">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+			                                </div>
+		                                </td>
+		                                <td class="modify-date">
+		                                    2022-10-13 17:38
+		                                </td>
+		                            </tr>
+		                            <tr>
+		                                <th scope="row">6회차</th>
+		                                <td>
+		                                   <input type="text" name="" id="" class="w110px center" value="25톤 카고" disabled="">
+		                                    
+		                                </td>
+		                                <td>
+		                                    <div>
+												<input type="text" value="" class="w120px center" placeholder="48남음">
+											</div>
+		                                </td>
+		                                <td>
+		                                    <div class="datepicker-wrap">
+												<input type="text" value="" class="datepicker w130px" placeholder="선택">
+											</div>
+		                                </td>
+		                                <td>
+		                                	<div class="switch-box switch-box1 w110px">
+				                            	<select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    		<option></option>
+				                                	<option>경기 1거1234</option>
+				                                	<option>경기 2거1234</option>
+				                                	<option class="direct-option">직접입력</option>
+				                                </select>
+			                                	<div class="input-wrap">
+			                                    	<input type="text" class="full" placeholder="차량번호">
+			                                    	<button type="button" class="btn-reset"></button>
+			                                    </div>
+		                                    </div>
+		                                </td>
+		                                <td>
+		                                	<div class="driver-info switch-box switch-box2 flex-ac-jac">
+			                                	<div class="w80px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option>홍길동</option>
+					                                	<option>김수현</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="기사명">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+				                                <div class="w150px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option>010-1234-5678</option>
+					                                	<option>010-1234-5678</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="연락처">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+			                                </div>
+		                                </td>
+		                                <td class="modify-date">
+		                                    2022-10-13 17:38
+		                                </td>
+		                            </tr>
+		                            <tr>
+		                                <th scope="row">7회차</th>
+		                                <td>
+		                                   <input type="text" name="" id="" class="w110px center" value="25톤 카고" disabled="">
+		                                    
+		                                </td>
+		                                <td>
+		                                    <div>
+												<input type="text" value="" class="w120px center" placeholder="48남음">
+											</div>
+		                                </td>
+		                                <td>
+		                                    <div class="datepicker-wrap">
+												<input type="text" value="" class="datepicker w130px" placeholder="선택">
+											</div>
+		                                </td>
+		                                <td>
+		                                	<div class="switch-box switch-box1 w110px">
+				                            	<select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    		<option></option>
+				                                	<option>경기 1거1234</option>
+				                                	<option>경기 2거1234</option>
+				                                	<option class="direct-option">직접입력</option>
+				                                </select>
+			                                	<div class="input-wrap">
+			                                    	<input type="text" class="full" placeholder="차량번호">
+			                                    	<button type="button" class="btn-reset"></button>
+			                                    </div>
+		                                    </div>
+		                                </td>
+		                                <td>
+		                                	<div class="driver-info switch-box switch-box2 flex-ac-jac">
+			                                	<div class="w80px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option>홍길동</option>
+					                                	<option>김수현</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="기사명">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+				                                <div class="w150px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option>010-1234-5678</option>
+					                                	<option>010-1234-5678</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="연락처">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+			                                </div>
+		                                </td>
+		                                <td class="modify-date">
+		                                    2022-10-13 17:38
+		                                </td>
+		                            </tr>
+		                            <tr>
+		                                <th scope="row">8회차</th>
+		                                <td>
+		                                   <input type="text" name="" id="" class="w110px center" value="25톤 카고" disabled="">
+		                                    
+		                                </td>
+		                                <td>
+		                                    <div>
+												<input type="text" value="" class="w120px center" placeholder="48남음">
+											</div>
+		                                </td>
+		                                <td>
+		                                    <div class="datepicker-wrap">
+												<input type="text" value="" class="datepicker w130px" placeholder="선택">
+											</div>
+		                                </td>
+		                                <td>
+		                                	<div class="switch-box switch-box1 w110px">
+				                            	<select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    		<option></option>
+				                                	<option>경기 1거1234</option>
+				                                	<option>경기 2거1234</option>
+				                                	<option class="direct-option">직접입력</option>
+				                                </select>
+			                                	<div class="input-wrap">
+			                                    	<input type="text" class="full" placeholder="차량번호">
+			                                    	<button type="button" class="btn-reset"></button>
+			                                    </div>
+		                                    </div>
+		                                </td>
+		                                <td>
+		                                	<div class="driver-info switch-box switch-box2 flex-ac-jac">
+			                                	<div class="w80px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option>홍길동</option>
+					                                	<option>김수현</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="기사명">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+				                                <div class="w150px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option>010-1234-5678</option>
+					                                	<option>010-1234-5678</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="연락처">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+			                                </div>
+		                                </td>
+		                                <td class="modify-date">
+		                                    2022-10-13 17:38
+		                                </td>
+		                            </tr>
+		                            <tr>
+		                                <th scope="row">9회차</th>
+		                                <td>
+		                                   <input type="text" name="" id="" class="w110px center" value="25톤 카고" disabled="">
+		                                    
+		                                </td>
+		                                <td>
+		                                    <div>
+												<input type="text" value="" class="w120px center" placeholder="48남음">
+											</div>
+		                                </td>
+		                                <td>
+		                                    <div class="datepicker-wrap">
+												<input type="text" value="" class="datepicker w130px" placeholder="선택">
+											</div>
+		                                </td>
+		                                <td>
+		                                	<div class="switch-box switch-box1 w110px">
+				                            	<select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    		<option></option>
+				                                	<option>경기 1거1234</option>
+				                                	<option>경기 2거1234</option>
+				                                	<option class="direct-option">직접입력</option>
+				                                </select>
+			                                	<div class="input-wrap">
+			                                    	<input type="text" class="full" placeholder="차량번호">
+			                                    	<button type="button" class="btn-reset"></button>
+			                                    </div>
+		                                    </div>
+		                                </td>
+		                                <td>
+		                                	<div class="driver-info switch-box switch-box2 flex-ac-jac">
+			                                	<div class="w80px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option>홍길동</option>
+					                                	<option>김수현</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="기사명">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+				                                <div class="w150px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option>010-1234-5678</option>
+					                                	<option>010-1234-5678</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="연락처">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+			                                </div>
+		                                </td>
+		                                <td class="modify-date">
+		                                    2022-10-13 17:38
+		                                </td>
+		                            </tr>
+		                            <tr>
+		                                <th scope="row">10회차</th>
+		                                <td>
+		                                   <input type="text" name="" id="" class="w110px center" value="25톤 카고" disabled="">
+		                                    
+		                                </td>
+		                                <td>
+		                                    <div>
+												<input type="text" value="" class="w120px center" placeholder="48남음">
+											</div>
+		                                </td>
+		                                <td>
+		                                    <div class="datepicker-wrap">
+												<input type="text" value="" class="datepicker w130px" placeholder="선택">
+											</div>
+		                                </td>
+		                                <td>
+		                                	<div class="switch-box switch-box1 w110px">
+				                            	<select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    		<option></option>
+				                                	<option>경기 1거1234</option>
+				                                	<option>경기 2거1234</option>
+				                                	<option class="direct-option">직접입력</option>
+				                                </select>
+			                                	<div class="input-wrap">
+			                                    	<input type="text" class="full" placeholder="차량번호">
+			                                    	<button type="button" class="btn-reset"></button>
+			                                    </div>
+		                                    </div>
+		                                </td>
+		                                <td>
+		                                	<div class="driver-info switch-box switch-box2 flex-ac-jac">
+			                                	<div class="w80px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option>홍길동</option>
+					                                	<option>김수현</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="기사명">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+				                                <div class="w150px">
+			                                	   <select class="dropdown full selbox-wrap" data-placeholder="선택">
+		                                    			<option></option>
+					                                	<option>010-1234-5678</option>
+					                                	<option>010-1234-5678</option>
+					                                	<option class="direct-option">직접입력</option>
+					                                </select>
+				                                	<div class="input-wrap">
+				                                    	<input type="text" class="full" placeholder="연락처">
+				                                    	<button type="button" class="btn-reset"></button>
+				                                    </div>
+				                                </div>
+			                                </div>
+		                                </td>
+		                                <td class="modify-date">
+		                                    2022-10-13 17:38
+		                                </td>
+		                            </tr>
+		                            <!-- // 3회차 부터 scroll 확인 끝 }-->
+		                        </tbody>
+	                        </table>
+                        </div>
+                        <div class="tooltip-txt-wrap mt25">
+							<p class="tooltip-txt">차량 입고일은 주문일자 기준 30일 이내 설정가능하며,입고 전날 오후 3시까지 입력하시기 바랍니다.</p>
+							<p class="tooltip-txt">입고 차량에 대한 기사 정보는 해당 차량 입고 당일 오전 9시까지 입력하시기 바랍니다.</p>
+							<p class="tooltip-txt">챠랑 입고일 및 기사 정보 미 입력 시 상품 출고가 되지 않습니다.</p>
+							<p class="tooltip-txt">기타 문의 사항은 고객센터에 문의하세요. ( 문의처 02-6952-5095)</p>
+						</div>
+                    </div>
+                    <div class="btn-wrap mt30">
+                        <button type="button" class="btn-gray-big modal-x">닫기</button>
+                        <button type="button" class="btn-blue-big">저장하기</button>
+                    </div>
+
+                </div><!--// .section -->
+            </div><!-- // .div-scroll-y -->
+
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// MODAL POPUP : 차량정보 등록-->
+
+<!-- 23.06.28 | MODAL POPUP : 마이페이지 > 차량 관리 > 신규 차량 등록 -->
+<div class="popup modal" id="sorinModalNewTruck">
+	<div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close">
+				<button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button>
+			</div>
+            <h1 class="h2-pd">차량 정보 등록</h1>
+            <div class="div-scroll-y">
+                <div class="section section-delivery">
+					<div class="tbl-v center">
+						<input type="text" name="newTruck" id="newTruck" class="delivery-input w430px" placeholder="차량번호를 입력해 주세요.">
+					</div>
+					<div class="tooltip-txt-wrap mt20">
+						<p class="tooltip-txt">차량 번호는 자차 배송 시 귀사의 상품을 정확하게 배송하기 위해 매칭되는 정보입니다.</p>
+						<p class="tooltip-txt">차량 번호는 최대 5개까지 등록 가능합니다.</p>
+						<p class="tooltip-txt">정확하게 데이터를 입력해주세요.</p>
+					</div>
+                    <div class="btn-wrap">
+                        <button type="button" class="btn-gray-big modal-x">취소</button>
+                        <button type="button" class="btn-blue-big">등록</button>
+                    </div>
+
+                </div><!--// .section -->
+
+            </div><!-- // .div-scroll-y -->
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// 23.06.28 | MODAL POPUP : 마이페이지 > 차량 관리 > 신규 차량 등록 -->
+
+
+<!-- 23.06.28 | MODAL POPUP : 마이페이지 > 차량 관리 > 차량 정보 수정 -->
+<div class="popup modal" id="sorinModalModifyTruck">
+	<div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close">
+				<button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button>
+			</div>
+            <h1 class="h2-pd">차량 정보 수정</h1>
+            <div class="div-scroll-y">
+                <div class="section section-delivery">
+					<div class="tbl-v center">
+						<input type="text" name="newTruck" id="newTruck" class="delivery-input w430px" value="47부 9982" placeholder="차량번호를 입력해 주세요.">
+					</div>
+					<div class="tooltip-txt-wrap mt20">
+						<p class="tooltip-txt">차량 번호는 자차 배송 시 귀사의 상품을 정확하게 배송하기 위해 매칭되는 정보입니다.</p>
+						<p class="tooltip-txt">정확하게 데이터를 입력해주세요.</p>
+					</div>
+                    <div class="btn-wrap">
+                        <button type="button" class="btn-gray-big modal-x">취소</button>
+                        <button type="button" class="btn-blue-big">수정</button>
+                    </div>
+
+                </div><!--// .section -->
+
+            </div><!-- // .div-scroll-y -->
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// 23.06.28 | MODAL POPUP : 마이페이지 > 차량 관리 > 차량 정보 수정 -->
+
+
+<!-- 23.06.28 | MODAL POPUP : 마이페이지 > 차량 관리 > 기사 정보 > 신규 기사 등록 -->
+<div class="popup modal" id="sorinModalNewDriver">
+	<div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close">
+				<button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button>
+			</div>
+            <h1 class="h2-pd">신규 기사 등록</h1>
+            <div class="div-scroll-y">
+                <div class="section section-delivery">
+					<div class="tbl-v center flex-ac-jac">
+						<input type="text" name="newDriver1" id="newDriver1" class="delivery-input w300px" placeholder="차량 기사명을 입력해 주세요.">
+						<input type="number" name="newDriver2" id="newDriver2" class="delivery-input w300px ml10" placeholder="기사 연락처를 입력해 주세요.">
+					</div>
+					<div class="tooltip-txt-wrap mt20">
+						<p class="tooltip-txt">기사 정보는 자차 배송 시 귀사의 상품을 정확하게 배송하기 위해 매칭되는 정보입니다.</p>
+						<p class="tooltip-txt">기사 정보는 최대 5개까지 등록 가능합니다.</p>
+						<p class="tooltip-txt">정확하게 데이터를 입력해주세요.</p>
+					</div>
+                    <div class="btn-wrap">
+                        <button type="button" class="btn-gray-big modal-x">취소</button>
+                        <button type="button" class="btn-blue-big">등록</button>
+                    </div>
+
+                </div><!--// .section -->
+
+            </div><!-- // .div-scroll-y -->
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// 23.06.28 | MODAL POPUP : 마이페이지 > 차량 관리 > 기사 정보 > 신규 기사 등록 -->
+
+<!-- 23.06.28 | MODAL POPUP : 마이페이지 > 차량 관리 > 기사 정보 > 기사 정보 수정 -->
+<div class="popup modal" id="sorinModalModifyDriver">
+	<div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close">
+				<button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button>
+			</div>
+            <h1 class="h2-pd">기사 정보 수정</h1>
+            <div class="div-scroll-y">
+                <div class="section section-delivery">
+					<div class="tbl-v center flex-ac-jac">
+						<input type="text" name="newDriver1" id="newDriver1" class="delivery-input w300px" value="차은우" placeholder="차량 기사명을 입려해 주세요.">
+						<input type="text" name="newDriver2" id="newDriver2" class="delivery-input w300px ml10" value="010-0000-0000" placeholder="기사 연락처를 입력해 주세요.">
+					</div>
+					<div class="tooltip-txt-wrap mt20">
+						<p class="tooltip-txt">기사 정보는 자차 배송 시 귀사의 상품을 정확하게 배송하기 위해 매칭되는 정보입니다.</p>
+						<p class="tooltip-txt">정확하게 데이터를 입력해주세요.</p>
+					</div>
+                    <div class="btn-wrap">
+                        <button type="button" class="btn-gray-big modal-x">취소</button>
+                        <button type="button" class="btn-blue-big">수정</button>
+                    </div>
+
+                </div><!--// .section -->
+
+            </div><!-- // .div-scroll-y -->
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// 23.06.28 | MODAL POPUP : 마이페이지 > 차량 관리 > 기사 정보 > 신규 기사 수정 -->
+
+<!-- MODAL POPUP : 매매계약서 -->
+<div class="popup modal" id="sorinModalContracts">
+    <div class="modal-content w1200px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+
+            <div class="hgroup-main">
+                <div>
+                    <h1 class="h2">매매계약서</h1>
+                </div>
+                <div class="btns exception">
+                    <button type="button" class="btn-stroke-md blue">거래 명서세</button>
+                    <button type="button" class="btn-stroke-md blue">세금 계산서</button>
+                </div>
+            </div>
+            <div class="div-scroll-y">
+                <div class="section">
+                    <div class="printarea-wrap">
+                        <table class="tbl-v">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">계약번호</th>
+                                    <td>PO2021030812​</td>
+                                    <th scope="row">계약일자</th>
+                                    <td>2021-03-25 10:25:47</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        <div class="ordersheet-detail">
+                                            <p class="p1">
+                                                "서린상사(주)"와 "<span class="fc-blue">주식회사 액션캣</span>"은 <span class="fc-blue">Speical High Grade Zinc Slab Ingot</span> 물품매매계약서를 체결합니다.
+                                            </p>
+                                            <ul class="list">
+                                                <li>
+                                                    <div class="in">
+                                                        <dl class="list-data">
+                                                            <dt>판매자</dt>
+                                                            <dd>
+                                                                서린상사(주)
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="in">
+                                                        <dl class="list-data">
+                                                            <dt>구매자</dt>
+                                                            <dd>
+                                                                주식회사 액션캣
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="in">
+                                                        <dl class="list-data">
+                                                            <dt>품명</dt>
+                                                            <dd>
+                                                                Aluminum Ingot P1020
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="in">
+                                                        <dl class="list-data">
+                                                            <dt>수량</dt>
+                                                            <dd>
+                                                                주문수량 / 단위
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="in">
+                                                        <dl class="list-data">
+                                                            <dt>주문단가</dt>
+                                                            <dd>
+                                                                <span class="price">000,000,000</span> (VAT별도)
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="in">
+                                                        <dl class="list-data">
+                                                            <dt>기본가격</dt>
+                                                            <dd>
+                                                                수량 X 주문단가 (VAT별도)
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="in">
+                                                        <dl class="list-data">
+                                                            <dt>중량변동금</dt>
+                                                            <dd>
+                                                                <span class="price">000</span><span class="unit">원</span>(VAT별도)
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="in">
+                                                        <dl class="list-data">
+                                                            <dt>부가가치세</dt>
+                                                            <dd>
+                                                                <span class="price">000</span><span class="unit">원</span>
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="in">
+                                                        <dl class="list-data">
+                                                            <dt>총 주문금액</dt>
+                                                            <dd>
+                                                                <span class="price">000,000,000</span><span class="unit">원</span>
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="in">
+                                                        <dl class="list-data">
+                                                            <dt>결제수단</dt>
+                                                            <dd>
+                                                                e-wallet
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="in">
+                                                        <dl class="list-data">
+                                                            <dt>물품인도</dt>
+                                                            <dd>
+                                                                상차도 조건 (인천창고, 창고주소, 인도담당자, 연락처)<br>
+                                                                도착도 조건 (도착지주소, 인수담당자, 연락처)<br>
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="in">
+                                                        <dl class="list-data">
+                                                            <dt>물품양도 예정일</dt>
+                                                            <dd>
+                                                                2021-03-27
+                                                            </dd>
+                                                        </dl>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <p class="ordersheet-notice">
+                                                본 계약에 약정하지 않은 사항이나 계약 해석상의 이견이 발생하였을 경우에는 일반 상관례에 따라 쌍방 합의하에 처리한다.​
+                                            </p>
+                                            <!-- -->
+                                            <div class="box-wrap">
+                                                <div>
+                                                    <dl class="contractor">
+                                                        <dt>판매자 : (주)서린상사</dt>
+                                                        <dd>
+                                                            <p>사업자등록번호 : 593-01-265983</p>
+                                                            <p>대표이사 : 홍길동</p>
+                                                            <p>소재지 : 서울특별시 강남구 강남대로 542 (논현동)</p>
+                                                            <div class="co-sealed-area"><span class="sorin-seal"></span></div>
+                                                        </dd>
+                                                    </dl>
+                                                </div>
+                                                <div>
+                                                    <dl class="contractor">
+                                                        <dt>구매자 : (주)구매회사</dt>
+                                                        <dd>
+                                                            <p>사업자등록번호 : 593-01-265983</p>
+                                                            <p>대표이사 : 홍길동</p>
+                                                            <p>소재지 : 경기도 부천시 경린로92번길 21</p>
+                                                            <div class="co-sealed-area">
+                                                                <!-- <button type="button">전자서명하기</button> -->
+                                                            </div>
+                                                        </dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                            <!-- -->
+                                        </div><!--// .ordersheet-detail -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="btn-wrap">
+                            <button type="button" class="btn-blue-big btn-print">인쇄하기</button>
+                        </div>
+                    </div><!--// .printarea-wrap -->
+
+                </div><!--// .section -->
+                
+            </div><!-- // .div-scroll-y -->
+
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// MODAL POPUP : 매매계약서 -->
+
+
+
+<!-- MODAL POPUP : 입금확인서-->
+<div class="popup modal" id="sorinModalDpositConfirm">
+    <div class="modal-content w1060px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+
+            <div class="hgroup">
+                <h1 class="h2 center mb0">입금확인서</h1>
+            </div>
+            <div class="div-scroll-y mt10">
+                <div class="section">
+                    <div class="article">
+                        <table class="tbl-v mt30">
+                            <caption>입금확인서</caption>
+                            <colgroup>
+                                <col style="width:15rem;">
+                                <col>
+                                <col style="width:15rem;">
+                                <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">입금일시</th>
+                                    <td>
+                                        <p>2022-06-15 12:56:23</p>
+                                    </td>
+                                    <th scope="row">입금자</th>
+                                    <td>
+                                        <p>업체명</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">입금금액</th>
+                                    <td>
+                                        <p>24,792,000 원</p>
+                                    </td>
+                                    <th scope="row">입금방법</th>
+                                    <td>
+                                        <p>e-Wallet</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">주문정보</th>
+                                    <td colspan="3">
+                                        <table class="tbl t4 mb20 mt20">
+                                            <colgroup>
+                                                <col span="4" style="width:25%;">
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">주문번호</th>
+                                                    <th scope="col">주문상품</th>
+                                                    <th scope="col">총 결제금액</th>
+                                                    <th scope="col">계약금 비율</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="td-padding">20220523-S00001</td>
+                                                    <td class="td-padding">PRIMARY AL INGOT P1020 </td>
+                                                    <td>125,980,000 원</td>
+                                                    <td>20%</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="text-center mt50">
+                            <p class="mb30">위와 같이 계약금을 입하였음을 확인합니다.</p>
+                            <p>2022년 6월 16일</p>
+                        </div>
+                        <div class="sign-box flex-end">
+                            <dl>
+                                <dd class="bold">(주)서린상사</dd>
+                                <dd>사업자등록번호 : 211-81-19597</dd>
+                                <dd>대표이사 : 장세환, 곽재요</dd>
+                            </dl>
+                            <div class="stamp flex-center">서린</br>날인</div>
+                        </div>
+                    </div>
+                    <div class="btn-wrap mt40">
+                        <button type="button" class="btn-blue-big">출력하기</button>
+                    </div>
+
+                </div><!--// .section -->
+            </div><!-- // .div-scroll-y -->
+
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// MODAL POPUP : 입금확인서-->
+
+
+<!-- Modal Popup : 서린닷컴 이용약관 -->
+<div class="popup modal" id="sorinModalContract">
+    <div class="modal-content w500px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <h1 class="h3">서린닷컴 이용약관</h1>
+            <div class="context-box h436px scroll-y scroll-trans">
+                <div class="contract-con">
+                    [ 서린닷컴 이용 약관 ]<br>
+                    제1장 총칙<br>
+                    <br>
+                    제 1 조 (목적)<br>
+                    이 약관은 서린닷텀 주식회사(이하 “회사”)가 운영하는 사이버몰에서 제공하는
+                    서비스와 이를 이용하는 회원의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.<br>
+                    <br>
+                    제 2 조 (용어의 정의)<br>
+                    이 약관에서 사용하는 용어의 정의는 다음과 같습니다. 그리고 여기에서 정의되지 않은
+                    이 약관상의 용어의 의미는 일반적인 거래관행에 따릅니다.<br>
+                    1. “사이버몰”이란 회사가 상품 또는 용역 등(일정한 시설을 이용하거나 용역을
+                    제공받을 수 있는 권리를 포함하며, 이하 “상품 등”)을 회원에게 제공하기 위하여
+                    컴퓨터 등 정보통신설비를 이용하여 상품 등을 거래할 수 있도록 설정한 가상의
+                    영업장(http://www.coupang.com 등 회사가 운영하는 웹사이트 및 모바일 웹, 앱
+                    등을 모두 포함)을 의미합니다.<br>
+                    2. “회원”이라 함은 사이버몰에 회원등록을 한 자로서, 계속적으로 사이버몰에서
+                    제공하는 서비스를 이용할 수 있는 자를 말합니다.<br>
+                    3. “아이디(ID)”라 함은 회원의 식별과 서비스 이용을 위하여 회원이 설정하고 회사가
+                    승인하여 등록된 전자우편주소를 말합니다.<br>
+                    4. “비밀번호(Password)”라 함은 회원의 동일성 확인과 회원의 권익 및 비밀보호를
+                    위하여 회원 스스로가 설정하여 사이버몰에 등록한 문자와 숫자 등의 조합을 말합니다.<br>
+                    5. “마켓플레이스 서비스(MarketPlace Service)”라 함은 회사가 사이버몰을 통하여 함은 회사가 사이버몰을 통하여 함은 회사가 사이버몰을 통하여
+                </div>
+            </div>
+            <div class="btn-wrap">
+                <button type="button" class="btn-blue modal-x btn-confirm-contract">확인</button>
+            </div>
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// Modal Popup -->
+<!-- script core -->
+<script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="/guide/js/select2/select2.min.js"></script>
+<!-- script extra -->
+<script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+<script src="/guide/js/swiper/6.7.0/swiper.js"></script>
+<!-- script custom -->
+<script src="/guide/js/sorin.js"></script>
+<script src="/guide/js/sorin-my.js"></script>
+<script src="/guide/js/sorin-layout.js"></script>
+<!-- script embedded -->
+<script>
+
+/* 차량 정보 등록/ 수정 팝업('#sorinModalRegTrans') > 차량번호/ 기사명/ 기사 연락처 select > 직접입력 option 선택시 */
+	// 1. 차량번호/ 기사명/ 기사 연락처 select > 직접입력 option 선택시
+	 $('.switch-box').each(function(){
+	   
+		$(this).find('.selbox-wrap').on('select2:select', function (e) { 
+		    let directOption = $(this).find(':selected').text() == "직접입력";
+		    let parentsSwitchBox = $(this).parents('.switch-box');
+		    
+		    let data = e.params.data;
+	    	console.log(data);
+		    
+		    if(directOption) {
+				parentsSwitchBox.find('.input-wrap').show()
+				parentsSwitchBox.find('.selbox-wrap').next('.select2-container').hide()
+			} else {
+				parentsSwitchBox.find('.input-wrap').hide()
+				parentsSwitchBox.find('.selbox-wrap').next('.select2-container').show()
+			}
+		});
+	 });								
+	
+	// 2. .input-wrap reset button
+	// 2-1. 입력시 삭제 버튼 show
+	$('.btn-reset').hide();
+	$('.input-wrap input:text').keyup(function() {
+	   $(this).parents('.switch-box').find('.btn-reset').show();
+	});
+
+	// 2-2. 삭제 버튼 click시
+	$('.btn-reset').each(function(){
+		$(this).on('click', function(){
+			$(this).parents('.switch-box').find('.btn-reset').hide();
+			$('.input-wrap').find('input:text').val('');
+			$(this).parents('.switch-box').find('.input-wrap').hide()
+			$(this).parents('.switch-box').find('.select2-container').show();
+			$(this).parents('.switch-box').find('select').val(0).trigger('change');
+		});
+	});	
+	
+	
+	
+	
+	
+// 주문목록 버튼
+$('.btn-orderlist').on('click', function(){
+    document.location.href='SOREC-SB-AVG-005-1.html';
+});
+// 주문관련 문의 버튼
+$('.btn-orderquest').on('click', function(){
+    alert('주문관련 문의 모달 팝업 : SOREC-SC-FMY-020 참고');
+});
+// 배송지 수정 버튼 
+$('.btn-modify-address').on('click', function(){
+    $(this).addClass('hide').siblings('button').removeClass('hide');
+    $(this).closest('.section').find('div.read').closest('tr').addClass('edit');
+});
+// 배송지 수정 완료 버튼
+$('.btn-modify-addressd-done').on('click', function(){
+    $(this).addClass('hide').siblings('button').removeClass('hide');
+    $(this).closest('.section').find('div.read').closest('tr').removeClass('edit');
+});
+
+// 서비스 이용약관 모달 팝업 내 [확인] 버튼
+$('.btn-confirm-contract').on('click', function(){
+    $('#agreeBoxAll').prop('checked', true);
+});
+/* 출력
+$('.popup .btn-print').on('click', function(){
+    if (!document.execCommand("print", false, null)) window.print();
+});*/
+</script>
+
+</body>
+</html>

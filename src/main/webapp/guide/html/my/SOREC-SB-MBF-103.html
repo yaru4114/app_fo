@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>마이페이지 홈 대시보드 | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <!-- header include -->
+    <div class="header-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+    <!-- //header include --> 
+    <div class="container">
+   		<!-- dashboard include -->
+      	<div class="dashboard-wrap include-wrap"></div>
+      	<script type="text/javascript"> $(".dashboard-wrap").load("/guide/html/include/my/dashboard.html");</script>
+        <!-- //dashboard include -->
+        <div class="section">
+            <div class="inwrap table">
+            	<!-- lnb include -->            	
+                <div class="lnb-wrap include-wrap"></div>
+   				<script type="text/javascript"> $(".lnb-wrap").load("/guide/html/include/my/lnb.html");</script>
+                <!-- lnb include -->
+                <div class="content">
+                    <div class="section trade-list">
+                        <div class="hgroup">
+                            <h2 class="h3">최근 거래내역</h2>
+                            <div class="btns">
+                                <button type="button" class="btn-all-arrow">전체보기</button>
+                            </div>
+                        </div>
+                        
+                        <!-- 주문현황 관련 변경 시작 | 2021-11-29 -->
+                        <table class="tbl t2">
+                        <caption>최근 거래내역 : 주문요청, 주문확정, 배송중, 배송완료, 취소/교환/반품 건수</caption>
+                        <colgroup>
+                        <col span="6" style="width:16.66%;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">주문완료</th>
+                                <th scope="col">배송준비</th>
+                                <th scope="col">출고지시</th>
+                                <th scope="col">배차중</th>
+                                <th scope="col">배송중</th>
+                                <th scope="col">배송완료</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="#" class="order-ea fc-blue">12</a></td>
+                                <td><a href="#" class="order-ea">1</a></td>
+                                <td><a href="#" class="order-ea">4</a></td>
+                                <td><a href="#" class="order-ea">2</a></td>
+                                <td><a href="#" class="order-ea">1</a></td>
+                                <td><a href="#" class="order-ea">4</a></td>
+                            </tr>
+                            <!-- no-data -->
+                            <tr>
+                                <td colspan="6">
+                                    <div class="no-data fs14 h80px">최근 거래 내역이 없습니다.</div>
+                                </td>
+                            </tr>
+                            <!--// no-data -->
+                        </tbody>
+                        </table>
+                        <!-- //주문현황 관련 변경 끝-->
+                        
+                    </div>
+
+                    <div class="section payment-list">
+                        <div class="hgroup">
+                            <h2 class="h3">미납 <span class="fc-red bold"><span class="fc-red">1</span>건</span> / 대기 <span class="fc-red bold"><span class="fc-red">0</span>건</span> / 예정 <span class="fc-red bold"><span class="fc-red">2</span>건</span> 결제 내역</h2>
+                            <div class="btns">
+                                <button type="button" class="btn-all-arrow">전체보기</button>
+                            </div>
+                        </div>
+                        <ul class="list t2">
+                            <li>
+                                <div class="cart-item-wrap">
+                                    <figure class="figure">
+                                        <img src="/guide/images/my/al_sum.jpg" alt="알루미늄" data-popup="modal" data-target="sorinModalPayDetail">
+                                    </figure>
+                                    <div class="figure-con">
+                                        <p class="pd-name fc-blue" data-popup="modal" data-target="sorinModalPayDetail"><span class="pd-label">AL</span>20220428-S00002</p>
+                                        <table class="tbl t4">
+                                            <colgroup>
+                                                <col span="5" style="width:20%;">
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">결제수단</th>
+                                                    <th scope="col">주문금액</th>
+                                                    <th scope="col">e-wallet 결제액</th>
+                                                    <th scope="col">입금액</th>
+                                                    <th scope="col">입금일</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>e-wallt+B2B대출보증</td>
+                                                    <td>100,000,000</td>
+                                                    <td>200,000,000</td>
+                                                    <td>200,000,000</td>
+                                                    <td>2022-05-01</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                                <div class="pay-wrap flex-between">
+                                    <div class="pay-condition flex-start">
+                                        <span class="item late">미납</span>
+                                        <div class="mt-date">
+                                            <span class="tit">결제예정일</span>
+                                            <span class="item">2022-05-04</span>
+                                        </div>
+                                        <div class="mt-price">
+                                            <span class="tit">결제예정액</span>
+                                            <span class="item">60,000,000 원</span>
+                                        </div>
+                                    </div>
+                                    <div class="btns">
+                                        <button type="button" class="btn-blue-md" data-popup="modal" data-target="sorinModalEwallet">e-Wallet<span class="ripple"></span></button>
+                                        <button type="button" class="btn-stroke-md blue" data-popup="modal" data-target="sorinModalBankDefault">매매계약서 생성<span class="ripple"></span></button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cart-item-wrap">
+                                    <figure class="figure">
+                                        <img src="/guide/images/my/al_sum.jpg" alt="알루미늄" data-popup="modal" data-target="sorinModalPayDetail">
+                                    </figure>
+                                    <div class="figure-con">
+                                        <p class="pd-name fc-blue" data-popup="modal" data-target="sorinModalPayDetail"><span class="pd-label">ZN</span>20220428-S00002</p>
+                                        <table class="tbl t4">
+                                            <colgroup>
+                                                <col span="5" style="width:20%;">
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">결제수단</th>
+                                                    <th scope="col">주문금액</th>
+                                                    <th scope="col">e-wallet 결제액</th>
+                                                    <th scope="col">입금액</th>
+                                                    <th scope="col">입금일</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>e-wallt+B2B대출보증</td>
+                                                    <td>100,000,000</td>
+                                                    <td>200,000,000</td>
+                                                    <td>200,000,000</td>
+                                                    <td>2022-05-01</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                                <div class="pay-wrap flex-between">
+                                    <div class="pay-condition flex-start">
+                                        <span class="item soon">예정</span>
+                                        <div class="mt-date">
+                                            <span class="tit">결제예정일</span>
+                                            <span class="item">2022-05-10</span>
+                                        </div>
+                                        <div class="mt-price">
+                                            <span class="tit">결제예정액</span>
+                                            <span class="item">60,000,000 원</span>
+                                        </div>
+                                    </div>
+                                    <div class="btns">
+                                        <button type="button" class="btn-blue-md" onClick="location.href='#'">은행 바로가기<span class="ripple"></span></button>
+                                        <button type="button" class="btn-gray-md" data-popup="modal" data-target="">매매계약서 취소<span class="ripple"></span></button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cart-item-wrap">
+                                    <figure class="figure">
+                                        <img src="/guide/images/my/al_sum.jpg" alt="알루미늄" data-popup="modal" data-target="sorinModalPayDetail">
+                                    </figure>
+                                    <div class="figure-con">
+                                        <p class="pd-name fc-blue" data-popup="modal" data-target="sorinModalPayDetail"><span class="pd-label">AL</span>20220428-S00002</p>
+                                        <table class="tbl t4">
+                                            <colgroup>
+                                                <col span="5" style="width:20%;">
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">결제수단</th>
+                                                    <th scope="col">주문금액</th>
+                                                    <th scope="col">e-wallet 결제액</th>
+                                                    <th scope="col">입금액</th>
+                                                    <th scope="col">입금일</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>e-wallt+B2B대출보증</td>
+                                                    <td>100,000,000</td>
+                                                    <td>200,000,000</td>
+                                                    <td>200,000,000</td>
+                                                    <td>2022-05-01</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                                <div class="pay-wrap flex-between">
+                                    <div class="pay-condition flex-start">
+                                        <span class="item soon">예정</span>
+                                        <div class="mt-date">
+                                            <span class="tit">결제예정일</span>
+                                            <span class="item">2022-05-10</span>
+                                        </div>
+                                        <div class="mt-price">
+                                            <span class="tit">결제예정액</span>
+                                            <span class="item">60,000,000 원</span>
+                                        </div>
+                                    </div>
+                                    <div class="btns">
+                                        <button type="button" class="btn-blue-md" data-popup="modal" data-target="sorinModalSoonRepay">e-Wallet<span class="ripple"></span></button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="section alram-list">
+                        <div class="hgroup">
+                            <h2 class="h3">최근 알림 내역</h2>
+                            <div class="btns">
+                                <button type="button" class="btn-all-arrow">전체보기</button>
+                            </div>
+                        </div>
+                        <table class="tbl t2">
+                        <caption>최근 알림 내역</caption>
+                        <colgroup>
+                        <col span="2" style="width:50%;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">알림내용</th>
+                                <th scope="col">알림시간</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><div class="order-alarm">알루미늄미(P1020) 2,470,000 도달</div></td>
+                                <td><div class="order-alarm">2021-05-06 10:50:20</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="order-alarm">알루미늄미(P1020) 2,470,000 도달</div></td>
+                                <td><div class="order-alarm">2021-05-06 10:50:20</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="order-alarm">Zinc Diecast Ingot 3,241,250 도달</div></td>
+                                <td><div class="order-alarm">2021-05-05 14:10:00</div></td>
+                            </tr>
+                            <!-- no-data -->
+                            <tr>
+                                <td colspan="2">
+                                    <div class="no-data fs14 h180px">최근 알림 내역이 없습니다.</div>
+                                </td>
+                            </tr>
+                            <!--// no-data -->
+                        </tbody>
+                        </table>
+                    </div>
+
+                    <div class="section quest-list">
+                        <div class="hgroup">
+                            <h2 class="h3">최근 문의/답변 내역</h2>
+                            <div class="btns">
+                                <button type="button" class="btn-all-arrow">전체보기</button>
+                            </div>
+                        </div>
+                        <table class="tbl t2">
+                        <caption>최근 문의/답변 내역</caption>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a href="#" class="order-quest">
+                                        <span class="label-gray">답변대기</span>
+                                        <div class="quest-desc">
+                                            <p class="quest-info">주문문의 &lt; 결제 | ORDER2021203477261 (acrioncat 2021-03-27)</p>
+                                            <p class="quest-stit">거래소, 기업사냥형 부정거래 적발 시스템 가동…7개 종목서 2000억원 적발</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#" class="order-quest">
+                                        <span class="label-gray">답변대기</span>
+                                        <div class="quest-desc">
+                                            <p class="quest-info">주문문의 &lt; 주문방법 | (acrioncat 2021-03-27)</p>
+                                            <p class="quest-stit">소진공, 재기 소상공인 취업지원 위한 산&middot;학&middot;관 업무협약 체결</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="#" class="order-quest">
+                                        <span class="label-blue">답변완료</span>
+                                        <div class="quest-desc">
+                                            <p class="quest-info">주문문의 &lt; 결제 | ORDER2021203477261 (acrioncat 2021-03-27)</p>
+                                            <p class="quest-stit">노형욱 국토부장관 "전국 모든 철거 공사현장 긴급 안전점검 실시"</p>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <!-- no-data -->
+                            <tr>
+                                <td>
+                                    <div class="no-data fs14 h245px">최근 문의 내역이 없습니다.</div>
+                                </td>
+                            </tr>
+                            <!--// no-data -->
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer include -->
+    <div class="footer-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+    <!-- //footer include -->
+</div>
+
+<!-- MODAL POPUP : ewallet - 상환하기 -->
+<div class="popup modal repay-modal active" id="sorinModalEwallet">
+    <div class="modal-content w1000px">
+        <div class="max-width my">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <!-- <div class="div-scroll-y"> -->
+                <form class="form-chk">
+                    <div class="section">
+                        <div class="article list">
+                            <h1 class="h2-pd">e-Wallet 상환하기</h1>
+                            <table class="tbl-v mt30 repay">
+                                <caption>e-Wallet 상환하기</caption>
+                                <colgroup>
+                                    <col style="width:15rem;">
+                                    <col>
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">e-wallet 잔고</th>
+                                        <td>
+                                            <div class="txt-box">
+                                                <span class="mo">1,025,021,478</span>
+                                                <span class="bt"><button type="button" class="btn-reload">현재 잔고 새로고침</button></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">상환대상</th>
+                                        <td>
+                                            <div class="cart-item-wrap">
+                                                <div class="figure-con">
+                                                    <p class="pd-name fc-blue"><span class="pd-label">AL</span>20220428-S00002</p>
+                                                    <table class="tbl t4">
+                                                        <colgroup>
+                                                            <col span="3" style="width:33.33%;">
+                                                        </colgroup>
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">결제수단</th>
+                                                                <th scope="col">주문금액</th>
+                                                                <th scope="col">입금액</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>계약금</td>
+                                                                <td>100,000,000</td>
+                                                                <td>200,000,000</td>                        
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="pay-wrap mt15">
+                                                <div class="pay-condition flex-start">
+                                                    <span class="tit">결제상태</span>
+                                                    <span class="item stroke-black">예정</span>
+                                                    <span class="item stroke-black hide">대기</span>
+                                                    <span class="item fill-black hide">사고</span>
+                                                    <span class="item fill-red hide">연체</span>
+                                                    <span class="item fill-red hide">미납</span>
+                                                    <span class="item fill-green hide">완료</span>
+                                                    <div class="mt-date">
+                                                        <span class="tit">결제예정일</span>
+                                                        <span class="item">2022-05-04</span>
+                                                    </div>
+                                                    <div class="mt-price">
+                                                        <span class="tit">결제예정액</span>
+                                                        <span class="item">80,000,000 원</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label for="refundTarget">상환금액</label></th>
+                                        <td>
+                                            <div class="refund-amount">
+                                                <div class="refund-input mb0">
+                                                    <input type="text" name="refundTarget" id="refundTarget" 
+                                                        value="80,000,000" 
+                                                        maxlength="20"
+                                                        readonly="readonly"
+                                                        onkeyup="inputNumberFormat(this); numTohan(this.value)"
+                                                    >
+                                                    <label for="refundTargetText" class="hidden">상환금액</label>
+                                                    <input type="text" name="refundTargetText" id="refundTargetText" readonly="readonly" value="팔억원">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="btn-wrap">
+                            <button type="button" class="btn-gray-big modal-x">취소</button>
+                            <button type="button" class="btn-blue-big">입금처리</button>
+                        </div>
+                    </div>
+                </form>
+            <!-- </div>// .div-scroll-y -->
+
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// MODAL POPUP : ewallet - 상환하기 -->
+
+<!-- MODAL POPUP : 대출보증 상환하기(미납) -->
+<div class="popup modal repay-modal active" id="sorinModalBankDefault">
+    <div class="modal-content w1000px">
+        <div class="max-width my">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <!-- <div class="div-scroll-y"> -->
+                <form class="form-chk">
+                    <div class="section">
+                        <div class="article list">
+                            <h1 class="h2-pd">대출보증 상환하기</h1>
+                            <table class="tbl-v mt30 repay">
+                                <caption>대출보증 상환하기</caption>
+                                <colgroup>
+                                    <col style="width:15rem;">
+                                    <col>
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">e-wallet 잔고</th>
+                                        <td class="flex-start">
+                                            <select class="dropdown">
+                                                <option class="fc-black">국민은행</option>
+                                            </select>
+                                            <div class="txt-box">
+                                                <span class="mo">1,025,021,478</span>
+                                                <span class="bt"><button type="button" class="btn-reload">현재 잔고 새로고침</button></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">상환대상</th>
+                                        <td>
+                                            <div class="cart-item-wrap">
+                                                <div class="figure-con">
+                                                    <p class="pd-name fc-blue"><span class="pd-label">AL</span>20220428-S00002</p>
+                                                    <table class="tbl t4">
+                                                        <colgroup>
+                                                            <col span="3" style="width:33.33%;">
+                                                        </colgroup>
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">결제수단</th>
+                                                                <th scope="col">주문금액</th>
+                                                                <th scope="col">입금액</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>대출보증대출</td>
+                                                                <td>100,000,000</td>
+                                                                <td>200,000,000</td>                        
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="pay-wrap mt10">
+                                                <div class="pay-condition">
+                                                    <span class="tit">결제상태</span>
+                                                    <span class="item stroke-black hide">예정</span>
+                                                    <span class="item stroke-black hide">대기</span>
+                                                    <span class="item fill-black hide">사고</span>
+                                                    <span class="item fill-red hide">연체</span>
+                                                    <span class="item fill-red">미납</span>
+                                                    <span class="item fill-green hide">완료</span>
+                                                    <div class="mt-date">
+                                                        <span class="tit">결제예정일</span>
+                                                        <span class="item">2022-05-04</span>
+                                                    </div>
+                                                    <div class="mt-price">
+                                                        <span class="tit">결제예정액</span>
+                                                        <span class="item">80,000,000 원</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label for="refundTarget">만기일</label></th>
+                                        <td>
+                                            <div class="flex-between maturity-select">
+                                                <div class="datepicker-wrap">
+                                                    <input type="text" class="datepicker date-input" placeholder="만기일을 선택해 주세요.">
+                                                </div>
+                                                
+                                            </div>
+                                            
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="flex-center mt20">
+                            	<div class="form-chk ml10 flex-start">
+		                            <input type="checkbox" id="agreeBoxAll">
+		                            <label for="agreeBoxAll">만기일정보 제3자 제공 동의에 대한 약관 동의합니다.</label>
+		                        </div>
+                                <button type="button" class="btn-stroke-md datail-info ml20">자세히보기</button>
+                            </div>
+                            <div class="detail-info-box mt10 mb15">
+                                <div class="box-close"><button type="button" class="box-x"><span class="hidden">팝업 닫기</span></button></div>
+                                [기업회원 이용약관]
+                                </br></br>
+                                제1조 (목적)
+                                이 약관은 주식회사 서린상사(이하 “회사”)가 운영하는 서린닷컴(www.metalsorin.com) 인터넷 사이트 와 모바일 서비스(m.metalsorin.com)
+                                (이하 “서린닷컴”이라 함) 에서 제공하는 인터넷 관련 서비스 (이하 “서비스”)를 이용함에 있어 회사와 회원의 권리∙의무 및 책임사항을 규정함을
+                                적으로 합니다
+                            </div>
+                        </div>
+                        <div class="btn-wrap">
+                            <button type="button" class="btn-gray-big modal-x">취소</button>
+                            <button type="button" class="btn-blue-big">입금처리</button>
+                        </div>
+                        <div class="red-box mt30">
+                            <dl>
+                                <dt>· 당일 출고 결제가능시간은  09:00~15:00 입니다.</dt>
+                                <dt>· 17:00 까지 은행에서 상환실행해야만, 당일 출고가 가능 합니다.</dt>
+                                <dt>· 17:00 이후에 은행에서 상환실행시, 배송요청일 변경해야합니다. (고객센터로 문의)</dt>
+                                <dt>· 결제금액 이체와 관련하여 궁금한 것이 있으시면 고객센타(02-XXX-XXXX)로 문의해 주세요.</dt>
+                            </dl>
+                        </div>
+                    </div>
+                </form>
+            <!-- </div>// .div-scroll-y -->
+
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// MODAL POPUP : 대출보증 상환하기(미납) -->
+
+<!-- MODAL POPUP : 상환하기(탭형식) -->
+<div class="popup modal repay-modal active" id="sorinModalEwallet">
+    <div class="modal-content w1000px">
+        <div class="max-width my">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <!-- <div class="div-scroll-y"> -->
+                <h1 class="h2-pd tab-tit">대출보증 상환하기</h1>
+                <h3 class="h4 tab-txt">계약된 대출보증의 결제은행과 만기일을 선택해 주세요.</br>이체하기 버튼을 누르시면 결제은행 사이트로 이동되며, 로그인 후 결제금액을 이체하시면 됩니다.</h3>
+                <div class="btn-toggle-wrap tab-wrap">
+                    <div><button type="button" class="toggle tab-button active" data-tab-section="tab-section-1"><span>e-Wallet</span></button></div>
+                    <div><button type="button" class="toggle tab-button" data-tab-section="tab-section-2"><span>대출보증</span></button></div>
+                </div>
+
+                <form class="form-chk tab-wrapCon">
+                    <div class="section" id="tab-section-1">
+                        <div class="article list">
+                            <table class="tbl-v mt30 repay">
+                                <caption>e-Wallet 상환하기</caption>
+                                <colgroup>
+                                    <col style="width:15rem;">
+                                    <col>
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">e-wallet 잔고</th>
+                                        <td class="flex-start">
+                                            <select class="dropdown">
+                                                <option class="fc-black">국민은행</option>
+                                            </select>
+                                            <div class="txt-box">
+                                                <span class="mo">1,025,021,478</span>
+                                                <span class="bt"><button type="button" class="btn-reload">현재 잔고 새로고침</button></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">상환대상</th>
+                                        <td>
+                                            <div class="cart-item-wrap">
+                                                <div class="figure-con">
+                                                    <p class="pd-name fc-blue"><span class="pd-label">AL</span>20220428-S00002</p>
+                                                    <table class="tbl t4">
+                                                        <colgroup>
+                                                            <col span="3" style="width:33.33%;">
+                                                        </colgroup>
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">결제수단</th>
+                                                                <th scope="col">주문금액</th>
+                                                                <th scope="col">입금액</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>계약금</td>
+                                                                <td>100,000,000</td>
+                                                                <td>200,000,000</td>                        
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="pay-wrap">
+                                                <div class="pay-condition flex-start">
+                                                    <span class="tit">결제상태</span>
+                                                    <span class="item stroke-black">예정</span>
+                                                    <span class="item stroke-black hide">대기</span>
+                                                    <span class="item fill-black hide">사고</span>
+                                                    <span class="item fill-red hide">연체</span>
+                                                    <span class="item fill-red hide">미납</span>
+                                                    <span class="item fill-green hide">완료</span>
+                                                    <div class="mt-date">
+                                                        <span class="tit">결제예정일</span>
+                                                        <span class="item">2022-05-04</span>
+                                                    </div>
+                                                    <div class="mt-price">
+                                                        <span class="tit">결제예정액</span>
+                                                        <span class="item">80,000,000 원</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label for="refundTarget">상환금액</label></th>
+                                        <td>
+                                            <div class="refund-amount">
+                                                <div class="refund-input">
+                                                    <input type="text" name="refundTarget" id="refundTarget" 
+                                                        value="80,000,000" 
+                                                        maxlength="20"
+                                                        readonly="readonly"
+                                                        onkeyup="inputNumberFormat(this); numTohan(this.value)"
+                                                    >
+                                                    <label for="refundTargetText" class="hidden">상환금액</label>
+                                                    <input type="text" name="refundTargetText" id="refundTargetText" readonly="readonly" value="팔억원">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="btn-wrap">
+                            <button type="button" class="btn-gray-big modal-x">취소</button>
+                            <button type="button" class="btn-blue-big">입금처리</button>
+                        </div>
+                        <div class="red-box mt30">
+                            <dl>
+                                <dt>· 당일 출고 결제가능시간은  09:00~15:00 입니다.</dt>
+                                <dt>· 17:00 까지 은행에서 상환실행해야만, 당일 출고가 가능 합니다.</dt>
+                                <dt>· 17:00 이후에 은행에서 상환실행시, 배송요청일 변경해야합니다. (고객센터로 문의)</dt>
+                                <dt>· 결제금액 이체와 관련하여 궁금한 것이 있으시면 고객센타(02-XXX-XXXX)로 문의해 주세요.</dt>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div class="section tab-bank" id="tab-section-2">
+                        <div class="article list">
+                            <table class="tbl-v mt30 repay">
+                                <caption>대출보증 상환하기</caption>
+                                <colgroup>
+                                    <col style="width:15rem;">
+                                    <col>
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">e-wallet 잔고</th>
+                                        <td class="flex-start">
+                                            <select class="dropdown">
+                                                <option class="fc-black">국민은행</option>
+                                            </select>
+                                            <div class="txt-box">
+                                                <span class="mo">1,025,021,478</span>
+                                                <span class="bt"><button type="button" class="btn-reload">현재 잔고 새로고침</button></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">상환대상</th>
+                                        <td>
+                                            <div class="cart-item-wrap">
+                                                <div class="figure-con">
+                                                    <p class="pd-name fc-blue"><span class="pd-label">AL</span>20220428-S00002</p>
+                                                    <table class="tbl t4">
+                                                        <colgroup>
+                                                            <col span="3" style="width:33.33%;">
+                                                        </colgroup>
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">결제수단</th>
+                                                                <th scope="col">주문금액</th>
+                                                                <th scope="col">입금액</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>대출보증대출</td>
+                                                                <td>100,000,000</td>
+                                                                <td>200,000,000</td>                        
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="pay-wrap">
+                                                <div class="pay-condition">
+                                                    <span class="tit">결제상태</span>
+                                                    <span class="item stroke-black hide">예정</span>
+                                                    <span class="item stroke-black hide">대기</span>
+                                                    <span class="item fill-black hide">사고</span>
+                                                    <span class="item fill-red hide">연체</span>
+                                                    <span class="item fill-red">미납</span>
+                                                    <span class="item fill-green hide">완료</span>
+                                                    <div class="mt-date">
+                                                        <span class="tit">결제예정일</span>
+                                                        <span class="item">2022-05-04</span>
+                                                    </div>
+                                                    <div class="mt-price">
+                                                        <span class="tit">결제예정액</span>
+                                                        <span class="item">80,000,000 원</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label for="refundTarget">만기일</label></th>
+                                        <td>
+                                            <div class="flex-start date-wrapper maturity-select">
+                                                <div class="datepicker-wrap">
+                                                    <input type="text" class="datepicker date-input" placeholder="만기일을 선택해 주세요.">
+                                                </div>
+                                                <div class="input-button-wrap">
+			                                        <label class="radio-btn active"><input type="radio"><span>30일</span></label>
+			                                        <label class="radio-btn"><input type="radio"><span>60일</span></label>
+			                                        <label class="radio-btn"><input type="radio"><span>90일</span></label>
+			                                        <label class="radio-btn"><input type="radio"><span>120일</span></label>
+			                                        <label class="radio-btn"><input type="radio"><span>180일</span></label>
+			                                    </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="flex-center mt20">
+                            	<div class="form-chk ml10 flex-start">
+	                                <input type="checkbox" id="agreeBoxAll2">
+	                                <label for="agreeBoxAll2">만기일정보 제3자 제공 동의에 대한 약관 동의합니다.</label>
+	                            </div>
+	                            <button type="button" class="btn-stroke-md datail-info ml20">자세히보기</button>
+                            </div>
+                            <div class="detail-info-box mt10 mb15">
+                                <div class="box-close"><button type="button" class="box-x"><span class="hidden">팝업 닫기</span></button></div>
+                                [기업회원 이용약관]
+                                </br></br>
+                                제1조 (목적)
+                                이 약관은 주식회사 서린상사(이하 “회사”)가 운영하는 서린닷컴(www.metalsorin.com) 인터넷 사이트 와 모바일 서비스(m.metalsorin.com)
+                                (이하 “서린닷컴”이라 함) 에서 제공하는 인터넷 관련 서비스 (이하 “서비스”)를 이용함에 있어 회사와 회원의 권리∙의무 및 책임사항을 규정함을
+                                적으로 합니다
+                            </div>
+                        </div>
+                        <div class="btn-wrap">
+                            <button type="button" class="btn-gray-big modal-x">취소</button>
+                            <button type="button" class="btn-blue-big">입금처리</button>
+                        </div>
+                        <div class="red-box mt30">
+                            <dl>
+                                <dt>· 당일 출고 결제가능시간은  09:00~15:00 입니다.</dt>
+                                <dt>· 17:00 까지 은행에서 상환실행해야만, 당일 출고가 가능 합니다.</dt>
+                                <dt>· 17:00 이후에 은행에서 상환실행시, 배송요청일 변경해야합니다. (고객센터로 문의)</dt>
+                                <dt>· 결제금액 이체와 관련하여 궁금한 것이 있으시면 고객센타(02-XXX-XXXX)로 문의해 주세요.</dt>
+                            </dl>
+                        </div>
+                    </div>
+                </form>
+            <!-- </div>// .div-scroll-y -->
+
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// MODAL POPUP : ewallet - 상환하기 -->
+
+
+<!-- script core -->
+<script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="/guide/js/select2/select2.min.js"></script>
+<!-- script extra -->
+<script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+<script src="/guide/js/swiper/6.7.0/swiper.js"></script>
+<!-- script custom -->
+<script src="/guide/js/common.js"></script>
+<script src="/guide/js/sorin.js"></script>
+<script src="/guide/js/sorin-my.js"></script>
+<script src="/guide/js/sorin-layout.js"></script>
+<!-- script embedded -->
+
+<script>
+
+ //상환하기 방법 선택 탭 이벤트
+ tab('.tab-wrap', 2);
+
+// 숫자와 콤마만 입력가능하게 하기
+function comma(str) {
+    str = String(str);
+    return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+}
+
+function uncomma(str) {
+    str = String(str);
+    if (str.substr(0,1) === '0') {
+        str = str.substr(1);
+    }
+    return str.replace(/[^\d]+/g, '');
+} 
+
+function inputNumberFormat(obj) {
+    obj.value = comma(uncomma(obj.value));
+}
+
+function inputOnlyNumberFormat(obj) {
+    obj.value = onlynumber(uncomma(obj.value));
+}
+
+function onlynumber(str) {
+    str = String(str);
+    return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g,'$1');
+}
+
+// 인출하기 팝업 : 버튼 값 표기
+$(document).on('click', '.refund-btn button', function() {
+    $(this).addClass('btn-blue-md').removeClass('btn-stroke-md').siblings('button').addClass('btn-stroke-md').removeClass('btn-blue-md');
+
+    let targetPrice = $(this).parents().siblings('.refund-input').find('#refundTarget');
+    let targetValue = Math.abs($(this).attr('data-value'));
+    let newPrice = String(parseInt(targetValue)).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+    targetPrice.val(newPrice);
+    numTohan(newPrice);
+});
+
+ // 주문 페이지 출고 요청일 datapicker 클래스 추가
+ $(document).on('click', '.datepicker-wrap', function() {
+        $('#ui-datepicker-div').addClass('pd-datepicker');
+    });  
+
+//대출보증 상환하기 : 자세히보기
+$(document).on('click', '.datail-info', function() {
+    $('.detail-info-box').addClass('open');
+})
+$(document).on('click', '.repay-modal .detail-info-box .box-x', function() {
+    $('.detail-info-box').removeClass('open');
+})
+
+// 정정하기 버튼 
+$(document).on('click', '.btn-correction', function() {
+    $(this).siblings('#refundTarget').val('');
+    $(this).siblings('#refundTargetText').val('');
+    $(this).parents().siblings('.refund-btn').find('button.btn-blue-md').removeClass('btn-blue-md').addClass('btn-stroke-md');
+});
+
+// 금액 한글 변경
+function numTohan(num) {
+    // 변경 대상
+    let transTarget = document.getElementById('refundTargetText');
+
+    if(num == 'undefined' || num == null || num == NaN || num == '') {
+        // return '0';
+        transTarget.value = '';
+        return false;
+    }
+    num = parseInt((num + '').replace(/[^0-9]/g, ''), 10) + ''; // 숫자/문자/돈 을 숫자만 있는 문자열로 변환
+    
+    if(num == '0') {
+        // return '영';
+        transTarget.value = '영';
+        return false;
+    }
+    var number = ['영', '일', '이', '삼', '사', '오', '육', '칠', '팔', '구'];
+    var unit = ['', '만', '억', '조', '경'];
+    var smallUnit = ['천', '백', '십', ''];
+    var result = []; //변환된 값을 저장할 배열
+    var unitCnt = Math.ceil(num.length / 4); //단위 갯수. 숫자 10000은 일단위와 만단위 2개이다.
+    
+    num = num.padStart(unitCnt * 4, '0') //4자리 값이 되도록 0을 채운다
+
+    var regexp = /[\w\W]{4}/g; //4자리 단위로 숫자 분리
+    var array = num.match(regexp);
+    //낮은 자릿수에서 높은 자릿수 순으로 값을 만든다(그래야 자릿수 계산이 편하다)
+    for(var i = array.length - 1, unitCnt = 0; i >= 0; i--, unitCnt++) {
+        var hanValue = _makeHan(array[i]); //한글로 변환된 숫자
+        if(hanValue == '') //값이 없을땐 해당 단위의 값이 모두 0이란 뜻.
+            continue;
+        result.unshift(hanValue + unit[unitCnt]); //unshift는 항상 배열의 앞에 넣는다.
+    }
+    
+    //여기로 들어오는 값은 무조건 네자리이다. 1234 -> 일천이백삼십사
+    function _makeHan(text) {
+        var str = '';
+        for(var i = 0; i < text.length; i++) {
+            var num = text[i];
+            if(num == '0') //0은 읽지 않는다
+                continue;
+            str += number[num] + smallUnit[i];
+        }
+        return str;
+    }
+
+    transTarget.value = result.join('') + '원';
+}
+
+	$('.radio-btn').on('click', function(e){
+	        e.preventDefault();
+	        if($(this).hasClass('disabled')){
+	            $(this).off('click');            
+	        } else {
+	            $(this).addClass('active').siblings().removeClass('active');
+	            $(this).siblings().children('input').attr('checked',false)
+	            $(this).children('input').attr('checked',true);
+	        }
+    });
+
+</script>
+
+</body>
+</html>

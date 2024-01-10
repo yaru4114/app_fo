@@ -1,0 +1,351 @@
+@charset "utf-8";
+
+@font-face {
+    /* font-family: 'scd-light'; */
+    font-family: 'S-CoreDream';
+    src: url('/guide/fonts/scdream3.woff2') format('woff2'),
+         url('/guide/fonts/scdream3.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {    
+    /* font-family: 'scd-regular'; */
+    font-family: 'S-CoreDream';
+    src: url('/guide/fonts/scdream4.woff2') format('woff2'),
+         url('/guide/fonts/scdream4.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    /* font-family: 'scd-medium'; */
+    font-family: 'S-CoreDream';
+    src: url('/guide/fonts/scdream5.woff2') format('woff2'),
+         url('/guide/fonts/scdream5.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    /* font-family: 'scd-bold'; */
+    font-family: 'S-CoreDream';
+    src: url('/guide/fonts/scdream6.woff2') format('woff2'),
+         url('/guide/fonts/scdream6.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+* {font-family: 'Noto Sans KR', sans-serif,'S-CoreDream';color:#333; box-sizing:border-box;margin:0; padding:0;word-break: keep-all;}
+:root {font-size:10px;}
+html, body {height:100%; margin:0; padding:0; font-size:1.4rem;}
+.guide-wrap {padding: 4rem 1rem;}
+.hgroup {position:relative;}
+.hgroup .g-h1 img, 
+.hgroup .g-h1 span {display:inline-block; vertical-align:middle; font-size:2rem;} 
+.hgroup .g-h1 span {margin-left:2rem; color:#1d5fd0;}
+.on {display:block !important;}
+.roboto {font-family: 'Roboto', sans-serif;}
+.g-article {margin-bottom:3rem;}
+.g-article h3 {margin-bottom: 1rem;}
+
+.g-wrapper.g-wrapper--modal {padding: 3rem 1.5rem}
+.g-wrapper--modal .g-article {margin:3rem 0;}
+.g-wrapper--modal h2 {margin-bottom: 1.5rem;}
+.g-wrapper--modal .g-article h3 {margin-bottom: 1rem;}
+.g-article:first-of-type {margin-top:0;}
+
+
+/* .g-code {} */
+code.html, 
+.g-html {display:block; padding:1rem 2rem; background-color:#fff; border:1px #ddd solid;} /* highlight.js */
+.code {position:relative; padding:1rem; margin-top:1rem; border:1px #ddd solid; background-color:#f0f0f0;font-size: 1.2rem;line-height:1.6;}
+.g-view {min-height:1em; padding:2rem; margin-bottom:1rem; border:1px #ddd solid; border-radius:1rem; background-color:#f0f0f0;font-size: 1.2rem;line-height:1.6;}
+.g-view .p + .p, .g-html .p + .p {margin-top:1rem;}
+
+/* Guide Header */
+.wrapper {height:100%;}
+.g-header {height:5rem; background-color:lightgray;}
+.g-header ul {list-style:none; margin:0; padding:0; display:flex;}
+.g-header ul li {padding:0 1rem; line-height:5rem;}
+.g-header ul li a {display:block;}
+.g-header h1 {margin:0; font-size:1.8rem;}
+.g-container {width:100%; min-height:calc(100% - 5rem); display:flex; align-items:stretch; }
+.g-container.hasList .g-menu {width:0; overflow:hidden;}
+.g-container.hasList .g-content {width:100%;}
+.g-menu {width:20rem; border-right:1px #ddd solid;}
+.g-menu h2 {padding:0.5rem 1.8rem 0; text-transform:capitalize;}
+.g-menu ul {list-style:none; padding:0;}
+.g-menu ul li a {display:block; padding:0.7rem 2rem;}
+.g-menu #guide, 
+.g-menu #elements,
+.g-menu #components {display:none;}
+.g-content {width:calc(100% - 20rem);}
+.g-content .ifr-con {width:100%; height:100%;}
+.g-wrapper,
+.g-container.hasList .g-content .ifr-con {padding:1rem 1.8rem;}
+
+/* Guide Left Menu */
+
+/* Google Material Icons */
+.li-folder .material-icons {vertical-align:middle; margin-right:.4rem;}
+
+/* Guide Content Style */
+.li-folder {position:relative;}
+.li-folder > li {position:relative;}
+.li-folder > li > .li-folder {margin-top:.5rem; margin-bottom:.5rem;}
+.li-folder > li > .li-folder li {padding:0 2rem;}
+.li-folder-desc {display:block; width:50%; position:absolute; top:.4rem; right:0;}
+.dl {display:table; table-layout:fixed;}
+.dl dt, .dl dd {display:table-cell;}
+.dl dt {width:20rem;}
+.dl dd {width:calc(100% - 20rem);}
+
+/* HTML List */
+.guide-wrap {position:relative;}
+ul.state {display:table; padding:0; margin:0; position:absolute; bottom:0; right:1rem;}
+ul.state li {display:table-cell;}
+ul.state li strong, 
+ul.state li span {display:inline-block;}
+ul.state li strong{margin-right:1rem; margin-left:1rem;}
+
+.tbl-guide {width:100%; border-spacing:0; border-collapse:collapse; border-bottom:1px solid #ddd}
+.tbl-guide thead th {padding:0.5rem; font-size:13px; font-weight:normal; background-color:#1d5fd0; color:#fff;}
+.tbl-guide tbody th, 
+.tbl-guide tbody td {font-size:13px; padding:0.4rem 0.5rem; text-align:center; line-height:1.5; border:1px #ddd solid; border-bottom:0; background-color:#fff}
+.tbl-guide tbody th + th {font-weight:normal;}
+.tbl-guide .sbid {font-size:0; text-align:left; padding:0.4rem 1rem}
+.tbl-guide .sbid .pc, 
+.tbl-guide .sbid .mo {display:inline-block; position:relative; height:2rem; width:16rem;}
+.tbl-guide .sbid > span::before {display:block; width:2rem; font-size:1.1rem; padding:.4rem; background-color:#ddd; border-radius:.2rem; text-align:center; position:absolute; top:0; left:0; color:#000; font-weight:bold;}
+/* .tbl-guide .sbid .pc::before {content:'pc'; background-color:orange;} */
+.tbl-guide .sbid .mo {display:none;}/* mobile */
+/* .tbl-guide .sbid .mo::before {content:'mo'; background-color:limegreen;} */
+.tbl-guide.mobile .sbid .pc {display:none;}
+.tbl-guide.mobile .sbid .mo {display:block;}
+.tbl-guide .sbid a {font-size:14px;}
+.tbl-guide .hidden {font-size:0;}
+.tbl-guide .d0 {/*vertical-align: top;padding: 0.8rem 0;*/background-color: #fff !important;}
+.tbl-guide .d1 {width:10rem; color:#000;}
+.tbl-guide .d2 {width:18rem; text-align:left;}
+.tbl-guide .d3 {width:22rem; text-align:left;}
+.tbl-guide .d4 {width:16rem; text-align:left;}
+.tbl-guide .d5 {font-weight: 700;background: rgb(210 255 173 / 20%)!important;}
+.tbl-guide .d5.hidden {border-top: 0;}
+/*
+.tbl-guide .no-file .d5.hidden,
+.tbl-guide .cancel .d5.hidden {border: 1px #ddd solid;}*/
+.tbl-guide .sbid {width:18rem;background: rgb(210 255 173 / 20%)!important;}/* mobile */
+.tbl-guide .coder {width:8rem;}
+.tbl-guide .end,
+.tbl-guide .date {width:10rem; font-size:14px}
+.tbl-guide .state {width:8rem;}
+.tbl-guide td:last-of-type {text-align:left; font-size:12px}
+
+.ing th, .ing td {background-color:rgb(222, 237, 247) !important;}
+/* .done th, .done td {background-color:rgba(199, 202, 204, .4);} */
+.review th, .review td {background-color:rgba(103, 221, 6, .2) !important;}
+.cancel th, .cancel td, .cancel td a {text-decoration:line-through; background-color:rgba(199, 202, 204, .4) !important;}
+.modify th, .modify td {background-color:khaki !important;}
+
+.attach-wrap {padding:2rem;}
+.attach-wrap a {display:inline-block; padding:.7rem 1rem; border:1px blue solid; border-radius:.3rem; text-decoration:none;}
+
+.tbl-guide .hide * {display:none;}
+/* .tbl-guide.finished .done th,  */
+/* .tbl-guide.finished .done td {background-color:#fff;} */
+.tbl-guide tbody tr.hr th,
+.tbl-guide tbody tr.hr td {border-top: 1px dashed #666 !important;}
+.tbl-guide tbody td .modify-title {display:block; margin:5px 0 3px;}
+.tbl-guide tbody td .modify-title span {padding:2px 10px; border-radius:4px; background-color:#eee; color:#333}
+.tbl-guide tbody td .list,
+.tbl-guide tbody td .modify-list {margin:0; padding-inline-start: 14px}
+.tbl-guide tbody td .list li ,
+.tbl-guide tbody td .modify-list li {list-style:decimal; padding-left:2px;}
+.tbl-guide tbody td .ly-in,
+.tbl-guide tbody td .pa-add,
+.tbl-guide .th--current,
+.tbl-guide tbody td .del-list  {display:inline-block; margin-right:5px; padding:1px 4px;font-size: 11px; border-radius:4px; color:#fff;background-color:#ff40d1;}
+.tbl-guide tbody td .ly-in {background-color:#99bdfb;}
+.tbl-guide tbody td .del-list {background-color:#f94545;}
+.tbl-guide tbody .no-file td .ly-in,
+.tbl-guide tbody .no-file td .pa-add,
+.tbl-guide .no-file .th--current {background-color:#aaa;}
+.tbl-guide .th--include {display:inline-block; margin-right:5px; padding:1px 4px;font-size: 11px; border-radius:4px; color:#fff;background-color:rgb(0, 128, 128) !important;}
+/*22.12.01 신규 추가 - 이아람 */
+/* 현재 파일 없음 */
+.tbl-guide tbody .no-file th, 
+.tbl-guide tbody .no-file td, 
+.tbl-guide tbody .no-file td a {color: #ddd;}
+/*23.01.17 신규 추가 - 한주련 */
+/* 고도화 3차 */
+.tbl-guide tbody td .pa-add.adv {background:#7ABFBF;color:#FFFFFF;}
+
+
+
+		
+/* ================================================	
+    2023 list2.html GUIDE STYLE	
+   ================================================ */	
+   
+/* list2 > 공통 스타일 */
+ul {list-style:none; margin:0; padding:0;}	
+ol {padding-left: 2rem; margin:0;}	
+a {text-decoration: none;}	
+table{padding:0;border:0;border-spacing:0px;border-collapse:collapse;}	
+th, td{padding:0;}	
+.flex {display: flex;align-items: center;}   	
+.flex--ac {display: flex;align-items: center;}   	
+.flex--ac-jc {display: flex;align-items: center;justify-content: center;}   	
+.flex--afs-jsb {display: flex;align-items: flex-start;justify-content: space-between;}   	
+.flex--afe {display: flex;align-items: flex-end;}   	
+.flex--afe-jsb {display: flex;align-items: flex-end;justify-content: space-between;}   	
+.flex--ac-jsb {display: flex;align-items: center;justify-content: space-between;}   	
+.flex--ac-jfs {display: flex;align-items: center;justify-content: flex-start;}   	
+.flex--ac-jfe {display: flex;align-items: center;justify-content: flex-end;}  
+
+
+/* list2 > top 이동 버튼 */
+.btn-guide-top {display:none;position: fixed;bottom: 2rem;right: 1rem;z-index: 99;width: 6rem; height: 6rem; border-radius: 50%;background: #325694;font-size: 2rem;line-height: 6rem;color: #fff;text-align: center;cursor: pointer;transition: 0.3s;}
+.btn-guide-top:hover {background: #1b3d77;}
+.btn-guide-top.active {display:block;}
+.btn-guide-top .hidden {position: absolute;top: -999999999px;left: -99999px;opacity:0;width: 0;height: 0;text-indent: -9999px;}
+
+
+/* list2 > 제목 영역 스타일 */
+.guide-wrap {}	
+.guide__header {}	
+.guide__header__logo p {margin-left: 3rem;font-size: 2.4rem;line-height: 1;}	
+.guide__header__logo p span {position: relative;margin-right: 3rem;}	
+.guide__header__logo p span:last-of-type {margin-right: 0;}	
+.guide__header__logo p span::after,	
+.guide__header__state li::after {content: '';position:absolute;top:0;bottom:0;right: -1.6rem;margin:auto 0;width: 0.2rem; height: 2.2rem;background: #333;}	
+.guide__header__state li::after {right: -1rem;width: 0.1rem; height: 1.5rem;}	
+.guide__header__logo p span:last-of-type::after,	
+.guide__header__state li:last-of-type::after {display: none;}	
+.guide__header__state li {position: relative;margin-right: 2rem;font-size: 1.5rem;color: #666;}	
+.guide__header__state li:last-of-type {margin-right: 0;}	
+.guide__header__state li strong {display: inline-block;margin-right: 0.5rem;}	
+
+.guide__cont__title {margin: 1rem 0;}
+.guide__cont__title .subheading {font-size: 2rem;font-weight: 600;color: inherit;}	
+.guide__cont__title .legend__table {border: 1px solid #ddd;}
+.guide__cont__title .legend__table tr {border-bottom: 1px solid #ddd;font-size: 1.2rem;}
+.guide__cont__title .legend__table tr th,
+.guide__cont__title .legend__table tr td {padding: 0.2rem 0.5rem;border-right: 1px solid #ddd;}
+.guide__cont__title .legend__table tr th {background-color: #F9F9F9;text-align: left;}
+.guide__cont__title .legend__table tr td {}
+
+
+/* list2 > 구분선 */
+.guide__cont__division {margin-bottom: 4rem;}
+.guide__cont__division:last-child {margin-bottom: 0rem;}
+
+
+/* list2 > 파일 없음, 취소 백업 */
+.guide-wrap .move-prev-list {position: relative;margin-left: 1.5rem;padding-right: 1.1rem;text-decoration: underline;font-size: 1.2rem;color: #1b8be8;font-weight: 700;transition: 0.3s;}
+.guide-wrap .move-prev-list::after {content: "";position: absolute;top: 55%;right: 0;transform: translateY(-50%);border: 0.4rem solid transparent;border-left: 0.4rem solid #1b8be8;transition: 0.3s;}
+.guide-wrap .move-prev-list:hover{color: #1d5fd0;}
+.guide-wrap .move-prev-list:hover::after {border-left-color: #1d5fd0;}
+.document-format {font-size: 1.2rem;}
+
+
+/* list2 > 테이블 스타일 */
+.guide__cont__table {width: 100%;}	
+.guide__cont__table tr th,	
+.guide__cont__table tr td {padding: 0.5rem; font-size: 1.1rem;}	
+.guide__cont__table tr .border-btm {border-bottom: 1px solid #425D8A !important;}	
+.guide__cont__table tr .border-rt {border-right: 1px solid #425D8A !important;}	
+.guide__cont__table thead tr th {background-color: #5D7AAC; color: #fff;font-weight: 700;border-right: 1px solid #425D8A;}	
+.guide__cont__table tbody tr:first-child th,	
+.guide__cont__table tbody tr:first-child td {border-top:none;}	
+.guide__cont__table tbody tr:last-child {border-bottom: 1px solid #ddd;}
+.guide__cont__table tbody tr th,	
+.guide__cont__table tbody tr td {text-align: center;border: 1px solid #ddd;border-bottom: transparent;}	
+.guide__cont__table tbody tr a {text-decoration: underline;transition: 0.3s;}	
+.guide__cont__table tbody tr a:hover {color: #1b8be8;}	
+.guide__cont__table tbody tr.border--division th,	
+.guide__cont__table tbody tr.border--division td {border-top: 1px dashed #555 !important;}	
+.guide__cont__table tr.highlight th,	
+.guide__cont__table tr.highlight td {background: #fdfdfd}	
+.guide__cont__table tr .txt--left {text-align: left !important;}	
+.guide__cont__table tr .txt--center {text-align: center !important;}	
+.guide__cont__table tr ul {padding-left: 1rem;}	
+.guide__cont__table tr .list--dot li {position: relative;padding-left: 0.7rem;}	
+.guide__cont__table tr .list--dot li::before {content:"";position: absolute;top: 0.78rem;left:0;width: 2px; height:2px;border-radius: 50%; background: #333;}	
+
+.guide__cont__table tr .pm {width: 5%;}	
+.guide__cont__table tr .design {width: 5%;}	
+.guide__cont__table tr .publishing {width: 6%;}	
+.guide__cont__table tr th.etc {width: 20%;}	
+.guide__cont__table tr .ver,	
+.guide__cont__table tr .hidden  {font-size: 0;}	
+.guide__cont__table tr .ver a {font-size: 1.2rem;}	
+.guide__cont__table tr .etc ul li,	
+.guide__cont__table tr .etc ol li {position: relative;z-index: 1;margin-bottom: 0.2rem;}	
+.guide__cont__table tr .etc ul > li::before {content:'';position: absolute;top: 0.8rem;left: -0.7rem; width: 0.4rem;height: 0.1rem;background: #333;}
+
+.guide__cont__table tr .etc .list--circle-num  {padding-left: 1.5rem;}
+.guide__cont__table tr .etc .list--circle-num > li {list-style: none;}
+.guide__cont__table tr .etc .list--circle-num > li::before {position: absolute; left: -1.3rem;top: -0.05rem;background: transparent;}
+.guide__cont__table tr .etc .list--circle-num > li:nth-of-type(1)::before {content: '①';}
+.guide__cont__table tr .etc .list--circle-num > li:nth-of-type(2)::before {content: '②';}
+.guide__cont__table tr .etc .list--circle-num > li:nth-of-type(3)::before {content: '③';}
+.guide__cont__table tr .etc .list--circle-num > li:nth-of-type(4)::before {content: '④';}
+.guide__cont__table tr .etc .list--circle-num > li:nth-of-type(5)::before {content: '⑤';}
+
+.guide__cont__table tr a {color: inherit;}
+
+.guide__cont__table thead tr .thead-direc,
+.guide__cont__table thead tr .thead-ver {background-color: #4D6999 !important;}
+
+.guide__cont__table .dep1 {background-color: #F9F9F9 !important;}
+.guide__cont__table thead tr .thead-field {background-color: #4D6999 !important;}
+
+.guide__cont__table tbody tr .direc,
+.guide__cont__table tbody tr .ver,
+.guide__cont__table tbody tr .pm,
+.guide__cont__table tbody tr .design,
+.guide__cont__table tbody tr .publishing {background-color: #E5F2FF !important;border-color: #c2e0ff;/*color: #1D5FD0;*/}
+
+.guide__cont__table thead tr .thead-ver2 {background-color: #365282 !important;}
+.guide__cont__table tbody tr .ver2 {background-color: #d2e9ff !important;}
+
+.guide__cont__reference tbody tr td,
+.guide__cont__backup tbody tr td.backup--depth,
+.guide__cont__backup tbody tr td.backup--cont {text-align: left;}
+
+
+/* list2 > 범례 */
+.mark {display: inline-block;margin: 0.1rem 0;padding: 1px 4px;color: #fff;border-radius: 4px;font-size: 1rem;}	
+.mark--date {background-color: #ccc;}	
+.mark--refer {background-color: #999;}	
+.mark--modify {background-color: #99bdfb;}	
+.mark--cancel {background-color: #333;}	
+.mark--important {background-color: #f94545;}	
+.mark--update {background-color: rgb(128, 0, 255);}
+.mark--check {background-color: #ff40d1;}
+.mark--add {background-color: #1d5fd0}
+.mark--popup {background-color: #4d6999;}
+.mark--release {background-color: #509967;}
+.st-highlight {position: relative;background: #e5f4ff;}
+
+
+/* list2 > 첨부파일 링크 */
+.guide__cont__table tbody tr td.reference-link {position: relative;padding-left: 2.5rem;}
+.guide__cont__table tbody tr td.reference-link::before {content: "";position: absolute; top:50%; transform: translateY(-50%); left:0.5rem; width: 1.5rem; height: 1.5rem;border-radius: 0.25rem;overflow: hidden;background-size: cover;background-repeat: no-repeat; background-position: center;}
+.guide__cont__table tbody tr td.reference-link:hover::before {opacity: 0.8;}
+.guide__cont__table tbody tr td.reference-link--pdf::before {background-image: url(/guide/images/link-pdf.png)}
+.guide__cont__table tbody tr td.reference-link--pptx::before {background-image: url(/guide/images/link-pptx.png)}
+.guide__cont__table tbody tr td.reference-link--xlsx::before {background-image: url(/guide/images/link-xlsx.png)}
+.guide__cont__table tbody tr td.reference-link--docx::before {background-image: url(/guide/images/link-docx.png)}
+.guide__cont__table tbody tr td.reference-link--hwp::before {background-image: url(/guide/images/link-hwp.png)}
+
+
+/* list2 > 최근작업 background-color */
+.guide__cont__table tbody tr.tr--recent th,
+.guide__cont__table tbody tr.tr--recent td {background-color: #fff5f5 !important;}
+
+
+
+
+
+

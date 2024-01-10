@@ -1,0 +1,177 @@
+@charset "utf-8";
+
+/* ::::: 23.10.24 | MAIN DARK MODE CSS: 시작 :::::: {===  */
+/* dark mode- common */
+#darkMode {background-color: var(--sr-darkmode-bg1);}
+#darkMode *:not(.modal *){color: var(--sr-darkmode-basic);}
+
+#darkMode .header-notice .swiper-slide a,
+#darkMode .select2-results__option {color: #000 !important;}
+#darkMode .header-top .timer > span {color: #CDCDCD;}
+#darkMode .header-btm .gnb > ul > li .gnb-depth2 {background-color: var(--sr-darkmode-bg3);}
+
+#darkMode .display-board .swiper-slide a,
+#darkMode .header-top .menu-list li a,
+#darkMode .main-news-wrap .main-news .news-inner .txt,
+#darkMode .materials-wrap .materials-news .list-news .desc,
+#darkMode .list-news .date {color: var(--sr-darkmode-lgray);}
+#darkMode .header-top .menu-list li::after {background-color: var(--sr-darkmode-brd1);}
+#darkMode .header-btm .gnb > ul > li:hover a {color: #CDCDCD;}
+
+
+/* 메인 슬라이드 야간장 마감 시간*/
+#darkMode .night-time {font-size: 4rem; font-weight: 600; color: #FFC700;}
+
+
+/* dark mode- background */
+#darkMode .header-wrap,
+#darkMode .main-charts-wrap.renew .chart-title-area,
+#darkMode .main-charts-wrap-area,
+#darkMode .main-charts-wrap.renew .rChart-table,
+#darkMode .main-charts-wrap.renew .chart-graph-area,  
+#darkMode .main-news-wrap,
+#darkMode .materials-wrap,
+#darkMode .swiper-btn-area .metal-world-prev,
+#darkMode .swiper-btn-area .metal-world-next, 
+#darkMode .alliance-wrap,
+#darkMode .main-news-wrap {background-color: var(--sr-darkmode-bg1) !important;}
+#darkMode .materials-wrap .hgroup .btns button {color: var(--sr-darkmode-gray); background-color: var(--sr-darkmode-bg1) !important;}
+
+#darkMode .main-charts-wrap.renew, 
+#darkMode .main-charts-wrap.renew .charts-con,
+#darkMode .services-wrap,
+#darkMode .materials-cal .cal-wrap {background-color: var(--sr-darkmode-bg2) !important;}
+
+#darkMode .cal-wrap .cal-header button {border-color:  var(--sr-darkmode-brd3); background-color: var(--sr-darkmode-bg2);}
+#darkMode .cal-wrap .cal-header span {background-color: var(--sr-darkmode-bg2);}
+#darkMode .ui-widget.ui-widget-content {background-color: var(--sr-darkmode-bg2);}
+
+#darkMode .btn-cal-prev::before, 
+#darkMode .btn-cal-next::before,
+#darkMode .btn-cal-prev::after, 
+#darkMode .btn-cal-next::after {border-color: var(--sr-darkmode-brd3);}
+
+#darkMode .ui-datepicker th.ui-datepicker-week-end:first-of-type span, 
+#darkMode .ui-datepicker td.ui-datepicker-week-end:first-of-type a {color: #F86161;}
+
+#darkMode .ui-datepicker th.ui-datepicker-week-end:last-of-type span, 
+#darkMode .ui-datepicker td.ui-datepicker-week-end:last-of-type a {color: #7AABFF;}
+
+#darkMode .cal-holiday .ui-state-highlight, 
+#darkMode .cal-holiday .ui-widget-content .ui-state-highlight, 
+#darkMode .cal-holiday .ui-widget-header .ui-state-highlight, 
+#darkMode .cal-holiday .ui-state-active, 
+#darkMode .cal-holiday .ui-widget-content .ui-state-active, 
+#darkMode .cal-holiday .ui-widget-header .ui-state-active {background-color: #394D5C}
+
+#darkMode .cal-holiday .ui-datepicker-calendar th {border-color: #394D5E;}
+#darkMode .cal-holiday .ui-datepicker table {border-color: #7087A4;}
+#darkMode .cal-holiday .ui-datepicker-calendar td {border-color: #394D5E;}
+
+#darkMode .btn-cal-month.active, 
+#darkMode .btn-cal-today.active, 
+#darkMode .btn-cal-holiday.active {border: unset; background-color: var(--sr-bg-blue) !important;}
+
+#darkMode .cal-list .li {background-color: #2D3D4A;}
+#darkMode .cal-list .li.today {background-color: #56677C;}
+
+#darkMode .footer {border-color: var(--sr-darkmode-brd1) !important;; background-color: var(--sr-darkmode-bg1) !important;}
+
+#darkMode .main-charts-wrap.renew .table-list-area .table-list-thead .th-text {background-color: #405267}
+#darkMode .charts-wrap.renew .rChart-table .chart-upper-tab-area button {color: #ABABAB}
+#darkMode .charts-wrap.renew .rChart-table .chart-upper-tab-area button.active {color: #498BFD !important;}
+#darkMode .charts-wrap.renew .table-list-area .table-list-thead .th-text li {color: var(--sr-darkmode-gray);}
+
+#darkMode .charts-wrap.renew .table-list-tbody .tb-list-section .list-inner .l-inner .c-wrhous span, 
+#darkMode .charts-wrap.renew .table-list-tbody .tb-list-section .list-inner .l-inner .c-lme span {color: var(--sr-darkmode-gray); font-weight: 200;}
+
+#darkMode .charts-wrap.renew .table-list-tbody .tb-list-section .tbody-title .btn-vat-view,
+#darkMode .charts-wrap.renew .btns .btn-alarm {border-color: var(--sr-brd-lgray); background-color: var(--sr-darkmode-bg1);}
+
+#darkMode .main-swiper-wrap .main-swiper .swiper-slide {background-image: url(/images/ma/main-swiper-dark.png) !important;}
+
+#darkMode .icon-info-txt {color: var(--sr-darkmode-basic) !important; background-color: var(--sr-darkmode-bg1);}
+
+
+/* dark mode- border */
+#darkMode .header-top,
+#darkMode .list li, 
+#darkMode .list .li,
+#darkMode .list li:first-of-type, 
+#darkMode .list .li:first-of-type {border-color: var(--sr-darkmode-brd1) !important;}
+#darkMode .container,
+#darkMode .materials-cal .cal-wrap {border: unset;}
+
+#darkMode .services-wrap .inwrap > div + div {border-color: var(--sr-darkmode-brd2) !important;}
+
+#darkMode .ft-menus li a:after {color: var(--sr-darkmode-brd1) !important;}
+
+#darkMode .swiper-btn-area .metal-world-next::before, 
+#darkMode .swiper-btn-area .metal-world-prev::before, 
+#darkMode .swiper-btn-area .metal-world-next::after, 
+#darkMode .swiper-btn-area .metal-world-prev::after {border-color: var(--sr-brd-lgray) !important;}
+
+
+/* dark mode- logos */
+#darkMode .header-btm .logo {background-image: url(/guide/images/dark-logo.png);}
+#darkMode .footer-logos .footer-logo{background-image: url(/guide/images/dark-footer-logo.png);}
+
+
+/* dark mode- button style */
+#darkMode .login-btn .btn-ham {border-color: #24323E; background-color: #2D3D4A;}
+#darkMode .login-btn .btn-ham .line {background-color: #CDCDCD;}
+#darkMode .login-user .btn-username::after {border-top-color: #999AA9}
+
+#darkMode .btn-goto-site {border-color: #498BFD;}
+#darkMode a.btn-goto-site span {color:#498BFD !important;}
+#darkMode .btn-goto-site span::before, 
+#darkMode .btn-goto-site span::after {background-color: #498BFD;}
+
+#darkMode .btn-alarm::before {background-image:url(/guide/images/icons.png);}
+#darkMode .btn-remote {background-color: #485464; border-color: var(--sr-brd-lgray);}
+
+#darkMode .charts-wrap.renew .chart-title-area .scopi span {color: #fff !important; background-color: var(--sr-darkmode-bg2);}
+
+#darkMode .charts-wrap.renew .table-list-tbody .tb-list-section {border-color: var(--sr-darkmode-brd1);}
+#darkMode .charts-wrap.renew .exchange,
+#darkMode .charts-wrap .exchange span {color: #999aa9; font-weight: 300;}
+#darkMode .charts-wrap .exchange span.number {color: var(--sr-darkmode-basic); font-weight: 500;}
+#darkMode .charts-wrap.renew .rChart-summary span {color: #777777}
+#darkMode .charts-wrap.renew .rChart-current span,
+#darkMode .charts-wrap.renew .rChart-current .desc {font-weight: 300;}
+#darkMode .charts-wrap.renew .rChart-current.up > span,
+#darkMode .charts-wrap.renew .rChart-summ .h-price,
+#darkMode .charts-wrap.renew .table-list-tbody .tb-list-section .list-inner .l-inner.up .c-price, 
+#darkMode .charts-wrap.renew .table-list-tbody .tb-list-section .list-inner .l-inner.up .c-rate {color: #F86161; font-weight: 300;}
+#darkMode .charts-wrap.renew .rChart-summ .l-price,
+#darkMode .charts-wrap.renew .table-list-tbody .tb-list-section .list-inner .l-inner.down .c-price, 
+#darkMode .charts-wrap.renew .table-list-tbody .tb-list-section .list-inner .l-inner.down .c-rate {color: #7AABFF; font-weight: 300;}
+
+#darkMode .header-top .timer > span.time {color: #26ABF5;}
+
+#darkMode .main-news-wrap .main-news .news-inner .category,
+#darkMode .alliance-wrap .desc .p1 {color: #83AEF9 !important; font-weight: 200;}
+
+#darkMode .list-news .tit {font-weight: 200;}
+
+#darkMode .ft-menus li a.privacy {color: var(--sr-darkmode-basic) !important; font-weight: 500 !important;}
+#darkMode .ft-menus li a,
+#darkMode .services-con .cs-p,
+#darkMode .alliance-wrap .desc .p3,
+#darkMode .footer-credits p, 
+#darkMode .footer-credits p span {color: #999AA9; font-weight: 200;}
+
+
+/* .header-top > .mode-switch */
+.mode-switch {margin-left: 1.9rem;}
+.mode-switch input[type="checkbox"] {position: relative; width: 4rem; height: 2.3rem; margin: 0; border-radius: 10rem; border: unset; background: #5EA8F5 url(/guide/images/icon-mode-light.png) no-repeat 0.5rem 50%; cursor: pointer;}
+.mode-switch input[type="checkbox"]::before {content: ""; position: absolute; top: 50%; left: 2rem; transform: translateY(-50%); width: 1.7rem; height: 1.7rem;  border-radius: 50%; background-color: #4680E1; transition: left 0.07s linear;}
+.mode-switch input[type="checkbox"]:checked::before {left: 0.3rem; background-color: #3E4F5C;}
+.mode-switch input[type="checkbox"]:checked {background: #232C38 url(/guide/images/icon-mode-dark.png) no-repeat calc(100% - 0.6rem) 50%; } 
+
+
+/* 협력사 소개 > darkMode일 경우 b2b 로고 hide 처리 */
+#darkMode .alliance9 {display: none;}
+
+/* === } ::::: 23.10.24 | MAIN DARK MODE CSS: 종료 :::::: */
+

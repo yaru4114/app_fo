@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>	선불금 관리대행 서비스 동의 | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+
+        <!-- header include -->
+        <div class="header-wrap include-wrap"></div>
+        <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+        <!-- //header include -->
+        
+        <!-- container -->
+        <div class="container">
+            <!-- 본문 -->
+            <div class="section us">
+                <div class="inwrap">
+                <div class="hgroup">
+                    <div>
+                    <h2 class="h2 mt20">선불금 관리대행 서비스 동의</h2>
+                    <p class="fs20 mt60 fc-orange signup-txt-ls">이제 하나은행 에스크로 선불금 관리대행 서비스 동의하기만 남았습니다.</p>
+                    <p class="signup-txt-info mt10">
+                        선불금 관리대행 서비스 동의 후 서린닷컴 거래회원 최종 승인이 진행됩니다.
+                    </p>                      
+                    </div>
+                </div>
+
+                <div class="sign-hana-link mt60">
+                    <p class="signup-t-center"><img src="/guide/images/ma/main-alliance-hanabank.png" alt="하나은행"></p>
+                    <p class="signup-t-center mt10"><a href="https://biz.kebhana.com/index.jsp" target="_new" class="fc-blue">https://biz.kebhana.com/index.jsp</a></p>
+                </div>
+
+                <div class="btn-wrap singup-btn-wrap">
+                    <a href="#" class="btn-blue-big full" target="_new">관리대행 서비스 동의하러 가기</a>
+                </div>
+            
+                </div>
+                            
+            </div>
+            <!--// 본문 -->
+        </div>
+        <!-- //container -->
+    
+        <!-- footer include -->
+        <div class="footer-wrap include-wrap"></div>
+        <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+        <!-- //footer include -->
+
+    </div>
+
+    <!-- script core -->
+    <script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/guide/js/select2/select2.min.js"></script>
+    <!-- script extra -->
+    <script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+    <!-- script custom -->
+    <script src="/guide/js/sorin.js"></script>
+    <script src="/guide/js/sorin-layout.js"></script>
+    <!-- embedded -->
+    <script>
+        $(document).ready(function(){
+        // 파일 첨부 변경
+        var fileTarget = $('.file-upload .upload-hidden');
+        fileTarget.on('change', function(){  // 값이 변경되면
+            if(window.FileReader){  // modern browser
+                    var filename = $(this)[0].files[0].name;
+            } 
+            else {  // old IE
+                    var filename = $(this).val().split('/').pop().split('\\').pop();  // 파일명만 추출
+            }
+            // 추출한 파일명 삽입
+            $(this).siblings('.upload-name').val(filename).addClass('file-in').next().show();
+        });
+
+        // 파일 첨부 취소
+        $(document).on('click','.file-cancel', function() {
+            $('.file-upload .upload-name').val('');
+            $(this).hide();
+        });
+
+    }); 
+    </script>
+
+</body>
+</html>

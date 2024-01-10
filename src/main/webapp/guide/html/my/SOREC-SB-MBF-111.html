@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>회사 정보 관리 | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+   <!-- header include -->
+   <div class="header-wrap include-wrap"></div>
+   <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+   <!-- //header include -->
+    <div class="container">
+   		<!-- dashboard include -->
+      	<div class="dashboard-wrap include-wrap"></div>
+      	<script type="text/javascript"> $(".dashboard-wrap").load("/guide/html/include/my/dashboard.html");</script>
+        <!-- //dashboard include -->
+        <div class="section my">
+            <div class="inwrap table">
+            	<!-- lnb include -->            	
+                <div class="lnb-wrap include-wrap"></div>
+   				<script type="text/javascript"> $(".lnb-wrap").load("/guide/html/include/my/lnb.html");</script>
+                <!-- lnb include --> 
+                <div class="content">
+                    <div class="section">
+                        <div class="hgroup">
+                            <h2 class="h2">회사정보 관리</h2>
+                        </div>
+                        <div class="hgroup">
+                            <h3 class="h4">기본정보
+                                <!-- <span class="fc-orange notice">※ 2021년 03월 25일 사업자등록정보 변경신청이 접수되었습니다.</span> -->
+                                <!-- 접수 후 승인 전까지 노출 -->
+                                <!-- <span class="error">※ 2021년 03월 25일 사업자등록정보 변경신청이 처리되었습니다.</span> -->
+                                <!-- 승인 처리 후 1주일간 노출 -->
+                            </h3>
+                            <div class="btns editable">
+                                <button type="button" class="btn-stroke-md btn-edit-coinfo">정보 변경</button>
+                            </div>
+                            <div class="btns editable off">
+                                <!-- <button type="button" class="btn-stroke-md btn-cancel-coinfo">취소</button> -->
+                                <button type="button" class="btn-stroke-md blue  btn-confirm-coinfo">정보 변경 확인</button>
+                            </div>
+                        </div>
+                        <div class="section hasTitle">
+                            <table class="tbl-v th-left t3">
+                            <caption>회사정보관리 - 사업자등록번호, 법인등록번호, 업태, 업종, 대표자명, 회사 주소 제공</caption>
+                            <colgroup>
+                            <col style="width:16rem;">
+                            <col>
+                            <col style="width:16rem;">
+                            <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row"><label for="ipCoLicenseNo">사업자등록번호</label></th>
+                                    <td>
+                                        110-82-65981
+                                    </td>
+                                    <th scope="row"><label for="ipCoRegiNo">법인등록번호</label></th>
+                                    <td>
+                                        2021-25-36987
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="ipCoType">업태</label></th>
+                                    <td>
+                                        <span class="w350px">
+                                            <input type="text" name="ipCoType" id="ipCoType" value="제조" class="full trans" readonly>
+                                        </span>
+                                    </td>
+                                    <th scope="row"><label for="ipCoCate">업종</label></th>
+                                    <td>
+                                        <span class="w350px">
+                                            <input type="text" name="ipCoCate" id="ipCoCate" value="압출" class="full trans" readonly>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="ipCoCeo">대표자명</label></th>
+                                    <td colspan="3">
+                                        <div class="w250px">
+                                            <input type="text" name="ipCoCeo" id="ipCoCeo" value="홍길동" class="full trans" readonly>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">회사 주소</th>
+                                    <td colspan="3">
+                                        <div class="textarea2">
+                                            <div class="address-readonly">전북 군산시 오식도동 884-3 (주)성일특수강</div>
+                                            <div class="address-edit hide">
+                                                <div class="input-address readonly w350px">
+                                                    <span class="input"><input type="text" name="ipRoadBase" id="ipRoadBase" class="fill-blue" title="도로명 주소" value="전북 군산시 오식도동 884-3" readonly></span>
+                                                    <span class="button"><button type="button" class="btn-stroke-md blue btn-zip ml10">주소 찾기</button></span>
+                                                </div>
+                                                <div class="w350px">
+                                                    <input type="text" name="ipRoadBase2" id="ipRoadBase2" title="도로명 상세 주소 입력" placeholder="도로명 상세 주소 입력" class="full fill-gray" value="(주)성일특수강" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- -->
+                                <tr class="editable off">
+                                    <th scope="row"><label for="ipAttachFile">변경사업자등록증</label></th>
+                                    <td colspan="3">
+                                        <span class="limit-width">
+                                            <div class="file-upload w350px">
+                                                <input type="text" class="upload-name fill-blue" value="" placeholder="통장사본 파일 첨부" disabled="disabled">
+                                                <span class="file-cancel"><img src="/guide/images/us/icon_file_cancel.png"></span>
+                                                <label for="ipBankbook">파일첨부</label> 
+                                                <input type="file" id="ipBankbook" class="upload-hidden"> 
+                                            </div>
+                                            <!-- <span class="input-file">
+                                                <input type="file" name="ipAttachFile" id="ipAttachFile" class="hidden-file">
+                                                <button type="button" class="btn-stroke-md blue">파일찾기</button>
+                                            </span> -->
+                                        </span>
+                                    </td>
+                                </tr>
+                                <!--// -->
+                            </tbody>
+                            </table>
+                        </div>
+
+                        <div class="section hasTitle">
+                            <div class="hgroup">
+                                <h2 class="h4">회사 연락처</h2>
+                            </div>
+                            <table class="tbl-v t3 th-left">
+                            <caption>회사 연락처 - 회사전화번호, 팩스번호 제공</caption>
+                            <colgroup>
+                            <col style="width:16rem;">
+                            <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row"><label for="ipCoPhone">회사전화 번호</label></th>
+                                    <td>
+                                        <div class="w200px">
+                                            <input type="text" name="ipCoPhone" id="ipCoPhone" value="02-358-2567" class="full trans fill-gray" readonly>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="ipCoFax">팩스 번호</label></th>
+                                    <td>
+                                        <div class="w200px">
+                                            <input type="text" name="ipCoFax" id="ipCoFax" value="070-6589-2566" class="full trans fill-gray" readonly>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+
+                        <div class="section hasTitle">
+                            <div class="hgroup">
+                                <h2 class="h4">거래대금 환불 계좌</h2>
+                                <span class="icon-info-txt fs12">환불계좌 정보를 수정할 수 없는 업체입니다.(가상계좌 잔액 존재)</span>
+                            </div>
+                            <table class="tbl-v t3 th-left">
+                            <caption>거래대금 환불 계좌 - 은행, 계좌명의/계좌번호, 파일첨부 제공</caption>
+                            <colgroup>
+                            <col style="width:16rem;">
+                            <col>
+                            <col style="width:16rem;">
+                            <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">은행</th>
+                                    <td>
+                                        <span>하나은행</span>
+                                    </td>
+                                    <th scope="row"><label for="ipAccountHolder">가상 계좌번호</label></th>
+                                    <td>
+                                        <div>148-160672-2437</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="accountName">계좌명의</label></th>
+                                    <td>
+                                        <span>서린상사(주)</span>
+                                    </td>
+                                    <th scope="row"><label for="accountName">계좌번호</label></th>
+                                    <td>
+                                        <span>148-857872-5248</span>
+                                    </td>
+                                </tr>
+                                <!-- <tr>
+                                    <th scope="row"><label for="ipAttachBank">통장파일 첨부</label></th>
+                                    <td>
+                                        <span class="limit-width">
+                                            <span class="input-file">
+                                                <input type="file" name="ipAttachBank" id="ipAttachBank" class="hidden-file">
+                                                <button type="button" class="btn-stroke-md blue">통장사본 첨부</button>
+                                            </span>
+                                        </span>
+                                        <span class="t-info">PDF, JPG, JPEG, PNG 포맷의 5M이내 파일로 첨부해주세요.</span>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                            </table>
+                        </div>
+
+                        <div class="section hasTitle">
+                            <div class="hgroup">
+                                <h2 class="h4">추가 결제 수단</h2>
+                            </div>
+                            <table class="tbl-v t3 th-left">
+                            <caption>추가 결제 수단</caption>
+                            <colgroup>
+                            <col style="width:16rem;">
+                            <col style="width:60rem;">
+                            <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row"><label for="ipAccountHolder">계약금</label></th>
+                                    <td>
+                                        <!-- 환불계좌 등록 전 -->
+                                        <div class="flex-between hide">
+                                            <span>환불계좌 등록 후 사용 신청을 할 수 있습니다.</span>
+                                        </div>
+                                        <!--// 환불계좌 등록 전 -->
+                                        
+                                        <!-- 환불계좌 등록 후 -->
+                                        <table class="tbl-v t5 th-left mt20 mb20 hide">
+                                            <colgroup>
+                                            <col style="width:16rem;">
+                                            <col>
+                                            </colgroup>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">신청일</th>
+                                                    <td>2022-06-13</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">구매성향등급</th>
+                                                    <td>대량구매형</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!--// 환불계좌 등록 후 -->
+
+                                        <!-- 관리자 확인 중 -->
+                                        <div class="flex-between hide">
+                                            <span class="fc-orange">관리자 확인 중에 있습니다.</span>
+                                        </div>
+                                        <!--// 관리자 확인 중 -->
+
+                                        <!-- 사용신청 거절 -->
+                                        <div class="flex-between">
+                                            <span class="fc-orange">사용 신청이 거절되었습니다. (고객센터 02-519-2740)</span>
+                                        </div>
+                                        <!--// 사용신청 거절 -->
+                                    </td>
+                                    
+                                    <td>
+                                        <div class="flex-center">
+                                            <!-- 환불계좌 등록 전 버튼 -->
+                                            <button type="button" class="btn-blue-md" data-popup="modal" data-target="sorinModalDownAppli">사용 신청</button>
+                                            <!--// 환불계좌 등록 전 버튼 -->
+                                            <!-- 환불계좌 등록 후 버튼 -->
+                                            <button type="button" class="btn-gray-md hide" data-popup="modal" data-target="sorinModalCancelAppli">해지 신청</button>
+                                            <!--// 환불계좌 등록 후 버튼 -->
+                                            <!-- 관리자 확인 중 버튼 -->
+                                            <button type="button" class="btn-gray-md hide" data-popup="modal" data-target="">사용 신청</button>
+                                            <!--// 관리자 확인 중 버튼 -->
+                                            <!-- 사용신청 거절 -->
+                                            <button type="button" class="btn-blue-md hide" data-popup="modal" data-target="">사용 신청</button>
+                                            <!--// 사용신청 거절 -->
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="">담보보증</label></th>
+                                    <td>
+                                        <!-- 환불계좌 등록 전 -->
+                                        <div class="flex-between hide">
+                                            <span>환불계좌 등록 후 사용 신청을 할 수 있습니다.</span>
+                                        </div>
+                                        <!--// 환불계좌 등록 전 -->
+                                        <!-- 환불계좌 등록 후 -->
+                                        <table class="tbl-v t5 th-left mt20 mb20">
+                                            <colgroup>
+                                            <col style="width:16rem;">
+                                            <col>
+                                            </colgroup>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">신청일</th>
+                                                    <td>2022-06-13</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">승인일</th>
+                                                    <td>대량구매형</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">보증보험번호</th>
+                                                    <td>20222556262626</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">보험계약기간</th>
+                                                    <td>2022-01-01 ~ 2022.12.31</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">보증한도</th>
+                                                    <td>1,000,000,000 원</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">남은 보증한도</th>
+                                                    <td>500,000,000 원</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">보험 수수료</th>
+                                                    <td>3 %</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">보증 보험료</th>
+                                                    <td>30,000,000 원</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">수수료 지원 기준금액</th>
+                                                    <td>30,000,000 원</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">상환기간</th>
+                                                    <td>180 일</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">주문 실적금액</th>
+                                                    <td>7,000,000,000 원</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!--// 환불계좌 등록 후 -->
+
+                                        <!-- 관리자 확인 중 -->
+                                        <div class="flex-between hide">
+                                            <span class="fc-orange">관리자 확인 중에 있습니다.</span>
+                                        </div>
+                                        <!--// 관리자 확인 중 -->
+
+                                        <!-- 사용신청 거절 -->
+                                        <div class="flex-between hide">
+                                            <span class="fc-orange">사용 신청이 거절되었습니다. (고객센터 02-519-2740)</span>
+                                        </div>
+                                        <!--// 사용신청 거절 -->
+                                    </td>
+                                    <td>
+                                        <div class="flex-center">
+                                            <!-- 환불계좌 등록 전 버튼 -->
+                                            <button type="button" class="btn-blue-md" data-popup="modal" data-target="sorinModalGuaranteeAppl">사용 신청</button>
+                                            <!--// 환불계좌 등록 전 버튼 -->
+                                            <!-- 환불계좌 등록 후 버튼 -->
+                                            <button type="button" class="btn-gray-md" data-popup="modal" data-target="sorinModalCancelAppli">해지 신청</button>
+                                            <!--// 환불계좌 등록 후 버튼 -->
+                                            <!-- 관리자 확인 중 버튼 -->
+                                            <button type="button" class="btn-gray-md hide" data-popup="modal" data-target="">사용 신청</button>
+                                            <!--// 관리자 확인 중 버튼 -->
+                                            <!-- 사용신청 거절 -->
+                                            <button type="button" class="btn-blue-md hide" data-popup="modal" data-target="">사용 신청</button>
+                                            <!--// 사용신청 거절 -->
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="">대출보증</label></th>
+                                    <td>
+                                        <!-- 환불계좌 등록 전 -->
+                                        <div class="flex-between hide">
+                                            <span>환불계좌 등록 후 사용 신청을 할 수 있습니다.</span>
+                                        </div>
+                                        <!--// 환불계좌 등록 전 -->
+                                        <!-- 환불계좌 등록 후 -->
+                                        <table class="tbl-v t5 th-left mt20 mb20">
+                                            <colgroup>
+                                            <col style="width:16rem;">
+                                            <col>
+                                            </colgroup>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">신청일</th>
+                                                    <td>2022-06-13</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">승인일</th>
+                                                    <td>2022-06-15</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">거래은행</th>
+                                                    <td class="flex-between bank-change">
+                                                    	<span class="bank-item">국민은행, 우리은행</span>
+                                                    	<button type="button" class="btn-stroke-md blue" data-popup="modal" data-target="sorinModalBankChg">은행변경</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">총 사용금액</th>
+                                                    <td>100,000,000 원</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!--// 환불계좌 등록 후 -->
+
+                                        <!-- 관리자 확인 중 -->
+                                        <div class="flex-between hide">
+                                            <span class="fc-orange">관리자 확인 중에 있습니다.</span>
+                                        </div>
+                                        <!--// 관리자 확인 중 -->
+
+                                        <!-- 사용신청 거절 -->
+                                        <div class="flex-between hide">
+                                            <span class="fc-orange">사용 신청이 거절되었습니다. (고객센터 02-519-2740)</span>
+                                        </div>
+                                        <!--// 사용신청 거절 -->
+                                    </td>
+                                    <td>
+                                        <div class="flex-center">
+                                            <!-- 환불계좌 등록 전 버튼 -->
+                                            <button type="button" class="btn-blue-md" data-popup="modal" data-target="sorinModalLoanAppli">사용 신청</button>
+                                            <button type="button" class="btn-gray-md hide" disabled>사용 신청</button>
+                                            <!--// 환불계좌 등록 전 버튼 -->
+                                            <!-- 환불계좌 등록 후 버튼 -->
+                                            <button type="button" class="btn-gray-md" data-popup="modal" data-target="sorinModalCancelAppli">해지 신청</button>
+                                            <!--// 환불계좌 등록 후 버튼 -->
+                                            <!-- 관리자 확인 중 버튼 -->
+                                            <button type="button" class="btn-gray-md hide" data-popup="modal" data-target="">사용 신청</button>
+                                            <!--// 관리자 확인 중 버튼 -->
+                                            <!-- 사용신청 거절 -->
+                                            <button type="button" class="btn-blue-md hide" data-popup="modal" data-target="">사용 신청</button>
+                                            <!--// 사용신청 거절 -->
+                                        </div>
+                                    </td>
+                                </tr>
+								<!-- 서린크레딧 -->
+                                <tr>
+                                    <th scope="row"><label for="">서린 크레딧</label></th>
+                                    <td>
+                                        <!-- 환불계좌 등록 전 -->
+                                        <div class="flex-between hide">
+                                            <span>환불계좌 등록 후 사용 신청을 할 수 있습니다.</span>
+                                        </div>
+                                        <!--// 환불계좌 등록 전 -->
+                                        <!-- 환불계좌 등록 후 -->
+                                        <table class="tbl-v t5 th-left mt20 mb20">
+                                            <colgroup>
+                                            <col style="width:16rem;">
+                                            <col>
+                                            </colgroup>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">신청일</th>
+                                                    <td>2022-06-13</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">승인일</th>
+                                                    <td>2022-06-15</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">보험번호</th>
+                                                    <td>640488-GA2</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">보험계약기간</th>
+                                                    <td>2022-06-15 ~ 2023-06-15</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">신청금액</th>
+                                                    <td>100,000,000 원</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">가능 한도액</th>
+                                                    <td>100,000,000 원</td>
+                                                </tr>         
+                                                <tr>
+                                                    <th scope="row">남은 한도액</th>
+                                                    <td>100,000,000 원</td>
+                                                </tr>                                                                                       
+                                            </tbody>
+                                        </table>
+                                        <!--// 환불계좌 등록 후 -->
+
+                                        <!-- 관리자 확인 중 -->
+                                        <div class="flex-between hide">
+                                            <span class="fc-orange">관리자 확인 중에 있습니다.</span>
+                                        </div>
+                                        <!--// 관리자 확인 중 -->
+
+                                        <!-- 사용신청 거절 -->
+                                        <div class="flex-between hide">
+                                            <span class="fc-orange">사용 신청이 거절되었습니다. (고객센터 02-519-2740)</span>
+                                        </div>
+                                        <!--// 사용신청 거절 -->
+                                    </td>
+                                    <td>
+                                        <div class="flex-center">
+                                            <!-- 환불계좌 등록 전 버튼 -->
+                                            <button type="button" class="btn-blue-md hide" data-popup="modal" data-target="sorinModalContractAlert">사용 신청</button>
+                                            <button type="button" class="btn-gray-md hide" disabled>사용 신청</button>
+                                            <!--// 환불계좌 등록 전 버튼 -->
+                                            <!-- 환불계좌 등록 후 버튼 -->
+                                            <button type="button" class="btn-gray-md hide" data-popup="modal" data-target="sorinModalCancelAppli">해지 신청</button>
+                                            <!--// 환불계좌 등록 후 버튼 -->
+                                            <!-- 관리자 확인 중 버튼 -->
+                                            <button type="button" class="btn-gray-md hide" data-popup="modal" data-target="">사용 신청</button>
+                                            <!--// 관리자 확인 중 버튼 -->
+                                            <!-- 사용신청 거절 -->
+                                            <button type="button" class="btn-blue-md hide" data-popup="modal" data-target="">사용 신청</button>
+                                            <!--// 사용신청 거절 -->
+                                            
+											<!-- KYC 작성 정보 확인 -->
+											 <button type="button" class="btn-blue-md" data-target="">KYC 정보</button>
+											 <button type="button" class="btn-gray-md" data-target="">해지 신청</button>
+											<!-- //KYC 작성 정보 확인 -->
+                                        </div>
+                                    </td>
+                                </tr>								
+								<!-- //서린크레딧 -->
+                            </tbody>
+                            </table>
+                        </div>
+
+                        <div class="section hasTitle">
+                            <div class="hgroup">
+                                <h2 class="h4">구매 담당자</h2>
+                            </div>
+                            <table class="tbl-v t3 th-left">
+                            <caption>구매 담당자</caption>
+                            <colgroup>
+                            <col style="width:16rem;">
+                            <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row"><label for="">이메일 주소</label></th>
+                                    <td>
+                                        <div class="select-combo-wrap">
+                                            <div>
+                                                <input type="text" name="ipUserEmail" id="ipUserEmail" class="full" placeholder="이메일을 입력해 주세요.">
+                                                <span class="email-at">@</span>
+                                            </div>
+                                            <div>
+                                                <input type="text" name="ipUserEmailD" id="ipUserEmailD" class="full" placeholder="도메인을 입력해 주세요." title="이메일 도메인 직접 입력">
+                                            </div>
+                                            <div>
+                                                <select name="" id="" class="dropdown" title="이메일 도메인 선택">
+                                                    <option selected>직접입력</option>
+                                                    <option>naver.com</option>
+                                                    <option>daum.net</option>
+                                                    <option>gmail.com</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+
+                        <div class="btn-wrap">
+                            <button type="button" class="btn-gray-big btn-more">취소</button>
+                            <button type="button" class="btn-blue-big btn-more">저장하기</button>
+                        </div>
+                    </div>  
+                </div><!--// .content-->
+            </div>
+        </div>
+    </div>
+   <!-- footer include -->
+   <div class="footer-wrap include-wrap"></div>
+   <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+   <!-- //footer include -->
+</div>
+
+<!-- Modal Popup : 계약금 사용 신청 -거래불가 -->
+<div class="popup modal com-info-manage" id="">
+    <div class="modal-content w700px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <h1 class="h2 center">계약금 사용 신청</h1>
+            <div class="context-box scroll-y scroll-trans">
+                <div class="box-blue">
+                    <p class="center box-txt">죄송합니다.</br>귀사의 평가등급이 <span class="fc-red bold">[거래불가]</span>로 확인되어 계약금 사용 신청이 불가능합니다.</p>
+                </div>
+                <div class="flex-center mt30">
+                    <span class="icon-info-txt-sm fs12">평가등급에 관련해서 궁금한 것이 있으시면 고객센타(02-519-2740)로 문의해 주세요.</span>
+                </div>
+                <div class="flex-center mt30">
+                    <button type="button" class="btn-blue-big modal-x">확인</button>
+                </div>
+            </div>
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// Modal Popup : 계약금 사용 신청 -거래불가 -->
+
+<!-- Modal Popup : 증거금 사용 신청 - step1 -->
+<div class="popup modal com-info-manage" id="sorinModalDownAppli">
+    <div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <h1 class="h2 center">증거금 사용 신청</h1>
+            <div class="context-box scroll-y scroll-trans">
+                <div class="box-states my mb30">
+                    <div><span>비밀번호 확인</span></div>
+                    <div><span>약관동의 및 본인인증</span></div>
+                    <div><span>신청 완료</span></div>
+                </div>
+                <div class="box-statesCon">
+                	<div class="tab-contents">
+                		<h2 class="h3">비밀번호 입력</h2>
+		                <table class="tbl-v down-appli-tb">
+		                    <tbody>
+		                        <td class="wide-pd">
+		                            <input type="" name="" id="" value="" class="full" placeholder="비밀번호를 입력해 주세요.">
+		                        </td>
+		                    </tbody>
+		                </table>
+		                <div class="btn-wrap">
+		                    <button type="button" class="btn-gray-big btn-more modal-x">취소</button>
+		                    <button type="button" class="btn-blue-big btn-more">확인</button>
+		                </div>
+                	</div>
+                	<div class="tab-contents">
+                		<h2 class="h3">최소결제금액 차등적용</h2>
+                		<span class="sub-tit">최소결제금액은 서린닷컴의 기준으로 평가한 구매성향등급에 따라 차등 적용합니다.</br>구매성향등급에 따라 낮은 최소결제금액을 적용하여 동일금액으로 기존보다 더 많은 중량을 구매할 수 있습니다.</span>
+		                <div class="box-red mt20 mb40">
+		                    <ul>
+		                        <li class="dot">신청 완료 후 바로 사용 가능합니다.</li>
+		                        <li class="dot">구매성향등급은 [마이페이지>회원정보관리]에서 확인할 수 있습니다.</li>
+		                        <li class="dot">구매성향등급과 관련해서 궁금한 것이 있으시면 고객센타(02-519-2740)로 문의해 주세요.</li>
+		                    </ul>
+		                </div>
+                		<h2 class="h3 mb20">증거금 이용약관</h2>
+		                <table class="tbl-v mb30">
+		                    <tbody>
+		                        <td>
+		                            <div class="flex-between mt10 mb10">
+		                                <div class="form-chk ml10 fill-gray">
+		                                    <input type="checkbox" id="depositInfo">
+		                                    <label for="depositInfo" class="fs14 marginInfo">증거금 이용약관에 동의합니다. [필수]</label>
+		                                </div>
+		                            </div>
+		                            <div class="detail-info-box mt10 mb15">
+		                                <div class="box-close"><button type="button" class="box-x"><span class="hidden">팝업 닫기</span></button></div>
+		                                [기업회원 이용약관]
+		                                </br></br>
+		                                제1조 (목적)
+		                                </br>
+		                                이 약관은 주식회사 서린상사(이하 “회사”)가 운영하는 서린닷컴(www.metalsorin.com) 인터넷 사이트 와 모바일 서비스(m.metalsorin.com) (이하 “
+		                                서린닷컴”이라 함) 에서 제공하는 인터넷 관련 서비스 (이하 “서비스”)를 이용함에 있어 회사와 회원의 권리∙의무 및 책임사항을 규정함을 적으로 합니다
+		                                이 약관은 주식회사 서린상사(이하 “회사”)가 운영하는 서린닷컴(www.metalsorin.com) 인터넷 사이트 와 모바일 서비스(m.metalsorin.com) (이하 “서린
+		                                닷컴”이라함) 에서 제공하는 인터넷 관련 서비스 (이하 “서비스”)를 이용함에 있어 회사와 회원의 권리∙의무 및 책임사항을 규정함을 적으로 합니다
+		                            </div>
+		                        </td>
+		                    </tbody>
+		                </table>
+		                <div class="btn-wrap">
+		                    <button type="button" class="btn-gray-big btn-more modal-x">취소</button>
+		                    <button type="button" class="btn-blue-big btn-more">본인인증하기</button>
+		                </div>
+                	</div>
+                	<div class="tab-contents">
+                		<h2 class="h3 center">계약금 사용 신청이 완료되었습니다.</h2>
+		                <table class="tbl-v">
+		                    <colgroup>
+		                        <col style="width: 15rem;">
+		                        <col>
+		                        <col style="width: 15rem;">
+		                        <col>
+		                    </colgroup>
+		                    <tbody>
+		                        <tr>
+		                            <th>e-Wallet 잔고</th>
+		                            <td>2022-06-13</td>
+		                            <th>결제수단</th>
+		                            <td>계약금</td>
+		                        </tr>
+		                        <tr>
+		                            <th>구매성향등급</th>
+		                            <td>대량구매형</td>
+		                            <th>계약금 비율</th>
+		                            <td>20%</td>
+		                        </tr>
+		                    </tbody>
+		                </table>
+		                <div class="flex-center mt20">
+		                    <div class="icon-info-txt-sm fs12">평가등급에 관련해서 궁금한 것이 있으시면 고객센타(02-519-2740)로 문의해 주세요.</div>
+		                </div>
+		                <div class="btn-wrap mt180">
+		                    <button type="button" class="btn-gray-big btn-more modal-x">취소</button>
+		                    <button type="button" class="btn-blue-big btn-more">확인</button>
+		                </div>
+                	</div>
+                </div>
+            </div>
+        </div><!--// .max-width -->
+    </div>
+    <!-- Modal Popup : 증거금 서비스 약정서 -->
+	<div class="popup modal active" id="sorinModalMarginAgree">
+	    <div class="modal-content w900px">
+	        <div class="max-width">
+	            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+	            <h1 class="h2 center">증거금 서비스 약정서</h1>
+	            <div class="context-box scroll-y">
+	            	<div class="head-txt">
+	            		이 설명서는 서린닷컴 고객이 이해하기 쉽도록 설명하기 위한 중요서류로, 아래 설명 내용을 제대로 이해하지 못한 상태에서 설명을 이해했다는 서명을 하거나 녹취 기록을 남기시는 경우, 
+	            		추후 해당내용과 관련한 권리 구제가 어려울 수 있으니 잘 읽고 이용에 참고해 주시기 바랍니다.
+	            	</div>
+	                <ul>
+	                	<li class="contents-list">
+	                		<p class="bold">1. 상품 개요 및 상품의 특성</p>
+							<div>증거금 서비스라 함은, 고객이 주문 시점에 최소결제금액만을 결제하고 나머지 잔액에 대해서는 출고 전 결제를 함으로서, 주문시점에 최소한의 금액으로 계약을 확정할 수 있게 이용할 수 있게한 상품입니다.</div>
+						</li>
+						<li class="contents-list">
+	                		<p class="bold">2. 가입 절차</p>
+							<div>
+								증거금서비스는 서린닷컴 사이트를 통해서 증거금 신청하기 버튼을 눌러서 신청을 하며, 신청하기 버튼 클릭시 웹사이트 상의 
+								증거금 상품 상세 설명 및 위험 고지 안내 후 서비스 약정서를 동의한 고객을 대상으로 서비스가 제공됩니다
+								</br>* 증거금 서비스 신청 → 증거금 서비스 설명 및 위험 고지 안내 확인 및 동의 → 증거금 서비스 이용 가능
+							</div>
+						</li>
+						<li class="contents-list">
+	                		<p class="bold">3. 대상 및 고객 등급</p>
+							<div>증거금서비스는 서린닷컴에 가입한 회원 중 하나은행 에스크로 계좌를 보유한 고객을 대상으로 하며, 회원의 구매 실적 및 신용등급에 따라 최소결제금액 구간이 다르게 적용됩니다.</div>
+							<table class="rank-tbl">
+			                	<colgroup>
+			                		<col width="10%"/>
+			                		<col width="30%"/>
+			                		<col width="30%"/>
+			                		<col width="30%"/>
+			                	</colgroup>
+			                	<thead>
+			                		<tr>
+			                			<th>구간</th>
+			                			<th>등급명</th>
+			                			<th>최소결제비율</th>
+			                			<th>실제결제비율</th>
+			                		</tr>
+			                	</thead>
+			                	<tbody>
+			                		<tr>
+			                			<td>1</td>
+			                			<td>대량구매형(19~21%)</td>
+			                			<td>주문금액의 약 20%</td>
+			                			<td>19~21%</td>
+			                		</tr>
+			                		<tr>
+			                			<td>2</td>
+			                			<td>자주구매형(28~32%)</td>
+			                			<td>주문금액의 약 30%</td>
+			                			<td>28~32%</td>
+			                		</tr>
+			                		<tr>
+			                			<td>3</td>
+			                			<td>계획구매형(38~42%)</td>
+			                			<td>주문금액의 약 40%</td>
+			                			<td>38~42%</td>
+			                		</tr>
+			                		<tr>
+			                			<td>4</td>
+			                			<td>안정구매형(48~52%)</td>
+			                			<td>주문금액의 약 50%</td>
+			                			<td>48~52%</td>
+			                		</tr>
+			                	</tbody>
+			                </table>
+			                <div class="mt10">
+			                	증거금 서비스에 최초 가입시 “안정구매형” 등급으로 설정되며, 이후 고객의 거래 실적 및 만기 결제 이력을 종합하여 미납 이력이 없을 시 등급 상향되어 적용됩니다.
+			                	등급이 상향된 고객에게는 별도 SMS로 등급 상향에 대한 통지를 안내하며 고객은 마이페이지를 통해서 결제비율을 상향 또는 하향(유지)할 수 있습니다.  
+			                </div>
+						</li>
+						<li class="contents-list">
+	                		<p class="bold">4. 상품 상세 설명</p>
+							<ul class="list-square">
+								<li>증거금(최소결제금액) : 증거금이라함은 서린닷컴의 현재 시세 대비하여 최소한으로 결제해야 되는 금액을 말합니다. 증거금은 전일자 LME & 환율의 변동성에 따라서 매일매일 변경될 수 있으며 주문결제 화면에서 별도 확인이 가능합니다.</li>
+								<li>증거금잔액 : 고객의 최초주문금액에서 증거금만큼을 차감한 금액을 증거금잔액이라고 합니다.</li>
+								<li>결제일 : 결제일이라함은 증거금잔액에 대해서 정해진 결제일을 이야기 하며, 고객이 지정한 출고일(D+0) 기준의 직전 영업일(D-1)을 의미합니다. 결제일은 고객이 출고일을 앞당기거나 연기할경우 출고일 기준으로 재 산정 됩니다.</li>
+								<li>출고일 : 고객이 주문 시점에 지정한 출고일을 의미합니다. 출고를 위해서는 반드시 출고일 직전 영업일까지 결제잔액에 대해서 결제가 진행되어야 출고가 가능합니다. 고객이 출고일을 변경을 원할경우 원주문일로부터 최대 90일까지 변경 가능하며, 횟수로는 3회까지 변경 가능합니다.</li>
+								<li>비용 : 주문일로부터 30일까지는 보관료를 면제합니다. 고객이 출고일을 변경할 경우 주문일로부터 30일 이후 기간부터는 보관료가 적용됩니다(50원/일). 보관료를 제외한 기타 비용은 발생하지 않습니다.</li>
+							</ul>
+						</li>
+						<li class="contents-list">
+							<p class="bold">5. 추가 증거금 납입 요건</p>
+							<div>LME & 환율 시장의 급격한 변동으로 인한 가격변동폭이 고객이 납입한 증거금을 초과할 경우 서린상사는 고객에게 추가증거금을 납입 요청을 할 수 있습니다. 추가증거금 납입 발생 요건은 아래와 같습니다.</div>
+							<ul class="mt10">
+								<li>가)	정의 : 가격변동폭 = [ 서린닷컴 종가기준 가격(톤)  - 고객 주문확정 가격(톤) ] X 주문 수량</li>
+								<li>나)	발생요건 ① : 가격변동폭 > 증거금</li>
+								<li>다)	발생요건 ② : 가격변동폭 > 증거금을 초과한 당일을 포함하여 3영업일이상 지속 유지될 경우</li>
+								<li>라)	추가증거금금액 : 최초주문금액의 10%</li>
+								<li>마)	납입일시 : 가격변동폭이 최소결제금액을 초과한 날로부터 4영업일 오후 4:00까지 e-Wallet 입금 처리</li>
+							</ul>
+						</li>
+						<li class="contents-list">
+							<p class="bold">6. 미납 발생 및 계좌 동결</p>
+							<div>
+								고객이 지정된 결제일의 서린닷컴 영업시간까지(오후 5:00) 증거금잔액을 결제 하지 않았을 경우, 지정된 결제일 익 영업일로부터 미납 계좌로 등록이 되며 미납 계좌 등록 시점으로부터 증거금 서비스를 통한 상품 주문이 제한됩니다.
+								미납 계좌 동결은 증거금잔액 결제를 통한 완납시 계좌 동결 해제 되며 미납 이력이 3회 이상 될 경우 증거금 서비스에 이용이 영구히 제한됩니다.
+							</div>
+						</li>
+						<li class="contents-list">
+							<p class="bold">7. 계약불이행에 따른 반대 매매 및 취소수수료(패널티)</p>
+							<div>
+								서린닷컴은 계좌 동결일로부터 동결일 포함 5영업일간 결제에 대한 유예기간을 제공합니다. 해당 유예 기간 중 서린닷컴은 고객에 e-mail, SMS, 유선 등의 안내로 증거금잔액 결제에 대한 안내를 제공합니다.
+								그럼에도 불구하고 고객이 5영업일의 유예기간 내로 잔금에 대한 변제를 하지 못할 경우(5영업일의 오후 4:00까지 e-Wallet 입금 처리), 서린닷컴은 5영업일 유예기간의 마지막날 서린닷컴 종가 가격기준으로 반대 매매를 진행합니다. 
+								</br></br>
+								반대 매매의 행위가 발생하였을 경우 서린닷컴에서는 아래 항목들에 대한 비용을 청구할 수 있습니다.
+								</br></br>
+								<ul>
+									<li>가)	가격 하락분에 대한 손실 : (반대 매매시의 서린닷컴 가격 – 최초 주문시의 서린닷컴 가격) X 주문 수량</li>
+									<li>나)	계약 불이행에 따른 비용 : 최초 주문 금액의 1.0%</li>
+								</ul>
+								</br>
+								반대 매매 시점에서 고객의 최초 주문 가격 대비 반대 매매시의 가격이 하락하여 서린상사에 손실이 발행하였을 경우, 서린상사는 해당 가격 하락분에 따른 손실 금액을 고객에게 청구할 권리가 있습니다. 또한 가격 하락에 따른 손실 금액 청구와 별도로,
+								서린닷컴은 계약 불이행에 따른 수수료 금액(패널티)을 별도로 청구할 수 있습니다. 수수료 금액(패널티)은 최초 주문 금액의 1.0%로 책정되며 수수료를 포함 고객에게 반환되는 금액은 아래와 같습니다.
+							</div>
+							<div class="mt10">*예시</div>
+							<table class="ex-table">
+			                	<colgroup>
+			                		<col width="12%"/>
+			                		<col width="12%"/>
+			                		<col width="12%"/>
+			                		<col width="12%"/>
+			                		<col width="12%"/>
+			                		<col width="40%"/>
+			                	</colgroup>
+			                	<thead>
+			                		<tr>
+			                			<th>구분</th>
+			                			<th>항목</th>
+			                			<th>주문시</th>
+			                			<th>반대매매</th>
+			                			<th class="diff">정산(차액)</th>
+			                			<th>비고</th>
+			                		</tr>
+			                	</thead>
+			                	<tbody>
+			                		<tr>
+			                			<td rowspan="3">①주문정보</td>
+			                			<td>수량</td>
+			                			<td class="right">25.000</td>
+			                			<td class="border-r right">25.000</td>
+			                			<td class="diff"></td>
+			                			<td class="left">주문수량</td>
+			                		</tr>
+			                		<tr>
+			                			<td>상품단가</td>
+			                			<td class="right">3,152,000</td>
+			                			<td class="border-r right">2,000,000</td>
+			                			<td class="diff"></td>
+			                			<td class="left">반대매매일 서린닷컴의 증가 가격</td>
+			                		</tr>
+			                		<tr>
+			                			<td>상품금액</td>
+			                			<td class="right">78,800,000</td>
+			                			<td class="border-r right">50,000,000</td>
+			                			<td class="diff right">-28,800,000</td>
+			                			<td class="left">정산(차액) = 주문시상품금액-반대매매시 상품금액</td>
+			                		</tr>
+			                		<tr>
+			                			<td>②결제정보</td>
+			                			<td>증거금</td>
+			                			<td class="right">15,625,000</td>
+			                			<td class="border-r"></td>
+			                			<td class="diff right">15,625,000</td>
+			                			<td class="left">주문시 결제한 증거금 금액</td>
+			                		</tr>
+			                		<tr>
+			                			<td>③취소정보</td>
+			                			<td>쥐소수수료</td>
+			                			<td></td>
+			                			<td class="border-r"></td>
+			                			<td class="diff right">-788,000</td>
+			                			<td class="left">주문시 상품금액 x 1.0%</td>
+			                		</tr>
+			                		<tr class="total">
+			                			<td>취소결제금액</td>
+			                			<td></td>
+			                			<td></td>
+			                			<td class="border-r"></td>
+			                			<td class="diff right">-13,963,000</td>
+			                			<td class="left">취소결제금액 = 정산(차액) + 증거금 + 취소수수료</td>
+			                		</tr>
+			                	</tbody>
+			                </table>
+						</li>
+						<li class="contents-list">
+							<p class="bold">8. 손실금에 대한 청구의 경우</p>
+							<div>
+								정산차액과 수수료를 포함한 반대 매매시의 손실 금액이 고객의 납부한 증거금을 초과한 경우가 발생할 경우, 서린상사에서는
+								해당 초과분에 대한 청구를 별도 요청할 수 있다. 이 경우 서린상사는 해당 거래 발생일로부터 거래 내역에 대한 내역을 고객에게
+								통지하고 고객에게 지정된 계좌로의 입금을 요청하며, 해당일 내에 변제가 되지 않을 경우 별도 추심 절차를 진행할 수 가 있습니다.
+							</div>
+						</li>
+						<li class="contents-list">
+							<p class="bold">9. 가격 변동성에 따른 손실 고지</p>
+							<div>
+								증거금 서비스는 고객의 주문 시에 현금 결제 부담을 덜어드리기 위한 상품으로, 상품의 의도와 달리 시세 차익(투기성)을 목적으로 사용할 경우
+								만기 결제일에 손실이 발생할 수 있음을 안내 드립니다. 만기일 결제시 가격 하락에 대한 책임은 서린상사에게 귀
+								속되지 않습니다.
+							</div>
+						</li>
+	                </ul>
+	                <div class="mt10">
+	                	본인은 증거금 서비스를 신청함에 있어, 이 약정서의 주요내용에 대해 충분히 이해하였으며, 이 약정서에서 정하지 아니한 사항은 서린닷컴 표준약관을 준용하여 적용됨을 동의하며 위와 같이 약정내용의 이행을 확인합니다.
+	                </div>
+	                <div class="sign-area">
+	                	<div class="box">
+	                		<p>20&nbsp;&nbsp;&nbsp;&nbsp;년 &nbsp;&nbsp;&nbsp;&nbsp;월 &nbsp;&nbsp;&nbsp;&nbsp;일</p>
+		                	<ul>
+		                		<li>신청인 :</li>
+		                		<li>직위 :</li>
+		                		<li>회사명 :</li>
+		                	</ul>
+	                	</div>
+	                </div>
+	                <div class="btn-wrap">
+	                    <button type="button" class="btn-blue-big agree-btn">약관에 동의합니다</button>
+	                </div>
+	            </div>
+	        </div><!--// .max-width -->
+	    </div>
+	</div>
+	<!--// Modal Popup : 증거금 서비스 약정서 -->
+</div>
+<!--// Modal Popup : 증거금 사용 신청 - step1 -->
+
+<!-- Modal Popup : 증거금 사용 신청 - step2 -->
+<!--<div class="popup modal com-info-manage" id="">
+    <div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <h1 class="h2 center">증거금 사용 신청</h1>
+            <div class="context-box scroll-y scroll-trans">
+                <div class="box-states my mb30">
+                    <div><span>비밀번호 확인</span></div>
+                    <div class="active"><span>약관동의 및 본인인증</span></div>
+                    <div><span>신청 완료</span></div>
+                </div>
+                <h2 class="h3">최소결제금액 차등적용</h2>
+                <span class="sub-tit">최소결제금액은 서린닷컴의 기준으로 평가한 구매성향등급에 따라 차등 적용합니다.</br>구매성향등급에 따라 낮은 최소결제금액을 적용하여 동일금액으로 기존보다 더 많은 중량을 구매할 수 있습니다.</span>
+                <div class="box-red mt20 mb40">
+                    <ul>
+                        <li class="dot">신청 완료 후 바로 사용 가능합니다.</li>
+                        <li class="dot">구매성향등급은 [마이페이지>회원정보관리]에서 확인할 수 있습니다.</li>
+                        <li class="dot">구매성향등급과 관련해서 궁금한 것이 있으시면 고객센타(02-519-2740)로 문의해 주세요.</li>
+                    </ul>
+                </div>
+                <h2 class="h3 mb20">계약금 이용약관</h2>
+                <table class="tbl-v mb30">
+                    <tbody>
+                        <td>
+                            <div class="flex-between mt10 mb10">
+                                <div class="form-chk ml10 fill-gray">
+                                    <input type="checkbox" id="depositInfo">
+                                    <label for="depositInfo" class="fs14 marginInfo">증거금 이용약관에 동의합니다. [필수]</label>
+                                </div>
+                            </div>
+                            <div class="detail-info-box mt10 mb15">
+                                <div class="box-close"><button type="button" class="box-x"><span class="hidden">팝업 닫기</span></button></div>
+                                [기업회원 이용약관]
+                                </br></br>
+                                제1조 (목적)
+                                </br>
+                                이 약관은 주식회사 서린상사(이하 “회사”)가 운영하는 서린닷컴(www.metalsorin.com) 인터넷 사이트 와 모바일 서비스(m.metalsorin.com) (이하 “
+                                서린닷컴”이라 함) 에서 제공하는 인터넷 관련 서비스 (이하 “서비스”)를 이용함에 있어 회사와 회원의 권리∙의무 및 책임사항을 규정함을 적으로 합니다
+                                이 약관은 주식회사 서린상사(이하 “회사”)가 운영하는 서린닷컴(www.metalsorin.com) 인터넷 사이트 와 모바일 서비스(m.metalsorin.com) (이하 “서린
+                                닷컴”이라함) 에서 제공하는 인터넷 관련 서비스 (이하 “서비스”)를 이용함에 있어 회사와 회원의 권리∙의무 및 책임사항을 규정함을 적으로 합니다
+                            </div>
+                        </td>
+                    </tbody>
+                </table>
+                <div class="btn-wrap">
+                    <button type="button" class="btn-gray-big btn-more modal-x">취소</button>
+                    <button type="button" class="btn-blue-big btn-more">본인인증하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+<!--// Modal Popup : 증거금 사용 신청 - step2 -->
+
+<!-- Modal Popup : 증거금 사용 신청 - step3 -->
+<!--<div class="popup modal com-info-manage" id="">
+    <div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <h1 class="h2 center">계약금 사용 신청</h1>
+            <div class="context-box scroll-y scroll-trans">
+                <div class="box-states my mb30">
+                    <div><span>비밀번호 확인</span></div>
+                    <div><span>약관동의 및 본인인증</span></div>
+                    <div class="active"><span>신청 완료</span></div>
+                </div>
+                <h2 class="h3 center">계약금 사용 신청이 완료되었습니다.</h2>
+                <table class="tbl-v">
+                    <colgroup>
+                        <col style="width: 15rem;">
+                        <col>
+                        <col style="width: 15rem;">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>e-Wallet 잔고</th>
+                            <td>2022-06-13</td>
+                            <th>결제수단</th>
+                            <td>계약금</td>
+                        </tr>
+                        <tr>
+                            <th>구매성향등급</th>
+                            <td>대량구매형</td>
+                            <th>계약금 비율</th>
+                            <td>20%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="flex-center mt20">
+                    <div class="icon-info-txt-sm fs12">평가등급에 관련해서 궁금한 것이 있으시면 고객센타(02-519-2740)로 문의해 주세요.</div>
+                </div>
+                <div class="btn-wrap mt180">
+                    <button type="button" class="btn-gray-big btn-more modal-x">취소</button>
+                    <button type="button" class="btn-blue-big btn-more">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+<!--// Modal Popup : 증거금 사용 신청 - step3 -->
+
+<!-- Modal Popup : 담보보증 사용 신청 - type1 -->
+<div class="popup modal com-info-manage" id="sorinModalGuaranteeAppl">
+    <div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <h1 class="h2 center">담보보증 사용 신청</h1>
+            <div class="context-box scroll-y scroll-trans">
+                <table class="tbl-v pd">
+                    <colgroup>
+                        <col style="width: 15rem;">
+                        <col>
+                        <col style="width: 15rem;">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr class="left">
+                            <th>신청일</th>
+                            <td>2022-06-13</td>
+                            <th>결제수단</th>
+                            <td>담보보증</td>
+                        </tr>
+                        <tr class="left">
+                            <th>계약여부</th>
+                            <td colspan="3">
+                                <div class="form-chk guarantee-radio ml10 mr20">
+                                    <input type="radio" name="radio" id="contractStatus1" checked>
+                                    <label for="contractStatus1" class="fs16">미계약</label>
+                                </div>
+                                <div class="form-chk guarantee-radio ml10 mr20">
+                                    <input type="radio" name="radio" id="contractStatus2">
+                                    <label for="contractStatus2" class="fs16">계약 완료</label>
+                                </div>
+                                <div class="form-chk guarantee-radio ml10">
+                                    <input type="radio" name="radio" id="contractStatus3">
+                                    <label for="contractStatus3" class="fs16">계약 중</label>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="flex-center mt20">
+                    <div class="icon-info-txt-sm long fs12">사용 신청하신 결제 수단은 관리자 승인 후에 사용할 수 있습니다. 빠른 처리를 원하시면 고객센타(02-519-2740)로 문의해 주세요.</div>
+                </div>
+                <div class="fs20 bold center application-txt">신청 하시겠습니까?</div>
+                <div class="btn-wrap">
+                    <button type="button" class="btn-gray-big btn-more modal-x">취소</button>
+                    <button type="button" class="btn-blue-big btn-more">확인</button>
+                </div>
+            </div>
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// Modal Popup : 담보보증 사용 신청 - type1 -->
+
+<!-- Modal Popup : 담보보증 사용 신청 - type2 -->
+<div class="popup modal com-info-manage" id="">
+    <div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <h1 class="h2 center">담보보증 사용 신청</h1>
+            <div class="context-box scroll-y scroll-trans">
+                <table class="tbl-v pd">
+                    <colgroup>
+                        <col style="width: 15rem;">
+                        <col>
+                        <col style="width: 15rem;">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr class="left">
+                            <th>신청일</th>
+                            <td>2022-06-13</td>
+                            <th>결제수단</th>
+                            <td>담보보증</td>
+                        </tr>
+                        <tr class="left">
+                            <th>계약여부</th>
+                            <td colspan="3">
+                                <div class="form-chk guarantee-radio ml10 mr20">
+                                    <input type="radio" name="radio" id="contractStatus1">
+                                    <label for="contractStatus1" class="fs16">미계약</label>
+                                </div>
+                                <div class="form-chk guarantee-radio ml10 mr20">
+                                    <input type="radio" name="radio" id="contractStatus2" checked>
+                                    <label for="contractStatus2" class="fs16">계약 완료</label>
+                                </div>
+                                <div class="form-chk guarantee-radio ml10">
+                                    <input type="radio" name="radio" id="contractStatus3">
+                                    <label for="contractStatus3" class="fs16">계약 중</label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="left">
+                            <th>보증 보험료</th>
+                            <td colspan="3">
+                                <div class="input-box mt10 mb10">
+                                    <input type="number" name="input" id="refundTargetText" class="fill-gray w250px">
+                                    <span>원</span>
+                                </div>
+                                <p class="mb10">보증 보혐료를 입력하시면 서린닷컴에서 보험료 지원을 받으실 수 있습니다. </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="flex-center mt20">
+                    <div class="icon-info-txt-sm long fs12">사용 신청하신 결제 수단은 관리자 승인 후에 사용할 수 있습니다. 빠른 처리를 원하시면 고객센타(02-519-2740)로 문의해 주세요.</div>
+                </div>
+                <div class="fs20 bold center mt30">신청 하시겠습니까?</div>
+                <div class="btn-wrap">
+                    <button type="button" class="btn-gray-big btn-more modal-x">취소</button>
+                    <button type="button" class="btn-blue-big btn-more">확인</button>
+                </div>
+            </div>
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// Modal Popup : 담보보증 사용 신청 - type2 -->
+
+<!-- Modal Popup : 담보보증 사용 신청 완료 - type1 -->
+<div class="popup modal com-info-manage" id="">
+    <div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <h1 class="h2 center">담보보증 사용 신청 완료</h1>
+            <div class="context-box scroll-y scroll-trans">
+                <table class="tbl-v pd">
+                    <colgroup>
+                        <col style="width: 15rem;">
+                        <col>
+                        <col style="width: 15rem;">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr class="left">
+                            <th>신청일</th>
+                            <td>2022-06-13</td>
+                            <th>결제수단</th>
+                            <td>담보보증</td>
+                        </tr>
+                        <tr class="left">
+                            <th>계약여부</th>
+                            <td colspan="3">
+                                미계약
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="flex-center mt20">
+                    <div class="icon-info-txt-sm long fs12">사용 신청하신 결제 수단은 관리자 승인 후에 사용할 수 있습니다. 빠른 처리를 원하시면 고객센타(02-519-2740)로 문의해 주세요.</div>
+                </div>
+                <div class="fs20 bold center application-txt">담보보증 사용 신청이 완료되었습니다.</div>
+                <div class="btn-wrap">
+                    <button type="button" class="btn-blue-big btn-more modal-x">확인</button>
+                </div>
+            </div>
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// Modal Popup : 담보보증 사용 신청 완료 - type1 -->
+
+<!-- Modal Popup : 담보보증 사용 신청 완료 - type2 -->
+<div class="popup modal com-info-manage" id="">
+    <div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <h1 class="h2 center">담보보증 사용 신청 완료</h1>
+            <div class="context-box scroll-y scroll-trans">
+                <table class="tbl-v pd">
+                    <colgroup>
+                        <col style="width: 15rem;">
+                        <col>
+                        <col style="width: 15rem;">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr class="left">
+                            <th>신청일</th>
+                            <td>2022-06-13</td>
+                            <th>결제수단</th>
+                            <td>담보보증</td>
+                        </tr>
+                        <tr class="left">
+                            <th>계약여부</th>
+                            <td>
+                                미계약
+                            </td>
+                            <th>보증 보험료</th>
+                            <td>
+                                1,000,000 원
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="flex-center mt20">
+                    <div class="icon-info-txt-sm long fs12">사용 신청하신 결제 수단은 관리자 승인 후에 사용할 수 있습니다. 빠른 처리를 원하시면 고객센타(02-519-2740)로 문의해 주세요.</div>
+                </div>
+                <div class="fs20 bold center application-txt">담보보증 사용 신청이 완료되었습니다.</div>
+                <div class="btn-wrap">
+                    <button type="button" class="btn-blue-big btn-more modal-x">확인</button>
+                </div>
+            </div>
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// Modal Popup : 담보보증 사용 신청 완료 - type2 -->
+
+<!-- Modal Popup : 대출보증 사용 신청 -->
+<div class="popup modal com-info-manage" id="sorinModalLoanAppli">
+    <div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <h1 class="h2 center">대출보증 사용 신청</h1>
+            <div class="context-box scroll-y scroll-trans">
+                <table class="tbl-v pd">
+                    <colgroup>
+                        <col style="width: 15rem;">
+                        <col>
+                        <col style="width: 15rem;">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr class="left">
+                            <th>신청일</th>
+                            <td>2022-06-13</td>
+                            <th>결제수단</th>
+                            <td>대출보증</td>
+                        </tr>
+                        <tr class="left">
+                            <th>결제은행</th>
+                            <td colspan="3">
+                                <div class="checkbox-wrap">
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank1">
+                                        <label for="bank1" class="fs16">기업은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank2">
+                                        <label for="bank2" class="fs16">국민은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank3">
+                                        <label for="bank3" class="fs16">외환은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank4">
+                                        <label for="bank4" class="fs16">수협</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank5">
+                                        <label for="bank5" class="fs16">농협</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank6">
+                                        <label for="bank6" class="fs16">우리은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank7">
+                                        <label for="bank7" class="fs16">제일은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank8">
+                                        <label for="bank8" class="fs16">신한은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank9">
+                                        <label for="bank9" class="fs16">씨티은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank10">
+                                        <label for="bank10" class="fs16">대구은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank11">
+                                        <label for="bank11" class="fs16">대구은행(비보증)</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank12">
+                                        <label for="bank12" class="fs16">부산은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank13">
+                                        <label for="bank13" class="fs16">광주은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank14">
+                                        <label for="bank14" class="fs16">광주은행(비보증)</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank15">
+                                        <label for="bank15" class="fs16">전북은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank16">
+                                        <label for="bank16" class="fs16">경남은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank17">
+                                        <label for="bank17" class="fs16">신용보증기금</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank18">
+                                        <label for="bank18" class="fs16">하나(KEB)은행</label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="flex-center mt20">
+                    <div class="icon-info-txt-sm long fs12">사용 신청하신 결제 수단은 관리자 승인 후에 사용할 수 있습니다. 빠른 처리를 원하시면 고객센타(02-519-2740)로 문의해 주세요.</div>
+                </div>
+                <div class="fs20 bold center mt30">신청 하시겠습니까?</div>
+                <div class="btn-wrap">
+                    <button type="button" class="btn-gray-big btn-more modal-x">취소</button>
+                    <button type="button" class="btn-blue-big btn-more">확인</button>
+                </div>
+            </div>
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// Modal Popup : 대출보증 사용 신청 -->
+
+<!-- Modal Popup : 대출보증 사용 신청 변경 -->
+<div class="popup modal com-info-manage" id="sorinModalBankChg">
+    <div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <h1 class="h2 center">대출보증 은행 변경</h1>
+            <div class="context-box scroll-y scroll-trans">
+                <table class="tbl-v pd">
+                    <colgroup>
+                        <col style="width: 15rem;">
+                        <col>
+                        <col style="width: 15rem;">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr class="left">
+                            <th>결제은행</th>
+                            <td colspan="3">
+                                <div class="checkbox-wrap">
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank1">
+                                        <label for="bank1" class="fs16">기업은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank2">
+                                        <label for="bank2" class="fs16">국민은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank3">
+                                        <label for="bank3" class="fs16">외환은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank4">
+                                        <label for="bank4" class="fs16">수협</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank5">
+                                        <label for="bank5" class="fs16">농협</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank6">
+                                        <label for="bank6" class="fs16">우리은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank7">
+                                        <label for="bank7" class="fs16">제일은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank8">
+                                        <label for="bank8" class="fs16">신한은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank9">
+                                        <label for="bank9" class="fs16">씨티은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank10">
+                                        <label for="bank10" class="fs16">대구은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank11">
+                                        <label for="bank11" class="fs16">대구은행(비보증)</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank12">
+                                        <label for="bank12" class="fs16">부산은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank13">
+                                        <label for="bank13" class="fs16">광주은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank14">
+                                        <label for="bank14" class="fs16">광주은행(비보증)</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank15">
+                                        <label for="bank15" class="fs16">전북은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank16">
+                                        <label for="bank16" class="fs16">경남은행</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank17">
+                                        <label for="bank17" class="fs16">신용보증기금</label>
+                                    </div>
+                                    <div class="form-chk bank-check-box ml10 mb10 fill-gray">
+                                        <input type="checkbox" name="checkbox" id="bank18">
+                                        <label for="bank18" class="fs16">하나(KEB)은행</label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="flex-center mt20">
+                    <div class="icon-info-txt-sm long fs12">사용하고자 하는 결제 은행을 선택해주세요.  빠른 처리를 원하시면 고객센타(02-519-2740)로 문의해 주세요.</div>
+                </div>
+                <div class="fs20 bold center mt30">변경 하시겠습니까?</div>
+                <div class="btn-wrap">
+                    <button type="button" class="btn-gray-big btn-more modal-x">취소</button>
+                    <button type="button" class="btn-blue-big btn-more">확인</button>
+                </div>
+            </div>
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// Modal Popup : 대출보증 사용 신청 -->
+
+<!-- Modal Popup : 대출보증 사용 신청 완료 -->
+<div class="popup modal com-info-manage" id="">
+    <div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <h1 class="h2 center">대출보증 사용 신청 완료</h1>
+            <div class="context-box scroll-y scroll-trans">
+                <table class="tbl-v pd">
+                    <colgroup>
+                        <col style="width: 15rem;">
+                        <col>
+                        <col style="width: 15rem;">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr class="left">
+                            <th>신청일</th>
+                            <td>2022-06-13</td>
+                            <th>결제수단</th>
+                            <td>대출보증</td>
+                        </tr>
+                        <tr class="left">
+                            <th>계약여부</th>
+                            <td colspan="3">
+                                국민은행, 우리은행
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="flex-center mt20">
+                    <div class="icon-info-txt-sm long fs12">사용 신청하신 결제 수단은 관리자 승인 후에 사용할 수 있습니다. 빠른 처리를 원하시면 고객센타(02-519-2740)로 문의해 주세요.</div>
+                </div>
+                <div class="fs20 bold center application-txt">대출보증 사용 신청이 완료되었습니다.</div>
+                <div class="btn-wrap">
+                    <button type="button" class="btn-blue-big btn-more modal-x">확인</button>
+                </div>
+            </div>
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// Modal Popup : 대출보증 사용 신청 완료 -->
+
+<!-- Modal Popup : 사용 해지 완료 -->
+<div class="popup modal com-info-manage" id="sorinModalCancelAppli">
+    <div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <h1 class="h2 center">사용 해지 완료</h1>
+            <div class="context-box scroll-y scroll-trans">
+                <table class="tbl-v pd">
+                    <colgroup>
+                        <col style="width: 15rem;">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr class="left">
+                            <th>해지 신청일</th>
+                            <td>2022-06-13</td>
+                        </tr>
+                        <tr class="left">
+                            <th>해지 결제 수단</th>
+                            <td>
+                                국민은행, 우리은행
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="flex-center mt20">
+                    <div class="icon-info-txt-sm fs12">계약금으로 결제하신 내역은 [마이페이지>결제 내역]에서 확인할 수 있습니다.</div>
+                </div>
+                <div class="fs20 bold center mt30"><span class="bold">계약금</span> 사용 해지가 완료되었습니다.</div>
+                <div class="btn-wrap">
+                    <button type="button" class="btn-blue-big btn-more modal-x">확인</button>
+                </div>
+            </div>
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// Modal Popup : 사용 해지 완료 -->
+<!-- Modal Popup : 서린크레딧 신청 Alert -->
+<!-- <div class="popup modal" id="sorinModalContractAlert">
+    <div class="modal-content w500px" style="width: 380px !important;padding: 2.5rem 0;">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <h1 class="h3 text-center" style="margin-top: 1rem;">서린크레딧을 신청하시겠습니까?</h1>
+            <div class="context-box text-center" style="line-height: 1.5;">
+				신청 시, 전자상거래 보증은 사용 불가능하며,<br>증거금, 구매자금은 이용 가능합니다. 			
+            </div>
+            <div class="btn-wrap">
+                <button type="button" class="btn-blue-md modal-x btn-confirm-contract-modal" style="font-size: 1.4rem;">사용 신청</button>
+            </div>
+                </div>// .max-width
+    </div>
+</div> -->
+
+
+<div class="popup modal alert" id="sorinModalContractAlert">
+    <div class="modal-content w490px">
+        <div class="modal-header">
+            <h1>서린크레딧을 신청하시겠습니까?</h1>
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span><span class="ripple"></span></button></div>
+        </div>
+        <div class="max-width">
+            <div class="alert-con">신청 시, 전자상거래 보증은 사용 불가능하며,<br>증거금 구매자금은 이용 가능합니다.</div>
+        </div>
+        <div class="modal-btns">
+        	<button type="button" class="btn-gray-big modal-x">취소</button>
+            <button type="button" class="btn-blue-big modal-x btn-confirm-contract-modal">사용 신청</button>
+        </div>    
+    </div>
+</div>
+<!--// Modal Popup : 서린크레딧 신청 Alert -->
+<!-- Modal Popup : 서린크레딧 신청 -->
+<div class="popup modal com-info-manage" id="sorinCreditContract">
+    <div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <h1 class="h2 center">서린 크레딧 사용 신청</h1>
+            <div class="context-box scroll-y scroll-trans">
+                <table class="tbl-v pd">
+                    <colgroup>
+                        <col style="width: 15rem;">
+                        <col>
+                        <col style="width: 15rem;">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr class="left">
+                            <th>신청일</th>
+                            <td>2022-06-13</td>
+                            <th>결제수단</th>
+                            <td>담보보증</td>
+                        </tr>
+                        <tr class="left">
+                            <th>희망한도</th>
+                            <td colspan="3">
+								<div class="input-box mt10 mb10">
+                                    <input type="number" name="mrtggGrntyIrncf" id="mrtggGrntyIrncf" class="fill-gray w250px" style="text-align: right !important;" value="0" min="1" max="9999999999" maxlength="10" oninput="maxLengthCheck(this)">
+                                    <span>원</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="flex-center mt20">
+                    <div class="icon-info-txt-sm long fs12">신청한 한도는 서린닷컴 확인 후, 가능한 한도를 알려드립니다.</div>
+                </div>
+                <div class="fs20 bold center application-txt">신청 하시겠습니까?</div>
+                <div class="btn-wrap">
+                    <button type="button" class="btn-gray-big btn-more modal-x">취소</button>
+                    <button type="button" class="btn-blue-big btn-more">확인</button>
+                </div>
+            </div>
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// Modal Popup : 서린크레딧 신청 -->
+
+
+<!-- script core -->
+<script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="/guide/js/select2/select2.min.js"></script>
+<!-- script extra -->
+<script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+<script src="/guide/js/swiper/6.7.0/swiper.js"></script>
+<!-- script custom -->
+<script src="/guide/js/common.js"></script>
+<script src="/guide/js/sorin.js"></script>
+<script src="/guide/js/sorin-my.js"></script>
+<script src="/guide/js/sorin-layout.js"></script>
+<!-- script embedded -->
+<script>
+
+	tab('.box-states', 3);
+
+	$('.btn-edit-coinfo').on('click', function(){
+	    $('.address-readonly').addClass('hide');
+	    $('.address-edit').removeClass('hide');
+	    $('.cophone-readonly').addClass('hide');
+	    $('.cofax-readonly').addClass('hide');
+	    $('#ipCoType').removeAttr('readonly').addClass('edited');
+	    $('#ipCoCate').removeAttr('readonly').addClass('edited');
+	    $('#ipCoCeo').removeAttr('readonly').addClass('edited');
+	    $('#ipRoadBase2').removeAttr('readonly').addClass('edited');
+	    $('.input-address').removeClass('readonly').addClass('edited');
+	    $('#ipCoPhone').removeAttr('readonly').addClass('edited');
+	    $('#ipCoFax').removeAttr('readonly').removeClass('hide');
+	    $('.editable').toggleClass('off');
+	});
+	$('.btn-confirm-coinfo').on('click', function(){
+	    $('#ipCoType').attr('readonly', true).removeClass('edited');
+	    $('#ipCoCate').attr('readonly', true).removeClass('edited');
+	    $('#ipCoCeo').attr('readonly', true).removeClass('edited');
+	    $('#ipCoPhone').attr('readonly', true).removeClass('edited');
+	    $('#ipRoadBase2').attr('readonly', true).removeClass('edited');
+	    $('#ipCoFax').attr('readonly', true).removeClass('hide');
+	    $('.input-address').addClass('readonly').removeClass('edited');
+	    $('.editable').toggleClass('off');
+	});
+	$('.btn-cancel-coinfo').on('click', function(){
+	    $('#ipCoType').attr('readonly', true).removeClass('edited');
+	    $('#ipCoCate').attr('readonly', true).removeClass('edited');
+	    $('#ipCoCeo').attr('readonly', true).removeClass('edited');
+	    $('#ipRoadBase2').attr('readonly', true).removeClass('edited');
+	    $('.input-address').addClass('readonly').removeClass('edited');
+	    $('.editable').toggleClass('off');
+	});
+
+	$(document).ready(function(){
+	  // 파일 첨부 변경
+	  var fileTarget = $('.file-upload .upload-hidden');
+	  fileTarget.on('change', function(){  // 값이 변경되면
+	      if(window.FileReader){  // modern browser
+	            var filename = $(this)[0].files[0].name;
+	      } 
+	      else {  // old IE
+	            var filename = $(this).val().split('/').pop().split('\\').pop();  // 파일명만 추출
+	      }
+	      // 추출한 파일명 삽입
+	      $(this).siblings('.upload-name').val(filename).addClass('file-in').next().show();
+	  });
+	
+	  // 파일 첨부 취소
+	  $(document).on('click','.file-cancel', function() {
+	    $('.file-upload .upload-name').val('');
+	    $(this).hide();
+	  });
+	
+	}); 
+
+
+	//증거금 이용약관 동의
+	$(".marginInfo").click(function(){
+		$(this).closest("#sorinModalDownAppli").find("#sorinModalMarginAgree").addClass("active");
+		
+		$(this).closest("#sorinModalDownAppli").find("#sorinModalMarginAgree .agree-btn").click(function(){
+			$(this).closest("#sorinModalDownAppli").find("#sorinModalMarginAgree").removeClass("active");
+		});
+	})
+	
+	// 서린크레딧 사용 신청 클릭 이벤트
+	
+
+</script>
+
+</body>
+</html>

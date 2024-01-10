@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>서린몰 > 재고있음​ | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <!-- header include -->
+    <div class="header-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+    <!-- //header include -->
+
+	<!-- container -->
+    <div class="container">
+        <!-- 장바구니 -->
+        <div class="section cart-wrap new">
+            <div class="inwrap">
+                <div class="section">
+                	<div class="flex-between" style="margin: 0 0 1.8rem 0;">
+	                	<h2 class="h2-new" style="margin: 0;">
+	                        주문하기
+	                        <!-- <span class="h3-time" style="vertical-align:text-bottom;">16:21:52</span> -->
+	                    </h2>
+	                    <button type="button" class="btn-stroke-md" style="color: #666; height: 3rem;" data-popup="modal" data-target="sorinModalStockInfo">입고예정재고 조회</button>
+                	</div>
+                    <ul class="list t2">
+                        <li>
+                            <div class="cart-item-wrap type3">
+                                <figure class="figure figure1">
+                                    <img src="/guide/images/my/icon_al.png" alt="알루미늄">
+                                </figure>
+                                <div class="figure-con ds">
+                                    <div class="pd-brand-info">
+                                        <p class="pd-brand">
+                                        	<!-- 상품 리스트 아이템 레이블 추가 2022-05-16 -->
+                                        	<span class="pd-label">ZN</span>
+                                        	<span class="brand-nation"><img src="/guide/images/sample/img_nation_sample.png"></span>
+                                        	Zinc_SHG _ Zn 99.995%(up)
+                                        </p>
+                                        <div class="pd-alarm">
+                                            <span class="btn-al" id="pdAlarmButton" data-popup="modal" data-target="sorinModalAlarm">
+                                                <button type="button" class="ico-alarm">알림</button>
+                                                <span class="ico-txt">희망가 알림을 설정합니다.</span>
+                                            </span>
+                                            <span class="btn-ct on" id="pdCartButton" data-popup="modal" data-target="sorinModalConfirm2">
+                                                <button type="button" class="ico-ct">관심상품</button>
+                                                <span class="ico-txt">관심상품 목록을 설정합니다.</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="pd-feature">
+                                        <span>일반아연괴</span>
+                                        <span>ZINC SLAB INGOT SHG</span>
+                                        <span>YP(영풍)</span>
+                                        <span>출고권역 - 부산</span>
+                                    </div>                                     
+                                    <p class="pd-unit-price">
+                                        <!-- <span class="label-orange"><span class="label-live">LIVE</span></span> -->
+                                        <span class="label-navy">서린몰</span>
+                                        <span class="u-price realTimePrice">2,028,000 (원/MT)</span>
+                                        <!-- <span class="u-price fc-lgray">고정가는 표시하지 않습니다.</span> -->
+                                    </p>
+                                </div>
+                                <div class="btns">
+                               		<p class="right fs12 mt10 mb10">1MT 단위로만 주문 가능합니다.</p>
+                         			<div class="weightInputWrap">
+                         				<!-- <label>MT</label> -->
+                         				<input type="number"  id="" min="1" max="25" value="1" maxlength="50" placeholder="주문중량 입력" style="width: 100%; height: 4rem; text-align:center;">
+                         			</div>
+                                    <div class="datepicker-wrap mt10"><input type="text" class="datepicker center pd-datepicker" placeholder="배송 요청일 선택"></div>                                    
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mt20 center">
+                        <span class="icon-info-txt display-inline-block fc-gray">현재 주문 가능한 재고는 75MT 이하 입니다.</span>
+                    </div> 
+                </div>
+
+                <div class="section">
+                    <div class="hgroup">
+                        <h2 class="h2">주문 가능한 재고</h2>
+                    </div>
+                    <table class="tbl t2 center">
+                        <caption>주문정보 확인 - 브랜드 그룹, 브랜드, 현재 단가, 바로 주문 중량 제공</caption>
+                        <colgroup>
+                           	<col style="width: 100px"><col>
+                           	<col style="width: 380px"><col>
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">브랜드</th>
+                                <th scope="col">제품명</th>
+                                <th scope="col">현재 단가</th>
+                                <th class="fc-red" scope="col">입고 완료 재고</th>
+                                <th class="fc-red" scope="col">입고 예정 재고</th>
+                                <th scope="col">성적서</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    YP(영풍)
+                                </td>
+                                <td>
+                                    Zinc_SHG _ Zn 99.995%(up)
+                                </td>
+								<td class="realTimePrice">2,028,000 (원/MT)</td>
+                                <td>
+                                    1 MT
+                                </td>
+                                <td>
+                                    0 MT
+                                </td>
+                                <td>
+                                    <button type="button" class="btn-stroke-md" data-popup="modal" data-target="sorinModalPdfDownload">다운로드 하기<span class="ripple"></span></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+	                <!-- <div class="mt20 center">
+                        <span class="icon-info-txt display-inline-block fc-gray">본 주문 건은 입고예정재고가 포함 된 건으로, 배송요청일은 변경 할 수 없습니다.</span>
+                    </div>   -->               
+                    
+                </div>
+
+                <div class="section">
+                    <div class="hgroup">
+                        <h2 class="h2">배송 요청 사항</h2>
+                        <div class="btns">
+                        	<button type="button" class="btn-stroke-md" data-popup="modal" data-target="sorinModalNewAddress">신규배송지 등록<span class="ripple"></span></button>
+                        </div>
+                    </div>
+                    <table class="tbl t2 center tbl-shipping-request">
+                        <caption>배송 요청 사항 - 배송구분, 배송지, 출고요청일, 요청사항 제공</caption>
+                        <colgroup>
+                        <col style="width:20%;">
+                        <col style="width:20%;">
+                        <col style="width:20%;">
+                        <col style="width:40%;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="col">배송구분</th>
+                                <th scope="col">배송지</th>
+                                <th scope="col"><label for="shippingDate">날짜</label></th>
+                                <th scope="col">요청사항</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <select class="dropdown">
+                                        <option>서린배송</option>
+                                        <option>자차배송</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="dropdown">
+                                        <option>전남영업소-군산1공장</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <span class="datepicker-wrap mt10"><input type="text" class="datepicker center" name="shippingDate" id="shippingDate"></span>
+                                </td>                              
+                                <td>
+                                    <select class="dropdown">
+                                        <option class="fc-gray">요청사항을 직접 입력합니다.</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="mt20 center">
+                        <!-- 서린 배송일 경우 -->
+                        <span class="icon-info-txt display-inline-block">서린배송
+                            <span class="fc-gray">: 서린닷컴에서 고객이 요청한 배송지까지 운송을 진행 합니다.</span>
+                        </span>
+                        <!-- 직접 배송일 경우 -->
+<!--                         <span class="icon-info-txt display-inline-block">직접배송
+                            <span class="fc-gray">: 고객이 직접 배송지까지 운송을 진행 합니다.</span>
+                        </span> -->
+                        <!-- 직접 배송일 경우 -->
+                        <span class="icon-info-txt display-inline-block">자차배송
+                            <span class="fc-gray">: 고객이 직접 배송지까지 운송을 진행합니다. <span class="loading-area fc-gray">(상차지: 강남대로542 영풍빌딩 7층)</span></span>
+                        </span>
+                    </div>
+                    <div class="btn-wrap mt50">
+                        <button type="button" class="btn-stroke-big blue">다른 상품 검색</button>
+                        <button type="button" class="btn-blue-big"  data-popup="bottomsheet" data-target="sorinModalOrder">바로 구매 하기</button>
+                    </div>                    
+                </div>
+
+            </div>
+        </div>
+        <!-- // 장바구니 -->
+    </div>
+	<!-- //container -->
+    
+    <!-- footer include -->
+    <div class="footer-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+    <!-- //footer include -->
+</div>
+
+<!-- Modal Popup : 알림 추가 확인 -->
+<div class="popup modal confirm" id="sorinModalConfirm">
+    <div class="modal-content w490px">
+        <div class="modal-header">
+            <h1>알림메세지</h1>
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+        </div>
+        <div class="max-width">
+            <div class="alert-con">알림을 추가 하시겠습니까?</div>
+        </div><!--// .max-width -->
+        <div class="modal-btns">
+            <button type="button" class="btn-gray-big modal-x">취소</button>
+            <button type="button" class="btn-blue-big modal-x" onclick="iconToggleClass('pdAlarmButton')">확인</button>
+        </div>
+    </div>
+</div>
+<!--// Modal Popup : 컨펌 w/ 확인 취소 -->
+
+<!-- Modal Popup : 알림 삭제 -->
+<div class="popup modal confirm" id="sorinModalConfirm2">
+    <div class="modal-content w490px">
+        <div class="modal-header">
+            <h1>알림메세지</h1>
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+        </div>
+        <div class="max-width">
+            <div class="alert-con">관심상품 등록을 삭제 하시겠습니까?</div>
+        </div><!--// .max-width -->
+        <div class="modal-btns">
+            <button type="button" class="btn-gray-big modal-x">취소</button>
+            <button type="button" class="btn-blue-big modal-x" onclick="iconToggleClass('pdCartButton')">확인</button>
+        </div>
+    </div>
+</div>
+<!--// Modal Popup : 컨펌 w/ 확인 취소 -->
+
+<!-- MODAL POPUP : 알림 설정 -->
+<div class="popup modal" id="sorinModalAlarm">
+    <div class="modal-content w1060px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <!-- <div class="div-scroll-y"> -->
+                <form class="form-chk">
+                    <div class="section">
+                        <div class="article">
+                            <h1 class="h2-pd">알림 설정</h1>
+                            <!-- tab buttons
+                            <div class="btn-toggle-wrap full cols2">
+                                <div><button type="button" class="toggle active"><span>희망가 알림 생성 내역</span></button></div>
+                                <div><button type="button" class="toggle" data-value="oneclick-order"><span>원클릭 주문 알림</span></button></div>
+                            </div>
+                            // tab buttons -->
+                            <!-- 희망가 알림 생성 내역 -->
+                            <table class="tbl-v th-left mt30">
+                            <caption>원클릭 주문 알림</caption>
+                            <colgroup>
+                            <col style="width:16rem;">
+                            <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">상품명</th>
+                                    <td>SORIN INDEX 알루미늄</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">현재가</th>
+                                    <td>
+                                        <span id="currentPrice">2,825,000</span>&nbsp;<span class="fc-blue">(-0.97%)</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="ipTargetPrice">목표가</label></th>
+                                    <td>
+                                        <div class="target-price-set">
+                                            <span>
+                                                <input type="tel" name="ipTargetPrice" id="ipTargetPrice" value="2,825,000">
+                                            </span>
+                                            <button type="button" class="btn-blue-md" data-value="0">0%</button>
+                                            <button type="button" class="btn-stroke-md" data-value="-5">-5%</button>
+                                            <button type="button" class="btn-stroke-md" data-value="-10">-10%</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                            <!--// 희망가 알림 생성 내역 -->
+                            <!-- 원클릭 주문 알림 -->
+                            <table class="tbl-v th-left tbl-oneclick">
+                            <caption>원클릭 주문 알림</caption>
+                            <colgroup>
+                            <col style="width:16rem;">
+                            <col>
+                            <col style="width:16rem;">
+                            <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row"><label for="selShippingType">배송구분</label></th>
+                                    <td>
+                                        <select name="selShippingType" id="selShippingType" class="dropdown">
+                                        <option>서린배송</option>
+                                        </select>
+                                    </td>
+                                    <th scope="row"><label for="selDestination">배송지</label></th>
+                                    <td>
+                                        <select name="selDestination" id="selDestination" class="dropdown">
+                                        <option>전남영업소 - 군산1공장</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="selShippingArea">출고 권역</label></th>
+                                    <td>
+                                        <select name="selShippingArea" id="selShippingArea" class="dropdown">
+                                        <option>전남 출고</option>
+                                        </select>
+                                    </td>
+                                    <th scope="row"><label for="ipShippingDate">출고 요청일</label></th>
+                                    <td>
+                                        <span class="datepicker-wrap"><input type="text" class="datepicker" name="ipShippingDate" id="ipShippingDate"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="selBrandGroup">브랜드 그룹</label></th>
+                                    <td>
+                                        <select name="selBrandGroup" id="selBrandGroup" class="dropdown">
+                                        <option>서구산</option>
+                                        </select>
+                                    </td>
+                                    <th scope="row"><label for="selOrderBrand">브랜드</label></th>
+                                    <td>
+                                        <select name="selOrderBrand" id="selOrderBrand" class="dropdown">
+                                        <option>브랜드 무관</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="selOrderMT">주문 중량</label></th>
+                                    <td>
+                                        <select name="selOrderMT" id="selOrderMT" class="dropdown">
+                                        <option>25MT</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                            <!--// 원클릭 주문 알림 -->
+                        </div>
+                        <p class="t-info mt15">
+                            모바일 알림 또는 웹사이트 팝업으로 알림이 제공됩니다.
+                        </p>
+                        <div class="btn-wrap">
+                            <button type="button" class="btn-gray-big modal-x">취소</button>
+                            <button type="button" class="btn-blue-big">알림 설정</button>
+                        </div>
+                    </div>
+                </form>
+            <!-- </div>// .div-scroll-y -->
+
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// MODAL POPUP : 알림 설정 -->
+
+<!-- MODAL POPUP : 성적서 다운로드 -->
+<div class="popup modal" id="sorinModalPdfDownload">
+    <div class="modal-content w800px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+                <form class="form-chk">
+                    <div class="section">
+                        <div class="article">
+                            <h1 class="h2-pd">성적서 다운로드</h1>
+                            <table class="tbl t3 order">
+                                <caption>Aluminium Ingot P1020 (알루미늄괴)에 대한 아이템, 원산지, 브랜드, 현재단가</caption>
+                                <colgroup>
+                                <col span="3" style="width:33.33%;">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">B/L</th>
+                                        <th scope="col">중량(MT)</th>
+                                        <th scope="col">성적서</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="center">
+                                        <td>BL20220609_001</td>
+                                        <td>25MT</td>
+                                        <td>
+                                            <button type="button" class="btn-red-sm">PDF</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="center">
+                                        <td>BL20220609_002</td>
+                                        <td>25MT</td>
+                                        <td>
+                                            <button type="button" class="btn-red-sm">PDF</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="center">
+                                        <td>BL20220609_003</td>
+                                        <td>25MT</td>
+                                        <td>
+                                            <button type="button" class="btn-red-sm">PDF</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="center">
+                                        <td>BL20220609_004</td>
+                                        <td>25MT</td>
+                                        <td>
+                                            <button type="button" class="btn-red-sm">PDF</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="btn-wrap">
+                                <button type="button" class="btn-blue-big modal-x">확인</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// MODAL POPUP : 알림 설정 -->
+
+<!-- loading spinner -->
+  <div class="loading-wrap">
+    <div class="dimmer"></div>
+    <div class="ispinner ispinner-large">
+        <div class="ispinner-blade"></div>
+        <div class="ispinner-blade"></div>
+        <div class="ispinner-blade"></div>
+        <div class="ispinner-blade"></div>
+        <div class="ispinner-blade"></div>
+        <div class="ispinner-blade"></div>
+        <div class="ispinner-blade"></div>
+        <div class="ispinner-blade"></div>
+    </div>
+</div>
+  <!--// loading spinner-->
+
+<!-- Modal Bottom Sheet Popup : 주문 > 수정 2021-12-21 시작 -->
+<div class="popup modal bottomsheet" id="sorinModalOrder">
+    <div class="modal-content">
+      <div class="max-width">
+          <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+          <div class="hgroup">
+              <h1 class="h2-new">결제상세</h1>
+              <span class="order-info-txt">최종 상품 단가는 결제시점에서 변동될 가능성이 있습니다.</span>
+              <div class="order-right-txt">
+                  ※ 가격은 배송비, 부가세 별도입니다.
+              </div>            
+          </div>
+  
+          <!-- order-detail 시작 -->
+          <div class="order-detail-area">
+              <!-- left area 시작  -->
+              <div class="detail-area">
+  
+                  <ul class="list">
+                      <li class="noline-top">
+                          <div class="in">
+                              <dl class="list-data">
+                                  <dt>상품금액</dt>
+                                  <dd>
+                                      <span class="price">44,900,000</span>
+                                      <span class="unit">원</span>
+                                  </dd>
+                              </dl>
+                          </div>
+  
+                          <div class="list-data-detail">
+                              <dl class="detail-info">
+                                  <dt>주문수량</dt>
+                                  <dd>
+                                      <span class="d-mt">25</span>
+                                      <span class="unit">MT</span>
+                                  </dd>
+                                  <dt>상품단가</dt>
+                                  <dd>
+                                      <span class="d-price">3,250,000</span>
+                                      <span class="unit">원/MT</span>
+                                  </dd>
+                              </dl>
+                          </div>
+  
+                      </li>
+                      <li>
+                          <div class="in">
+                              <dl class="list-data">
+                                  <dt>중량변동금</dt>
+                                  <dd>
+                                      <span class="price">5,000,000</span>
+                                      <span class="unit">원</span>
+                                  </dd>
+                              </dl>
+                          </div>
+  
+                          <div class="list-data-detail">
+                              <p class="detail-text">
+                                  출고 시점에 확정 중량과의 차이 만큼 자동 환불 드립니다.
+                              </p>
+                              <dl class="detail-info">
+                                  <dt>주문수량</dt>
+                                  <dd>
+                                      <span class="d-mt">+ 1.5</span>
+                                      <span class="unit">MT</span>
+                                  </dd>
+                                  <dt>상품단가</dt>
+                                  <dd>
+                                      <span class="d-price">3,250,000</span>
+                                      <span class="unit">원/MT</span>
+                                  </dd>
+                              </dl>
+                          </div>                 
+     
+                      </li>
+                      <li>
+                          <div class="in">
+                              <dl class="list-data">
+                                  <dt>배송비</dt>
+                                  <dd>
+                                      <span class="price">100,000</span>
+                                      <span class="unit">원</span>
+                                  </dd>
+                              </dl>
+                          </div>
+  
+                          <div class="list-data-detail">
+                            <p class="detail-text" style="display:none; color:#fd3535;">
+                                당일 배송인 경우 구간에 따라 배송비가 할증 됩니다.
+                            </p>
+                            
+                              <!-- 무료배송 쿠폰 추가 시작 2022-05-30 -->
+                              <div class="coupon-free-shipping">
+								<div class="coupon-name-box">
+									<span class="name">SORIN DELIVERY</span>
+									<p class="type">
+										첫주문<br><span class="fc-orange">25MT</span> 무료배송
+									</p>
+								</div>
+								<div class="coupon-info-box">
+									<p class="txt fc-red">첫 주문 시 25MT 한 차에 해당하는<br>배송비가 차감 청구 됩니다.</p>
+								</div>                              	
+                              </div>
+                              <!-- // 무료배송 쿠폰 추가 끝 -->
+                                   
+                              <dl class="detail-info">
+                                  <dt>배송구간</dt>
+                                  <dd>
+                                      <span class="d-del">인천신항</span>
+                                      <span class="unit">(출발지) - </span>
+                                      <span class="d-del">서산</span>
+                                      <span class="unit">(도착지)</span>
+                                  </dd>
+                                  <dt>구간금액</dt>
+                                  <dd>
+                                      <span class="d-price">224,000</span>
+                                      <span class="unit">원</span>
+                                  </dd>
+                                  <dt>차량댓수</dt>
+                                  <dd>
+                                      <span class="d-cnt">1</span>
+                                      <span class="unit">대</span>
+                                  </dd>
+                              </dl>
+                          </div>
+                      
+                      </li>
+                      <li>
+                          <div class="in">
+                              <dl class="list-data">
+                                  <dt>공급가액</dt>
+                                  <dd>
+                                      <span class="price">5,000,000</span>
+                                      <span class="unit">원</span>
+                                  </dd>
+                              </dl>
+                              <span class="data-info-txt">상품금액 + 중량변동급 + 배송비</span>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="in">
+                              <dl class="list-data">
+                                  <dt>부가가치세</dt>
+                                  <dd>
+                                      <span class="price">5,000,000</span>
+                                      <span class="unit">원</span>
+                                  </dd>
+                              </dl>
+                          </div>
+                          <span class="data-info-txt">공급가액의 10%</span>
+                      </li>
+                      <li>
+                          <div class="in">
+                              <dl class="list-data">
+                                  <dt>결제 요청금액</dt>
+                                  <dd>
+                                      <span class="price fc-red">55,000,000</span>
+                                      <span class="unit fc-red">원</span>
+                                      <span class="hr"></span>
+                                  </dd>
+                              </dl>
+                              <span class="data-info-txt">공급가액 + 부가가치세</span>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+              <!-- //left area end -->
+  
+              <!-- right payments start -->
+              <div class="payments-area">
+                  <h3 class="tit">결제수단</h3>
+                  <div class="payments">
+                      <div class="e-wallet form-chk">
+                          <input type="radio" name="payment" id="payment1">
+                          <label for="payment1">
+                              <span class="e-wallet-1">e-wallet</span>
+                              <span class="e-wallet-account">하나은행 110-042-254425</span>
+                              <span class="e-wallet-price"><span class="price">100,000,000</span><span class="unit">원</span></span>
+                          </label>
+                          <div class="btns"><button type="button" class="btn-stroke-sm btn-reload"><i class="ico-reload"></i><span>현재 잔고 새로고침</span></button></div>
+                      </div>
+                  </div>
+                  <p class="mt20 text-center">
+                    <span class="icon-info-txt display-inline-block">한도가 부족합니다. e-Wallet 입금 후 이용해 주세요.</span>
+                  </p>
+                  <div class="agree-box"><!-- js -->
+                      <div class="form-chk">
+                          <input type="checkbox" id="agreeBoxAll">
+                          <label for="agreeBoxAll" class="fs12">클레임 정보 및 결제대행 서비스 이용약관에 모두 동의합니다.</label>
+                      </div>
+                      <div><button type="button" class="btn-detail-contract" data-popup="bottomsheet" data-target="sorinModalContract">자세히 보기</button></div>
+                  </div>
+                  <p class="agree-text">위 주문 내용을 확인하였으며, 결제에 동의합니다.</p>
+                  <div class="btn-wrap">
+                      <button type="button" class="btn-blue-big btn-bs-order">결제신청</button>
+                  </div>
+              </div>
+              <!-- //right payments end -->
+          </div>
+          <!--// order-detail end -->
+  
+      </div><!--// .max-width -->
+  
+    </div>
+  </div>
+  <!--// Modal Bottom Sheet Popup 수정 끝 -->
+  
+<!-- Modal Popup : 서린닷컴 이용약관 -->
+<div class="popup modal" id="sorinModalContract">
+    <div class="modal-content w500px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <h1 class="h3">서린닷컴 이용약관</h1>
+            <div class="context-box h436px scroll-y scroll-trans">
+                <div class="contract-con">
+                    [ 서린닷컴 이용 약관 ]<br>
+                    제1장 총칙<br>
+                    <br>
+                    제 1 조 (목적)<br>
+                    이 약관은 서린닷텀 주식회사(이하 “회사”)가 운영하는 사이버몰에서 제공하는
+                    서비스와 이를 이용하는 회원의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.<br>
+                    <br>
+                    제 2 조 (용어의 정의)<br>
+                    이 약관에서 사용하는 용어의 정의는 다음과 같습니다. 그리고 여기에서 정의되지 않은
+                    이 약관상의 용어의 의미는 일반적인 거래관행에 따릅니다.<br>
+                    1. “사이버몰”이란 회사가 상품 또는 용역 등(일정한 시설을 이용하거나 용역을
+                    제공받을 수 있는 권리를 포함하며, 이하 “상품 등”)을 회원에게 제공하기 위하여
+                    컴퓨터 등 정보통신설비를 이용하여 상품 등을 거래할 수 있도록 설정한 가상의
+                    영업장(http://www.coupang.com 등 회사가 운영하는 웹사이트 및 모바일 웹, 앱
+                    등을 모두 포함)을 의미합니다.<br>
+                    2. “회원”이라 함은 사이버몰에 회원등록을 한 자로서, 계속적으로 사이버몰에서
+                    제공하는 서비스를 이용할 수 있는 자를 말합니다.<br>
+                    3. “아이디(ID)”라 함은 회원의 식별과 서비스 이용을 위하여 회원이 설정하고 회사가
+                    승인하여 등록된 전자우편주소를 말합니다.<br>
+                    4. “비밀번호(Password)”라 함은 회원의 동일성 확인과 회원의 권익 및 비밀보호를
+                    위하여 회원 스스로가 설정하여 사이버몰에 등록한 문자와 숫자 등의 조합을 말합니다.<br>
+                    5. “마켓플레이스 서비스(MarketPlace Service)”라 함은 회사가 사이버몰을 통하여 함은 회사가 사이버몰을 통하여 함은 회사가 사이버몰을 통하여
+                </div>
+            </div>
+            <div class="btn-wrap">
+                <button type="button" class="btn-blue modal-x btn-confirm-contract">확인</button>
+            </div>
+        </div><!--// .max-width -->
+      </div>
+  </div>
+  <!--// Modal Popup -->  
+
+<!-- Modal Popup : 신규배송지 등록 : 배송지 정보 -->
+<div class="popup modal" id="sorinModalNewAddress">
+    <div class="modal-content w1060px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+
+            <h1 class="h2-pd">배송지 상세 정보</h1>
+
+            <div class="div-scroll-y">
+                <div class="section">
+                    <table class="tbl-v th-left new-shipping-wrap">
+                    <caption></caption>
+                    <colgroup>
+                    <col style="width:18rem;">
+                    <col>
+                    <col style="width:18rem;">
+                    <col>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">배송지구분</th>
+                            <td colspan="3">
+                                <div class="address-wrap">
+                                    <div>
+                                        <select name="selShipping" id="selShipping" class="dropdown">
+                                            <option>배송지구분 신규 등록</option>
+                                            <option>본사 창고</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <input type="text" name="ipShipping" id="ipShipping" title="신규 배송지 입력" disabled>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="ipShippingTit">배송지 명</label></th>
+                            <td colspan="3">
+                                <input type="text" name="ipShippingTit" id="ipShippingTit" placeholder="배송지명을 입력해 주세요.(10자 이내)">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">배송지주소 (도로명)</th>
+                            <td colspan="3">
+                                <div class="input-address">
+                                    <span class="button"><button type="button" class="btn-stroke-md blue btn-zipcode">주소 찾기</button></span>
+                                    <span class="input"><input type="text" name="ipRoadBase" id="ipRoadBase" title="도로명 주소" readonly></span>
+                                </div>
+                                <div>
+                                    <input type="text" name="ipRoadBase2" id="ipRoadBase2" title="도로명 상세 주소 입력" placeholder="도로명 상세 주소 입력">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">배송지주소 (지번)</th>
+                            <td colspan="3">
+                                <div class="input-address">
+                                    <input type="text" name="ipParcelBase" id="ipParcelBase" title="지번 주소" readonly>
+                                </div>
+                                <div>
+                                    <input type="text" name="ipParcelBase2" id="ipParcelBase2" title="지번 상세 주소 입력" placeholder="지번 상세 주소 입력" readonly>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="ipManager">배송지 담당자</label></th>
+                            <td>
+                                <input type="text" name="ipManager" id="ipManager">
+                            </td>
+                            <th scope="row"><label for="ipManagerCell">휴대폰번호</label></th>
+                            <td>
+                                <input type="text" name="ipManagerCell" id="ipManagerCell">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="ipUserEmail">이메일 주소</label></th>
+                            <td colspan="3">
+                                <div class="select-combo-wrap">
+                                    <div>
+                                        <input type="text" name="ipUserEmail" id="ipUserEmail" class="full" placeholder="이메일을 입력해 주세요.">
+                                        <span class="email-at">@</span>
+                                    </div>
+                                    <div>
+                                        <input type="text" name="ipUserEmailD" id="ipUserEmailD" class="full" placeholder="도메인을 입력해 주세요." title="이메일 도메인 직접 입력">
+                                    </div>
+                                    <div>
+                                        <select name="selEmailDomain" id="selEmailDomain" class="dropdown" title="이메일 도메인 선택">
+                                            <option selected="">직접입력</option>
+                                            <option>naver.com</option>
+                                            <option>daum.net</option>
+                                            <option>gmail.com</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                    <div class="btn-wrap">
+                        <button type="button" class="btn-gray-big modal-x">취소</button>
+                        <button type="button" class="btn-blue-big">저장</button>
+                    </div>
+
+                </div><!--// .section -->
+
+            </div><!-- // .div-scroll-y -->
+
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// Modal Popup : 신규배송지 등록 -->
+
+<!-- Modal Popup : 알루미늄/인천 입고 예정 정보 -->
+<div class="popup modal tbl-cal-modal" id="sorinModalStockInfo">
+    <div class="modal-content w1060px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+
+            <h1 class="h2-pd">알루미늄/인천 입고 예정 정보</h1>
+			
+			<div class="cal-header">
+				<div>
+					<h4>2022 January</h4>
+					<div>
+						<button type="button" class="btn-cal-prev"><span class="hidden">이전달</span><span class="ripple"></span></button>
+						<button type="button" class="btn-today btn-stroke">오늘</button>
+						<button type="button" class="btn-cal-next"><span class="hidden">다음달</span><span class="ripple"></span></button>
+					</div>
+				</div>
+				<p class="fc-gray">2022년 6월 29일 기준</p>
+			</div>
+            <div class="div-scroll-y">
+                <div class="section">
+                    <table class="tbl cal">
+                    <caption>알루미늄/인천 입고 예정 정보</caption>
+                    <colgroup>
+                    	<col span="7" style="width:14.29%;">
+                    </colgroup>
+                    <thead>
+                    	<tr>
+                    		<th scope="col">일</th>
+                    		<th scope="col">월</th>
+                    		<th scope="col">화</th>
+                    		<th scope="col">수</th>
+                    		<th scope="col">목</th>
+                    		<th scope="col">금</th>
+                    		<th scope="col">토</th>                    		                    		                    		                    		                    		                    		
+                    	</tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        	<td class="last">26</td>
+                        	<td class="last">27</td>
+                        	<td class="last">28</td>
+                        	<td class="last">29</td>
+                        	<td class="last">30</td>
+                        	<td class="last">31</td>
+                        	<td class="holiday">1</td>                        	
+                        </tr>
+                        <tr>
+                        	<td>2</td>
+                        	<td class="event">
+                        		<h5>3</h5>
+                        		<ul>
+                        			<li>[AL] BHARATAL 250MT</li>
+                        			<li>[AL] VEDANTA 100MT</li>
+                        			<li>[AL] NAZAS 100MT</li>
+                        		</ul>
+                       		</td>
+                        	<td>4</td>
+                        	<td>5</td>
+                        	<td>6</td>
+                        	<td class="event">
+                        		<h5>7</h5>
+                        	    <ul>
+                        			<li>[AL] BHARATAL 250MT</li>
+                        			<li>[AL] VEDANTA 100MT</li>
+                        		</ul>
+                        	</td>
+                        	<td>8</td>                        	
+                        </tr>
+                        <tr>
+                        	<td>9</td>
+                        	<td>10</td>
+                        	<td class="event">
+                        		<h5>11</h5>
+                        	    <ul>
+                        			<li>[AL] BHARATAL 250MT</li>
+                        		</ul>                        	
+                        	</td>
+                        	<td>12</td>
+                        	<td>13</td>
+                        	<td>14</td>
+                        	<td>15</td>                        	
+                        </tr>
+                        <tr>
+                        	<td>16</td>
+                        	<td>17</td>
+                        	<td>18</td>
+                        	<td>19</td>
+                        	<td>20</td>
+                        	<td>21</td>
+                        	<td>22</td>                        	
+                        </tr>
+                        <tr>
+                        	<td>23</td>
+                        	<td>24</td>
+                        	<td>25</td>
+                        	<td>26</td>
+                        	<td class="event">
+                        		<h5>27</h5>
+                        		<ul>
+                        			<li>[AL] BHARATAL 250MT</li>
+                        			<li>[AL] VEDANTA 100MT</li>
+                        		</ul>
+                        	</td>
+                        	<td class="event">
+                        		<h5>28</h5>
+                        		<ul>
+                        			<li>[AL] VEDANTA 100MT</li>
+                        		</ul>
+                        	</td>
+                        	<td>29</td>                     	
+                        </tr>
+                        <tr>
+                        	<td>30</td>
+                        	<td>31</td>
+                        	<td class="last">1</td>
+                        	<td class="last">2</td>
+                        	<td class="last">3</td>
+                        	<td class="last">4</td>
+                        	<td class="last">5</td>                        	
+                        </tr>
+                    </tbody>
+                    </table>
+                    <div class="mt20">
+                        <span class="icon-info-txt display-inline-block fc-gray">입고예정 주문은 고객센터(02-519-2740)로 연락 주시기 바랍니다.</span>
+                    </div>
+                    <div class="btn-wrap">
+                        <button type="button" class="btn-blue-big">확인</button>
+                    </div>
+
+                </div><!--// .section -->
+
+            </div><!-- // .div-scroll-y -->
+
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// Modal Popup : 알루미늄/인천 입고 예정 정보 -->
+
+
+<!-- script core -->
+<script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="/guide/js/select2/select2.min.js"></script>
+<!-- script extra -->
+<script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+<!-- script custom -->
+<script src="/guide/js/sorin.js"></script>
+<script src="/guide/js/sorin-layout.js"></script>
+<!-- embedded -->
+
+<script>
+    // $('#agreeBoxAll').on('click', function(){
+    //     popup('sorinModalContract', 'modal');
+    // });
+    // $('.agree-box .form-chk').on('click', function(){
+    //     popup('sorinModalContract', 'modal');
+    // });
+    $('.btn-detail-contract').on('click', function(){
+        popup('sorinModalContract', 'modal');
+    });
+    $('.btn-confirm-contract').on('click', function(){
+        $('#agreeBoxAll').prop('checked', true);
+    });
+    //현재 잔고 새로고침
+    $('.btn-reload').on('click', function(){
+        alert('현재 잔고 새로고침')
+    });
+    //결제수단 추가하기
+    $('.btn-add-pay').on('click', function(){
+        alert('결세수단 추가하기 process 확인')
+    });
+    // 바틈시트 주문하기 버튼 
+    $('.btn-bs-order').on('click', function(){
+        $('.loading-wrap').addClass('active');
+    });
+    
+    // 주문 페이지 출고 요청일 datapicker 클래스 추가
+    $(document).on('click', '.datepicker-wrap', function() {
+        $('#ui-datepicker-div').addClass('pd-datepicker');
+    });    
+    
+    // 상품 재고 없을 때 클래스 추가 및 radio disabled 처리
+    radioBtnDisabled();
+
+    // 2021-09-13 추가
+    $('.radio-btn').on('click', function(e){
+        e.preventDefault();
+        if($(this).hasClass('disabled')){
+            $(this).off('click');            
+        } else {
+            $(this).addClass('active').siblings().removeClass('active');
+            $(this).siblings().children('input').attr('checked',false)
+            $(this).children('input').attr('checked',true);
+        }
+    });
+
+    // 상품 재고 없을 때 클래스 추가 및 radio disabled 처리 >> 임의로 전체 지정 > 사용 시 변경 필요
+    function radioBtnDisabled() {
+        //$('.radio-btn').addClass('disabled');
+        $('.radio-btn').eq(0).addClass('disabled'); // 처음꺼로 임의 지정
+        $('.radio-btn.disabled').children('input').attr('disabled',true);
+    }
+
+    //알림 아이콘 토글 설정
+    function iconToggleClass(id) {
+        document.getElementById(id).classList.toggle("on");
+    }
+
+
+</script>
+
+</body>
+</html>

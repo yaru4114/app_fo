@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>평균가 견적구매(장기) > 견적상담| SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+
+    <!-- header include -->
+    <div class="header-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+    <!-- //header include -->
+    
+    <!-- container -->
+    <div class="container">
+    	<!-- suv visual 시작 {-->
+        <div class="sub-visual-wrap">
+        	<div class="inwrap">
+        		<div class="consultation-status">
+					<h2>실시간 견적 상담 현황</h2>
+					<table>
+						<colgroup>
+							<col width="200px"/>
+							<col width="200px"/>
+							<col width="200px"/>
+							<col width="200px"/>
+							<col width="200px"/>
+							<col width="200px"/>
+						</colgroup>
+						<thead>
+							<tr>
+								<th>권역</th>
+								<th>브랜드</th>
+								<th>신청월</th>
+								<th>주문 톤수</th>
+								<th class="bg--3C4959">유효기간</th>
+								<th class="bg--3C4959">진행상황</th class="bg--3C4959">
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>인천</td>
+								<td>서구산</td>
+								<td>
+									<div class="month flex-ac-jac">
+										<span class="active">7</span>
+										<span class="active">8</span>
+										<span class="active">9</span>
+										<span class="active">10</span>
+										<span class="active">11</span>
+										<span class="active">12</span>
+									</div>
+								</td>
+								<td>1000MT</td>
+								<td>2023-05-30</td>
+								<td>상담중</td>
+							</tr>						
+							<tr>
+								<td>부산</td>
+								<td>비서구산</td>
+								<td>
+									<div class="month flex-ac-jac">
+										<span class="active">7</span>
+										<span class="active">8</span>
+										<span class="active">9</span>
+										<span>10</span>
+										<span>11</span>
+										<span>12</span>
+									</div>
+								</td>
+								<td>500MT</td>
+								<td>2023-05-30</td>
+								<td>상담중</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+        	</div>
+        </div>   
+    	<!--} // suv visual 끝 -->
+
+        <div class="section section-average-price">
+        	<div class="inwrap">
+				<!-- 1. 타이틀영역 -->
+				<div class="title-group flex-ac">
+					<span class="pd-label">AL</span>
+					<h3 class="title">알루미늄 견적 상담</h3>
+				</div>
+				
+				<!-- 2. 견적 상담 영역 -->
+				<div class="estimate-wrap">
+					<div class="estimate-row flex-afs-jsb">
+						<div class="tit">
+							아이템을 선택해주세요.
+						</div>
+						<div class="cont">
+							<table>
+								<colgroup>
+									<col width="160px" />
+									<col width="*" />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>아이템</th>
+										<td>
+											<div class="form-chk form-chk-border w210px">
+								                <input type="checkbox" id="seledtedItem" checked disabled>
+								                <label for="seledtedItem">알루미늄 순괴 (P1020)</label>
+								            </div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="estimate-row flex-afs-jsb">
+						<div class="tit">
+							주문정보를 선택해주세요.
+						</div>
+						<div class="cont">
+							<table>
+								<colgroup>
+									<col width="160px" />
+									<col width="*" />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>권역</th>
+										<td>
+											<div class="flex-ac">
+												<div class="form-chk form-chk-border w100px">
+									                <input type="checkbox" name="area" id="area1" checked>
+									                <label for="area1">인천</label>
+									            </div>
+												<div class="form-chk form-chk-border w100px">
+									                <input type="checkbox" name="area" id="area2">
+									                <label for="area2">부산</label>
+									            </div>
+									            <div class="form-chk form-chk-border w100px">
+									                <input type="checkbox" name="area" id="anyArea">
+									                <label for="anyArea">권역무관</label>
+									            </div>	
+								            </div>	
+										</td>
+									</tr>
+									<tr>
+										<th>브랜드 그룹</th>
+										<td>
+											<div class="flex-ac">
+												<div class="form-chk form-chk-border w100px">
+									                <input type="checkbox" name="brand" id="brand1">
+									                <label for="brand1">서구산</label>
+									            </div>
+												<div class="form-chk form-chk-border w100px">
+									                <input type="checkbox" name="brand" id="brand2" checked>
+									                <label for="brand2">비서구산</label>
+									            </div>
+									            <div class="form-chk form-chk-border w100px">
+									                <input type="checkbox" name="brand" id="anyBrand">
+									                <label for="anyBrand">브랜드무관</label>
+									            </div>
+								            </div>	
+										</td>
+									</tr>
+									<tr>
+										<th>주문 개월 수</th>
+										<td>
+											<div class="flex-ac">
+												<div class="form-chk form-radio-border w100px">
+									                <input type="radio" name="orderMonth" id="orderMonth1">
+									                <label for="orderMonth1">1개월</label>
+									            </div>
+												<div class="form-chk form-radio-border w100px">
+									                <input type="radio" name="orderMonth" id="orderMonth3">
+									                <label for="orderMonth3">3개월</label>
+									            </div>
+									            <div class="form-chk form-radio-border w100px">
+									                <input type="radio" name="orderMonth" id="orderMonth6" checked>
+									                <label for="orderMonth6">6개월</label>
+									            </div>	
+									            <div class="form-chk form-radio-border w100px">
+									                <input type="radio" name="orderMonth" id="orderMonth9">
+									                <label for="orderMonth9">9개월</label>
+									            </div>
+									            <div class="form-chk form-radio-border w100px">
+									                <input type="radio" name="orderMonth" id="orderMonth12">
+									                <label for="orderMonth12">연간</label>
+									            </div>
+								            </div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="estimate-row flex-afs-jsb">
+						<div class="tit">
+							월 별 주문 톤수를 입력해주세요.
+						</div>
+						<div class="cont">
+							<div class="">
+								<!-- 이하 동일 자동 설정 -->
+					        	<div class="form-chk same-setting">
+					                <input type="checkbox" id="sameSet">
+					                <label for="sameSet">이하 동일 자동 설정</label>
+					            </div>
+								<!-- 월 별 주문 톤수 입력 table -->
+								<table>
+									<colgroup>
+										<col width="160px" />
+										<col width="*" />
+									</colgroup>
+									<tbody>
+										<tr>
+											<th>2023년 7월</th>
+											<td>
+												<div class="input-wrap flex-ac">
+													<label for="">
+														<input type="number" name="" id="" class="input-ton" placeholder="주문하실 톤수(25MT 단위)를 입력해주세요." />
+														<span class="unit">MT</span>
+													</label>
+													<button type="button" class="btn-row-remove"></button>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th>2023년 8월</th>
+											<td>
+												<div class="input-wrap flex-ac">
+													<label for="">
+														<input type="number" name="" id="" class="input-ton" placeholder="주문하실 톤수(25MT 단위)를 입력해주세요." />
+														<span class="unit">MT</span>
+													</label>
+													<button type="button" class="btn-row-remove"></button>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th>2023년 9월</th>
+											<td>
+												<div class="input-wrap flex-ac">
+													<label for="">
+														<input type="number" name="" id="" class="input-ton" placeholder="주문하실 톤수(25MT 단위)를 입력해주세요." />
+														<span class="unit">MT</span>
+													</label>
+													<button type="button" class="btn-row-remove"></button>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th>2023년 10월</th>
+											<td>
+												<div class="input-wrap flex-ac">
+													<label for="">
+														<input type="number" name="" id="" class="input-ton" placeholder="주문하실 톤수(25MT 단위)를 입력해주세요." />
+														<span class="unit">MT</span>
+													</label>
+													<button type="button" class="btn-row-remove"></button>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th>2023년 11월</th>
+											<td>
+												<div class="input-wrap flex-ac">
+													<label for="">
+														<input type="number" name="" id="" class="input-ton" placeholder="주문하실 톤수(25MT 단위)를 입력해주세요." />
+														<span class="unit">MT</span>
+													</label>
+													<button type="button" class="btn-row-remove"></button>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th>2023년 12월</th>
+											<td>
+												<div class="input-wrap flex-ac">
+													<label for="">
+														<input type="number" name="" id="" class="input-ton" placeholder="주문하실 톤수(25MT 단위)를 입력해주세요." />
+														<span class="unit">MT</span>
+													</label>
+													<button type="button" class="btn-row-remove"></button>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<p class="tooltip-txt mt15">주문 톤수 0 또는 미 기입 시에는 주문하지 않은 월로 간주합니다.</p>
+								<div class="estimate-total flex-ac-jc">
+					                <dl class="flex-ac-jsb">
+					                  <dt>주문 합계</dt>
+					                  <dd>
+					                  	6개월 간<span class="price">9,000</span>MT
+					                  </dd>
+					                </dl>
+					              </div>
+							</div>
+							
+							<div class="btn-wrap">
+								<p>작성한 견적서 내용을 접수 전, 미리 볼 수 있습니다.</p>
+								<button type="button" class="btn-blue-big mt20" data-popup="modal" data-target="sorinEstimatePreview">견적요청내용 미리보기</button>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+    </div>
+    
+    <!-- footer include -->
+    <div class="footer-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+    <!-- //footer include -->
+    
+</div>
+
+
+
+<div class="popup modal modal-estimate-preview active" id="sorinEstimatePreview">
+    <div class="modal-content w670px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+			<div class="hgroup">
+                <h2 class="h2 center mb0">견적요청내용 미리보기</h2>
+            </div>
+            <div class="div-scroll-y mt40">
+				<!-- 1. 상품정보 -->
+				<div class="division">
+					<h3 class="tit">상품정보</h3>
+					<table>
+						<tbody>
+							<tr>
+								<th>아이템</th>
+								<td>알루미늄 순괴 (P1020)</td>
+							</tr>
+							<tr>
+								<th>권역</th>
+								<td>인천</td>
+							</tr>								
+							<tr>
+								<th>브랜드</th>
+								<td>브랜드 무관</td>
+							</tr>								
+							<tr>
+								<th>주문 개월 수</th>
+								<td>6개월</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- 2. 월 별 주문 톤 수 -->
+				<div class="division division2 mt40">
+					<h3 class="tit">월 별 주문 톤 수</h3>
+					<table>
+						<tbody>
+							<tr>
+								<th>2023년 7월</th>
+								<td>1,500MT</td>
+							</tr>
+							<tr>
+								<th>2023년 8월</th>
+								<td>500MT</td>
+							</tr>								
+							<tr>
+								<th>2023년 9월</th>
+								<td>800MT</td>
+							</tr>								
+							<tr>
+								<th>2023년 10월</th>
+								<td>1,200MT</td>
+							</tr>
+							<tr>
+								<th>2023년 11월</th>
+								<td>1,000MT</td>
+							</tr>								
+							<tr>
+								<th>2023년 12월</th>
+								<td>600MT</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr class="total">
+								<th>톤수 합계</th>
+								<td>
+									6개월 간<span class="num">9,000</span>MT
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+				<p class="tooltip-txt-center flex-ac-jac mt30">
+					<span>상담 접수하시면, 서린닷컴 관리자가 확인 후 연락드립니다.</span>
+				</p>
+				<div class="btn-wrap mt30">
+					<button type="button" class="btn-blue-big">견적서 검토 접수하기</button>
+				</div>
+            </div><!-- // .div-scroll-y -->
+
+        </div><!--// .max-width -->
+    </div>
+</div>
+Input: <input type="text" id="in">
+Output: <input type="text" id="out">
+<script>
+    $("#in").keyup(function() {
+        $("#out").val( $(this).val() )
+    });
+</script>
+<!-- script core -->
+<script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="/guide/js/select2/select2.min.js"></script>
+<!-- script extra -->
+<script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+<script src="/guide/js/swiper/6.7.0/swiper.js"></script>
+<!-- script custom -->
+<script src="/guide/js/sorin.js"></script>
+<script src="/guide/js/sorin-layout.js"></script>
+<!-- embedded -->
+
+<script>
+
+		
+	// .form-chk(checkbox나 radio)가 checked되어 있을경우 .active
+	$('.form-chk').each(function(){
+		if($(this).find('input').is(':checked')) {
+			$(this).addClass('active')
+		}
+	})
+			
+	// .form-chk-border > checkbox checked시 border-color 변경
+	$('.form-chk').find('input:checkbox').on('click', function(){
+		
+		const formChKChecked =  $(this).is(':checked');
+		
+		if(formChKChecked) {
+			$(this).parents('.form-chk').addClass('active');
+		} else {
+			$(this).parents('.form-chk').removeClass('active');
+		}
+
+	});
+	
+	// 주문 개월 수(.form-radio-border) > radio checked시 border-color 변경
+	$('.form-chk').find('input:radio').on('click', function(){
+		
+		const formRadioChecked = $(this).is(':checked');
+		
+		if(formRadioChecked) {
+			$('.form-radio-border').removeClass('active');
+			$(this).parents('.form-chk').addClass('active');
+		} 
+
+	});
+	
+	// 권역, 브랜드그룹 무관 클릭시 다른 checkbox checked 해제
+	const formChk = ('.form-chk');
+	const formChkArea = $('input[name = area]')
+	const anyArea = $('#anyArea');
+	const formChkBrand = $('input[name = brand]')
+	const anyBrand = $('#anyBrand');
+
+
+	//$('input[type=checkbox][name = area]')
+	formChkArea.change(function() {
+        if (anyArea.is(':checked')) {
+           $(this).parents('.form-chk').siblings().removeClass('active');
+		   $(this).parents('.form-chk').siblings().find('input:checkbox').prop('checked',false);
+        } 
+    });
+    
+	//$('input[type=checkbox][name = brand]')
+	formChkBrand.change(function() {
+        if (anyBrand.is(':checked')) {
+           $(this).parents('.form-chk').siblings().removeClass('active');
+		   $(this).parents('.form-chk').siblings().find('input:checkbox').prop('checked',false);
+        } 
+    });
+    
+    // 월 별 주문 톤수 > '첫번째' .input-ton에 ton 입력시 > 활성화 (1. 이하 동일 자동 설정 checkbox/ 2. unit)
+    $(".input-ton").eq(0).addClass('input-ton-first');
+    let btnSameSetting = $('.estimate-row .same-setting');
+    let firstInputTon = $(".input-ton-first");
+    
+    // '첫번째' .input-ton 입력시
+	firstInputTon.keyup(function() {
+       let inputTonVal = $(this).val()
+       
+       if (!inputTonVal == '') {
+			$(this).next('.unit').addClass('active');
+			btnSameSetting.show();
+		} else {
+			$(this).next('.unit').removeClass('active');
+			btnSameSetting.hide();
+		}
+		
+		
+		// 이하 동일 자동 설정 checkbox:checked 여부
+		btnSameSetting.find('input:checkbox').change(function() {
+			if ($(this).is(':checked')) {
+				let inputTopLength  = $(".input-ton").length;
+				
+				for(let i = 0; i < inputTopLength; i++) {
+			        $(".input-ton").val(inputTonVal);
+			        $(".input-ton").next('.unit').addClass('active');
+			     }
+		     } else {
+				$(".input-ton").val('');
+				$(".input-ton").next('.unit').removeClass('active');
+				$('.input-ton-first').val(inputTonVal);
+				$('.input-ton-first').next('.unit').addClass('active');
+			 }
+		});
+		
+    });
+
+    
+    // 월 별 주문톤수 > .btn-input-remove 버튼 클릭시 > 값 초기화
+    const btnInputRemove = $('.btn-row-remove')
+    
+    btnInputRemove.on('click', function(){
+		$(this).parents('tr').remove();
+		$(".input-ton").eq(0).addClass('input-ton-first');
+		//$(".input-ton").val('');
+		//btnSameSetting.find('input:checkbox').prop("checked", false);
+	});
+    
+	
+</script>
+
+</body>
+</html>

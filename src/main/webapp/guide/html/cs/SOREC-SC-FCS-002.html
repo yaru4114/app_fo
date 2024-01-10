@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>문의하기 | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+
+    <!-- header include -->
+    <div class="header-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+        <!-- //header include -->
+        
+        <!-- container -->
+        <div class="container">
+            <!-- 본문 -->
+            <div class="section cs">
+                <div class="inwrap">
+                    <div class="hgroup hidden">
+                        <div>
+                            <h2 class="h2">문의하기</h2>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="btn-toggle-wrap full five">
+                            <div><button type="button" class="toggle"><span>FAQ</span></button></div>
+                            <div><button type="button" class="toggle active"><span>문의하기</span></button></div>
+                            <div><button type="button" class="toggle"><span>서비스 약관</span></button></div>
+                            <div><button type="button" class="toggle"><span>공지사항</span></button></div>
+                            <div><button type="button" class="toggle"><span>원격지원</span></button></div>
+                        </div>
+                    </div>
+                    <!-- 문의자 기본정보 -->
+                    <div class="section">
+                        <div class="hgroup">
+                            <h2 class="h2">문의자 기본정보</h2>
+                            <div class="btns">
+                                <span class="mandatory">*</span>
+                                <span class="mandatory-text">표시는 필수 입력 항목</span>
+                            </div>
+                        </div>
+                        <table class="tbl-v t4 th-left">
+                            <caption>문의자 기본정보 - 이름, 휴대폰 번호, 이메일 주소 제공</caption>
+                            <colgroup>
+                            <col style="width:18rem;">
+                            <col>                        
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row"><label for="ipUserName">이름</label> <span class="mandatory">*</span></th>
+                                    <td>
+                                        <span class="w50per">
+                                            <input type="text" name="ipUserName" id="ipUserName" class="full">
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="ipUserCell">휴대폰 번호</label> <span class="mandatory">*</span></th>
+                                    <td>
+                                        <span class="w50per">
+                                            <input type="tel" name="ipUserCell" id="ipUserCell" class="full">
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="ipUserEmail">이메일 주소</label> <span class="mandatory">*</span></th>
+                                    <td>
+                                        <div class="w60per">
+                                            <div class="select-combo-wrap">
+                                                <div>
+                                                    <input type="text" name="ipUserEmail" id="ipUserEmail" class="full" placeholder="이메일을 입력해 주세요.">
+                                                    <span class="email-at">@</span>
+                                                </div>
+                                                <div>
+                                                    <input type="text" name="ipUserEmailD" id="ipUserEmailD" class="full" placeholder="도메인을 입력해 주세요." title="이메일 도메인 직접 입력">
+                                                </div>
+                                                <div>
+                                                    <select name="selEmailDomain" id="selEmailDomain" class="dropdown" title="이메일 도메인 선택">
+                                                        <option>직접입력</option>
+                                                        <option>naver.com</option>
+                                                        <option>daum.net</option>
+                                                        <option>gmail.com</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--// 문의자 기본정보 -->
+                    <!-- 문의 사항 내용 -->
+                    <div class="section">
+                        <div class="hgroup">
+                            <h2 class="h2">문의 사항 내용</h2>
+                            <div class="btns">
+                                <span class="mandatory">*</span>
+                                <span class="mandatory-text">표시는 필수 입력 항목</span>
+                            </div>
+                        </div>
+
+                        <table class="tbl-v t4 th-left inquire-wrap">
+                        <caption>문의하기 - 구분, 제목, 내용, 파일첨부 제공</caption>
+                        <colgroup>
+                        <col style="width:18rem;">
+                        <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">문의 구분 <span class="mandatory">*</span></th>
+                                <td>
+                                    <div class="w50per">
+                                        <div class="select-combo-wrap">
+                                            <div>
+                                                <select name="selCate" id="selCate" class="dropdown">
+                                                    <option value="1">주문/결제</option>
+                                                    <option value="2">배송</option>
+                                                    <option value="3">취소/환불/반품/교환</option>
+                                                    <option value="4">계산서/증빙서류</option>
+                                                    <option value="5">상품</option>
+                                                    <option value="6">회원/정보관리</option>
+                                                    <option value="7">마이페이지</option>
+                                                    <option value="8">일반 서비스문의</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <select name="selCateSub" id="selCateSub" class="dropdown">
+                                                    <option>선택해 주세요.</option>
+                                                    
+                                                    <option data-value="1">주문방법</option>
+                                                    <option data-value="1">견적문의</option>
+                                                    <option data-value="1">주문내역 확인</option>
+                                                    <option data-value="1">결제</option>
+                                                    <option data-value="1">장바구니</option>
+        
+                                                    <option data-value="2">배송방법</option>
+                                                    <option data-value="2">배송오류</option>
+                                                    <option data-value="2">배송지변경</option>
+                                                    <option data-value="2">분할배송문의</option>
+                                                    
+                                                    <option data-value="3">취소 방법</option>
+                                                    <option data-value="3">환불 기간</option>
+                                                    <option data-value="3">환불내역확인</option>
+                                                    <option data-value="3">반품 방법</option>
+                                                    <option data-value="3">교환 방법</option>
+                                                    
+                                                    <option data-value="4">세금계산서</option>
+                                                    <option data-value="4">기타 증빙서류</option>
+                                                    
+                                                    <option data-value="5">상품</option>
+                                                    <option data-value="5">상품가격</option>
+                                                    
+                                                    <option data-value="6">가입/탈퇴</option>
+                                                    <option data-value="6">증빙서류</option>
+                                                    <option data-value="6">정보변경</option>
+                                                    <option data-value="6">ID/비밀번호</option>
+                                                    
+                                                    <option data-value="7">회원등급</option>
+                                                    
+                                                    <option data-value="8">일반 서비스문의</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="ipInquireTit">문의 제목</label> <span class="mandatory">*</span></th>
+                                <td>
+                                    <div class="w80per">
+                                        <input type="text" name="ipInquireTit" id="ipInquireTit" placeholder="제목을 입력해 주세요.(20자 이내)" class="full">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="textInquireCon">문의 내용</label> <span class="mandatory">*</span></th>
+                                <td>
+                                    <div class="w80per">
+                                        <textarea name="textInquireCon" id="textInquireCon" rows="10" placeholder="내용을 입력해 주세요.(200자 이내)"></textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- <tr>
+                                <th scope="row"><label for="ipAttachFile">파일 첨부</label></th>
+                                <td>
+                                    <span class="limit-width">
+                                        <span class="input-file">
+                                            <input type="file" name="ipAttachFile" id="ipAttachFile" class="hidden-file">
+                                            <button type="button" class="btn-stroke-md blue">파일찾기</button>
+                                        </span>
+                                    </span>
+                                    <span class="t-info">PDF, JPG, JPEG, PNG 포맷의 3M이내 파일로 첨부해주세요.</span>
+                                </td>
+                            </tr>  -->
+                            <tr>
+                                <th scope="row"><label for="ipAttachFile">파일 첨부</label></th>
+                                <td>
+                                    <div class="textarea3">
+                                        <div class="input-file-wrap">
+                                            <span class="input-file">
+                                                <input type="text" name="ipAttachFileR1" id="ipAttachFileR1" class="input-file-input" value="abc.jpg" readonly>
+                                                <button type="button" class="btn-gray-md">파일삭제</button>
+                                            </span>
+                                        </div>
+                                        <div class="input-file-wrap">
+                                            <span class="input-file">
+                                                <input type="file" name="ipAttachFile" id="ipAttachFile" class="hidden-file">
+                                                <input type="text" name="ipAttachFileR" id="ipAttachFileR" class="input-file-input">
+                                                <button type="button" class="btn-stroke-md blue">파일추가</button>
+                                            </span>
+                                        </div>
+                                        <div class="mt10">
+                                            <span class="t-info">PDF, JPG, JPEG, PNG 포맷의 3M이내 파일로 첨부해주세요.</span>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                    <!--// 문의 사항 내용 -->
+                    <!-- 개인정보 수집 및 이용 동의에 대한 안내 -->
+                    <div class="section">
+                        <div class="hgroup">
+                            <h2 class="h2">개인정보 수집 및 이용 동의에 대한 안내</h2>
+                        </div>
+                        <div>
+                            <div class="box-stroke">
+                                <div class="scroll-y">
+        <p class="c-tit">[ 서린닷컴개인정보의 수집 및 이용동의 ]</p>
+        <br>
+        제1장 총칙<br>
+        <br>
+        제 1 조 (목적)<br>
+        이 약관은 서린닷텀 주식회사(이하 "회사")가 운영하는 사이버몰에서 제공하는 서비스와 이를 이용하는 회원의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.<br>
+        <br>
+        제 2 조 (용어의 정의)<br>
+        이 약관에서 사용하는 용어의 정의는 다음과 같습니다. 그리고 여기에서 정의되지 않은 이 약관상의 용어의 의미는 일반적인 거래관행에 따릅니다.<br>
+        1. "사이버몰"이란 회사가 상품 또는 용역 등(일정한 시설을 이용하거나 용역을 제공받을 수 있는 권리를 포함하며, 이하 "상품 등")을 회원에게 제공하기 위하여 컴퓨터 등 정보통신설비를 이용하여 상품 등을 거래할 수 있도록
+        설정한 가상의 영업장(http://www.coupang.com 등 회사가 운영하는 웹사이트 및 모바일 웹, 앱 등을 모두 포함)을 의미합니다.<br>
+                                </div>
+                            </div>
+                            <div class="box-agree">
+                                <div class="form-chk">
+                                    <input type="checkbox" id="agreePrivacy">
+                                    <label for="agreePrivacy">개인정보 수집&middot;이용에 동의합니다.</label>
+                                </div>
+                                <!-- <div>
+                                    <button type="button" class="btn-alink-arrow"><span>자세히보기</span></button>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!--// 개인정보 수집 및 이용 동의에 대한 안내 -->
+                    
+                    <div class="btn-wrap">
+                        <button type="button" class="btn-gray-big">취소</button>
+                        <button type="button" class="btn-blue-big">문의하기</button>
+                    </div>
+                </div>            
+            </div>
+            <!--// 본문 -->
+        </div>
+        <!-- //container -->
+    
+        <!-- footer include -->
+        <div class="footer-wrap include-wrap"></div>
+        <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+        <!-- //footer include -->
+    </div>
+
+    <!-- script core -->
+    <script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/guide/js/select2/select2.min.js"></script>
+    <!-- script extra -->
+    <script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+    <!-- script custom -->
+    <script src="/guide/js/sorin.js"></script>
+    <script src="/guide/js/sorin-layout.js"></script>
+    <script src="/guide/js/sorin-cs.js"></script>
+    <!-- embedded -->
+    <script>    
+    </script>
+
+</body>
+</html>

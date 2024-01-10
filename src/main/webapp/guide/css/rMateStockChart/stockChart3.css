@@ -1,0 +1,116 @@
+@CHARSET "UTF-8";
+/* rMate 증권 차트 내부 클래스 정의한 CSS 입니다.*/
+/* 기본값은 제공된 시디의 rMateStockChartH5/Assets/stockChart.css 입니다. */
+/* stockChart.css 파일을 데모에 맞게 수정한 파일입니다. */
+@font-face { 
+	font-family: 'Noto Sans regular'; 
+	font-style: normal; 
+	font-weight: 400; 
+	src: url(/fonts/rMateFont/NotoSansKR-Regular.woff2) format('woff2'), 
+		 url(/fonts/rMateFont/NotoSansKR-Regular.woff) format('woff'), 
+		 url(/fonts/rMateFont/NotoSansKR-Regular.otf) format('opentype');
+}
+
+/* rMateStock 데이터팁 Div */
+.rMateStock_DataTip {
+	font-family: 'Noto Sans regular'; 
+	font-size: 13px;
+	padding:11px 12px 11px 12px;
+	background-color: #F4F4F4;
+	border: 1px solid #D6D6D6;
+	border-radius:2px;
+	cursor: default;
+	text-align: left;
+	color:#666;
+	width: 160px;
+	line-height:18px;
+	letter-spacing:-0.5px;
+}
+
+/* rMateStock 십자가 표시할 때 X축 날짜 Div */
+.rMateStock_xTip {
+	font-size: 11px;
+	padding: 0 3px;
+	margin: 0px;
+	background-color: #212121;
+	cursor: default;
+	color: #fff;
+	padding-top:2px;
+	padding-bottom:3px;
+	font-weight:bold;
+}
+
+/* rMateStock 십자가 표시할 때 Y축 값 Div */
+.rMateStock_yTip {
+	font-size: 11px;
+	padding:0 3px;
+	text-align: center;
+	margin: 0px;
+	background-color: #212121;
+	cursor: default;
+	color: #fff;
+	font-weight:bold;
+}
+
+/* rMateStock 프리로더 Div */
+.rMateStock_preloader {
+	background:rgba(255,255,255,0.5) url(/images/rMateStockChart/loader.gif) 50% 50% no-repeat;
+}
+
+/* rMateStock 범례 메인 Span */
+.rMateStock_Legend .legend_main {
+float: left;
+padding-right: 0;
+display: inline;
+height: 30px;
+line-height:13px;
+text-align: center;
+font-size:13px;	
+}
+
+.rMateStock_Legend .legend_title{
+	margin-right:6px;
+}
+
+/* rMateStock 범례 마커 Span */
+.rMateStock_Legend .legend_main .legend_marker {
+display: inline-block;
+width: 10px;
+height: 10px;
+margin: 0 5px 2px 7px;
+border-radius:10px;
+vertical-align: middle;
+}
+
+/* 스크롤바 */
+.rMateStock_ScrollNavigator {
+	margin-top:2px;
+}
+
+/* 스크롤바 트랙 Div */
+.rMateStock_ScrollBar .rMateStock_HScrollTrack {
+	border-radius:4px;
+	background-color:#eeeeee;
+}
+
+/* 스크롤바 썸 Div */
+.rMateStock_ScrollBar .rMateStock_HScrollThumb {
+/* 	border:1px #a0a0a0 solid;
+	background: #333333 url(/images/rMateStockChart/scroll_thumb_bg.jpg) 50% 50% repeat-x; */
+	border:1px solid #eee;
+	background-color:#bbb;
+	border-radius:3px;
+}
+
+/* 심볼 div*/
+.rMateStock_SymbolDiv{
+	position : absolute;
+	font-family : 맑은고딕;
+	font-size : 12px;
+	text-align : center;
+	border : 1px #000000 solid;
+	border-radius : 2px;
+	background-color : #FFFFFF;
+	line-height : 1.4;
+	cursor : pointer;
+}

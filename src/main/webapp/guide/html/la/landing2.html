@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <link rel="stylesheet" href="/guide/css/odometer/odometer.css">
+    <link rel="stylesheet" href="/guide/css/splitting/splitting.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+    <script src="/guide/js/splitting/splitting.min.js"></script>
+	<script src="/guide/js/odometer/odometer.min.js"></script>
+</head>
+<body>
+	<div class="landing-wrapper">
+		<!-- 1. landing header: hide 처리 {-->
+		<header class="landing-header hide">
+			<div class="inwrap flex-ac-jsb">
+                <!-- 1-1. header > logo -->
+				<h1 class="landing-header-logo">
+					<a href="https://www.metalsorin.com/">
+                    	<span class="hidden">SORIN CORPORATION</span>
+                    </a>
+                </h1>
+                
+                <!-- 1-2. header > gnb -->
+                <nav class="landing-header-gnb">
+                	<ul class="flex-ac">
+                        <li><a href="#n">알루미늄</a></li>
+                        <li><a href="#n">커뮤니티</a></li>
+                        <li><a href="#n">고객센터</a></li>
+                        <li><a href="#n">여신사용신청</a></li>
+                        <li><a href="#n">원자재판매가격</a></li>
+                    </ul>
+                </nav>
+
+                <!-- 1-3. header > login area-->
+                <div class="landing-header-login">
+                    <ul class="flex-ac">
+                        <li class="btn-login"><a href="https://www.metalsorin.com/">로그인</a></li>
+                        <li class="btn-join"><a href="#n">회원가입</a></li>
+                    </ul>
+                </div>
+			</div>
+		</header>
+		<!--} //1. landing header: hide 처리 -->
+		
+		<!-- header > logo 추가 -->
+		<h1 class="landing-header-logo">
+			<a href="#n">
+            	<span class="hidden">SORIN CORPORATION</span>
+            </a>
+        </h1>
+		<!-- // header > logo 추가 -->
+		
+		<!-- 2. landing visual {-->
+        <section class="landing-visual">
+
+			<!-- 2-1. 랜딩 비주얼 > 랜딩 컨텐츠: 슬로건 영역/ 버튼 영역 {-->
+			<!-- 랜딩 비주얼 > 슬로건 영역 -->
+			<div class="landing-visual-slogan">
+				<p class="ani-title" data-splitting="chars">시세 확인 부터 구매까지 한번에!</p>
+				<h2 class="ani-text" data-splitting="chars">비철금속 ONE-STOP 서비스</h2>
+			</div> 
+			
+			<!-- 랜딩 비주얼 > 버튼 영역 (홍보 영상 보기,구매 가이드 영상 보기, 거래소 가기)  -->
+			<ul class="landing-pagination-btns flex-ac-jc">
+				<li class="btn-player">홍보영상 보기</li>
+				<li class="btn-player">구매 가이드 영상 보기</li>
+				<li class="btn-move-exchange">
+					<a href="#n">거래소 가기</a>
+				</li>
+			</ul>  
+			<!--} // 2-1. 랜딩 비주얼 > 랜딩 컨텐츠: 슬로건 영역/ 버튼 영역-->
+
+			<!-- 23.06.16 | 30일간 보지않기 checkbox 추가 -->
+        	<div class="form-chk close-landing">
+                <input type="checkbox" id="closeLanding">
+                <label for="closeLanding">30일 간 그만 보기</label>
+            </div>
+			<!--} // 23.06.16 | 30일간 보지않기 checkbox 추가 -->
+			
+			<!-- 2-2. 랜딩 비주얼 > 백그라운드 영상 -->
+			<div class="landing-video-bg">
+				<video preload="metadata" muted="" playsinline="" autoplay loop poster="/guide/images/la/video/landing-bg-poster.jpg">
+					<source src="/guide/images/la/video/landing-video-bg.mp4" type="video/mp4">
+				</video> 
+			</div>
+			
+			<!-- 2-3. 버튼 클릭시 풀영상 비디오 팝업 -->
+			<div class="full-player-wrap">
+				<div class="full-players">
+					<video muted loop controls class="full-player">
+						<source src="/guide/images/la/video/landing-video-ad.mp4" type="video/mp4">
+					</video> 
+					<video muted loop controls class="full-player">
+						<source src="/guide/images/la/video/landing-video-process.mp4" type="video/mp4">
+					</video> 
+					<div class="btn-full-player-close">
+						<img src="/guide/images/la/btn-full-player-close.png" alt="닫기">
+					</div>
+				</div>
+				<div class="mask"></div>
+			</div>
+			
+			<!-- 2-4. main visual > 스크롤-->
+			<div class="landing-visual-scroll">
+				<figure><img src="/guide/images/la/la-scroll.png" alt="SCROLL DOWN"></figure>
+				<p>SCROLL DOWN</p>
+			</div>
+	            
+        </section>
+        <!--} // 2. landing visual-->
+
+		<!-- 3. landing-contents {-->
+		<section class="landing-contents">
+			
+            <section class="landing-contents-top animation">
+                <!-- 3-1. 알루미늄 실시간 시세 안내 영역 {-->
+                <section class="landing-price animation">  
+                    <div class="inwrap">
+                        <div class="tab-wrap">
+                            <!-- [커멘트: 해당 주석은 jsp 파일에서 삭제] tab title: 현재 알루미늄 메뉴만 오픈하여 그 외 메뉴 숨김 (추후 오픈) > 개발파트에서 상의 후 개발 진행
+                            <div class="tab-title">
+                                <ul>
+                                    <li class="active">알루미늄</li class="active">
+                                    <li>아연</li>
+                                    <li>니켈</li>
+                                    <li>납</li>
+                                    <li>구리</li>
+                                    <li>주석</li>
+                                </ul>
+                            </div>
+                            -->
+                            <div class="tab-cont flex-jsb">
+                                <div class="left-area">
+                                    <h3>PRIMARY <br>ALUMINUM INGOT</h3>
+                                    <p class="price-krw flex-ac">
+                                    	<!-- 
+											[커멘트: 해당 주석은 jsp 파일에서 삭제] 
+											1. 사용 플러그인: plugin: odometer.js 필요/ 가격 실시간 반영때마다 해당 효과 적용 요청 
+											2. css guide
+											  - .num: 일반
+											  - .num.num-up: 증가
+											  - .num.num-down: 감소
+											  - .num.num-same: 동일
+										-->
+										<span class="num odometer">0</span><span class="unit">KRW</span> 
+										<!-- 
+										<span class="num num-up odometer">0</span><span class="unit">KRW</span> 
+                                        <span class="num num-down odometer">0</span><span class="unit">KRW</span>
+                                        <span class="num num-same odometer">0</span><span class="unit">KRW</span>
+                                        -->
+                                    </p>
+                                    <dl class="exchange-rate flex-ac">
+                                        <dt>환율</dt>
+                                        <dd class="flex-ac">
+                                            <span class="num">1,274.65</span> <span class="unit">USD</span>
+                                        </dd>
+                                    </dl>
+                                    <a href="#n" class="btn-big-blue btn-buy">구매하러 가기</a>
+                                </div>
+                                <div class="right-area">
+                                	
+									<!-- case1: 조달청 가격 있음 (서구산/ 비서구산) -->
+                                    <div class="top-legend flex-ac-jfe">
+                                    	<!-- 랜딩 페이지 타이머: 추후 작업 예정으로 미리 작업 -->
+                                    	<div class="landing-timer flex-ac">
+                                    		<span class="text">서린닷컴 개장까지 </span>
+                                    		<span class="time">- 00:01:38</span>
+                                    	</div>
+                                    	
+                                    	<div class="flex-ac">
+	                                        <em>조달청</em>
+	                                        <dl class="flex-ac">
+	                                            <dt class="sorting">서구산</dt>
+	                                            <dd>
+	                                                <span class="price price-down">3,205,000</span>
+	                                                <span class="ratio price-down">-0.97%</span>
+	                                            </dd>
+	                                        </dl>
+	                                        <span class="slash">/</span>
+	                                        <dl class="flex-ac">
+	                                            <dt class="sorting">비서구산</dt>
+	                                            <dd>
+	                                                <span class="price price-up">3,205,000</span>
+	                                                <span class="ratio price-up">+0.97%</span>
+	                                            </dd>
+	                                        </dl>
+                                        </div>
+                                    </div>
+                                    
+                                    <!--case2: 조달청 가격: 판매가격 제공 없음 -->
+                                    <div class="top-legend top-legend2 flex-ac-jfe">
+                                        <!-- 랜딩 페이지 타이머: 추후 작업 예정으로 미리 작업 -->
+                                    	<div class="landing-timer flex-ac">
+                                    		<span class="text">서린닷컴 개장까지 </span>
+                                    		<span class="time">- 00:01:38</span>
+                                    	</div>
+                                    	
+                                    	<div class="flex-ac">
+	                                        <em>조달청</em>
+	                                        <p class="no-data">- 판매가격 제공 없음</p>
+                                        </div>
+                                    </div>
+                                    <div class="table-wrap">
+                                        <table>
+                                            <colgroup>
+                                                <col style="width:22.6rem;">
+                                                <col style="width:9.7rem;">
+                                                <col style="width:8rem;">
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" colspan= "3">
+                                                        서린닷컴
+                                                        <span>(KRW/MT)</span>
+                                                    </th>
+                                                    <th scope="col" colspan="3">
+                                                        LME
+                                                        <span>(USD/MT)</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">인천/서구산</th>
+                                                    <td class="price-up">3,147,000</td>
+                                                    <td class="ratio price-up">+0.13%</td>
+                                                    <th scope="row">전일 OFFICIAL CASH</th>
+                                                    <td class="price-down">2,337.50</td>
+                                                    <td class="ratio price-down">+0.97%</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">인천/비서구산</th>
+                                                    <td class="price-up">3,147,000</td>
+                                                    <td class="ratio price-up">+0.13%</td>
+                                                    <th scope="row">전일 CLOSING CASH</th>
+                                                    <td class="price-down">2,337.50</td>
+                                                    <td class="ratio price-down">+0.97%</td class="ratio">
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">부산/서구산</th>
+                                                    <td class="price-up">3,147,000</td>
+                                                    <td class="ratio price-up">+0.13%</td class="ratio">
+                                                    <th scope="row">전일 OFFICIAL 3M</th scope="row">
+                                                    <td class="price-down">2,337.50</td>
+                                                    <td class="ratio price-down">+0.97%</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">부산/비서구산</th>
+                                                    <td class="price-up">3,147,000</td class="price-up">
+                                                    <td class="ratio price-up">+0.13%</td>
+                                                    <th scope="row">전일 CLOSING 3M</th>
+                                                    <td class="price-down">2,337.50</td>
+                                                    <td class="ratio price-down">+0.97%</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>  
+                <!--} 3-1. 알루미늄 실시간 시세 안내 영역 -->
+                
+                <!-- 3-2. landing event banners {-->
+                <section class="landing-event-banners">
+                    <div class="inwrap flex-ac-jsb">
+                        <!-- 3-2-1. event banner > 배너1 슬라이드 영역 -->
+                        <div class="event-banner1">
+                            <div class="swiper event-banner1-slide">
+                                <div class="swiper-wrapper">
+                                   <div class="swiper-slide">
+                                        <a href="#n">
+                                            <img src="/guide/images/la/la-event2.png" alt="시세 알림을 설정해보세요">
+                                        </a>
+                                    </div>
+                                    <!--
+                                    <div class="swiper-slide">
+                                        <a href="#n">
+                                            <img src="/guide/images/la/la-event1.png" alt="서린닷컴 배송비 무료 쿠폰 이벤트">
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#n">
+                                            <img src="/guide/images/la/la-event3.png" alt="서린닷컴 배송비 무료 쿠폰 이벤트">
+                                        </a>
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <a href="#n">
+                                            <img src="/guide/images/la/la-event4.png" alt="서린닷컴 배송비 무료 쿠폰 이벤트">
+                                        </a>
+                                    </div>
+                                   -->
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div> 
+                    
+                        <!-- 3-2-2. event banner > 배너2 영역 -->
+                        <div class="event-banner2">
+                        	<!-- case 1: 입고 알람이 있을 때 {-->
+                            <div class="event-banner2-alarm flex-ac-jsb" style="display:none;">
+                                <div class="cont">
+                                    <h3 class="title">입고알림</h3>
+                                    <em class="name">VEDANTA</em>
+                                    <p class="subheading"># 인천 비서구산 입고</p>
+                                </div>
+                                <img src="/guide/images/la/la-icon-alarm.png" alt="">
+                            </div>
+                        	 <!--} // case 1: 입고 알람이 있을 때 -->
+                        	<!-- case 2: 입고 알람이 없을 때(원자재판매가격 통이미지 배너) {-->
+                        	<div class="event-banner2-evl">
+	                        	<a href="#n">
+	                        		<img src="/guide/images/la/la-icon-evl.png" alt="서린닷컴을 통해 원자재판매가격을 알아보세요!">
+                        		</a>
+                        	</div>
+                        	<!--} case 2: 입고 알람이 없을 때: 원자재판매가격 통이미지 배너 -->
+                        </div>
+                    </div>
+                </section>
+                <!--} //3-2. landing event banners -->
+
+                <!-- 3-3. board: NOTICE/ EVENT/ NEWS {-->
+                <section class="landing-board-wrap">
+                    <div class="inwrap flex-ac">
+                        <!-- 3-3-1. NOTICE -->
+                        <section class="board board1 board-notice">
+                            <a href="#n">
+                                <h3 class="board-division">NOTICE</h3>
+                                <h4 class="board-title">한 줄 유지/ 화물연대 파업관련 배송안내</h4>
+                                <p class="board-text">두 줄 유지/ 화물연대 파업으로 배차에 지연이 있을 수 있습니다. 양해 부탁드립니다./ 최대 두 줄을 유지하는 영역입니다. 각 섹션에 대한 설명글부분입니다.</p>
+                                <div class="board-btn-move"><span>바로가기</span></div>
+                            </a>
+                        </section>
+
+                        <!-- 3-3-2. EVENT -->
+                        <section class="board board2 board-event">
+                            <a href="#n">
+                                <h3 class="board-division">EVENT</h3>
+                                <h4 class="board-title">한 줄 유지/ 서린닷컴 1주년 기념 이벤트</h4>
+                                <p class="board-text">두 줄 유지/ 1주년을 맞이하여 금일 전지역 판매 프리미엄이 전일 대비 5,000원 인하되었음을 안내드립니다. /최대 두 줄을 유지하는 영역입니다. 각 섹션에 대한 설명글부분입니다.</p>
+                                <div class="board-btn-move"><span>바로가기</span></div>
+                            </a>
+                        </section>
+
+                        <!-- 3-3-3. NEWS -->
+                        <section class="board board3 board-news">
+                            <a href="#n">
+                                <h3 class="board-division">NEWS</h3>
+                                <h4 class="board-title">한 줄 유지/ 수계 아연금속 이차전지 성능 높일 수계 아연금속 이차전지 성능 높일</h4>
+                                <p class="board-text">두 줄 유지/ 최대 두 줄을 유지하는 영역입니다. 각 섹션에 대한 설명글부분입니다. 최대 두 줄을 유지하는 영역입니다. 각 섹션에 대한 설명글부분입니다. </p>
+                                <div class="board-btn-move"><span>바로가기</span></div>
+                            </a>
+                        </section>
+                    </div>
+                </section> 
+                <!--} 3-3. board: NOTICE/ EVENT/ NEWS -->
+            </section>
+
+            <!-- 3-4. our platform {-->
+            <section class="landing-platform animation">
+                <div class="inwrap">
+                    <div class="title-group">
+                        <h3 class="title ani-title" data-splitting="chars">Our Platform</h3>
+                        <p class="subheading ani-text" data-splitting="chars">
+                            LME&환율 기반 실시간 가격 안내부터 구매까지 한번에! <br>
+                            서린닷컴이 비철금속 가격의 새로운 기준을 만들어 갑니다.
+                        </p>
+                    </div>
+                    <div class="platform-cards">
+                        <div class="card card1">
+                            <h4 class="card-title">SMART QUICK DELIVERY</h4>
+                            <img src="/guide/images/la/la-platform1.png" alt="자사 풀필먼트 배송 서비스 SINL">
+                            <em class="card-title2">자사 풀필먼트 배송 서비스 SINL</em>
+                            <p class="card-subheading">
+                                최첨단 물류 시스템을 통해 고객에게 혁신적이고 <br>
+                            효율적인 배송 및 실시간 추적 서비스를 제공합니다.
+                            </p>
+                        </div>
+                        <div class="card card2">
+                            <h4 class="card-title">LME LIVE PRICING</h4>
+                            <img src="/guide/images/la/la-platform2.png" alt="실시간 시세 차트 정보 제공">
+                            <em class="card-title2">실시간 시세 차트 정보 제공</em>
+                            <p class="card-subheading">
+                                서린닷컴은 고객만을 위한 최상의 정보 서비스를 제공합니다. <br>
+                                회원가입을 통해 LME 실시간 최저가를 잡아보세요.
+                            </p>
+                        </div>
+                        <div class="card card3">
+                            <h4 class="card-title">SONRIN CORPORATION</h4>
+                            <img src="/guide/images/la/la-platform3.png" alt="1984년 서린상사 설립">
+                            <em class="card-title2">1984년 서린상사 설립</em>
+                            <p class="card-subheading">
+                                서린상사는 수십 년간 쌓은 비즈니스 경험과 인프라를 기반으로 <br>
+                                비철 및 케미컬 부분 세계시장을 선도하는 글로벌 무역상사입니다.
+                            </p>
+                        </div>
+                        <div class="card card4">
+                            <h4 class="card-title">SAFE PAYMENT</h4>
+                            <img src="/guide/images/la/la-platform4.png" alt="최초 온라인 여신 결제 서비스 제공!">
+                            <em class="card-title2">최초 온라인 여신 결제 서비스 제공!</em>
+                            <p class="card-subheading">
+                                간편하고 안전한 결제를 지원하는 하나은행 E-Wallet과 <br>
+                                유연한 자금 운영이 가능한 증거금, 서린크레딧을 제공합니다.          
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section> 
+            <!--} // 3-4. our platform -->
+
+			
+			<!-- 3-5. 하나은행 에스크로 결제 {--> 
+			<section class="landing-hanabank animation">
+                <div class="inwrap flex-ac-jac">
+                    <img src="/guide/images/la/la-logo-hanabank.png" alt="하나은행 로고">
+                    <div class="title-group">
+                        <h3 class="title ani-title" data-splitting="chars">하나은행 안전거래 에스크로 결제 서비스</h3>
+                        <p class="subheading ani-text" data-splitting="chars">
+                            전자상거래시 서린닷컴과 구매자간의 하나은행이 보증하여 신뢰와 안전 거래를 <br>보장 하는 결제 시스템 입니다. 안전한 하나은행 거래로 믿고 구매하세요!
+                        </p>
+                    </div>
+
+                	<div class="parallax parallax1"><img src="/guide/images/la/la-hana-img1.png" alt="..."></div>
+                	<div class="parallax parallax2"><img src="/guide/images/la/la-hana-img2.png" alt="..."></div>
+                	<div class="parallax parallax3"><img src="/guide/images/la/la-hana-img3.png" alt="..."></div>
+                	<div class="parallax parallax4"><img src="/guide/images/la/la-hana-img4.png" alt="..."></div>
+
+                </div>
+			</section>
+			<!--} // 3-5. 하나은행 에스크로 결제 -->
+			
+			<!-- 3-6. 구매 프로세스 영상 {-->
+			<section class="landing-process-player animation">
+                <div class="title-group">
+                    <h3 class="title ani-title" data-splitting="chars">쉽고 편리한 서린닷컴 구매 프로세스</h3>
+                </div>
+                <div class="player flex-ac-jac">
+					<video controls muted>
+					    <source src="/guide/images/la/video/landing-video-process.mp4" type="video/mp4">
+					</video>  
+                </div>
+			</section>
+			<!--} // 3-6. 구매 프로세스 영상 -->
+			
+			<!-- 3-7. 주요 제휴 및 협력사 {-->
+			<section class="landing-partner animation">
+                <div class="inwrap">
+                    <div class="title-group">
+                        <h3 class="title ani-title" data-splitting="chars">주요 제휴 및 협력사</h3>
+                        <p class="subheading ani-text" data-splitting="chars">비철금속 전자상거래 상호 협력을 위한 업무 협약 체결</p>
+                    </div>
+                    <ul class="partners flex-ac-jac">
+                       <li><img src="/guide/images/la/la-partner-sorin.png" alt="서린상사"></li>
+                       <li><img src="/guide/images/la/la-partner-koreazinc.png" alt="고려아연주식회사"></li>
+                       <li><img src="/guide/images/la/la-partner-samsungfutures.png" alt="삼성선물"></li>
+                       <li><img src="/guide/images/la/la-partner-hana.png" alt="하나은행"></li>
+                       <li><img src="/guide/images/la/la-partner-lme.png" alt="lme"></li>
+                       <li><img src="/guide/images/la/la-partner-sinbo.png" alt="신용보증기금"></li>
+                       <li><img src="/guide/images/la/la-partner-sinl.png" alt="sinl"></li>
+                       <li><img src="/guide/images/la/la-partner-snmnews.png" alt="철강금속신문"></li>
+                       <li><img src="/guide/images/la/la-partner-b2b.png" alt="b2b"></li>
+                    </ul>
+                </div>
+			</section>
+			<!--} // 3-7. 주요 제휴 및 협력사 -->
+			
+		</section>
+		<!-- // 3. landing-contents {-->
+		
+		<!-- 4. footer {-->
+		<div class="footer">
+	        <footer id="footer" class="inwrap">
+	        	<div class="main-side">
+					<!-- 채널톡 -->
+				    <div style="margin-bottom: 20px;background: #fff;box-shadow: 0 0 23px rgb(0 0 0 / 15%); border-radius: 23px; width: 60px;height: 60px;cursor: pointer;">
+				    	<img src="/guide/images/la/la-icon-chtalk.png" alt="채널톡">
+<!--				        <div id="channel-chat-button" style="text-align: center;">채널톡 영역</div>-->
+				    </div>
+					<!-- top 이동 버튼 -->
+				    <div class="main-side__top">
+				    	<img src="/guide/images/ma/btn--top.png" alt="top으로 이동">
+				        <p>TOP</p>
+				    </div>    
+				</div>
+	        
+	            <div class="footer-logos">
+	                <span class="footer-logo"><span class="hidden">SORIN CORPORATION</span></span>
+	            </div>
+	            <div class="footer-credits">
+	                <ul class="ft-menus">
+	                    <li><a href="#">회사소개</a></li>
+	                    <li><a href="#" class="privacy">개인정보처리방침</a></li>
+	                    <li><a href="#">이용약관</a></li>
+	                    <li><a href="#">고객센터</a></li>
+	                </ul>
+	                <p class="ft-info-1">
+	                    <span>서린상사 주식회사</span>
+	                    <span>서울특별시 강남구 강남대로 542 (논현동)</span>
+	                    <span>대표이사 : 장세환, 류해평</span>
+	                </p>
+	                <p class="ft-info-2">
+	                    <span>사업자등록번호 : 211-81-19597</span>
+	                    <span>통신판매업 신고번호 : 제 2021-서울강남-06324호</span>
+	                    <span>대표번호 : 02-6952-5095</span>
+	                    <span>FAX : 02-542-0013</span>
+	                </p>
+	                <p class="ft-info-3">
+	                    Copyright(&copy;) SORIN CORPORATION. All rights reserved.
+	                </p>
+	            </div>
+	        </footer>
+	    </div>
+       <!--} //4. footer -->
+	</div>
+	
+    <!-- script core -->
+    <script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/guide/js/select2/select2.min.js"></script>
+    <!-- script extra -->  
+    <script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+    <script src="/guide/js/swiper/6.7.0/swiper.js"></script>
+    <script src="/guide/js/toastr/toastr.js"></script>
+    <!-- script custom -->
+    <script src="/guide/js/sorin.js"></script>
+	<!-- embedded -->
+   
+    <script>
+
+    	/* 1. 타이틀 영역 공통: splitting.js plugin */
+    	Splitting();
+
+
+		/* 2. 공통 기능: commonFunc */
+        $(window).on('scroll',function(){ 
+            commonFunc();
+        });
+
+    	$(window).on('load',function(){ 
+            commonFunc();
+        });
+
+        function commonFunc () {
+            let winScroll = $(this).scrollTop();
+            let logoAttr = $('.landing-header-logo').attr('src');
+            
+            if(winScroll > 0) {
+                $('.landing-header').addClass('scroll'); 
+            } else {
+                $('.landing-header').removeClass('scroll');
+            }
+        
+            // landing-visual animation 시작
+            $('.landing-visual').addClass('active');
+
+	        // 각 영역 스크롤 시 animation 활성화
+	        $(".animation").each(function(){
+	            let win_scrollT = $(window).scrollTop();
+	            let section_scrollT = $(this).offset().top;
+	            let section_innerH = win_scrollT + $(window).innerHeight()/1.7;
+	
+	            if(section_innerH > section_scrollT){
+					//splitting.js
+			    	//Splitting();
+			    	
+			    	//animation 활성화 이벤트
+	                $(this).addClass("active");
+	                
+	                // 하나은행 에스크로 페럴렉스
+		            let parallax1 = $('.active .parallax1')
+		            let parallax2 = $('.active .parallax2')
+		            let parallax3 = $('.active .parallax3')
+		            let parallax4 = $('.active .parallax4')
+	
+					parallax1.css({'transform': 'translate3d(' + 0 + 'px, ' + -win_scrollT * 0.045 + 'px, ' + 0 + 'px )'});
+					parallax2.css({'transform': 'translate3d(' + 0 + 'px, ' + -win_scrollT * 0.075 + 'px, ' + 0 + 'px )'});
+					parallax3.css({'transform': 'translate3d(' + 0 + 'px, ' + -win_scrollT * 0.055 + 'px, ' + 0 + 'px )'});
+					parallax4.css({'transform': 'translate3d(' + 0 + 'px, ' + -win_scrollT * 0.05 + 'px, ' + 0 + 'px )'});
+	            }
+
+	        });
+	        
+	        
+	        // 23.03.09 '쉽고 편리한 서린닷컴 구매 프로세스' 영역 스크롤시 영상 play/ pause 
+			let hanabankOffsetTop = $(".landing-hanabank").offset().top;
+			let processPlayerOffsetTop = $(".landing-process-player").offset().top;
+			let partnerOffsetTop = $(".landing-partner").offset().top;
+			let processPlayer = $(".landing-process-player").find("video");
+			let scrollTop = $(window).scrollTop();
+			
+			console.log(hanabankOffsetTop, processPlayerOffsetTop, partnerOffsetTop, scrollTop)
+			
+			if(hanabankOffsetTop > scrollTop){
+			    $(processPlayer).get(0).pause();
+			    console.log('x1');
+			} else if(hanabankOffsetTop < scrollTop && processPlayerOffsetTop * 1.1 >= scrollTop){
+			    $(processPlayer).get(0).play();
+			    //$("video").prop("muted", true);
+			    console.log('x2');
+			} else if(processPlayerOffsetTop < scrollTop && partnerOffsetTop >= scrollTop ){
+			    $(processPlayer).get(0).pause();
+			    console.log('x3');
+			}
+	    }
+
+
+        /* 3. landing-visual */
+  		// 3-1. landing visual >  버튼(홍보 영상 보기/ 구매 가이드 영상 보기) 클릭시 풀비디오 팝업 활성화(.full-player-wrap)
+        $('.btn-player').on('click',function(){
+            let btnPlayerIndex = $(this).index();
+
+            $('.full-players .full-player').removeClass('active');
+            $('.full-players .full-player').eq(btnPlayerIndex).addClass('active');
+            $('.full-player-wrap').fadeIn();
+            
+            videoAutoPlay(btnPlayerIndex);
+        });
+
+        function videoAutoPlay(btnPlayerIndex){
+	      if($('.full-player').length){
+	        let video = $('.full-players').find('video');
+	        
+	        video.prop('muted', false);  // muted 속성 해제
+	        video.get(btnPlayerIndex).currentTime = 0;  // currentTime 초기화
+	        video.get(btnPlayerIndex).play(); // autoplay
+	        $('html, body').addClass('disable-scroll'); // 팝업 활성화시 화면 스크롤 방지 클래스
+	      }
+	    }
+
+        // 3-2. landing visual >  풀비디오 팝업(.full-player-wrap) 닫기 버튼 클릭시 
+        $('.btn-full-player-close').on('click',function(e){
+            let btnPlayerIndex = $(this).index();
+            let thisVideo = $('.full-players').find('video');
+
+		    for(var i = 0; i < thisVideo.length; i++){
+		      thisVideo[i].pause();
+		    }
+
+			  
+            $('.full-players .full-player').removeClass('active');
+            $('.full-player-wrap').hide();
+            $('html, body').removeClass('disable-scroll'); // 팝업 활성화시 화면 스크롤 방지 클래스
+        });
+        
+        // 3-3. landing visual > scroll down 버튼(.landing-visual-scroll) 클릭시 >  알루미늄 실시간 시세 안내 영역(.landing-price)으로 이동
+        $('.landing-visual-scroll').on('click',function(){
+            let winScroll = $(window).scrollTop();
+            let offsetContents = $('.landing-contents').offset().top;
+            // let headerHt = $('.landing-header').height();
+            //let offsetContents = $('.landing-contents').offset().top - headerHt;  // 23.03.02 개발 진행하면서 header hide처리 됨에 따라 변수 삭제함
+
+            $('html,body').stop().animate({scrollTop:offsetContents});
+        });
+        
+
+
+		/* 4. .landing-contents */
+        // 4-1. .landing-contents > 알루미늄 실시간 시세 안내 영역(.landing-price) > 탭 타이틀 활성화 스타일
+        $('.tab-title ul li').on('click',function(){
+            let index = $(this).index();
+            
+            $('.tab-title ul li').removeClass('active');
+            $(this).addClass('active');
+        });
+        
+        
+        // 4-2. .landing-contents > 알루미늄 실시간 시세 안내 영역(.landing-price) > 숫자 카운팅 (.odometer)
+        window.onscroll = function() {
+            odometer();
+        }
+
+        window.onload = function() {
+            odometer();
+        };
+
+        function odometer () {
+            const LandingPriceArea = $('.landing-price');
+
+            if(LandingPriceArea.hasClass('active')) {
+                const odometer = document.querySelectorAll(".odometer");
+                odometer[0].innerHTML = 3158000;
+            }
+        }
+        
+        
+        // 4-3-1. .landing-contents > 이벤트 배너 영역 슬라이드(.event-banner1)
+        var swiper = new Swiper(".event-banner1-slide", {
+	        spaceBetween: 0,
+            slidesPerView: 1,
+			effect: "fade",
+			loop: true,
+			autoplay: {
+			    delay: 3000,
+			},
+			navigation: {
+	            nextEl: ".swiper-button-next",
+	            prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+	            el: ".swiper-pagination",
+	            clickable: true,
+            },
+        });
+        
+        
+        // 4-3-2. .landing-contents > 이벤트 배너 영역 슬라이드(.event-banner1) > 슬라이드 블렛 갯수 노출
+        let swiperPagination = $('.event-banner1 .swiper-pagination-bullet');
+        let swiperPaginationNum = $(swiperPagination).length;
+        
+        if(swiperPaginationNum <= 1) {
+	        // 배너가 1개 이하일 때: 블랫 숨김
+			$(swiperPagination).css({'display':'none'});
+		} else {
+			// 배너가 2개 이상일 때: 블랫 활성화
+			$(swiperPagination).css({'display':'block'});
+		}
+        
+        
+        
+        /* 이하 가이드용 커멘트로 복사 X */
+        // .landing-contents > 게시판 영역(.landing-board-wrap) > 타이틀 말줄임표 
+        // ㄴ css로 대체 (text-overflow: ellipsis; -webkit-line-clamp: 2;-webkit-box-orient: vertical;) >  필요시 script 
+                
+        // 우측 하단 top 이동 버튼 클릭시
+	    $('.main-side__top').on('click',function(){
+	        $('html, body').stop().animate({scrollTop: 0});
+	    });
+   
+    </script>
+
+</body>
+</html>

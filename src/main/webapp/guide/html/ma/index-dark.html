@@ -1,0 +1,2212 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>메인 | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+	<!-- 23.07.03 지정가 홍보 팝업 시작{-->
+	<div class="pop-limit" style="display: none">
+		<div class="pop-inner">
+			<div class="btn-pop-close">
+				<svg width="11" height="11" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M1.30769 0L0.600586 0.707107L9.08594 9.19246L0.600651 17.6777L1.30776 18.3849L9.79304 9.89956L18.2783 18.3848L18.9854 17.6777L10.5002 9.19246L18.9854 0.707182L18.2783 7.55191e-05L9.79304 8.48535L1.30769 0Z" fill="#fff"></path>
+				</svg>
+            </div>
+            	<div class="pop-txt">
+            		<p>고객님이 원하는 가격과 수량을 입력하세요.</p>
+            		<p>도달시 자동으로 주문을 체결합니다.</p>
+            	</div>
+				<img src="/guide/images/ma/pop-limit.gif" alt="지정가 체결 이미지" class="pop-img">
+
+			<div class="form-chk today-close">
+	            <input type="checkbox" id="todayclose">
+	            <label for="todayclose">오늘 하루 보지 않기</label>
+	        </div>
+		</div>
+	</div>
+	
+	<script>
+		// 23.07.03 지정가 홍보 팝업 > 닫기 버튼 클릭시 > 팝업 hide
+		$('.btn-pop-close').on('click', function() {
+			$('.pop-limit').hide();
+		});
+	</script>
+	<!--} // 23.07.03 지정가 홍보 팝업 끝 -->
+	
+	
+	<!--
+    <div class="popup main-popup pop-main popup1">
+        <div class="pop-con" id="mainPopCon">
+            <img src="/guide/images/sample/test-popup-img.png" alt="공지사항">
+        </div>
+        <div class="form-chk flex-start">
+            <input type="checkbox" id="todaycloseyn1">
+            <label for="todaycloseyn1">오늘 그만 보기</label>
+        </div>
+        <div class="pop-btn">
+            <button type="button" class="btn-main-pop-x">닫기</button>
+        </div>
+    </div>
+    <div class="popup main-popup pop-main popup2">
+        <div class="pop-con" id="mainPopCon">
+            <img src="/guide/images/sample/test-popup-img.png" alt="공지사항">
+        </div>
+        <div class="form-chk flex-start">
+            <input type="checkbox" id="todaycloseyn2">
+            <label for="todaycloseyn2">오늘 그만 보기</label>
+        </div>
+        <div class="pop-btn">
+            <button type="button" class="btn-main-pop-x">닫기</button>
+        </div>
+    </div>
+    <div class="popup main-popup pop-main popup3">
+        <div class="pop-con" id="mainPopCon">
+            <img src="/guide/images/sample/test-popup-img.png" alt="공지사항">
+        </div>
+        <div class="form-chk flex-start">
+            <input type="checkbox" id="todaycloseyn3">
+            <label for="todaycloseyn3">오늘 그만 보기</label>
+        </div>
+        <div class="pop-btn">
+            <button type="button" class="btn-main-pop-x">닫기</button>
+        </div>
+    </div>
+-->
+    <div class="wrapper">
+        <!-- header include -->
+        <div class="header-wrap include-wrap"></div>
+        <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+        <!-- //header include -->
+        
+        <!-- .body-main: 시작 {-->
+        <div class="body-main" id="darkMode">
+        	<div class="container">
+	            <!-- Grab the Moment -->
+	            <div class="main-swiper-wrap" id="mainGrapSwiperWrap">
+	                <div class="grap-swiper-inner">
+	                    <div class="swiper-container main-swiper">
+	                        <div class="swiper-wrapper">
+	                            <div class="swiper-slide swiper-slide1">
+	                                <div class="swiper-con flex-ac">
+	                                    <div class="swiper-con-txt">
+	                                    	<p>시세 확인 부터 구매까지 한번에!</p>
+	                                    	<h2>비철금속 ONE-STOP 서비스</h2>
+	                                    	<!--
+	                                    	<h2>
+											 비철금속 ONE-STOP 서비스
+											 <strong class="night-time">-02:58:26</strong>
+											</h2>-->
+	                                    </div>
+	                                    <div class="swiper-con-boxes flex-ac">
+	                                    	<div class="box box1">
+	                                    		<a href="#n" onclick="alert('준비중입니다.')">
+	                                    			<h3 class="flex-ac-jfs">LME LIVE PRICING</h3>
+													<p>
+														고객만을 위한 최상의 정보 서비스를 제공합니다.<br>
+														LME 실시간 최저가를 잡아 보세요.
+													</p>
+												</a>
+	                                    	</div>
+	                                    	<div class="box box2">
+	                                    		<a href="/guide/html/or/SOREC-SC-FOR-001.html">
+	                                    			<h3 class="flex-ac-jfs">지정가(7월 5일 출시 예정)</h3>
+													<p>
+														고객님이 원하는 가격과 수량을 입력하세요. <br>
+														도달 시 자동으로 주문을 체결합니다.
+													</p>
+	                                    		</a>
+	                                    	</div>
+	                                    </div>
+	                                </div>
+	                            </div>
+								<div class="swiper-slide swiper-slide2">
+									<div class="swiper-con flex-ac">
+	                                    <div class="swiper-con-txt">
+	                                    	<p>시세 확인 부터 구매까지 한번에!</p>
+	                                    	<h2>비철금속 ONE-STOP 서비스</h2>
+	                                    </div>
+	                                    <div class="swiper-con-boxes flex-ac">
+	                                    	<div class="box box1">
+	                                    		<a href="#n">
+	                                    			<h3 class="flex-ac-jfs">증거금</h3>
+													<p>
+														원하는 가격의 20%~50% 금액으로 주문가능! <br>
+														최소 결제 금액으로 주문해 보세요.
+													</p>
+												</a>
+	                                    	</div>
+	                                    	<div class="box box2">
+	                                    		<a href="#n">
+	                                    			<h3 class="flex-ac-jfs">서린크레딧</h3>
+													<p>
+														복잡한 서류 없이 상담만으로 한도 금액 확인 <br>
+														서린닷컴의 자체 여신상품을 사용해 보세요. 
+													</p>
+	                                    		</a>
+	                                    	</div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            
+	                            <!-- 23.10.24 | DARKMODE에서는 해당 슬라이드 hide 
+	                            <div class="swiper-slide swiper-slide3">
+									<div class="swiper-con flex-ac">
+	                                    <div class="swiper-con-txt">
+	                                    	<p>서린닷컴 저녁 10:00시까지 구매 가능!</p>
+	                                    	<h2>10월 6일 야간장을 개장합니다.</h2>
+	                                    </div>
+	                                    <div class="swiper-con-boxes flex-ac">
+	                                    	<div class="box box1">
+	                                    		<a href="#n">
+	                                    			<h3 class="flex-ac-jfs">야간장</h3>
+													<p>
+														LME 런던장의 변동성을 반영하여 언제 어디서나 <br>
+														라이브 및 지정가 구매가 가능하게 되었습니다.
+													</p>
+												</a>
+	                                    	</div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            -->
+	                            
+	                            <!-- 평균가 슬라이드 추후 오픈
+	                            <div class="swiper-slide swiper-slide4">
+									<div class="swiper-con flex-ac">
+	                                    <div class="swiper-con-txt">
+	                                    	<p>시세 확인 부터 구매까지 한번에!</p>
+	                                    	<h2>비철금속 ONE-STOP 서비스</h2>
+	                                    </div>
+	                                    <div class="swiper-con-boxes flex-ac">
+	                                    	<div class="box box1">
+	                                    		<a href="/guide/html/lo/SOREC-SC-FLO-001.html">
+	                                    			<h3 class="flex-ac-jfs">평균가 바로주문</h3>
+													<p>
+														고객만을 위한 최상의 정보 서비스를 제공합니다. <br>
+														LME 실시간 최저가를 잡아 보세요.
+													</p>
+												</a>
+	                                    	</div>
+	                                    	<div class="box box2">
+	                                    		<a href="/guide/html/lo/SOREC-SC-FLO-002.html">
+	                                    			<h3 class="flex-ac-jfs">평균가 견적 상담 주문</h3>
+													<p>
+														고객님이 원하는 가격과 수량을 입력하세요. <br>
+														도달 시 자동으로 주문을 체결합니다.
+													</p>
+	                                    		</a>
+	                                    	</div>
+	                                    </div>
+	                                </div>
+	                            </div>-->
+							</div>
+							<div class="main-swiper-btns flex-ac-jac">
+		                        <div class="swiper-button-next"></div>
+		                        <div class="swiper-button-prev"></div>
+		                        <div class="swiper-pagination"></div>
+		                       	<div class="swiper-player-btns">
+			                        <div class="swiper-button-pause player-btn on"></div>
+			                        <div class="swiper-button-play player-btn"></div>
+		                        </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <!--//Grab the Moment -->
+	            
+	            
+	            <!-- 23.07.05 신규 차트 전광판 시작 >> 23.07.19 신규 전광판 레이아웃으로 적용
+	            <div class="display-board">
+	            	<div class="display-board-inner">
+		                <div class="sum-title-wrap">
+		                    <ul class="sum-title">
+		                        <li>
+		                            <a href="#">현재 서린닷컴 가격이 1월 누적 평균가격 3,426,000원 보다 저렴합니다 [누적 평균 : LME(CSP) 2,242.50 | 환율(최초매매) 1,428.20 ]</a>
+		                        </li>
+		                        <li>
+		                            <a href="#">일시휴장/서린닷컴 운영시간까지 <span class="off-time">-00:03:28</span> 남았습니다.</a>
+		                        </li>
+		                        <li>
+		                            <a href="#">25톤 이하 자투리 번들 판매</a>
+		                        </li>
+		                    </ul>
+		                </div>
+	                </div>
+	            </div>  -->
+	            <!-- //23.07.05 신규 차트 전광판 끝 >> 23.07.19 신규 전광판 레이아웃으로 적용 -->
+	            
+	            
+	        	<!-- 23.07.19 신규 전광판 시작 {-->
+				<div class="display-board">
+				    <div class="display-board-inner swiper">
+		                <div class="swiper-wrapper">
+		                    <div class="swiper-slide"><a href="#n">서린닷컴 5분 미리보기가 <span class="col-yellow">04:39</span> 후에 종료됩니다. 서린닷컴 서비스를 이용하실 고객님께서는 <span class="col-yellow">기업회원 로그인</span> 후 이용해주세요.</a></div>
+		                    <div class="swiper-slide"><a href="#n">현재 서린닷컴 알루미늄 가격이 7월 누적 평균가격 2,915,000원 보다 저렴합니다 [  현재 서린닷컴 알루미늄 가격이 7월 누적 평균가격 2,915,000원 보다 저렴합니다 [ 누적 평균 : LME(CSP) 2,132.55 |  환율(최초매매) 1,318.34 ]</a></div>
+		                    <div class="swiper-slide"><a href="#n">신규 전광판 공지2 내용이 들어갑니다.</a></div>
+		                </div>
+		            	<div class="swiper-button-next"></div>
+		                <div class="swiper-button-prev"></div>
+		            </div>
+				</div>
+		    	<!--} // 23.07.19 신규 전광판 끝 -->
+		    	
+	            <!-- chart -->
+	            <div class="section charts-wrap main-charts-wrap renew">
+	                <div class="inwrap">
+	                    <!-- chart content start -->
+	
+	                    <div class="charts-con">
+	
+	                        <!-- chart title >>>  23.07.05 기존 차트 전광판 삭제
+	                        <div class="chart-sum-title">
+	                            <div class="sum-title-wrap">
+	                                <ul class="sum-title">
+	                                    <li>
+	                                        <a href="#">현재 서린닷컴 가격이 1월 누적 평균가격 3,426,000원 보다 저렴합니다 [누적 평균 : LME(CSP) 2,242.50 | 환율(최초매매) 1,428.20 ]</a>
+	                                    </li>
+	                                    <li>
+	                                        <a href="#">일시휴장/서린닷컴 운영시간까지 <span class="off-time">-00:03:28</span> 남았습니다.</a>
+	                                    </li>
+	                                    <li>
+	                                        <a href="#">25톤 이하 자투리 번들 판매</a>
+	                                    </li>
+	                                </ul>
+	                            </div>
+	                        </div>  -->
+	                        <!-- //chart title -->
+	
+	                        <!-- rCharts start -->
+	                        <div class="rChart-graph">
+	
+	                            <!-- chart title start -->
+	                            <div class="chart-title-area">
+	                            	<!-- 23.09.27 | 기준가격설정(버튼/팝업) -->
+	                            	<button type="button" class="btn-data-setting " data-popup="modal" data-target="sorinModalDataSetting">기준가격설정</button>
+	                            
+	                            	<!-- // 23.09.27 | 기준가격설정 추가 -->
+	                                <div class="title-wrap">
+	                                    <!-- scopi start -->
+	                                    <div class="scopi">
+	                                        <span class="sc-a" style="">SCOPI-A</span>
+	                                        <span class="sc-z" style="display: none;">SCOPI-Z</span>
+	                                        <span class="sc-c" style="display: none;">SCOPI-C</span>
+	                                        <span class="sc-n" style="display: none;">SCOPI-N</span>
+	                                        <span class="sc-s" style="display: none;">SCOPI-S</span>
+	                                        <span class="sc-d" style="display: none;">서린몰</span>
+	                                    </div>
+	                                    <!-- //scopi end-->
+	                                    <!-- title start -->
+	                                    <div class="chart-title">
+	                                        <div class="prod" id="headProd">
+	                                            <span class="prod-a" style="">알루미늄</span>
+	                                            <span class="prod-z" style="display: none;">아연</span>
+	                                            <span class="prod-c" style="display: none;">구리</span>
+	                                            <span class="prod-n" style="display: none;">니켈</span>
+	                                            <span class="prod-s" style="display: none;">주석</span>
+	                                            <span class="prod-d" style="display: none;">합금 아연</span>
+	                                        </div>
+	                                        <div class="ticker" id="headTicker">
+	                                            <span class="ticker-a" style="display: none;">
+	                                                Primary <span class="t-a">Aluminium Ingot</span> (p1020)
+	                                            </span>
+	                                            <span class="ticker-z" style="">
+	                                                Primary <span class="t-z">SHG Ingot</span>
+	                                            </span>
+	                                        </div>
+	                                    </div>
+	                                    <!-- //title end -->
+	                                </div>
+	
+	                                <!-- charts summary start -->
+	                                <div class="rChart-sum sum-type1">
+	
+	                                    <!-- 
+	                                                    sum type class 설명
+	                                                    sum-type1 >> 개장 중 > 정상운영
+	                                                    sum-type2 >> 개장 중 > 휴무시간, LME사이드카, 환율사이드카
+	                                                    sum-type3 >> 개장 중 > 시초가 전
+	                                                            >> 개장 전 > LME휴일, 이벤트휴일, 평일
+	                                                -->
+	
+	                                    <!-- summary price start -->
+	                                    <div class="rChart-current up"><!-- vs down-->
+	                                        <span class="c-price">
+	                                            2,825,000
+	                                            <span class="txt">KRW</span>
+	                                        </span>
+	                                        <span class="c-rate">1.04%</span>
+	                                        <span class="c-gap">251,200</span>
+	
+	                                        <div class="desc" id="headDesc">
+	                                            <span class="desc-txt">부산</span> 보세창고 상차도 기준(<span class="brand">서구산</span>, 부가세미포함)
+	                                        </div>
+	                                    </div>
+	                                    <!-- //summary price end -->
+	
+	                                    <!-- summary state start -->
+	                                    <div class="rChart-summary">
+	                                        <ul class="rChart-summ">
+	                                            <li>
+	                                                <span class="stit">시가</span>
+	                                                <span class="m-price">2,978,300</span>
+	                                            </li>
+	                                            <li>
+	                                                <span class="stit">고가</span>
+	                                                <span class="h-price">2,978,300</span>
+	                                            </li>
+	                                            <li>
+	                                                <span class="stit">저가</span>
+	                                                <span class="l-price">2,769,210</span>
+	                                            </li>
+	                                            <li>
+	                                                <span class="stit">전일가</span>
+	                                                <span class="y-price">2,769,210</span>
+	                                            </li>
+	                                        </ul>
+	                                    </div>
+	                                    <!-- //summary state end -->
+	                                    <div class="exchange">
+	                                        환율
+	                                        <span class="number">1,120.60</span>
+	                                        <span class="unit">USD</span>
+	                                    </div>
+	                                </div>
+	                                <!-- //charts summary end -->
+	
+	                            </div>
+	                            <!-- //chart title end -->
+	
+	                            <!-- charts area start -->
+	                            <div class="chart-graph-area">
+	                                <!-- charts area start :: 데이터 있을 때 -->
+	                                <!--                             <div class="rcharts-wrap" id="rCharts">
+	                                                <img src="/guide/images/ma/temp-main-charts.png" alt="임시 차트 이미지">
+	                                            </div> -->
+	                                <!-- //charts area end :: 데이터 있을 때 -->
+	                                <!-- charts area start :: 데이터 없을 때 -->
+	                                <div class="rcharts-wrap nodata" id="rCharts">
+	                                    <img src="/guide/images/dark-footer-logo.png" alt="">
+	                                    <div class="mt20">
+	                                        <span class="icon-info-txt display-inline-block fc-gray">아연(고정가)는 차트를 제공하지 않습니다.</span>
+	                                    </div>
+	                                </div>
+	                                <!-- //charts area end :: 데이터 없을 때 -->
+	                                <!-- chart bottom text start -->
+	                                <div class="scopi-info">
+	                                    <span class="sc-info-a" style="display: none;">SCOPI-<strong>A</strong> (<strong>S</strong>orin
+	                                        <strong>C</strong>ommodity c<strong>O</strong>mposite <strong>P</strong>rice
+	                                        <strong>I</strong>ndex - <strong>A</strong>luminium)</span>
+	                                    <span class="sc-info-z" style="">SCOPI-<strong>Z</strong> (<strong>S</strong>orin
+	                                        <strong>C</strong>ommodity c<strong>O</strong>mposite <strong>P</strong>rice
+	                                        <strong>I</strong>ndex - <strong>Z</strong>inc)</span>
+	                                </div>
+	                                <!-- //chart bottom text end -->
+	
+	                            </div>
+	                            <!-- //charts area end -->
+	                        </div>
+	                        <!-- //rCharts end -->
+	
+	                        <!-- rChart table start -->
+	                        <div class="rChart-table">
+	
+	                            <!-- 	                    <div class="exchange">
+	                                            환율
+	                                            <span class="number">1,120.60</span>
+	                                            <span class="unit">USD</span>
+	                                        </div> -->
+	
+	                            <!-- tab area start -->
+	                            <!--                         <div class="chart-tab-area" style="display:none">
+	                                            <button type="button" class="btn-al active">알루미늄</button>
+	                                            <button type="button" class="btn-zn">아연</button>
+	                                        <button type="button" class="btn-al active w-100">알루미늄</button>  하나일 때 
+	                                        </div> -->
+	                            <!-- //tab area end -->
+	
+	                            <!-- table list area start -->
+	                            <div class="table-list-area">
+	                                <div class="chart-upper-tab-area">
+	                                    <button type="button" class="btn-al active">알루미늄</button>
+	                                    <button type="button" class="btn-zn">아연</button>
+	                                    <button type="button" class="btn-cu">구리</button>
+	                                    <button type="button" class="btn-ni">니켈</button>
+	                                    <button type="button" class="btn-sn">주석</button>
+	                                    <button type="button" class="btn-ds">서린몰</button>
+	                                </div>
+	                                <!-- thead -->
+	                                <!--                             <div class="table-list-thead">
+	                                                <ul class="th-text">
+	                                                    <li>품목</li>
+	                                                    <li>현재가</li>
+	                                                    <li>등락률</li>
+	                                                </ul>
+	                                            </div> -->
+	                                <!--// thead-->
+	                                <!-- 
+	                                            div class="l-inner up" 상승
+	                                            div class="l-inner down" 하락 
+	                                            div class="l-inner" 보합
+	                                            div class="l-inner up close" 장마감
+	                                            -->
+	
+	                                <!-- tbody list : Aluminum start -->
+	                                <div class="table-list-tbody" id="tbodyAl">
+	                                    <div class="table-list-thead">
+	                                        <ul class="th-text">
+	                                            <li>품목</li>
+	                                            <li>현재가</li>
+	                                            <li>등락률</li>
+	                                        </ul>
+	                                    </div>
+	                                    <!-- list inner : sorin start -->
+	                                    <div class="tb-list-section">
+	                                        <!-- list title start -->
+	                                        <div class="tbody-title">
+	                                            <span class="tit">서린닷컴</span>
+	                                            <span class="txt">(KRW/MT)</span>
+	                                        </div>
+	                                        <!-- //list title end -->
+	                                        <!-- list inner items end -->
+	                                        <div class="list-inner al-sorin">
+	                                            <!-- item start -->
+	                                            <div class="l-inner down">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">인천/</span>
+	                                                    <span class="brand-group">서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc0">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate0">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                            <!-- item start -->
+	                                            <div class="l-inner down">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">인천/</span>
+	                                                    <span class="brand-group">비서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc1">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate1">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                            <!-- item start -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">부산/</span>
+	                                                    <span class="brand-group">서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc2">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate2">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                            <!-- item start -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">부산/</span>
+	                                                    <span class="brand-group">비서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc3">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate3">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                        </div>
+	                                        <!-- //list inner items end -->
+	                                    </div>
+	                                    <!-- //list inner : sorin end -->
+	
+	                                    <!-- list inner : pps(조달청) start -->
+	                                    <div class="tb-list-section">
+	                                        <!-- list title start -->
+	                                        <div class="tbody-title">
+	                                            <span class="tit">조달청</span>
+	                                            <span class="txt">(KRW/MT)</span>
+	                                            <button class="btn-vat-view" id="buttonVatAL01">부가세 별도</button>
+	                                        </div>
+	                                        <!-- //list title end -->
+	
+	
+	
+	                                        <!-- list inner items start -->
+	                                        <div class="list-inner al-pps">
+	                                            <!-- item 1 -->
+	                                            <div class="l-inner rvcmpn down" id="existSarok_01_7">
+	                                                <div class="c-wrhous">
+	                                                    <span class="brand-group">서구산</span>
+	                                                </div>
+	                                                <div class="c-price" nonvatsarokpc="AL01">3,454,545</div>
+	                                                <div class="c-price" sarokpc="AL01" style="display: none">3,800,000</div>
+	                                                <div class="c-rate">+0.80%</div>
+	                                            </div>
+	                                            <!-- item 1 -->
+	                                            <div class="l-inner rvcmpn up" id="existSarok_02_7">
+	                                                <div class="c-wrhous">
+	                                                    <span class="brand-group">비서구산</span>
+	                                                </div>
+	                                                <div class="c-price" nonvatsarokpc="AL01">3,454,545</div>
+	                                                <div class="c-price" sarokpc="AL01" style="display: none">3,800,000</div>
+	                                                <div class="c-rate">+1.06%</div>
+	                                            </div>
+	                                        </div>
+	                                        <!-- //list inner items end -->
+	                                    </div>
+	                                    <!-- //list inner : pps(조달청) end -->
+	                                    <!-- list inner : LME start -->
+	                                    <div class="tb-list-section">
+	                                        <!-- list title start -->
+	                                        <div class="tbody-title">
+	                                            <span class="tit">LME</span>
+	                                            <span class="txt">(USD/MT)</span>
+	                                        </div>
+	                                        <!-- //list title end -->
+	                                        <!-- list inner items start -->
+	                                        <div class="list-inner al-lme">
+	                                            <!-- item 1 -->
+	                                            <div class="l-inner down">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">OFFICIAL CASH</span>
+	                                                </div>
+	                                                <div class="c-price">2,410.00</div>
+	                                                <div class="c-rate">+6.07%</div>
+	                                            </div>
+	                                            <!-- item 2 -->
+	                                            <div class="l-inner down">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">CLOSING CASH</span>
+	                                                </div>
+	                                                <div class="c-price">2,445.75</div>
+	                                                <div class="c-rate">+5.89%</div>
+	                                            </div>
+	                                            <!-- item 3 -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">OFFICIAL 3M</span>
+	                                                </div>
+	                                                <div class="c-price">2,426.00</div>
+	                                                <div class="c-rate">+6.17%</div>
+	                                            </div>
+	                                            <!-- item 4 -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">CLOSING 3M</span>
+	                                                </div>
+	                                                <div class="c-price">2,463.50</div>
+	                                                <div class="c-rate">+5.87%</div>
+	                                            </div>
+	                                        </div>
+	                                        <!-- //list inner items end -->
+	                                    </div>
+	                                    <!-- //list inner : LME end -->
+	                                </div>
+	                                <!--//tbody : Aluminum end -->
+	
+	                                <!-- tbody list : Zinc start -->
+	                                <div class="table-list-tbody" id="tbodyZn" style="display:none">
+	                                    <div class="table-list-thead">
+	                                        <ul class="th-text">
+	                                            <li>품목</li>
+	                                            <li>현재가</li>
+	                                            <li>등락률</li>
+	                                        </ul>
+	                                    </div>
+	                                    <!-- list inner : sorin start -->
+	                                    <div class="tb-list-section">
+	                                        <!-- list title start -->
+	                                        <div class="tbody-title">
+	                                            <span class="tit">서린닷컴</span>
+	                                            <span class="txt">(KRW/MT)</span>
+	                                        </div>
+	                                        <!-- //list title end -->
+	                                        <!-- list inner items end -->
+	                                        <div class="list-inner al-sorin">
+	                                            <!-- item start -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">인천/</span>
+	                                                    <span class="brand-group">서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc0">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate0">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                            <!-- item start -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">인천/</span>
+	                                                    <span class="brand-group">비서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc1">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate1">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                            <!-- item start -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">부산/</span>
+	                                                    <span class="brand-group">서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc2">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate2">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                            <!-- item start -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">부산/</span>
+	                                                    <span class="brand-group">비서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc3">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate3">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                        </div>
+	                                        <!-- //list inner items end -->
+	                                    </div>
+	                                    <!-- //list inner : sorin end -->
+	
+	                                    <!-- list inner : pps(조달청) start -->
+	                                    <div class="tb-list-section">
+	                                        <!-- list title start -->
+	                                        <div class="tbody-title">
+	                                            <span class="tit">조달청</span>
+	                                            <span class="txt">(KRW/MT)</span>
+	                                            <button class="btn-vat-view" id="buttonVatAL01">부가세 별도</button>
+	                                        </div>
+	                                        <!-- //list title end -->
+	
+	
+	
+	                                        <!-- list inner items start -->
+	                                        <div class="list-inner al-pps">
+	                                            <!-- item 1 -->
+	                                            <div class="l-inner rvcmpn up" id="existSarok_01_7">
+	                                                <div class="c-wrhous">
+	                                                    <span class="brand-group">서구산</span>
+	                                                </div>
+	                                                <div class="c-price" nonvatsarokpc="AL01">3,454,545</div>
+	                                                <div class="c-price" sarokpc="AL01" style="display: none">3,800,000</div>
+	                                                <div class="c-rate">+0.80%</div>
+	                                            </div>
+	                                            <!-- item 1 -->
+	                                            <div class="l-inner rvcmpn up" id="existSarok_02_7">
+	                                                <div class="c-wrhous">
+	                                                    <span class="brand-group">비서구산</span>
+	                                                </div>
+	                                                <div class="c-price" nonvatsarokpc="AL01">3,454,545</div>
+	                                                <div class="c-price" sarokpc="AL01" style="display: none">3,800,000</div>
+	                                                <div class="c-rate">+1.06%</div>
+	                                            </div>
+	                                        </div>
+	                                        <!-- //list inner items end -->
+	                                    </div>
+	                                    <!-- //list inner : pps(조달청) end -->
+	                                    <!-- list inner : LME start -->
+	                                    <div class="tb-list-section">
+	                                        <!-- list title start -->
+	                                        <div class="tbody-title">
+	                                            <span class="tit">LME</span>
+	                                            <span class="txt">(USD/MT)</span>
+	                                        </div>
+	                                        <!-- //list title end -->
+	                                        <!-- list inner items start -->
+	                                        <div class="list-inner al-lme">
+	                                            <!-- item 1 -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">OFFICIAL CASH</span>
+	                                                </div>
+	                                                <div class="c-price">2,410.00</div>
+	                                                <div class="c-rate">+6.07%</div>
+	                                            </div>
+	                                            <!-- item 2 -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">CLOSING CASH</span>
+	                                                </div>
+	                                                <div class="c-price">2,445.75</div>
+	                                                <div class="c-rate">+5.89%</div>
+	                                            </div>
+	                                            <!-- item 3 -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">OFFICIAL 3M</span>
+	                                                </div>
+	                                                <div class="c-price">2,426.00</div>
+	                                                <div class="c-rate">+6.17%</div>
+	                                            </div>
+	                                            <!-- item 4 -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">CLOSING 3M</span>
+	                                                </div>
+	                                                <div class="c-price">2,463.50</div>
+	                                                <div class="c-rate">+5.87%</div>
+	                                            </div>
+	                                        </div>
+	                                        <!-- //list inner items end -->
+	                                    </div>
+	                                    <!-- //list inner : LME end -->
+	                                </div>
+	                                <!--//tbody : Zinc end -->
+	
+	                                <!-- tbody list : Copper start -->
+	                                <div class="table-list-tbody" id="tbodyCu" style="display:none">
+	                                    <div class="table-list-thead">
+	                                        <ul class="th-text">
+	                                            <li>품목</li>
+	                                            <li>현재가</li>
+	                                            <li>등락률</li>
+	                                        </ul>
+	                                    </div>
+	                                    <!-- list inner : sorin start -->
+	                                    <div class="tb-list-section">
+	                                        <!-- list title start -->
+	                                        <div class="tbody-title">
+	                                            <span class="tit">서린닷컴</span>
+	                                            <span class="txt">(KRW/MT)</span>
+	                                        </div>
+	                                        <!-- //list title end -->
+	                                        <!-- list inner items end -->
+	                                        <div class="list-inner al-sorin">
+	                                            <!-- item start -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">인천/</span>
+	                                                    <span class="brand-group">서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc0">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate0">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                            <!-- item start -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">인천/</span>
+	                                                    <span class="brand-group">비서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc1">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate1">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                            <!-- item start -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">부산/</span>
+	                                                    <span class="brand-group">서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc2">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate2">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                            <!-- item start -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">부산/</span>
+	                                                    <span class="brand-group">비서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc3">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate3">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                        </div>
+	                                        <!-- //list inner items end -->
+	                                    </div>
+	                                    <!-- //list inner : sorin end -->
+	
+	                                    <!-- list inner : pps(조달청) start -->
+	                                    <div class="tb-list-section">
+	                                        <!-- list title start -->
+	                                        <div class="tbody-title">
+	                                            <span class="tit">조달청</span>
+	                                            <span class="txt">(KRW/MT)</span>
+	                                            <button class="btn-vat-view" id="buttonVatAL01">부가세 별도</button>
+	                                        </div>
+	                                        <!-- //list title end -->
+	
+	
+	
+	                                        <!-- list inner items start -->
+	                                        <div class="list-inner al-pps">
+	                                            <!-- item 1 -->
+	                                            <div class="l-inner rvcmpn up" id="existSarok_01_7">
+	                                                <div class="c-wrhous">
+	                                                    <span class="brand-group">서구산</span>
+	                                                </div>
+	                                                <div class="c-price" nonvatsarokpc="AL01">3,454,545</div>
+	                                                <div class="c-price" sarokpc="AL01" style="display: none">3,800,000</div>
+	                                                <div class="c-rate">+0.80%</div>
+	                                            </div>
+	                                            <!-- item 1 -->
+	                                            <div class="l-inner rvcmpn up" id="existSarok_02_7">
+	                                                <div class="c-wrhous">
+	                                                    <span class="brand-group">비서구산</span>
+	                                                </div>
+	                                                <div class="c-price" nonvatsarokpc="AL01">3,454,545</div>
+	                                                <div class="c-price" sarokpc="AL01" style="display: none">3,800,000</div>
+	                                                <div class="c-rate">+1.06%</div>
+	                                            </div>
+	                                        </div>
+	                                        <!-- //list inner items end -->
+	                                    </div>
+	                                    <!-- //list inner : pps(조달청) end -->
+	                                    <!-- list inner : LME start -->
+	                                    <div class="tb-list-section">
+	                                        <!-- list title start -->
+	                                        <div class="tbody-title">
+	                                            <span class="tit">LME</span>
+	                                            <span class="txt">(USD/MT)</span>
+	                                        </div>
+	                                        <!-- //list title end -->
+	                                        <!-- list inner items start -->
+	                                        <div class="list-inner al-lme">
+	                                            <!-- item 1 -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">OFFICIAL CASH</span>
+	                                                </div>
+	                                                <div class="c-price">2,410.00</div>
+	                                                <div class="c-rate">+6.07%</div>
+	                                            </div>
+	                                            <!-- item 2 -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">CLOSING CASH</span>
+	                                                </div>
+	                                                <div class="c-price">2,445.75</div>
+	                                                <div class="c-rate">+5.89%</div>
+	                                            </div>
+	                                            <!-- item 3 -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">OFFICIAL 3M</span>
+	                                                </div>
+	                                                <div class="c-price">2,426.00</div>
+	                                                <div class="c-rate">+6.17%</div>
+	                                            </div>
+	                                            <!-- item 4 -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">CLOSING 3M</span>
+	                                                </div>
+	                                                <div class="c-price">2,463.50</div>
+	                                                <div class="c-rate">+5.87%</div>
+	                                            </div>
+	                                        </div>
+	                                        <!-- //list inner items end -->
+	                                    </div>
+	                                    <!-- //list inner : LME end -->
+	                                </div>
+	                                <!--//tbody : Copper end -->
+	
+	                                <!-- tbody list : Nickel start -->
+	                                <div class="table-list-tbody" id="tbodyNi" style="display:none">
+	                                    <div class="table-list-thead">
+	                                        <ul class="th-text">
+	                                            <li>품목</li>
+	                                            <li>현재가</li>
+	                                            <li>등락률</li>
+	                                        </ul>
+	                                    </div>
+	                                    <!-- list inner : sorin start -->
+	                                    <div class="tb-list-section">
+	                                        <!-- list title start -->
+	                                        <div class="tbody-title">
+	                                            <span class="tit">서린닷컴</span>
+	                                            <span class="txt">(KRW/MT)</span>
+	                                        </div>
+	                                        <!-- //list title end -->
+	                                        <!-- list inner items end -->
+	                                        <div class="list-inner al-sorin">
+	                                            <!-- item start -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">인천/</span>
+	                                                    <span class="brand-group">서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc0">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate0">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                            <!-- item start -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">인천/</span>
+	                                                    <span class="brand-group">비서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc1">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate1">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                            <!-- item start -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">부산/</span>
+	                                                    <span class="brand-group">서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc2">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate2">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                            <!-- item start -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">부산/</span>
+	                                                    <span class="brand-group">비서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc3">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate3">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                        </div>
+	                                        <!-- //list inner items end -->
+	                                    </div>
+	                                    <!-- //list inner : sorin end -->
+	
+	                                    <!-- list inner : pps(조달청) start -->
+	                                    <div class="tb-list-section">
+	                                        <!-- list title start -->
+	                                        <div class="tbody-title">
+	                                            <span class="tit">조달청</span>
+	                                            <span class="txt">(KRW/MT)</span>
+	                                            <button class="btn-vat-view" id="buttonVatAL01">부가세 별도</button>
+	                                        </div>
+	                                        <!-- //list title end -->
+	
+	
+	
+	                                        <!-- list inner items start -->
+	                                        <div class="list-inner al-pps">
+	                                            <!-- item 1 -->
+	                                            <div class="l-inner rvcmpn up" id="existSarok_01_7">
+	                                                <div class="c-wrhous">
+	                                                    <span class="brand-group">서구산</span>
+	                                                </div>
+	                                                <div class="c-price" nonvatsarokpc="AL01">3,454,545</div>
+	                                                <div class="c-price" sarokpc="AL01" style="display: none">3,800,000</div>
+	                                                <div class="c-rate">+0.80%</div>
+	                                            </div>
+	                                            <!-- item 1 -->
+	                                            <div class="l-inner rvcmpn up" id="existSarok_02_7">
+	                                                <div class="c-wrhous">
+	                                                    <span class="brand-group">비서구산</span>
+	                                                </div>
+	                                                <div class="c-price" nonvatsarokpc="AL01">3,454,545</div>
+	                                                <div class="c-price" sarokpc="AL01" style="display: none">3,800,000</div>
+	                                                <div class="c-rate">+1.06%</div>
+	                                            </div>
+	                                        </div>
+	                                        <!-- //list inner items end -->
+	                                    </div>
+	                                    <!-- //list inner : pps(조달청) end -->
+	                                    <!-- list inner : LME start -->
+	                                    <div class="tb-list-section">
+	                                        <!-- list title start -->
+	                                        <div class="tbody-title">
+	                                            <span class="tit">LME</span>
+	                                            <span class="txt">(USD/MT)</span>
+	                                        </div>
+	                                        <!-- //list title end -->
+	                                        <!-- list inner items start -->
+	                                        <div class="list-inner al-lme">
+	                                            <!-- item 1 -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">OFFICIAL CASH</span>
+	                                                </div>
+	                                                <div class="c-price">2,410.00</div>
+	                                                <div class="c-rate">+6.07%</div>
+	                                            </div>
+	                                            <!-- item 2 -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">CLOSING CASH</span>
+	                                                </div>
+	                                                <div class="c-price">2,445.75</div>
+	                                                <div class="c-rate">+5.89%</div>
+	                                            </div>
+	                                            <!-- item 3 -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">OFFICIAL 3M</span>
+	                                                </div>
+	                                                <div class="c-price">2,426.00</div>
+	                                                <div class="c-rate">+6.17%</div>
+	                                            </div>
+	                                            <!-- item 4 -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">CLOSING 3M</span>
+	                                                </div>
+	                                                <div class="c-price">2,463.50</div>
+	                                                <div class="c-rate">+5.87%</div>
+	                                            </div>
+	                                        </div>
+	                                        <!-- //list inner items end -->
+	                                    </div>
+	                                    <!-- //list inner : LME end -->
+	                                </div>
+	                                <!--//tbody : Nickel end -->
+	
+	                                <!-- tbody list : Stannum start -->
+	                                <div class="table-list-tbody" id="tbodySn" style="display:none">
+	                                    <div class="table-list-thead">
+	                                        <ul class="th-text">
+	                                            <li>품목</li>
+	                                            <li>현재가</li>
+	                                            <li>등락률</li>
+	                                        </ul>
+	                                    </div>
+	                                    <!-- list inner : sorin start -->
+	                                    <div class="tb-list-section">
+	                                        <!-- list title start -->
+	                                        <div class="tbody-title">
+	                                            <span class="tit">서린닷컴</span>
+	                                            <span class="txt">(KRW/MT)</span>
+	                                        </div>
+	                                        <!-- //list title end -->
+	                                        <!-- list inner items end -->
+	                                        <div class="list-inner al-sorin">
+	                                            <!-- item start -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">인천/</span>
+	                                                    <span class="brand-group">서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc0">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate0">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                            <!-- item start -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">인천/</span>
+	                                                    <span class="brand-group">비서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc1">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate1">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                            <!-- item start -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">부산/</span>
+	                                                    <span class="brand-group">서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc2">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate2">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                            <!-- item start -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="wrhous">부산/</span>
+	                                                    <span class="brand-group">비서구산</span>
+	                                                </div>
+	                                                <div class="c-price" id="AL01EndPc3">3,680,000</div>
+	                                                <div class="c-rate" id="AL01Rate3">8.01%</div>
+	                                            </div>
+	                                            <!-- item end -->
+	                                        </div>
+	                                        <!-- //list inner items end -->
+	                                    </div>
+	                                    <!-- //list inner : sorin end -->
+	
+	                                    <!-- list inner : pps(조달청) start -->
+	                                    <div class="tb-list-section">
+	                                        <!-- list title start -->
+	                                        <div class="tbody-title">
+	                                            <span class="tit">조달청</span>
+	                                            <span class="txt">(KRW/MT)</span>
+	                                            <button class="btn-vat-view" id="buttonVatAL01">부가세 별도</button>
+	                                        </div>
+	                                        <!-- //list title end -->
+	
+	
+	
+	                                        <!-- list inner items start -->
+	                                        <div class="list-inner al-pps">
+	                                            <!-- item 1 -->
+	                                            <div class="l-inner rvcmpn up" id="existSarok_01_7">
+	                                                <div class="c-wrhous">
+	                                                    <span class="brand-group">서구산</span>
+	                                                </div>
+	                                                <div class="c-price" nonvatsarokpc="AL01">3,454,545</div>
+	                                                <div class="c-price" sarokpc="AL01" style="display: none">3,800,000</div>
+	                                                <div class="c-rate">+0.80%</div>
+	                                            </div>
+	                                            <!-- item 1 -->
+	                                            <div class="l-inner rvcmpn up" id="existSarok_02_7">
+	                                                <div class="c-wrhous">
+	                                                    <span class="brand-group">비서구산</span>
+	                                                </div>
+	                                                <div class="c-price" nonvatsarokpc="AL01">3,454,545</div>
+	                                                <div class="c-price" sarokpc="AL01" style="display: none">3,800,000</div>
+	                                                <div class="c-rate">+1.06%</div>
+	                                            </div>
+	                                        </div>
+	                                        <!-- //list inner items end -->
+	                                    </div>
+	                                    <!-- //list inner : pps(조달청) end -->
+	                                    <!-- list inner : LME start -->
+	                                    <div class="tb-list-section">
+	                                        <!-- list title start -->
+	                                        <div class="tbody-title">
+	                                            <span class="tit">LME</span>
+	                                            <span class="txt">(USD/MT)</span>
+	                                        </div>
+	                                        <!-- //list title end -->
+	                                        <!-- list inner items start -->
+	                                        <div class="list-inner al-lme">
+	                                            <!-- item 1 -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">OFFICIAL CASH</span>
+	                                                </div>
+	                                                <div class="c-price">2,410.00</div>
+	                                                <div class="c-rate">+6.07%</div>
+	                                            </div>
+	                                            <!-- item 2 -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">CLOSING CASH</span>
+	                                                </div>
+	                                                <div class="c-price">2,445.75</div>
+	                                                <div class="c-rate">+5.89%</div>
+	                                            </div>
+	                                            <!-- item 3 -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">OFFICIAL 3M</span>
+	                                                </div>
+	                                                <div class="c-price">2,426.00</div>
+	                                                <div class="c-rate">+6.17%</div>
+	                                            </div>
+	                                            <!-- item 4 -->
+	                                            <div class="l-inner up">
+	                                                <div class="c-lme">
+	                                                    <span class="day">전일</span>
+	                                                    <span class="off">CLOSING 3M</span>
+	                                                </div>
+	                                                <div class="c-price">2,463.50</div>
+	                                                <div class="c-rate">+5.87%</div>
+	                                            </div>
+	                                        </div>
+	                                        <!-- //list inner items end -->
+	                                    </div>
+	                                    <!-- //list inner : LME end -->
+	                                </div>
+	                                <!--//tbody : Stannum end -->
+	
+	                                <!-- tbody list : Domestic Sales start -->
+	                                <div class="table-list-tbody type2" id="tbodyDs" style="display:none">
+	                                    <div class="table-list-thead">
+	                                        <ul class="th-text">
+	                                            <li>품목</li>
+	                                            <li>현재가</li>
+	                                            <!-- <li>등락률</li> -->
+	                                        </ul>
+	                                    </div>
+	                                    <!-- list inner : start -->
+	                                    <div class="tb-list-section">
+	                                        <!-- list inner items start -->
+	                                        <div class="list-inner type2 al-pps">
+	                                            <!-- item 1 -->
+	                                            <a href="#" class="l-inner active up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="brand-group">합금 아연</span>
+	                                                </div>
+	                                                <div class="c-price">2,825,000</div>
+	                                            </a>
+	                                            <!-- item 2 -->
+	                                            <a href="#" class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="brand-group">일반아연괴</span>
+	                                                </div>
+	                                                <div class="c-price">2,825,000</div>
+	                                            </a>
+	                                            <!-- item 3 -->
+	                                            <a href="#" class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="brand-group">전기동</span>
+	                                                </div>
+	                                                <div class="c-price">2,825,000</div>
+	                                            </a>
+	                                            <!-- item 4 -->
+	                                            <a href="#" class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="brand-group">주석</span>
+	                                                </div>
+	                                                <div class="c-price">2,825,000</div>
+	                                            </a>
+	                                            <!-- item 5 -->
+	                                            <a href="#" class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="brand-group">니켈</span>
+	                                                </div>
+	                                                <div class="c-price">2,825,000</div>
+	                                            </a>
+	                                            <!-- item 6 -->
+	                                            <a href="#" class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="brand-group">카드뮴</span>
+	                                                </div>
+	                                                <div class="c-price">2,825,000</div>
+	                                            </a>
+	                                            <!-- item 7 -->
+	                                            <a href="#" class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="brand-group">비스무스</span>
+	                                                </div>
+	                                                <div class="c-price">2,825,000</div>
+	                                            </a>
+	                                            <!-- item 8 -->
+	                                            <a href="#" class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="brand-group">안티몬</span>
+	                                                </div>
+	                                                <div class="c-price">2,825,000</div>
+	                                            </a>
+	                                            <!-- item 9 -->
+	                                            <a href="#" class="l-inner up">
+	                                                <div class="c-wrhous">
+	                                                    <span class="brand-group">연</span>
+	                                                </div>
+	                                                <div class="c-price">2,825,000</div>
+	                                            </a>
+	                                        </div>
+	                                        <!-- //list inner items end -->
+	                                    </div>
+	                                    <!-- //list inner : end -->
+	                                    <div class="btns" id="btnsDiv">
+	                                        <button type="button" class="btn-stroke-md btn-alarm" data-popup="modal"
+	                                            id="sorinModalAlarmId">알림받기</button>
+	                                        <button type="button" class="btn-blue-md btn-buy" id="btnBuy">구매하기</button>
+	                                    </div>
+	                                </div>
+	                                <!--//tbody : Domestic Sales  end -->
+	                            </div>
+	                            <!-- //table list area end -->
+	                            <!-- btn start -->
+	                            <div class="btns" id="btnsDiv">
+	                                <button type="button" class="btn-stroke-md btn-alarm" data-popup="modal"
+	                                    id="sorinModalAlarmId">알림받기<span class="ripple"></span></button>
+	                                <button type="button" class="btn-blue-md btn-buy" id="btnBuy">구매하기</button>
+	                            </div>
+	                            <!-- //btn end -->
+	                        </div>
+	                        <!-- //rChart table end -->
+	                    </div>
+	                    <!-- //chart content end -->
+	                </div>       
+	                
+	                <!-- 23.08.11 | 차트 미리보기 dim 처리 추가 시작 { -->
+	                <div class="chart-preview-dim chart-preview-dim1" style="display: none">
+	                	<div class="dim-inner">
+	                		<p class="txt">서린닷컴 차트는 5분 미리보기를 제공합니다.</p>
+	                		<p class="count count-time">04:39</p>
+	                		<button type="button" class="btn-blue-big btn-chart-preview" id="">차트 미리보기</button>
+	                	</div>
+	                </div>
+	                <div class="chart-preview-dim chart-preview-dim2" style="display: none">
+	                	<div class="dim-inner">
+	                		<p class="txt">서린닷컴 차트 미리보기를 종료합니다. <br>로그인 후 이용하시길 바랍니다.</p>
+	                		<p class="count count-num">30</p>
+	                		<button type="button" class="btn-blue-big btn-chart-login" onClick="location.href='/guide/html/us/SOREC-SC-FUS-005.html'">로그인 하기</button>
+	                	</div>
+	                </div>         
+	                <!--} // 23.08.11 | 차트 미리보기 dim 처리 추가 끝 -->         
+	            </div>
+	            <!--//chart -->
+	
+	            <!-- 주요뉴스 & 메탈월드 월간지 -->
+	            <div class="section main-news-wrap">
+	                <div class="inwrap">
+	                    <!-- 주요뉴스 시작 -->
+	                    <div class="main-news">
+	                        <div class="hgroup">
+	                            <h2 class="h2">주요뉴스</h2>
+	                        </div>
+	                        <div class="news-inner">
+	                            <a href="">
+	                                <div class="img"><img src="/guide/images/ma/main-news-img.png" alt="img"></div>
+	                                <span class="category">업계 · 인물</span>
+	                                <p class="title">원자재 아연, 2007년 이후 최고로 올라</p>
+	                                <span class="txt">지난 10월 런던금속거래소(LME)에서 거래된 아연 현물가격 평균이 급등한 가운데 원-달러 환율마저 오르면서 국내 아연(Zinc) 판매가격이 4개월 연속
+	                                    올랐다. 이달 가격 상승폭은 역대 최고 수준이다. 고려아연, 영풍 등 국내 아연 제련업체들은 이달 국내 아연 판매영풍 등 국내 아연 제련업체들은 이달 국내 아연 판매영풍 등 국내
+	                                    아연 제련업체들은 이달 국내 아연 판매영풍 등 국내 아연 제련업체들은 이달 국내 아연 판매</span>
+	                            </a>
+	                        </div>
+	                        <div class="news-inner">
+	                            <a href="">
+	                                <div class="img"><img src="/guide/images/ma/main-news-img.png" alt="img"></div>
+	                                <span class="category">업계 · 인물</span>
+	                                <p class="title">원자재 아연, 2007년 이후 최고로 올라</p>
+	                                <span class="txt">지난 10월 런던금속거래소(LME)에서 거래된 아연 현물가격 평균이 급등한 가운데 원-달러 환율마저 오르면서 국내 아연(Zinc) 판매가격이 4개월 연속
+	                                    올랐다. 이달 가격 상승폭은 역대 최고 수준이다. 고려아연, 영풍 등 국내 아연 제련업체들은 이달 국내 아연 판매영풍 등 국내 아연 제련업체들은 이달 국내 아연 판매영풍 등 국내
+	                                    아연 제련업체들은 이달 국내 아연 판매영풍 등 국내 아연 제련업체들은 이달 국내 아연 판매</span>
+	                            </a>
+	                        </div>
+	                    </div>
+	                    <!--// 주요뉴스 끝-->
+	
+	                    <div class="main-right-swiper-wrap" style="width: 36rem">
+		                    <!-- 메탈월드 월간지 시작 -->
+		                    <div class="metal-world">
+		                        <div class="hgroup">
+		                            <h2 class="h2">메탈월드 월간지</h2>
+		                        </div>
+		
+		                        <!-- swiper slide button -->
+		                        <div class="swiper-btn-area">
+		                            <div class="metal-world-prev"></div>
+		                            <div class="metal-world-next"></div>
+		                        </div>
+		
+		                        <!-- slide content 시작 -->
+		                        <div class="swiper metal-world-swiper">
+		                            <div class="swiper-wrapper">
+		                                <!-- slide item 시작 -->
+		                                <div class="swiper-slide">
+		                                    <ul class="inner-img">
+		                                        <li>
+		                                            <a href="http://ebook.snmnews.com/mt2208/index.html#page=1" target="_new">
+		                                                <img src="/guide/images/ma/metal_world/22/08.png">
+		                                                <span class="month">2022.08</span>
+		                                            </a>
+		                                        </li>
+		                                        <li>
+		                                            <a href="http://ebook.snmnews.com/mt2207/index.html#page=1" target="_new">
+		                                                <img src="/guide/images/ma/metal_world/22/07.png">
+		                                                <span class="month">2022.07</span>
+		                                            </a>
+		                                        </li>
+		                                        <li>
+		                                            <a href="http://ebook.snmnews.com/mt2206/index.html#page=1" target="_new">
+		                                                <img src="/guide/images/ma/metal_world/22/06.png">
+		                                                <span class="month">2022.06</span>
+		                                            </a>
+		                                        </li>
+		                                    </ul>
+		                                </div>
+		                                <!-- //slide item 끝 -->
+		
+		                                <!-- slide item 시작 -->
+		                                <div class="swiper-slide">
+		                                    <ul class="inner-img">
+		                                        <li>
+		                                            <a href="http://ebook.snmnews.com/mt2202/index.html#page=1" target="_new">
+		                                                <img src="/guide/images/ma/metal_world/22/02.png">
+		                                                <span class="month">2022.02</span>
+		                                            </a>
+		                                        </li>
+		                                        <li>
+		                                            <a href="http://ebook.snmnews.com/mt2201/index.html#page=1" target="_new">
+		                                                <img src="/guide/images/ma/metal_world/22/01.png">
+		                                                <span class="month">2022.01</span>
+		                                            </a>
+		                                        </li>
+		                                        <li>
+		                                            <a href="http://ebook.snmnews.com/mt2112/index.html#page=1" target="_new">
+		                                                <img src="/guide/images/ma/metal_world/21/12.png">
+		                                                <span class="month">2021.12</span>
+		                                            </a>
+		                                        </li>
+		                                    </ul>
+		                                </div>
+		                                <!-- //slide item 끝 -->
+		
+		                                <!-- slide item 시작 -->
+		                                <div class="swiper-slide">
+		                                    <ul class="inner-img">
+		                                        <li>
+		                                            <a href="http://ebook.snmnews.com/mt2108/index.html#page=1" target="_new">
+		                                                <img src="/guide/images/ma/metal_world/21/08.png">
+		                                                <span class="month">2021.08</span>
+		                                            </a>
+		                                        </li>
+		                                        <li>
+		                                            <a href="http://ebook.snmnews.com/mt2107/index.html#page=1" target="_new">
+		                                                <img src="/guide/images/ma/metal_world/21/07.png">
+		                                                <span class="month">2021.07</span>
+		                                            </a>
+		                                        </li>
+		                                        <li>
+		                                            <a href="http://ebook.snmnews.com/mt2106/index.html#page=1" target="_new">
+		                                                <img src="/guide/images/ma/metal_world/21/06.png">
+		                                                <span class="month">2021.06</span>
+		                                            </a>
+		                                        </li>
+		                                    </ul>
+		                                </div>
+		                                <!-- //slide item 끝 -->
+									</div>
+		                            <!-- //slide content 끝 -->
+		                        </div>
+		                    </div>
+		                    <!--// 메탈월드 월간지 끝 -->
+		                    
+		                    <!-- 메인 이벤트 배너 시작 -->
+		                    <div class="swiper-container swiper-main-event-banner">
+			                    <div class="swiper-wrapper">
+			                        <div class="swiper-slide swiper-slide1">
+			                            <img src="/guide/images/ma/event-banner1.png" alt="">
+			                        </div>
+			                        <div class="swiper-slide swiper-slide2">
+			                            <img src="/guide/images/ma/event-banner2.png" alt="">
+			                        </div>
+			                        <div class="swiper-slide swiper-slide3">
+			                            <img src="/guide/images/ma/event-banner3.png" alt="">
+			                        </div>
+			                        <div class="swiper-slide swiper-slide4">
+			                            <img src="/guide/images/ma/event-banner4.png" alt="">
+			                        </div>
+			                    </div>
+			                    <div class="swiper-pagination"></div>
+			                </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <!--//주요뉴스 & 메탈월드 주간지 -->
+	
+	            <!-- 원자재 뉴스 클리핑 & 원자재 캘린더 -->
+	            <div class="section materials-wrap">
+	                <div class="inwrap">
+	                    <!-- 원자재 뉴스 클리핑 -->
+	                    <div class="materials-news">
+	                        <div class="hgroup">
+	                            <h2 class="h2">원자재 뉴스 클리핑</h2>
+	                            <div class="btns">
+	                                <button type="button" class="btn-all">전체보기</button>
+	                            </div>
+	                        </div>
+	                        <ul class="list">
+	                            <li>
+	                                <a href="#">
+	                                    <dl class="list-news">
+	                                        <dt class="tit">원자재값 '슈퍼사이클' 조짐... 정부 부랴부랴 비철금속 할인 방출</dt>
+	                                        <dd class="date">2021-03-27</dd>
+	                                        <dd class="desc">
+	                                            전기&middot;가스요금 현실화를 위해 연료비 연동제를 도입했지만 정부의 통제로 결국 한국전력, 한국가스공사 등이 손실을 떠안아야 하는 상황이다.
+	                                            대중교통 현실화를 논의하던 서울시 역시 최근 물가급등에 따른 서민 부담이 가중되자 인상 논의를 멈춘 상태다. 인상 압력이 거센 공공요금을
+	                                            정부와 지방자치단체가 누르면서 결국 이들 공기업 부채가 커질 수밖에 없는 상황이다.
+	                                        </dd>
+	                                    </dl>
+	                                </a>
+	                            </li>
+	                            <li>
+	                                <a href="#">
+	                                    <dl class="list-news">
+	                                        <dt class="tit">유가&middot;곡물&middot;비철금속 가파른 상승... 구금센터 "강세흐름 유지"</dt>
+	                                        <dd class="date">2021-03-27</dd>
+	                                        <dd class="desc">
+	                                            전기&middot;가스요금 현실화를 위해 연료비 연동제를 도입했지만 정부의 통제로 결국 한국전력, 한국가스공사 등이 손실을 떠안아야 하는 상황이다.
+	                                            대중교통 현실화를 논의하던 서울시 역시 최근 물가급등에 따른 서민 부담이 가중되자 인상 논의를 멈춘 상태다. 인상 압력이 거센 공공요금을
+	                                            정부와 지방자치단체가 누르면서 결국 이들 공기업 부채가 커질 수밖에 없는 상황이다.
+	                                        </dd>
+	                                    </dl>
+	                                </a>
+	                            </li>
+	                            <li>
+	                                <a href="#">
+	                                    <dl class="list-news">
+	                                        <dt class="tit">[LME] 비철가격 상승... 전기동 9942달러 </dt>
+	                                        <dd class="date">2021-03-27</dd>
+	                                        <dd class="desc">
+	                                            전기&middot;가스요금 현실화를 위해 연료비 연동제를 도입했지만 정부의 통제로 결국 한국전력, 한국가스공사 등이 손실을 떠안아야 하는 상황이다.
+	                                            대중교통 현실화를 논의하던 서울시 역시 최근 물가급등에 따른 서민 부담이 가중되자 인상 논의를 멈춘 상태다. 인상 압력이 거센 공공요금을
+	                                            정부와 지방자치단체가 누르면서 결국 이들 공기업 부채가 커질 수밖에 없는 상황이다.
+	                                        </dd>
+	                                    </dl>
+	                                </a>
+	                            </li>
+	                        </ul>
+	                    </div>
+	                    <!-- 원자재 캘린더 -->
+	                    <div class="materials-cal">
+	                        <div class="hgroup">
+	                            <h2 class="h2">원자재 캘린더</h2>
+	                            <div class="btns">
+	                                <button type="button" class="btn-all">전체보기</button>
+	                            </div>
+	                        </div>
+	                        <div class="cal-wrap">
+	                            <div class="cal-header">
+	                                <div>
+	                                    <button type="button" class="btn-cal-prev"><span class="hidden">이전달</span></button>
+	                                    <span class="cal-month">2021년 3월</span>
+	                                    <button type="button" class="btn-cal-next"><span class="hidden">다음달</span></button>
+	                                </div>
+	                                <div class="cal-toggle">
+	                                    <button type="button" class="btn-cal-month active">한달</button>
+	                                    <button type="button" class="btn-cal-today ">오늘</button>
+	                                    <button type="button" class="btn-cal-holiday">휴일</button>
+	                                </div>
+	                            </div>
+	                            <div class="cal-list">
+	                                <div class="li">
+	                                    <span class="date">7일</span>
+	                                    <span class="schedule">
+	                                        <span class="img-nation"><img src="/guide/images/sample/img_nation_sample.png"></span>
+	                                        한국 재보궐선거
+	                                    </span>
+	                                </div>
+	                                <div class="li today"><!-- today schedule -->
+	                                    <span class="date">9~11일</span>
+	                                    <span class="schedule">
+	                                        <span class="img-nation"><img src="/guide/images/sample/img_nation_sample2.png"></span>
+	                                        IMF, WB 연례 춘계 회의
+	                                    </span>
+	                                </div>
+	                                <div class="li today"><!-- today schedule -->
+	                                    <span class="date">9~11일</span>
+	                                    <span class="schedule">한국 3월 금융통화위원회</span>
+	                                </div>
+	                                <div class="li">
+	                                    <span class="date">14~19일</span>
+	                                    <span class="schedule">광저우 종합 무역 박람회</span>
+	                                </div>
+	                                <div class="li">
+	                                    <span class="date">22일</span>
+	                                    <span class="schedule">ECB 4월 통화정책회의</span>
+	                                </div>
+	                                <div class="li">
+	                                    <span class="date">29일</span>
+	                                    <span class="schedule">미국 4월 FOMC</span>
+	                                </div>
+	                                <div class="li">
+	                                    <span class="date">월중</span>
+	                                    <span class="schedule">미국 재무부 환율보고서</span>
+	                                </div>
+	                                <div class="li">
+	                                    <span class="date">7일</span>
+	                                    <span class="schedule">한국 재보궐선거</span>
+	                                </div>
+	                                <div class="li today"><!-- today schedule -->
+	                                    <span class="date">9~11일</span>
+	                                    <span class="schedule">IMF, WB 연례 춘계 회의</span>
+	                                </div>
+	                                <div class="li today"><!-- today schedule -->
+	                                    <span class="date">9~11일</span>
+	                                    <span class="schedule">한국 3월 금융통화위원회</span>
+	                                </div>
+	                                <div class="li">
+	                                    <span class="date">14~19일</span>
+	                                    <span class="schedule">광저우 종합 무역 박람회</span>
+	                                </div>
+	                                <div class="li">
+	                                    <span class="date">22일</span>
+	                                    <span class="schedule">ECB 4월 통화정책회의</span>
+	                                </div>
+	                                <div class="li">
+	                                    <span class="date">29일</span>
+	                                    <span class="schedule">미국 4월 FOMC</span>
+	                                </div>
+	                                <div class="li">
+	                                    <span class="date">월중</span>
+	                                    <span class="schedule">미국 재무부 환율보고서</span>
+	                                </div>
+	                            </div><!--// .cal-list -->
+	
+	                            <!-- 휴일 달력 시작-->
+	                            <div class="cal-holiday">
+	                                <div id="datepicker2"></div>
+	                                <span class="cal-holiday-front">휴일달력</span>
+	                            </div>
+	                            <!-- //휴일 달력 끝 -->
+	
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <!--//원자재 뉴스 클리핑 & 원자재 캘린더 -->
+	
+	            <!-- 서린닷컴 소개 : swiper >>>>> 23.07.04 이후 오픈시 숨김 처리 
+	            <div class="section sorin-wrap">
+	                <div class="swiper-container sorinWrapSwiper">
+	                    <div class="swiper-wrapper">
+	                        <div class="swiper-slide">
+	                            <div class="swiper-con sorinWrapSwiper1">
+	                                <div class="figure">
+	                                    <img src="/guide/images/ma/temp-main-sorin.png" alt="" class="initial">
+	                                    <span class="sorin-bell"><img src="/guide/images/ma/temp-main-sorin-bell.png" alt=""
+	                                            class="initial"></span>
+	                                </div>
+	                                <div class="desc">
+	                                    <p class="p1">서린닷컴 소개</p>
+	                                    <p class="p2">비철 시세 알림을 설정해 보세요.</p>
+	                                    <p class="p3">설정한 가격에 도달하면,<br>실시간 알림 메시지로 보내 드립니다.<br><br><br></p>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="swiper-slide">
+	                            <div class="swiper-con sorinWrapSwiper1">
+	                                <div class="figure">
+	                                    <img src="/guide/images/ma/temp-main-sorin-2.png" alt="" class="initial">
+	                                    <span class="sorin-bell"><img src="/guide/images/ma/temp-main-sorin-car.png" alt=""
+	                                            class="initial"></span>
+	                                </div>
+	                                <div class="desc">
+	                                    <p class="p1">서린닷컴 소개</p>
+	                                    <p class="p2">서린배송을 이용하세요.</p>
+	                                    <p class="p3">고객이 지정한 장소, 지정한 날짜에<br>안전하게 배달해 드려요.<br><br><br></p>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="swiper-slide">
+	                            <div class="swiper-con sorinWrapSwiper1">
+	                                <div class="figure">
+	                                    <img src="/guide/images/ma/temp-main-sorin-3.png" alt="" class="initial">
+	                                    <span class="sorin-bell"><img src="/guide/images/ma/temp-main-sorin-mobile.png" alt=""
+	                                            class="initial"></span>
+	                                </div>
+	                                <div class="desc">
+	                                    <p class="p1">서린닷컴 소개</p>
+	                                    <p class="p2">모바일로 주문하세요.</p>
+	                                    <p class="p3">언제 어디서나 알루미늄 시세 조회 확인.<br>모바일에서 간편하게 주문하세요.<br><br><br></p>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="swiper-button-next"></div>
+	                    <div class="swiper-button-prev"></div>
+	                    <div class="swiper-pagination"></div>
+	                </div>
+	            </div> -->
+	            <!--// 서린닷컴 소개 : swiper -->
+	
+	            <!-- 서비스 안내 & SINL 소개 & 견적문의 및 상담  -->
+	            <div class="section services-wrap">
+	                <div class="inwrap">
+	                    <!-- 서비스 안내-->
+	                    <div class="info">
+	                        <div class="services-con">
+	                            <h2 class="h2">서린상사 소개</h2>
+	                            <div class="figure">
+	                                <a href="https://www.sorincorporation.com/" target="_blank"><img
+	                                        src="/guide/images/ma/temp-main-thumbs1.png" alt="서비스 안내 영상보기"></a>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <!-- SINL 소개 -->
+	                    <div class="intro">
+	                        <div class="services-con">
+	                            <h2 class="h2">SINL 소개</h2>
+	                            <div class="figure">
+	                                <a
+	                                    href="https://mybox.naver.com/share/list/viewer/3472460599357821729?shareKey=NGLfMi_vByrSgfwhQijY5UCmxB6muSc_3rfNa7qCaj8G4DN2h-T7Y9Jy8SeU-5z00wxGhUKue3U35D8GnemuxAM="><img
+	                                        src="/guide/images/ma/temp-main-thumbs2.png" alt="SINL 소개 영상보기"></a>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <!-- 견적문의 및 상담 -->
+	                    <div class="estimate">
+	                        <div class="services-con">
+	                            <h2 class="h2">견적문의 및 상담</h2>
+	                            <p class="cs-number"><span>02</span><span>6952</span><span>5095</span></p>
+	                            <p class="cs-email"><a href="mailto:webmasters@metalsorin.com">webmasters@metalsorin.com</a></p>
+	                            <p class="cs-p">
+	                                평일 : 09:00~17:00<br>
+	                                점심 : 12:30~13:30(주말/공휴일 휴무)
+	                            </p>
+	                            <div class="cs-btns">
+	                                <button type="button" class="btn-blue-md btn-estimate">견적문의</button>
+	                                <button type="button" class="btn-stroke-md blue btn-remote">원격지원</button>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <!--// 서비스 안내 & SINL 소개 & 견적문의 및 상담  -->
+	
+	            <!-- 협력사 소개 -->
+	            <div class="section alliance-wrap">
+	                <div class="inwrap">
+	                    <div class="desc">
+	                        <p class="p1">협력사 소개</p>
+	                        <p class="p2">주요 제휴 및 협력사</p>
+	                        <p class="p3">비철금속 전자상거래 상호 협력을 위한 업무 협약 체결</p>
+	                    </div>
+	                    <div class="alliances">
+	                        <ul>
+	                            <li><img src="/guide/images/ma/dark-alliance1.png" alt="서린상사"></li>
+	                            <li><img src="/guide/images/ma/dark-alliance2.png" alt="고려아연주식회사"></li>
+	                            <li><img src="/guide/images/ma/dark-alliance3.png" alt="삼성선물"></li>
+	                            <li><img src="/guide/images/ma/dark-alliance4.png" alt="하나은행"></li>
+	                            <li><img src="/guide/images/ma/dark-alliance5.png" alt="lme"></li>
+	                        </ul>
+	                        <ul>
+	                            <li><img src="/guide/images/ma/dark-alliance6.png" alt="신용보증기금"></li>
+	                            <li><img src="/guide/images/ma/dark-alliance7.png" alt="sinl"></li>
+	                            <li><img src="/guide/images/ma/dark-alliance8.png" alt="철강금속신문"></li>
+	                            <li class="alliance9"><img src="/guide/images/ma/dark-alliance9.png" alt="b2b"></li>
+	                        </ul>
+	                    </div>
+	                </div>
+	            </div>
+	            <!-- //협력사 소개 -->
+	        </div>
+        </div>
+        <!--} // .body-main: 종료 -->
+        
+        <!-- footer include -->
+        <div class="footer-wrap include-wrap"></div>
+        <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+        <!-- //footer include -->
+    </div>
+
+    <!-- MODAL POPUP : 알림 설정 -->
+    <div class="popup modal" id="sorinModalAlarm">
+        <div class="modal-content w1060px">
+            <div class="max-width">
+                <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업
+                            닫기</span></button></div>
+                <!-- <div class="div-scroll-y"> -->
+                <form class="form-chk">
+                    <div class="section">
+                        <div class="article">
+                            <h1 class="h2-pd">알림 설정</h1>
+                            <!-- tab buttons -->
+                            <div class="btn-toggle-wrap full cols2">
+                                <div><button type="button" class="toggle active"><span>희망가 알림 생성 내역</span></button>
+                                </div>
+                                <div><button type="button" class="toggle" data-value="oneclick-order"><span>원클릭 주문
+                                            알림</span></button></div>
+                            </div>
+                            <!--// tab buttons -->
+                            <!-- 희망가 알림 생성 내역 -->
+                            <table class="tbl-v th-left mt30">
+                                <caption>원클릭 주문 알림</caption>
+                                <colgroup>
+                                    <col style="width:16rem;">
+                                    <col>
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">상품명</th>
+                                        <td>SORIN INDEX 알루미늄</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">현재가</th>
+                                        <td>
+                                            <span id="currentPrice">2,825,000</span>&nbsp;<span
+                                                class="fc-blue">(-0.97%)</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label for="ipTargetPrice">목표가</label></th>
+                                        <td>
+                                            <div class="target-price-set">
+                                                <span>
+                                                    <input type="tel" name="ipTargetPrice" id="ipTargetPrice"
+                                                        value="2,825,000">
+                                                </span>
+                                                <button type="button" class="btn-blue-md" data-value="0">0%</button>
+                                                <button type="button" class="btn-stroke-md" data-value="-5">-5%</button>
+                                                <button type="button" class="btn-stroke-md"
+                                                    data-value="-10">-10%</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!--// 희망가 알림 생성 내역 -->
+                            <!-- 원클릭 주문 알림 -->
+                            <table class="tbl-v th-left tbl-oneclick">
+                                <caption>원클릭 주문 알림</caption>
+                                <colgroup>
+                                    <col style="width:16rem;">
+                                    <col>
+                                    <col style="width:16rem;">
+                                    <col>
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row"><label for="selShippingType">배송구분</label></th>
+                                        <td>
+                                            <select name="selShippingType" id="selShippingType" class="dropdown">
+                                                <option>서린배송</option>
+                                            </select>
+                                        </td>
+                                        <th scope="row"><label for="selDestination">배송지</label></th>
+                                        <td>
+                                            <select name="selDestination" id="selDestination" class="dropdown">
+                                                <option>전남영업소 - 군산1공장</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label for="selShippingArea">출고 권역</label></th>
+                                        <td>
+                                            <select name="selShippingArea" id="selShippingArea" class="dropdown">
+                                                <option>전남 출고</option>
+                                            </select>
+                                        </td>
+                                        <th scope="row"><label for="ipShippingDate">출고 요청일</label></th>
+                                        <td>
+                                            <span class="datepicker-wrap"><input type="text" class="datepicker"
+                                                    name="ipShippingDate" id="ipShippingDate"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label for="selBrandGroup">브랜드 그룹</label></th>
+                                        <td>
+                                            <select name="selBrandGroup" id="selBrandGroup" class="dropdown">
+                                                <option>서구산</option>
+                                            </select>
+                                        </td>
+                                        <th scope="row"><label for="selOrderBrand">브랜드</label></th>
+                                        <td>
+                                            <select name="selOrderBrand" id="selOrderBrand" class="dropdown">
+                                                <option>브랜드 무관</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row"><label for="selOrderMT">주문 중량</label></th>
+                                        <td>
+                                            <select name="selOrderMT" id="selOrderMT" class="dropdown">
+                                                <option>25MT</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!--// 원클릭 주문 알림 -->
+                        </div>
+                        <p class="t-info mt15">
+                            모바일 알림 또는 웹사이트 팝업으로 알림이 제공됩니다.
+                        </p>
+                        <div class="btn-wrap">
+                            <button type="button" class="btn-gray-big modal-x">취소</button>
+                            <button type="button" class="btn-blue-big">알림 설정</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- </div>// .div-scroll-y -->
+
+            </div><!--// .max-width -->
+        </div>
+    </div>
+    <!--// MODAL POPUP : 알림 설정 -->
+
+    <!-- Toast Sample 
+<div id="toast-container" class="toast-bottom-right">
+    <div class="toast toast-info" aria-live="polite">
+        <div class="toast-progress"></div>
+        <button type="button" class="toast-close-button" role="buttone">x</button>
+        <div class="toast-title">알림 </div>
+        <div class="toast-message"><span class="prod">알루미늄</span> <span class="prod-price">2,825,000</span></div>
+    </div>
+</div>-->
+    <!--// Toast Sample -->
+
+
+	<!-- Modal Popup : 기준 가격 설정하기:: 시작 {-->
+	<div class="popup modal modal-data-setting" id="sorinModalDataSetting">
+	    <div class="modal-content w600px">
+	        <div class="max-width">
+	            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+	
+	            <h1 class="h2-pd">기준 가격 설정하기</h1>
+	            <p class="subheading">
+	            	보고자 하는 데이터를 설정하세요. <br>저장 시, 메인 화면 단 설정한 상품과 시세정보가 제공됩니다.
+	            </p>
+	            <div class="div-scroll-y">
+	                <div class="section">
+	                    <!-- 1단계. 메탈 선택 -->
+	                	<article>
+							<h2>1단계 : 메탈을 선택하세요.</h2>
+							<div class="setting-box">
+								<select class="dropdown" name="" id="" data-placeholder="선택">
+									<option></option>
+	                                <option>알루미늄</option>
+	                                <option>아연</option>
+	                                <option>구리</option>
+	                                <option>니켈</option>
+								 </select>
+							</div>
+	                    </article>
+	                    
+	                    <!-- 2단계. 권역/브랜드그룹 선택 -->
+	                	<article>
+							<h2>2단계 : 권역/브랜드그룹을 선택하세요.</h2>
+							<div class="setting-box">
+								<select class="dropdown" name="" id="" data-placeholder="선택" disabled> <!-- [참고] 1단계 설정 후 > disabled 제거/ 메탈 기준, 하위 데이터 노출​ -->
+									<option>인천/ 서구산​</option>
+									<option>인천/ 비서구산​</option>
+									<option>부산/ 서구산​</option>
+									<option>부산/ 비서구산​</option>
+								 </select>
+							</div>
+	                    </article>
+	                    
+	                    <!-- 확인 버튼 영역 -->
+	                    <div class="btn-wrap duo mt40">
+	                        <button type="button" class="btn-blue-big modal-x btn-pop-toast">확인</button>
+	                    </div>
+	                </div>
+	            </div><!-- // .div-scroll-y -->
+	        </div><!--// .max-width -->
+	    </div>
+	</div>
+	<!--} // Modal Popup : 기준 가격 설정하기:: 종료 -->
+	
+	
+	<!-- Modal Popup : 기준 가격 설정하기 > 확인하기버튼 클릭시:: 시작 {-->
+	<div class="pop-modal pop-toast">
+		<div class="pop-inner">
+			<p>
+				저장 완료 되었습니다.​​
+			</p>
+		</div>
+	</div>
+	<!--} Modal Popup : 기준 가격 설정하기 > 확인하기버튼 클릭시:: 종료 -->
+
+    <!-- script core -->
+    <script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/guide/js/select2/select2.min.js"></script>
+    <!-- script extra -->
+    <script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+    <script src="/guide/js/swiper/6.7.0/swiper.js"></script>
+    <script src="/guide/js/toastr/toastr.js"></script>
+    <!-- script custom -->
+    <script src="/guide/js/common.js"></script>
+    <script src="/guide/js/sorin.js"></script>
+    <script src="/guide/js/sorin-ma.js"></script><!-- main js -->
+    <script src="/guide/js/sorin-layout.js"></script>
+    <script>
+   	
+   	
+   	
+
+    	/* 23.09.27 | 기준가격설정(버튼/팝업) > 저장하기 버튼 클릭 시 토스트팝업 */
+	    $('.btn-pop-toast').on('click',function () {
+	
+	        $('.pop-toast').fadeIn(300);
+	
+	        setTimeout(function(){
+	             $('.pop-toast').fadeOut(300);
+	        },2000);
+	    });
+    
+    
+    	/* 1. 23.08.11 | 차트 미리보기 dim 처리 추가 
+    	// 1-1. .chart-preview-dim1 > 차트 미리보기 버튼('.btn-chart-preview') 클릭 시 > .chart-preview-dim1 > hide
+    	$('.btn-chart-preview').on('click', function(){
+			$('.chart-preview-dim1').fadeOut(300);
+		});
+		*/
+		/* 1-2. .chart-preview-dim2 > 30초 지나도 '로그인 하기' 버튼 클릭하지 않을 시 > .main-charts-wrap 영역 접힘
+		// 가이드는 예시로 작업했으니 변경 정책에 맞게 작업 부탁드립니다.
+		chartPreviweDim2 ()
+		
+		function chartPreviweDim2 () {
+			setTimeout(function () {
+				$('.chart-preview-dim2').css({'display':'none'});
+		    	$('.main-charts-wrap').slideUp(300);
+			}, 5000);
+		}
+*/
+		
+    	// 메탈월드 슬라이드
+        var metalWorldSwiper = new Swiper(".metal-world-swiper", {
+            pagination: {
+                // el: ".swiper-pagination",
+                type: "fraction",
+            },
+            navigation: {
+                nextEl: ".metal-world-next",
+                prevEl: ".metal-world-prev",
+            },
+        });
+        
+        
+        // 23.08.23 | 이벤트 배너 추가
+	    var mainEventBannerSwiper = new Swiper(".swiper-main-event-banner", {
+			autoplay: {
+			    delay: 3000,
+			    disableOnInteration: false,
+		    },
+		    loop:true,
+			loopedSlides: 1,
+	        pagination: {
+	            el: ".swiper-pagination",
+	            clickable: true,
+	        }
+	    });
+
+
+        // 원자재 캘린더 datepicker
+        $(function () {
+            $("#datepicker2").datepicker({
+                beforeShowDay: holidayAllTheseDays, // 특정날짜 막기 및 표기
+            });
+
+
+            $(".btn-cal-prev").click(function () {
+                var date = new Date();
+                date.setMonth(date.getMonth() - 1, 1);
+                $('#datepicker2').datepicker('setDate', date);
+                $('#datepicker2').datepicker("option", "beforeShowDay", holidayAllTheseDays);
+
+            });
+            $(".btn-cal-next").click(function () {
+                var date = new Date();
+                date.setMonth(date.getMonth() + 1, 1);
+                $('#datepicker2').datepicker('setDate', date);
+                $('#datepicker2').datepicker("option", "beforeShowDay", holidayAllTheseDays);
+            });
+
+        });
+
+        //특정날짜들 배열
+        var holidayDays;
+
+        // 특정일 선택막기
+        function holidayAllTheseDays(date) {
+            var m = date.getMonth();
+            d = date.getDate();
+            y = date.getFullYear();
+
+            holidayDays = ["2021-12-3", "2021-12-10", "2021-12-16", "2021-12-20"]
+            if (y == 2021) {
+                for (i = 0; i < holidayDays.length; i++) {
+                    if ($.inArray(y + '-' + (m + 1) + '-' + d, holidayDays) != -1) {
+                        return [false];
+                    }
+                }
+                return [true];
+            } else {
+                for (i = 0; i < holidayDays.length; i++) {
+                    if ($.inArray(y + '-' + (m + 1) + '-' + d, holidayDays) != -1) {
+                        return [false];
+                    }
+                }
+                return [true];
+            }
+        }
+
+        //특정일 선택막기
+        function holidayAllTheseDays2(date) {
+            var m = date.getMonth();
+            d = date.getDate();
+            y = date.getFullYear();
+
+            for (i = 0; i < holidayDays2.length; i++) {
+                if ($.inArray(y + '-' + (m + 1) + '-' + d, holidayDays2) != -1) {
+                    return [false];
+                }
+            }
+            return [true];
+        }
+
+        // chart-tab 클릭 이벤트
+        $(document).on('click', '.chart-upper-tab-area > button', function (e) {
+            e.preventDefault;
+
+            var buttonAl = $('.chart-upper-tab-area .btn-al');
+            var buttonZn = $('.chart-upper-tab-area .btn-zn');
+            var buttonCu = $('.chart-upper-tab-area .btn-cu');
+            var buttonNi = $('.chart-upper-tab-area .btn-ni');
+            var buttonSn = $('.chart-upper-tab-area .btn-sn');
+            var buttonDs = $('.chart-upper-tab-area .btn-ds');
+
+            if ($(this).hasClass('btn-al')) { // 알루미늄 탭 선택 시
+
+                buttonAl.addClass('active').siblings().removeClass('active');  // 버튼 
+                $('#tbodyAl').show().siblings('div[id^="tbody"]').hide();      // 테이블 
+                $('#headProd > .prod-a').show().siblings().hide();             // 제품명
+                $('#headTicker > .ticker-a').show().siblings().hide();         // 제품명 > 기준가 설명
+                $('.scopi > .sc-a').show().siblings().hide();                  // 제품명 > scopi
+                $('.scopi-info > .sc-info-a').show().siblings().hide();        // scopi 설명
+
+            } else if ($(this).hasClass('btn-zn')) {  // 아연 탭 선택 시
+
+                buttonZn.addClass('active').siblings().removeClass('active');   // 버튼 
+                $('#tbodyZn').show().siblings('div[id^="tbody"]').hide();       // 테이블
+                $('#headProd > .prod-z').show().siblings().hide();              // 제품명
+                $('#headTicker > .ticker-z').show().siblings().hide();          // 제품명 > 기준가 설명
+                $('.scopi > .sc-z').show().siblings().hide();                   // 제품명 > scopi
+                $('.scopi-info > .sc-info-z').show().siblings().hide();         // scopi 설명
+
+            } else if ($(this).hasClass('btn-cu')) {
+
+                buttonCu.addClass('active').siblings().removeClass('active');   // 버튼 
+                $('#tbodyCu').show().siblings('div[id^="tbody"]').hide();       // 테이블
+                $('#headProd > .prod-c').show().siblings().hide();              // 제품명
+                $('#headTicker > .ticker-z').show().siblings().hide();          // 제품명 > 기준가 설명
+                $('.scopi > .sc-c').show().siblings().hide();                   // 제품명 > scopi
+                $('.scopi-info > .sc-info-z').show().siblings().hide();         // scopi 설명    	
+
+            } else if ($(this).hasClass('btn-ni')) {
+
+                buttonNi.addClass('active').siblings().removeClass('active');   // 버튼 
+                $('#tbodyNi').show().siblings('div[id^="tbody"]').hide();       // 테이블
+                $('#headProd > .prod-n').show().siblings().hide();              // 제품명
+                $('#headTicker > .ticker-z').show().siblings().hide();          // 제품명 > 기준가 설명
+                $('.scopi > .sc-n').show().siblings().hide();                   // 제품명 > scopi
+                $('.scopi-info > .sc-info-z').show().siblings().hide();         // scopi 설명     	
+
+            } else if ($(this).hasClass('btn-sn')) {
+                buttonSn.addClass('active').siblings().removeClass('active');   // 버튼 
+                $('#tbodyNi').show().siblings('div[id^="tbody"]').hide();       // 테이블
+                $('#headProd > .prod-s').show().siblings().hide();              // 제품명
+                $('#headTicker > .ticker-z').show().siblings().hide();          // 제품명 > 기준가 설명
+                $('.scopi > .sc-s').show().siblings().hide();                   // 제품명 > scopi
+                $('.scopi-info > .sc-info-z').show().siblings().hide();         // scopi 설명    	
+
+            } else if ($(this).hasClass('btn-ds')) {
+                buttonDs.addClass('active').siblings().removeClass('active');   // 버튼 
+                $('#tbodyDs').show().siblings('div[id^="tbody"]').hide();       // 테이블
+                $('#headProd > .prod-d').show().siblings().hide();              // 제품명
+                $('#headTicker > .ticker-z').show().siblings().hide();          // 제품명 > 기준가 설명
+                $('.scopi > .sc-d').show().siblings().hide();                   // 제품명 > scopi
+                $('.scopi-info > .sc-info-z').show().siblings().hide();         // scopi 설명
+
+            } else {
+                return false;
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

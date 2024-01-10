@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>상품목록(고정가-아연) 차트변경| SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+
+        <!-- header include -->
+        <div class="header-wrap include-wrap"></div>
+        <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+        <!-- //header include -->
+        
+        <!-- container -->
+        <div class="container">
+
+            <!-- 차트 리뉴얼 2022-04-07 > 겹치지 않게 임시 클래스 renew 추가 -->
+            <div class="section charts-wrap renew sub">
+                <div class="inwrap">
+                    <!-- chart content start -->
+                    <div class="charts-con">
+	                	<!-- chart title -->
+	                	<div class="chart-sum-title">
+	                		<div class="sum-title-wrap">
+	                			<ul class="sum-title">
+	                				<li>현재 서린닷컴 가격이 2월 누적 평균가격 3,302,000원 보다 저렴합니다 [누적 평균 : LME(CSP) 2,528.58 |  환율(최초매매) 1,235.37 ]</li>
+	               				</ul>
+	                		</div>
+	                	</div>
+	                	<!-- //chart title -->                    
+                    
+                        <!-- rCharts start -->
+                        <div class="rChart-graph">
+                            <!-- chart title start -->
+                            <div class="chart-title-area">
+                                <div class="title-wrap">
+                                    <!-- scopi start -->
+                                    <div class="scopi">
+                                        <span class="sc-a">SCOPI-A</span>
+                                        <span class="sc-z" style="display:none">SCOPI-Z</span>
+                                    </div>
+                                    <!-- //scopi end-->
+                                    <!-- title start -->
+                                    <div class="chart-title">
+                                        <div class="prod" id="headProd">
+                                            <span class="prod-a">알루미늄</span>
+                                            <span class="prod-z" style="display:none">아연</span>
+                                        </div>
+                                        <div class="ticker" id="headTicker">
+                                            <span class="ticker-a">
+                                                Primary <span class="t-a">Aluminium Ingot</span> (p1020)
+                                            </span>
+                                            <span class="ticker-z" style="display:none">
+                                                Primary <span class="t-z">SHG Ingot</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!-- //title end -->
+                                </div>
+                                
+                                <!-- charts summary start -->
+                                <div class="rChart-sum sum-type1">
+                                    
+                                    <!-- 
+                                        sum type class 설명
+                                        sum-type1 >> 개장 중 > 정상운영
+                                        sum-type2 >> 개장 중 > 휴무시간, LME사이드카, 환율사이드카
+                                        sum-type3 >> 개장 중 > 시초가 전
+                                                >> 개장 전 > LME휴일, 이벤트휴일, 평일
+                                    -->                        
+                                    
+                                    <!-- summary price start -->
+                                    <div class="rChart-current up"><!-- vs down-->
+                                        <span class="c-price">
+                                            2,825,000
+                                            <span class="txt">KRW</span>
+                                        </span>
+                                        <span class="c-rate">1.04%</span>
+                                        <span class="c-gap">251,200</span>
+
+                                        <div class="desc" id="headDesc">
+                                            <span class="desc-txt">부산</span> 보세창고 상차도 기준(<span class="brand">서구산</span>, 부가세미포함)
+                                        </div>
+                                    </div>
+                                    <!-- //summary price end -->
+
+                                    <!-- summary state start -->
+                                    <div class="rChart-summary">
+                                        <ul class="rChart-summ">
+                                            <li>
+                                                <span class="stit">시가</span>
+                                                <span class="m-price">2,978,300</span>
+                                            </li>
+                                            <li>
+                                                <span class="stit">고가</span>
+                                                <span class="h-price">2,978,300</span>
+                                            </li>
+                                            <li>
+                                                <span class="stit">저가</span>
+                                                <span class="l-price">2,769,210</span>
+                                            </li>
+                                            <li>
+                                                <span class="stit">전일가</span>
+                                                <span class="y-price">2,769,210</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- //summary state end -->
+                                    <div class="exchange">
+                                        환율
+                                        <span class="number">1,120.60</span>
+                                        <span class="unit">USD</span>
+                                    </div>
+                                </div>
+                                <!-- //charts summary end -->
+                                
+                            </div>
+                            <!-- //chart title end -->
+                            <!-- chart graph start -->
+                            <div class="chart-graph-area">
+                                <!-- charts area start -->
+                                <div class="rcharts-wrap" id="rCharts">
+                                    <img src="/guide/images/ma/temp-main-charts.png" alt="임시 차트 이미지"><!-- rCharts 위치 -->
+                                </div>
+                                <!-- //charts area end -->
+
+                                <!-- chart bottom text start -->
+                                <div class="scopi-info">
+                                    <span class="sc-info-a">SCOPI-<strong>A</strong> (<strong>S</strong>orin <strong>C</strong>ommodity c<strong>O</strong>mposite <strong>P</strong>rice <strong>I</strong>ndex - <strong>A</strong>luminium)</span>
+                                    <span class="sc-info-z" style="display:none">SCOPI-<strong>Z</strong> (<strong>S</strong>orin <strong>C</strong>ommodity c<strong>O</strong>mposite <strong>P</strong>rice <strong>I</strong>ndex - <strong>Z</strong>inc)</span>
+                                </div>
+                                <!-- //chart bottom text end -->
+
+                            </div>
+                            <!-- //chart graph end -->
+                            
+
+                        </div>
+                        <!-- //rCharts end -->
+
+                        <!-- rChart table start -->
+                        <div class="rChart-table">
+                        
+                            <!-- tab area start -->
+                            <div class="chart-tab-area">
+                                <button type="button" class="btn-al w-100 active">알루미늄</button>
+                                <!-- <button type="button" class="btn-zn">아연</button> -->
+    <!--                         <button type="button" class="btn-al active w-100">알루미늄</button>  하나일 때  -->
+                            </div>
+                            <!-- //tab area end -->
+
+                            <!-- table list area start -->
+                            <div class="table-list-area">
+                                <!-- thead -->
+                                <div class="table-list-thead">
+                                    <ul class="th-text">
+                                        <li>품목</li>
+                                        <li>현재가</li>
+                                        <li>등락률</li>
+                                    </ul>
+                                </div>
+                                <!--// thead-->
+
+                                <!-- 
+                                div class="l-inner up" 상승
+                                div class="l-inner down" 하락 
+                                div class="l-inner" 보합
+                                div class="l-inner up close" 장마감
+                                -->
+
+                                <!-- tbody list : Aluminium start -->
+                                <div class="table-list-tbody" id="tbodyAl">
+
+                                    <!-- list inner : sorin start -->
+                                    <div class="tb-list-section">
+                                        <!-- list title start -->
+                                        <div class="tbody-title">
+                                            <span class="tit">서린닷컴</span>
+                                            <span class="txt">(KRW/MT)</span>
+                                        </div>
+                                        <!-- //list title end -->
+
+                                        <!-- list inner items start -->
+                                        <div class="list-inner al-sorin">
+                                            <!-- item 1 -->
+                                            <div class="l-inner first up">
+                                                <div class="c-wrhous">
+                                                    <span class="wrhous">부산/</span>
+                                                    <span class="brand-group">서구산</span>
+                                                </div>
+                                                <div class="c-price">2,825,000</div>
+                                                <div class="c-rate">+100.04%</div>
+                                            </div>
+                                            <!-- item 2 -->
+                                            <div class="l-inner second up">
+                                                <div class="c-wrhous">
+                                                    <span class="wrhous">부산/</span>
+                                                    <span class="brand-group">비서구산</span>
+                                                </div>
+                                                <div class="c-price">2,825,000</div>
+                                                <div class="c-rate">+100.04%</div>
+                                            </div>
+                                            <!-- item 3 -->
+                                            <div class="l-inner third down">
+                                                <div class="c-wrhous">
+                                                    <span class="wrhous">인천/</span>
+                                                    <span class="brand-group">서구산</span>
+                                                </div>
+                                                <div class="c-price">2,825,000</div>
+                                                <div class="c-rate">-10.04%</div>
+                                            </div>
+                                            <!-- item 4 -->
+                                            <div class="l-inner fourth ">
+                                                <div class="c-wrhous">
+                                                    <span class="wrhous">인천/</span>
+                                                    <span class="brand-group">비서구산</span>
+                                                </div>
+                                                <div class="c-price">2,825,000</div>
+                                                <div class="c-rate">0.0%</div>
+                                            </div>
+                                        </div>
+                                        <!-- //list inner items end -->
+                                    </div>
+                                    <!-- //list inner : sorin end -->
+
+                                    <!-- list inner : pps(조달청) start -->
+                                    <div class="tb-list-section">
+                                        <!-- list title start -->
+                                        <div class="tbody-title">
+                                            <span class="tit">조달청</span>
+                                            <span class="txt">(KRW/MT)</span>
+                                            <button class="btn-vat-view" id="buttonVat">부가세 제외보기</button>
+                                        </div>
+                                        <!-- //list title end -->
+
+                                        <!-- list inner items start -->
+                                        <div class="list-inner al-pps">
+                                            <!-- item 1 -->
+                                            <div class="l-inner first up">
+                                                <div class="c-wrhous">
+                                                    <span class="brand-group">서구산</span>
+                                                </div>
+                                                <div class="c-price">2,825,000</div>
+                                                <div class="c-rate">+100.04%</div>
+                                            </div>
+                                            <!-- item 2 -->
+                                            <div class="l-inner second">
+                                                <div class="c-wrhous">
+                                                    <span class="brand-group">비서구산</span>
+                                                </div>
+                                                <div class="c-price">2,825,000</div>
+                                                <div class="c-rate">+100.04%</div>
+                                            </div>
+                                        </div>
+                                        <!-- //list inner items end -->
+                                    </div>
+                                    <!-- //list inner : pps(조달청) end -->
+
+                                    <!-- list inner : LME start -->
+                                    <div class="tb-list-section">
+                                        <!-- list title start -->
+                                        <div class="tbody-title">
+                                            <span class="tit">LME</span>
+                                            <span class="txt">(USD/MT)</span>
+                                        </div>
+                                        <!-- //list title end -->
+
+                                        <!-- list inner items start -->
+                                        <div class="list-inner al-lme">
+                                            <!-- item 1 -->
+                                            <div class="l-inner first">
+                                                <div class="c-lme">
+                                                    <span class="day">전일</span>
+                                                    <span class="off">OFFICIAL CASH</span>
+                                                </div>
+                                                <div class="c-price">2,825,000</div>
+                                                <div class="c-rate">+100.04%</div>
+                                            </div>
+                                            <!-- item 2 -->
+                                            <div class="l-inner second">
+                                                <div class="c-lme">
+                                                    <span class="day">전일</span>
+                                                    <span class="off">CLOSING CASH</span>
+                                                </div>
+                                                <div class="c-price">2,825,000</div>
+                                                <div class="c-rate">+100.04%</div>
+                                            </div>
+                                            <!-- item 3 -->
+                                            <div class="l-inner third">
+                                                <div class="c-lme">
+                                                    <span class="day">전일</span>
+                                                    <span class="off">OFFICIAL 3M</span>
+                                                </div>
+                                                <div class="c-price">2,825,000</div>
+                                                <div class="c-rate">-100.04%</div>
+                                            </div>
+                                            <!-- item 4 -->
+                                            <div class="l-inner fourth">
+                                                <div class="c-lme">
+                                                    <span class="day">전일</span>
+                                                    <span class="off">CLOSING 3M</span>
+                                                </div>
+                                                <div class="c-price">2,825,000</div>
+                                                <div class="c-rate">1.04%</div>
+                                            </div>
+                                        </div>
+                                        <!-- //list inner items end -->
+                                    </div>
+                                    <!-- //list inner : LME end -->
+                                </div>
+                                <!--//tbody : Aluminium end -->
+
+                                <!-- tbody list : Zinc start -->
+                                <div class="table-list-tbody" id="tbodyZn" style="display:none">
+
+                                    <!-- list inner : sorin start -->
+                                    <div class="tb-list-section">
+                                        <!-- list title start -->
+                                        <div class="tbody-title">
+                                            <span class="tit">가격정보 / 창고상차도</span>
+                                        </div>
+                                        <!-- //list title end -->
+
+                                        <!-- list inner items start -->
+                                        <div class="list-inner zn-price-info">
+                                            <!-- item 1 -->
+                                            <div class="l-inner first">
+                                                <div class="c-wrhous">
+                                                    <span class="wrhous">SHG Ingot</span>
+                                                </div>
+                                                <div class="c-price">2,825,000</div>
+                                                <div class="c-rate">+100.04%</div>
+                                            </div>
+                                            <!-- item 2 -->
+                                            <div class="l-inner second">
+                                                <div class="c-wrhous">
+                                                    <span class="wrhous">ZIPPER</span>
+                                                </div>
+                                                <div class="c-price">2,825,000</div>
+                                                <div class="c-rate">+100.04%</div>
+                                            </div>
+                                        </div>
+                                        <!-- //list inner items end -->
+                                    </div>
+                                    <!-- //list inner : sorin end -->
+
+                                </div>
+                                <!--//tbody : Zinc end -->
+
+                            </div>
+                            <!-- //table list area end -->
+                            <!-- btn start -->
+                            <div class="btns">
+                                <button type="button" class="btn-stroke-md btn-alarm" data-popup="modal" data-target="sorinModalAlarm">알림받기</button>
+                                <!-- <button type="button" class="btn-blue-md btn-buy">구매하기</button> -->
+                            </div>
+                            <!-- //btn end -->
+                        </div>
+                        <!-- //rChart table end -->
+                    </div>
+                    <!-- //chart content end -->
+                </div> 
+            </div>
+            <!--// 차트 리뉴얼 2022-04-06 > 겹치지 않게 임시 클래스 renew 추가 -->     
+            
+            <!-- section -->
+            <div class="section">
+                <div class="inwrap">
+                    <div class="select-prod-wrap mt5">
+                        <div class="select-option-area full">
+                            <div class="hgroup flex-start">
+                                <h2 class="h2-new">LIVE PRICING 
+                                    <span class="h3-time" style="vertical-align:text-bottom;">16:21:52</span>
+                                </h2>
+                                <!-- <div class="btns button-group">
+                                    <button type="button" class="btn-blue-md">서린배송</button>
+                                    <button type="button" class="btn-stroke-md">자차배송</button>
+                                </div> -->
+                            </div>
+                            <div class="select-wrap form-chk-2">
+                                <div>
+                                    <dl>
+                                        <dt>아이템</dt>
+                                        <dd><input type="radio" name="selItem" id="selItem1"><label for="selItem1"><span>알루미늄(P1020)</span></label></dd>
+                                    </dl>
+                                </div>
+                                <div>
+                                    <dl>
+                                        <dt>출고권역</dt>
+                                        <dd><input type="radio" name="selDepartArea" id="selDepartArea1"><label for="selDepartArea1"><span>부산권역</span></label></dd>
+                                        <dd><input type="radio" name="selDepartArea" id="selDepartArea2" checked><label for="selDepartArea2"><span>인천권역</span></label></dd>
+                                    </dl>
+                                </div>
+                                <div>
+                                    <dl>
+                                        <dt>브랜드 그룹</dt>
+                                        <dd><input type="radio" name="selChooseBrand" id="selChooseBrand1"><label for="selChooseBrand1"><span>브랜드 무관</span></label></dd>
+                                        <dd><input type="radio" name="selChooseBrand" id="selChooseBrand2"><label for="selChooseBrand2"><span>비서구산</span></label></dd>
+                                        <dd><input type="radio" name="selChooseBrand" id="selChooseBrand3"><label for="selChooseBrand3"><span>서구산</span></label></dd>
+                                    </dl>
+                                </div>
+                                <div>
+                                    <dl class="brand">
+                                        <dt>브랜드</dt>
+                                        <dd><input type="radio" name="selBrand" id="selBrand1"><label for="selBrand1"><em class="n-img"><img src="/guide/images/sample/img_nation_sample.png" alt="nation"></em><span>BBY</span></label></dd>
+                                        <dd><input type="radio" name="selBrand" id="selBrand2"><label for="selBrand2"><em class="n-img"><img src="/guide/images/sample/img_nation_sample2.png" alt="nation"></em><span>BHARATAL</span></label></dd>
+                                        <dd><input type="radio" name="selBrand" id="selBrand3"><label for="selBrand3"><em class="n-img"><img src="/guide/images/sample/img_nation_sample.png" alt="nation"></em><span>BOYNE</span></label></dd>
+                                        <dd><input type="radio" name="selBrand" id="selBrand4"><label for="selBrand4"><em class="n-img"><img src="/guide/images/sample/img_nation_sample2.png" alt="nation"></em><span>HILLSIDES</span></label></dd>
+                                        <dd><input type="radio" name="selBrand" id="selBrand5"><label for="selBrand5"><em class="n-img"><img src="/guide/images/sample/img_nation_sample.png" alt="nation"></em><span>HINDALCO(AD)</span></label></dd>
+                                        <dd><input type="radio" name="selBrand" id="selBrand6"><label for="selBrand6"><em class="n-img"><img src="/guide/images/sample/img_nation_sample2.png" alt="nation"></em><span>HINDALCO(MH)</span></label></dd>
+                                        <dd><input type="radio" name="selBrand" id="selBrand7"><label for="selBrand7"><em class="n-img"><img src="/guide/images/sample/img_nation_sample.png" alt="nation"></em><span>NZAS</span></label></dd>
+                                        <dd><input type="radio" name="selBrand" id="selBrand8"><label for="selBrand8"><em class="n-img"><img src="/guide/images/sample/img_nation_sample2.png" alt="nation"></em><span>PMB</span></label></dd>
+                                    </dl>
+                                </div>
+                                <!-- <div>
+                                    <dl>
+                                        <dt>주문중량</dt>
+                                        <dd><input type="radio" name="selAmount" id="selAmount1"><label for="selAmount1"><span>25</span></label></dd>
+                                        <dd><input type="radio" name="selAmount" id="selAmount2"><label for="selAmount2"><span>50</span></label></dd>
+                                        <dd><input type="radio" name="selAmount" id="selAmount4"><label for="selAmount4"><span>100</span></label></dd>
+                                        <dd><input type="radio" name="selAmount" id="selAmount5"><label for="selAmount5"><span>125</span></label></dd>
+                                        <dd><input type="radio" name="selAmount" id="selAmount6"><label for="selAmount6"><span>150</span></label></dd>
+                                        <dd><input type="radio" name="selAmount" id="selAmount7"><label for="selAmount7"><span>175</span></label></dd>
+                                        <dd><input type="radio" name="selAmount" id="selAmount8"><label for="selAmount8"><span>200</span></label></dd>
+                                    </dl>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div><!--// .select-prod-wrap -->
+                    <div class="error-area mt25 center">
+                        <p class="t-info fc-red">브랜드 무관을 선택하시면, 선택된 브랜드별로 가격이 달라질 수 있습니다.</p>
+                    </div>
+                    <div class="btn-wrap mt20">
+                        <button type="button" class="btn-stroke-big btn-prod-detail">상품상세</button>
+                        <button type="button" class="btn-stroke-big blue">관심상품 목록 추가</button>
+                        <button type="button" class="btn-blue-big">구매하기</button>
+                    </div>
+                </div>
+            </div>
+            <!--// .section -->
+            <!-- section 
+            <div class="section no-pt">
+                <div class="inwrap">
+                    <div class="hgroup">
+                        <h3 class="h3">출고정보</h3>
+                    </div>
+                    <ul class="list t2">
+                        <li class="set-default-address">
+                            <div class="manage-destination">
+                                <div class="destination-info">
+                                    <div>
+                                        <span class="label-cate">남부영업</span>
+                                        <span class="location">인천 제1공장</span>
+                                    </div>
+                                    <div>
+                                        <dl class="road-base">
+                                            <dt>도로명 주소 -&nbsp;</dt>
+                                            <dd>서울특별시 강남구 강남대로 542 (논현동)</dd>
+                                        </dl>
+                                        <dl class="parcel-base">
+                                            <dt>지번주소 -&nbsp;</dt>
+                                            <dd>서울특별시 강남구 논현동 142</dd>
+                                        </dl>
+                                        <dl class="delivery-charger">
+                                            <dt>배송지 담당자 -&nbsp;</dt>
+                                            <dd>김나라 010-0000-0000</dd>
+                                        </dl>
+                                    </div>
+                                </div>                                    
+                                <div class="btns">
+                                    <button type="button" class="btn-stroke-md btn-modify" data-popup="modal" data-target="sorinModalChgAddress">배송지 변경</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            // .section
+            section 
+            <div class="section no-pt mt5 pb80">
+                <div class="inwrap">
+                    <div class="hgroup" style="align-items: baseline;">
+                        <h2 class="h2-new">주문 가능 상품</h2>
+                        <div class="btns fc-gray">※ 가격은 운송비, 부가세 별도입니다.</div>
+                    </div>
+                    <ul class="list t2">
+                        <!-- <li>
+                            <div class="cart-item-wrap _available">
+                                <figure class="figure figure1">
+                                    <img src="/guide/images/my/icon_al.png" alt="알루미늄">
+                                </figure>
+                                <div class="figure-con">
+                                    <p class="pd-name">[알루미늄] Aluminum Ingot p1020 / 비서구산 / VEDANTA</p>
+                                    <p class="pd-order">
+                                        <span>함께 담은 사람 - 211명 </span>
+                                        <span class="bar">|</span>
+                                        <span>주문중량 - 25MT</span>
+                                        <span class="bar">|</span>
+                                        <span class="fc-blue">서린배송</span> 
+                                    </p>
+                                    <p class="pd-unit-price">
+                                        <span class="label-orange">LIVE</span>
+                                        <span class="u-price">1,759,000 (KRW/MT)</span>
+                                    </p>
+                                    <div class="pd-departure">
+                                        배송지 - [군산 1번 배송지] 전북 군산시 오식도동 884-3 / 홍길동 010-3559-0305<br>
+                                        <p class="pd-order">
+                                            <span>출고권역 - 전라광양 </span>
+                                            <span class="bar">|</span>
+                                            <span>출고요청일 - 2021-03-27</span> 
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="mt-price">
+                                    <p class="pd-mount">현재단가(KRW/MT)</p>
+                                    <p class="pd-price">6,299,000원</p>
+                                </div>
+                                <div class="btns">
+                                    <button type="button" class="btn-stroke-md btn-prod-detail">상품상세</button>
+                                    <button type="button" class="btn-blue-md btn-cart">장바구니</button>
+                                </div>
+                            </div>
+                        </li> 
+                        <li>
+                            <div class="cart-item-wrap type2">
+                                <figure class="figure figure1">
+                                    <img src="/guide/images/my/icon_al.png" alt="알루미늄" class="w">
+                                </figure>
+                                <div class="figure-con">
+                                    <p class="pd-name">[알루미늄] Aluminum Ingot p1020 / 비서구산 / VEDANTA</p>
+                                    <p class="pd-unit-price">
+                                        <span class="label-orange">LIVE</span>
+                                        <span class="label-desc">현재단가</span>
+                                        <span class="u-price">1,759,000 (KRW/MT)</span>
+                                    </p>
+                                </div>
+                                <div class="btns">
+                                    <button type="button" class="btn-stroke-md btn-prod-detail">상품상세</button>
+                                    <button type="button" class="btn-blue-md btn-cart">관심상품 담기</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            // .section-->
+            
+            <!-- section : 상세 정보 : 토글 콘텐츠 영역 -->
+            <div class="section prod-detail-wrap hide" id="prdoDetail">
+                <div class="inwrap">
+                    <div class="plate-stroke">
+                        <div class="btn-area-close"><button type="button" class="btn-x btn-prod-detail-x"><span class="hidden">제품 상세정보 닫기</span></button></div>
+                        <div class="section">
+                            
+                            <div class="prod-summary-wrap">
+                                <div class="prod-photo-wrap">
+                                    <div class="swiper-container prodSwiper2">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide"><img src="/guide/images/pd/@nature-1.jpg"></div>
+                                            <div class="swiper-slide"><img src="/guide/images/pd/@nature-2.jpg"></div>
+                                            <div class="swiper-slide"><img src="/guide/images/pd/@nature-3.jpg"></div>
+                                        </div>
+                                        <!-- <div class="swiper-button-next"></div>
+                                        <div class="swiper-button-prev"></div> -->
+                                    </div>
+                                    <div class="swiper-container prodSwiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide"><img src="/guide/images/pd/@nature-1.jpg"></div>
+                                            <div class="swiper-slide"><img src="/guide/images/pd/@nature-2.jpg"></div>
+                                            <div class="swiper-slide"><img src="/guide/images/pd/@nature-3.jpg"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="prod-desc-wrap">
+                                    <div class="hgroup">
+                                        <h2 class="h2">Zinc Diecast Ingot 상세정보</h2>
+                                    </div>
+                                    <ul class="list-square">
+                                        <li>
+                                            <span class="th">브랜드 구분</span>
+                                            <span class="dd">비서구산</span>
+                                        </li>
+                                        <li>
+                                            <span class="th">브랜드 명</span>
+                                            <span class="dd">Vedanta</span>
+                                        </li>
+                                        <li>
+                                            <span class="th">상품정보제공고시</span>
+                                            <span class="dd">
+                                                품명 및 모델명 : 고순도 알루미늄 잉곳(P1020)<br>
+                                                인증사항 : 원산지 증명서 참조<br>
+                                                원산지 : 인도<br>
+                                                수입자 : 서린상사<br>
+                                                소비자상담관련 전화번호 : 080-3657-5541
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="th">영업 담당자 정보</span>
+                                            <span class="dd">
+                                                담당자 : 홍길동<br>
+                                                연락처 : 02-0325-5547
+                                            </span>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="section pd-detail-tab">
+                                <div class="ta-r mb10"><button type="button" class="btn-blue-big" data-popup="modal" data-target="sorinModalInquire"><span>상품문의</span></button></div>
+                                <div class="btn-toggle-wrap full">
+                                    <div><button type="button" class="toggle active"><span>상품소개</span></button></div>
+                                    <div><button type="button" class="toggle"><span>배송 / 클레임 안내</span></button></div>
+                                </div>
+                            </div>
+
+                            <div class="section">
+                                <div class="article">
+                                    <div class="hgroup">
+                                        <h3 class="h3">용도</h3>
+                                    </div>
+                                    <ul class="list-square">
+                                        <li>
+                                            <span class="th">운송</span>
+                                            <span class="dd">자동차, 항공기, 트럭, 철도 차량, 선박, 자전거, 우주선 등</span>
+                                        </li>
+                                        <li>
+                                            <span class="th">포장</span>
+                                            <span class="dd">캔, 호일, 프레임 등</span>
+                                        </li>
+                                        <li>
+                                            <span class="th">건물 및 건설</span>
+                                            <span class="dd">창문, 문, 사이딩, 건물 와이어, 외장, 루핑 등</span>
+                                        </li>
+                                        <li>
+                                            <span class="th">전기 관련 용도</span>
+                                            <span class="dd">도체 합금, 모터 및 발전기, 변압기, 커패시터, 조리기구 등</span>
+                                        </li>
+                                        <li>
+                                            <span class="th">기계 및 장비</span>
+                                            <span class="dd">가공 장비, 파이프, 도구</span>
+                                        </li>
+                                    </ul>
+                                </div><!--// .article-->
+
+                                <div class="article">
+                                    <div class="hgroup">
+                                        <h3 class="h3">런던금속거래소(London Metal Exchange, LME) 공식 가격이란?</h3>
+                                    </div>
+                                    <ul class="list-square">
+                                        <li>
+                                            공식가격(Official Price)은 LME에서 발표하는 공식가격으로 매일 오전장 (First Session)의 2번째 링(Second Ring)이 끝난 후 바로 그날의 공식가격을
+    발표하며 이는 전 세계 비철금속거래의 지표로 활용됩니다.
+                                        </li>
+                                        <li>
+                                            발표되는 가격은 Cash(현금가격), 3Months(3개월 선물가격), 15Months(15개월 선물가격)이며, 품목에 따라서 27Months(27개월 선물가격)까지로 구분되고
+    금년 중 일부 품목은 63개월 포워드 가격 발표됩니다.
+                                        </li>
+                                        <li>
+                                            서린닷컴에서는 알루미늄에 대해 고객에게 실시간 현금가격을 기준으로 판매가격이 정해집니다.
+                                        </li>
+                                    </ul>
+                                </div><!--// .article-->
+                            </div>
+
+                            <div class="section">
+                                <div class="box-2cols">
+                                    <div class="article">
+                                        <h3 class="h3">Specification (%)</h3>
+                                        
+                                        <table class="tbl-v">
+                                        <colgroup>
+                                        <col style="width:50%;">
+                                        <col>
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">AL</th>
+                                                <td class="center">99.700 Min</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Si</th>
+                                                <td class="center">≤ 0.1</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Fe</th>
+                                                <td class="center">≤ 0.2</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Cu</th>
+                                                <td class="center">≤ 0.3</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Mn</th>
+                                                <td class="center">≤ 0.02</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">MG</th>
+                                                <td class="center">≤ 0.025</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Cr</th>
+                                                <td class="center">≤ 0.2</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Zn</th>
+                                                <td class="center">≤ 0.3</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">V</th>
+                                                <td class="center">≤ 0.2</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Ga</th>
+                                                <td class="center">≤ 0.2</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Ti</th>
+                                                <td class="center">≤ 0.2</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Zr</th>
+                                                <td class="center">≤ 0.02</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="article">
+                                        <h3 class="h3">Form &amp; Packing</h3>
+                                        <table class="tbl-v">
+                                        <colgroup>
+                                        <col style="width:9rem;">
+                                        <col style="width:16.5rem;">
+                                        <col>
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row" class="th" rowspan="4">Ingot</th>
+                                                <th scope="row">Ingot Mass (average)</th>
+                                                <td class="center">22.5 ± 1.5 kg</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Ingot Dimension (mm)</th>
+                                                <td class="center">746 x 180 x 114</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Ingot Dimension (mm)</th>
+                                                <td class="center">975 ± 50</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Ingot per Bundle</th>
+                                                <td class="center">44</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                
+                                        <table class="tbl-v">
+                                        <colgroup>
+                                        <col style="width:9rem;">
+                                        <col style="width:16.5rem;">
+                                        <col style="width:11rem;">
+                                        <col>
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row" rowspan="4" class="th">T-bar</th>
+                                                <th scope="row" rowspan="3">Dimensions (mm)</th>
+                                                <th scope="row" class="th-2nd">Length</th>
+                                                <td>900 ± 100</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="th-2nd">Width</th>
+                                                <td>750 ± 50</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="th-2nd">Height</th>
+                                                <td>400 ± 50</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Weight (kg)</th>
+                                                <th scope="row" class="th-2nd"><span class="hidden">빈셀</span></th>
+                                                <td>750 ± 12.5</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                
+                                        <table class="tbl-v">
+                                        <colgroup>
+                                        <col style="width:9rem;">
+                                        <col style="width:16.5rem;">
+                                        <col style="width:11rem;">
+                                        <col>
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row" rowspan="4" class="th">Sows Type</th>
+                                                <th scope="row" rowspan="3">Dimensions (mm)</th>
+                                                <th scope="row" class="th-2nd">Length</th>
+                                                <td>1100 ± 100</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="th-2nd">Width</th>
+                                                <td>1400 ± 150</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="th-2nd">Height</th>
+                                                <td>300 ± 10</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Weight (kg)</th>
+                                                <th scope="row" class="th-2nd"><span class="hidden">빈셀</span></th>
+                                                <td>680 ± 50</td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-wrap">
+                            <button type="button" class="btn-blue-big wide btn-prod-cart"><span>관심품목 담기</span></button>
+                        </div>
+
+                    </div><!--// .plate-stroke-->
+                </div>
+            </div>
+            <!--// section -->
+        </div>
+        <!-- //container -->
+    
+        <!-- footer include -->
+        <div class="footer-wrap include-wrap"></div>
+        <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+        <!-- //footer include -->
+        
+    </div>
+
+
+    <!-- MODAL POPUP : 배송지 변경 -->
+    <div class="popup modal" id="sorinModalChgAddress">
+        <div class="modal-content w1060px">
+            <div class="max-width">
+                <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+
+                <h1 class="h2-pd">배송지 변경</h1>
+                <div class="div-scroll-y">
+                    <div class="section">
+                        <ul class="list t2">
+                            <li class="set-default-address">
+                                <div class="manage-destination">
+                                    <div class="destination-info">
+                                        <div>
+                                            <span class="label-cate">남부영업</span>
+                                            <span class="location">인천 제1공장</span>
+                                        </div>
+                                        <div>
+                                            <dl class="road-base">
+                                                <dt>도로명 주소 -&nbsp;</dt>
+                                                <dd>서울특별시 강남구 강남대로 542 (논현동)</dd>
+                                            </dl>
+                                            <dl class="parcel-base">
+                                                <dt>지번주소 -&nbsp;</dt>
+                                                <dd>서울특별시 강남구 논현동 142</dd>
+                                            </dl>
+                                            <dl class="delivery-charger">
+                                                <dt>배송지 담당자 -&nbsp;</dt>
+                                                <dd>김나라 010-0000-0000</dd>
+                                            </dl>
+                                        </div>
+                                    </div>                                    
+                                    <div class="btns">
+                                        <button type="button" class="btn-stroke-md btn-set-default">배송지 설정</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="manage-destination">
+                                    <div class="destination-info">
+                                        <div>
+                                            <span class="label-cate">남부영업</span>
+                                            <span class="location">인천 제1공장</span>
+                                        </div>
+                                        <div>
+                                            <dl class="road-base">
+                                                <dt>도로명 주소 -&nbsp;</dt>
+                                                <dd>인천 남동구 남동서로113번길 28-33</dd>
+                                            </dl>
+                                            <dl class="parcel-base">
+                                                <dt>지번주소 -&nbsp;</dt>
+                                                <dd>인천광역시 남동구 고잔동 681-7</dd>
+                                            </dl>
+                                            <dl class="delivery-charger">
+                                                <dt>배송지 담당자 -&nbsp;</dt>
+                                                <dd>김나라 (010-0000-0000)</dd>
+                                            </dl>
+                                        </div>
+                                    </div>                                    
+                                    <div class="btns">
+                                        <button type="button" class="btn-stroke-md btn-set-default">배송지 설정</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="manage-destination">
+                                    <div class="destination-info">
+                                        <div>
+                                            <span class="label-cate">주식회사 액션캣그룹</span>
+                                            <span class="location">부산 영업지사</span>
+                                        </div>
+                                        <div>
+                                            <dl class="road-base">
+                                                <dt>도로명 주소 -&nbsp;</dt>
+                                                <dd>부산 동구 초량동 1208-18 뉴포트빌딩8층</dd>
+                                            </dl>
+                                            <dl class="parcel-base">
+                                                <dt>지번주소 -&nbsp;</dt>
+                                                <dd>부산광역시 동구 초량동 1208-31 뉴포트빌딩8층</dd>
+                                            </dl>
+                                            <dl class="delivery-charger">
+                                                <dt>배송지 담당자 -&nbsp;</dt>
+                                                <dd>김나라 (010-0000-0000)</dd>
+                                            </dl>
+                                        </div>
+                                    </div>                                    
+                                    <div class="btns">
+                                        <button type="button" class="btn-stroke-md btn-set-default">배송지 설정</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="btn-wrap mt40">
+                            <button type="button" class="btn-gray-big">취소</button>
+                            <button type="button" class="btn-blue-big">확인</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--// MODAL POPUP : 제품 상세 -->
+
+    <!-- MODAL POPUP : 문의하기 -->
+    <div class="popup modal" id="sorinModalInquire">
+        <div class="modal-content w1060px">
+            <div class="max-width">
+                <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+
+                <h1 class="h2 center">문의하기</h1>
+                <div class="div-scroll-y">
+                    <div class="section">
+                        <div class="article">
+                            <table class="tbl-v vt th-left inquire-wrap">
+                                <caption>문의하기 - 구분, 제목, 내용, 파일첨부 제공</caption>
+                            <colgroup>
+                            <col style="width:16rem;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">문의 구분</th>
+                                    <td>
+                                        <div class="select-combo-wrap">
+                                            <div>
+                                                <select name="selCate" id="selCate" class="dropdown">
+                                                    <option value="1" selected>주문/결제</option>
+                                                    <option value="2">배송</option>
+                                                    <option value="3">취소/환불/반품/교환</option>
+                                                    <option value="4">계산서/증빙서류</option>
+                                                    <option value="5">상품</option>
+                                                    <option value="6">회원/정보관리</option>
+                                                    <option value="7">마이페이지</option>
+                                                    <option value="8">일반 서비스문의</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <select name="selCateSub" id="selCateSub" class="dropdown">
+                                                    <option>선택해 주세요.</option>
+                                                    
+                                                    <option data-value="1">주문방법</option>
+                                                    <option data-value="1">견적문의</option>
+                                                    <option data-value="1">주문내역 확인</option>
+                                                    <option data-value="1">결제</option>
+                                                    <option data-value="1">장바구니</option>
+
+                                                    <option data-value="2">배송방법</option>
+                                                    <option data-value="2">배송오류</option>
+                                                    <option data-value="2">배송지변경</option>
+                                                    <option data-value="2">분할배송문의</option>
+                                                    
+                                                    <option data-value="3">취소 방법</option>
+                                                    <option data-value="3">환불 기간</option>
+                                                    <option data-value="3">환불내역확인</option>
+                                                    <option data-value="3">반품 방법</option>
+                                                    <option data-value="3">교환 방법</option>
+                                                    
+                                                    <option data-value="4">세금계산서</option>
+                                                    <option data-value="4">기타 증빙서류</option>
+                                                    
+                                                    <option data-value="5">상품</option>
+                                                    <option data-value="5">상품가격</option>
+                                                    
+                                                    <option data-value="6">가입/탈퇴</option>
+                                                    <option data-value="6">증빙서류</option>
+                                                    <option data-value="6">정보변경</option>
+                                                    <option data-value="6">ID/비밀번호</option>
+                                                    
+                                                    <option data-value="7">회원등급</option>
+                                                    
+                                                    <option data-value="8">일반 서비스문의</option>
+                                                </select>
+                                            </div>
+                                            <div class="text-mappingcode">
+                                                매핑코드 정보
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="ipInquireTit">문의 제목</label></th>
+                                    <td>
+                                        <input type="text" name="ipInquireTit" id="ipInquireTit" placeholder="제목을 입력해 주세요.(20자 이내)">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="context"><label for="textInquireCon">문의 내용</label></th>
+                                    <td>
+                                        <textarea name="textInquireCon" id="textInquireCon" rows="10" placeholder="내용을 입력해 주세요.(200자 이내)"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="ipAttachFile">파일 첨부</label></th>
+                                    <td>
+                                        <span class="limit-width">
+                                            <span class="input-file">
+                                                <input type="file" name="ipAttachFile" id="ipAttachFile" class="hidden-file">
+                                                <button type="button" class="btn-stroke-md blue">파일찾기</button>
+                                            </span>
+                                        </span>
+                                        <span class="t-info">PDF, JPG, JPEG, PNG 포맷의 3M이내 파일로 첨부해주세요.</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                            <div class="tbl-notice">등록하신 이메일로 답변내용이 전달 됩니다.</div>
+                            <div class="btn-wrap">
+                                <button type="button" class="btn-gray-big modal-x">취소</button>
+                                <button type="button" class="btn-blue-big">문의등록</button>
+                                <!--
+                                <button type="button" class="btn-gray-big modal-x">닫기</button>
+                                <button type="button" class="btn-blue-big">삭제</button>
+                                -->
+                            </div>
+                        </div><!--// .article -->
+                    </div>
+                </div><!-- // .div-scroll-y -->
+            </div><!--// .max-width -->
+        </div>
+    </div>
+    <!--// MODAL POPUP : 문의하기 -->
+
+
+    <!-- script core -->
+    <script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/guide/js/select2/select2.min.js"></script>
+    <!-- script extra -->
+    <script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+    <script src="/guide/js/swiper/6.7.0/swiper.js"></script>
+    <!-- script custom -->
+    <script src="/guide/js/sorin.js"></script>
+    <script src="/guide/js/sorin-layout.js"></script>
+    <script src="/guide/js/sorin-ma.js"></script>
+    <!-- script embedded -->
+    <script>
+    $(document).on('click', '.btn-prod-detail', function(){
+        $('#prdoDetail').show('fast',
+            function(){
+                $(this).removeClass('hide');
+                var offset = $('#prdoDetail').offset();
+                $('html, body').animate({scrollTop : offset.top - 171}, 1000);
+                loadSwiperProdGal();
+            }
+        );
+    });
+    $(document).on('click', '.btn-prod-detail-x', function(){
+        $('#prdoDetail').addClass('hide').hide();
+    });
+
+    if ($('.shippingCalWrap').length > 0){
+        var cur2 = -1,
+        prv2 = -1;
+        $('.shippingCalWrap').datepicker({
+            yearRange: 'c-100:c+10',
+            dateFormat: "yy-mm-dd",
+            showMonthAfterYear: true ,
+            dayNamesMin: ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'], 
+            monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+            yearSuffix: '년',
+            beforeShowDay: function (date) {
+                return [true, ((date.getTime() >= Math.min(prv2, cur2) && date.getTime() <= Math.max(prv2, cur2)) ? 'date-range-selected' : '')];
+            },
+            onSelect: function (dateText, inst) {
+                var d1, d2;
+                prv2 = cur2;
+                cur2 = (new Date(inst.selectedYear, inst.selectedMonth, inst.selectedDay)).getTime();
+                if (prv2 == -1 || prv2 == cur2) {
+                    prv2 = cur2;
+                    $('#jrange input').val(dateText);
+                } else {
+                    d1 = $.datepicker.formatDate('mm/dd/yy', new Date(Math.min(prv2, cur2)), {});
+                    d2 = $.datepicker.formatDate('mm/dd/yy', new Date(Math.max(prv2, cur2)), {});
+                    $('#jrange input').val(d1 + ' - ' + d2);
+                }
+                console.log($('#shipPeriodDate').val());
+            },
+            onChangeMonthYear: function (year, month, inst) {
+                //prv2 = cur2 = -1;
+            },
+            onAfterUpdate: function (inst) {
+                $('<button type="button" class="ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all" data-handler="hide" data-event="click">Done</button>')
+                    .appendTo($('#jrange div .ui-datepicker-buttonpane'))
+                    .on('click', function () {
+                    $('#jrange div').hide();
+                });
+            }
+        });
+    }
+
+    /* 상세정보 썸네일 이미지 */
+    var loadSwiperProdGal = function(){
+        var swiperProdGal = new Swiper(".prodSwiper", {
+            spaceBetween: 20,
+            slidesPerView: 3,
+            freeMode: true,
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true,
+        });
+        var swiperProdGal2 = new Swiper(".prodSwiper2", {
+            spaceBetween: 20,
+            /* navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },*/
+            thumbs: {
+                swiper: swiperProdGal,
+            },
+        });
+    };
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+@charset "utf-8";
+.et .inwrap > .hgroup {text-align:center;}
+.et .hgroup > div {width:100%;}
+.et .hgroup .h2 {font-size:3.4rem; line-height:1; margin-bottom:0;}
+.et .hgroup .p {margin-top:1.7rem; font-size:1.6rem; color:#666; line-height:1.4;}
+.et .hgroup .p.p2 {font-size:2.4rem; color:#000;}
+.et .hgroup .p strong {font-family:'S-CoreDream-5'; color:#000; font-weight:500;}
+.et .login-wrap {width:45rem; position:relative; margin:3.2rem auto;}
+.et .login-wrap .tr + .tr {margin-top:2rem;}
+.et .login-wrap .tr + .tr.mt56 {margin-top:5.6rem;}
+.et .mt56 {margin-top:5.6rem;}
+.et .login-wrap input + .error, 
+.et .login-wrap .input + .error {margin-top:2rem;}
+.et .login-wrap .tr.error {margin-top:2rem; margin-bottom:1rem;}
+.et .login-wrap .tr .error,
+.et .login-wrap .tr .info {letter-spacing:-.3px;}
+.et .login-wrap.result {text-align:center;}
+.et .login-wrap.result .i-done {width:3.6rem; height:4.3rem; display:inline-block; position:relative; color:#1d5fd0; border:2px solid #1d5fd0; border-radius:.3rem;}
+.et .login-wrap.result .i-done .material-icons {width:100%;}
+.et .login-wrap.result .i-done.id-done {padding-top:.8rem;}
+.et .login-wrap.result .i-done.id-done .material-icons {font-size:3rem;}
+.et .login-wrap.result .i-done.id-done::after {content:''; display:block; width:.8rem; height:.1rem; background-color:#1d5fd0; position:absolute; top:.7rem; left:1.2rem;}
+.et .login-wrap.result .i-done.pwd-done {padding-top:1.6rem;}
+.et .login-wrap.result .i-done.pwd-done .material-icons {font-size:2rem;}
+.et .login-wrap.result .i-done.pwd-done::after {content:'****'; display:block; color:#1d5fd0; position:absolute; top:.5rem; left:0;}
+.et .login-wrap.result .p-done {margin-top:4rem; font-size:1.8rem; color:#000; line-height:1.5;}
+.et .login-wrap.result .reault-done {margin-top:3rem; margin-bottom:3.6rem; font-size:1.8rem; color:#1d5fd0; font-weight:700;}
+.et .login-wrap.result .reault-done strong {font-size:inherit; color:inherit; font-weight:inherit;}
+.et .login-wrap.auto-width {width:100%;}
+.et .login-wrap.auto-width [class^=btn-].full {max-width:45rem; font-size:1.6rem !important;}
+.et .setfree-limit {font-size:1.2rem; color:#191700; line-height:1.4;}
+.et .center {text-align:center;}
+#underConstruction {width:80rem; height:80rem; padding:6rem 0; border:1px solid #dedede; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);}
+#underConstruction.et .login-wrap {margin:0;}
+#underConstruction .ico {display:inline-block;}
+#underConstruction.et .hgroup .h2 {margin-top:4rem;}
+#underConstruction.et .login-wrap.result .p-done {margin-top:2.5rem; font-size:1.6rem;}
+#underConstruction.et .mt56 {margin:6rem 0; padding:2.9rem 3rem 2.5rem; background-color:#fafafa;}
+#underConstruction.et .mt56 dl {width:35rem;overflow:hidden; position:relative; margin:auto;}
+#underConstruction.et .mt56 dl + dl {margin-top:1rem;}
+#underConstruction.et .mt56 dl dt {width:9rem; height:3rem; float:left; line-height:3rem; background-color:#1e60d1; color:#fff; border-radius:1.5rem;}
+#underConstruction.et .mt56 dl dd {padding-left:2rem; float:left; line-height:3rem; font-size:1.8rem; color:#1e60d1;}
+#underConstruction.et .p-tips {font-size:1.6rem; color:#999aa9; line-height:1.6;}
+#underConstruction.et .p-greetings {margin-top:3rem; font-size:1.4rem; color:#000; line-height:1.6;}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>맴버계정 시작하기 1단계 약관동의 | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+
+        <!-- header include -->
+        <div class="header-wrap include-wrap"></div>
+        <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+        <!-- //header include -->
+         
+        <!-- container -->
+        <div class="container" style="min-height: 1000px;">
+            <div class="section us">
+            <div class="inwrap">
+            <div class="hgroup">
+                <div>
+                    <h2 class="h2">맴버계정 시작하기</h2>
+                    <p class="p">회원사 가입으로 <strong>SORIN.COM</strong>의 서비스를 이용해 보세요.</p>
+                </div>
+            </div>
+
+            <div class="article steps-wrap">
+                <div class="step1 actived active">
+                    <span class="hidden">현재 페이지</span>
+                    <span class="step">01</span><span>약관동의</span>
+                </div>
+                <div class="step2">
+                    <span class="step">02</span><span>계정확인</span>
+                </div>
+                <div class="step3">
+                    <span class="step">03</span><span>인증완료</span>
+                </div>
+            </div>
+
+            <div class="article mt35">
+                <div class="box-gray md">
+                    <div class="form-chk">
+                        <input type="checkbox" id="agreeAll">
+                        <label for="agreeAll">전체 약관에 동의합니다.</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="article mt30 box-agree-wrap">
+                <div class="box-agree">
+                    <div class="form-chk">
+                        <input type="checkbox" id="agreeContract">
+                        <label for="agreeContract"><span class="fc-red">(필수)</span> 이용약관 동의합니다.</label>
+                    </div>
+                    <div>
+                        <button type="button" class="btn-alink-arrow"><span>자세히보기</span></button>
+                    </div>
+                </div>
+                <div class="box-agree">
+                    <div class="form-chk">
+                        <input type="checkbox" id="agreeFinance">
+                        <label for="agreeFinance"><span class="fc-red">(필수)</span> 전자금융거래 약관 동의합니다.</label>
+                    </div>
+                    <div>
+                        <button type="button" class="btn-alink-arrow"><span>자세히보기</span></button>
+                    </div>
+                </div>
+                <div class="box-agree">
+                    <div class="form-chk">
+                        <input type="checkbox" id="agreePrivacy">
+                        <label for="agreePrivacy"><span class="fc-red">(필수)</span> 개인정보 처리방침 동의합니다.</label>
+                    </div>
+                    <div>
+                        <button type="button" class="btn-alink-arrow"><span>자세히보기</span></button>
+                    </div>
+                </div>
+                <div class="box-agree">
+                    <div class="form-chk">
+                        <input type="checkbox" id="agreeCollect">
+                        <label for="agreeCollect"><span class="fc-lgray">(선택)</span> 개인정보 수집 및 이용동의합니다.</label>
+                    </div>
+                    <div>
+                        <button type="button" class="btn-alink-arrow"><span>자세히보기</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-wrap">
+                <button type="button" class="btn-gray-big">취소</button>
+                <button type="button" class="btn-blue-big">확인</button>
+            </div>
+
+            </div>
+            </div>
+        </div>
+        <!-- //container -->
+    
+        <!-- footer include -->
+        <div class="footer-wrap include-wrap"></div>
+        <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+        <!-- //footer include -->
+    </div>
+
+    <script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/guide/js/select2/select2.min.js"></script>
+    <!-- script extra -->
+    <script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+    <!-- script custom -->
+    <script src="/guide/js/sorin.js"></script>
+    <script src="/guide/js/sorin-layout.js"></script>
+    <!-- embedded -->
+    <script>
+        $('.box-agree [type=checkbox]').on('click', function(){
+            $('.box-agree [type=checkbox]:checked').length == 4 ? $('#agreeAll').prop('checked', true) : $('#agreeAll').prop('checked', false);
+        });
+        $('#agreeAll').on('click', function(){
+            if ($(this).prop('checked') == true) {
+                $('.box-agree .form-chk input:checkbox').each(function(){
+                    $(this).prop('checked', true);
+                })
+            } else {
+                $('.box-agree .form-chk input:checkbox').each(function(){
+                    $(this).prop('checked', false);
+                })
+            }
+        });
+    </script>
+
+</body>
+</html>

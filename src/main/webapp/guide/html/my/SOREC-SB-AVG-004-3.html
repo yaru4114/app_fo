@@ -1,0 +1,3256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>평균가 주문 상세 > 발주 계획 세우기 팝업(발주/ 결제/ 출고요청) | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <link rel="stylesheet" href="/guide/css/jquery.mCustomScrollbar.css" />
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+    <script src="/guide/js/jquery.mCustomScrollbar.concat.min.js"></script>    
+</head>
+<body>
+<div class="wrapper">
+    <!-- header include -->
+    <div class="header-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+    <!-- //header include --> 
+    <div class="container">
+   		<!-- dashboard include -->
+      	<div class="dashboard-wrap include-wrap"></div>
+      	<script type="text/javascript"> $(".dashboard-wrap").load("/guide/html/include/my/dashboard.html");</script>
+        <!-- //dashboard include -->
+        <div class="section my">
+            <div class="inwrap table">
+            	<!-- lnb include -->            	
+                <div class="lnb-wrap include-wrap"></div>
+   				<script type="text/javascript"> $(".lnb-wrap").load("/guide/html/include/my/lnb.html");</script>
+                <!-- lnb include -->
+                
+                
+                <div class="content content-avg order-pricing">
+                
+                	<!-- 1. 평균가 주문 간략 정보 table/ 평균가 계약월 TAB 슬라이드/ 주문 진행 현황 시작 {-->
+                    <div class="section">
+                        <div class="hgroup">
+                            <h2 class="h2">평균가 주문 상세</h2>
+                            <div class="btns">
+                                <button type="button" class="btn-stroke-md btn-avg-orderlist w140px">평균가 주문 목록</button>
+                            </div>
+                        </div>
+                        <table class="tbl-v th-left">
+                            <colgroup>
+								<col width="160"/>
+								<col width="310"/>
+								<col width="160"/>
+								<col width="310"/>
+							</colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">계약번호</th>
+                                    <td>
+                                    	<span class="avg-contract-num">A 20230524-001</span>
+                                    	<button type="button" class="btn-stroke-sm blue btn-avg-contract">계약서</button>
+                                    ​</td>
+                                    <th scope="row">아이템</th>
+                                    <td>알루미늄 순괴(P1020)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">계약기간</th>
+                                    <td>4개월</td>
+                                    <th scope="row">주문 톤 수</th>
+                                    <td>2,000MT</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                       
+						<!-- .average-price-tab-slide  
+						<div class="avg-price-tab">
+							<div class="slide-wrap">
+								<div class="slide-inner">
+									<div class="slide active">
+										<span class="date">2023.07</span>
+										<span class="status">진행</span>
+									</div>
+									<div class="slide">
+										<span class="date">2023.08</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="slide">
+										<span class="date">2023.09</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="slide">
+										<span class="date">2023.10</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="slide">
+										<span class="date">2023.11</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="slide">
+										<span class="date">2023.12</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="slide">
+										<span class="date">2024.01</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="slide">
+										<span class="date">2024.02</span>
+										<span class="status">대기</span>
+									</div>
+								</div>
+						    </div>
+						    <div class="arrows-wrap">
+						    	<div class="arrows arrows-prev"></div>
+						    	<div class="arrows arrows-next"></div>
+						    </div>
+						</div>-->
+						
+						<!-- average-price-tab {-->
+						<div class="avg-price-tab">
+							<div class="slide-wrap swiper-container">
+							    <div class="slide-inner swiper-wrapper">
+							        <div class="swiper-slide">
+						        		<span class="date">2023.07</span>
+										<span class="status">진행</span>
+									</div>
+							        <div class="swiper-slide">
+						        		<span class="date">2023.08</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="swiper-slide">
+						        		<span class="date">2023.09</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="swiper-slide">
+						        		<span class="date">2023.10</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="swiper-slide">
+						        		<span class="date">2023.11</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="swiper-slide">
+						        		<span class="date">2023.12</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="swiper-slide">
+						        		<span class="date">2024.01</span>
+										<span class="status">대기</span>
+									</div>
+									<div class="swiper-slide">
+						        		<span class="date">2024.02</span>
+										<span class="status">대기</span>
+									</div>
+							    </div>
+						    </div>
+						    <div class="arrows-wrap">
+						    	<div class="arrow arrow-prev"></div>
+						    	<div class="arrow arrow-next"></div>
+						    </div>
+						    <div class="swiper-pagination"></div>
+						</div>
+						<!--} // average-price-tab -->
+
+						<!-- 평균가 진행 현황 bar {-->
+						<div class="avg-progress-bar">
+							<div class="legend">단위 : MT</div>
+							<ul class="flex-ac-jsb">
+								<li class="step-done">
+									<div class="bar"></div>
+									<span class="tootip"></span>
+									<span class="txt">프라이싱</span>
+								</li>
+								<li class="step-now ongoing">
+									<div class="bar"></div>
+									<span class="tootip ton">200/500</span>
+									<span class="txt">발주</span>
+								</li>
+								<li>
+									<div class="bar"></div>
+									<span class="tootip"></span>
+									<span class="txt">결제</span>
+								</li>
+								<li>
+									<div class="bar"></div>
+									<span class="tootip"></span>
+									<span class="txt">배송</span>
+									
+								</li>
+								<li>
+									<div class="bar"></div>
+									<span class="tootip"></span>
+									<span class="txt">완료</span>
+								</li>
+							</ul>
+						</div>
+						<!--} // 평균가 진행 현황 bar -->
+                    </div>
+					<!-- // 1. 평균가 주문 간략 정보 table/ 평균가 계약월 TAB 슬라이드/ 주문 진행 현황 끝 -->
+					
+					<!-- 2. 프라이상 확정 정보 table 시작 {-->
+                    <div class="section section-avg-pricing">
+                        <div class="hgroup">
+                            <h2 class="h4">프라이싱 확정 정보</h2>
+                        </div>
+                        <table class="tbl-v th-left">
+                        	<colgroup>
+								<col width="160"/>
+								<col width="310"/>
+								<col width="160"/>
+								<col width="310"/>
+							</colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">LIVE 구매 톤 수</th>
+                                    <td>100MT​</td>
+                                    <th scope="row">평균가 구매 톤 수</th>
+                                    <td>400MT</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">프라이싱 확정 일시</th>
+                                    <td colspan="3">2023-07-23 20:50:34</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+					<!--} //2. 프라이상 확정 정보 table 끝 -->
+
+					<!-- 3. 주문정보 table 시작 { -->
+                    <div class="section section-avg-order">
+                        <div class="hgroup">
+                            <h2 class="h4">주문정보</h2>
+                        </div>
+                        <table class="tbl-scope-col">
+						    <colgroup>
+						        <col width="120">
+						        <col width="120">
+						        <col width="200">
+						        <col width="75">
+						        <col width="125">
+						        <col width="180">
+						        <col width="*">
+						    </colgroup>
+						    <thead>
+						        <tr>
+						            <th scope="col">권역</th>
+						            <th scope="col">브랜드그룹</th>
+						            <th scope="col" colspan="2">브랜드</th>
+						            <th scope="col">톤 수</th>
+						            <th scope="col">적용 프리미엄</th>
+						            <th scope="col">톤 수 합계</th>
+						        </tr>
+						    </thead>
+						    <tbody>
+						    	<tr>
+						    		<td colspan="4">재고 할당 중</td>
+						    		<td>
+						    			75MT
+						    		</td>
+						    		<td class="emphasis-red td-border-rt">2,960,000</td>
+						    		<td rowspan="8">500MT</td>
+						    	</tr>
+								
+								<tr>
+						    		<td rowspan="5" class="th-center-top">인천</td>
+						    		<td rowspan="4" class="th-center-top">서구산</td>
+						    		<td rowspan="3" class="brand">
+										<div class="flex-ac">
+											<div class="flag-img flex-ac-jac">
+												<img src="/guide/images/sample/img_nation_sample3.png" alt="국기 이미지">
+											</div>
+											PMB
+										</div>
+						    		</td>
+									<td class="pdf">
+										<button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+						    		</td>
+						    		<td>
+						    			75MT
+						    		</td>
+						    		<td class="emphasis-red td-border-rt">2,960,000</td>
+						    	</tr>
+						    	
+						    	<tr>
+									<td class="pdf">
+										<button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+						    		</td>
+						    		<td>
+						    			75MT
+						    		</td>
+						    		<td class="emphasis-red td-border-rt">2,960,000</td>
+						    	</tr>
+						    	<tr>
+									<td class="pdf">
+										<button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+						    		</td>
+						    		<td>
+						    			75MT
+						    		</td>
+						    		<td class="emphasis-red td-border-rt">2,960,000</td>
+						    	</tr>
+								<tr>
+						    		<td class="brand bd-right-zero">
+										<div class="flex-ac">
+											<div class="flag-img flex-ac-jac">
+												<img src="/guide/images/sample/img_nation_sample2.png" alt="국기 이미지">
+											</div>
+											PMB
+										</div>
+						    		</td>
+						    		<td class="pdf">
+										<button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+						    		</td>
+						    		<td>
+						    			150MT
+						    		</td>
+						    		<td class="emphasis-red td-border-rt">2,934,000</td>
+						    	</tr>
+						    	<tr>
+						    		<td>비서구산</td>
+						    		<td class="brand bd-right-zero">
+										<div class="flex-ac">
+											<div class="flag-img flex-ac-jac">
+												<img src="/guide/images/sample/img_nation_sample2.png" alt="국기 이미지">
+											</div>
+											PMB
+										</div>
+						    		</td>
+						    		<td class="pdf">
+										<button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+						    		</td>
+						    		<td>
+						    			150MT
+						    		</td>
+						    		<td class="emphasis-red td-border-rt">2,934,000</td>
+						    	</tr>
+						    	<tr>
+						    		<td rowspan="2" class="th-center-top">부산</td>
+						    		<td class="th-center-top">서구산</td>
+						    		<td class="brand bd-right-zero">
+										<div class="flex-ac">
+											<div class="flag-img flex-ac-jac">
+												<img src="/guide/images/sample/img_nation_sample2.png" alt="국기 이미지">
+											</div>
+											PMB
+										</div>
+						    		</td>
+									<td class="pdf">
+										<button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+						    		</td>
+						    		<td>
+						    			50MT
+						    		</td>
+						    		<td class="emphasis-red td-border-rt">2,975,000</td>
+						    	</tr>
+						    	<tr>
+						    		<td class="th-center-top">비서구산</td>
+						    		<td class="brand bd-right-zero">
+										<div class="flex-ac">
+											<div class="flag-img flex-ac-jac">
+												<img src="/guide/images/sample/img_nation_sample2.png" alt="국기 이미지">
+											</div>
+											PMB
+										</div>
+						    		</td>
+									<td class="pdf">
+										<button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+						    		</td>
+						    		<td>
+						    			150MT
+						    		</td>
+						    		<td class="emphasis-red td-border-rt">2,934,000</td>
+						    	</tr>
+						    	
+						        <!-- no-data {
+						        <tr id="noData">
+						            <td colspan="7">
+						                <div class="no-data">상품 할당 전 입니다.</div>
+						            </td>
+						        </tr>-->
+						        <!--} // no-data-->
+						    </tbody>
+						</table>
+                    </div>
+					<!--} // 3. 주문정보 table 끝 -->
+					
+					<!-- 4. 출고 처리 업무 영역 시작 {-->
+                    <div class="section section-avg-ex">
+                        <div class="hgroup">
+                            <h2 class="h4">출고 처리 업무</h2>
+                            <div class="btns">
+                                <button type="button" class="btn-stroke-md btn-avg-ex" data-popup="modal" data-target="sorinModalAvgOrderGuide">작성예시</button>
+                            </div>
+                        </div>
+
+						<div class="tbl-v t3 th-left">
+							<table>
+								<colgroup>
+									<col width="160"/>
+									<col width="310"/>
+									<col width="160"/>
+									<col width="310"/>
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>발주완료 톤 수</th>
+										<td>-</td>									
+										<th>발주대기 톤 수</th>
+										<td>500MT</td>
+									</tr>
+									<tr>
+										<th>발주처리기한</th>
+										<td class="emphasis-red bold" colspan="3">2023-07-25까지</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+						<div class="avg-order-plan">
+							
+							<section class="plan plan1">
+								<div class="hgroup">
+									<div class="pos-rel">
+			                            <h3>라이브 구매계획</h3>
+			                            <span class="label-ton">100MT</span>
+		                            </div>
+		                            <div class="btns">
+		                            	 <button type="button" class="btn-stroke-md blue btn-avg-order"  data-popup="modal" data-target="sorinModalAvgOrderPlan">발주하기+</button>
+		                            </div>
+		                        </div>
+								<table class="tbl-scope-col tbl-scope-col2">
+								    <colgroup>
+								        <col width="77">
+								        <col width="88">
+								        <col width="110">
+								        <col width="75">
+								        <col width="90">
+								        <col width="75">
+								        <col width="90">
+								        <col width="80">
+								        <col width="*">
+								    </colgroup>
+								    <thead>
+								        <tr>
+								            <th scope="col">권역</th>
+								            <th scope="col">브랜드그룹</th>
+								            <th scope="col">브랜드</th>
+								            <th scope="col">출고톤수</th>
+								            <th scope="col">출고일정</th>
+								            <th scope="col">배송유형</th>
+								            <th scope="col">배송지</th>
+								            <th scope="col">결제기한</th>
+								            <th scope="col">결제</th>
+								        </tr>
+								    </thead>
+								    <tbody>
+								    	<tr>
+								    		<td>인천</td>
+								    		<td>비서구산</td>
+								    		<td>HINDALCO AD</td>
+								    		<td>50MT</td>
+								    		<td>23-07-25</td>
+								    		<td>자차</td>
+								    		<td>서산창고</td>
+								    		<td>23-07-22</td>
+								    		<td class="flex-ac-jac">
+								    			<button type="button" class="btn-blue" data-popup="bottomsheet" data-target="sorinModalBtmSheet1">결제하기</button>
+								    			<button type="button" class="btn-gray2" data-popup="modal" data-target="sorinModalCancelConfirm">발주취소</button>
+								    		</td>
+								    	</tr>
+								    	<tr>
+								    		<td>인천</td>
+								    		<td>비서구산</td>
+								    		<td>HINDALCO AD</td>
+								    		<td>50MT</td>
+								    		<td>23-07-25</td>
+								    		<td>자차</td>
+								    		<td>서산창고</td>
+								    		<td>23-07-22</td>
+								    		<td class="flex-ac-jac">
+								    			<button type="button" class="btn-blue" onclick="location.href='/guide/html/pd/SOREC-SB-ORF-111-2.html'">수정하기</button>
+								    			<button type="button" class="btn-gray2" data-popup="modal" data-target="sorinModalCancelConfirm2">주문취소</button>
+								    		</tdclass="flex-ac-jac">
+								    	</tr>
+								    	<!-- no-data {-->
+								        <tr id="noData">
+								            <td colspan="9">
+								                <div class="no-data">'발주하기+'를 통해 구매계획을 생성해주세요.</div>
+								            </td>
+								        </tr>
+								        <!--} // no-data-->
+								    </tbody>
+								</table>
+							
+							</section>
+							
+							<section class="plan plan2">
+								<div class="hgroup">
+									<div class="pos-rel">
+			                            <h3>평균가 구매계획</h3>
+			                            <span class="label-ton">400MT</span>
+		                            </div>
+		                            <div class="btns">
+		                            	 <button type="button" class="btn-stroke-md blue btn-avg-order"  data-popup="modal" data-target="sorinModalAvgOrderPlan">발주하기+</button>
+		                            </div>
+		                        </div>
+								<table class="tbl-scope-col tbl-scope-col2">
+								    <colgroup>
+								        <col width="77">
+								        <col width="88">
+								        <col width="110">
+								        <col width="75">
+								        <col width="90">
+								        <col width="75">
+								        <col width="90">
+								        <col width="80">
+								        <col width="*">
+								    </colgroup>
+								    <thead>
+								        <tr>
+								            <th scope="col">권역</th>
+								            <th scope="col">브랜드그룹</th>
+								            <th scope="col">브랜드</th>
+								            <th scope="col">출고톤수</th>
+								            <th scope="col">출고일정</th>
+								            <th scope="col">배송유형</th>
+								            <th scope="col">배송지</th>
+								            <th scope="col">결제기한</th>
+								            <th scope="col">결제</th>
+								        </tr>
+								    </thead>
+								    <tbody>
+								    	<tr>
+								    		<td>인천</td>
+								    		<td>비서구산</td>
+								    		<td>HINDALCO AD</td>
+								    		<td>50MT</td>
+								    		<td>23-07-25</td>
+								    		<td>자차</td>
+								    		<td>서산창고</td>
+								    		<td>23-07-22</td>
+								    		<td class="flex-ac-jac">
+								    			<button type="button" class="btn-blue" onclick="alert('프라이싱 평균가 결제상세 bottomsheet:'+ '\n' +'/guide/html/pd/SOREC-SB-ORF-111-4.html 참고')" data-popup="bottomsheet" data-target="sorinModalBtmSheet2">결제하기</button>
+								    			<button type="button" class="btn-gray2" data-popup="modal" data-target="sorinModalCancelConfirm">발주취소</button>
+								    		</td>
+								    	</tr>
+								    	<tr>
+								    		<td>인천</td>
+								    		<td>비서구산</td>
+								    		<td>HINDALCO AD</td>
+								    		<td>50MT</td>
+								    		<td>23-07-25</td>
+								    		<td>서린</td>
+								    		<td>서산창고</td>
+								    		<td>23-07-22</td>
+								    		<td class="flex-ac-jac">
+								    			<button type="button" class="btn-blue w170px" onclick="location.href='/guide/html/pd/SOREC-SB-ORF-111-2.html'">배송준비</button>
+								    		</td>
+								    	</tr>
+								    	<tr>
+								    		<td>인천</td>
+								    		<td>비서구산</td>
+								    		<td>HINDALCO AD</td>
+								    		<td>50MT</td>
+								    		<td>23-07-25</td>
+								    		<td>자차</td>
+								    		<td>서산창고</td>
+								    		<td>23-07-22</td>
+								    		<td class="flex-ac-jac">
+								    			<button type="button" class="btn-gray2 w170px" data-popup="modal" data-target="sorinModalCancelConfirm3">발주취소(체결실패)</button>
+								    		</td>
+								    	</tr>
+								    	<!-- no-data {-->
+								        <tr id="noData">
+								            <td colspan="9">
+								                <div class="no-data">'발주하기+'를 통해 구매계획을 생성해주세요.</div>
+								            </td>
+								        </tr>
+								        <!--} // no-data-->
+								    </tbody>
+								</table>
+							
+							</section>
+						</div>
+						
+						
+                    </div>
+                   <!--} // 4. 출고 처리 업무 영역 끝 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer include -->
+    <div class="footer-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+    <!-- //footer include -->
+</div>
+
+
+<!-- [평균가 MODAL POPUP] : 출고 처리 업무 > 작성예시 버튼 > 팝업 -->
+<div class="popup modal modal-order-guide" id="sorinModalAvgOrderGuide">
+    <div class="modal-content w1000px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+
+            <h1 class="h2-pd">발주/출고 업무 진행 안내</h1>
+            <div class="div-scroll-y">
+                <section>
+                	<img src="/guide/images/my/avg-order-guide.png" alt="평균가 발주/ 출고 업무 진행 안내 팝업">
+                </section>
+            </div><!-- // .div-scroll-y -->
+			<div class="btn-wrap">
+				<button type="button" class="btn-blue-big modal-x">확인</button>
+			</div>
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// [평균가 MODAL POPUP] : 출고 처리 업무 > 작성예시 버튼 > 팝업 -->
+
+<!-- [평균가 MODAL POPUP] : 발주취소 버튼 클릭시 > 확인 팝업 -->
+<div class="popup modal confirm" id="sorinModalCancelConfirm">
+    <div class="modal-content w490px">
+        <div class="modal-header">
+            <h1>알림메세지</h1>
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span><span class="ripple"></span></button></div>
+        </div>
+        <div class="max-width">
+            <div class="alert-con">해당 발주건을 취소하시겠습니까? <br>취소시 데이터가 삭제됩니다.</div>
+        </div><!--// .max-width -->
+        <div class="modal-btns">
+            <button type="button" class="btn-gray-big modal-x">취소하기</button>
+            <button type="button" class="btn-blue-big modal-x" data-popup="bottomsheet" data-target="sorinModalBtmSheet1">결제하기</button>
+        </div>
+    </div>
+</div>
+<!-- // [평균가 MODAL POPUP] : 발주취소 버튼 클릭시 > 확인 팝업 -->
+
+<!-- [평균가 MODAL POPUP] : 라이브 구매계획 > 취소하기 버튼 클릭시 > 확인 팝업 -->
+<div class="popup modal confirm" id="sorinModalCancelConfirm2">
+    <div class="modal-content w490px">
+        <div class="modal-header">
+            <h1>알림메세지</h1>
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span><span class="ripple"></span></button></div>
+        </div>
+        <div class="max-width">
+            <div class="alert-con">현재 체결 대기중 건입니다.<br>지정가 주문을 취소하시겠습니까?</div>
+        </div><!--// .max-width -->
+        <div class="modal-btns">
+            <button type="button" class="btn-gray-big modal-x w200px btn-pop-toast">지정가 취소하기</button>
+        </div>
+    </div>
+</div>
+<!-- // [평균가 MODAL POPUP] : 라이브 구매계획 > 취소하기 버튼 클릭시 > 확인 팝업 -->
+
+<!-- [평균가 toast popup] 라이브 구매계획 > 취소하기 버튼 > 지정가 취소하기 버튼 클릭시 -->
+<div class="pop-modal pop-toast">
+	<div class="pop-inner">
+		<p>
+			취소되었습니다.​​
+		</p>
+	</div>
+</div>
+<!-- // [평균가 toast popup] 라이브 구매계획 > 발주취소(체결실패) 버튼 클릭시 -->
+
+<!-- [평균가 MODAL POPUP] : 라이브 구매계획 > 취소하기 버튼 클릭시 > 확인 팝업 -->
+<div class="popup modal confirm" id="sorinModalCancelConfirm3">
+    <div class="modal-content w490px">
+        <div class="modal-header">
+            <h1>알림메세지</h1>
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span><span class="ripple"></span></button></div>
+        </div>
+        <div class="max-width">
+            <div class="alert-con">
+            해당 발주 건은 지정가로 주문한 건입니다. <br>​
+			[유효시간 경과]로 체결 실패되었습니다.<br>​
+			발주 취소 후 재발주 진행 해주세요.​
+			</div>
+			
+        </div><!--// .max-width -->
+        <div class="modal-btns">
+            <button type="button" class="btn-gray-big modal-x w200px">발주취소</button>
+        </div>
+    </div>
+</div>
+<!-- // [평균가 toast popup] 라이브 구매계획 > 발주취소(체결실패) 버튼 클릭시  -->
+
+<!-- [평균가 MODAL POPUP] : pdf -->
+<div class="popup modal" id="sorinModalReport" style="z-index: 12;">
+    <div class="modal-content w700px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+
+            <h1 class="h2-pd" style="text-align: left;">성적서 다운로드</h1>
+            <div class="div-scroll-y">
+                <div class="section">
+                    <div class="article">
+                        <table class="tbl t3 center">
+	                        <colgroup>
+		                        <col style="width:40%;">
+		                        <col style="width:23%;">
+		                        <col style="width:15%;">
+	                        </colgroup>
+	                        <thead>
+	                            <tr>
+	                                <th scope="col">B/L</th>
+	                                <th scope="col">중량(MT)</th>
+	                                <th scope="col">성적서</th>
+	                             </tr>
+	                        </thead>
+	                        <tbody id="screofeList">
+	                        	<tr>   
+	                        		<td>KT-HINDAD-AL-0001</td>   
+	                        		<td>100MT</td>   
+	                        		<td>
+										<a href="/Common/commonDownLoad?jobSeCode=IT&amp;docFileRealCours=https://sorincorp.blob.core.windows.net/secs-t/it/COA/KIT204_1688091895165.pdf&amp;downFileNm=성적서.pdf" download=""><img src="/images/my/icon_pdf.svg" alt="PDF 다운로드"></a>   
+									</td>
+								</tr>
+							</tbody>
+                        </table>
+                    </div>
+                </div>
+            </div><!-- // .div-scroll-y -->
+			<div class="mt30" style="text-align: center;"><button type="button" class="btn-blue-big modal-x">확인</button></div>
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!-- // [평균가 MODAL POPUP] : pdf -->
+
+
+<!-- [평균가 MODAL POPUP] : 컨펌 alert -->
+<div class="popup modal confirm" id="sorinModalConfirm">
+    <div class="modal-content w490px">
+        <div class="modal-header">
+            <h1>알림메세지</h1>
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+        </div>
+        <div class="max-width">
+            <div class="alert-con">
+            확정 되었습니다. <br>
+            발주계획 설정 및 입금까지 하시면 <br>
+			출고 처리됩니다.
+		</div>
+        </div><!--// .max-width -->
+        <div class="modal-btns">
+            <button type="button" class="btn-blue-big modal-x">확인</button>
+        </div>
+    </div>
+</div>
+<!--// [평균가 MODAL POPUP] : 컨펌 alert -->
+
+
+
+<!-- [평균가 MODAL POPUP] : 발주 계획 세우기(발주 > 결제 > 출고) 팝업 -->
+<div class="popup modal modal-avg-order-plan" id="sorinModalAvgOrderPlan">
+    <div class="modal-content w1000px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+
+            <h1 class="h2-pd">발주 계획 세우기</h1>
+            <div class="div-scroll-y">
+                <div class="section">
+                    <!-- 1. 발주현황 정보 table(계약월/ 프라이싱 유형/ 계약 톤 수/ 발주 톤 수/ 미발주 톤 수/ 발주처리기한)-->
+                    <section>
+                        <article>
+                            <table class="tbl-scope-col">
+                                <colgroup>
+                                    <col width="77">
+                                    <col width="88">
+                                    <col width="110">
+                                    <col width="75">
+                                    <col width="90">
+                                    <col width="75">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">계약월</th>
+                                        <th scope="col">프라이싱 유형</th>
+                                        <th scope="col">계약 톤 수</th>
+                                        <th scope="col">발주 톤 수</th>
+                                        <th scope="col">미 발주 톤 수</th>
+                                        <th scope="col">발주처리기한</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>7월</td>
+                                        <td>평균가</td>
+                                        <td>400</td>
+                                        <td>0</td>
+                                        <td>400</td>
+                                        <td>23-07-31까지</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </article>
+                    </section>
+                    
+                    <!-- 2. 브랜드 선택 {-->
+                    <section class="avg-plan1-1 mt40">
+                        <article>
+                            <div class="hgroup">
+                                <h3>알루미늄 순괴(P1020)</h3>
+                            </div>
+                            <table class="tbl-scope-col">
+                                <colgroup>
+                                    <col width="102">
+                                    <col width="102">
+                                    <col width="180">
+                                    <col width="75">
+                                    <col width="170">
+                                    <col width="172">
+                                    <col width="*">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th>권역</th>
+                                        <th>브랜드그룹</th>
+                                        <th colspan="2">브랜드</th>
+                                        <th>미발주 톤 수</th>
+                                        <th>적용 프리미엄</th>
+                                        <th>선택</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- 
+                                        [case1] 브랜드 배정 전 아이템 > 선택 불가
+                                        ①'재고 할당 중'으로 표기 
+                                        ② pdf 성적서 아이콘 없음
+                                        ③ 선택 버튼 클릭시 관리자 문의 alert 
+                                    -->
+                                    <tr>
+                                        <td colspan="4">
+                                            재고 할당 중
+                                        </td>
+                                        <td>
+                                            55
+                                        </td>
+                                        <td class="emphasis-red td-border-rt">2,945,000</td>
+                                        <td>
+                                            <div class="btn-item-select" data-popup="modal" data-target="sorinModalAlert">
+                                                <input type="radio" name="avgItemSelect" id="avgItemSelect2" disabled>
+                                                <label for="avgItemSelect2">선택</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- [case2] 브랜드 배정 된 아이템 선택하기 -->
+                                    <tr>
+                                        <td rowspan="3" class="th-center-top">인천</td>
+                                        <td rowspan="2" class="th-center-top">서구산</td>
+                                        <td rowspan="2" class="brand">
+                                            <div class="flex-ac">
+                                                <div class="flag-img flex-ac-jac">
+                                                    <img src="/guide/images/sample/img_nation_sample3.png" alt="국기 이미지">
+                                                </div>
+                                                PMB
+                                            </div>
+                                        </td>
+                                        <td class="pdf">
+                                            <button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+                                        </td>
+                                        <td>
+                                            75
+                                        </td>
+                                        <td class="emphasis-red td-border-rt">2,960,000</td>
+                                        <td>
+                                            <div class="btn-item-select" onClick="avgItemSelect()"> 
+                                                <input type="radio" name="avgItemSelect" id="avgItemSelect1">
+                                                <label for="avgItemSelect1">선택</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="pdf">
+                                            <button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+                                        </td>
+                                        <td>
+                                            75
+                                        </td>
+                                        <td class="emphasis-red td-border-rt">2,960,000</td>
+                                        <td>
+                                            <div class="btn-item-select" onClick="avgItemSelect()"> 
+                                                <input type="radio" name="avgItemSelect" id="avgItemSelect1">
+                                                <label for="avgItemSelect1">선택</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>	
+                                        <td class="th-center-top">비서구산</td>
+                                        <td class="brand bd-right-zero">
+                                            <div class="flex-ac">
+                                                <div class="flag-img flex-ac-jac">
+                                                    <img src="/guide/images/sample/img_nation_sample2.png" alt="국기 이미지">
+                                                </div>
+                                                PMB
+                                            </div>
+                                        </td>
+                                        <td class="pdf">
+                                            <button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+                                        </td>
+                                        <td>
+                                            200
+                                        </td>
+                                        <td class="emphasis-red td-border-rt">-</td>
+                                        <td>
+                                            <div class="btn-item-select" onclick="avgItemSelect()"> 
+                                                <input type="radio" name="avgItemSelect" id="avgItemSelect3">
+                                                <label for="avgItemSelect3">선택</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2" class="th-center-top">부산</td>
+                                        <td class="th-center-top">서구산</td>
+                                        <td class="brand bd-right-zero">
+                                            <div class="flex-ac">
+                                                <div class="flag-img flex-ac-jac">
+                                                    <img src="/guide/images/sample/img_nation_sample2.png" alt="국기 이미지">
+                                                </div>
+                                                PMB
+                                            </div>
+                                        </td>
+                                        <td class="pdf">
+                                            <button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+                                        </td>
+                                        <td>
+                                            50
+                                        </td>
+                                        <td class="emphasis-red td-border-rt">2,975,000</td>
+                                        <td>
+                                            <div class="btn-item-select" onclick="avgItemSelect()"> 
+                                                <input type="radio" name="avgItemSelect" id="avgItemSelect4">
+                                                <label for="avgItemSelect4">선택</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="th-center-top">비서구산</td>
+                                        <td class="brand bd-right-zero">
+                                            <div class="flex-ac">
+                                                <div class="flag-img flex-ac-jac">
+                                                    <img src="/guide/images/sample/img_nation_sample2.png" alt="국기 이미지">
+                                                </div>
+                                                PMB
+                                            </div>
+                                        </td>
+                                        <td class="pdf">
+                                            <button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+                                        </td>
+                                        <td>
+                                            150
+                                        </td>
+                                        <td class="emphasis-red td-border-rt">2,934,000</td>
+                                        <td>
+                                            <div class="btn-item-select" onclick="avgItemSelect()"> 
+                                                <input type="radio" name="avgItemSelect" id="avgItemSelect5">
+                                                <label for="avgItemSelect5">선택</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </article>
+                    </section>
+
+                    <!-- 3. 브랜드 선택 버튼 클릭시 > 활성화 영역(, 배송정보 입력) -->
+                    <section class="avg-plan1-2 mt40">
+                       <!-- 3-1. 선택한 브랜드의 선택 브랜드 주문톤수, 상품출고일 --> 
+	                   <article class="">
+		                	<div class="hgroup">
+		                		<h3>알루미늄 순괴(P1020)</h3>
+		                	</div>
+		                	
+	                        <table class="tbl-scope-col">
+							    <colgroup>
+							        <col width="100">
+							        <col width="100">
+							        <col width="180">
+							        <col width="75">
+							        <col width="170">
+							        <col width="170">
+							        <col width="*">
+							    </colgroup>
+							    <thead>
+							        <tr>
+							            <th scope="col">권역</th>
+							            <th scope="col">브랜드그룹</th>
+							            <th scope="col" colspan="2">브랜드</th>
+							            <th scope="col">미발주 톤 수</th>
+							            <th scope="col">상품 출고일</th>
+							            <th scope="col">결제유효기간</th>
+							        </tr>
+							    </thead>
+							    <tbody>
+							    	<tr>
+							    		<td rowspan="3" class="th-center-top">인천</td>
+							    		<td rowspan="2" class="th-center-top">서구산</td>
+							    		<td class="brand bd-right-zero">
+											<div class="flex-ac">
+												<div class="flag-img flex-ac-jac">
+													<img src="/guide/images/sample/img_nation_sample2.png" alt="국기 이미지">
+												</div>
+												PMB
+											</div>
+							    		</td>
+							    		<td class="pdf">
+											<button type="button" class="btn-pdf" data-popup="modal" data-target="sorinModalReport">pdf</button>
+							    		</td>
+							    		<td>
+							    			<!--선택한 상품의 할당 된 톤수까지만 선택 가능하도록 노출-->
+							    			<select class="dropdown w210px" name="" id="" data-placeholder="선택">
+												<option value=""></option>
+				                                <option>25MT</option>
+				                                <option>50MT</option>
+				                                <option>75MT</option>
+				                                <option>100MT</option>
+											 </select>
+							    		</td>
+							    		<td>
+											<div class="datepicker-wrap2">
+		                                    	<input type="text" value="2023-06-01" class="datepicker">
+		                                    </div>
+										</td>
+							    		<td>
+							    			2023-06-20
+							    		</td>
+							    	</tr>
+							    	
+							    </tbody>
+							</table>
+							
+							 <div class="mt15">
+		                        <p class="tooltip-txt mt10">상품출고일 : 계약월 ~ 익월까지 설정 가능</p>
+		                        <p class="tooltip-txt mt10">결제유효기간 : 상품 출고일정 -1일전 자동 설정</p>
+		                    </div>
+		               </article>
+                        <!-- 3-2. 선택한 브랜드의 배송정보 입력 --> 
+	                    <article class="mt40">
+		                	<div class="hgroup">
+		                		<h3>배송정보 입력</h3>
+		                	</div>
+		                	
+		                	<div class="section section-delivery">		                    
+						        <table class="tbl-scope-col tbl-shipping-request">
+			                        <colgroup>
+				                        <col width="170px">
+				                        <col width="170px">
+				                        <col width="170px">
+				                        <col width="*">
+			                        </colgroup>
+			                        <thead>
+			                            <tr>
+			                                <th scope="col">배송구분</th>
+			                                <th scope="col">배송지</th>
+			                                <th scope="col">날짜</th> <!-- 상품 출고일을 지정하면 배송요청일 자동세팅 -->
+			                                <th scope="col">배송 요청사항</th>
+			                            </tr>
+			                        </thead>
+			                        <tbody>
+			                            <tr>
+			                                <td>
+			                                    <select class="dropdown" name="" id="" title="차량 번호" data-placeholder="배송방법선택">
+												   <option value=""></option>
+												   <option>서린배송</option>
+												   <option>자차배송</option>
+												</select>
+			                                </td>
+			                                <td>
+			                                    <select class="dropdown" name="" id="" title="차량 번호" data-placeholder="배송지선택">
+												   <option value=""></option>
+												   <option>배송지 옵션1</option>
+												   <option>배송지 옵션2</option>
+												</select>
+			                                </td>
+			                                <td><!-- 상품 출고일을 지정하면 배송요청일 자동세팅 -->
+			                                    <input type="text" value="2023-06-01" class="auto-delivery-date center" disabled>
+			                                </td>
+			                                <td>
+			                                    <input type="text" id="" placeholder="배송 요청사항을 입력해주세요." maxlength="50" class="full center">
+			                                </td>
+			                            </tr>
+			                        </tbody>
+			                    </table>
+
+                                <div class="mt15">
+                                    <p class="tooltip-txt mt10">자차배송은 고객이 직접 배송지까지 운송을 진행합니다.</p>
+                                    <p class="tooltip-txt mt10">상품 출고 날짜는 결제유효기간-1일 전 수정 가능합니다.</p>
+                                    <p class="tooltip-txt mt10">차랑번호, 기사정보는 상품 출고당일 9시까지 입력해주세요.</p>
+                                </div>
+	
+			                </div>
+	                  
+			            </article>
+			            <!-- 3-3. 버튼 영역 -->     
+                        <div class="btn-wrap duo mt60">
+                            <button type="button" class="btn-gray-big btn-step-back" data-popup="confirm" data-target="sorinModalConfirm1">뒤로가기</button>
+                            <button type="button" class="btn-blue-big" data-popup="confirm" data-target="sorinModalConfirm2">발주하기</button>
+                        </div>                 
+                    </section>
+                    
+                </div>
+            </div><!-- // .div-scroll-y -->
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!-- // [평균가 MODAL POPUP] : 발주 계획 세우기(발주 > 결제 > 출고) 팝업 -->
+
+<!-- [평균가 MODAL POPUP] : 컨펌 alert -->
+<div class="popup modal alert" id="sorinModalAlert">
+    <div class="modal-content w490px">
+        <div class="modal-header">
+            <h1>알림메세지</h1>
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+        </div>
+        <div class="max-width">
+            <div class="alert-con">
+            현재 관리자 재고 할당 중입니다.<br>
+			관리자에게 문의하세요.
+		</div>
+        </div><!--// .max-width -->
+        <div class="modal-btns">
+            <button type="button" class="btn-blue-big modal-x">확인</button>
+        </div>
+    </div>
+</div>
+<!--// [평균가 MODAL POPUP] : 컨펌 alert -->
+
+<!-- [평균가 MODAL POPUP] : 발주 계획 세우기 > 뒤로가기 버튼 클릭시 confirm 팝업 -->
+<div class="popup modal confirm" id="sorinModalConfirm1">
+    <div class="modal-content w490px">
+        <div class="modal-header">
+            <h1>알림메세지</h1>
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+        </div>
+        <div class="max-width">
+            <div class="alert-con">
+				저장 데이터가 저장되지 않습니다. <br>
+				나가시겠습니까?
+			</div>
+        </div><!--// .max-width -->
+        <div class="modal-btns">
+            <button type="button" class="btn-gray-big btn-move-item-select modal-x w150px">나가기</button>
+            <button type="button" class="btn-blue-big modal-x w150px">계속 진행</button>
+        </div>
+    </div>
+</div>
+<!-- // [평균가 MODAL POPUP] : 발주 계획 세우기 > 뒤로가기 버튼 클릭시 confirm 팝업 -->
+
+<!-- [평균가 MODAL POPUP] : 발주 계획 세우기 > 뒤로가기 버튼 클릭시 confirm 팝업 -->
+<div class="popup modal confirm" id="sorinModalConfirm2">
+    <div class="modal-content w490px">
+        <div class="modal-header">
+            <h1>알림메세지</h1>
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+        </div>
+        <div class="max-width">
+            <div class="alert-con">
+				발주가 완료 되었습니다. <br>
+				결제 진행을 하여야 배송 준비가 <br>
+				시작됩니다.
+			</div>
+        </div><!--// .max-width -->
+        <div class="modal-btns">
+            <button type="button" class="btn-gray-big btn-move-item-select modal-x w150px">계속 발주하기</button>
+            <button type="button" class="btn-blue-big btn-all-pop-close btn-pop-avg-pay w150px" data-popup="bottomsheet" data-target="sorinModalBtmSheet1">결제하기</button>
+        </div>
+    </div>
+</div>
+<!-- // [평균가 MODAL POPUP] : 발주 계획 세우기 > 뒤로가기 버튼 클릭시 confirm 팝업 -->
+
+
+<!-- ::: [평균가 결제 상세 - 프라이싱 LIVe/ 지정가] Modal Bottomsheet Popup 시작 ::: {-->
+<div class="popup modal bottomsheet bottomsheet-order-detail update pricing-live" id="sorinModalBtmSheet1">
+    <div class="modal-content order-payment-contents">
+      <div class="modal-content-inner max-width">
+        
+        <!-- Bottomsheet Popup > contents START {-->
+        <section class="order-detail-contents">
+
+			<!-- 1. top-cont 시작: 제목/ bottonsheet 닫기 버튼/ 전광판 START {-->
+			<div class="top-cont">
+		        <!-- 1-1. 제목 영역: 결제상세 {-->
+		        <div class="title-area">
+		            <h1 class="title">결제상세</h1>
+		        </div>
+		        <!--} // 1-1. 제목 영역: 결제상세 -->
+		
+		        <!-- 1-2. 닫기 버튼 {-->
+		        <div class="modal-close">
+		            <button type="button" class="modal-x">
+		                <span class="hidden">팝업 닫기</span>
+		            </button>
+		        </div>
+		        <!--} // 1-. 닫기 버튼 -->
+		
+		        <!-- 1-3. 전광판 > 23.08.23 | 신규 전광판 적용 시작 {-->
+		        <div class="display-board">
+				    <div class="display-board-inner swiper">
+		                <div class="swiper-wrapper">
+		                    <div class="swiper-slide"><a href="#n">서린닷컴 5분 미리보기가 <span class="col-yellow">04:39</span> 후에 종료됩니다. 서린닷컴 서비스를 이용하실 고객님께서는 <span class="col-yellow">기업회원 로그인</span> 후 이용해주세요.</a></div>
+		                    <div class="swiper-slide"><a href="#n">현재 서린닷컴 알루미늄 가격이 7월 누적 평균가격 2,915,000원 보다 저렴합니다 [ 누적 평균 : LME(CSP) 2,132.55 |  환율(최초매매) 1,318.34 ]</a></div>
+		                    <div class="swiper-slide"><a href="#n">신규 전광판 공지2 내용이 들어갑니다. 신규 전광판 공지2 내용이 들어갑니다.신규 전광판 공지2 내용이 들어갑니다.신규 전광판 공지2 내용이 들어갑니다.신규 전광판 공지2 내용이 들어갑니다.</a></div>
+		                </div>
+		            	<div class="swiper-button-next"></div>
+		                <div class="swiper-button-prev"></div>
+		            </div>
+				</div>
+		        <!--} // 1-3. 전광판 > 23.08.23 | 신규 전광판 적용 끝 -->
+		        
+	        	<!-- 1-4. 결제상세 아이템 { -->
+                <section class="dashboard dashboard-item-info flex-ac-jsb">
+                	<div class="pd-brand-info">
+	                    <div class="inner">
+	                        <p class="pd-brand flex-ac-jac">
+	                            <span class="pd-label">AL</span>
+	                            <span class="brand-nation"><img src="/guide/images/sample/img_nation_sample2.png"></span>
+	                            VEDANTA
+	                        </p>
+	                    </div>
+                    </div>
+                    <div class="pd-name flex-ac-jac">
+                        <span class="item">알루미늄 순괴(p1020)</span>
+                        <span class="brand-group">알루미늄(서구산)</span>
+                        <span class="any-brand">브랜드 무관 </span>
+                        <span class="wrhous">인천</span>
+                        <span class="order-amount">25톤</span>
+                    </div>
+                </section>
+                <!-- } 1-4. 결제상세 아이템 -->
+	        </div>
+	        <!--} // 1. top-cont 시작: 제목/ bottonsheet 닫기 버튼/ 전광판 FINISH -->
+	        
+            <!-- order-detail-left/ order-detail-right 영역 START {-->
+            <div class="clear">
+                <!-- left-2. 시작 { -->
+	            <div class="order-detail-left">
+                 
+                    <!-- left-2-2. 차트 영역 { -->
+	                <section class="dashboard dashboard-chart">
+	                    <div class="chart-graph-area">
+	                        <!-- charts area start -->
+	                        <div class="rcharts-wrap" id="rCharts">
+	                        	차트 영역
+	                        </div> 
+	                        <!-- //charts area end -->
+	                    </div>
+	                </section>
+                    <!--} // left-2-2. 차트 영역 -->
+	
+	                <div class="flex-ac-jsb pos-rel">
+                        <!-- left-2-3. 현재가 영역 시작 {--> 
+                            
+                            <!-- [case 1] LIVE 선택시 > 현재가 영역 {-->
+                            <section class="dashboard dashboard-price dashboard-price-live">
+                                <div class="dashboard-header flex-ac-jsb">
+                                    <h2 class="title">현재가</h2>
+                                    <div class="unit">
+                                        <span class="num realTimePrice2 up">3,158,000</span>원
+                                    </div>
+                                </div> 
+                                <div class="dashboard-body">
+                                    <div class="live-price-info">
+                                        <dl class="exchange-rate flex-ac-jsb">
+                                            <dt>환율</dt>
+                                            <dd class="unit">
+                                            <span class="num">1.293.30 </span>USD
+                                            </dd>
+                                        </dl>
+                                        <div class="type-price flex-ac-jsb">
+                                            <dl class="type-open">
+                                                <dt>시가</dt>
+                                                <dd>3,120,000</dd>
+                                            </dl>
+                                            <dl class="type-high">
+                                                <dt>고가</dt>
+                                                <dd>3,137,000</dd>
+                                            </dl>
+                                            <dl class="type-low">
+                                                <dt>저가</dt>
+                                                <dd>3,117,000</dd>
+                                            </dl>
+                                            <dl class="type-previous">
+                                                <dt>전일가</dt>
+                                                <dd>3,120,000</dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                    <!-- 당일 거래된 가격리스트 table -->
+                                    <div class="tbl-wrap tbl-live">
+                                        <div class="tbl-head">
+                                            <div class="tbl-tr">
+                                                <div class="tbl-th price">체결가격</div>
+                                                <div class="tbl-th volume">체결수량</div>
+                                                <div class="tbl-th time">시간</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbl-body">
+                                            <div class="tbl-tr">
+                                                <div class="tbl-td price">2,800,000</div>
+                                                <div class="tbl-td volume">25</div>
+                                                <div class="tbl-td time">10:48:23</div>
+                                            </div>
+                                            <div class="tbl-tr">
+                                                <div class="tbl-td price">2,800,000</div>
+                                                <div class="tbl-td volume">25</div>
+                                                <div class="tbl-td time">10:48:23</div>
+                                            </div>
+                                            <div class="tbl-tr">
+                                                <div class="tbl-td price">2,800,000</div>
+                                                <div class="tbl-td volume">25</div>
+                                                <div class="tbl-td time">10:48:23</div>
+                                            </div>
+                                            <div class="tbl-tr">
+                                                <div class="tbl-td price">2,800,000</div>
+                                                <div class="tbl-td volume">25</div>
+                                                <div class="tbl-td time">10:48:23</div>
+                                            </div>
+                                            <div class="tbl-tr">
+                                                <div class="tbl-td price">2,800,000</div>
+                                                <div class="tbl-td volume">25</div>
+                                                <div class="tbl-td time">10:48:23</div>
+                                            </div>                                   
+                                            <div class="tbl-tr">
+                                                <div class="tbl-td price">2,800,000</div>
+                                                <div class="tbl-td volume">25</div>
+                                                <div class="tbl-td time">10:48:23</div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!--} // [case 1] LIVE 선택시 > 현재가 영역 -->
+        
+                            <!-- [case 2] 지정가 선택시 > 현재가 영역 {-->
+                            <section class="dashboard dashboard-price dashboard-price-current" style="display: none">
+                            	<div class="dashboard-header flex-ac-jsb">
+                                    <h2 class="title">현재가</h2>
+                                    <div class="unit">
+                                        <span class="num realTimePrice2 up">3,158,000</span>원
+                                    </div>
+                                </div> 
+                                <div class="dashboard-body">
+                                    <div class="tbl-wrap tbl-limit">
+                                        <div class="tbl-head">
+                                            <div class="tbl-tr">
+                                                <div class="tbl-th asking-price">호가</div>
+                                                <div class="tbl-th stock-level">재고잔량</div>
+                                                <div class="tbl-th amount">2,500</div>
+                                            </div>
+                                        </div>
+                                        <div class="tbl-body">									
+                                            <div class="tbl-tr highlight">
+                                                <div class="tbl-td asking-price">3,000,000</div>
+                                                
+                                                <!-- 
+                                                    [지정가 입력시 > 현재가 > 재고잔량 Guide msg]
+                                                    1. 40칸 컨셉 (총 1000톤)
+                                                    - 1000ton 이상 주문시, 내 위치 보이지 않음.
+                                                    2. class Guide
+                                                    - 기본: 40칸 유지/ 지정가 주문 없음(#F0F0F0)
+                                                    - .other: 타인 주문 (#FFE5E5)
+                                                    - .here: 내 순서 (#FFB5B5)
+                                                -->
+                                                <div class="tbl-td stock-level">
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="here"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                </div>
+                                                <div class="tbl-td amount">100</div>
+                                            </div>
+                                            <div class="tbl-tr">
+                                                <div class="tbl-td asking-price">2,900,000</div>
+                                                <div class="tbl-td stock-level">
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="here"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                </div>
+                                                <div class="tbl-td amount">350</div>
+                                            </div>
+                                            <div class="tbl-tr">
+                                                <div class="tbl-td asking-price">2,800,000</div>
+                                                <div class="tbl-td stock-level">
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="here"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                </div>
+                                                <div class="tbl-td amount">500</div>
+                                            </div>
+                                            <div class="tbl-tr">
+                                                <div class="tbl-td asking-price">2,700,000</div>
+                                                <div class="tbl-td stock-level">
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="here"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                </div>
+                                                <div class="tbl-td amount">25</div>
+                                            </div>
+                                            <div class="tbl-tr">
+                                                <div class="tbl-td asking-price">2,600,000</div>
+                                                <div class="tbl-td stock-level">
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="here"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                </div>
+                                                <div class="tbl-td amount">100</div>
+                                            </div>
+                                            <div class="tbl-tr">
+                                                <div class="tbl-td asking-price">2,500,000</div>
+                                                <div class="tbl-td stock-level">
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="here"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                </div>
+                                                <div class="tbl-td amount">125</div>
+                                            </div>
+                                            <div class="tbl-tr">
+                                                <div class="tbl-td asking-price">2,400,000</div>
+                                                <div class="tbl-td stock-level">
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="here"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                </div>
+                                                <div class="tbl-td amount">500</div>
+                                            </div>									
+                                            <div class="tbl-tr">
+                                                <div class="tbl-td asking-price">2,300,000</div>
+                                                <div class="tbl-td stock-level">
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="here"></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                </div>
+                                                <div class="tbl-td amount">700</div>
+                                            </div>
+                                            <div class="tbl-tr">
+                                                <div class="tbl-td asking-price">2,200,000</div>
+                                                <div class="tbl-td stock-level">
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="here"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                    <span class=""></span>
+                                                </div>
+                                                <div class="tbl-td amount">525</div>
+                                            </div>
+                                            <div class="tbl-tr">
+                                                <div class="tbl-td asking-price">2,100,000</div>
+                                                <div class="tbl-td stock-level">
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                    <span class="other"></span>
+                                                </div>
+                                                <div class="tbl-td amount">1500</div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!--} // [case 2] 지정가 선택시 > 현재가 영역 -->
+							
+                        <!-- //left-2-3. 현재가 영역 끝 --> 
+
+	                    
+	                    <!-- left-2-4. 가격 주문 방식 영역 시작 {-->
+	                    <section class="dashboard dashboard-order">
+	                       <div class="dashboard-header flex-ac">
+					            <h2 class="title">가격 주문 방식</h2>
+					        </div>
+	                        <div class="dashboard-body">
+	                        	<div class="order-method-form">
+		                        	<form action="">
+			                        	<!-- 가격 주문 방식 선택 radio form:: LIVE/ 지정가 {-->
+			                        	<ul class="order-select flex-ac-jac">
+			                                <li class="form-chk price-live">
+			                                    <input type="radio" name="orderMethod" id="orderMethod1" value="LIVE" checked>
+			                                    <label for="orderMethod1">LIVE</label>
+			                                </li>
+			                                <li class="form-chk price-limit">
+			                                    <input type="radio" name="orderMethod" id="orderMethod2" value="지정가">
+			                                    <label for="orderMethod2">지정가</label>
+			                                </li>
+			                            </ul>
+			                            <!--} //가격 주문 방식 선택 radio form:: LIVE/ 지정가 -->		                            
+			                            <!-- [case 1] 가격주문방식 > LIVE 선택시 {-->
+			                            <div class="live-current-price">
+			                            	<div class="cont-wrap">
+				                            	<!-- 1-1. 현재가 -->
+				                            	<dl class="current-price flex-ac-jsb">
+				                            		<dt>현재가</dt>
+				                            		<!-- 현재가 class guide {
+					                            		[case1 일반] color: #000000;
+					                            		[case2 증가/ dd.up] color: #E30505;
+					                            		[case3 감소/ dd.down] color: #0962fc;
+				                            		} --> 
+				                            		<dd class="up">
+				                            			<span>3,369,000</span>
+				                            			<div class="flex-ac">
+				                            				<span>+20,000</span>
+				                            				<span>+0.64%</span>
+				                            			</div>
+				                            		</dd>
+				                            	</dl>
+				                            	<!-- 1-2. 계약단가/ 단가차이/ 계산안내 팝업 -->
+                                                <div class="unit-price-calculate">
+				                            		<div>
+				                            			<dl class="flex-ac-jsb">
+						                            		<dt>
+						                            			계약단가(KRW)
+
+															    <!-- POPUP: 계약단가 > 계산보기 팝업  -->
+								                            	<div class="pop-area">
+																    <button type="button" class="btn-blue-sm btn-preview btn-preview3 btn-calc-detail">계산보기</button>
+																    
+																    <div class="popup-preview popup-preview2 popup-preview3">
+																        <div class="popup-inner">
+																            <div class="popup-close">
+																                <span class="hidden">팝업 닫기</span>
+																            </div>
+																
+																            <h3 class="popup-title">계산안내</h3>
+																
+																            <div class="popup-cont">
+	
+                                                                                <div class="tbl-wrap tbl-preview popup-tbl-preview">
+                                                                                    <div class="tbl-head">
+                                                                                        <div class="tbl-tr">
+                                                                                            <div class="tbl-th">항목(통화)</div>
+                                                                                            <div class="tbl-th">계약(KRW)</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="tbl-body">
+                                                                                        <div class="tbl-tr">
+                                                                                            <div class="tbl-th">단가(KRW)</div>
+                                                                                            <div class="tbl-td">3,158,000</div>
+                                                                                        </div>
+                                                                                        <div class="tbl-tr">
+                                                                                            <div class="tbl-th">LME</div>
+                                                                                            <div class="tbl-td">2,395</div>
+                                                                                        </div>
+                                                                                        <div class="tbl-tr">
+                                                                                            <div class="tbl-th">환율</div>
+                                                                                            <div class="tbl-td">1,400</div>
+                                                                                        </div>
+                                                                                        <div class="tbl-tr">
+                                                                                            <div class="tbl-th">프리미엄</div>
+                                                                                            <div class="tbl-td">130,000</div>
+                                                                                        </div>
+                                                                                        <div class="tbl-tr">
+                                                                                            <div class="tbl-th">가격</div>
+                                                                                            <div class="tbl-td">3,138,000  (LME * 환율) + 프리미엄</div>
+                                                                                        </div>
+                                                                                    </div>
+																		    </div>
+																        </div>
+																    </div>
+																</div>
+																<!--// POPUP: 계약단가 > 계산보기 팝업  -->
+						                            		</dt>
+						                            		<dd>
+						                            			<p class="unit">
+							                                    	<span class="num">3,138,000</span>원
+							                                    </p>
+		                                     				</dd>
+						                            	</dl>
+					                            	</div>
+					                            	<div>
+						                            	<dl class="flex-ac-jsb">
+						                            		<dt>단가차이(KRW/MT)</dt>
+						                            		<dd>
+						                            			<p class="unit">
+							                                    	<span class="num">-20,000</span>원
+							                                    </p>
+		                                     				</dd>
+						                            	</dl>
+					                            	</div>
+				                            	</div>
+				                            </div>
+			                            </div>
+			                            <!--} //[case 1] 가격주문방식 > LIVE 선택시 -->
+
+                                        <!-- [case 2] 가격주문방식 > 지정가 선택시 {-->
+                                        <div class="order-current-price">
+                                        	<div class="cont-wrap">
+                                        	
+	                                            <!-- 지정가 입력 input -->
+	                                            <div class="input-price-area">
+	                                                <div class="inner">
+	                                                    <div class="input-wrap">
+	                                                        <label for="">지정가입력</label>
+	                                                        <input type="number" name="" id="" class="input-price" placeholder="1,000원 단위로 입력" title="지정가 입력">
+	                                                    </div>
+	                                                    
+	                                                    <div class="preview">
+	                                                        <button type="button" class="btn-preview btn-preview1">체결예상확인</button>
+	                                                        
+	                                                        <!-- POPUP: 체결 예상 팝업 -->
+	                                                        <div class="popup-preview popup-preview1" id="">
+	                                                            <div class="popup-inner">
+	                                                                <div class="popup-close">
+	                                                                    <span class="hidden">팝업 닫기</span>
+	                                                                </div>
+	                                                                
+	                                                                <h3 class="popup-title">체결 예상</h3>
+	                                                                
+	                                                                <div class="popup-cont">
+	                                                                
+	                                                               		<div class="tbl-wrap tbl-preview popup-tbl-preview">
+																			<div class="tbl-body">
+																				<div class="tbl-tr">
+																					<div class="tbl-th">주문 지정가(단위: 원)</div>
+																					<div class="tbl-td">3,369,000</div>
+																				</div>
+																				<div class="tbl-tr">
+																					<div class="tbl-th">주문 톤수(단위:MT)</div>
+																					<div class="tbl-td">25</div>
+																				</div>
+																				<div class="tbl-tr my-grade">
+																					<div class="tbl-th">현재 내 순위</div>
+																					<div class="tbl-td">3번째(10명 중)</div>
+																				</div>
+																			</div>
+																		</div>
+	
+	                                                                </div>
+	                                                            </div>
+	                                                        </div>
+	                                                        <!--// POPUP: 체결 예상 팝업  -->
+	                                                        <!-- 
+	                                                        <div class="popup-preview-bg"></div>
+	                                                        -->
+	                                                    </div>
+	                                                </div>
+
+	                                            </div>
+	                                            
+	                                            	                                          		
+                                          		<!-- 계약단가/ 단가차이/ 계산안내 팝업 --> 
+                                                <div class="unit-price-calculate">
+				                            		<div>
+				                            		
+					                            		<dl class="flex-ac-jsb">
+						                            		<dt>
+						                            			계약단가(KRW)
+
+															    <!-- POPUP: 계약단가 > 계산보기 팝업  -->
+								                            	<div class="pop-area">
+																    <button type="button" class="btn-blue-sm btn-preview btn-preview3 btn-calc-detail">계산보기</button>
+																    
+																    <div class="popup-preview popup-preview2 popup-preview3">
+																        <div class="popup-inner">
+																            <div class="popup-close">
+																                <span class="hidden">팝업 닫기</span>
+																            </div>
+																
+																            <h3 class="popup-title">계산안내</h3>
+																
+																            <div class="popup-cont">
+	
+                                                                                <div class="tbl-wrap tbl-preview popup-tbl-preview">
+                                                                                    <div class="tbl-head">
+                                                                                        <div class="tbl-tr">
+                                                                                            <div class="tbl-th">항목(통화)</div>
+                                                                                            <div class="tbl-th">계약(KRW)</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="tbl-body">
+                                                                                        <div class="tbl-tr">
+                                                                                            <div class="tbl-th">단가(KRW)</div>
+                                                                                            <div class="tbl-td">3,158,000</div>
+                                                                                        </div>
+                                                                                        <div class="tbl-tr">
+                                                                                            <div class="tbl-th">LME</div>
+                                                                                            <div class="tbl-td">2,395</div>
+                                                                                        </div>
+                                                                                        <div class="tbl-tr">
+                                                                                            <div class="tbl-th">환율</div>
+                                                                                            <div class="tbl-td">1,400</div>
+                                                                                        </div>
+                                                                                        <div class="tbl-tr">
+                                                                                            <div class="tbl-th">프리미엄</div>
+                                                                                            <div class="tbl-td">130,000</div>
+                                                                                        </div>
+                                                                                        <div class="tbl-tr">
+                                                                                            <div class="tbl-th">가격</div>
+                                                                                            <div class="tbl-td">3,138,000  (LME * 환율) + 프리미엄</div>
+                                                                                        </div>
+                                                                                    </div>
+																		    </div>
+																        </div>
+																    </div>
+																</div>
+																<!--// POPUP: 계약단가 > 계산보기 팝업  -->
+						                            		</dt>
+						                            		<dd>
+						                            			<p class="unit">
+							                                    	<span class="num">3,138,000</span>원
+							                                    </p>
+		                                     				</dd>
+						                            	</dl>
+					                            	
+					                            	</div>
+					                            	<div>
+						                            	<dl class="flex-ac-jsb">
+						                            		<dt>단가차이(KRW/MT)</dt>
+						                            		<dd>
+						                            			<p class="unit">
+							                                    	<span class="num">-20,000</span>원
+							                                    </p>
+		                                     				</dd>
+						                            	</dl>
+					                            	</div>
+				                            	</div>
+                                                
+                                                <!-- 부분체결 checkbox -->
+                                                <div class="partial-checkbox">
+	                                                <h3 class="sub-title">부분체결(필수)</h3>
+	                                                <div class="checkbox flex-ac-jas">
+	                                                    <div class="form-chk">
+	                                                        <input type="checkbox" name="partial" id="partial" required />
+	                                                        <label for="partial">재고 부족 상태에서 지정가 도달 시 부분 체결 진행에 동의합니다.</label>
+	                                                    </div>
+	                                                </div>
+                                                </div>
+	 
+	                                            <!-- 지정가 시간 선택(일반/ 야간장) >>> 23.08.22 | 추후 오픈 예정이라 none처리  style="display: none;"-->
+					                        	<ul class="limit-order-time flex-ac-jac">
+					                                <li class="form-chk">
+					                                    <input type="radio" name="limitOrderTime" id="limitOrderTime1" checked>
+					                                    <label for="limitOrderTime1">당일 오후 5:00 까지 유효</label>
+					                                </li>
+					                                <li class="form-chk">
+					                                    <input type="radio" name="limitOrderTime" id="limitOrderTim2">
+					                                    <label for="limitOrderTim2">당일 저녁 11:00 까지 유효</label>
+					                                </li>
+					                            </ul>
+	
+	                                            <!-- 확인사항 -->
+	                                            <div class="dashborder-checklist">
+	                                                <h3 class="sub-title">확인사항</h3>
+	                                                <ul>
+	                                                    <li>지정가 도달 시 자동 체결됩니다.</li>
+	                                                    <li>지정가 운영은 당일로만 진행됩니다.</li>
+	                                                    <li>당일 운영시간은 10시~마감 00시입니다.</li>
+	                                                    <li>리스트 문구 추가.</li>
+	                                                </ul>
+	                                            </div>
+                                            
+                                            </div>
+                                        </div>
+                                        <!--} // [case 2] 가격주문방식 > 지정가 선택시 -->
+			                        </form>
+								</div>
+								
+	                        </div>
+	                    </section>
+	                    <!--} // left-2-4. 가격 주문 방식 영역 끝 -->
+	                    
+	                    
+						<!-- 23.08 | 이벤트 배너 -->
+                        <div class="order-banners">
+                        	<div class="inner">
+                            	<!-- <span class="banner-close"></span> -->
+				                <div class="swiper-container swier-order-banner">
+				                    <div class="swiper-wrapper">
+				                        <div class="swiper-slide swiper-slide1">
+				                        	<a href="#n">
+				                            	<img src="/guide/images/pd/limit-banner1.png" alt="">
+				                            </a>
+				                        </div>
+				                        <div class="swiper-slide swiper-slide2">
+				                            <a href="#n">
+				                            	<img src="/guide/images/pd/limit-banner2.png" alt="">
+				                            </a>
+				                        </div>
+				                    </div>
+				                    <div class="swiper-pagination"></div>
+				                </div>
+			                </div>
+                        </div>
+	                </div>
+	
+	            </div>
+                <!--} // left-2.끝 -->
+
+	            <!-- right-3. 시작 {-->
+	            <div class="order-detail-right">
+                    <!-- right-3-1. 주문내역 {-->
+	            	<section class="dashboard dashboard-accordian">
+	        	        <div class="dashboard-header flex-ac-jsb">
+	                        <h2 class="title">주문내역</h2>
+	                 		<button type="button" class="btn-view-all">전체보기</button>
+				        </div>
+	                    <div class="dashboard-body">
+	                        <div class="accordian">
+	
+	                            <div class="accordian-list">
+	                                <h3 class="accordian-title flex-ac-jsb">
+	                                	<div class="flex-ac">
+		                                    <span>상품금액</span>
+		                                    <div class="coupon coupon1">
+		                                        단가할인쿠폰 <span class="">0</span>장
+		                                    </div>
+	                                    </div>
+	                                    <p class="unit">
+	                                    	<span class="num">188,978,158</span>원
+	                                    </p>
+	                                    <div class="btn-accordian"></div>
+	                                </h3>
+	                                <div class="accordian-contents">
+	                                    <div class="inner">
+	                                    	<div class="price-inner-info">
+												<dl>
+													<dt>권역/브랜드그룹</dt>
+													<dd>인천/비서구산</dd>
+												</dl>
+												<dl>
+													<dt>주문수량</dt>
+													<dd>25MT</dd>
+												</dl>										
+												<dl>
+													<dt>상품단가</dt>
+													<dd class="unit">
+														<span class="num">3,369,000</span>원/MT
+													</dd>
+												</dl>										
+												<div class="brand-variable">
+													<dl>
+														<dt class="flex-ac">
+															브랜드 변동금
+															<div class="pop-area">
+																<button type="button" class="btn-stroke-sm btn-preview btn-preview2 btn-notice">변동금액 안내</button>
+	
+																<!-- POPUP: 변동금액 안내 팝업 -->
+																<div class="popup-preview popup-preview2" id="">
+		                                                            <div class="popup-inner">
+		                                                                <div class="popup-close">
+		                                                                    <span class="hidden">팝업 닫기</span>
+		                                                                </div>
+	
+		                                                                <h3 class="popup-title">브랜드 변동금액 안내</h3>
+	
+		                                                                <div class="popup-cont">
+	
+		                                                               		<div class="tbl-wrap tbl-preview popup-tbl-preview">
+																				<div class="tbl-head">
+																					<div class="tbl-tr">
+																						<div class="tbl-th">브랜드 명</div>
+																						<div class="tbl-th">브랜드 변동금</div>
+																					</div>
+																				</div>
+																				<div class="tbl-body"> <!-- 브랜드 4개 이상일 경우 스트롤 처리 -->
+																					<div class="tbl-tr">
+																						<div class="tbl-th">VEDANTA</div>
+																						<div class="tbl-td">3,669,000</div>
+																					</div>
+																					<div class="tbl-tr">
+																						<div class="tbl-th">PORTLAND</div>
+																						<div class="tbl-td">3,669,000</div>
+																					</div>
+																					<div class="tbl-tr">
+																						<div class="tbl-th">VEDANTA</div>
+																						<div class="tbl-td">3,669,000</div>
+																					</div>
+																					<div class="tbl-tr">
+																						<div class="tbl-th">PORTLAND</div>
+																						<div class="tbl-td">3,669,000</div>
+																					</div>
+																					<div class="tbl-tr">
+																						<div class="tbl-th">VEDANTA</div>
+																						<div class="tbl-td">3,669,000</div>
+																					</div>
+																				</div>
+																			</div>
+																			<!-- 브랜드별 상이 안내문구 -->
+																			<p class="info-txt2">
+																				<span>최종 체결된 브랜드의 변동금이 결제됩니다.</span>
+																			</p>
+		                                                                </div>
+		                                                            </div>
+		                                                        </div>
+																<!--// POPUP: 변동금액 안내 팝업  -->
+															</div>
+														</dt>
+														<dd>
+															브랜드별 상이
+														</dd>
+													</dl>
+													
+												</div>									
+												<dl style="display: none;">
+													<dt>단가할인</dt>
+													<dd class="unit">
+														<span class="num">-</span>원/MT
+													</dd>
+												</dl>
+											</div>
+											<div class="total-price flex-ac-jsb">
+												<dl>
+													<dt>최종상품단가</dt>
+													<dd class="unit">
+														<span class="num">3,369,000</span>원/MT
+													</dd>
+												</dl>
+											</div>
+	                                    </div>
+	                                </div>
+	                            </div>          
+	                            <div class="accordian-list">
+	                                <h3 class="accordian-title flex-ac-jsb">
+	                                	<div class="flex-ac">
+		                                    <span>중량변동금</span>
+										</div>
+	                                    <p class="unit">
+	                                    	<span class="num">7,917,150</span>원
+	                                    </p>
+	                                    <div class="btn-accordian"></div>
+	                                </h3>
+	                                <div class="accordian-contents">
+	                                    <div class="inner">
+	                                    	<p class="info-txt">출고 시점에 확정 중량과의 차이 만큼 자동 환불됩니다.</p>
+	                                    	<div>
+												<dl>
+													<dt>주문수량</dt>
+													<dd>25MT</dd>
+												</dl>										
+												<dl>
+													<dt>상품단가</dt>
+													<dd class="unit">
+														<span class="num">3,369,000</span>원/MT
+													</dd>
+												</dl>	
+											</div>
+	                                    </div>
+	                                </div>
+	                            </div>          
+	                            <div class="accordian-list">
+	                                <h3 class="accordian-title flex-ac-jsb">
+	                                	<div class="flex-ac">
+		                                    <span>배송비</span>
+		                                    <div class="coupon coupon1">
+		                                        배송비무료쿠폰 <span class="">0</span>장
+		                                    </div>
+	                                    </div>
+	                                    <p class="unit">
+	                                    	<span class="num">333,100</span>원
+	                                    </p>
+	                                    <div class="btn-accordian"></div>
+	                                </h3>
+	                                <div class="accordian-contents">
+	                                    <div class="inner">
+	                                    	<p class="info-txt">당일 배송인 경우 구간에 따라 배송비가 할증 됩니다.</p>
+	                                    	<div>
+												<dl>
+													<dt>배송구간</dt>
+													<dd>부산신항(출발지) - 부산(도착지)</dd>
+												</dl>
+												<dl>
+													<dt>구간금액</dt>
+													<dd class="unit">
+														<span class="num">333,100</span>원/MT
+													</dd>
+												</dl>										
+												<dl>
+													<dt>차량댓수</dt>
+													<dd class="unit">
+														<span class="num">1</span>대
+													</dd>
+												</dl>										
+												<dl>
+													<dt>배송비할인</dt>
+													<dd class="unit">
+														<span class="num">-</span>원
+													</dd>
+												</dl>
+											</div>
+	                                    </div>
+	                                </div>
+	                            </div>          
+	                            <div class="accordian-list">
+	                                <h3 class="accordian-title flex-ac-jsb">
+	                                	<div class="flex-ac">
+		                                    <span>공급가액</span>
+		                                </div>
+	                                    <p class="unit">
+	                                    	<span class="num">171,798,8530</span>원
+	                                    </p>
+	                                    <div class="btn-accordian"></div>
+	                                </h3>
+	                                <div class="accordian-contents">
+	                                    <div class="inner">
+	                                    	<div>
+												<dl>
+													<dt>상품금액+중량변동금+배송비</dt>
+													<dd class="unit">
+														<span class="num">171,798,8530</span>원
+													</dd>
+												</dl>
+											</div>
+	                                    </div>
+	                                </div>
+	                            </div>          
+								<div class="accordian-list">
+	                                <h3 class="accordian-title flex-ac-jsb">
+	                                	<div class="flex-ac">
+		                                    <span>부가가치세</span>
+										</div>
+	                                    <p class="unit">
+	                                    	<span class="num">17,179,853</span>원
+	                                    </p>
+	                                    <div class="btn-accordian"></div>
+	                                </h3>
+	                                <div class="accordian-contents">
+	                                    <div class="inner">
+	                                    	<div>
+												<dl>
+													<dt>공급가액의 10%<dt>
+													<dd class="unit">
+														<span class="num">17,179,853</span>원/MT
+													</dd>
+												</dl>
+											</div>
+										</div>
+	                                </div>
+	                            </div>          
+	
+	                        </div>
+	                    </div>
+	            	</section>
+                    <!--} //right-3-1. 주문내역 -->
+
+                    <!-- right-3-2. 결제수단 선택 {-->
+	            	<section class="dashboard dashboard-payment">
+		            	<div class="dashboard-header flex-ac">
+				            <h2 class="title">결제수단 선택</h2>
+				        </div>
+				        <div class="dashboard-body">
+				        	<div class="order-tab">
+				        		<!-- tab title START{-->
+				        		<ul class="order-tab-title flex-ac-jsb">
+				        			<li class="active">E-wallet</li>
+				        			<li>증거금</li>
+				        			<li>서린크레딧</li>
+				        			<!--<li>담보보증</li>-->
+				        		</ul>
+				        		<!--} // tab title END -->
+				        		
+				        		<!-- 3-2-1. tab cont > E-wallet START {-->
+				        		<div class="order-tab-cont e-wallet">
+				        			<div class="order-payment-top">
+				        				<div class="card">
+				        					<div class="card-inner">
+				        						<div class="card-header flex-ac-jsb">
+				        							<img src="/guide/images/pd/icon-card-eWallet.png" title="e-Wallet">
+				        							<span class="card-name">e-Wallet</span>
+				        						</div>
+				        						<div class="card-body flex-ac-jac">
+				        							<div class="account">148-916067-41237</div>
+				        							<div class="price flex-ac-jac">
+				        								<div class="unit">
+				        									<span class="num">2,988,505,000</span>원
+				        								</div>			        							
+					        							<button type="button" class="btn-refresh">
+				        									<img src="/guide/images/pd/btn-refresh.png" title="현재 잔고 새로고침">
+				        								</button>
+				        							</div>
+				        						</div>
+				        					</div>
+				        				</div>
+				        				<p class="flex-ac-jac mt15">
+						                    <span class="icon-info-txt">한도가 부족합니다. e-Wallet 입금 후 이용해 주세요.</span>
+						                </p>
+						                <div class="checkbox-area">
+						        			<div class="checkbox flex-ac">
+			                                    <div class="form-chk">
+			                                        <input type="checkbox" name="paymentAgree1-1" id="paymentAgree1-1" required />
+			                                        <label for="paymentAgree1-1">클레임 정보 및 결제대행 서비스 이용약관에 모두 동의합니다.
+												</div>
+												<button class="btn-stroke-sm btn-pop-detail" data-popup="bottomsheet" data-target="btnAgreDtl">보기<span class="ripple">보기</button>
+											</div>
+											<div class="checkbox flex-ac">
+			                                    <div class="form-chk">
+			                                        <input type="checkbox" name="paymentAgree1-2" id="paymentAgree1-2" required />
+			                                        <label for="paymentAgree1-2">지정가 이용약관에 모두 동의합니다.
+												</div>
+												<button class="btn-stroke-sm btn-pop-detail" data-popup="bottomsheet" data-target="btnAgreDtl2">보기</button>
+											</div>
+										</div>
+				        			</div>
+				        			<div class="order-payment-btm flex-jsb">
+				        				<dl class="total flex-ac-jsb">
+				        					<dt class="flex-ac-jac">
+				        						총 결제금액
+												<i class="btn-icon-coupon" data-popup="modal" data-target="sorinCouponSelect">
+				        							<img src="/guide/images/pd/icon-coupon.png" title="할인쿠폰">
+				        						</i>
+				        					</dt>
+				        					<dd>
+				        						<div class="unit">
+				        							<span class="num">188,978,785</span>원
+				        						</div>
+				        					</dd>
+				        				</dl>
+				        				
+				        				<div class="">
+							            	<p class="info-txt info-txt-red mt25">위 주문 내용을 확인하였으며, 결제에 동의합니다.</p>
+											<div class="btns flex-ac-jsb">
+												<button type="button" class="btn-border-loyalblue btn-order-list">주문내역보기</button>
+												<button type="button" class="btn-fill-loyalblue btn-order">지정가 주문하기</button>
+											</div>
+										</div>
+										
+				        			</div>
+				        		</div>
+				        		<!--} // 3-2-1. tab cont > E-wallet END -->
+	
+				        		<!-- 3-2-2. tab cont > 증거금 START {-->
+				        		<div class="order-tab-cont deposit">
+				        			<div class="order-payment-top">
+				        				<div class="card">
+				        					<div class="card-inner">
+				        						<div class="card-header flex-ac-jsb">
+				        							<img src="/guide/images/pd/icon-card-margin.png" title="서린닷컴 증거금">
+				        							<span class="card-name">증거금</span>
+				        						</div>
+				        						<div class="card-body flex-ac-jac">
+				        							<div class="account">148-916067-41237</div>
+				        							<div class="price flex-ac-jac">
+				        								<div class="unit">
+				        									<span class="num">2,988,505,000</span>원
+				        								</div>			        							
+					        							<button type="button" class="btn-refresh">
+				        									<img src="/guide/images/pd/btn-refresh.png" title="현재 잔고 새로고침">
+				        								</button>
+				        							</div>
+				        						</div>
+				        					</div>
+				        				</div>
+				        				<p class="flex-ac-jac mt15">
+						                    <span class="icon-info-txt">한도가 부족합니다. e-Wallet 입금 후 이용해 주세요.</span>
+						                </p>
+						                <p class="info-txt info-txt-black text-align-center mt15">증거금 최소 결제 금액<span>25,312,500</span>원</p>
+						                <p class="info-txt text-align-center mt15">구매성향등급을 선택하면, 증거금 결제 예상금액이 달라집니다.</p>
+			                            <div class="flex-ac-jsb mt10">
+				                            <select class="dropdown">
+				                                <option>대량구매형(19~21%)</option>
+				                                <option selected>자주구매형(28~32%)</option>
+				                                <option>계획구매형(38~42%)</option>
+				                                <option>안정구매형(48~52%)</option>
+				                            </select>
+											<style>
+												.select2-results__option {color: #000 !important; font-size: 1.2rem; font-weight: 200;}
+											</style>
+				                            <button type="button" class="btn-stroke" data-popup="modal" data-target="sorinModalPaymentStandard">증거금 비율 안내</button>
+			                            </div>
+			                            
+										<table class="tbl-step">
+			                                <colgroup>
+			                                    <col style="width:15%;">
+			                                    <col style="width:27.5%;">
+			                                    <col style="width:27.5%;">
+			                                    <col style="width:35%;">
+			                                </colgroup>
+			                                <thead>
+			                                    <tr>
+			                                        <th scope="col">단계</th>
+			                                        <th scope="col">결제일</th>
+			                                        <th scope="col">결제금액(VAT별도)</th>
+			                                        <th scope="col">비고</th>
+			                                    </tr>
+			                                </thead>
+			                                <tbody>
+			                                    <tr>
+			                                        <td>주문</td>
+			                                        <td id="initOrderDe">2023-03-06</td>
+			                                        <td id="initAmount">94,737,500</td>
+			                                        <td>주문금액</td>
+			                                    </tr>
+			                                    <tr>
+			                                        <td>결제</td>
+			                                        <td id="wrtmOrderDe">2023-03-06</td>
+			                                        <td id="wrtmAmount">25,312,500</td>
+			                                        <td>증거금액</td>
+			                                    </tr>
+			                                    <tr>
+			                                        <td>잔액</td>
+			                                        <td id="wrtmSetlePrearngeDe">2023-03-14</td>
+			                                        <td id="wrtmSetlePrearngeAmount">69,425,000</td>
+			                                        <td>주문금액 - 증거금액</td>
+			                                    </tr>
+			                                    <tr>
+			                                        <td>정산</td>
+			                                        <td id="wrtmExcclcDe">2023-03-15</td>
+			                                        <td>-</td>
+			                                        <td>확정중량 - 주문중량</td>
+			                                    </tr>
+			                                </tbody>
+			                            </table>
+										
+						                <div class="checkbox-area">
+						        			<div class="checkbox flex-ac">
+			                                    <div class="form-chk">
+			                                        <input type="checkbox" name="paymentAgree2-1" id="paymentAgree2-1" required />
+			                                        <label for="paymentAgree2-1">클레임 정보 및 결제대행 서비스 이용약관에 모두 동의합니다.
+												</div>
+												<button class="btn-stroke-sm btn-pop-detail" data-popup="bottomsheet" data-target="btnAgreDtl">보기<span class="ripple">보기</button>
+											</div>
+											<div class="checkbox flex-ac">
+			                                    <div class="form-chk">
+			                                        <input type="checkbox" name="paymentAgree2-2" id="paymentAgree2-2" required />
+			                                        <label for="paymentAgree2-2">지정가 이용약관에 모두 동의합니다.
+												</div>
+												<button class="btn-stroke-sm btn-pop-detail" data-popup="bottomsheet" data-target="btnAgreDtl2">보기</button>
+											</div>
+										</div>
+				        			</div>
+				        			<div class="order-payment-btm flex-jsb">
+				        				<dl class="total flex-ac-jsb">
+				        					<dt class="flex-ac-jac">
+				        						총 결제금액
+												<i class="btn-icon-coupon" data-popup="modal" data-target="sorinCouponSelect">
+				        							<img src="/guide/images/pd/icon-coupon.png" title="할인쿠폰">
+				        						</i>
+				        					</dt>
+				        					<dd>
+				        						<div class="unit">
+				        							<span class="num">188,978,785</span>원
+				        						</div>
+				        					</dd>
+				        				</dl>
+				        				
+				        				<div class="">
+							            	<p class="info-txt text-align-center">증거금으로 결제 시, <br> 잔액은 e-Wallet 또는 구매자금으로 상환이 가능합니다.</p>
+							            	<p class="info-txt info-txt-red mt25">위 주문 내용을 확인하였으며, 결제에 동의합니다.</p>
+											<div class="btns flex-ac-jsb">
+												<button type="button" class="btn-border-loyalblue btn-order-list">주문내역보기</button>
+												<button type="button" class="btn-fill-loyalblue btn-order">지정가 주문하기</button>
+											</div>
+										</div>
+										
+				        			</div>
+				        		</div>
+				        		<!--} //3-2-2. tab cont > 증거금 END -->
+				        		
+				        		<!-- 3-2-3. tab cont > 서린크레딧 START {-->
+				        		<div class="order-tab-cont sr-credit">
+				        			<div class="order-payment-top">
+				        				<div class="card card2">
+				        					<div class="card-inner">
+				        						<div class="card-header flex-ac-jsb">
+				        							<img src="/guide/images/pd/icon-card-srCredit.png" title="서린크레딧">
+				        							<span class="card-name">서린크레딧</span>
+				        						</div>
+				        						<div class="card-body flex-jac">
+				        							<dl class="">
+				        								<dt>총 한도</dt>
+				        								<dd>
+					        								<div class="unit">
+					        									<span class="num">4,000,000,000</span>원
+					        								</div>		
+				        								</dd>
+				        							</dl>
+				        							<dl class="remaining">
+				        								<dt>남은 한도</dt>
+				        								<dd class="flex-ac">
+					        								<span class="unit">
+					        									<span class="num">988,505,000</span>원
+					        								</span>		
+						        							<button type="button" class="btn-refresh">
+					        									<img src="/guide/images/pd/btn-refresh.png" title="현재 잔고 새로고침">
+					        								</button>
+				        								</dd>
+				        							</dl>
+				        						</div>
+				        					</div>
+				        				</div>
+				        				<p class="flex-ac-jac mt15">
+						                    <span class="icon-info-txt">한도가 부족합니다. e-Wallet 입금 후 이용해 주세요.</span>
+						                </p>
+	
+					                    <div class="input-button-wrap flex-ac-jac">
+		                                    <label class="radio-btn active"><input type="radio" checked><span>15일(무이자)</span></label>
+		                                    <label class="radio-btn"><input type="radio"><span>30일(3.75%)</span></label>
+		                                    <label class="radio-btn"><input type="radio"><span>45일(3.75%)</span></label>
+		                                </div>
+	
+	                                    <p class="info-txt info-txt-black text-align-center">결제예정일<span>2023-03-29</span></p>  
+	                                    
+						                <div class="checkbox-area">
+						        			<div class="checkbox flex-ac">
+			                                    <div class="form-chk">
+			                                        <input type="checkbox" name="paymentAgree3-1" id="paymentAgree3-1" required />
+			                                        <label for="paymentAgree3-1">클레임 정보 및 결제대행 서비스 이용약관에 모두 동의합니다.
+												</div>
+												<button class="btn-stroke-sm btn-pop-detail" data-popup="bottomsheet" data-target="btnAgreDtl">보기<span class="ripple">보기</button>
+											</div>
+											<div class="checkbox flex-ac">
+			                                    <div class="form-chk">
+			                                        <input type="checkbox" name="paymentAgree3-2" id="paymentAgree3-2" required />
+			                                        <label for="paymentAgree3-2">지정가 이용약관에 모두 동의합니다.
+												</div>
+												<button class="btn-stroke-sm btn-pop-detail" data-popup="bottomsheet" data-target="btnAgreDtl2">보기</button>
+											</div>
+										</div>
+				        			</div>
+				        			<div class="order-payment-btm flex-jsb">
+				        				<dl class="total flex-ac-jsb">
+				        					<dt class="flex-ac-jac">
+				        						총 결제금액
+												<i class="btn-icon-coupon" data-popup="modal" data-target="sorinCouponSelect">
+				        							<img src="/guide/images/pd/icon-coupon.png" title="할인쿠폰">
+				        						</i>
+				        					</dt>
+				        					<dd>
+				        						<div class="unit">
+				        							<span class="num">188,978,785</span>원
+				        						</div>
+				        					</dd>
+				        				</dl>
+				        				
+				        				<div class="">
+							            	<p class="info-txt text-align-center">서린크레딧으로 결제 시,<br>상품단가는 결제금액에 따라 이자가 포함되어 재계산됩니다.</p>
+							            	<p class="info-txt info-txt-red mt25">위 주문 내용을 확인하였으며, 결제에 동의합니다.</p>
+											<div class="btns flex-ac-jsb">
+												<button type="button" class="btn-border-loyalblue btn-order-list">주문내역보기</button>
+												<button type="button" class="btn-fill-loyalblue btn-order">지정가 주문하기</button>
+											</div>
+										</div>
+										
+				        			</div>
+				        		</div>
+				        		<!--} //3-2-3. tab cont > 서린크레딧 END -->
+				        		
+				        		<!-- 3-2-4. tab cont > 담보 보증 START {-->
+				        		<div class="order-tab-cont kodit">
+				        			<div class="order-payment-top">
+				        				<div class="card card2">
+				        					<div class="card-inner">
+				        						<div class="card-header flex-ac-jsb">
+				        							<img src="/guide/images/pd/icon-card-kodit.png" title="담보 보증">
+				        							<span class="card-name">담보 보증</span>
+				        						</div>
+				        						<div class="card-body flex-jac">
+				        							<dl class="">
+				        								<dt>총 한도</dt>
+				        								<dd>
+					        								<div class="unit">
+					        									<span class="num">4,000,000,000</span>원
+					        								</div>		
+				        								</dd>
+				        							</dl>
+				        							<dl class="remaining">
+				        								<dt>남은 한도</dt>
+				        								<dd class="flex-ac">
+					        								<span class="unit">
+					        									<span class="num">988,505,000</span>원
+					        								</span>		
+						        							<button type="button" class="btn-refresh">
+					        									<img src="/guide/images/pd/btn-refresh.png" title="현재 잔고 새로고침">
+					        								</button>
+				        								</dd>
+				        							</dl>
+				        						</div>
+				        					</div>
+				        				</div>
+				        				<p class="flex-ac-jac mt15">
+						                    <span class="icon-info-txt">한도가 부족합니다. e-Wallet 입금 후 이용해 주세요.</span>
+						                </p>
+	
+					                    <div class="input-button-wrap flex-ac-jac">
+		                                    <label class="radio-btn active"><input type="radio" checked><span>15일(무이자)</span></label>
+		                                    <label class="radio-btn"><input type="radio"><span>30일(3.75%)</span></label>
+		                                    <label class="radio-btn"><input type="radio"><span>45일(3.75%)</span></label>
+		                                </div>
+	
+	                                    <p class="info-txt info-txt-black text-align-center">결제예정일<span>2023-03-29</span></p>  
+	                                    
+						                <div class="checkbox-area">
+						        			<div class="checkbox flex-ac">
+			                                    <div class="form-chk">
+			                                        <input type="checkbox" name="paymentAgree4-1" id="paymentAgree4-1" required />
+			                                        <label for="paymentAgree4-1">클레임 정보 및 결제대행 서비스 이용약관에 모두 동의합니다.
+												</div>
+												<button class="btn-stroke-sm btn-pop-detail" data-popup="bottomsheet" data-target="btnAgreDtl">보기<span class="ripple">보기</button>
+											</div>
+											<div class="checkbox flex-ac">
+			                                    <div class="form-chk">
+			                                        <input type="checkbox" name="paymentAgree4-2" id="paymentAgree4-2" required />
+			                                        <label for="paymentAgree4-2">지정가 이용약관에 모두 동의합니다.
+												</div>
+												<button class="btn-stroke-sm btn-pop-detail" data-popup="bottomsheet" data-target="btnAgreDtl2">보기</button>
+											</div>
+										</div>
+				        			</div>
+				        			<div class="order-payment-btm flex-jsb">
+				        				<dl class="total flex-ac-jsb">
+				        					<dt class="flex-ac-jac">
+				        						총 결제금액
+												<i class="btn-icon-coupon" data-popup="modal" data-target="sorinCouponSelect">
+				        							<img src="/guide/images/pd/icon-coupon.png" title="할인쿠폰">
+				        						</i>
+				        					</dt>
+				        					<dd>
+				        						<div class="unit">
+				        							<span class="num">188,978,785</span>원
+				        						</div>
+				        					</dd>
+				        				</dl>
+				        				
+				        				<div class="">
+							            	<p class="info-txt text-align-center">전자상거래보증으로 결제 시,<br>상품단가는 결제금액에 따라 이자가 포함되어 재계산됩니다.</p>
+							            	<p class="info-txt info-txt-red mt25">위 주문 내용을 확인하였으며, 결제에 동의합니다.</p>
+											<div class="btns flex-ac-jsb">
+												<button type="button" class="btn-border-loyalblue btn-order-list">주문내역보기</button>
+												<button type="button" class="btn-fill-loyalblue btn-order">지정가 주문하기</button>
+											</div>
+										</div>
+										
+				        			</div>
+				        		</div>
+				        		<!--} // 3-2-4. tab cont > 담보 보증 END -->
+				        	</div>
+				        	
+						</div> 
+					</section>
+                    <!--} right-3-2. 결제수단 선택 -->
+	            </div>
+                <!--} // right-3. 끝 -->
+            </div>
+             <!-- // order-detail-left/ order-detail-right 영역 FINISH {-->
+
+        </section>
+        <!--} //Bottomsheet Popup > contents FINISH -->
+
+    </div>
+  
+    </div>
+</div>
+<!-- // ::: [평균가 결제 상세 - 프라이싱 LIVe/ 지정가] Modal Bottomsheet Popup 끝 ::: {-->
+
+
+
+
+<!--// Modal Popup -->
+<!-- script core -->
+<script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="/guide/js/select2/select2.min.js"></script>
+<!-- script extra -->
+<script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+<script src="/guide/js/swiper/6.7.0/swiper.js"></script>
+<!-- script custom -->
+<script src="/guide/js/sorin.js"></script>
+<script src="/guide/js/sorin-my.js"></script>
+<script src="/guide/js/sorin-layout.js"></script>
+<!-- script embedded -->
+<script>
+
+/* ::::: 평균가 script 시작 ::::: */
+
+	/* 1. 평균가 주문 상세 > .average-price-tab */
+	// 1-1. swiper slide option
+	var avtTabSwiper = new Swiper('.slide-wrap', {
+		initialSlide : 0, // 필요시 대기월 index 확인 후 설정 (진행월은 0)
+	    slidesPerView: 'auto',
+	    preventClicks: true,
+	    preventClicksPropagation: false,
+	    observer: true,
+	    observeParents: true,
+	    navigation: {  
+	        prevEl: ".arrow-prev",
+	        nextEl: ".arrow-next",
+	    }
+	});
+
+	// 1-2. click한 .swiper-slide 활성화
+   $('.avg-price-tab .swiper-slide').on('click', function(){
+		$('.avg-price-tab .swiper-slide').removeClass('swiper-slide-prev')
+		$('.avg-price-tab .swiper-slide').removeClass('swiper-slide-active')
+		$('.avg-price-tab .swiper-slide').removeClass('swiper-slide-next')
+		$(this).prev().addClass('swiper-slide-prev')
+		$(this).addClass('swiper-slide-active')
+		$(this).next().addClass('swiper-slide-next')
+	});
+   
+	// 1-3. .arrow 갯수 별 스타일(.swiper-slide 갯수가 1개면 .arrow 비활성화, 2개 이상이면 활성화)
+	let avgPriceTab = $('.avg-price-tab')
+	let avgPriceTabSlide = avgPriceTab.find('.swiper-slide')
+	let avgPriceTabSlideLen = avgPriceTab.find('.swiper-slide').length;
+	let avgPriceTabArrows = avgPriceTab.find('.arrows-wrap')
+
+	if (avgPriceTabSlideLen == 1) {
+		avgPriceTabArrows.removeClass('active')
+	} else {
+		avgPriceTabArrows.addClass('active')
+	}
+
+	
+	
+	/* 2. 발주 계획 세우기 팝업(#sorinModalAvgOrderPlan) */
+	// 2-1. 발주 계획 세우기 팝업 팝업 function
+	function avgItemSelect() {
+		$('.avg-plan1-1').hide();
+		$('.avg-plan1-2').show();
+	}
+	
+	function avgItemSelectReverse() {
+		$('.avg-plan1-1').show();
+		$('.avg-plan1-2').hide();
+	}
+
+    // 2-2. 발주 계획 세우기 팝업 > 뒤로가기 > 나가기 버튼(.btn-move-item-select) 클릭시
+	$('.btn-move-item-select').on('click', function(){
+		avgItemSelectReverse();
+	});
+
+
+
+	/* 3. toast popup (라이브 구매계획 > 취소하기 버튼 > 지정가 취소하기 버튼 클릭시) */
+    $('.btn-pop-toast').on('click',function () {
+
+        $('.pop-toast').fadeIn(300);
+
+        setTimeout(function(){
+             $('.pop-toast').fadeOut(300);
+        },2000);
+    });
+	
+	
+	
+	/* 결제하기 버튼 클릭시('.btn-pop-avg-pay') > 결제상세 바틈시트(.bottomsheet-order-detail.update) 활성화 */
+	// 결제상세 바틈시트(.bottomsheet-order-detail.update) > 이벤트 배너(.swier-order-banner)
+    var limitBannerSwiper = new Swiper(".swier-order-banner", {
+		autoplay: {
+		    delay: 3000,
+		    disableOnInteration: false,
+	    },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        observer: true,	
+  		observeParents: true
+    });
+    
+    
+	/* ::::: [공통] scrollbar plugin: mCustomScrollbar.js 사용 ::::: */
+	$(window).on("load",function(){
+	    $(".tbl-wrap .tbl-body").mCustomScrollbar();
+	});
+
+
+
+    /* ::::: 2. [공통] .popup-preview 팝업 > 닫기 버튼 클릭시 :::::  
+       [case 1] 가격주문방식 > 체결예상확인 버튼 > 체결 예상 팝업 > 닫기 버튼 클릭시
+       [case 2] 주문내역 > 변동금액 안내 팝업 > 닫기 버튼 클릭시
+    */
+	let btnPreviewAll = document.querySelectorAll('.btn-preview')
+	let popPreviewAll = document.querySelectorAll('.popup-preview')
+	let btnPopClose = document.querySelectorAll('.popup-close')
+		
+    btnPreviewAll.forEach((btns, idx) => {
+	
+        btns.addEventListener('click', (e) => {
+        	popPreviewAll[idx].style.display ='block'
+        	console.log(idx)
+        });
+
+    });
+    
+	btnPopClose.forEach((popup, idx) => {
+		
+		popup.addEventListener('click', (e) => {
+			popPreviewAll[idx].style.display ='none'
+		});
+
+	});
+	
+	// '.popup-preview/ 전체닫기 버튼' 이 외 영역 클릭시 > .popup-preview display: none
+	window.addEventListener('mouseup', function(e) {
+ 
+    	btnPreviewAll.forEach((btns, idx) => {
+
+		    if (!popPreviewAll[idx].contains(e.target)) {
+		        popPreviewAll[idx].style.display = 'none';
+		    }
+
+		});
+
+	});		
+ 
+
+
+    /* ::::: 3. 가격 주문방식 > 지정가 ::::: */
+     const btmsheet = document.querySelector('.bottomsheet-order-detail')
+     const btnPreview1 = document.querySelector('.btn-preview1')
+     const btnPreview2 = document.querySelector('.btn-preview2')
+     const btnPreview3 = document.querySelector('.btn-preview3')
+     const popPreview = document.querySelector('.popup-preview1')
+     const popPreview2 = document.querySelector('.popup-preview2')
+     const popPreview3 = document.querySelector('.popup-preview3')
+     const inputPrice = document.querySelector('.input-price')
+     const modifySelectbox = document.querySelector('.modify-selectbox select')
+     const btnNotice = document.querySelector('.btn-notice')
+
+    // 3-1. '체결예상확인' 버튼 클릭시 > 체결 예상 팝업 잘려보이지 않도록 스크롤 이동
+    btnPreview1.addEventListener('click', () => {
+
+        $('.bottomsheet-order-detail .modal-content').stop().animate({scrollTop:$(document).height()}, 700); 
+
+    });
+
+	//  3-2. input에 focus하면 입력한 지정가 삭제
+    inputPrice.addEventListener("focus", () =>{
+        inputPrice.value = "";
+        btnPreviewOff ()
+    })
+	
+	//  3-3. '체결예상확인' 버튼 초기화(disabled)
+	btnPreview1.style.cursor = "not-allowed"
+	btnPreview1.disabled = true;
+	
+	inputPrice.addEventListener("input", inputBtnActive);
+    
+    // function: '체결예상확인' 버튼 비활성화 
+    function btnPreviewOff (){
+        btnPreview1.classList.remove('active');
+        btnPreview1.disabled = true;
+        btnPreview1.style.cursor = "not-allowed"
+    }
+    
+    // function: '체결예상확인' 버튼 활성화 
+    function btnPreviewOn (){
+        btnPreview1.classList.add('active');
+        btnPreview1.disabled = false;
+        btnPreview1.style.cursor = "pointer"
+    }
+
+	// function: '체결예상확인' 버튼 활성화/ 비활성화
+	function inputBtnActive (e) {
+	
+	    let inputPriceVal = inputPrice.value;
+	
+	    if (inputPriceVal.length > 6){
+	        // 활성화
+	        btnPreviewOn ()
+	    } else {
+	        // 비활성화
+	        btnPreviewOff ()
+	    }
+	}
+
+	//  3-4. 가격 주문 방식 > radio 태그 (LIVE/ 지정가) 선택 시
+	const dashboardLive = $('.dashboard-price-live');
+	const dashboardCurrentPrice = $('.dashboard-price-current');
+	const orderLive = $('.live-current-price');
+	const orderCurrentPrice = $('.order-current-price');
+	
+	$("input[name='orderMethod']").change(function(){
+		// LIVE 선택 시
+		if($("input[name='orderMethod']:checked").val() == 'LIVE'){
+			dashboardLive.fadeIn(200);
+			orderLive.fadeIn(200);
+			dashboardCurrentPrice.hide();
+			orderCurrentPrice.hide();
+		}	
+		// 지정가 선택 시
+		else if($("input[name='orderMethod']:checked").val() == '지정가'){
+			dashboardLive.hide();
+			orderLive.hide();
+			dashboardCurrentPrice.fadeIn(200);
+			orderCurrentPrice.fadeIn(200);
+		}
+
+	});
+	
+
+
+
+	/* ::::: 4. 주문내역 ::::: */
+	// 4-1. 주문내역 > .accordian scirpt
+	let accorTitle = $('.accordian .accordian-title').removeClass('active').first().addClass('active').end();
+    let contentAreas = $('.accordian .accordian-list ').children('.accordian-contents').hide().first('.accordian-list').show().end();
+    let expandLink = $('.btn-view-all');
+
+
+    accorTitle.click(function(){
+
+        $(this).toggleClass('active');
+
+        $(this).next().slideToggle();
+
+        expandLink.text('전체보기').data('isAllOpen', false);
+
+        let accorTitleActive = $('.accordian-title.active').length;
+        let accorTitleLength = $('.accordian-title').length;
+
+        if (accorTitleActive == accorTitleLength) {
+            expandLink.text('전체닫기','전체보기').data('isAllOpen', true);
+        }
+
+        return false;
+
+    });
+
+    expandLink.click(function(){
+	
+        let isAllOpen = !$(this).data('isAllOpen');
+
+        accorTitle[isAllOpen? 'addClass': 'removeClass']('active');
+        contentAreas[isAllOpen? 'slideDown': 'slideUp']();
+
+		expandLink.text(isAllOpen? '전체닫기': '전체보기').data('isAllOpen', isAllOpen);
+		
+    });
+
+
+
+	/* ::::: 5. 결제수단 ::::: */
+	// 5-1. 결제수단 선택 > E-wallet, 증거금, 서린크레딧 중 택 1
+	let orderTabTitle = $('.order-tab-title li');
+	let orderTabCont = $('.order-tab-cont');
+
+	orderTabTitle.on('click',function(){
+
+		let orderTabIndex = $(this).index();
+
+		orderTabTitle.removeClass('active');
+		orderTabTitle.eq(orderTabIndex).addClass('active');
+
+		orderTabCont.hide();
+		orderTabCont.eq(orderTabIndex).fadeIn(300);
+		
+		// 할인쿠폰 선택 초기화
+		couponReset ()
+
+	});
+
+
+    // 5-2. 결제수단 선택 > 서린크레딧 > radio tag
+    $('.radio-btn').on('click', function(e){
+        e.preventDefault();
+        $(this).addClass('active').siblings().removeClass('active');
+        $(this).siblings().children('input').attr('checked',false)
+        $(this).children('input').attr('checked',true);
+    });
+
+
+    // 5-3. 결제수단 선택 > 단가확인 버튼('.btn-order-list') 클릭시 > 페이지 상단으로 이동
+    const btnOderList = $('.btn-order-list');
+
+    btnOderList.on('click',function(){
+		$('.bottomsheet-order-detail .modal-content').stop().animate({scrollTop:0});
+	});
+	
+	
+	// 5-4. 결제수단 선택 > 할인쿠폰 아이콘 클릭시 > 쿠폰 할인적용 팝업 > 단가할인, 배송비할인 둘 중 하나의 쿠폰만 사용 가능
+	let couponArea = $('.coupon-area');
+	let couponTitle = couponArea.find('.title');
+	let couponCont = couponArea.find('.cont');
+	let couponCheckboxes = $('.coupon-area').find('.form-chk > input:checkbox');
+	let couponPrice = $('.coupon-area-price');
+	let couponDelivery = $('.coupon-area-delivery');
+	let couponPriceCheckbox = couponPrice.find('.form-chk > input:checkbox');
+	let couponDeliveryCheckbox = couponDelivery.find('.form-chk > input:checkbox');
+	let prevCheck = $('.form-chk > input:checkbox:checked').parents('.coupon-area').attr('data-target');  // 기존 선택된 checkbox 쿠폰 영역 // 기존 선택된 checkbox 쿠폰 영역
+	let target =  couponPrice.find('.form-chk > input:checkbox:checked');
+	
+	
+	//쿠폰 타이틀 클릭시
+	couponTitle.on('click', function() {
+		let couponTitleIndex = $(this).parents('.coupon-area').index();
+		
+		// 클릭한 쿠폰 .title 활성화
+		couponArea.find('.title').removeClass('active');
+		couponArea.eq(couponTitleIndex).find('.title').addClass('active');
+		
+		// 클릭한 쿠폰 .cont 활성화
+		couponArea.find('.cont').hide();
+		couponArea.eq(couponTitleIndex).find('.cont').fadeIn(200);
+
+		// 할인 정보 box(.total-dicount-box) 초기화
+		$('.total-dicount-box').hide();
+							
+		// 클릭한 checkbox 영역에 해당하는 할인 정보 box(.total-dicount-box) 활성화 
+		$('.total-dicount-box').eq(couponTitleIndex).show();
+	})
+
+
+	
+	// 쿠폰 list 클릭시
+	couponCheckboxes.on('click', function(e){
+
+		let targetCheck =  $(this).parents('.coupon-area').attr('data-target') // 단가 할인 쿠폰 | 배송비 무료 쿠폰
+		let targetParent =  $(this).parents('.coupon-area') // 단가 할인 쿠폰 | 배송비 무료 쿠폰
+		let targetCheckReverse =  $(this).parents('.coupon-area').siblings().attr('data-target') // 현재 선택한 checkbox 쿠폰 영역의 반대
+    
+    	// 단가할인쿠폰과 배송비쿠폰 둘 중 하나만 선택 가능.
+		if(prevCheck !== targetCheck) { 
+			confirmApply ()
+		}
+		
+		// 이전에 check한 쿠폰을 현재 check한 쿠폰으로 재할당
+		prevCheck = targetCheck;
+		
+		// function: coupon 변경 적용 
+		function confirmApply () {
+  			e.stopPropagation();
+  			e.preventDefault();
+  		
+			//#sorinModalConfirm 팝업 활성화 및 안내문구
+  			const modalConfirmMessage = `${targetCheckReverse} 적용 중입니다.\n중복 사용은 불가능하며, ${targetCheck}을 적용할 경우\n기존 적용 된 ${targetCheckReverse}의 적용은 취소 됩니다.\n${targetCheck}을 사용하시겠습니까?`
+			popup('sorinModalConfirm', 'alert', modalConfirmMessage);
+		
+			//#sorinModalConfirm 팝업 > 취소, 적용 버튼 클릭시 
+			$('#sorinModalConfirm .modal-x').on('click',function(){
+
+				// 할인 정보 box(.total-dicount-box) 초기화
+				$('.total-dicount-box').hide();
+									
+				// 클릭한 checkbox 영역에 해당하는 할인 정보 box(.total-dicount-box) 활성화 
+				if (targetCheck == '단가 할인 쿠폰') {
+					$('.total-dicount-box1').show();
+				} else if (targetCheck == '배송비 무료 쿠폰') {
+					$('.total-dicount-box2').show();
+				}
+
+
+				// alert 취소, 적용버튼
+				if($(this).text().includes('취소')) {
+
+				
+				} else if($(this).text().includes('적용')) {
+						
+					// checkbox checked 초기화
+					couponCheckboxes.each(function(){
+						$(this).prop('checked', false);
+					});
+
+					// 현재 클릭한 checkbox만 e.preventDefault() 해제 후 check
+					$(e.target).prop('checked', true);
+
+				}
+			})
+		}
+		
+	});
+
+    
+	// 5-5. 결제수단 선택 > 할인쿠폰 아이콘 클릭시 > 쿠폰 할인적용 팝업 > 취소버튼, 쿠폰적용 버튼 클릭시
+	const btnCouponCancel = $('.btn-coupon-cancel')  // 취소 버튼
+	const btnCouponApply= $('.btn-coupon-select')  // 쿠폰적용 버튼
+	const iconCoupon = $('.btn-icon-coupon img')  // 할인쿠폰 아이콘 이미지
+	
+	// 팝업(쿠폰 할인적용) > '취소' 버튼 클릭시
+    btnCouponCancel.on('click',function(){
+		// 할인쿠폰 선택 초기화
+		couponReset ()
+ 	});
+
+	// function: 할인쿠폰 선택 초기화
+	function couponReset () {
+				
+		// 할인쿠폰 아이콘 src 변경(쿠폰 적용 전) 
+		iconCoupon.attr('src', '/guide/images/pd/icon-coupon.png');
+	
+		// 선택했던 쿠폰 모두 리셋
+		couponDeliveryCheckbox.each(function(){
+			$('.form-chk > input:checkbox').prop("checked", false);
+		});
+		
+		// 단가할인 첫 번째 쿠폰 checked
+		$('.coupon-area-price').find('.form-chk').eq(0).find('input:checkbox').prop("checked", true);
+	}
+	
+	// 팝업(쿠폰 할인적용) > '쿠폰적용' 버튼 클릭시
+    btnCouponApply.on('click',function(){
+	
+		// 할인쿠폰 아이콘 src 변경(쿠폰 적용 후) 
+		iconCoupon.attr('src', '/guide/images/pd/icon-coupon-on.png');
+	
+	});
+
+/* ::::: 평균가 script 종료 ::::: */
+	
+</script>
+
+</body>
+</html>

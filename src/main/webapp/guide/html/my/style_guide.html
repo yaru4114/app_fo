@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>[공통] 스트일 가이드</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+    
+    <style>
+    	.style-guide__division {margin-top: 6rem; border-top: 1px solid #ededed; padding-top: 1rem;}
+    	.style-guide__division:first-child {margin-top:0; border: 0;}
+    	
+    	.style-guide__title {position: relative;}
+    	.style-guide__title .change-date {position: absolute;top:50%;right: 0; transform: translateY(-50%);}
+    	.style-guide__title .change-date  li {position:relative; margin-right: 1rem;font-size: 1.2rem; color: #999;}
+    	.style-guide__title .change-date  li::after {content: ""; position: absolute;top:50%;transform: translateY(-50%);right: -0.5rem; width: 1px; height: 1.2rem; background-color: #999;}
+    	.style-guide__title .change-date  li:last-child {margin-right: 0;}
+    	.style-guide__title .change-date  li:last-child::after {display: none;}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <!-- header include -->
+    <div class="header-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+    <!-- //header include --> 
+    <div class="container">
+   		<!-- dashboard include {-->
+      	<div class="dashboard-wrap include-wrap"></div>
+      	<script type="text/javascript"> $(".dashboard-wrap").load("/guide/html/include/my/dashboard.html");</script>
+        <!--} //dashboard include -->        
+        <div class="section my">
+            <div class="inwrap table">
+            	<!-- lnb include {-->            	
+                <div class="lnb-wrap include-wrap"></div>
+   				<script type="text/javascript"> $(".lnb-wrap").load("/guide/html/include/my/lnb.html");</script>
+                <!--} // lnb include --> 
+                
+            	<!-- content-style-guide {-->              	
+				<div class="content content-style-guide">
+				
+					<section class="style-guide__division">
+						<h2 class="style-guide__title">
+							결제 상태별 라벨 스타일 가이드
+							<ul class="change-date flex-ac">
+								<li>변경일: 23.04.21</li>
+								<li>변경 목적: 고도화 3차 요건 추가</li>
+							</ul>
+						</h2>
+						<div class="style-guide__cont">
+							<div class="info-box pay-condition flex-start mt30">
+								<!-- 상태값 라벨 {-->
+	                            <span class="item stroke-black">예정</span>
+	                            <span class="item stroke-black">대기</span>
+	                            <span class="item fill-black">사고</span>
+	                            <span class="item fill-red">연체</span>
+	                            <span class="item fill-red">미납</span>
+	                            <span class="item fill-gray">취소</span> 
+	                            <span class="item fill-green">완료</span> 
+	                            <span class="item fill-green">부분체결</span> 
+	                            <span class="item fill-green">체결</span> 
+	                            <span class="item stroke-red">체결실패</span> 
+	                            <!--} // 상태값 라벨 -->
+	                            
+	                            <!-- 체결 실패일 경우: 사유 노출(재고 부족/ 잔액 부족/ 유효 시간 경과/ 본인 취소/ 선물장애 체결실패)-->
+	                            <p class="fail-msg">
+	                                선물장애 체결실패
+	                            </p>
+							</div>
+						</div>
+					</section>
+							
+					<section class="style-guide__division mt60">
+						<h2 class="style-guide__title">
+							지정가 | LIVE
+							<ul class="change-date flex-ac">
+								<li>변경일: 23.04.21</li>
+								<li>변경 목적: 고도화 3차 요건 추가</li>
+							</ul>
+						</h2>
+						<p>- 지정가: 서린몰 종료로 '기존 서린몰 background-color'를 사용</p>
+						<div class="order-history-result" style="display: block; padding: 0;margin-top: 3rem;">
+                           	<!-- 주문 결제 case별 .pd-unit-price 스타일 가이드
+		                    [case 1] 지정가: 라벨(.label-limit)/ 가격(.u-price)
+		                    [case 2] LIVE: 라벨(.label-orange)/ 가격(.u-price + .fc-red)
+		                     -->
+                            <!-- [case 1] 지정가 -->
+							<p class="pd-unit-price">
+                                <span class="label-limit">지정가</span>
+                                <span class="u-price">3,522,000 원/MT</span>
+                            </p>
+							<!-- [case 2] LIVE -->
+                            <p class="pd-unit-price">
+								<span class="label-orange">LIVE</span>
+                                <span class="u-price fc-red">3,522,000 원/MT</span>
+                            </p>
+						</div>
+					</section>
+					
+					
+				</div>
+				<!--} //content-style-guide -->  
+				
+				
+            </div>
+        </div>
+    </div>
+    <!-- footer include -->
+    <div class="footer-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+    <!-- //footer include -->
+</div>
+
+
+<!-- 23.04.06 | MODAL POPUP : 마이페이지 > 쿠폰등록 -->
+<div class="popup modal" id="sorinModalmyCoupon">
+	<div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close">
+				<button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button>
+			</div>
+            <h1 class="h2-pd">쿠폰등록</h1>
+            <div class="div-scroll-y">
+                <div class="section">
+					<div class="tbl-v center">
+						<input type="text" name="couponNum" id="couponNum" class="fill-gray coupon-input" placeholder="쿠폰번호를 입력해 주세요.">
+						<div class="mt20">
+							<span class="tooltip-txt">(-)를 반드시 입력 등록해주세요.</span>
+							<!-- <span class="tooltip-txt orange">유효하지 않은 쿠폰 번호입니다. 다시 확인 등록해주세요.</span> -->
+						</div>
+					</div>
+                    <div class="btn-wrap">
+                        <button type="button" class="btn-gray-big modal-x">취소</button>
+                        <button type="button" class="btn-blue-big">등록</button>
+                    </div>
+
+                </div><!--// .section -->
+
+            </div><!-- // .div-scroll-y -->  
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// 23.04.06 | MODAL POPUP : 마이페이지 > 쿠폰등록 -->
+
+
+
+<!-- script core -->
+<script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="/guide/js/select2/select2.min.js"></script>
+<!-- script extra -->
+<script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+<script src="/guide/js/swiper/6.7.0/swiper.js"></script>
+<!-- script custom -->
+<script src="/guide/js/sorin.js"></script>
+<script src="/guide/js/sorin-my.js"></script>
+<script src="/guide/js/sorin-layout.js"></script>
+<!-- script embedded -->
+<script>
+</script>
+
+</body>
+</html>

@@ -1,0 +1,459 @@
+@charset "utf-8";
+@import url(swiper/6.7.0/swiper.css);
+/* Main */
+.charts-wrap {padding:5rem 0; background-color:#fafafa;}
+.charts-wrap .hgroup h2 span {font-family:'S-CoreDream-5'; color:#000; font-size:2.2rem;}
+.charts-wrap .hgroup h2 .ticker {font-family:'S-CoreDream-5'; color:#999aa9; font-size:2.2rem;}
+.charts-wrap .hgroup h2 .desc {font-family:'S-CoreDream-4'; color:#999aa9; font-size:1.2rem;}
+.charts-wrap .hgroup > div:not(.exchange) {width:calc(100% - 36rem); position:relative;}
+.charts-wrap .hgroup .btns {position:absolute; bottom:0; right:4rem; }
+.charts-wrap .exchange span {font-size:1.4rem; color:#999aa9;}
+.charts-wrap .exchange .number {font-family:'S-CoreDream-5'; color:#000;}
+.charts-wrap .charts-con {display:flex; justify-content:space-between; align-items:stretch; width:100%; min-height:50rem; padding:3rem; border-radius:1.2rem; box-shadow:0 .1rem 1rem 0 rgba(0, 0, 0, 0.05); background-color:#fff;}
+.rChart-graph {width:calc(100% - 33rem); padding-right:4rem;}
+.rChart-sum {margin-bottom:1.5rem;}
+  .rChart-current {position:relative;}
+    .rChart-current span {display:inline-block; font-size:1.4rem; vertical-align:middle;}
+    .rChart-current span + span {margin-left:1rem;}
+    .rChart-current .c-price {font-family:'S-CoreDream-5'; font-size:2.8rem;}
+    .rChart-current .c-rate,
+    .rChart-current .c-gap {font-family:'S-CoreDream-3'; font-size:1.4rem;}
+    .rChart-current.up span {color:#fb1a31;}
+    .rChart-current.up .c-rate::before {content:'+'; display:inline-block;}
+    .rChart-current.down span {color:#0962fc;}
+    .rChart-current.down .c-rate::before {content:''; display:inline-block;}
+  .rChart-summary {margin-top:1.2rem;}
+  .rChart-summary span {display:inline-block; font-family:'S-CoreDream-3'; color:#777; font-size:1.2rem;}
+    .rChart-summ {display:table;}
+    .rChart-summ li {display:table-cell;}
+    .rChart-summ li + li {padding-left:1.5rem;}
+    /* .rChart-summ span:not(.stit) {font-family:'Roboto', sans-serif;} */
+    .rChart-summ .h-price {color:#fb1a31;}
+    .rChart-summ .l-price {color:#0962fc;}
+    .rChart-summ .y-price {color:#000;}
+    .rChart-summ .t-volumn {color:#000;}
+    .rChart-summ .t-amount {color:#000;}
+    .rChart-summ .t-amount + .unit {color:#000;}
+.rcharts-wrap {position:relative;}
+.rChart-table {width:33rem;}
+  .table-sum {padding-bottom:.7rem; display:flex; justify-content:space-between; align-items:center;}
+  .table-sum .stit {font-family:'S-CoreDream-5'; font-size:1.2rem; color:#000; line-height:2rem;}
+  .controller-wrap {display:flex; justify-content:right; align-items:center; display:none;}/* 작업중 임시 display:none; 처리 */
+  .controller-wrap .time-bar-container {margin-right:1rem;}
+  .time-bar-container {width:12rem; height:.2rem; display:block; position:relative; background-color:#dedede;}
+  .time-bar {width:50%; height:.2rem; display:block; position:absolute; top:0; left:0; background-color:#2b425f;}
+  .list-stock {display:table; width:100%;}
+  .thead .list-stock > div {display:table-cell; padding:1rem; background-color:#f3f3f3; color:#666; font-size:1.1rem;}
+  .thead .list-stock > div:not(:first-of-type) {text-align:center;}
+  .list-stock > div:not(:first-of-type) {color:#000;}
+  .list-stock .c-prd {width:calc(100% - 14rem)}
+  .list-stock .c-price {width:7rem;}
+  .list-stock .c-rate {width:7rem;}
+  
+  .li:not(.thead) .list-stock > div {display:table-cell; padding:1.2rem 1rem; background-color:#fff; color:#666; font-size:1.2rem;}
+  .li:not(.thead) .list-stock > div:not(:first-of-type) {text-align:right;}
+  .li:not(.thead) .list-stock .c-prod strong {font-family:'S-CoreDream-5'; color:#000; font-weight:500; font-size:1.4rem;}
+  .li:not(.thead) .list-stock .c-prod span {margin-left:.5rem; font-family:'S-CoreDream-5'; color:#666; font-size:1.2rem;}
+  .li:not(.thead) .list-stock .c-price, 
+  .li:not(.thead) .list-stock .c-rate {display:none;font-size:1.2rem; color:#000;}
+  .li.up:not(.thead) .list-stock .c-price, 
+  .li.up:not(.thead) .list-stock .c-rate {color:#fb1a31;}
+  .li.down:not(.thead) .list-stock .c-price, 
+  .li.down:not(.thead) .list-stock .c-rate {color:#1e60d1;}
+  .list-stock > div:not(:first-of-type) {color:#000;}
+  /* .up .list-stock > div:not(:first-of-type) {color:#fb1a31;} */
+  .up .list-stock .c-rate::before {content:'+'; margin-right:.2rem;}
+  /* .down .list-stock > div:not(:first-of-type) {color:#1e60d1;} */
+  .down .list-stock .c-rate::before {content:''; margin-right:.2rem;}
+  .close .list-stock > div:not(:first-of-type) {color:#666;}
+  
+  /*.rChart-table .list > .li {height:3.1rem; cursor:pointer;}*/
+  .rChart-table .list > .li.active,
+  .rChart-table .list > .li.active2 {height:auto; overflow:initial; position:relative; border:1px solid #fff;}
+  .rChart-table .list .li.active::before {content:''; display:block; width:1rem; height:1.2rem; position:absolute; top:1.2rem; left:-1rem; background-position:0 0; background-repeat:no-repeat;}
+  .rChart-table .list .li.active .list-stock .c-rate {padding-right:1.2rem;}
+  .rChart-table .list .li.up.active::before{background-image:url("http://10.202.0.4:28085/images/ma/temp-main-down.png");}
+  .rChart-table .list .li.down.active::before{background-image:url("http://10.202.0.4:28085/images/ma/temp-main-down.png");}
+  .rChart-table .list .li.up.active {border-color:#1e60d1;}
+  .rChart-table .list .li.down.active {border-color:#1e60d1;}
+  .rChart-table .list .li.up.active div {background-color:#fff;}
+  .rChart-table .list .li.down.active div {background-color:#fff;}
+  .rChart-table .list .li.active .info {height:auto; opacity:1; overflow:initial;}
+  /*
+  .rChart-table .list .li.up.active .info {border-top:1px solid #1e60d1;}
+  .rChart-table .list .li.down.active .info {border-top:1px solid #1e60d1;}
+  */
+  .rChart-table .list .li.active2 .list-stock {border-right:1px solid #dedede; border-left:1px solid #dedede;}
+  .rChart-table .list .li.active2 .info {height:auto; opacity:1; overflow:initial; padding:0; border-right:1px solid #dedede; border-left:1px solid #dedede;}
+  .rChart-table .list .li.active2 .info > div {}
+
+  /* .rChart-table .list .li, */
+  /* .rChart-table .list .li .list-stock, */
+  .rChart-table .info, 
+  .rChart-table .info .li,
+  .rChart-table .info .li div,
+  .rChart-table .info .li span {transition:all .5s ease-in-out;}
+
+  .rChart-table .info {width:100%; height:0; overflow:hidden; opacity:0;}
+  .rChart-table .info .li {display:flex; justify-content:space-between; align-items:stretch; padding:1.5rem 1rem}
+  .rChart-table .info .li div, 
+  .rChart-table .info .li span {font-size:1.1rem;}
+  .rChart-table .info .li .info-tit {font-family:'S-CoreDream-5'; line-height:2; width:18%; color:#000; }
+  .rChart-table .info .li .info-tit span {position:relative; top:-.7rem; color:#999; letter-spacing:-1px}
+  .rChart-table .info .li .info-desc {line-height:2; width:82%}
+  .rChart-table .info .li .info-desc span {display:inline-block; width:11.5rem; font-family:'S-CoreDream-4'; color:#666; vertical-align:top;}
+  .rChart-table .info .li .info-desc span.number {width:8.5rem; padding-left:0.5rem}
+  .rChart-table .info .li .info-desc span.desc-rate {width:5rem; text-align:right}
+  .rChart-table .list .li.up .info-desc span.number,
+  .rChart-table .list .li.up .info-desc span.desc-rate {color:#fb1a31;}
+  .rChart-table .list .li.down .info-desc span.number,
+  .rChart-table .list .li.down .info-desc span.desc-rate {color:#1e60d1;}
+
+
+  /* 임시 클래스 적용 변경시 삭제
+  .list .li:nth-child(3) .info .li span.number, 
+  .info .li:nth-child(2) span.number,
+  .info .li:nth-child(3) span.number {width:calc(100% - 11rem) !important; padding-right:3px; text-align:right}
+  */
+  /* .rChart-table .info .li .info-desc span {font-family:'S-CoreDream-3'; color:#666; display:inline-block; height:1.6rem; width:9rem; text-align:right; margin-right:0.5rem; vertical-align:top; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;} */
+  /* .rChart-table .info .li .info-desc span.number {width:auto; max-width:9rem; margin:0}*/
+  .charts-wrap h2 span.scopi {position:absolute; top:1.4rem; display:inline-block; width:8rem; height:3rem; line-height:2.5; text-align:center; margin-right:8px; font-size:12px; border-radius:15px; color:#fff; background-color:#999aa9}
+  .charts-wrap .scopi-info {padding-top:1rem; font-size:1.2rem; color:#999aa9}
+  .charts-wrap .scopi-info strong {color:#999aa9}
+  
+ 
+ 
+.materials-wrap {padding:5rem 0; background-color:#fff;}
+.materials-wrap .inwrap {display:flex; justify-content:space-between;}
+.materials-news {width:76rem;}
+.materials-news .list a {display:block;}
+.section.materials-wrap .inwrap .h2 {font-size:1.8rem; margin-bottom:1.1rem;}
+.materials-wrap .hgroup .btns {margin-bottom:0;}
+.section.materials-wrap .hgroup .btns button {width:inherit;}
+
+.materials-cal {width:36rem;}
+.materials-cal .cal-wrap {height:35rem; padding:2rem; border:1px solid #dedede; border-radius:2rem;}
+.cal-wrap .cal-header {display:flex; justify-content:space-between; align-items:center;}
+.cal-wrap .cal-header button, .cal-wrap .cal-header span {vertical-align:middle;}
+.cal-wrap .cal-header .cal-month {font-family:'S-CoreDream-5'; line-height:3rem; padding:0 .5rem; color:#000;}
+.btn-cal-prev, .btn-cal-next {width:3rem; height:3rem; position:relative; background-color:#fff;}
+.btn-cal-prev::before, .btn-cal-next::before {content:''; display:block; width:2rem; height:2rem; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); border:1px solid #dedede; border-radius:.2rem;}
+.btn-cal-prev::after, .btn-cal-next::after {content:''; display:block; width:.6rem; height:.6rem; position:absolute; top:1.2rem; border:1px solid #939393; transform:rotate(-45deg);}
+.btn-cal-prev::after {left:1.3rem; border-width:.1rem 0 0 .1rem;}
+.btn-cal-next::after {left:1rem; border-width:0 .1rem .1rem 0;}
+.btn-cal-month, .btn-cal-today,.btn-cal-holiday {width:4rem; height:2rem; border:1px solid #dedede; border-radius:.3rem; background-color:#fff; color:#666; font-size:1rem;}
+.btn-cal-month.active, .btn-cal-today.active,.btn-cal-holiday.active {background-color:#1d5fd0; border-color:#1d5fd0; color:#fff;}
+.cal-wrap .cal-list {position:relative; margin-top:1rem; height:27rem; overflow-y:auto;}
+/* .cal-wrap .cal-list::-webkit-scrollbar {width:0px;} */
+.cal-wrap .cal-list::-webkit-scrollbar {width:.7rem;}
+.cal-wrap .cal-list::-webkit-scrollbar-thumb {background-color:#ccc; border-radius:.3rem; background-clip:padding-box; border:2px solid transparent;}
+.cal-wrap .cal-list::-webkit-scrollbar-track {background-color:#fff; border-radius:1rem; box-shadow:inset 0px 0px 5px white; }
+
+.cal-list .li {padding:1.1rem 2rem; background-color:#fafafa; border-radius:.2rem;}
+.cal-list .li span {display:inline-block; font-size:1.2rem; vertical-align:top; line-height:1.2;}
+.cal-list .li + .li {margin-top:.2rem;}
+.cal-list .li .date {width:7rem; color:#999aa9;}
+.cal-list .li .schedule {width:calc(100% - 7.5rem); color:#000;}
+
+/* 메인 달력 추가 */
+.cal-holiday {display:none; position:relative;}
+.cal-holiday .ui-datepicker {margin-top:1rem !important}
+.cal-holiday .ui-datepicker-calendar td a {border:0; pointer-events: none; cursor: default; outline:none}
+.cal-holiday .ui-widget.ui-widget-content {width:100%; padding:0; border:0; margin-top:0}
+.cal-holiday .ui-datepicker-header {display:none}
+.cal-holiday .ui-state-highlight, .cal-holiday .ui-widget-content .ui-state-highlight,
+.cal-holiday .ui-widget-header .ui-state-highlight,
+.cal-holiday .ui-state-active, .cal-holiday .ui-widget-content .ui-state-active,
+.cal-holiday .ui-widget-header .ui-state-active  {background: #fff; color: #454545; font-family: 'S-CoreDream-4';}
+.cal-holiday .ui-widget.ui-widget-content .ui-datepicker-unselectable {opacity:1}
+.cal-holiday .ui-widget.ui-widget-content .ui-datepicker-unselectable span {font-family:'S-CoreDream-4'; border-radius:50%; background-color:#fcd6d9; border:0; color:#666}
+.cal-holiday .cal-holiday-front {position:absolute; top:0; left:0; right:0; bottom:0; width:100%; text-indent:-9999px; background:rgba(0,0,0,0)}
+.cal-holiday .ui-widget.ui-widget-content {box-shadow: 0 0 0 rgb(0,0,0,0);}
+.cal-holiday .ui-datepicker table {border-top-width:1px}
+.cal-holiday .ui-datepicker > .ui-datepicker-calendar tbody td:first-child span {color:#fd3535 !important}
+.cal-holiday .ui-datepicker > .ui-datepicker-calendar tbody td:last-child span {color:#0962fc !important}
+.cal-holiday .ui-widget.ui-widget-content .ui-datepicker-other-month span {font-family:'S-CoreDream-3'; background-color:#fff; color:#ccc}
+.cal-holiday .ui-datepicker > .ui-datepicker-calendar tbody td.ui-datepicker-other-month:first-child span,
+.cal-holiday .ui-datepicker > .ui-datepicker-calendar tbody  td.ui-datepicker-other-month:last-child span {opacity:0.35}
+.cal-holiday .ui-datepicker-calendar th {padding:1rem 0}
+.cal-holiday .ui-datepicker-calendar td {padding:.4rem .2rem 0.5rem}
+
+.services-wrap {padding:6rem 0; background-color:#fafafa}
+.services-wrap .inwrap {display:flex; justify-content:space-between; align-items:stretch;}
+.services-wrap .inwrap > div {height:22rem;}
+.services-wrap .inwrap > div + div {border-left:1px solid #dedede;}
+.services-wrap .inwrap .services-con .h2 {font-size:1.8rem}
+.services-wrap .info, 
+.services-wrap .intro, 
+.services-wrap .estimate {position:relative; overflow:hidden;}
+.services-wrap .estimate {padding-left:6.5rem; padding-right:4.5rem;}
+.services-wrap .inwrap .estimate .h2 {margin-bottom:1.4rem;}
+.services-con .cs-number {padding-top:.5rem;}
+.services-con .cs-number span {display:inline-block; vertical-align:middle; position:relative; font-family:'S-CoreDream-6'; font-size:4rem; vertical-align:middle;}
+.services-con .cs-number span:nth-child(1) {color:#2070f8;}
+.services-con .cs-number span:nth-child(2) {margin:0 1.8rem; color:#0944a8;}
+.services-con .cs-number span:nth-child(3) {color:#012b73;}
+.services-con .cs-number span::before {content:''; display:block; width:.6rem; height:.6rem; background-color:#666; position:absolute; top:50%; left:-1.2rem; transform:translateY(-50%);}
+.services-con .cs-number span:nth-child(1)::before {display:none}
+.services-con .cs-email {margin-top:1.5rem;}
+.services-con .cs-email a {font-family:'S-CoreDream-5'; font-size:1.6rem; color:#254781;}
+.services-con .cs-p {margin-top:1.5rem; font-family:'S-CoreDream-4'; font-size:1.4rem; color:#999aa9; line-height:1.5;}
+.services-con .cs-btns {margin-top:1.5rem;}
+.services-wrap .info, .services-wrap .estimate {width:38rem;}
+.services-wrap .intro {width:calc(100% - 76rem);}
+.services-wrap .intro .services-con {display:table; position:relative; margin:auto;}
+.services-wrap .estimate .services-con {float:right;}
+.services-con .figure {width:32rem; height:18rem; background-color:lightpink;}
+
+
+/*  main banner slide area */
+.grap-wrap {height:47rem; padding:0; min-width:120rem; overflow:hidden}
+
+/*  main banner slide content */
+.grap-wrap.lme-on {
+    background: linear-gradient(135deg,  #23aeb6 0%,#9a66f8 100%);
+    background: -moz-linear-gradient(-45deg,  #23aeb6 0%, #9a66f8 100%);
+    background: -webkit-linear-gradient(-45deg,  #23aeb6 0%,#9a66f8 100%);
+}
+.grap-wrap.pay-on {
+    background: linear-gradient(135deg,  #9a66f8 0%,#f29776 100%);
+    background: -moz-linear-gradient(-45deg,  #9a66f8 0%, #f29776 100%);
+    background: -webkit-linear-gradient(-45deg,  #9a66f8 0%,#f29776 100%);
+}
+.grap-wrap.sinl-on{
+    background: linear-gradient(135deg,  #f29776 0%,#23aeb6 100%);
+    background: -moz-linear-gradient(-45deg,  #f29776 0%, #23aeb6 100%);
+    background: -webkit-linear-gradient(-45deg,  #f29776 0%,#23aeb6 100%);
+}
+.grap-wrap .grap-swiper-inner {
+    width:100%; height:100%;
+    background-image:url(/images/ma/main_banner_pattern.png);
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:0 0;
+    /* background-color:transparent; */
+}
+.grapWrapSwiper .swiper-slide {background:none}
+.grapWrapSwiper .swiper-slide .swiper-con {display:flex; position:relative; width:120rem; min-width:120rem; margin:0 auto;}
+.grapWrapSwiper .swiper-slide .swiper-con .subject {position:relative; width:62rem; height:100%; text-align:left; z-index:3}
+.grapWrapSwiper .swiper-slide .swiper-con .subject h1 {position:absolute; top:7rem; font-family:'S-CoreDream-6'; font-size:8rem; margin:0; line-height:90px; color:#fff; z-index:5; text-shadow: 0px 5px 10px rgba(0,0,0,0.1);}
+.grapWrapSwiper .swiper-slide .swiper-con .subject .swiper-img {position:absolute; top:2.2rem; left:20rem; display:inline-block; width:38rem; height:40.4rem; z-index:4}
+.grapWrapSwiper .swiper-slide .swiper-con .subject .line {position:absolute; top:20rem; display:inline-block; width:22rem; height:0.2rem; z-index:11; background-color:#fee404; text-indent:-9999px}
+.grapWrapSwiper .swiper-slide.lme .swiper-con .subject .line {left:34rem; width:27rem}
+.grapWrapSwiper .swiper-slide.pay .swiper-con .subject .line {left:39rem; width:22rem}
+.grapWrapSwiper .swiper-slide.sinl .swiper-con .subject .line {left:39rem; width:22rem}
+.grapWrapSwiper .swiper-slide .swiper-con .text {text-align:left; padding:15.5rem 0 0 1rem; z-index:3}
+.grapWrapSwiper .swiper-slide .swiper-con .text h2 {font-family:'S-CoreDream-4'; font-size:3.2rem; margin:0; line-height:42px; color:#fff}
+.grapWrapSwiper .swiper-slide .swiper-con .text p {font-size:1.8rem; margin-top:2.5rem; line-height:28px; color:#fff}
+.grapWrapSwiper .swiper-slide.pay .swiper-con .text p {position:relative; padding-left:12rem}
+.grapWrapSwiper .swiper-slide.pay .swiper-con .text p span {position:absolute; top:0.7rem; left:0; width:10rem; height:3.55rem; display:inline-block; width:10rem}
+.grapWrapSwiper .swiper-slide.pay .swiper-con .text p span img {width:100%}
+
+/* main banner slide control */
+.grapWrapSwiper .swiper-pagination-bullet {width:1rem; height:1rem; background-color:#fff;}
+.grapWrapSwiper.swiper-container-horizontal > .swiper-pagination-bullets {bottom:5rem;}
+.grapWrapSwiper.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {margin:0 .6rem;}
+.grapWrapSwiper .swiper-button-next, 
+.grapWrapSwiper.swiper-container-rtl .swiper-button-prev {width:6rem; height:6rem; right:0; color:#fff;}
+.grapWrapSwiper .swiper-button-next::before, 
+.grapWrapSwiper .swiper-button-prev, 
+.grapWrapSwiper.swiper-container-rtl .swiper-button-next {width:6rem; height:6rem; left:0; color:#fff;}
+.grapWrapSwiper .swiper-button-next::before, 
+.grapWrapSwiper.swiper-container-rtl .swiper-button-prev::before {content:''; display:block; width:6rem; height:6rem; position:absolute; right:0; background-color:#fff; opacity:.3;}
+.grapWrapSwiper .swiper-button-prev::before, 
+.grapWrapSwiper.swiper-container-rtl .swiper-button-next::before {content:''; display:block; width:6rem; height:6rem; position:absolute; left:0; background-color:#fff; opacity:.3;}
+.grapWrapSwiper .swiper-button-prev:after, 
+.grapWrapSwiper .swiper-container-rtl .swiper-button-next:after {font-size:2.5rem; z-index:1;}
+.grapWrapSwiper .swiper-button-next:after, 
+.grapWrapSwiper .swiper-container-rtl .swiper-button-prev:after {font-size:2.5rem; z-index:1;}
+
+/* main content slide area */
+.sorin-wrap {height:36rem; padding:0; border-top:1px solid #dedede; background-color:#2b425f;}
+.sorin-wrap .swiper-con {max-width:120rem; margin:auto; text-align:left;}
+.sorin-wrap .swiper-con .desc {padding:6rem 0;}
+.sorin-wrap .swiper-con .figure {padding:3rem 0;}
+.sorin-wrap .swiper-con .figure .sorin-bell {width:10.8rem; height:10.8rem; position:absolute; top:0; left:4rem; display:block;}
+.swiper-con.sorinWrapSwiper1 {display:flex; justify-content:space-between; align-items:center; flex-direction:row-reverse;}
+.swiper-con.sorinWrapSwiper1 > div {width:50%;}
+.swiper-con.sorinWrapSwiper1 .figure {overflow:hidden;}
+.swiper-con.sorinWrapSwiper1 .figure img {float:right;}
+.sorinWrapSwiper1 .p1 {font-family:'S-CoreDream-5'; color:#fff; font-size:1.8rem; opacity:0.7;}
+.sorinWrapSwiper1 .p2 {margin-top:1.5rem; color:#fff; font-family:'S-CoreDream-5'; font-size:3.4rem;}
+.sorinWrapSwiper1 .p3 {margin-top:2.5rem; line-height:1.5; color:#fff; font-size:2rem; opacity:0.5;}
+.sorinWrapSwiper .swiper-pagination-bullet {width:1rem; height:1rem; background-color:#fff;}
+.sorinWrapSwiper.swiper-container-horizontal > .swiper-pagination-bullets {width:120rem; max-width:120rem; position:relative; margin:auto; text-align:left; bottom:6rem;}
+.sorinWrapSwiper .swiper-button-next, 
+.sorinWrapSwiper.swiper-container-rtl .swiper-button-prev {width:6rem; height:6rem; right:0; color:#fff;}
+.sorinWrapSwiper .swiper-button-next::before, 
+.sorinWrapSwiper .swiper-button-prev, 
+.sorinWrapSwiper.swiper-container-rtl .swiper-button-next {width:6rem; height:6rem; left:0; color:#fff;}
+.sorinWrapSwiper .swiper-button-next::before, 
+.sorinWrapSwiper.swiper-container-rtl .swiper-button-prev::before {content:''; display:block; width:6rem; height:6rem; position:absolute; right:0; background-color:#000; opacity:.15;}
+.sorinWrapSwiper .swiper-button-prev::before, 
+.sorinWrapSwiper.swiper-container-rtl .swiper-button-next::before {content:''; display:block; width:6rem; height:6rem; position:absolute; left:0; background-color:#000; opacity:.15;}
+.sorinWrapSwiper .swiper-button-prev:after, 
+.sorinWrapSwiper .swiper-container-rtl .swiper-button-next:after {font-size:2.5rem; z-index:1;}
+.sorinWrapSwiper .swiper-button-next:after, 
+.sorinWrapSwiper .swiper-container-rtl .swiper-button-prev:after {font-size:2.5rem; z-index:1;}
+/* 협력사 소개 */
+.alliance-wrap {padding-bottom:6rem !important; margin-bottom:0 !important;}
+.alliance-wrap .inwrap {display:flex; justify-content:space-between; align-items:center; padding:1.5rem 0;}
+.alliance-wrap .desc .p1 {font-family:'S-CoreDream-5'; color:#5f7eb4; font-size:1.8rem; line-height:1.22;}
+.alliance-wrap .desc .p2 {margin-top:1.5rem; color:#000; font-family:'S-CoreDream-5'; font-size:3.4rem;}
+.alliance-wrap .desc .p3 {margin-top:2.5rem; line-height:1.5; color:#999aa9; font-size:2rem;}
+.alliance-wrap .alliances ul {overflow:hidden;}
+.alliance-wrap .alliances ul li {float:left;}
+.alliance-wrap .alliances ul li + li {margin-left:3.5rem;}
+
+
+/* 메인 > 주요뉴스, 메탈월드 월간지 추가 */
+.main-news-wrap {padding:5rem 0 0}
+.main-news-wrap .inwrap {display: flex; justify-content: space-between;}
+.main-news-wrap .inwrap .hgroup h2 {font-size:1.8rem; margin-bottom:1.2rem}
+.main-news-wrap .main-news {width:76rem}
+.main-news-wrap .main-news .news-inner .img {position:relative; height:37.5rem; overflow:hidden}
+.main-news-wrap .main-news .news-inner .img img {width:100%}
+.main-news-wrap .main-news .news-inner .title {font-size:2.4rem; font-family:'S-CoreDream-5'; margin:1.5rem 0 1rem}
+.main-news-wrap .main-news .news-inner .txt {display:inline-block; width:76rem; max-height:6.1rem; line-height:1.5; color:#999; white-space: nowrap;  overflow: hidden; text-overflow: ellipsis; white-space: normal; word-wrap: break-word; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;}
+
+.main-news-wrap .metal-world {width:36rem; position:relative}
+/*
+.metal-world-list {overflow:hidden}
+.metal-world-list {justify-content:space-between}
+.metal-world-list .inner-img:after {display:block; clear:both; content:''}
+.metal-world-list .inner-img li {float:left}
+.metal-world-list .inner-img li:nth-child(even) {margin-left:2rem}
+.metal-world-list .inner-img li:nth-child(3),
+.metal-world-list .inner-img li:nth-child(4) {margin-top:2rem}
+.metal-world-list .inner-img li a {display:block; width:17rem; height:23.2rem}
+*/
+
+/* 메인 > 주요뉴스, 메탈월드 월간지 swiper list */
+.metal-world-swiper {overflow:hidden}
+.metal-world-swiper .swiper-slide {justify-content:space-between}
+.metal-world-swiper .swiper-slide .inner-img:after {display:block; clear:both; content:''}
+.metal-world-swiper .swiper-slide .inner-img li {float:left}
+.metal-world-swiper .swiper-slide .inner-img li:nth-child(even) {margin-left:2rem}
+.metal-world-swiper .swiper-slide .inner-img li:nth-child(3),
+.metal-world-swiper .swiper-slide .inner-img li:nth-child(4) {margin-top:2rem}
+.metal-world-swiper .swiper-slide .inner-img li a {display:block; width:17rem; height:23.2rem}
+.swiper-btn-area {position:absolute; top:0; right:-0.4rem; display:flex;}
+.swiper-btn-area .metal-world-next,
+.swiper-btn-area .metal-world-prev {width:3rem; height:3rem; position:relative; background-color:#fff; cursor:pointer}
+.swiper-btn-area .metal-world-prev {margin-right:-0.5rem}
+.swiper-btn-area .metal-world-next::before,
+.swiper-btn-area .metal-world-prev::before {content:''; display:block; width:2rem; height:2rem; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); border:1px solid #dedede; border-radius:.2rem;}
+.swiper-btn-area .metal-world-next::after,
+.swiper-btn-area .metal-world-prev::after {content:''; display:block; width:.6rem; height:.6rem; position:absolute; top:1.2rem; border:1px solid #939393; transform:rotate(-45deg);}
+.swiper-btn-area .metal-world-prev::after {left:1.3rem; border-width:.1rem 0 0 .1rem;}
+.swiper-btn-area .metal-world-next::after {left:1rem; border-width:0 .1rem .1rem 0;}
+.swiper-btn-area .metal-world-prev.swiper-button-disabled::before,
+.swiper-btn-area .metal-world-prev.swiper-button-disabled::after,
+.swiper-btn-area .metal-world-next.swiper-button-disabled::before,
+.swiper-btn-area .metal-world-next.swiper-button-disabled::after {opacity:0.6}
+
+
+/* 차트 css 재구성 2021-11-22 > 겹치지 않게 임시 클래스 new 추가 */
+/* chart-wrap layout */
+.charts-wrap.new {padding:5rem 0; background-color:#fafafa;}
+.charts-wrap.new .charts-con {position:relative; display:flex; justify-content:space-between; align-items:stretch; width:100%; min-height:50rem; padding:3rem; border-radius:1.2rem; box-shadow:0 .1rem 1rem 0 rgba(0, 0, 0, 0.05); background-color:#fff;}
+.charts-wrap.new .rChart-graph {width:calc(100% - 33rem); padding-right:4rem;}
+.charts-wrap.new .rChart-sum {margin-bottom:1.5rem;}
+.charts-wrap.new .rcharts-wrap {position:relative;}
+.charts-wrap.new .rChart-table {width:33rem;}
+
+/* title */
+.charts-wrap.new .chart-title-area {position:relative; display:flex; margin-bottom:1.5rem}
+.charts-wrap.new .chart-title-area .scopi span {display:inline-block; width:8rem; height:3rem; text-align:center; font-size:1.2rem; line-height:2.5; border-radius:1.5rem; color:#fff; background-color:#999aa9}
+.charts-wrap.new .chart-title-area .chart-title {display:flex; align-items:center}
+.charts-wrap.new .chart-title-area .chart-title .prod {font-family:'S-CoreDream-5'; font-size:2.2rem; margin:0 0.8rem 0 1.5rem}
+.charts-wrap.new .chart-title-area .chart-title .prod span {font-family:'S-CoreDream-5'; font-size:2.2rem}
+.charts-wrap.new .chart-title-area .chart-title .ticker span {font-family:'S-CoreDream-5'; font-size:1.8rem; color:#999aa9}
+.charts-wrap.new .btns {position:absolute; top:0; right:0;}
+.charts-wrap.new .scopi-info {margin-top:1.5rem}
+.charts-wrap.new .scopi-info span {font-size:11px; font-family:'S-CoreDream-4'; color:#999aa9}
+.charts-wrap.new .scopi-info span strong {font-family:'S-CoreDream-5'; color:#999aa9}
+
+/* chart top information */
+.charts-wrap.new .rChart-current {position:relative;}
+.charts-wrap.new .rChart-current span {display:inline-block; font-size:1.4rem; vertical-align:middle;}
+.charts-wrap.new .rChart-current span + span {margin-left:1rem;}
+.charts-wrap.new .rChart-current .c-price {font-family:'S-CoreDream-5'; font-size:2.8rem;}
+.charts-wrap.new .rChart-current .c-price .txt {position:relative; top:-3px; font-family:'S-CoreDream-4'; font-size:1.4rem; color:#777}
+.charts-wrap.new .rChart-current .c-rate,
+.charts-wrap.new .rChart-current .c-gap {font-family:'S-CoreDream-4'; font-size:1.4rem;}
+.charts-wrap.new .rChart-current.up span {color:#fb1a31;}
+.charts-wrap.new .rChart-current.up .c-rate::before {content:'+'; display:inline-block;}
+.charts-wrap.new .rChart-current.down span {color:#0962fc;}
+.charts-wrap.new .rChart-current.down .c-rate::before {content:''; display:inline-block;}
+.charts-wrap.new .rChart-current .desc {display:inline-block; position:relative; top:1px; margin-left:1rem; color:#777}
+.charts-wrap.new .rChart-current .desc span {font-size:1.4rem; margin:-0.2rem 0 0 0; color:#777}
+.charts-wrap.new .rChart-summary {margin-top:1.2rem; position:relative}
+.charts-wrap.new .rChart-summary span {display:inline-block; font-family:'S-CoreDream-4'; color:#777; font-size:1.2rem;}
+.charts-wrap.new .rChart-summ {display:table}
+.charts-wrap.new .rChart-summ li {display:table-cell;}
+.charts-wrap.new .rChart-summ li + li {padding-left:1.5rem;}
+.charts-wrap.new .rChart-summ .h-price {color:#fb1a31;}
+.charts-wrap.new .rChart-summ .l-price {color:#0962fc;}
+.charts-wrap.new .rChart-summ .y-price {color:#000;}
+.charts-wrap.new .rChart-summary .exchange {position:absolute; top:0; right:0; font-family:'S-CoreDream-4'; font-size:1.2rem;color:#999aa9}
+.charts-wrap.new .rChart-summary .exchange .number {font-family:'S-CoreDream-5'; font-size:1.2rem; color:#000}
+.charts-wrap.new .rChart-summary .exchange .unit {font-family:'S-CoreDream-5'; font-size:1.2rem; margin:0}
+
+/* chart right table area */
+.charts-wrap.new .rChart-table .chart-tab-area {display:flex; align-items: center}
+.charts-wrap.new .rChart-table .chart-tab-area button {width:50%; height:3.5rem; text-align:center; font-size:1.2rem; font-family:'S-CoreDream-5'; line-height:1.7; border-top:1px solid #eee; border-left:1px solid #eee; border-radius:0; color:#999aa9; background-color:#fff}
+.charts-wrap.new .rChart-table .chart-tab-area button:last-child {border-left:0; border-radius:0; border-right:1px solid #eee}
+.charts-wrap.new .rChart-table .chart-tab-area button.active {height:3.5rem; border-bottom:2px solid #1d5fd0; border-radius:0; color:#000}
+.charts-wrap.new .rChart-table .chart-tab-area button.w-100 {width:100%; }
+
+/* table thead */
+.charts-wrap.new .table-list-area .table-list-thead .th-text {border:1px solid #eee; border-bottom:0; background-color:#f9f9f9;}
+.charts-wrap.new .table-list-area .table-list-thead .th-text:after {display:block; clear:both; content:''}
+.charts-wrap.new .table-list-area .table-list-thead .th-text li {float:left; width:46%; height:3.4rem; line-height:3.5; padding:0 2rem; text-align:left; font-size:11px; color:#666}
+.charts-wrap.new .table-list-area .table-list-thead .th-text li + li {width:27%; text-align:center}
+
+/* table tbody */
+.charts-wrap.new .table-list-tbody {border:1px solid #eee; border-top:0}
+.charts-wrap.new .table-list-tbody .tb-list-section {padding:1.4rem 2rem 1.2rem 2rem; border-top:1px solid #eee}
+.charts-wrap.new .table-list-tbody .tb-list-section .tbody-title {position:relative; padding:0 0 0.7rem}
+.charts-wrap.new .table-list-tbody .tb-list-section .tbody-title span {font-family:'S-CoreDream-5'; font-size:1.2rem}
+.charts-wrap.new .table-list-tbody .tb-list-section .tbody-title .tit {color:#000}
+.charts-wrap.new .table-list-tbody .tb-list-section .tbody-title .txt {font-family:'S-CoreDream-4'; color:#999aa9}
+.charts-wrap.new .table-list-tbody .tb-list-section .tbody-title .btn-vat-view {position:absolute; top:-4px; right:0; width:10rem; font-family:'S-CoreDream-4'; font-size:1.1rem; padding:0.4rem 0.7rem 0.3rem; color:#666; border-radius:2px; border:1px solid #ddd; background-color:#fff}
+.charts-wrap.new .table-list-tbody .tb-list-section .tbody-title .btn-vat-view.active {border-color:#1d5fd0; color:#1d5fd0}
+.charts-wrap.new .table-list-tbody .tb-list-section .list-inner {padding:0}
+.charts-wrap.new .table-list-tbody .tb-list-section .list-inner .l-inner {display:flex; line-height:2}
+.charts-wrap.new .table-list-tbody .tb-list-section .list-inner .l-inner div,
+.charts-wrap.new .table-list-tbody .tb-list-section .list-inner .l-inner span {font-size:1.2rem; color:#666}
+.charts-wrap.new .table-list-tbody .tb-list-section .list-inner .l-inner .c-wrhous,
+.charts-wrap.new .table-list-tbody .tb-list-section .list-inner .l-inner .c-lme {width:52%}
+.charts-wrap.new .table-list-tbody .tb-list-section .list-inner .l-inner .c-wrhous .brand-group {margin-left:-0.3rem}
+.charts-wrap.new .table-list-tbody .tb-list-section .list-inner .l-inner .c-price {width:25%}
+.charts-wrap.new .table-list-tbody .tb-list-section .list-inner .l-inner .c-rate {width:23%; text-align:right}
+.charts-wrap.new .table-list-tbody .tb-list-section .list-inner.al-pps .l-inner .c-wrhous .brand-group {margin-left:0rem}
+
+/* tbody text up */
+.charts-wrap.new .table-list-tbody .tb-list-section .list-inner .l-inner.up .c-price,
+.charts-wrap.new .table-list-tbody .tb-list-section .list-inner .l-inner.up .c-rate {color:#fb1a31;}
+
+/* tbody text down */
+.charts-wrap.new .table-list-tbody .tb-list-section .list-inner .l-inner.down .c-price,
+.charts-wrap.new .table-list-tbody .tb-list-section .list-inner .l-inner.down .c-rate {color:#1e60d1;}
+
+/* sub page 클래스 설정 */
+.charts-wrap.new.sub {width:100%; height:auto; min-height:57rem; padding:4rem 0 6rem; background:url(/images/pd/keyvisual-bg.jpg) center center no-repeat; background-size:cover;}
+.charts-wrap.new.sub .chart-title-area .chart-title .prod span {color:#fff}
+.charts-wrap.new.sub .chart-tab-area {display:none}
+.charts-wrap.new.sub #chartHolder {height:33rem}
+
+/* 차트 상태별 변경 */
+.charts-wrap.new .sorin-state {display:none; position:absolute; top:0; left:0; right:37rem; height:auto; padding:0 3rem; z-index:5}
+.charts-wrap.new .sorin-state p {font-family:'S-CoreDream-5'; font-size:2rem; padding:1rem 0; margin-top:2.4rem; background-color:#fff}
+.charts-wrap.new .sorin-state.off-logout p span,
+.charts-wrap.new .sorin-state.off-login p span {font-family:'S-CoreDream-5'; color:#106ada}
+.charts-wrap.new .sorin-state .state-bottom-text {width:85%; padding:0.6rem 0; background-color:#fff}
+.charts-wrap.new .sorin-state .state-bottom-text span {font-size:1.2rem; padding:0 0.6rem; color:#777}
+.charts-wrap.new .sorin-state .state-bottom-text span:first-child {padding-left:0}
+.charts-wrap.new .sorin-state .state-img {display:flex; width:100%; height:37rem; justify-content:center; align-items:center; margin-top:0.8rem; padding:2rem 0; background:#fff url(/images/ma/main-summary-chart.png) 0 0 no-repeat;}
+

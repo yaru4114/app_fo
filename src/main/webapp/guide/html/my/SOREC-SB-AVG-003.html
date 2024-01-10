@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>평균가 계약 관리 > 각 상태 버튼| SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>    
+</head>
+<body>
+<div class="wrapper">
+   <!-- header include -->
+   <div class="header-wrap include-wrap"></div>
+   <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+   <!-- //header include -->
+    <div class="container">
+   		<!-- dashboard include -->
+		<div class="section my-dashboard-head"> <!-- 이 곳에 간편회원일 때 'normal' 클래스 추가해주세요. 기업회원일 땐 'normal' 클래스 제거해주세요.  -->
+			<div class="head-box">
+		 	<!-- 간편회원일 때 -->
+		     <div class="normal-member-wrap hide">
+		         <div class="inwrap" id="inwrap-html">
+		             <div class="my-info-wrap normal-member">
+		                 <p class="my-icon"><img src="/images/my/icon-person.png" alt=""></p>
+		                 <div class="user" value="">
+		                 <p class="com">조희훈</p>
+		                 <p class="user-email">heehoonc@sorincorp.com</p>
+		                 </div>
+		                 <div class="btns">
+		                     <button type="button" class="btn-stroke btn-myinfo" onclick="pageMove('/fo/simplMyPage/selectSimplMberMyInfoMng','','','-1');">내정보관리</button>
+		                 </div>
+		             </div>
+		         </div>
+		     </div>
+		     <!--// 간편회원일 때 -->            
+		     <!-- 기업회원일 때  -->
+		     <div class="inwrap">
+		         <div class="my-info-wrap">
+		             <div class="my-box-head">
+		                 <span class="rank-bronze hide">BRONZE</span>
+		                 <span class="rank-silver hide">SILVER</span>
+		                 <span class="rank-gold hide">GOLD</span>
+		                 <span class="rank-platinum hide">PLATINUM</span>
+		                 <span class="rank-dia">DIAMOND</span>
+		             </div>
+		             <div class="my-box-contents">
+		                 <p class="com">액션메탈인더스트리</p>
+		                 <p class="user">Hong HyeongSeok</p>
+		                 <div class="btns"><button type="button" class="btn-stroke btn-myinfo">마스터 정보관리</button></div>
+		             </div> 
+		         </div>
+		         <div class="my-pay-wrap">
+		             <div class="my-box-head"><span>e-Wellet</span></div>
+		             <div class="pay-wrap">
+		                 <span class="stit">
+		                     잔고
+		                     <span class="price-wrap">
+		                         <span class="hr yellow"></span>
+		                         <span class="hr-on">
+		                             <span class="price">5,976,924,024</span><span class="unit">원</span>
+		                         </span>
+		                     </span>
+		                     <button type="button" class="btn-reload"><span class="hidden">새로고침</span></button>
+		                 </span>
+		             </div>	           		                
+		             <!-- 상태별 안내 문가 시작 -->
+		             <div class="e-wallet-uncerti">
+		                 <!-- 계좌 등록 전 -->
+		                 <div class="type1" style="display:none">
+		                     <div class="notice fc-orange">하나은행 계좌 등록 후 거래 서비스를 이용해주세요.</div>
+		                     <div class="btns">
+		                         <button type="button" class="btn-stroke" onclick="window.open('')">계좌등록하기</button>
+		                     </div>
+		                 </div>
+		
+		                 <!-- 가상 계좌 준비 중 -->
+		                 <div class="type2" style="display:none">
+		                     <div class="notice fc-orange">고객님의 하나은행 가상 계좌를 준비 중입니다.</div>
+		                     <div class="customer">서린닷컴 고객센터 <span>02&#183;519&#183;2727</span></div>
+		                 </div>
+		
+		                 <!-- 선불금 관리대행 서비스 동의 -->
+		                 <div class="type3" style="display:none">
+		                     <div class="notice fc-orange">하나은행 선불금 관리대행 서비스 동의해 주세요.</div>
+		                     <div class="btns">
+		                         <button type="button" onclick="window.open('https://biz.kebhana.com/index.jsp')" class="btn-stroke">동의하러 가기</button>
+		                     </div>
+		                 </div>
+		
+		                 <!-- 거래회원 승인 대기 중 -->
+		                 <div class="type4" style="display:none">
+		                     <div class="notice fc-orange">서린닷컴 거래회원 승인 대기 중입니다.</div>
+		                     <div class="customer">서린닷컴 고객센터 <span>02&#183;519&#183;2727</span></div>
+		                 </div>
+		                 
+		                  <!-- 거래회원 승인 완료 -->
+		                 <div class="type5" >
+		                     <div class="notice">전용계좌 - 하나은행 148-916067-08837</div>
+		                     <!-- [지정가 주문 목록 > 결제 수단 별 안내 > e-Wellet – 출금하기 버튼 비 노출]​
+		                     <div class="btns">
+		                         <button type="button" class="btn-stroke btn-fit" data-popup="modal" data-target="sorinModalReWithdrawal">출금하기</button>
+		                     </div>
+		                     -->
+		                 </div>
+		             </div>
+		             <!-- // 상태별 안내 문구 끝 --> 
+		         </div>
+		         
+		         <div class="my-order-wrap">
+		             <div class="my-box-head"><span>결제정보</span></div>
+		             <div class="pay-wrap my-box-contents">
+		                 <span class="stit">
+		                     결제예정액
+		                     <span class="price-wrap">
+		                         <span class="hr"></span>
+		                         <span class="hr-on">
+		                             <span class="price bold fc-red">250,000,000</span><span class="unit bold fc-red">원</span>
+		                         </span>
+		                     </span>
+		                 </span>
+		                 <dl>
+		                     <dt>e-Wallet(계약금)</dt>
+		                     <dd>200,000,000 원</dd>
+		                     <dt>담보보증</dt>
+		                     <dd>150,000,000 원</dd>
+		                     <dt class="bold fc-black">B2B 담보보증 남은 한도</dt>
+		                     <dd class="bold fc-black">100,000,000 원</dd>
+		                 </dl>
+		             </div>
+		         </div>
+		    </div>
+		   	<!--// 기업회원일 때 -->
+		  	</div>
+		</div>
+
+        <!-- //dashboard include -->        
+        <div class="section">
+            <div class="inwrap table">
+            	<!-- lnb include -->            	
+                <div class="lnb-wrap include-wrap"></div>
+   				<script type="text/javascript"> $(".lnb-wrap").load("/guide/html/include/my/lnb.html");</script>
+                <!-- lnb include -->
+                <div class="content content-avg contract-manage">
+                    <div class="section section-avg">
+                        <div class="hgroup">
+                            <h2 class="h2">평균가 계약 관리</h2>
+                        </div>
+                        <div class="">
+                        	<!-- 1. 평균가 > 상단 검색 콤보박스(견적서 접수일, 계약일에 따른 기간 검색/ 계약번호 검색) 시작 {-->
+                        	<div class="order-condition-wrap">
+                        	
+                        		<div class="order-condition-top flex-ac-jsb">
+	                                <div class="order-condition-set mr10">
+	                                    <div>
+	                                        <p class="sel-tit">구분</p>
+	                                        <select class="dropdown" name="" id="" data-placeholder="전체">
+	                                            <option></option>
+	                                            <option>견적서 접수일</option>
+	                                            <option>계약일</option>
+											 </select>
+	                                    </div>
+	                                </div>
+		                            <div class="order-period-wrap flex-ac-jsb">
+			                            <div class="flex-ac-jac">
+			                            	<div class="order-condition-set w145px mr10">
+		                                        <p class="sel-tit">년</p>
+		                                        <select class="dropdown" name="" id="">
+		                                            <option value="2022">2022</option>
+		                                            <option value="2023" selected>2023</option>
+		                                            <option value="2024">2024</option>
+												 </select>
+		                                    </div>
+		                                    <div class="order-condition-set w145px">
+		                                        <p class="sel-tit">월</p>
+		                                        <select class="dropdown" name="" id="">
+		                                            <option value="01">01</option>
+		                                            <option value="02">02</option>
+		                                            <option value="03">03</option>
+		                                            <option value="04">04</option>
+		                                            <option value="05">05</option>
+		                                            <option value="06">06</option>
+		                                            <option value="07">07</option>
+		                                            <option value="08" selected>08</option>
+		                                            <option value="09">09</option>
+		                                            <option value="10">10</option>
+		                                            <option value="11">11</option>
+		                                            <option value="12">12</option>
+												 </select>
+		                                    </div>
+		                                </div>
+		                                <span>~</span>
+			                            <div class="flex-ac-jac">
+			                            	<div class="order-condition-set w145px mr10">
+		                                        <p class="sel-tit">년</p>
+		                                        <select class="dropdown" name="" id="">
+		                                            <option value="2022">2022</option>
+		                                            <option value="2023" selected>2023</option>
+		                                            <option value="2024">2024</option>
+												 </select>
+		                                    </div>
+		                                    <div class="order-condition-set w145px">
+		                                        <p class="sel-tit">월</p>
+		                                        <select class="dropdown" name="" id="">
+		                                            <option value="01">01</option>
+		                                            <option value="02">02</option>
+		                                            <option value="03">03</option>
+		                                            <option value="04">04</option>
+		                                            <option value="05">05</option>
+		                                            <option value="06">06</option>
+		                                            <option value="07">07</option>
+		                                            <option value="08">08</option>
+		                                            <option value="09" selected>09</option>
+		                                            <option value="10">10</option>
+		                                            <option value="11">11</option>
+		                                            <option value="12">12</option>
+												 </select>
+		                                    </div>
+		                                </div>
+	                                </div>
+	                            </div>
+	                            <div class="order-condition-btm flex-ac-jsb">
+		                            <div class="order-condition-set">
+	                                    <div>
+	                                        <p class="sel-tit">상태</p>
+	                                        <select class="dropdown" name="" id="" data-placeholder="전체">
+	                                            <option></option>
+	                                            <option selected>계약번호</option>
+	                                            <option>견적번호</option>
+											 </select>
+	                                    </div>
+	                                </div>
+	                                <div class="order-num">
+                                    	<p class="input-tit">상태</p>
+                                        <input type="text" name="" id="" title="번호입력" placeholder="번호입력">
+	                                </div>
+	                                <div class="order-period-btns">
+	                                    <button type="button" class="btn-blue-md btn-search">조회</button>
+	                                </div>
+                                </div>
+								
+                            </div>
+                            <!--} // 1. 평균가 > 상단 검색 콤보박스(견적서 접수일, 계약일에 따른 기간 검색/ 계약번호 검색) 종료 -->
+                            
+                        </div>
+                    </div>
+                    
+					
+					<!-- 2. 평균가 > 검색 조회 결과 시작 {-->
+                    <div class="section section-avg-order section-avg-order-list">
+                        <div class="tbl-list-summary">
+                            총 <span class="fc-red">3</span>건이 조회 되었습니다.
+                        </div>
+                        
+                        <!-- 평균가 주문 목록 시작 {-->
+                        <ul class="list od-list t2">
+                       		<!-- [case2-1] 계약서 > 진행상황 전체보기 -->
+					        <li class="contract">
+					            <div class="order-history-result">
+					                <figure class="order-item-img figure">
+					                    <img src="/guide/images/sample/avg-item-img.png" alt="">
+					                </figure>
+					            
+					                <div class="order-detail figure-con">
+					                	
+					                    <div class="flex-ac-jsb">
+			                            	<dl class="num-info">
+			                            		<dt>계약번호</dt>
+			                            		<dd>AL-다산-2023-0523-001</dd>
+			                            	</dl>
+					                        <button type="button" class="btn-stroke-md blue btn-avg-status w120px" data-popup="modal" data-target="sorinModalReport" id="">진행상황 전체보기</button>
+					                    </div>
+					                    
+					                    <table class="tbl-scope-row mt10">
+				                            <colgroup>
+				                                <col width="140">
+				                                <col width="245">
+				                                <col width="140">
+				                                <col width="245">
+				                            </colgroup>
+				                            <tbody>
+				                                <tr>
+				                                    <th>아이템</th>
+				                                    <td>알루미늄 순괴(P1020)</td>
+				                                    <th>권역</th>
+				                                    <td>인천/부산</td>
+												</tr>
+				                                <tr>
+				                                    <th>브랜드</th>
+				                                    <td>브랜드 무관</td>
+				                                    <th>계약기간</th>
+				                                    <td>2023.07.01 ~ 2023.09.30</td>
+												</tr>				                                
+												<tr>
+				                                    <th>계약수량</th>
+				                                    <td>총 1,200MT</td>
+				                                    <th>계약조건</th>
+				                                    <td>인천/부산 보세창고 상차도</td>
+												</tr>
+												<tr>
+				                                    <th>프라이싱</th>
+				                                    <td>라이브/평균가</td>
+				                                    <th>프리미엄</th>
+				                                    <td>125,000원/MT</td>
+												</tr>
+												<tr>
+				                                    <th>결제조건</th>
+				                                    <td>e-Wallet/증거금</td>
+				                                    <th>계약서</th>
+				                                    <td>
+				                                        <button type="button" class="btn-gray-sm w70px" data-popup="modal" data-target="sorinModalReport" id="">계약서 보기</button>
+					                    			</td>
+												</tr>
+				                            </tbody>
+				                        </table>
+				                        
+				                        <!-- 안내 문구 -->
+				                        <p class="tooltip-txt mt15">귀사에 확보 된 계약주문입니다. 프라이싱부터~발주/결제/출고까지 진행해주세요.​</p>
+				                        
+				                        <!-- 주문 정보-->
+				                        <div class="mt30">
+				                        	<h3 class="title">주문정보</h3>
+			                        		<div class="tbl-wrap ani-tbl-wrap">
+					                  			<div class="tbl-head">
+						                  			<div class="tbl-tr">
+						                  				<div class="tbl-th">계약월</div>
+						                  				<div class="tbl-th">주문 톤 수</div>
+						                  				<div class="tbl-th">발주</div>
+						                  				<div class="tbl-th">결제</div>
+						                  				<div class="tbl-th">배송</div>
+						                  				<div class="tbl-th">완료</div>
+						                  				<div class="tbl-th">상세</div>
+						                  			</div>
+					                  			</div>
+					                  			<div class="tbl-body">
+					                  				<div class="tbl-tr">
+						                  				<div class="tbl-td">23년 05월</div>
+						                  				<div class="tbl-td">500MT</div>
+						                  				<div class="tbl-td">500MT</div>
+						                  				<div class="tbl-td">500MT</div>
+						                  				<div class="tbl-td">500MT</div>
+						                  				<div class="tbl-td">500MT</div>
+						                  				<div class="tbl-td">
+						                  					<button type="button" class="btn-blue-sm btn-go-tab">바로가기</button>
+						                  				</div>
+						                  			</div>
+						                  			<div class="tbl-tr">
+						                  				<div class="tbl-td">23년 06월</div>
+						                  				<div class="tbl-td">500MT</div>
+						                  				<div class="tbl-td">500MT</div>
+						                  				<div class="tbl-td">500MT</div>
+						                  				<div class="tbl-td">500MT</div>
+						                  				<div class="tbl-td">500MT</div>
+						                  				<div class="tbl-td">
+						                  					<button type="button" class="btn-blue-sm btn-go-tab">바로가기</button>
+						                  				</div>
+						                  			</div>
+													<div class="tbl-tr ongoing"> <!-- 진행월 class: .ongoing-->
+						                  				<div class="tbl-td">23년 07월</div>
+						                  				<div class="tbl-td">500MT</div>
+						                  				<div class="tbl-td">150MT</div>
+						                  				<div class="tbl-td">150MT</div>
+						                  				<div class="tbl-td">100MT</div>
+						                  				<div class="tbl-td">50MT</div>
+						                  				<div class="tbl-td">
+						                  					<button type="button" class="btn-blue-sm btn-go-tab">바로가기</button>
+						                  				</div>
+						                  			</div>
+						                  			<div class="tbl-tr">
+						                  				<div class="tbl-td">23년 08월</div>
+						                  				<div class="tbl-td">500MT</div>
+						                  				<div class="tbl-td">0MT</div>
+						                  				<div class="tbl-td">0MT</div>
+						                  				<div class="tbl-td">0MT</div>
+						                  				<div class="tbl-td">0MT</div>
+						                  				<div class="tbl-td">
+						                  					<button type="button" class="btn-blue-sm btn-go-tab">바로가기</button>
+						                  				</div>
+						                  			</div>
+						                  			<div class="tbl-tr">
+						                  				<div class="tbl-td">23년 09월</div>
+						                  				<div class="tbl-td">0MT</div>
+						                  				<div class="tbl-td">0MT</div>
+						                  				<div class="tbl-td">0MT</div>
+						                  				<div class="tbl-td">0MT</div>
+						                  				<div class="tbl-td">0MT</div>
+						                  				<div class="tbl-td">
+						                  					<button type="button" class="btn-blue-sm btn-go-tab">바로가기</button>
+						                  				</div>
+						                  			</div>
+						                  			<div class="tbl-tr">
+						                  				<div class="tbl-td">23년 10월</div>
+						                  				<div class="tbl-td">0MT</div>
+						                  				<div class="tbl-td">0MT</div>
+						                  				<div class="tbl-td">0MT</div>
+						                  				<div class="tbl-td">0MT</div>
+						                  				<div class="tbl-td">0MT</div>
+						                  				<div class="tbl-td">
+						                  					<button type="button" class="btn-blue-sm btn-go-tab">바로가기</button>
+						                  				</div>
+						                  			</div>
+						                  			<div class="tbl-tr">
+						                  				<div class="tbl-td">23년 11월</div>
+						                  				<div class="tbl-td">0MT</div>
+						                  				<div class="tbl-td">0MT</div>
+						                  				<div class="tbl-td">0MT</div>
+						                  				<div class="tbl-td">0MT</div>
+						                  				<div class="tbl-td">0MT</div>
+						                  				<div class="tbl-td">
+						                  					<button type="button" class="btn-blue-sm btn-go-tab">바로가기</button>
+						                  				</div>
+						                  			</div>
+					                  			</div>
+					                  		</div>
+					                  		<!-- 테이블 펼쳐보기/ 접어보기 버튼 -->
+					                  		<div class="btn-ani-tbl flex-afe-jac">
+					                  			<button type="button">계약월 접어보기</button>
+					                  		</div>
+				                        </div>
+									</div> 
+					            </div>
+					        </li class="contract">	
+                        	
+                        	<!-- [case2-2] 견적서 > 견적서 검토 중 -->
+                        	<li class="estimate">
+					            <div class="order-history-result">
+					                <figure class="order-item-img figure">
+					                    <img src="/guide/images/sample/avg-item-img.png" alt="">
+					                </figure>
+					            
+					                <div class="order-detail figure-con">
+					                	
+					                    <div class="flex-ac-jsb">
+			                            	<dl class="num-info">
+			                            		<dt>견적번호</dt>
+			                            		<dd>AL-다산-2023-0523-001</dd>
+			                            	</dl>
+					                        <button type="button" class="btn-stroke-md blue btn-avg-status w120px" onclick="location.href='/guide/html/my/SOREC-SB-AVG-003-1.html'">견적서 검토 중</button>
+					                    </div>
+					                    
+					                    <table class="tbl-scope-row mt10">
+				                            <colgroup>
+				                                <col width="140">
+				                                <col width="245">
+				                                <col width="140">
+				                                <col width="245">
+				                            </colgroup>
+				                            <tbody>
+				                                <tr>
+				                                    <th>아이템</th>
+				                                    <td>알루미늄 순괴(P1020)</td>
+				                                    <th>권역</th>
+				                                    <td>인천/부산</td>
+												</tr>
+				                                <tr>
+				                                    <th>브랜드</th>
+				                                    <td>브랜드 무관</td>
+				                                    <th>접수일</th>
+				                                    <td>2023.07.01</td>
+												</tr>				                                
+												<tr>
+				                                    <th>계약수량</th>
+				                                    <td>총 1,200MT</td>
+				                                    <th>계약기간</th>
+				                                    <td>4개월</td>
+												</tr>				                                
+												<tr>
+				                                    <th>관리자 검토기한</th>
+				                                    <td colspan="3">2023-07-20까지</td>
+												</tr>
+				                            </tbody>
+				                        </table>
+				                        <!-- 안내 문구 -->
+				                        <p class="tooltip-txt mt15">관리자가 귀사의 견적서 검토 중입니다.</p>
+									</div> 
+					            </div>
+					        </li>	
+					        	        
+					        <!-- [case2-3] 견적서 > 견적서 검토/확정 -->
+                        	<li class="estimate">
+					            <div class="order-history-result">
+					                <figure class="order-item-img figure">
+					                    <img src="/guide/images/sample/avg-item-img.png" alt="">
+					                </figure>
+					            
+					                 <div class="order-detail figure-con">
+					                	
+					                    <div class="flex-ac-jsb">
+			                            	<dl class="num-info">
+			                            		<dt>견적번호</dt>
+			                            		<dd>AL-다산-2023-0523-001</dd>
+			                            	</dl>
+					                        <button type="button" class="btn-stroke-md blue btn-avg-status w120px" onclick="location.href='/guide/html/my/SOREC-SB-AVG-003-3.html'">견적서 검토/확정</button>
+					                    </div>
+					                    
+					                    <table class="tbl-scope-row mt10">
+				                            <colgroup>
+				                                <col width="140">
+				                                <col width="245">
+				                                <col width="140">
+				                                <col width="245">
+				                            </colgroup>
+				                            <tbody>
+				                                <tr>
+				                                    <th>아이템</th>
+				                                    <td>알루미늄 순괴(P1020)</td>
+				                                    <th>권역</th>
+				                                    <td>인천/부산</td>
+												</tr>
+				                                <tr>
+				                                    <th>브랜드</th>
+				                                    <td>브랜드 무관</td>
+				                                    <th>계약기간</th>
+				                                    <td>2023.07.01 ~ 2023.09.30</td>
+												</tr>				                                
+												<tr>
+				                                    <th>계약수량</th>
+				                                    <td>총 1,200MT</td>
+				                                    <th>계약조건</th>
+				                                    <td>인천/부산 보세창고 상차도</td>
+												</tr>	
+												<tr>
+				                                    <th>프라이싱</th>
+				                                    <td>라이브/평균가</td>
+				                                    <th>프리미엄</th>
+				                                    <td>125,000원/MT</td>
+												</tr>
+												<tr>
+				                                    <th>결제조건</th>
+				                                    <td>e-Wallet/증거금</td>
+				                                    <th>견적서 확정 기한</th>
+				                                    <td>2023-07-30까지</td>
+												</tr>
+				                            </tbody>
+				                        </table>
+				                        <!-- 안내 문구 -->
+				                        <p class="tooltip-txt mt15">서린닷컴으로부터 견적서가 제안되었습니다. 확인 후 확정해주세요.</p>
+									</div> 
+					            </div>
+					        </li>	
+					        
+					        <!-- [case2-3] 견적서 > 계약서 확인/승인 -->
+                        	<li class="estimate">
+					            <div class="order-history-result">
+					                <figure class="order-item-img figure">
+					                    <img src="/guide/images/sample/avg-item-img.png" alt="">
+					                </figure>
+					                
+					                <div class="order-detail figure-con">
+					                	
+					                    <div class="flex-ac-jsb">
+			                            	<dl class="num-info">
+			                            		<dt>견적번호</dt>
+			                            		<dd>AL-다산-2023-0523-001</dd>
+			                            	</dl>
+					                        <button type="button" class="btn-blue-md btn-avg-status w120px" onclick="location.href='/guide/html/my/SOREC-SB-AVG-003-4.html'">계약서 확인/승인</button>
+					                    </div>
+					                    
+					                    <table class="tbl-scope-row mt10">
+				                            <colgroup>
+				                                <col width="140">
+				                                <col width="245">
+				                                <col width="140">
+				                                <col width="245">
+				                            </colgroup>
+				                            <tbody>
+				                                <tr>
+				                                    <th>아이템</th>
+				                                    <td>알루미늄 순괴(P1020)</td>
+				                                    <th>권역</th>
+				                                    <td>인천/부산</td>
+												</tr>
+				                                <tr>
+				                                    <th>브랜드</th>
+				                                    <td>브랜드 무관</td>
+				                                    <th>계약기간</th>
+				                                    <td>2023.07.01 ~ 2023.09.30</td>
+												</tr>				                                
+												<tr>
+				                                    <th>계약수량</th>
+				                                    <td>총 1,200MT</td>
+				                                    <th>계약조건</th>
+				                                    <td>인천/부산 보세창고 상차도</td>
+												</tr>	
+												<tr>
+				                                    <th>프라이싱</th>
+				                                    <td>라이브/평균가</td>
+				                                    <th>프리미엄</th>
+				                                    <td>125,000원/MT</td>
+												</tr>
+												<tr>
+				                                    <th>결제조건</th>
+				                                    <td>e-Wallet/증거금</td>
+				                                    <th>견적서 확정 기한</th>
+				                                    <td>2023-07-30까지</td>
+												</tr>
+				                            </tbody>
+				                        </table>
+				                        <!-- 안내 문구 -->
+				                        <p class="tooltip-txt mt15">계약서가 발급되었습니다. 내용 확인 후 기한 내 승인해주세요.</p>
+									</div> 
+					            </div>
+					        </li>  
+					        
+					        <!-- [case2-4] 견적서 > 승인불가(case 2개 확인) -->
+                        	<li class="estimate">
+					            <div class="order-history-result">
+					                <figure class="order-item-img figure">
+					                    <img src="/guide/images/sample/avg-item-img.png" alt="">
+					                </figure>
+					            
+					            	<div class="order-detail figure-con">
+					                	
+					                    <div class="flex-ac-jsb">
+			                            	<dl class="num-info">
+			                            		<dt>견적번호</dt>
+			                            		<dd>AL-다산-2023-0523-001</dd>
+			                            	</dl>
+			                            	<!-- [case1] -->
+					                        <button type="button" class="btn-navy btn-avg-status w120px" onclick="location.href='/guide/html/my/SOREC-SB-AVG-003-2.html'">승인불가</button>
+					                        <!-- [case2] 고객 견적서 확정 전, 관리자가 반려한 케이스 (워터마크)​
+											<button type="button" class="btn-navy btn-avg-status w120px" onclick="location.href='/guide/html/my/SOREC-SB-AVG-003-5.html'">승인불가</button>
+					                    	-->
+					                    </div>
+					                    
+					                    <table class="tbl-scope-row mt10">
+				                            <colgroup>
+				                                <col width="140">
+				                                <col width="245">
+				                                <col width="140">
+				                                <col width="245">
+				                            </colgroup>
+				                            <tbody>
+				                                <tr>
+				                                    <th>아이템</th>
+				                                    <td>알루미늄 순괴(P1020)</td>
+				                                    <th>권역</th>
+				                                    <td>인천/부산</td>
+												</tr>
+				                                <tr>
+				                                    <th>브랜드</th>
+				                                    <td>브랜드 무관</td>
+				                                    <th>계약기간</th>
+				                                    <td>2023.07.01 ~ 2023.09.30</td>
+												</tr>				                                
+												<tr>
+				                                    <th>계약수량</th>
+				                                    <td>총 1,200MT</td>
+				                                    <th>계약조건</th>
+				                                    <td>인천/부산 보세창고 상차도</td>
+												</tr>	
+												<tr>
+				                                    <th>프라이싱</th>
+				                                    <td>라이브/평균가</td>
+				                                    <th>프리미엄</th>
+				                                    <td>125,000원/MT</td>
+												</tr>
+												<tr>
+				                                    <th>결제조건</th>
+				                                    <td>e-Wallet/증거금</td>
+				                                    <th>견적서 확정 기한</th>
+				                                    <td class="expiration">2023-07-30까지</td>
+												</tr>
+				                            </tbody>
+				                        </table>
+				                        <!-- 안내 문구 -->
+				                        <p class="tooltip-txt mt15">승인불가 사유</p>
+									</div> 
+					            </div>
+					        </li>      
+					        
+					        <!-- [case2-5] 견적서 > 기한경과 -->
+                        	<li class="estimate">
+					            <div class="order-history-result">
+					                <figure class="order-item-img figure">
+					                    <img src="/guide/images/sample/avg-item-img.png" alt="">
+					                </figure>
+					                
+					            	<div class="order-detail figure-con">
+					                	
+					                    <div class="flex-ac-jsb">
+			                            	<dl class="num-info">
+			                            		<dt>견적번호</dt>
+			                            		<dd>AL-다산-2023-0523-001</dd>
+			                            	</dl>
+					                        <button type="button" class="btn-navy btn-avg-status w120px">기한경과</button>
+					                    </div>
+					                    
+					                    <table class="tbl-scope-row mt10">
+				                            <colgroup>
+				                                <col width="140">
+				                                <col width="245">
+				                                <col width="140">
+				                                <col width="245">
+				                            </colgroup>
+				                            <tbody>
+				                                <tr>
+				                                    <th>아이템</th>
+				                                    <td>알루미늄 순괴(P1020)</td>
+				                                    <th>권역</th>
+				                                    <td>인천/부산</td>
+												</tr>
+				                                <tr>
+				                                    <th>브랜드</th>
+				                                    <td>브랜드 무관</td>
+				                                    <th>계약기간</th>
+				                                    <td>2023.07.01 ~ 2023.09.30</td>
+												</tr>				                                
+												<tr>
+				                                    <th>계약수량</th>
+				                                    <td>총 1,200MT</td>
+				                                    <th>계약조건</th>
+				                                    <td>인천/부산 보세창고 상차도</td>
+												</tr>	
+												<tr>
+				                                    <th>프라이싱</th>
+				                                    <td>라이브/평균가</td>
+				                                    <th>프리미엄</th>
+				                                    <td>125,000원/MT</td>
+												</tr>
+												<tr>
+				                                    <th>결제조건</th>
+				                                    <td>e-Wallet/증거금</td>
+				                                    <th>견적서 확정 기한</th>
+				                                    <td class="expiration">2023-07-30까지</td>
+												</tr>
+				                            </tbody>
+				                        </table>
+				                        <!-- 안내 문구 -->
+				                        <p class="tooltip-txt mt15">기한 경과로 불가</p>
+									</div> 
+					            </div>
+					        </li>  
+					        <!-- [case2-6] 계약서 > 계약승인 기한경과 -->
+                        	<li class="estimate">
+					            <div class="order-history-result">
+					                <figure class="order-item-img figure">
+					                    <img src="/guide/images/sample/avg-item-img.png" alt="">
+					                </figure>
+					                
+					                <div class="order-detail figure-con">
+					                	
+					                    <div class="flex-ac-jsb">
+			                            	<dl class="num-info">
+			                            		<dt>견적번호</dt>
+			                            		<dd>AL-다산-2023-0523-001</dd>
+			                            	</dl>
+					                        <button type="button" class="btn-navy btn-avg-status w120px"  onclick="location.href='/guide/html/my/SOREC-SB-AVG-003-5.html'">계약승인 기한경과</button>
+					                    </div>
+
+					                    <table class="tbl-scope-row mt10">
+				                            <colgroup>
+				                                <col width="140">
+				                                <col width="245">
+				                                <col width="140">
+				                                <col width="245">
+				                            </colgroup>
+				                            <tbody>
+				                                <tr>
+				                                    <th>아이템</th>
+				                                    <td>알루미늄 순괴(P1020)</td>
+				                                    <th>권역</th>
+				                                    <td>인천/부산</td>
+												</tr>
+				                                <tr>
+				                                    <th>브랜드</th>
+				                                    <td>브랜드 무관</td>
+				                                    <th>계약기간</th>
+				                                    <td>2023.07.01 ~ 2023.09.30</td>
+												</tr>				                                
+												<tr>
+				                                    <th>계약수량</th>
+				                                    <td>총 1,200MT</td>
+				                                    <th>계약조건</th>
+				                                    <td>인천/부산 보세창고 상차도</td>
+												</tr>	
+												<tr>
+				                                    <th>프라이싱</th>
+				                                    <td>라이브/평균가</td>
+				                                    <th>프리미엄</th>
+				                                    <td>125,000원/MT</td>
+												</tr>
+												<tr>
+				                                    <th>결제조건</th>
+				                                    <td>e-Wallet/증거금</td>
+				                                    <th>계약 승인 기한</th>
+				                                    <td class="expiration">2023-07-30까지</td>
+												</tr>
+				                            </tbody>
+				                        </table>
+				                        <!-- 안내 문구 -->
+				                        <p class="tooltip-txt mt15">계약승인기한경과되었습니다. 관리자에게 문의하세요.</p>
+									</div> 
+					            </div>
+					        </li>        	
+					    </ul>
+                        <!--} // 평균가 주문 목록 종료 -->
+                         
+                        <div class="btn-wrap">
+                            <button type="button" class="btn-gray-big wide">더보기</button>
+                        </div>
+                    </div>
+                    <!--} // 2. 평균가 > 검색 조회 결과 종료 -->
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer include -->
+    <div class="footer-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+    <!-- //footer include -->
+</div>
+
+<!-- MODAL POPUP : 재주문 -->
+<div class="popup modal" id="sorinModalReorder">
+    <div class="modal-content w1060px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+
+            <h1 class="h2-pd">재주문 하기</h1>
+            <div class="div-scroll-y">
+                <div class="section">
+                    <div class="article">
+                        <div class="hgroup">
+                            <h2 class="h4">주문정보</h2>
+                            <div class="btns">
+                                <span class="live-price">라이브 프라이스 적용중</span>
+                            </div>
+                        </div>
+                        <table class="tbl-v th-left">
+                            <caption>거래정보 - 상품명, 현재단가, 주문중량 제공</caption>
+                            <colgroup>
+                                <col style="width:15rem;">
+                                <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">상품명</th>
+                                    <td>Aluminum Ingot P1020 – 비서구산 - 브랜드</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">현재단가 / MT</th>
+                                    <td>2,850,000 원 / MT</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">주문중량</th>
+                                    <td>25 MT</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><!--// .article -->
+                    <div class="article">
+                        <div class="hgroup">
+                            <h2 class="h4">배송정보</h2>
+                        </div>
+                        <table class="tbl-v th-left">
+                            <caption>배송정보 - 배송방법, 배송지, 출고지 제공</caption>
+                            <colgroup>
+                                <col style="width:15rem;">
+                                <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">배송방법</th>
+                                    <td>자차배송 / 10톤 카고 / Free</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">배송지</th>
+                                    <td>군산 1번 배송지 - 전북 군산시 오식도동 884-3 (홍길동 010-3559-8547)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">출고지</th>
+                                    <td>인천신항 송도 SINL (출고 담당자 : 홍길동 010-5369-2154)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><!--// .article -->
+                    <div class="article">
+                        <div class="hgroup">
+                            <h2 class="h4">주문금액</h2>
+                        </div>
+                        <table class="tbl-v th-left">
+                            <caption>주문금액 - 기본가격, 변동금, VAT, 결제요청금액 제공</caption>
+                            <colgroup>
+                                <col style="width:15rem;">
+                                <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">기본가격</th>
+                                    <td>28,600,000 원</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">변동금</th>
+                                    <td>4,275,000 원</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">VAT</th>
+                                    <td>3,287,500 원</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><span class="bold">결제요청금액</span></th>
+                                    <td><span class="price-red-bold">36,162,500</span> 원</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><!--// .article -->
+
+                    <div class="my">
+                        <div class="payments">
+                            <div class="e-wallet form-chk">
+                                <input type="radio" name="payment" id="payment1" checked>
+                                <label for="payment1">
+                                    <span class="e-wallet-1">e-wallet</span>
+                                    <span class="e-wallet-account">하나은행 110-042-254425</span>
+                                    <span class="e-wallet-price"><span class="price">100,000,000</span><span class="unit">원</span></span>
+                                </label>
+                                <div class="btns"><button type="button" class="btn-stroke-sm btn-reload"><i class="ico-reload"></i><span>현재 잔고 새로고침</span></button></div>
+                            </div>
+                            <!-- <div class="e-insurance form-chk">
+                                <input type="radio" name="payment" id="payment2" checked>
+                                <label for="payment2">
+                                    <span class="e-logo"><img src="/guide/images/pd/logo-sgi.png" alt="SGI서울보증"></span>
+                                    <span class="e-price">
+                                        <span class="price fc-red">100,000,000</span>
+                                        <span class="unit">원</span>
+                                    </span>
+                                </label>
+                            </div> -->
+                        </div>
+                        <p class="pay-notice">
+                            잔액이 충분합니다.
+                        </p>
+                        <div class="agree-box"><!-- js -->
+                            <div class="form-chk">
+                                <input type="checkbox" id="agreeBoxAll">
+                                <label for="agreeBoxAll">주문 상품정보 및 결제대행 서비스 이용약관에 모두 동의합니다.</label>
+                            </div>
+                            <div><button type="button" class="btn-detail-contract">자세히 보기</button></div>
+                        </div>
+                        <p class="agree-text">위 주문 내용을 확인하였으며, 결제에 동의합니다.</p>
+    
+                        <div class="btn-wrap">
+                            <button type="button" class="btn-gray-big modal-x">취소</button>
+                            <button type="button" class="btn-blue-big">주문</button>
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div><!-- // .div-scroll-y -->
+
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// MODAL POPUP : 재주문 -->
+
+<!-- MODAL POPUP : 지급확인서 -->
+<div class="popup modal" id="sorinModalConfirmation">
+    <div class="modal-content w1060px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+
+            <h1 class="h2-pd">지급확인서</h1>
+            <div class="div-scroll-y">
+                <div class="section">
+                    <div class="article">
+                        <table class="tbl-v th-left">
+                        <tbody>
+                            <tr>
+                                <th class="center" scope="row">지급일시</th>
+                                <td class="normal">2022-06-15 11:11:11</td>
+                                <th class="center" scope="row">수취인</th>
+                                <td class="normal">업체명</td>
+                            </tr>
+                            <tr>
+                                <th class="center" scope="row">지급금액</th>
+                                <td class="box-cols normal">
+                                    16,905,750원
+                                </td>
+                                <th class="center" scope="row">입금방법</th>
+                                <td class="box-cols normal">
+                                    e-Wallet
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">주문 취소 정보</th>
+                                <td class="pd30" colspan="3">
+                                    <div class="flex-end">
+                                        <button class="btn-stroke blue order-detail-popup tbl-btn">상세 내역 보기</button>
+                                    </div>
+                                    <table class="tbl t5 mt10">
+                                        <colgroup>
+                                            <col style="width:20%;">
+                                            <col style="width:20%;">
+                                            <col style="width:60%;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th class="center" scope="col">항목</th>
+                                                <th class="center" scope="col">금액</th>
+                                                <th class="center" scope="col">비고</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="center">주문번호</td>
+                                                <td></td>
+                                                <td class="center">20221020-S01102</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">주문상품</td>
+                                                <td></td>
+                                                <td class="center">PROMARY AL INGOT P1020</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">상품금액</td>
+                                                <td class="right">86,693,750</td>
+                                                <td class="center"><button class="btn-stroke blue tbl-btn">계약서보기</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center td-border-b">취소시 금액</td>
+                                                <td class="right td-border-b">55,000,000</td>
+                                                <td class="center td-border-b">비고</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">취소차액</td>
+                                                <td class="right">-31,693,750</td>
+                                                <td class="center">취소 시 금액 - 상품 금액</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center">취소수수료</td>
+                                                <td class="right">-433,469</td>
+                                                <td class="center">상품 금액 * 1%</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center td-border-b">증거금</td>
+                                                <td class="right td-border-b">17,388,750</td>
+                                                <td class="td-border-b"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="center td-import">취소결제금액</td>
+                                                <td class="right td-import fc-red bold">-14,788,469</td>
+                                                <td class="center td-import">취소차액 + 취소 수수료 + 증거금</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                   <!-- <table class="tbl-v t6">
+                                   		<tbody>
+											<tr>
+												<th class="center" scope="row">주문번호</th>
+												<td class="flex-between">
+													<span>20220523-S00001</span>
+													<button class="btn-stroke blue order-detail-popup">상세 내역 보기</button>
+												</td>
+											</tr>   
+											<tr>
+												<th class="center" scope="row">주문상품</th>
+												<td>PRIMARY AL INGOT P1020</td>
+											</tr>
+											<tr>
+												<th class="center" scope="row">주문 시 금액</th>
+												<td><span>86,693,750</span>&nbsp;원</td>
+											</tr>    
+											<tr>
+												<th class="center" scope="row">증거금</th>
+												<td><span>17,338,750</span>&nbsp;원</td>
+											</tr>
+											<tr>
+												<th class="center" scope="row">취소 시 금액</th>
+												<td><span>55,000,000</span>&nbsp;원</td>
+											</tr>  
+											<tr>
+												<th class="center" scope="row">취소 지역</th>
+												<td><span>-31,693,750</span>&nbsp;원</td>
+											</tr>  	
+											<tr>
+												<th class="center" scope="row">취소 수수료</th>
+												<td><span>-433,469</span>&nbsp;원</td>
+											</tr> 																					                           		
+                                   		</tbody>
+                                   </table> -->
+                                </td>
+                            </tr>
+                       	</tbody>
+                     </table>
+                    </div>
+                    <div class="text-center mt50">
+                        <p class="mb30">위와 같이 보증금을 반환(지급)하였음을 확인합니다.</p>
+                        <p>2022년 6월 16일</p>
+                    </div>
+                    <div class="sign-box flex-end">
+                        <dl>
+                            <dd class="bold">(주)서린상사</dd>
+                            <dd>사업자등록번호 : 211-81-19597</dd>
+                            <dd>대표이사 : 장세환, 곽재요</dd>
+                        </dl>
+                        <div class="stamp flex-center">서린</br>날인</div>
+                    </div>
+                </div>
+                <div class="btn-wrap mt40">
+                    <button type="button" class="btn-blue-big">출력하기</button>
+                </div>                
+            </div><!-- // .div-scroll-y -->
+
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// MODAL POPUP : 지급확인서 -->
+
+<!-- MODAL POPUP : 주문 취소 정보 상세 내역 -->
+<div class="popup modal" id="sorinModalCancelDetail">
+    <div class="modal-content w1060px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+
+            <h1 class="h2-pd">주문 취소 정보 상세 내역</h1>
+            <div class="div-scroll-y">
+                <div class="section">
+					<div class="article">
+						<table class="tbl t3">
+                    		<colgroup>
+                    			<col style="width:15%;">
+                    			<col style="width:15%;">
+                    			<col style="width:15%;">
+                    			<col style="width:15%;">
+                    			<col style="width:40%;">
+                    		</colgroup>
+                    		<thead>
+                    			<tr>
+                    				<th scope="col">구분</th>
+                    				<th scope="col">항목</th>
+                    				<th scope="col">주문시</th>
+                    				<th scope="col">정산(차액)</th>
+                    				<th scope="col">비고</th>
+                    			</tr>
+                    		</thead>
+                    		<tbody>
+                    			<tr>
+                    				<td class="td-header center" rowspan="3">
+                    					주문정보
+                    				</td>
+                    				<td class="center">수량</td>
+                    				<td class="center">25MT</td>
+                    				<td class="center">80,000,000</td>
+                    				<td class="center">주문 수량</td>
+                    			</tr>
+                    			<tr>
+                    				<td class="center">상품단가</td>
+                    				<td class="center">3,152,000</td>
+                    				<td></td>
+                    				<td class="center">상품 단가</td>
+                    			</tr>
+                    			<tr>
+                    				<td class="center">상품금액</td>
+                    				<td class="center">78,800,000</td>
+                    				<td></td>
+                    				<td></td>
+                    			</tr>  
+                    			<tr>
+                    				<td class="center td-header">결제정보</td>
+                    				<td class="center">최소주문금액</td>
+                    				<td class="center">15,625,000</td>
+                    				<td class="center">15,625,000</td>
+                    				<td class="center">주문 시 결제한 최소 주문 금액</td>
+                    			</tr>   
+                    			<tr>
+                    				<td class="center td-header">취소정보</td>
+                    				<td class="center">취소수수료</td>
+                    				<td></td>
+                    				<td class="center">-394,000</td>
+                    				<td class="center">x 0.5%</td>
+                    			</tr>
+                    			<tr>
+                    				<td class="td-import center">취소결제금액</td>
+                    				<td class="td-import"></td>
+                    				<td class="td-import"></td>
+                    				<td class="td-import center"><span class="fc-red">15,231,000</span></td>
+                    				<td class="td-import"></td>
+                    			</tr>                      			                  			                  			
+                    		</tbody>							
+						</table>
+					</div>                	
+                    <div class="article">
+                    	<div class="hgroup">
+                    		<h2 class="h3">가격 산정 근거</h2>
+                    	</div>
+                    	<table class="tbl t3">
+                    		<colgroup>
+                    			<col style="width:25%;">
+                    			<col style="width:25%;">
+                    			<col style="width:25%;">
+                    			<col style="width:25%;">
+                    		</colgroup>
+                    		<thead>
+                    			<tr>
+                    				<th scope="col">일시</th>
+                    				<th scope="col">현재가</th>
+                    				<th scope="col">3M</th>
+                    				<th scope="col">SPOT환율</th>
+                    			</tr>
+                    		</thead>
+                    		<tbody>
+                    			<tr>
+                    				<td class="center">16:50:01</td>
+                    				<td class="center">3,400,000</td>
+                    				<td class="center">해당 값 표기</td>
+                    				<td class="center">해당 값 표기</td>
+                    			</tr>
+                    			<tr>
+                    				<td class="center">16:50:01</td>
+                    				<td class="center">3,400,000</td>
+                    				<td class="center">해당 값 표기</td>
+                    				<td class="center">해당 값 표기</td>
+                    			</tr>
+                    			<tr>
+                    				<td class="center">16:50:01</td>
+                    				<td class="center">3,400,000</td>
+                    				<td class="center">해당 값 표기</td>
+                    				<td class="center">해당 값 표기</td>
+                    			</tr>                     			                    			
+                    		</tbody>
+                    	</table>
+                    </div>
+                    
+                </div>
+                <div class="btn-wrap mt40">
+                    <button type="button" class="btn-blue-big">확인</button>
+                </div>                
+            </div><!-- // .div-scroll-y -->
+
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// MODAL POPUP : 주문 취소 정보 상세 내역 -->
+
+
+<!-- MODAL POPUP : 배송상태 -->
+<div class="popup modal" id="sorinModalShipping">
+    <div class="modal-content w1060px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+
+            <h1 class="h2-pd">배송 상세 정보</h1>
+            <div class="div-scroll-y">
+                <div class="section">
+                    <div>
+                        <div class="article">
+                            <div class="btn-toggle-wrap full cols4">
+                                <div><button type="button" class="toggle active"><span>1차</span></button></div>
+                                <div><button type="button" class="toggle"><span>2차</span></button></div>
+                                <div><button type="button" class="toggle"><span>3차</span></button></div>
+                                <div><button type="button" class="toggle"><span>4차</span></button></div>
+                            </div>
+                        </div>
+                        <div class="article">
+                            <div class="hgroup">
+                                <h2 class="h4">1차 배송 상태</h2>
+                                <!-- <div class="btns">
+                                    <button type="button" class="btn-stroke-md btn-tracking">배송추적</button>
+                                </div> -->
+                            </div>
+                            <div class="box-states my">
+                                <div class="active"><span class="hidden">현재 페이지</span><!--<span class="step">STEP01.</span>--><span>출고지시</span></div>
+                                <div><span>배차완료</span></div>
+                                <div><span>배송중</span></div>
+                                <div><span>배송완료</span></div>
+                            </div>
+                        </div>
+                        <div class="article map-wrap">
+                            <div class="hgroup">
+                                <h2 class="h4">배송추적</h2>
+                                <div class="btns">
+                                    <button type="button" class="btn-gray-md btn-close-map">지도 닫기</button>
+                                </div>
+                            </div>
+                            <!-- 배송추적 지도 -->
+                            <div class="map-tracking">
+                                <!-- naver map -->
+                            </div>
+                            <!--// 배송추적 지도 -->
+                        </div>
+                        <div class="article">
+                            <div class="hgroup">
+                                <h2 class="h4">거래 정보</h2>
+                                <div class="btns">
+                                    <button type="button" class="btn-gray-md btn-tracking">배송추적</button>
+                                </div>
+                            </div>
+                            <table class="tbl-v th-left">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">계약번호</th>
+                                    <td>PO2021030812</td>
+                                    <th scope="row">배송번호</th>
+                                    <td>D38202103XXX</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">출고확인</th>
+                                    <td class="box-cols">
+                                        2021-03-25 10:25:10
+                                        <button type="button" class="btn-stroke-md">출고명세서</button>
+                                    </td>
+                                    <th scope="row">인수확인</th>
+                                    <td class="box-cols">
+                                        2021-03-25 10:25:10
+                                        <button type="button" class="btn-stroke-md">인수증</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                        <div class="article">
+                            <div class="hgroup">
+                                <h2 class="h4">배송 정보</h2>
+                                <div class="btns">
+                                    <button type="button" class="btn-stroke-md">Tally Sheet</button>
+                                    <button type="button" class="btn-stroke-md">납품명세서</button>
+                                </div>
+                            </div>
+                            <table class="tbl-v th-left">
+                                <caption>배송정보 - 배송방법, 출고지, 배송지, 배송요청사항 제공</caption>
+                                <colgroup>
+                                    <col style="width:15rem;">
+                                    <col>
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">배송방법</th>
+                                        <td class="long-height">
+                                            <p><strong>서린배송 (윙바디 / 20톤)</strong></p>
+                                            <ul class="list-bar">
+                                                <li>
+                                                    <span class="dt">배송업체</span>
+                                                    <span class="dd">(주)세방</span>
+                                                </li>
+                                                <li>
+                                                    <span class="dt">차량번호</span>
+                                                    <span class="dd">123가 1111</span>
+                                                </li>
+                                                <li>
+                                                    <span class="dt">배송기사</span>
+                                                    <span class="dd">김유신</span>
+                                                </li>
+                                                <li>
+                                                    <span class="dt">연락처</span>
+                                                    <span class="dd">010-1234-5678</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">출고지</th>
+                                        <td class="long-height">
+                                            <p><strong>출하지주소 정보 00시 00구 00로</strong></p>
+                                            <ul class="list-bar">
+                                                <li>
+                                                    <span class="dt">담당자</span>
+                                                    <span class="dd">홍길동</span>
+                                                </li>
+                                                <li>
+                                                    <span class="dt">연락처</span>
+                                                    <span class="dd">010-1234-5678</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">배송지</th>
+                                        <td class="long-height">
+                                            <p><strong>도착지주소 정보 00시 00구 00로</strong></p>
+                                            <ul class="list-bar">
+                                                <li>
+                                                    <span class="dt">담당자</span>
+                                                    <span class="dd">김나라</span>
+                                                </li>
+                                                <li>
+                                                    <span class="dt">연락처</span>
+                                                    <span class="dd">010-1234-5678</span>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">배송요청사항</th>
+                                        <td>출발 전 연락주세요</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="article">
+                            <div class="hgroup">
+                                <h2 class="h4">배송 상품정보</h2>
+                            </div>
+                            <table class="tbl-v th-left">
+                                <caption>배송 상품정보 - 품명, 수량 제공</caption>
+                                <colgroup>
+                                    <col style="width:15rem;">
+                                    <col>
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">품명</th>
+                                        <td>[알루미늄] Aluminum Ingot p1020 비서구산_브랜드</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">수량</th>
+                                        <td>25 MT</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div><!--// .div-scroll-y -->
+
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// MODAL POPUP : 배송상태 -->
+
+
+<!-- Modal Popup : 서린닷컴 이용약관 -->
+<div class="popup modal" id="sorinModalContract">
+    <div class="modal-content w500px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <h1 class="h3">서린닷컴 이용약관</h1>
+            <div class="context-box h436px scroll-y scroll-trans">
+                <div class="contract-con">
+                    [ 서린닷컴 이용 약관 ]<br>
+                    제1장 총칙<br>
+                    <br>
+                    제 1 조 (목적)<br>
+                    이 약관은 서린닷텀 주식회사(이하 “회사”)가 운영하는 사이버몰에서 제공하는
+                    서비스와 이를 이용하는 회원의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.<br>
+                    <br>
+                    제 2 조 (용어의 정의)<br>
+                    이 약관에서 사용하는 용어의 정의는 다음과 같습니다. 그리고 여기에서 정의되지 않은
+                    이 약관상의 용어의 의미는 일반적인 거래관행에 따릅니다.<br>
+                    1. “사이버몰”이란 회사가 상품 또는 용역 등(일정한 시설을 이용하거나 용역을
+                    제공받을 수 있는 권리를 포함하며, 이하 “상품 등”)을 회원에게 제공하기 위하여
+                    컴퓨터 등 정보통신설비를 이용하여 상품 등을 거래할 수 있도록 설정한 가상의
+                    영업장(http://www.coupang.com 등 회사가 운영하는 웹사이트 및 모바일 웹, 앱
+                    등을 모두 포함)을 의미합니다.<br>
+                    2. “회원”이라 함은 사이버몰에 회원등록을 한 자로서, 계속적으로 사이버몰에서
+                    제공하는 서비스를 이용할 수 있는 자를 말합니다.<br>
+                    3. “아이디(ID)”라 함은 회원의 식별과 서비스 이용을 위하여 회원이 설정하고 회사가
+                    승인하여 등록된 전자우편주소를 말합니다.<br>
+                    4. “비밀번호(Password)”라 함은 회원의 동일성 확인과 회원의 권익 및 비밀보호를
+                    위하여 회원 스스로가 설정하여 사이버몰에 등록한 문자와 숫자 등의 조합을 말합니다.<br>
+                    5. “마켓플레이스 서비스(MarketPlace Service)”라 함은 회사가 사이버몰을 통하여 함은 회사가 사이버몰을 통하여 함은 회사가 사이버몰을 통하여
+                </div>
+            </div>
+            <div class="btn-wrap">
+                <button type="button" class="btn-blue modal-x btn-confirm-contract">확인</button>
+            </div>
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// Modal Popup -->
+
+
+<!-- Modal Popup : 알림메시지 취소 클릭시 - 확인팝업 -->
+<div class="popup modal confirm" id="sorinModalConfirm">
+    <div class="modal-content w490px">
+        <div class="modal-header">
+            <h1>알림메세지</h1>
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+        </div>
+        <div class="max-width">
+        	<!-- 1. 당일 지정가 주문 취소 버튼 클릭시 -->
+            <div class="alert-con">
+			 "지정가 체결 전입니다.<br>
+			 취소하시면 체결 실패처리됩니다.<br>
+			 취소하시겠습니까?"
+			</div>
+			
+			<!-- 2. 당일 지정가 주문 취소 횟수 – 초과 시​
+			 <div class="alert-con">
+			 당일 지정가 주문 취소 횟수가 되었습니다.<br>​
+			 (귀사 지정가 주문  취소 횟수 :  5회)​
+			</div>
+			-->
+        </div><!--// .max-width -->
+        <div class="modal-btns">
+            <button type="button" class="btn-gray-big modal-x">닫기</button>
+            <button type="button" class="btn-blue-big modal-x">취소</button>
+            <!--<button type="button" class="btn-blue-big modal-x">확인</button>-->
+        </div>
+    </div>
+</div>
+<!--// Modal Popup : 알림메시지 취소 클릭시 - 확인팝업 -->
+
+
+
+
+<!-- script core -->
+<script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="/guide/js/select2/select2.min.js"></script>
+<!-- script extra -->
+<script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+<script src="/guide/js/swiper/6.7.0/swiper.js"></script>
+<!-- script custom -->
+<script src="/guide/js/sorin.js"></script>
+<script src="/guide/js/sorin-my.js"></script>
+<script src="/guide/js/sorin-layout.js"></script>
+<script src="/guide/js/jquery.mtz.monthpicker.js"></script>
+<script src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.kr.min.js"></script>
+<!-- script embedded -->
+<script>
+
+/* ::::: 평균가 script 시작 ::::: */
+
+/* 평균가 계약관리 > 주문정보 table > 진행월('.ongoing')부터 3개월만 노출, 그 외 숨김 */
+
+avgOrderInfoShow ();
+
+// 계약월 펼쳐보기 버튼('.btn-ani-tbl') 클릭시 전체 월 show
+$('.btn-ani-tbl').on('click', function(){	
+	$(this).toggleClass('active');
+	$(this).prev('.ani-tbl-wrap').toggleClass('active');
+	
+	if(!$('.ani-tbl-wrap').hasClass('active')) {
+		avgOrderInfoShow () 
+	} else {
+		$('.ani-tbl-wrap .tbl-body .tbl-tr').show();
+		$('.btn-ani-tbl').find('button').text('계약월 접어보기');
+	}
+});
+
+function avgOrderInfoShow () {
+	let trOngoing = $('.tbl-tr.ongoing').index();
+	
+	// 초기화
+	$('.ani-tbl-wrap .tbl-body .tbl-tr').hide();
+	$('.btn-ani-tbl').find('button').text('계약월 펼쳐보기');
+	
+	// 최초 진입시 진행월부터 3개월만 노출
+	for(let i = trOngoing; i <= trOngoing + 2; i ++){
+		$('.ani-tbl-wrap .tbl-body .tbl-tr').eq(i).show();
+	}
+}
+
+/* ::::: // 평균가 script 종료 ::::: */
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>간편회원 내정보관리 | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <!-- header include -->
+    <div class="header-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+    <!-- //header include -->
+    <div class="container">
+   		<!-- dashboard include -->
+      	<div class="dashboard-wrap include-wrap"></div>
+      	<script type="text/javascript"> $(".dashboard-wrap").load("/guide/html/include/my/dashboard.html");</script>
+        <!-- //dashboard include -->         
+        <div class="section my">
+            <div class="inwrap table">
+            	<!-- lnb include -->            	
+                <div class="lnb-wrap include-wrap"></div>
+   				<script type="text/javascript"> $(".lnb-wrap").load("/guide/html/include/my/lnb.html");</script>
+                <!-- lnb include --> 
+                <div class="content">
+                    <div class="section">
+                        <div class="hgroup">
+                            <h2 class="h2">내정보관리</h2>
+                        </div>                       
+                        <div class="section mt5">
+                            <div class="hgroup">
+                                <h3 class="h4">기본 정보 변경</h3>
+                            </div>
+                            <table class="tbl-v t3 th-left">
+                            <caption>내정보관리 - 아이디, 비밀번호 및 변경, 이름, 휴대폰번호, 전화번호, 이메일 주소, 정보수신여부, 뉴스레터 신청 제공 </caption>
+                            <colgroup>
+                            <col style="width:18rem;">
+                            <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">아이디</th>
+                                    <td>honggildong1 (마스터)</td>
+                                <tr>
+                                <tr>
+                                    <th scope="row">비밀번호</th>
+                                    <td>
+                                        <div>
+                                            <div class="w50per flag show">
+                                                <button type="button" class="btn-stroke-md blue full btn-change-pw" data-popup="modal" data-target="sorinModalChangePW">비밀번호 변경</button>
+                                            </div>
+                                            <div class="w50per hide">
+                                                <button type="button" class="btn-stroke-md blue full btn-change-pw-cancel">취소</button>
+                                            </div>
+                                            <div class="w50per hide">
+                                                <input type="password" class="full" placeholder="기존 비밀번호를 입력해 주세요.">
+                                            </div>
+                                            <div class="w50per hide">
+                                                <input type="password" class="full" placeholder="새 비밀번호를 입력해 주세요.">
+                                            </div>
+                                            <div class="w50per hide">
+                                                <input type="password" class="full" placeholder="새 비밀번호를 한번 더 입력해 주세요.">
+                                            </div>
+                                            <div class="w50per hide">
+                                                <button type="button" class="btn-blue-md full mb10 btn-change-pw-confirm">확인</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">이름</th>
+                                    <td>홍길동</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">휴대폰번호</th>
+                                    <td>
+                                        <span class="w50per">
+                                            <span class="input-complex">
+                                                <input type="text" name="ipUserCell" id="ipUserCell" class="input" value="010-1234-5678" title="휴대폰번호">
+                                            </span>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+						
+						                <!-- 마케팅 및 정보 수신 약관 동의 시작 || 2022-05-09 추가 -->
+						                <div class="box-agree-top">
+						                    <div class="agree-title">
+						                        <h3 class="signup-h3">[선택] 마케팅 정보 수신 동의</h3>
+						                    </div>
+						                </div>
+						
+						                <div class="box-agree-wrap type2">
+						                    <div class="box-agree t2">
+						                    	<p class="box-agree-txt">마케팅 및 광고 목적의 개인정보 수집 및 이용을 동의합니다.</p>
+						                        <div class="form-chk">
+						                            <input type="checkbox" id="agreeSms">
+						                            <label for="agreeSms">SMS</label>
+						                            <input type="checkbox" id="agreeEmail">
+						                            <label for="agreeEmail">이메일</label>
+						                            <input type="checkbox" id="agreePush">
+						                            <label for="agreePush">PUSH</label>
+						                        </div>
+						                        <button type="button" class="info-more" data-target="sorinModalContract">자세히보기</button>
+						                    </div>
+						                </div>
+                                    </td>
+                                </tr>
+<!--                                 <tr>
+                                    <th scope="row">정보수신여부</th>
+                                    <td>
+                                        <div class="textarea2">
+                                            <p>SORIN.COM의 다양한 정보를 받아봅니다.</p>
+                                            <div class="select-combo-wrap form-chk agree-notice-wrap">
+                                                <div>
+                                                    <dl class="agree-email-wrap">
+                                                        <dt class="fc-gray">이메일</dt>
+                                                        <dd><input type="radio" name="rEmail" id="rEmailY" title="이메일 받음" checked><label for="rEmailY">받음</label></dd>
+                                                        <dd><input type="radio" name="rEmail" id="rEmailN" title="이메일 받음"><label for="rEmailN">받지 않음</label></dd>
+                                                    </dl>
+                                                </div>
+                                                <div>
+                                                    <dl class="agree-sns-wrap">
+                                                        <dt class="fc-gray">SMS</dt>
+                                                        <dd><input type="radio" name="rSns" id="rSnsY" title="SNS 받음" checked><label for="rSnsY">받음</label></dd>
+                                                        <dd><input type="radio" name="rSns" id="rSnsN" title="SNS 받지 않음"><label for="rSnsN">받지 않음</label></dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                            <div class="t-info">
+                                                회원님의 개인정보를 신중히 취급하여, 회원님의 동의 없이 기재하신 회원정보를 공개 및 변경하지 않습니다.
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">뉴스레터 신청</th>
+                                    <td>
+                                        <div class="form-chk">
+                                            <dl class="agree-newsletter-wrap">
+                                                <dt class="hidden">뉴스레터S</dt>
+                                                <dd><input type="radio" name="rNewsletter" id="rNewsletterY" title="뉴스레터 받음" checked><label for="rNewsletterY">받음</label></dd>
+                                                <dd><input type="radio" name="rNewsletter" id="rNewsletterN" title="뉴스레터 받지 않음"><label for="rNewsletterN">받지 않음</label></dd>
+                                            </dl>
+                                        </div>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                            </table>
+                            <div class="btn-wrap duo">
+                                <button type="button" class="btn-gray-big btn-mypage-cancel w300px" style="background-color:#CDCDCD">취소</button>
+                                <button type="button" class="btn-blue-big w300px">저장</button>
+                            </div>
+                        </div>
+                    
+                        <div class="section">
+                            <div class="hgroup">
+                                <h3 class="h4">회원 탈퇴</h3>
+                            </div>
+                            <table class="tbl-v t3 th-left">
+                            <caption>회원 탈퇴 - 회원 탈퇴 제공</caption>
+                            <colgroup>
+                            <col style="width:16rem;">
+                            <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2">
+                                        <div class="flex-between">
+                                            <strong class="fc-black">
+                                                회원 탈퇴 시 맴버가 삭제됩니다.
+                                            </strong>
+                                            <div>
+                                                <button type="button" class="btn-stroke-md">탈퇴하기</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                        
+                    </div>
+
+
+                </div><!--// .content-->
+            </div>
+        </div>
+        
+    </div>
+    <!-- footer include -->
+    <div class="footer-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+    <!-- //footer include -->
+</div>
+
+<!-- Modal Popup : 서린닷컴 이용약관 -->
+<div class="popup modal" id="sorinModalContract">
+    <div class="modal-content w500px">
+        <div class="max-width">
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            <h1 class="h3">서린닷컴 이용약관</h1>
+            <div class="context-box h436px scroll-y scroll-trans">
+                <div class="contract-con">
+                    [ 서린닷컴 이용 약관 ]<br>
+                    제1장 총칙<br>
+                    <br>
+                    제 1 조 (목적)<br>
+                    이 약관은 서린닷텀 주식회사(이하 “회사”)가 운영하는 사이버몰에서 제공하는
+                    서비스와 이를 이용하는 회원의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.<br>
+                    <br>
+                    제 2 조 (용어의 정의)<br>
+                    이 약관에서 사용하는 용어의 정의는 다음과 같습니다. 그리고 여기에서 정의되지 않은
+                    이 약관상의 용어의 의미는 일반적인 거래관행에 따릅니다.<br>
+                    1. “사이버몰”이란 회사가 상품 또는 용역 등(일정한 시설을 이용하거나 용역을
+                    제공받을 수 있는 권리를 포함하며, 이하 “상품 등”)을 회원에게 제공하기 위하여
+                    컴퓨터 등 정보통신설비를 이용하여 상품 등을 거래할 수 있도록 설정한 가상의
+                    영업장(http://www.coupang.com 등 회사가 운영하는 웹사이트 및 모바일 웹, 앱
+                    등을 모두 포함)을 의미합니다.<br>
+                    2. “회원”이라 함은 사이버몰에 회원등록을 한 자로서, 계속적으로 사이버몰에서
+                    제공하는 서비스를 이용할 수 있는 자를 말합니다.<br>
+                    3. “아이디(ID)”라 함은 회원의 식별과 서비스 이용을 위하여 회원이 설정하고 회사가
+                    승인하여 등록된 전자우편주소를 말합니다.<br>
+                    4. “비밀번호(Password)”라 함은 회원의 동일성 확인과 회원의 권익 및 비밀보호를
+                    위하여 회원 스스로가 설정하여 사이버몰에 등록한 문자와 숫자 등의 조합을 말합니다.<br>
+                    5. “마켓플레이스 서비스(MarketPlace Service)”라 함은 회사가 사이버몰을 통하여 함은 회사가 사이버몰을 통하여 함은 회사가 사이버몰을 통하여
+                </div>
+            </div>
+            <div class="btn-wrap">
+                <button type="button" class="btn-blue modal-x btn-confirm-contract">확인</button>
+            </div>
+        </div><!--// .max-width -->
+      </div>
+  </div>
+  <!--// Modal Popup -->  
+
+<!-- script core -->
+<script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="/guide/js/select2/select2.min.js"></script>
+<!-- script extra -->
+<script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+<script src="/guide/js/swiper/6.7.0/swiper.js"></script>
+<!-- script custom -->
+<script src="/guide/js/sorin.js"></script>
+<script src="/guide/js/sorin-my.js"></script>
+<script src="/guide/js/sorin-layout.js"></script>
+<!-- script embedded -->
+<script>
+$('.btn-change-pw').on('click', function(){
+    if ($(this).parent('.w50per').hasClass('show')) {
+        $(this).parent('.w50per').removeClass('show').addClass('hide').siblings('.w50per').removeClass('hide').addClass('show');
+    }
+});
+$('.btn-change-pw-cancel').on('click', function(){
+    $(this).parent('.w50per.show').attr('class','w50per hide').siblings('.w50per.show').attr('class','w50per hide');
+    $(this).parent('.w50per').siblings('.w50per.flag.hide').attr('class','w50per flag show');
+});
+$('.btn-change-pw-confirm').on('click', function(){
+    $(this).parent('.w50per.show').attr('class','w50per hide').siblings('.w50per.show').attr('class','w50per hide');
+    $(this).parent('.w50per').siblings('.w50per.flag.hide').attr('class','w50per flag show');
+});
+
+// 약관 자세히 보기 팝업 추가
+$('.info-more').on('click', function(){
+    popup('sorinModalContract', 'modal');
+});
+
+</script>
+
+</body>
+</html>

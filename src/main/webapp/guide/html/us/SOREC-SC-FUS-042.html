@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>기업회원 가입: 정보입력 | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+
+        <!-- header include -->
+        <div class="header-wrap include-wrap"></div>
+        <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+        <!-- //header include -->
+        
+        <!-- container -->
+        <div class="container">
+            <!-- 본문 -->
+            <div class="section us">
+                <div class="inwrap">
+                    <div class="hgroup">
+                        <div>
+                            <h2 class="h2">기업회원 가입</h2>
+                        </div>
+                    </div>
+
+                    <!-- step 시작 -->
+                    <div class="article step-area">
+                    <div class="step1 success">
+                        <span class="hidden">현재 페이지</span>
+                        <span class="step">1</span><span>약관동의</span>
+                    </div>
+                    <div class="step2 active">
+                        <span class="step">2</span><span>정보입력</span>
+                    </div>
+                    <div class="step3">
+                        <span class="step">3</span><span>계정발급</span>
+                    </div>
+                </div>
+                <!-- // step 끝 -->
+
+                    <div class="article mt60 join-info-wrap">
+                        <h3 class="signup-h3">기업회원 정보입력</h3>
+                        <span class="icon-info-txt mb10">사업자등록증을 준비해주세요.</span>
+                        <div class="box-stroke no-box signup-box">
+                            <div>
+                                <div class="tr mt0">
+                                    <label for="ipCoRegiNo">사업자등록번호</label>
+                                    <span class="limit-width">
+                                        <span class="input-complex">
+                                            <span class="input"><input type="tel" name="ipCoRegiNo" id="ipCoRegiNo" placeholder="사업자등록번호"></span>
+                                            <span class="button"><button type="button" class="btn-blue-big narrow">확인</button></span>
+                                        </span>
+                                    </span>
+                                    <span class="t-info t2">사업자등록번호를 다시 확인해 주세요.</span>
+                                    <!-- <span class="error">사업자등록번호를 다시 확인해 주세요.</span> -->
+                                </div>
+                                <div class="tr">
+                                    <label for="ipCorp">법인</label>
+                                    <span class="limit-width">
+                                        <input type="text" name="ipCorp" id="ipCorp" placeholder="법인등록번호">
+                                    </span>
+                                    <span class="t-info">일반사업자 입니다.</span>
+                                </div>
+                                <div class="tr">
+                                <div class="file-upload">
+                                    <input type="text" class="upload-name" value="" placeholder="사업자등록증 파일 첨부" disabled="disabled">
+                                    <span class="file-cancel"><img src="/guide/images/us/icon_file_cancel.png"></span>
+									<span id="btnUpdFile1">
+										<label for="updFile1" class="">파일첨부</label>
+										<input type="file" name="updFile1" id="updFile1" class="hidden-file" accept=".pdf, .jpg, .jpeg, .png">
+									</span>
+<!--                                   
+                                    <label for="ipBusiLicense">파일첨부</label> 
+                                    <input type="file" id="ipBusiLicense" class="upload-hidden"> --> 
+                                </div>
+                                </div>
+                                <div class="col2 mt40">
+                                <div class="tr">
+                                    <label for="ipCompany">기업명</label>
+                                    <span class="limit-width">
+                                        <input type="text" name="ipCompany" id="ipCompany" placeholder="기업명">
+                                    </span>
+                                </div>
+                                <div class="tr">
+                                    <label for="ipCeo">대표자</label>
+                                    <span class="limit-width">
+                                        <input type="text" name="ipCeo" id="ipCeo" placeholder="대표자">
+                                    </span>
+                                </div>
+                                </div>
+                                <div class="col2">
+                                <div class="tr">
+                                    <label for="ipBusiType">업태</label>
+                                    <span class="limit-width">
+                                        <input type="text" name="ipBusiType" id="ipBusiType" placeholder="업태">
+                                    </span>
+                                </div>
+                                <div class="tr">
+                                    <label for="ipBusiCate">종목</label>
+                                    <span class="limit-width">
+                                        <input type="text" name="ipBusiCate" id="ipBusiCate" placeholder="종목">
+                                    </span>
+                                </div>
+                                </div>
+                                <div class="tr">
+                                <label for="ipCoAddress">회사주소</label>
+                                <span class="limit-width">
+                                    <span class="input-complex">
+                                        <span class="input">
+                                            <input type="text" name="ipCoAddress" id="ipCoAddress" placeholder="회사주소" readonly>
+                                        </span>
+                                        <span class="button">
+                                            <button type="button" class="btn-stroke-big narrow blue">주소찾기</button>
+                                        </span>
+                                    </span>
+                                </span>
+                                </div>
+                                <div class="tr">
+                                <label for="ipCoAddressDetail">상세주소</label>
+                                <span class="limit-width">
+                                    <input type="text" name="ipCoAddressDetail" id="ipCoAddressDetail" placeholder="나머지 상세 주소       도로명 주소 기준으로 지번주소가 보여집니다.">
+                                </span>
+                                </div>             
+                                <div class="col2">
+                                <div class="tr">
+                                    <label for="ipCoTel">회사전화번호</label>
+                                    <span class="limit-width">
+                                        <input type="tel" name="ipCoTel" id="ipCoTel" placeholder="회사전화번호">
+                                    </span>
+                                </div>
+                                <div class="tr">
+                                    <label for="ipCoFax">팩스전화번호</label>
+                                    <span class="limit-width">
+                                        <input type="tel" name="ipCoFax" id="ipCoFax" placeholder="팩스전화번호">
+                                    </span>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="btn-wrap singup-btn-wrap">
+                            <button type="button" class="btn-gray-big">이전</button>
+                            <button type="button" class="btn-blue-big">다음</button>
+                        </div>
+                
+                    </div>
+                </div>            
+            </div>
+            <!--// 본문 -->
+        </div>
+        <!-- //container -->
+    
+        <!-- footer include -->
+        <div class="footer-wrap include-wrap"></div>
+        <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+        <!-- //footer include -->
+        
+    </div>
+
+    <!-- script core -->
+    <script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/guide/js/select2/select2.min.js"></script>
+    <!-- script extra -->
+    <script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+    <!-- script custom -->
+    <script src="/guide/js/sorin.js"></script>
+    <script src="/guide/js/sorin-layout.js"></script>
+    <!-- embedded -->
+    <script>
+    $(document).ready(function(){
+    // 파일 첨부 변경
+    var fileTarget = $('.file-upload .upload-hidden');
+    fileTarget.on('change', function(){  // 값이 변경되면
+        if(window.FileReader){  // modern browser
+                var filename = $(this)[0].files[0].name;
+        } 
+        else {  // old IE
+                var filename = $(this).val().split('/').pop().split('\\').pop();  // 파일명만 추출
+        }
+        // 추출한 파일명 삽입
+        $(this).siblings('.upload-name').val(filename).addClass('file-in').next().show();
+    });
+
+    // 파일 첨부 취소
+    $(document).on('click','.file-cancel', function() {
+        $('.file-upload .upload-name').val('');
+        $(this).hide();
+    });
+
+    }); 
+
+    </script>
+
+</body>
+</html>

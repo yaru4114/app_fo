@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>간편회원 로그인: 이메일 로그인 | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+
+   <!-- header include -->
+   <div class="header-wrap include-wrap"></div>
+   <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+    <!-- //header include -->
+        
+   	<!-- container -->
+    <div class="container">
+        <!-- 본문 -->
+        <div class="section us">
+            <div class="inwrap">
+                <div class="hgroup">
+                    <div>
+                        <h2 class="h2">로그인</h2>
+                        <!-- <p class="p"><strong>주문</strong>을 위해서는 <strong>회원사 가입</strong> 후 로그인 하셔야 합니다.</p> -->
+                    </div>
+                </div>
+
+                <div class="login-wrap">
+                    <div class="btn-toggle-wrap full">
+                        <div><button type="button" class="toggle"><span>기업회원</span></button></div>
+                        <div><button type="button" class="toggle active"><span>일반회원</span></button></div>
+                    </div>
+                    
+<!--                     <div class="tr">
+                        <p class="login-wrap-hgroup-p"><strong>주문</strong>을 위해서는 <strong>회원사 가입</strong> 후 로그인 하셔야 합니다.</p>
+                    </div> -->
+                    <div class="tr limit-width full">
+                        <input type="text" title="이메일주소" placeholder="이메일주소">
+                    </div>
+                    <div class="tr limit-width full">
+                        <input type="password" title="비밀번호" placeholder="비밀번호">
+                    </div>
+                    <div class="tr limit-width full mt30">
+                        <button type="button" class="btn-blue-big full">로그인</button>
+                    </div>                    
+                    <div class="tr flex-between">
+                        <div class="form-chk">
+                            <input type="checkbox" id="userId">
+                            <label for="userId">아이디 저장</label>
+                        </div>
+                        <div>
+                            <!-- <button type="button" class="btn-alink">아이디 찾기</button> -->
+                            <button type="button" class="btn-alink">비밀번호 찾기</button>
+                        </div>
+                    </div>
+                    <hr>
+<!--                     <div class="tr">
+                        <button type="button" class="btn-yellow-big full"><i class="ico-kakaotalk"></i><span>카카오톡 계정으로 가입</span></button>
+                    </div> -->
+                    <div class="tr btns">
+                        <div><button type="button" class="btn-stroke-big full blue">간편회원가입</button></div>
+                    </div>
+            
+                </div>
+            </div>            
+        </div>
+        <!--// 본문 -->
+    </div>
+   	<!-- //container -->
+   
+    <!-- footer include -->
+    <div class="footer-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+    <!-- //footer include -->
+
+</div>
+
+<!-- script core -->
+<script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="/guide/js/select2/select2.min.js"></script>
+<!-- script extra -->
+<script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+<!-- script custom -->
+<script src="/guide/js/sorin.js"></script>
+<script src="/guide/js/sorin-layout.js"></script>
+<!-- embedded -->
+<script>
+$(document).on('click', '.btn-ask-certify', function(){
+    $('#substep1').hide();
+    $('#substep2').show(function(){
+        countdown( "certifyCountdown", 5, 0 );
+    }).removeClass('hide').removeAttr('style');
+})
+</script>
+
+</body>
+</html>

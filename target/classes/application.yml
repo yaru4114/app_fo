@@ -1,0 +1,31 @@
+server:
+  port: 80 #28085
+  servlet:
+    session:
+      cookie:
+        name: foJSESSIONID
+      tracking-modes: cookie
+    encoding:
+      charset: UTF-8
+      force: true
+  compression:
+    enabled: true
+    mime-types: application/javascript,text/css,application/json,application/xml,text/html,text/xml,text/plain
+    min-response-size: 2048
+ 
+logging:
+  config: classpath:config/logback/logback.xml
+
+spring:
+  datasource:
+    url: jdbc:sqlserver://192.168.1.99:1433;databaseName=SEC_DEV;encrypt=true;trustServerCertificate=true
+    username: m2m
+    password: m2makstp
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  messages:
+    basename: message/message-comm_ko
+    encoding: UTF-8

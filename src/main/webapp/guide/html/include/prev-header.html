@@ -1,0 +1,213 @@
+<!-- 2022.12.27 이전 header include 백업 -->
+<div class="header">
+   <!--띠배너 추가-->
+   <div class="top-banner-wrap">
+        <div class="contents">
+            <img src="/guide/images/ma/coin.svg">
+            <p class="txt">서린닷컴 국내 최초 온라인 여신 결제 서비스 출시!</p>
+            <button class="bn-btn" onclick="javascript:pageMove('/fo/ev/loanCreditUseReqstInfo')">사용 신청</button>
+            <button class="banner-close">
+                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M1.30769 0L0.600586 0.707107L9.08594 9.19246L0.600651 17.6777L1.30776 18.3849L9.79304 9.89956L18.2783 18.3848L18.9854 17.6777L10.5002 9.19246L18.9854 0.707182L18.2783 7.55191e-05L9.79304 8.48535L1.30769 0Z" fill="white"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <header id="header" class="inwrap">
+        <h1 class="logo"><a href="/guide/html/ma/SOREC-SC-FMA-001.html"><span class="hidden">SORIN CORPORATION</span></a></h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="#" class="active">아연</a></li>
+                <li><a href="#">알루미늄</a></li>
+                <li><a href="#">납</a></li>
+                <li><a href="#">구리</a></li>
+                <li><a href="#">니켈</a></li>
+                <li><a href="#">주석</a></li>
+            </ul>
+        </nav>
+        <div class="util utility">
+            <div class="util-list">
+                <!-- logout state
+                <ul>
+                    <li class="util-member"><a href="#">회원 로그인</a></li>
+                    <li class="util-join"><a href="#">가입</a></li>
+                </ul> -->
+                <!--// logout state -->
+                <!-- login state as 간편회원
+                <ul>
+                    <li class="util-memberinfo">
+                        <button type="button" class="btn-header-member">actioncat</button>
+                        <div class="header-toggle" id="meberInfo">
+                            <div class="toggle-con-wrap">
+                                <div class="header-toggle-con">
+                                    <p class="username">홍길동</p>
+                                    <p class="useremail">usermail@mail.com</p>
+                                </div>
+                                <div class="header-toggle-btn">
+                                    <button type="button" class="btn-header-logout">로그아웃</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="util-alert">
+                        <button type="button" class="btn-header-alarm"><span class="hidden">새알림</span><span class="no">99</span></button>
+                        <div class="header-toggle" id="noticeAlert">
+                            <div class="toggle-con-wrap">
+                                <div class="header-toggle-con">
+                                    <div class="header-toggle-hgroup">
+                                        <p class="stit">알림</p>
+                                        <button type="button" class="btn-all">전체보기</button>
+                                    </div>
+                                    <div class="header-toggle-list">
+                                        <ul>
+                                            <li>
+                                                <dl class="data">
+                                                    <dt>알루미늄 2,825,000</dt>
+                                                    <dd>1분 전</dd>
+                                                </dl>
+                                            </li>
+                                            <li>
+                                                <dl class="data">
+                                                    <dt>알루미늄 2,825,000</dt>
+                                                    <dd>1시간 전</dd>
+                                                </dl>
+                                            </li>
+                                            <li>
+                                                <dl class="data">
+                                                    <dt>알루미늄 2,825,000</dt>
+                                                    <dd>2시간 전</dd>
+                                                </dl>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="util-comember"><a href="#">기업회원 로그인</a></li>
+                    <li class="util-join"><a href="#">가입</a></li>
+                </ul> -->
+                <!--// login state as 간편회원 -->
+                <!-- login state as 회원사 -->
+                <ul>
+                    <li class="util-memberinfo">
+                        <button type="button" class="btn-header-member">actioncat</button>
+                        <div class="header-toggle" id="meberInfo">
+                            <div class="toggle-con-wrap">
+                                <div class="header-toggle-con">
+                                    <p class="username">홍길동</p>
+                                    <p class="useremail">usermail@mail.com</p>
+                                </div>
+                                <div class="header-toggle-btn">
+                                    <button type="button" class="btn-header-logout">로그아웃</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="util-alert">
+                        <button type="button" class="btn-header-alarm"><span class="hidden">새알림</span><span class="no">99</span></button>
+                        <div class="header-toggle" id="noticeAlert">
+                            <div class="toggle-con-wrap">
+                                <div class="header-toggle-con">
+                                    <div class="header-toggle-hgroup">
+                                        <p class="stit">나의 알림</p>
+                                        <button type="button" class="btn-all">전체보기</button>
+                                    </div>
+                                    <div class="header-toggle-list">
+                                        <ul>
+                                            <li>
+                                                <dl class="data">
+                                                    <dt>알루미늄 <span class="blue">2,825,000</span></dt>
+                                                    <dd>1분전</dd>
+                                                </dl>
+                                            </li>
+                                            <li>
+                                                <dl class="data">
+                                                    <dt>알루미늄 <span class="red">2,825,000</span></dt>
+                                                    <dd>1시간전</dd>
+                                                </dl>
+                                            </li>
+                                            <li>
+                                                <dl class="data">
+                                                    <dt>알루미늄 <span>2,825,000</span></dt>
+                                                    <dd>2시간전</dd>
+                                                </dl>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="util-shipping">
+                        <a href="#"><i class="ico-header-shipping"></i><span class="hidden">주문/배송</span></a>
+                    </li>
+                    <li class="util-cart">
+                        <a href="#"><i class="ico-header-cart"></i><span class="hidden">장바구니</span></a>
+                    </li>
+                    <li class="util-account">
+                        <button type="button" class="btn-header-account" aria-label="잔고확인"><span class="number">12,000,000</span><span class="unit">원</span></button>
+                        <div class="header-toggle" id="chkAccount">
+                            <div class="toggle-con-wrap">
+                                <div class="header-toggle-con">
+                                    <div class="header-toggle-hgroup">
+                                        <p class="stit"><strong>나의 잔액 확인</strong></p>
+                                    </div>
+                                    <div class="header-toggle-list">
+                                        <ul>
+                                            <li>
+                                                <dl class="data default">
+                                                    <dt>e-Wallet</dt>
+                                                    <dd><span class="price">12,000,000</span><span class="unit">원</span></dd>
+                                                </dl>
+                                            </li>
+                                            <li>
+                                                <dl class="data">
+                                                    <dt>SGI</dt>
+                                                    <dd><span class="price">10,000,000</span><span class="unit">원</span></dd>
+                                                </dl>
+                                            </li>
+                                            <li>
+                                                <dl class="data">
+                                                    <dt>신용보증</dt>
+                                                    <dd><span class="price">10,000,000</span><span class="unit">원</span></dd>
+                                                </dl>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!--// login state as 회원사 -->
+            </div>
+        </div>
+    </header>
+    <!-- 공지 -->
+    <div class="section notice-wrap">
+        <div class="inwrap">
+            <div class="notice-label">공지</div>
+            <div class="notice-area">
+                <div class="marquee-container">
+                    <marquee behavior="scroll" scrollamount="10" direction="left" loop="true" id="mainMarquee">            
+                    <ul class="marquee-items">
+                        <li><a href="#"><span>카카오 알림톡 인증번호 발송 장애로 인한 로그인 불가 안내</span></a></li>
+                        <li><a href="#"><span>회원가입 단계 Captcha 오류 안내</span></a></li>
+                        <li><a href="#"><span>서린닷컴 점검</span></a></li>
+                    </ul>
+                    </marquee>
+                </div>
+                <div class="marquee-controller"><button type="button" class="btn-controller pause"><span class="hidden">일시정지</span></button></div>
+            </div>
+            <div class="timeset-area">
+                <span class="timeset-text"><span>국제 원자제 거래 종료까지</span></span>
+                <span class="timeset" id="timeset">14:58.07</span>
+            </div>
+        </div>
+    </div>
+    <!--// 공지  -->
+</div>
+
+
+<!-- 2022.12.27 이전 header include 백업 -->

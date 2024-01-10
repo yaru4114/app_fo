@@ -1,0 +1,73 @@
+@charset "utf-8";
+@font-face {
+    /* font-family: 'scd-extralight'; */
+    font-family: 'S-CoreDream-2';
+    src: url('scdream2.woff2') format('woff2'),
+         url('scdream2.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    /* font-family: 'scd-light'; */
+    font-family: 'S-CoreDream-3';
+    src: url('scdream3.woff2') format('woff2'),
+         url('scdream3.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {    
+    /* font-family: 'scd-regular'; */
+    font-family: 'S-CoreDream-4';
+    src: url('scdream4.woff2') format('woff2'),
+         url('scdream4.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    /* font-family: 'scd-medium'; */
+    font-family: 'S-CoreDream-5';
+    src: url('scdream5.woff2') format('woff2'),
+         url('scdream5.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    /* font-family: 'scd-bold'; */
+    font-family: 'S-CoreDream-6';
+    src: url('scdream6.woff2') format('woff2'),
+         url('scdream6.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/*
+@font-face {
+    font-family: 'scd-thin';
+    src: url('scdream1.woff2') format('woff2'),
+         url('scdream1.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+/*
+@font-face {
+    font-family: 'scd-extrabold';
+    src: url('scdream7.woff2') format('woff2'),
+         url('scdream7.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'scd-heavy';
+    src: url('scdream8.woff2') format('woff2'),
+         url('scdream8.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'scd-black';
+    src: url('scdream9.woff2') format('woff2'),
+         url('scdream9.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*/

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="74" height="77">
+    <defs>
+        <style>
+            .cls-2{fill:#0d7dc8}
+        </style>
+    </defs>
+    <g id="그룹_28" data-name="그룹 28" transform="translate(-547 -2280)">
+        <g id="그룹_20" data-name="그룹 20">
+            <g id="사각형_43" data-name="사각형 43" style="fill:#fff;stroke:#0d7dc8;stroke-width:5px">
+                <path style="stroke:none" d="M0 0h74v74H0z" transform="translate(547 2283)"/>
+                <path style="fill:none" d="M2.5 2.5h69v69h-69z" transform="translate(547 2283)"/>
+            </g>
+            <path id="사각형_45" data-name="사각형 45" class="cls-2" transform="translate(547 2298)" d="M0 0h74v5H0z"/>
+        </g>
+        <rect id="사각형_46" data-name="사각형 46" class="cls-2" width="5" height="11" rx="2.5" transform="translate(562 2280)"/>
+        <rect id="사각형_47" data-name="사각형 47" class="cls-2" width="5" height="11" rx="2.5" transform="translate(601 2280)"/>
+        <text id="_12" data-name="12" transform="translate(581 2339)" style="font-size:30px;font-family:S-CoreDream-7ExtraBold,'S-Core Dream \37 ';font-weight:800;letter-spacing:-.08em;fill:#0d7dc8"><tspan x="-17.64" y="0">12</tspan></text>
+    </g>
+</svg>

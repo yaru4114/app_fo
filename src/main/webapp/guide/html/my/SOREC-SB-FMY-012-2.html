@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- <meta name="robots" content="ALL"> -->
+    <meta name="title" content="서린상사">
+    <link rel="shortcut icon" href="/guide/images/favicon.ico">
+    <meta name="keywords" content="서린상사, 서린상사(주), 비철금속전문기업, 아연, 황산">
+    <meta name="description" content="세계를 선도하는 종합비철무역상사 - 서린상사">
+    <title>배송지/차량관리 > 차량관리 | SORIN e-Commerce</title>
+    <link rel="stylesheet" href="/guide/css/common.css">
+    <link rel="stylesheet" href="/guide/css/sorin.css">
+    <script src="/guide/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <!-- header include -->
+    <div class="header-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".header-wrap").load("/guide/html/include/header.html");</script>
+    <!-- //header include --> 
+    <div class="container">
+   		<!-- dashboard include -->
+      	<div class="dashboard-wrap include-wrap"></div>
+      	<script type="text/javascript"> $(".dashboard-wrap").load("/guide/html/include/my/dashboard.html");</script>
+        <!-- //dashboard include -->  
+        <div class="section my">
+            <div class="inwrap table">
+            	<!-- lnb include -->            	
+                <div class="lnb-wrap include-wrap"></div>
+   				<script type="text/javascript"> $(".lnb-wrap").load("/guide/html/include/my/lnb.html");</script>
+                <!-- lnb include --> 
+                <div class="content content-delivery">
+	                <div class="section">
+	                    <div class="btn-toggle-wrap cols2 full">
+	                        <div><button type="button" class="toggle" onclick="location.href='/guide/html/my/SOREC-SB-FMY-012-1.html'"><span>배송지 관리</span></button></div>
+	                        <div><button type="button" class="toggle active" onclick="location.href='/guide/html/my/SOREC-SB-FMY-012-2.html'"><span>차량 관리</span></button></div>
+	                    </div>
+	                </div>
+                    <div class="section">
+                        <div class="hgroup">
+                            <h2 class="h2">차량 정보</h2>
+                            <div class="btns">
+                                <button type="button" class="btn-stroke-md blue btn-new-truck" data-popup="modal" data-target="sorinModalNewTruck">신규 차량 등록</button>
+                            </div>
+                        </div>
+
+	                   <table class="tbl t3 center">
+						    <caption>차량 정보(차량번호, 등록일, 등록자, 관리)를 보여주는 페이지</caption>
+						    <colgroup>
+						        <col width="25%">
+						        <col width="25%">
+						        <col width="25%">
+						        <col width="25%">
+						    </colgroup>
+						    <thead>
+						        <tr>
+						            <th scope="col">차량번호</th>
+						            <th scope="col">등록일</th>
+						            <th scope="col">등록자</th>
+						            <th scope="col">관리</th>
+						        </tr>
+						    </thead>
+						    <tbody>
+						    	<tr>
+						    		<td>47부 9982</td>
+						    		<td>2023-06-15</td>
+						    		<td>홍길동</td>
+						    		<td>
+										<button type="button" class="btn-stroke-md w60px" data-popup="modal" data-target="sorinModalModifyTruck">수정</button>
+										<button type="button" class="btn-stroke-md w60px" data-popup="modal" data-target="sorinModalConfirm">삭제</button>
+									</td>
+						    	</tr>
+						        <!-- no-data {-->
+						        <tr id="noData">
+						            <td colspan="4">
+						                <div class="no-data h180px">최근 알림 내역이 없습니다.</div>
+						            </td>
+						        </tr>
+						        <!--} // no-data-->
+						    </tbody>
+						</table>  
+					</div>
+                    <div class="section">
+                        <div class="hgroup">
+                            <h2 class="h2">기사 정보</h2>
+                            <div class="btns">
+                                <button type="button" class="btn-stroke-md blue btn-new-truck" data-popup="modal" data-target="sorinModalNewDriver">신규 기사 등록</button>
+                            </div>
+                        </div>
+
+	                   <table class="tbl t3 center">
+						    <caption>기사 정보(기사명, 연락처, 등록일, 등록자, 관리)를 보여주는 페이지</caption>
+						    <colgroup>
+						        <col width="20%">
+						        <col width="20%">
+						        <col width="20%">
+						        <col width="20%">
+						        <col width="20%">
+						    </colgroup>
+						    <thead>
+						        <tr>
+						            <th scope="col">기사명</th>
+						            <th scope="col">연락처</th>
+						            <th scope="col">등록일</th>
+						            <th scope="col">등록자</th>
+						            <th scope="col">관리</th>
+						        </tr>
+						    </thead>
+						    <tbody>
+						    	<tr>
+						    		<td>차은우</td>
+						    		<td>010-0000-0000</td>
+						    		<td>2023-06-15</td>
+						    		<td>홍길동</td>
+						    		<td>
+						    			<div class="flex-ac-jac">
+											<button type="button" class="btn-stroke-md w60px" data-popup="modal" data-target="sorinModalModifyDriver">수정</button>
+											<button type="button" class="btn-stroke-md w60px" data-popup="modal" data-target="sorinModalConfirm">삭제</button>
+										</div>
+									</td>
+						    	</tr>
+						        <!-- no-data {-->
+						        <tr id="noData">
+						            <td colspan="5">
+						                <div class="no-data h180px">최근 알림 내역이 없습니다.</div>
+						            </td>
+						        </tr>
+						        <!--} // no-data-->
+						    </tbody>
+						</table>  
+					</div>
+                </div><!--// .content-->
+            </div>
+        </div>
+        
+    </div>
+    <!-- footer include -->
+    <div class="footer-wrap include-wrap"></div>
+    <script type="text/javascript"> $(".footer-wrap").load("/guide/html/include/footer.html");</script>
+    <!-- //footer include -->
+</div>
+
+<!-- 23.06.28 | MODAL POPUP : 마이페이지 > 차량 관리 > 신규 차량 등록 -->
+<div class="popup modal" id="sorinModalNewTruck">
+	<div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close">
+				<button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button>
+			</div>
+            <h1 class="h2-pd">차량 정보 등록</h1>
+            <div class="div-scroll-y">
+                <div class="section section-delivery">
+					<div class="tbl-v center">
+						<input type="text" name="newTruck" id="newTruck" class="delivery-input w430px" placeholder="차량번호를 입력해 주세요.">
+					</div>
+					<div class="tooltip-txt-wrap mt20">
+						<p class="tooltip-txt">차량 번호는 자차 배송 시 귀사의 상품을 정확하게 배송하기 위해 매칭되는 정보입니다.</p>
+						<p class="tooltip-txt">차량 번호는 최대 5개까지 등록 가능합니다.</p>
+						<p class="tooltip-txt">정확하게 데이터를 입력해주세요.</p>
+					</div>
+                    <div class="btn-wrap">
+                        <button type="button" class="btn-gray-big modal-x">취소</button>
+                        <button type="button" class="btn-blue-big">등록</button>
+                    </div>
+
+                </div><!--// .section -->
+
+            </div><!-- // .div-scroll-y -->  
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// 23.06.28 | MODAL POPUP : 마이페이지 > 차량 관리 > 신규 차량 등록 -->
+
+
+<!-- 23.06.28 | MODAL POPUP : 마이페이지 > 차량 관리 > 차량 정보 수정 -->
+<div class="popup modal" id="sorinModalModifyTruck">
+	<div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close">
+				<button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button>
+			</div>
+            <h1 class="h2-pd">차량 정보 수정</h1>
+            <div class="div-scroll-y">
+                <div class="section section-delivery">
+					<div class="tbl-v center">
+						<input type="text" name="newTruck" id="newTruck" class="delivery-input w430px" value="47부 9982" placeholder="차량번호를 입력해 주세요.">
+					</div>
+					<div class="tooltip-txt-wrap mt20">
+						<p class="tooltip-txt">차량 번호는 자차 배송 시 귀사의 상품을 정확하게 배송하기 위해 매칭되는 정보입니다.</p>
+						<p class="tooltip-txt">정확하게 데이터를 입력해주세요.</p>
+					</div>
+                    <div class="btn-wrap">
+                        <button type="button" class="btn-gray-big modal-x">취소</button>
+                        <button type="button" class="btn-blue-big">수정</button>
+                    </div>
+
+                </div><!--// .section -->
+
+            </div><!-- // .div-scroll-y -->  
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// 23.06.28 | MODAL POPUP : 마이페이지 > 차량 관리 > 차량 정보 수정 -->
+
+<!-- 23.06.28 | MODAL POPUP : 마이페이지 > 차량 관리 > 기사 정보 > 신규 기사 등록 -->
+<div class="popup modal" id="sorinModalNewDriver">
+	<div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close">
+				<button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button>
+			</div>
+            <h1 class="h2-pd">신규 기사 등록</h1>
+            <div class="div-scroll-y">
+                <div class="section section-delivery">
+					<div class="tbl-v center flex-ac-jac">
+						<input type="text" name="newDriver1" id="newDriver1" class="delivery-input w300px" placeholder="차량 기사명을 입력해 주세요.">
+						<input type="number" name="newDriver2" id="newDriver2" class="delivery-input w300px ml10" placeholder="기사 연락처를 입력해 주세요.">
+					</div>
+					<div class="tooltip-txt-wrap mt20">
+						<p class="tooltip-txt">기사 정보는 자차 배송 시 귀사의 상품을 정확하게 배송하기 위해 매칭되는 정보입니다.</p>
+						<p class="tooltip-txt">기사 정보는 최대 5개까지 등록 가능합니다.</p>
+						<p class="tooltip-txt">정확하게 데이터를 입력해주세요.</p>
+					</div>
+                    <div class="btn-wrap">
+                        <button type="button" class="btn-gray-big modal-x">취소</button>
+                        <button type="button" class="btn-blue-big">등록</button>
+                    </div>
+
+                </div><!--// .section -->
+
+            </div><!-- // .div-scroll-y -->  
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// 23.06.28 | MODAL POPUP : 마이페이지 > 차량 관리 > 기사 정보 > 신규 기사 등록 -->
+
+<!-- 23.06.28 | MODAL POPUP : 마이페이지 > 차량 관리 > 기사 정보 > 기사 정보 수정 -->
+<div class="popup modal" id="sorinModalModifyDriver">
+	<div class="modal-content w900px">
+        <div class="max-width">
+            <div class="modal-close">
+				<button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button>
+			</div>
+            <h1 class="h2-pd">기사 정보 수정</h1>
+            <div class="div-scroll-y">
+                <div class="section section-delivery">
+					<div class="tbl-v center flex-ac-jac">
+						<input type="text" name="newDriver1" id="newDriver1" class="delivery-input w300px" value="차은우" placeholder="차량 기사명을 입려해 주세요.">
+						<input type="text" name="newDriver2" id="newDriver2" class="delivery-input w300px ml10" value="010-0000-0000" placeholder="기사 연락처를 입력해 주세요.">
+					</div>
+					<div class="tooltip-txt-wrap mt20">
+						<p class="tooltip-txt">기사 정보는 자차 배송 시 귀사의 상품을 정확하게 배송하기 위해 매칭되는 정보입니다.</p>
+						<p class="tooltip-txt">정확하게 데이터를 입력해주세요.</p>
+					</div>
+                    <div class="btn-wrap">
+                        <button type="button" class="btn-gray-big modal-x">취소</button>
+                        <button type="button" class="btn-blue-big">수정</button>
+                    </div>
+
+                </div><!--// .section -->
+
+            </div><!-- // .div-scroll-y -->  
+        </div><!--// .max-width -->
+    </div>
+</div>
+<!--// 23.06.28 | MODAL POPUP : 마이페이지 > 차량 관리 > 기사 정보 > 신규 기사 수정 -->
+
+<!-- Modal Popup : 알림메시지 컨펌 w/ 확인 취소 -->
+<div class="popup modal confirm" id="sorinModalConfirm">
+    <div class="modal-content w490px">
+        <div class="modal-header">
+            <h1>알림메세지</h1>
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+        </div>
+        <div class="max-width">
+            <div class="alert-con">삭제 하시겠습니까?</div>
+        </div><!--// .max-width -->
+        <div class="modal-btns">
+            <button type="button" class="btn-gray-big modal-x">취소</button>
+            <button type="button" class="btn-blue-big modal-x">확인</button>
+        </div>
+    </div>
+</div>
+<!--// Modal Popup : 컨펌 w/ 확인 취소 -->
+
+
+<!-- Modal Popup : 알림메시지: 기본배송지 설정 -->
+<div class="popup modal confirm" id="sorinModalConfirm2">
+    <div class="modal-content w490px">
+        <div class="modal-header">
+            <h1>알림메세지</h1>
+            <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+        </div>
+        <div class="max-width">
+            <div class="alert-con">기본배송지로 설정하시겠습니까?</div>
+        </div><!--// .max-width -->
+        <div class="modal-btns">
+            <button type="button" class="btn-gray-big modal-x">취소</button>
+            <button type="button" class="btn-blue-big modal-x">확인</button>
+        </div>
+    </div>
+</div>
+<!--// Modal Popup : 알림메시지: 기본배송지 설정 -->
+
+<!-- script core -->
+<script src="/guide/js/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="/guide/js/select2/select2.min.js"></script>
+<!-- script extra -->
+<script src="/guide/js/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="/guide/js/prefixfree/1.0.0/prefixfree.min.js"></script>
+<script src="/guide/js/swiper/6.7.0/swiper.js"></script>
+<!-- script custom -->
+<script src="/guide/js/sorin.js"></script>
+<script src="/guide/js/sorin-my.js"></script>
+<script src="/guide/js/sorin-layout.js"></script>
+<!-- script embedded -->
+<script>
+// 신규배송지 등록 화면 내 셀렉트 
+$(document).on('click touch', '.address-wrap .selectDropdown ul li a', function(e) {
+    e.preventDefault();
+    $(this).text() == "배송지구분 신규 등록" ? $('#ipShipping').attr('disabled', false).focus() : $('#ipShipping').attr('disabled', true);
+});
+// 기본배송지로 설정 버튼 
+$('.btn-set-default').on('click', function(){
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,387 @@
+	<!--::: 신규 header include :::-->
+	<header class="header-wrap">
+	    <!-- 23.01.04 | 고도화 3차: 띠배너 삭제
+	    <div class="top-banner-wrap">
+	        <div class="contents">
+	            <img src="/guide/images/ma/coin.svg">
+	            <p class="txt">서린닷컴 국내 최초 온라인 여신 결제 서비스 출시!</p>
+	            <button class="bn-btn" onclick="javascript:pageMove('/fo/ev/loanCreditUseReqstInfo')">사용 신청</button>
+	            <button class="banner-close">
+	                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+	                <path fill-rule="evenodd" clip-rule="evenodd" d="M1.30769 0L0.600586 0.707107L9.08594 9.19246L0.600651 17.6777L1.30776 18.3849L9.79304 9.89956L18.2783 18.3848L18.9854 17.6777L10.5002 9.19246L18.9854 0.707182L18.2783 7.55191e-05L9.79304 8.48535L1.30769 0Z" fill="white"></path>
+	                </svg>
+	            </button>
+	        </div>
+	    </div>
+	    -->
+	    <div class="header-top">
+	        <div class="inwrap flex-ac-jsb">
+	            <div class="timer">
+	                <span class="text">서린닷컴 영업 종료까지</span>
+	                <span class="time">14:58.07</span>
+	            </div>
+	            <div class="flex-ac">
+		            <ul class="menu-list flex-ac">
+		                <li><a href="#">마이페이지</a></li>
+		                <li><a href="#">고객센터</a></li>
+		                <li><a href="#">커뮤니티</a></li>
+		            </ul>
+		            <!-- 23.10.23 | 다크모드 on/off 스위치 -->
+		            <div class="mode-switch">
+					  <label for="modeSwitch">
+					    <input type="checkbox" id="modeSwitch" checked/>
+					  </label>
+					</div>
+				</div>
+	        </div>
+	    </div>
+	    <div class="header-btm">
+	        <div class="inwrap">
+	            <div class="flex-ac-jsb gnb-upper">
+	                <h1 class="logo">
+	                    <a href="#n"><span class="hidden">SORIN CORPORATION</span></a>
+	                </h1>
+	
+	            	<!--::: 로그인 영역 ::: {-->
+	                <div class="login-area">
+	                    <!-- 1. 로그아웃 {-->
+	                    <div class="logout" style="display: none;">
+	                        <ul class="flex-ac">
+	                            <li><a href="#">로그인</a></li>
+	                            <li><a href="#">회원가입</a></li>
+	                        </ul>
+	                    </div>
+	                    <!--} //1. 로그아웃 -->
+	
+	                    <!-- 2. 간편 로그인 {-->
+						<div class="simple-login flex-ac" style="display: none;">
+							<div class="login-user">
+								<div class="login-user-info toggle-box">
+									<button type="button" class="btn-username username">{{서린상사}}님</button>
+									<div class="login-hover-box">
+										<div class="inner">
+											<div class="util">
+												<div class="flex-ac-jsb">
+													<span class="username">{{서린상사}}님</span>
+													<button type="button" class="btn--logout btn--arrow">로그아웃</button>
+												</div>
+												<div class="simple-email flex-ac-jsb">
+													<p class="username">홍길동</p>
+													<p class="useremail">aaa@naver.com</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="login-btn toggle-box">
+								<div class="btn-ham">
+									<div class="line line1"></div>
+									<div class="line line2"></div>
+									<div class="line line3"></div>
+									<div class="line line4"></div>
+								</div>
+								<ul class="menu-list">
+									<li class="mypage"><a href="#">마이페이지</a></li>
+									<li class="alarm">
+									   <a href="#">
+										  <span>나의 알림
+											 <span class="alarm--new">새 알림</span>
+										  </span>
+									   </a>
+									</li>
+									<li class="join"><a href="#">기업 회원 가입</a></li>
+								</ul>
+							</div>
+						</div>
+						<!--} //2. 간편 로그인 -->
+	
+						<!-- 3. 로그인 {-->
+						<div class="login flex-ac">
+							<div class="login-user flex-ac-jac">
+								<!-- 23.11.13 | 로그인 후 회원등급 표시 { -->
+								<p class="mem-grade mem-grade1">
+									<img src="/guide/images/mem_grade1.png" alt="회원 등급: DIAMOND">
+									<span>DIAMOND</span>
+								</p>
+								<p class="mem-grade mem-grade2">
+									<img src="/guide/images/mem_grade2.png" alt="회원 등급: PLATINUM">
+									<span>PLATINUM</span>
+								</p>
+								<p class="mem-grade mem-grade3">
+									<img src="/guide/images/mem_grade3.png" alt="회원 등급: GOLD">
+									<span>GOLD</span>
+								</p>
+								<p class="mem-grade mem-grade4">
+									<img src="/guide/images/mem_grade4.png" alt="회원 등급: SILVER">
+									<span>SILVER</span>
+								</p>
+								<p class="mem-grade mem-grade5">
+									<img src="/guide/images/mem_grade5.png" alt="회원 등급: BRONZE">
+									<span>BRONZE</span>
+								</p>
+								<!-- } 23.11.13 | 로그인 후 회원등급 표시 // -->
+								<div class="login-user-info toggle-box">
+									<button type="button" class="btn-username username delivery-alarm">서린상사님</button>
+									<div class="login-hover-box">
+										<div class="inner">
+											<div class="util">
+												<div class="flex-ac-jsb">
+													<!-- [case 1] 일반 
+													<span class="username">{{서린상사}}님</span>{-->
+													<!--} //[case 1] 일반 -->
+													<!-- [case 2] 자차 배송 미등록 알람 {-->
+													<span class="username">{{서린상사}}님</span>
+													<!--} // [case 2] 자차 배송 미등록 알람 -->
+													<button type="button" class="btn--logout btn--arrow">로그아웃</button>
+												</div>
+												<ul class="manual">
+													<li class="flex-ac-jsb">
+														<span class="title">서린닷컴 이용 매뉴얼</span>
+														<a href="https://sorincorp.blob.core.windows.net/secs/manual/[서린닷컴] 이용 매뉴얼.pdf" class="btn--manual btn--arrow" target="_blank" download>바로가기</a>
+													</li>
+													<li class="flex-ac-jsb">
+														<span class="title">여신사용 신청 매뉴얼</span>
+														<a href="https://sorincorp.blob.core.windows.net/secs/manual/[서린닷컴] 여신 사용 신청_매뉴얼_Ver1.1.pdf" class="btn--manual btn--arrow" target="_blank" download="[서린닷컴] 여신 사용 신청 매뉴얼">바로가기</a>
+													</li>
+													<!--
+													<li class="flex-ac-jsb">
+														<span class="title">지정가 사용 매뉴얼</span>
+														<a href="#n" class="btn--manual btn--arrow" target="_blank" download>다운로드</a>
+													</li>
+													-->
+												</ul>
+											</div>
+											<dl class="ewallet flex-ac-jsb">
+												<dt>잔액</dt>
+												<dd>
+													<a href="#n">
+														<span class="price">{{3,692,361,320}}</span><span class="unit">원</span>
+													</a>
+												</dd>
+											</dl>
+											<!-- 23.06.20 [차량 등록 FO] 자차 배송 미등록 컨텐츠 추가 -->
+											<dl class="delivery flex-ac-jsb">
+												<dt>자차 배송 미등록</dt>
+												<dd>
+													<a href="#n">
+														<span>{{2}}</span><span class="unit">건</span>
+													</a>
+												</dd>
+											</dl>
+										</div>
+									</div>
+								</div>
+								<!-- 회원 상태 안내 툴팁 시작 {-->
+								<div class="member-state" style="display: none;">
+									<div class="inner">
+										<div class="member-state-user flex-ac-jsb">
+											<p class="username">{{홍길동}}<span class="color--999AA9">님</span></p>
+											<div class="btns flex-ac-jac">
+												<button type="button" class="btn--arrow  btn--logout">로그아웃</button>
+												<span class="btn-tooltip-close"><img src="/guide/images/btn-tooltip-close.png"></span>
+											</div>
+										</div>
+										<div class="member-state-info">
+											<!--
+												회원 상태별 내용 구분
+												하나은행 계좌 등록  > id="memberState1"
+												고객 전용 가상 계좌 준비중  > id="memberState2"
+												선불금 관리대행 서비스 동의  > id="memberState3"
+												거래회원 승인 대기 중  > id="memberState4"
+												거래회원 승인 완료  > id="memberState5"
+											-->
+											<!-- 하나 은행 계좌 등록 시작 -->
+											<div class="content" id="memberState1">
+												<div class="inner-step">
+													<ul>
+														<li class="active"><span>하나은행 계좌 등록</span></li>
+														<li><span>고객 전용 가상 계좌 준비중</span></li>
+														<li><span>선불금 관리대행 서비스 동의</span></li>
+														<li><span>거래회원 승인 대기 중</span></li>
+														<li><span>거래회원 승인 완료</span></li>
+													</ul>
+												</div>
+												<div class="inner-txt">
+													<p class="tit">하나 은행 계좌 등록</p>
+													<p class="txt">현재 거래가 불가능 합니다.<br>하나은행 계좌 등록 후 거래 서비스를 이용해주세요.</p>
+												</div>
+												<div class="inner-link">
+													<span class="img"><img src="/images/ma/main-alliance-hanabank.png" alt="하나은행"></span>
+													<span class="link"><a href="javascript:void(0);" onclick="onNewTab('https://biz.kebhana.com/index.jsp')" target="new">https://biz.kebhana.com/index.jsp</a></span>
+													<span class="button" id="entrpsAccntReg"><a href="javascript:insertAccnutNo()" class="btn-blue">계좌등록 하기</a></span>
+												</div>
+											</div>
+											<!-- // 하나 은행 계좌 등록 끝 -->
+				
+											<!-- 고객 전용 가상 계좌 준비 중 시작 -->
+											<div class="content" id="memberState2" style="display:none;">
+												<div class="inner-step">
+													<ul>
+														<li class="active"><span>하나은행 계좌 등록</span></li>
+														<li class="active"><span>고객 전용 가상 계좌 준비중</span></li>
+														<li><span>선불금 관리대행 서비스 동의</span></li>
+														<li><span>거래회원 승인 대기 중</span></li>
+														<li><span>거래회원 승인 완료</span></li>
+													</ul>
+												</div>
+												<div class="inner-txt">
+													<p class="tit">고객 전용 가상 계좌 준비 중</p>
+													<p class="txt">고객님의 하나은행 가상 계좌를 준비 중입니다.<br>잠시만 기다려주세요.</p>
+													<span class="customer">서린닷컴 고객센터 <span>02&#183;6952&#183;5095</span></span>
+												</div>
+											</div>
+											<!-- // 고객 전용 가상 계좌 준비 중 끝 -->
+				
+											<!-- 선불금 관리대행 서비스 동의 시작 -->
+											<div class="content" id="memberState3" style="display:none;">
+												<div class="inner-step">
+													<ul>
+														<li class="active"><span>하나은행 계좌 등록</span></li>
+														<li class="active"><span>고객 전용 가상 계좌 준비중</span></li>
+														<li class="active"><span>선불금 관리대행 서비스 동의</span></li>
+														<li><span>거래회원 승인 대기 중</span></li>
+														<li><span>거래회원 승인 완료</span></li>
+													</ul>
+												</div>
+												<div class="inner-txt">
+													<p class="tit">선불금 관리대행 서비스 동의</p>
+													<p class="txt">가상계좌 부여가 완료되어 이제 하나은행 에스크로<br>선불금 관리대행 서비스 동의하기만 남았습니다.</p>
+													<span class="guide">선불금 관리대행 서비스 동의 후<br>서린닷컴 거래회원 최종 승인이 진행됩니다.</span>
+													<span class="customer">서린닷컴 고객센터 <span>02&#183;6952&#183;5095</span></span>
+												</div>
+												<div class="inner-link">
+													<span class="button duo">
+															<a href="https://sorincorp.blob.core.windows.net/secs/manual/[서린닷컴] 선불금 관리대행 서비스.pdf" class="btn-stroke blue" target="_blank" download>매뉴얼 다운로드</a>
+															<a href="javascript:void(0);" onclick="onNewTab('https://biz.kebhana.com/esc/escn/index.do?menuItemId=wcesc800_100i')" class="btn-blue">동의하러 가기</a>
+													</span>
+												</div>
+											</div>
+											<!-- // 선불금 관리대행 서비스 동의 끝 -->
+				
+											<!-- 거래회원 승인 대기 중 시작 -->
+											<div class="content" id="memberState4" style="display:none;">
+												<div class="inner-step">
+													<ul>
+														<li class="active"><span>하나은행 계좌 등록</span></li>
+														<li class="active"><span>고객 전용 가상 계좌 준비중</span></li>
+														<li class="active"><span>선불금 관리대행 서비스 동의</span></li>
+														<li class="active"><span>거래회원 승인 대기 중</span></li>
+														<li><span>거래회원 승인 완료</span></li>
+													</ul>
+												</div>
+												<div class="inner-txt">
+													<p class="tit">거래회원 승인 대기 중</p>
+													<p class="txt">서린닷컴 거래회원 승인 대기 중입니다.<br>잠시만 기다려 주세요.</p>
+													<span class="customer">서린닷컴 고객센터 <span>02&#183;6952&#183;5095</span></span>
+												</div>
+											</div>
+											<!-- // 거래회원 승인 대기 중 끝 -->
+				
+											<!-- 거래회원 승인 완료 시작 -->
+											<div class="content" id="memberState5" style="display:none;">
+												<div class="inner-step">
+													<ul>
+														<li class="active"><span>하나은행 계좌 등록</span></li>
+														<li class="active"><span>고객 전용 가상 계좌 준비중</span></li>
+														<li class="active"><span>선불금 관리대행 서비스 동의</span></li>
+														<li class="active"><span>거래회원 승인 대기 중</span></li>
+														<li class="active"><span>거래회원 승인 완료</span></li>
+													</ul>
+												</div>
+												<div class="inner-txt">
+													<p class="tit">거래회원 승인 완료</p>
+													<p class="txt">지금부터 서린닷컴의 모든 서비스를 이용 가능합니다.<br>감사합니다.</p>
+													<span class="customer">서린닷컴 고객센터 <span>02&#183;6952&#183;5095</span></span>
+												</div>
+											</div>
+											<!-- // 거래회원 승인 완료 끝 -->
+										</div>
+									</div>
+								</div>
+								<!--} //회원 상태 안내 툴팁 끝 -->
+							</div>
+							<div class="login-btn toggle-box">
+								<div class="btn-ham">
+									<div class="line line1"></div>
+									<div class="line line2"></div>
+									<div class="line line3"></div>
+									<div class="line line4"></div>
+								</div>
+								<ul class="menu-list">
+									<li class="mypage"><a href="#">마이페이지</a></li>
+									<li class="cart"><a href="#">관심 품목</a></li>
+									<li class="alarm">
+									<a href="#">
+										<span>나의 알림
+											<span class="alarm--new">새 알림</span>
+										</span>
+									</a>
+									</li>
+									<li class="order"><a href="#">주문/배송 <span class="amount">{{2}}</span>건</a></li>
+								</ul>
+							</div>
+						</div>
+						<!--} //3. 로그인 -->
+	                </div>
+	           		 <!--}::: //로그인영역 :::-->
+	
+	            </div>
+	            <div class="flex-ac-jsb gnb-util">
+	                <nav class="gnb">
+	                    <ul class="flex-ac-jac">
+	                        <li class="has-depth">
+	                        	<a href="#" class="active">알루미늄</a>
+	                        	<div class="gnb-depth2">
+	                                <ul>
+	                                    <li><a href="#">바로구매</a></li>
+	                                    <li><a href="#">견적구매</a></li>
+	                                </ul>
+	                            </div>
+	                        </li>
+	                        <li><a href="#">아연</a></li>
+	                        <li><a href="#">구리</a></li>
+	                        <li><a href="#">여신사용안내</a></li> 
+	                        <li><a href="#">지정가안내</a></li>
+	                        <li><a href="#">원자재판매가격</a></li>
+	                        <li class="has-depth hidden">
+	                            <a href="#">서린몰</a> <!-- 23.01.04 | 고도화 3차: 메뉴명 변경 (내수판매 → 서린몰)로 변경/ 현재 사용 X -->
+	                            <div class="gnb-depth2">
+	                                <ul class="flex-ac-js">
+	                                    <li><a href="#">일반아연괴</a></li>
+	                                    <li><a href="#">합금아연괴</a></li>
+	                                    <li><a href="#">납</a></li>
+	                                    <li><a href="#">비스무스</a></li>
+	                                    <li><a href="#">카드뮴</a></li>
+	                                </ul>
+	                            </div>
+	                        </li>
+	                    </ul>
+	                </nav>
+	                
+	                <!-- 공지사항 슬라이드 {-->
+	                <div class="header-notice"> 
+	                    <div class="swiper-wrapper">
+	                        <div class="swiper-slide"><a href="#">부산지역 HINDALCO(RN) 비서구산 입고 부산지역 HINDALCO(RN) 비서구산 입고</a></div>
+	                        <div class="swiper-slide"><a href="#">헤더 공지사항 내용 2</a></div>
+	                        <div class="swiper-slide"><a href="#">헤더 공지사항 내용 3</a></div>
+	                    </div>
+	                    <div class="swiper-pagination"></div>
+	                    
+	                    <!-- 23.10.23 | 카카오톡 채널 배너: 시작 { -->
+	                   	<div class="banner-kakao-ch">
+	                   		<div class="btn-banner-close">
+	                   			<img src="/guide/images/ma/btn-kakao-ch-close.png">
+	                   		</div>
+	                   		<img src="/guide/images/ma/banner-kakao-ch.png" class="banner-img">
+	                   	</div>
+	                    <!--} //23.10.23 | 카카오톡 채널 배너: 종료 -->
+	                    
+	                </div>
+	                <!--} //공지사항 슬라이드 -->
+	                
+	            </div>  
+	        </div>
+	    </div>
+	</header>
+	<!--::: //신규 header include :::-->

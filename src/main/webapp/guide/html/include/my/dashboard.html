@@ -1,0 +1,126 @@
+<!-- 대시보드 헤더 -->
+<div class="section my-dashboard-head"> <!-- 이 곳에 간편회원일 때 'normal' 클래스 추가해주세요. 기업회원일 땐 'normal' 클래스 제거해주세요.  -->
+	<div class="head-box">
+ 	<!-- 간편회원일 때 -->
+     <div class="normal-member-wrap hide">
+         <div class="inwrap" id="inwrap-html">
+             <div class="my-info-wrap normal-member">
+                 <p class="my-icon"><img src="/images/my/icon-person.png" alt=""></p>
+                 <div class="user" value="">
+                 <p class="com">조희훈</p>
+                 <p class="user-email">heehoonc@sorincorp.com</p>
+                 </div>
+                 <div class="btns">
+                     <button type="button" class="btn-stroke btn-myinfo" onclick="pageMove('/fo/simplMyPage/selectSimplMberMyInfoMng','','','-1');">내정보관리</button>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <!--// 간편회원일 때 -->            
+     <!-- 기업회원일 때  -->
+     <div class="inwrap">
+         <div class="my-info-wrap">
+             <div class="my-box-head">
+                 <span class="rank-bronze hide">BRONZE</span>
+                 <span class="rank-silver hide">SILVER</span>
+                 <span class="rank-gold hide">GOLD</span>
+                 <span class="rank-platinum hide">PLATINUM</span>
+                 <span class="rank-dia">DIAMOND</span>
+                 
+                 <button type="button" class="btn-rank-info" data-popup="modal" data-target="sorinModalRankInfo">혜택 상세보기</button>
+             </div>
+             <div class="my-box-contents">
+                 <p class="com">액션메탈인더스트리</p>
+                 <p class="user">Hong HyeongSeok</p>
+                 <div class="btns flex-afe-jsb">
+                 	<button type="button" class="btn-stroke btn-myinfo">마스터 정보관리</button>
+                 	<dl class="rank-score">
+                 		<dt>등급점수</dt>
+                 		<dd>93</dd>
+                 	</dl>
+                 </div>
+             </div> 
+         </div>
+         <div class="my-pay-wrap">
+             <div class="my-box-head"><span>e-Wellet</span></div>
+             <div class="pay-wrap">
+                 <span class="stit flex-ac-jsb">
+                     잔고
+                     <span>
+	                     <span class="price-wrap">
+	                         <span class="hr yellow"></span>
+	                         <span class="hr-on">
+	                             <span class="price">5,976,924,024</span><span class="unit">원</span>
+	                         </span>
+	                     </span>
+	                     <button type="button" class="btn-reload"><span class="hidden">새로고침</span></button>
+                 	</span>
+                 </span>
+             </div>	           		                
+             <!-- 상태별 안내 문가 시작 -->
+             <div class="e-wallet-uncerti">
+                 <!-- 계좌 등록 전 -->
+                 <div class="type1" style="display:none">
+                     <div class="notice fc-orange">하나은행 계좌 등록 후 거래 서비스를 이용해주세요.</div>
+                     <div class="btns">
+                         <button type="button" class="btn-stroke" onclick="window.open('')">계좌등록하기</button>
+                     </div>
+                 </div>
+
+                 <!-- 가상 계좌 준비 중 -->
+                 <div class="type2" style="display:none">
+                     <div class="notice fc-orange">고객님의 하나은행 가상 계좌를 준비 중입니다.</div>
+                     <div class="customer">서린닷컴 고객센터 <span>02&#183;519&#183;2727</span></div>
+                 </div>
+
+                 <!-- 선불금 관리대행 서비스 동의 -->
+                 <div class="type3" style="display:none">
+                     <div class="notice fc-orange">하나은행 선불금 관리대행 서비스 동의해 주세요.</div>
+                     <div class="btns">
+                         <button type="button" onclick="window.open('https://biz.kebhana.com/index.jsp')" class="btn-stroke">동의하러 가기</button>
+                     </div>
+                 </div>
+
+                 <!-- 거래회원 승인 대기 중 -->
+                 <div class="type4" style="display:none">
+                     <div class="notice fc-orange">서린닷컴 거래회원 승인 대기 중입니다.</div>
+                     <div class="customer">서린닷컴 고객센터 <span>02&#183;519&#183;2727</span></div>
+                 </div>
+                 
+                  <!-- 거래회원 승인 완료 -->
+                 <div class="type5" >
+                     <div class="notice">전용계좌 - 하나은행 148-916067-08837</div>
+                     <div class="btns">
+                         <button type="button" class="btn-stroke btn-fit" data-popup="modal" data-target="sorinModalReWithdrawal">출금하기</button>
+                     </div>
+                 </div>
+             </div>
+             <!-- // 상태별 안내 문구 끝 --> 
+         </div>
+         
+         <div class="my-order-wrap">
+             <div class="my-box-head"><span>결제정보</span></div>
+             <div class="pay-wrap my-box-contents">
+                 <span class="stit flex-ac-jsb">
+                     결제예정액
+                     <span class="price-wrap">
+                         <span class="hr"></span>
+                         <span class="hr-on">
+                             <span class="price bold fc-red">250,000,000</span><span class="unit bold fc-red">원</span>
+                         </span>
+                     </span>
+                 </span>
+                 <dl>
+                     <dt>e-Wallet(계약금)</dt>
+                     <dd>200,000,000 원</dd>
+                     <dt>담보보증</dt>
+                     <dd>150,000,000 원</dd>
+                     <dt class="bold fc-black">B2B 담보보증 남은 한도</dt>
+                     <dd class="bold fc-black">100,000,000 원</dd>
+                 </dl>
+             </div>
+         </div>
+    </div>
+   	<!--// 기업회원일 때 -->
+  	</div>
+</div>
