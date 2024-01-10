@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <!-- script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <script type="text/javascript" src="/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+</head>
+
+
+<body>
+
+	<div class="web-wrapper">
+		<!-- [D] 사이드바 부분 인클루드 시작 -->
+		<!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
+		<aside class="web-sidebar"></aside>
+		<script type="text/javascript"> $(".web-sidebar").load("/guide/html/include/sidebar.html");</script>
+		<!-- // [D] 사이드바 부분 인클루드 끝 -->
+
+		<section class="web-container">
+			<!-- [D] 상단메뉴 부분 인클루드 시작 -->
+			<!-- [D] 활성화된 메뉴 : .is-active 추가 -->
+			<header class="web-header"></header>
+			<script type="text/javascript"> $(".web-header").load("/guide/html/include/header.html");</script>
+			<!-- // [D] 상단메뉴 부분 인클루드 끝 -->
+
+			<div class="main-content">
+				<div class="inner">
+					<!-- Button trigger modal -->
+                    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">회원사 등급 기준 등록(수정)</button>
+                    <!-- Modal -->
+                    <!-- [D]모달 위치는 변경 하셔도 됩니다! -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">회원사 등급 기준 등록(수정)</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="table table-view">
+										<table>
+											<colgroup>
+												<col class="col-md"/>
+												<col width="*"/>
+												<col class="col-md"/>
+												<col width="*"/>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">등급명<i class="icon icon-required"></i></th> 
+													<td>
+														<select class="form-select select-sm">
+															<option value="전체">전체</option>
+															<option value="회원등급">회원등급</option>
+														</select>
+													</td>
+													<th scope="row">등급 평가 제외 설정<i class="icon icon-required"></i></th> 
+													<td>
+														<div class="radio-group">
+															<div class="form-radio">
+																<input type="radio" id="radio1-1" name="radio1" checked="checked"/>
+																<label for="radio1-1"><span>아니오</span></label>
+															</div>
+															<div class="form-radio">
+																<input type="radio" id="radio1-2" name="radio1"/>
+																<label for="radio1-2"><span>회원 등급 평가 시 제외</span></label>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">사용가능 결제 수단<i class="icon icon-required"></i></th> 
+													<td colspan="3">
+														<div class="check-group">
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox1-1" name="checkbox" checked="checked" />
+																<label for="checkbox1-1"><span>e-Wallet</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox1-2" name="checkbox" />
+																<label for="checkbox1-2"><span>PG</span></label>
+															</div>
+															<!-- <div class="form-checkbox">
+																<input type="checkbox" id="checkbox1-3" name="checkbox" />
+																<label for="checkbox1-3"><span>신용평가여신</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox1-4" name="checkbox" />
+																<label for="checkbox1-4"><span>SGI여신</span></label>
+															</div> -->
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">등급별 서비스<i class="icon icon-required"></i></th> 
+													<td colspan="3">
+														<div class="form-group">
+															<div class="check-group">
+																<div class="form-checkbox">
+																	<input type="checkbox" id="checkbox2-1" name="checkbox" checked="checked" />
+																	<label for="checkbox2-1"><span>Live/고정가</span></label>
+																</div>
+																<!-- <div class="form-checkbox">
+																	<input type="checkbox" id="checkbox2-2" name="checkbox" />
+																	<label for="checkbox2-2"><span>지정가</span></label>
+																</div>
+																<div class="form-checkbox">
+																	<input type="checkbox" id="checkbox2-3" name="checkbox" />
+																	<label for="checkbox2-3"><span>잠정가</span></label>
+																</div> -->
+															</div>
+															<!-- <div class="form-set">
+																<input type="text" class="input input-xs text-right" value="7">
+																<span class="unit">일</span>
+															</div> -->
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<th scope="col" colspan="4" class="text-center">혜택 정보</th> 
+												</tr>
+												<!-- <tr>
+													<th scope="row">지정가 모니터링</th> 
+													<td colspan="3">
+														<select class="form-select select-sm">
+															<option value="선택">선택</option>
+															<option value="1일(기본)">1일(기본)</option>
+															<option value="1주">1주</option>
+															<option value="2주">2주</option>
+															<option value="1개월">1개월</option>
+															<option value="2개월">2개월</option>
+															<option value="3개월">3개월</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">추가 여신 한도</th> 
+													<td>
+														<div class="form-set">
+															<input type="text" class="input text-right" value="1,000,000">
+															<span class="unit">원</span>
+														</div>
+													</td>
+													<th scope="row">여신 이자 추가 할인</th> 
+													<td>
+														<div class="form-set">
+															<input type="text" class="input text-right" value="0.001">
+															<span class="unit">%</span>
+														</div>
+													</td>
+												</tr> -->
+												<tr>
+													<th scope="row">구매 금액 한도(1일)</th> 
+													<td>
+														<div class="form-set">
+															<input type="text" class="input text-right" value="0">
+															<span class="unit">원</span>
+														</div>
+													</td>
+													<th scope="row">구매 총 중량 한도(1일)</th> 
+													<td>
+														<div class="form-set">
+															<input type="text" class="input text-right" value="0">
+															<span class="unit">MT</span>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">1회 구매 중량</th> 
+													<td>
+														<div class="form-set">
+															<input type="text" class="input text-right" value="0">
+															<span class="unit">MT</span>
+														</div>
+													</td>
+													<!-- <th scope="row">최대 보관 기간</th> 
+													<td>
+														<div class="form-set">
+															<input type="text" class="input" value="0">
+															<span class="unit">일</span>
+														</div>
+													</td> -->
+													<th scope="row">전문가용 메일링 서비스</th> 
+													<td>
+														<div class="radio-group">
+															<div class="form-radio">
+																<input type="radio" id="radio2-1" name="radio2" checked="checked"/>
+																<label for="radio2-1"><span>예</span></label>
+															</div>
+															<div class="form-radio">
+																<input type="radio" id="radio2-2" name="radio2"/>
+																<label for="radio2-2"><span>아니오</span></label>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">재고 표시 여부</th> 
+													<td>
+														<div class="radio-group">
+															<div class="form-radio">
+																<input type="radio" id="radio3-1" name="radio3" checked="checked"/>
+																<label for="radio3-1"><span>예</span></label>
+															</div>
+															<div class="form-radio">
+																<input type="radio" id="radio3-2" name="radio3"/>
+																<label for="radio3-2"><span>아니오</span></label>
+															</div>
+														</div>
+													</td>
+													<th scope="row">선납기준</th> 
+													<td>
+														<div class="form-group">
+															<div class="form-set">
+																<span class="label">결제 시</span>
+																<input type="text" class="input input-xs" value="50">
+																<span class="unit">%</span>
+															</div>
+															<div class="form-set">
+																<span class="label">출고 시</span>
+																<input type="text" class="input input-xs" value="50">
+																<span class="unit">%</span>
+															</div>
+														</div>
+													</td>
+												</tr>
+												
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<div class="btn-box">
+										<button type="button" class="btn">저장</button>
+										<button type="button" class="btn" data-dismiss="modal">취소</button>
+									</div>
+								</div>
+							</div>
+						</div>
+                    </div>
+				</div>
+			</div>
+			<!-- //main-content -->
+		</section>
+	</div>
+</body>
+
+</html>

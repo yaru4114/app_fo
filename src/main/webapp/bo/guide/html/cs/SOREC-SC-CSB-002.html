@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <!-- script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <script type="text/javascript" src="/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+</head>
+
+<body>
+
+    <div class="web-wrapper">
+		<!-- [D] 사이드바 부분 인클루드 시작 -->
+		<!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
+		<aside class="web-sidebar"></aside>
+		<script type="text/javascript"> $(".web-sidebar").load("/guide/html/include/sidebar.html"); </script>
+		<!-- // [D] 사이드바 부분 인클루드 끝 -->
+
+        <section class="web-container">
+            <!-- [D] 상단메뉴 부분 인클루드 시작 -->
+			<!-- [D] 활성화된 메뉴 : .is-active 추가 -->
+			<header class="web-header"></header> 
+			<script type="text/javascript"> $(".web-header").load("/guide/html/include/header.html"); </script>
+			<!-- // [D] 상단메뉴 부분 인클루드 끝 -->
+
+            <div class="main-content">
+                <div class="inner">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">상담/문의 등록(수정)</button>
+                    <!-- Modal -->
+                    <!-- [D]모달 위치는 변경 하셔도 됩니다! -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">상담/문의 등록(수정)</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="table table-view">
+                                        <table>
+                                            <colgroup>
+                                                <col class="col-md"/>
+                                                <col width="*"/>
+                                                <col class="col-sm"/>
+                                                <col class="col-md"/>
+                                                <col class="col-sm"/>
+                                                <col width="*"/>
+                                            </colgroup>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">문의자</th> 
+                                                    <td colspan="2">
+														<div class="form-set">
+															<select class="form-select">
+																<option value="선택">선택</option>
+																<option value="이름찾기">이름찾기</option>
+																<option value="아이디찾기">아이디찾기</option>
+																<option value="전화번호찾기">전화번호찾기</option>
+																<option value="직접입력">직접입력</option>
+															</select>
+															<input type="text" class="input" value="">
+															<button type="button" class="btn">조회</button>
+														</div>
+													</td>
+                                                    <th scope="row">문의자 연락처</th> 
+                                                    <td colspan="2">
+														<input type="text" class="input" value="">
+													</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">회사명</th> 
+                                                    <td colspan="2">
+														<input type="text" class="input" value="">
+													</td>
+                                                    <th scope="row">문의자 이메일</th> 
+                                                    <td colspan="2">
+														<div class="form-set">
+															<input type="text" class="input" value="">
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox1" name="checkbox" />
+																<label for="checkbox1"><span>답변메일 수신동의</span></label>
+															</div>
+														</div>
+													</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">상담 구분</th> 
+                                                    <td colspan="2">
+														<select class="form-select">
+															<option value="선택">선택</option>
+															<option value="전화상담">전화상담</option>
+															<option value="주문문의">주문문의</option>
+															<option value="상품문의">상품문의</option>
+															<option value="원격지원">원격지원</option>
+															<option value="1:1문의">1:1문의</option>
+															<option value="제휴문의">제휴문의</option>
+															<option value="견적문의">견적문의</option>
+														</select>
+													</td>
+													<th scope="row">문의 구분</th> 
+                                                    <td colspan="2">
+														<div class="form-set">
+															<select class="form-select">
+																<option value="선택">선택</option>
+																<option value="전화상담">전화상담</option>
+																<option value="주문문의">주문문의</option>
+																<option value="상품문의">상품문의</option>
+																<option value="원격지원">원격지원</option>
+																<option value="1:1문의">1:1문의</option>
+																<option value="제휴문의">제휴문의</option>
+																<option value="견적문의">견적문의</option>
+															</select>
+															<select class="form-select">
+																<option value="상품 가격 문의">상품 가격 문의</option>
+															</select>
+														</div>
+													</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">주문번호</th> 
+                                                    <td colspan="2">
+														<input type="text" class="input" value="" placeholder="주문번호">
+													</td>
+                                                    <th scope="row">아이템코드</th> 
+                                                    <td colspan="2">
+														<div class="form-set">
+															<input type="text" class="input" value="" placeholder="아이템코드">
+														</div>
+													</td>
+                                                </tr>
+												<tr>
+                                                    <th scope="row">문의 제목</th> 
+                                                    <td colspan="5">
+														<input type="text" class="input" value="" placeholder="문의 제목을 입력하십시오.">
+													</td>
+                                                </tr>
+												<tr>
+                                                    <th scope="row">문의 내용</th> 
+                                                    <td colspan="5">
+														<textarea class="textarea textarea-md" placeholder="문의 내용을 입력하십시오."></textarea>
+													</td>
+                                                </tr>
+												<tr>
+                                                    <th scope="row">답변 내용</th> 
+                                                    <td colspan="5">
+														<textarea class="textarea textarea-md" placeholder="문의에 대한 답변 내용을 입력하십시오."></textarea>
+													</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">처리상태</th> 
+                                                    <td>
+														<select class="form-select">
+															<option value="선택">선택</option>
+															<option value="해결완료">해결완료</option>
+															<option value="보류">보류</option>
+															<option value="미해결">미해결</option>
+														</select>
+													</td>
+                                                    <th scope="row">문의 일시</th> 
+                                                    <td>2021-01-01 08:00:00</td>
+                                                    <th scope="row">답변 완료 일시</th> 
+                                                    <td>2021-01-01 11:11:11 (191분)</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">추가 답변</th> 
+                                                    <td colspan="5">
+														<textarea class="textarea textarea-md" placeholder="문의에 대한 답변 내용을 입력하십시오."></textarea>
+													</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+									<p class="table-noti">※ 『처리 완료』 처리 시 이메일 수신 동의한 고객은 답변 내용이 고객에게 발송됩니다.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="btn-box">
+                                        <button type="button" class="btn">저장</button>
+                                        <button type="button" class="btn" data-dismiss="modal">취소</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+            <!-- //main-content -->
+        </section>
+    </div>
+</body>
+</html>

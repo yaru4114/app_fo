@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/assets_guide/highlight/styles/default.css"><!-- 가이드 파일용 -->
+    <link rel="stylesheet" type="text/css" href="/guide/assets_guide/guideAdd.css" /><!-- 가이드 파일용 -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script>
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+     //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script><!-- Modal -->
+    <script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/assets_guide/highlight/highlight.pack.js"></script><!-- 가이드 파일용 -->
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <!-- <script type="text/javascript" src="/guide/js/realgridCustom.js"></script> --><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+</head>
+<body>
+
+    <div class="web-wrapper">
+        <section class="web-container">
+            <div class="main-content">
+              
+                <div class="g-example-wrap">
+                    <div class="g-example-head">
+                        <p class="title">table + table</p>
+                    </div>
+                    <div class="g-example-body">
+                        <div class="table-set">
+                            <div class="table table-view">
+                                <table>
+                                    <colgroup>
+                                        <col class="col-md"/>
+                                        <col width="*"/>
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">필수값<i class="icon icon-required">필수값</i></th> 
+                                            <td>
+                                                <!-- [D] 월 선택 경우 .form-month 추가 -->
+                                                <!-- [D] 날짜 선택 경우 .form-date 추가 -->
+                                                <div class="input-group date form-date"> 
+                                                    <input type="text" class="input input-md" id="datepicker1"/>
+                                                    <label for="datepicker1" class="btn has-icon"><i class="icon icon-calendar">달력</i></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="table table-view">
+                                <table>
+                                    <colgroup>
+                                        <col class="col-md"/>
+                                        <col width="*"/>
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">필수값<i class="icon icon-required">필수값</i></th> 
+                                            <td>
+                                                <!-- [D] 월 선택 경우 .form-month 추가 -->
+                                                <!-- [D] 날짜 선택 경우 .form-date 추가 -->
+                                                <div class="input-group date form-date"> 
+                                                    <input type="text" class="input input-md" id="datepicker3"/>
+                                                    <label for="datepicker3" class="btn has-icon"><i class="icon icon-calendar">달력</i></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="g-example-foot">
+                        <pre><code class="html">
+    &lt;div class="table-set">
+        &lt;div class="table table-view">
+            &lt;table>
+                &lt;colgroup>
+                    &lt;col class="col-md"/>
+                    &lt;col width="*"/>
+                &lt;/colgroup>
+                &lt;tbody>
+                    &lt;tr>
+                        &lt;th scope="row">필수값&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th> 
+                        &lt;td>
+                            &lt;!-- [D] 월 선택 경우 .form-month 추가 -->
+                            &lt;!-- [D] 날짜 선택 경우 .form-date 추가 -->
+                            &lt;div class="input-group date form-date"> 
+                                &lt;input type="text" class="input input-md" id="datepicker1"/>
+                                &lt;label for="datepicker1" class="btn has-icon">&lt;i class="icon icon-calendar">달력&lt;/i>&lt;/label>
+                            &lt;/div>
+                        &lt;/td>
+                    &lt;/tr>
+                &lt;/tbody>
+            &lt;/table>
+        &lt;/div>
+        &lt;div class="table table-view">
+            &lt;table>
+                &lt;colgroup>
+                    &lt;col class="col-md"/>
+                    &lt;col width="*"/>
+                &lt;/colgroup>
+                &lt;tbody>
+                    &lt;tr>
+                        &lt;th scope="row">필수값&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th> 
+                        &lt;td>
+                            &lt;!-- [D] 월 선택 경우 .form-month 추가 -->
+                            &lt;!-- [D] 날짜 선택 경우 .form-date 추가 -->
+                            &lt;div class="input-group date form-date"> 
+                                &lt;input type="text" class="input input-md" id="datepicker3"/>
+                                &lt;label for="datepicker3" class="btn has-icon">&lt;i class="icon icon-calendar">달력&lt;/i>&lt;/label>
+                            &lt;/div>
+                        &lt;/td>
+                    &lt;/tr>
+                &lt;/tbody>
+            &lt;/table>
+        &lt;/div>
+    &lt;/div>
+                        </code></pre>
+                    </div>
+                </div>
+
+                <div class="g-example-wrap">
+                    <div class="g-example-head">
+                        <p class="title">table - 왼쪽이 작게 나뉜 경우(스크롤 테이블 & 테이블)</p>
+                    </div>
+                    <div class="g-example-body">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round">
+                                <a class="menu" href="#;">FO</a>
+                                <a class="menu" href="#;">BO</a>
+                            </span>
+                        </label>
+                        <!-- 테이블이 왼쪽이 작게 나뉜경우 .group-sm -->
+                        <div class="table-group group-sm">
+                            <div class="table-set">
+                                <div class="sub-title">
+                                    <h3 class="">스크롤 테이블</h3>
+                                    <div class="btn-box">
+                                    <button type="button" class="btn">버튼</button>
+                                    <button type="button" class="btn btn-green has-icon"><i class="icon icon-excel">엑셀</i></button>
+                                    </div>
+                                </div>
+                                <div class="table table-view table-fixed-head text-center">
+                                    <!-- //헤더부 -->
+                                    <table class="table-head border-none">
+                                        <colgroup>
+                                            <col width="150px" />
+                                            <col width="150px" />
+                                            <col width="150px" />
+                                            <col width="" />
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">타이틀1</th>
+                                                <th scope="col">타이틀2</th>
+                                                <th scope="col">타이틀3</th>
+                                                <th scope="col">타이틀4</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                    <!-- //바디부 -->
+                                    <div class="table-body body-sm">
+                                        <table>
+                                            <colgroup>
+                                                <col width="150px" />
+                                                <col width="150px" />
+                                                <col width="150px" />
+                                                <col width="" />
+                                            </colgroup>
+                                            <tbody>
+                                                <tr>
+                                                    <td>내용1</td>
+                                                    <td>내용1</td>
+                                                    <td>내용1</td>
+                                                    <td>내용1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>내용2</td>
+                                                    <td>내용2</td>
+                                                    <td>내용2</td>
+                                                    <td>내용2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>내용3</td>
+                                                    <td>내용3</td>
+                                                    <td>내용3</td>
+                                                    <td>내용3</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>내용4</td>
+                                                    <td>내용4</td>
+                                                    <td>내용4</td>
+                                                    <td>내용4</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>내용5</td>
+                                                    <td>내용5</td>
+                                                    <td>내용5</td>
+                                                    <td>내용5</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>내용6</td>
+                                                    <td>내용6</td>
+                                                    <td>내용6</td>
+                                                    <td>내용6</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>내용7</td>
+                                                    <td>내용7</td>
+                                                    <td>내용7</td>
+                                                    <td>내용7</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="table-set">
+                                <div class="sub-title">
+                                    <h3 class="">테이블 타이틀</h3>
+                                    <div class="btn-box">
+                                    <button type="button" class="btn">버튼</button>
+                                    </div>
+                                </div>
+                                <div class="table table-view">
+                                    <table>
+                                        <colgroup>
+                                            <col class="col-md"/>
+                                            <col width="*"/>
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">기본 좌측정렬<i class="icon icon-required"></i></th> 
+                                                <td><input type="text" class="input" value="기본 좌측정렬"></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">금액 우측정렬<i class="icon icon-required"></i></th> 
+                                                <td><input type="text" class="input text-right" value="35,000"></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">타이틀</th> 
+                                                <td>
+                                                    <div class="radio-group">
+                                                        <div class="form-radio">
+                                                            <input type="radio" id="radio-1" name="radio" checked="checked"/>
+                                                            <label for="radio-1"><span>라디오1</span></label>
+                                                        </div>
+                                                        <div class="form-radio">
+                                                            <input type="radio" id="radio-2" name="radio"/>
+                                                            <label for="radio-2"><span>라디오2</span></label>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="g-example-foot">
+                        <pre><code class="html">
+    &lt;label class="switch">
+        &lt;input type="checkbox">
+        &lt;span class="slider round">
+            &lt;a class="menu" href="#;">FO&lt;/a>
+            &lt;a class="menu" href="#;">BO&lt;/a>
+        &lt;/span>
+    &lt;/label>
+    &lt;!-- 테이블이 왼쪽이 작게 나뉜경우 .group-sm -->
+    &lt;div class="table-group group-sm">
+        &lt;div class="table-set">
+            &lt;div class="sub-title">
+                &lt;h3 class="">스크롤 테이블&lt;/h3>
+                &lt;div class="btn-box">
+                &lt;button type="button" class="btn">버튼&lt;/button>
+                &lt;button type="button" class="btn btn-green has-icon">&lt;i class="icon icon-excel">엑셀&lt;/i>&lt;/button>
+                &lt;/div>
+            &lt;/div>
+            &lt;div class="table table-view table-fixed-head text-center">
+                &lt;!-- //헤더부 -->
+                &lt;table class="table-head border-none">
+                    &lt;colgroup>
+                        &lt;col width="150px" />
+                        &lt;col width="150px" />
+                        &lt;col width="150px" />
+                        &lt;col width="" />
+                    &lt;/colgroup>
+                    &lt;thead>
+                        &lt;tr>
+                            &lt;th scope="col">타이틀1&lt;/th>
+                            &lt;th scope="col">타이틀2&lt;/th>
+                            &lt;th scope="col">타이틀3&lt;/th>
+                            &lt;th scope="col">타이틀4&lt;/th>
+                        &lt;/tr>
+                    &lt;/thead>
+                &lt;/table>
+                &lt;!-- //바디부 -->
+                &lt;div class="table-body body-sm">
+                    &lt;table>
+                        &lt;colgroup>
+                            &lt;col width="150px" />
+                            &lt;col width="150px" />
+                            &lt;col width="150px" />
+                            &lt;col width="" />
+                        &lt;/colgroup>
+                        &lt;tbody>
+                            &lt;tr>
+                                &lt;td>내용1&lt;/td>
+                                &lt;td>내용1&lt;/td>
+                                &lt;td>내용1&lt;/td>
+                                &lt;td>내용1&lt;/td>
+                            &lt;/tr>
+                            &lt;tr>
+                                &lt;td>내용2&lt;/td>
+                                &lt;td>내용2&lt;/td>
+                                &lt;td>내용2&lt;/td>
+                                &lt;td>내용2&lt;/td>
+                            &lt;/tr>
+                            &lt;tr>
+                                &lt;td>내용3&lt;/td>
+                                &lt;td>내용3&lt;/td>
+                                &lt;td>내용3&lt;/td>
+                                &lt;td>내용3&lt;/td>
+                            &lt;/tr>
+                            &lt;tr>
+                                &lt;td>내용4&lt;/td>
+                                &lt;td>내용4&lt;/td>
+                                &lt;td>내용4&lt;/td>
+                                &lt;td>내용4&lt;/td>
+                            &lt;/tr>
+                            &lt;tr>
+                                &lt;td>내용5&lt;/td>
+                                &lt;td>내용5&lt;/td>
+                                &lt;td>내용5&lt;/td>
+                                &lt;td>내용5&lt;/td>
+                            &lt;/tr>
+                            &lt;tr>
+                                &lt;td>내용6&lt;/td>
+                                &lt;td>내용6&lt;/td>
+                                &lt;td>내용6&lt;/td>
+                                &lt;td>내용6&lt;/td>
+                            &lt;/tr>
+                            &lt;tr>
+                                &lt;td>내용7&lt;/td>
+                                &lt;td>내용7&lt;/td>
+                                &lt;td>내용7&lt;/td>
+                                &lt;td>내용7&lt;/td>
+                            &lt;/tr>
+                        &lt;/tbody>
+                    &lt;/table>
+                &lt;/div>
+            &lt;/div>
+        &lt;/div>
+    
+        &lt;div class="table-set">
+            &lt;div class="sub-title">
+                &lt;h3 class="">테이블 타이틀&lt;/h3>
+                &lt;div class="btn-box">
+                &lt;button type="button" class="btn">버튼&lt;/button>
+                &lt;/div>
+            &lt;/div>
+            &lt;div class="table table-view">
+                &lt;table>
+                    &lt;colgroup>
+                        &lt;col class="col-md"/>
+                        &lt;col width="*"/>
+                    &lt;/colgroup>
+                    &lt;tbody>
+                        &lt;tr>
+                            &lt;th scope="row">기본 좌측정렬&lt;i class="icon icon-required">&lt;/i>&lt;/th> 
+                            &lt;td>&lt;input type="text" class="input" value="기본 좌측정렬">&lt;/td>
+                        &lt;/tr>
+                        &lt;tr>
+                            &lt;th scope="row">금액 우측정렬&lt;i class="icon icon-required">&lt;/i>&lt;/th> 
+                            &lt;td>&lt;input type="text" class="input text-right" value="35,000">&lt;/td>
+                        &lt;/tr>
+                        &lt;tr>
+                            &lt;th scope="row">타이틀&lt;/th> 
+                            &lt;td>
+                                &lt;div class="radio-group">
+                                    &lt;div class="form-radio">
+                                        &lt;input type="radio" id="radio-1" name="radio" checked="checked"/>
+                                        &lt;label for="radio-1">&lt;span>라디오1&lt;/span>&lt;/label>
+                                    &lt;/div>
+                                    &lt;div class="form-radio">
+                                        &lt;input type="radio" id="radio-2" name="radio"/>
+                                        &lt;label for="radio-2">&lt;span>라디오2&lt;/span>&lt;/label>
+                                    &lt;/div>
+                                &lt;/div>
+                            &lt;/td>
+                        &lt;/tr>
+                    &lt;/tbody>
+                &lt;/table>
+            &lt;/div>
+        &lt;/div>
+    &lt;/div>
+                        </code></pre>
+                    </div>
+                </div>
+
+
+                <div class="g-example-wrap">
+                    <div class="g-example-head">
+                        <p class="title">table - 반반 나뉜 경우</p>
+                    </div>
+                    <div class="g-example-body">
+                        <!-- 테이블이 왼쪽이 작게 나뉜경우 .group-sm -->
+                        <div class="table-group group-half">
+                            <div class="table-set">
+                                <div class="search-control">
+                                    <div class="form-set">
+                                        <span class="label">검색 구분</span>
+                                        <select class="form-select select-sm">
+                                            <option value="">선택</option>
+                                        </select>
+                                        <input type="text" class="input" />
+                                    </div>
+                                    <div class="search-btn">
+                                        <button type="button" class="btn btn-blue">검색</button>
+                                    </div>
+                                </div>
+                                <div class="table table-list mt-24">
+                                    <table>
+                                        <colgroup>
+                                            <col width="*"/>
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th scope="row">타이틀</th> 
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>내용1</td> 
+                                            </tr>
+                                            <tr>
+                                                <td>내용2</td> 
+                                            </tr>
+                                            <tr>
+                                                <td>내용3</td> 
+                                            </tr>
+                                            <tr>
+                                                <td>내용4</td> 
+                                            </tr>
+                                            <tr>
+                                                <td>내용5</td> 
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="table-set">
+                                <div class="search-control">
+                                    <div class="form-set form-expand">
+                                        <span class="label">기간 검색</span>
+                                        <div class="form-period-set">
+                                            <div class="form-period-box">
+                                                <!-- [D] 월 선택 경우 .form-month 추가 -->
+                                                <!-- [D] 날짜 선택 경우 .form-date 추가 -->
+                                                <div class="input-group date form-date"> 
+                                                    <input type="text" class="input" id="datepicker1" />
+                                                    <label for="datepicker1" class="btn has-icon"><i class="icon icon-calendar">달력</i></label>
+                                                </div>
+                                                <span>~</span>
+                                                <!-- [D] 월 선택 경우 .form-month 추가 -->
+                                                <!-- [D] 날짜 선택 경우 .form-date 추가 -->
+                                                <div class="input-group date form-date"> 
+                                                    <input type="text" class="input" id="datepicker2" />
+                                                    <label for="datepicker2" class="btn has-icon"><i class="icon icon-calendar">달력</i></label>
+                                                </div>
+                                            </div>
+                                            <div class="btn-box btn-period">
+                                                <button type="button" class="btn active">오늘</button>
+                                                <button type="button" class="btn">7일</button>
+                                                <button type="button" class="btn">15일</button>
+                                                <button type="button" class="btn">1개월</button>
+                                                <button type="button" class="btn">3개월</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-set">
+                                        <span class="label">인풋</span>
+                                        <input type="text" class="input" />
+                                    </div>
+                                    <div class="form-set">
+                                        <span class="label">셀렉트</span>
+                                        <select class="form-select">
+                                            <option>전체</option>
+                                        </select>
+                                    </div>
+                                    <div class="search-btn">
+                                        <button type="button" class="btn btn-blue">검색</button>
+                                    </div>
+                                </div>
+                                <div class="table table-list mt-24">
+                                    <table>
+                                        <colgroup>
+                                            <col width="*"/>
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th scope="row">타이틀</th> 
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>내용1</td> 
+                                            </tr>
+                                            <tr>
+                                                <td>내용2</td> 
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="g-example-foot">
+                        <pre><code class="html">
+    &lt;!-- 테이블이 왼쪽이 작게 나뉜경우 .group-sm -->
+    &lt;div class="table-group group-half">
+        &lt;div class="table-set">
+            &lt;div class="search-control">
+                &lt;div class="form-set">
+                    &lt;span class="label">검색 구분&lt;/span>
+                    &lt;select class="form-select select-sm">
+                        &lt;option value="">선택&lt;/option>
+                    &lt;/select>
+                    &lt;input type="text" class="input" />
+                &lt;/div>
+                &lt;div class="search-btn">
+                    &lt;button type="button" class="btn btn-blue">검색&lt;/button>
+                &lt;/div>
+            &lt;/div>
+            &lt;div class="table table-list mt-24">
+                &lt;table>
+                    &lt;colgroup>
+                        &lt;col width="*"/>
+                    &lt;/colgroup>
+                    &lt;thead>
+                        &lt;tr>
+                            &lt;th scope="row">타이틀&lt;/th> 
+                        &lt;/tr>
+                    &lt;/thead>
+                    &lt;tbody>
+                        &lt;tr>
+                            &lt;td>내용1&lt;/td> 
+                        &lt;/tr>
+                        &lt;tr>
+                            &lt;td>내용2&lt;/td> 
+                        &lt;/tr>
+                        &lt;tr>
+                            &lt;td>내용3&lt;/td> 
+                        &lt;/tr>
+                        &lt;tr>
+                            &lt;td>내용4&lt;/td> 
+                        &lt;/tr>
+                        &lt;tr>
+                            &lt;td>내용5&lt;/td> 
+                        &lt;/tr>
+                    &lt;/tbody>
+                &lt;/table>
+            &lt;/div>
+        &lt;/div>
+
+        &lt;div class="table-set">
+            &lt;div class="search-control">
+                &lt;div class="form-set form-expand">
+                    &lt;span class="label">기간 검색&lt;/span>
+                    &lt;div class="form-period-set">
+                        &lt;div class="form-period-box">
+                            &lt;!-- [D] 월 선택 경우 .form-month 추가 -->
+                            &lt;!-- [D] 날짜 선택 경우 .form-date 추가 -->
+                            &lt;div class="input-group date form-date"> 
+                                &lt;input type="text" class="input" id="datepicker1" />
+                                &lt;label for="datepicker1" class="btn has-icon">&lt;i class="icon icon-calendar">달력&lt;/i>&lt;/label>
+                            &lt;/div>
+                            &lt;span>~&lt;/span>
+                            &lt;!-- [D] 월 선택 경우 .form-month 추가 -->
+                            &lt;!-- [D] 날짜 선택 경우 .form-date 추가 -->
+                            &lt;div class="input-group date form-date"> 
+                                &lt;input type="text" class="input" id="datepicker2" />
+                                &lt;label for="datepicker2" class="btn has-icon">&lt;i class="icon icon-calendar">달력&lt;/i>&lt;/label>
+                            &lt;/div>
+                        &lt;/div>
+                        &lt;div class="btn-box btn-period">
+                            &lt;button type="button" class="btn active">오늘&lt;/button>
+                            &lt;button type="button" class="btn">7일&lt;/button>
+                            &lt;button type="button" class="btn">15일&lt;/button>
+                            &lt;button type="button" class="btn">1개월&lt;/button>
+                            &lt;button type="button" class="btn">3개월&lt;/button>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+                &lt;div class="form-set">
+                    &lt;span class="label">인풋&lt;/span>
+                    &lt;input type="text" class="input" />
+                &lt;/div>
+                &lt;div class="form-set">
+                    &lt;span class="label">셀렉트&lt;/span>
+                    &lt;select class="form-select">
+                        &lt;option>전체&lt;/option>
+                    &lt;/select>
+                &lt;/div>
+                &lt;div class="search-btn">
+                    &lt;button type="button" class="btn btn-blue">검색&lt;/button>
+                &lt;/div>
+            &lt;/div>
+            &lt;div class="table table-list mt-24">
+                &lt;table>
+                    &lt;colgroup>
+                        &lt;col width="*"/>
+                    &lt;/colgroup>
+                    &lt;thead>
+                        &lt;tr>
+                            &lt;th scope="row">타이틀&lt;/th> 
+                        &lt;/tr>
+                    &lt;/thead>
+                    &lt;tbody>
+                        &lt;tr>
+                            &lt;td>내용1&lt;/td> 
+                        &lt;/tr>
+                        &lt;tr>
+                            &lt;td>내용2&lt;/td> 
+                        &lt;/tr>
+                    &lt;/tbody>
+                &lt;/table>
+            &lt;/div>
+        &lt;/div>
+    &lt;/div>
+                        </code></pre>
+                    </div>
+                </div>
+
+
+                <div class="g-example-wrap">
+                    <div class="g-example-head">
+                        <p class="title">table - 왼쪽이 크게 나뉜 경우</p>
+                    </div>
+                    <div class="g-example-body">
+                        <div class="table-group group-md">
+                            <div class="table-set">
+                                <div class="table table-view">
+                                    <table>
+                                        <colgroup>
+                                            <col width="120px" />
+                                            <col width="*" />
+                                            <col width="120px" />
+                                            <col width="*" />
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th>타이틀</th>
+                                                <td>내용</td>
+                                                <th>타이틀</th>
+                                                <td>내용</td>
+                                            </tr>
+                                            <tr>
+                                                <th>타이틀</th>
+                                                <td>내용</td>
+                                                <th>타이틀</th>
+                                                <td>내용</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="table table-view">
+                                    <table>
+                                        <colgroup>
+                                            <col width="120px" />
+                                            <col width="*" />
+                                            <col width="120px" />
+                                            <col width="*" />
+                                        </colgroup>
+                                        <tbody>
+                                            <tr>
+                                                <th>타이틀</th>
+                                                <td>내용</td>
+                                                <th>타이틀</th>
+                                                <td>내용</td>
+                                            </tr>
+                                            <tr>
+                                                <th>타이틀</th>
+                                                <td>내용</td>
+                                                <th>타이틀</th>
+                                                <td>내용</td>
+                                            </tr>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- [D] 영역을 잡기 위해 넣어놓은 스타일입니다. 개발 시 지워주세요 -->
+                            <!-- 이미지 넣는 곳 -->
+                            <div class="realgrid-wrap" style="border-left: 1px solid #ddd; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+                                그리드 들어가는 곳
+                            </div>
+                        </div>
+                    </div>
+                    <div class="g-example-foot">
+                        <pre><code class="html">
+    &lt;div class="table-group group-md">
+        &lt;div class="table-set">
+            &lt;div class="table table-view">
+                &lt;table>
+                    &lt;colgroup>
+                        &lt;col width="120px" />
+                        &lt;col width="*" />
+                        &lt;col width="120px" />
+                        &lt;col width="*" />
+                    &lt;/colgroup>
+                    &lt;tbody>
+                        &lt;tr>
+                            &lt;th>타이틀&lt;/th>
+                            &lt;td>내용&lt;/td>
+                            &lt;th>타이틀&lt;/th>
+                            &lt;td>내용&lt;/td>
+                        &lt;/tr>
+                        &lt;tr>
+                            &lt;th>타이틀&lt;/th>
+                            &lt;td>내용&lt;/td>
+                            &lt;th>타이틀&lt;/th>
+                            &lt;td>내용&lt;/td>
+                        &lt;/tr>
+                    &lt;/tbody>
+                &lt;/table>
+            &lt;/div>
+            &lt;div class="table table-view">
+                &lt;table>
+                    &lt;colgroup>
+                        &lt;col width="120px" />
+                        &lt;col width="*" />
+                        &lt;col width="120px" />
+                        &lt;col width="*" />
+                    &lt;/colgroup>
+                    &lt;tbody>
+                        &lt;tr>
+                            &lt;th>타이틀&lt;/th>
+                            &lt;td>내용&lt;/td>
+                            &lt;th>타이틀&lt;/th>
+                            &lt;td>내용&lt;/td>
+                        &lt;/tr>
+                        &lt;tr>
+                            &lt;th>타이틀&lt;/th>
+                            &lt;td>내용&lt;/td>
+                            &lt;th>타이틀&lt;/th>
+                            &lt;td>내용&lt;/td>
+                        &lt;/tr>
+                        &lt;/tr>
+                    &lt;/tbody>
+                &lt;/table>
+            &lt;/div>
+        &lt;/div>
+        &lt;!-- [D] 영역을 잡기 위해 넣어놓은 스타일입니다. 개발 시 지워주세요 -->
+        &lt;!-- 이미지 넣는 곳 -->
+        &lt;div class="realgrid-wrap" style="border-left: 1px solid #ddd; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd;">
+            그리드 들어가는 곳
+        &lt;/div>
+    &lt;/div>
+                        </code></pre>
+                    </div>
+                </div>
+
+
+			</div>
+
+			<!-- [D] 하단 부분 인클루드 시작 -->
+			<footer class="main-footer"></footer>
+			<script type="text/javascript"> $(".main-footer").load("/guide/html/include/footer.html"); </script>
+			<!-- // [D] 하단 부분 인클루드 끝 -->
+        </section>
+    </div>
+    <script type="text/javascript">hljs.highlightAll();</script>
+    
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <!-- script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <script type="text/javascript" src="/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+</head>
+
+<body>
+
+    <div class="web-wrapper">
+		<!-- [D] 사이드바 부분 인클루드 시작 -->
+		<!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
+		<aside class="web-sidebar"></aside>
+		<script type="text/javascript"> $(".web-sidebar").load("/guide/html/include/sidebar.html"); </script>
+		<!-- // [D] 사이드바 부분 인클루드 끝 -->
+
+        <section class="web-container"> 
+            <!-- [D] 상단메뉴 부분 인클루드 시작 -->
+			<!-- [D] 활성화된 메뉴 : .is-active 추가 -->
+			<header class="web-header"></header>
+			<script type="text/javascript"> $(".web-header").load("/guide/html/include/header.html"); </script>
+			<!-- // [D] 상단메뉴 부분 인클루드 끝 -->
+
+            <div class="main-content">
+                <div class="inner">
+                    <!-- 검색영역 -->
+                    <!-- <div class="search-control">
+                        <div class="form-set">
+                            <span class="label">검색 구분</span>
+                            <select class="form-select select-sm">
+                                <option value="">선택</option>
+                                <option value="회원사명">회원사명</option>
+                                <option value="회원사ID">회원사ID</option>
+                                <option value="담당자명">담당자명</option>
+                                <option value="담당자ID">담당자ID</option>
+                            </select>
+                            <input type="text" class="input" value="" placeholder="" />
+                        </div>
+                        <div class="search-btn">
+                            <button type="button" class="btn btn-blue">검색</button>
+                        </div>
+                    </div> -->
+                    <!-- //검색영역 -->
+                    <!-- 테이블이 왼쪽이 작은 비율로 나뉜경우 .group-sm -->
+                    <div class="table-group group-sm">
+                        <div class="table-set">
+                            <div class="table-control mt-0">
+                                <label class="switch">
+                                    <input type="checkbox" disabled="disabled">
+                                    <span class="slider round">
+                                        <a class="menu" href="/guide/html/co/SOREC-SC-COB-005.html">FO</a>
+                                        <a class="menu" href="/guide/html/co/SOREC-SC-COB-004.html">BO</a>
+                                    </span>
+                                </label>
+                                <div class="btn-box">
+                                    <button type="button" class="btn btn-green has-icon"><i class="icon icon-excel">엑셀</i></button>
+                                </div>
+                            </div>
+                            <!-- 메뉴트리 들어가는 곳 -->
+                            <div class="tree-wrap stretch-content">
+                                <div id="treeMenu">
+                                    <ul>
+                                        <li data-jstree='{ "opened" : true }'>Front Office
+                                            <ul>
+                                                <li>테스트 관리</li>
+                                                <li>상품 관리
+                                                    <ul>
+                                                        <li data-jstree='{ "opened" : true }'>상품 관리
+                                                            <ul>
+                                                                <li data-jstree='{ "selected" : true }'>상품 목록</li>
+                                                                <li>상품 등록</li>
+                                                                <li>사은품 목록</li>
+                                                                <li>사은품 상품 등록</li>
+                                                                <li>핫딜 상품 목록</li>
+                                                                <li>공동구매 상품 목록</li>
+                                                                <li>메뉴테스트</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li data-jstree='{ "opened" : true }'>묶음 상품 관리
+                                                            <ul>
+                                                                <li>묶음 상품 목록</li>
+                                                                <li>묶음 상품 등록</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li data-jstree='{ "opened" : true }'>판매셋 관리
+                                                            <ul>
+                                                                <li>판매셋 목록</li>
+                                                                <li>판매셋 등록</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li data-jstree='{ "opened" : true }'>상품 일괄등록
+                                                            <ul>
+                                                                <li >상품 일괄등록</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li data-jstree='{ "opened" : true }'>브랜드 관리
+                                                            <ul>
+                                                                <li >브랜드 목록</li>
+                                                                <li>브랜드 등록</li>
+                                                                <li>브랜드 콘텐츠 목록</li>
+                                                                <li>브랜드 콘텐츠 등록</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li data-jstree='{ "opened" : true }'>상품 Q&A 관리
+                                                            <ul>
+                                                                <li >상품 Q&A 목록</li>
+                                                            </ul>
+                                                        </li>
+                                                        <li data-jstree='{ "opened" : true }'>상품평 관리
+                                                            <ul>
+                                                                <li >상품평 목록</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>       
+                                <script>
+                                    $('#treeMenu').jstree();
+                                </script>
+                            </div>
+                        </div>
+                        <div class="table-set">
+                            <div class="table-control mt-0">
+                                <div class="form-set"></div>
+                                <div class="btn-box">
+                                    <button type="button" class="btn">추가</button>
+                                    <button type="button" class="btn">삭제</button>
+                                    <button type="button" class="btn">저장</button>
+                                </div>
+                            </div>
+                            <div class="table table-view">
+                                <table>
+                                    <colgroup>
+                                        <col class="col-md"/>
+                                        <col width="*"/>
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">부모메뉴</th> 
+                                            <td>상품 전시</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">소메뉴</th> 
+                                            <td>
+                                                <input type="text" class="input" value="상품 조회">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">메뉴 설명<i class="icon icon-required">필수값</i></th> 
+                                            <td>
+                                                <input type="text" class="input" value="사용자가 선택한 탐색조건에 맞도록 상품을 조회한다.">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">메뉴 URL<i class="icon icon-required">필수값</i></th> 
+                                            <td>
+                                                <input type="text" class="input" value="ttps://ec.sorincorp.com/bo/stdInfo/compUser/list.do">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">사용 여부<i class="icon icon-required">필수값</i></th> 
+                                            <td>
+                                                <div class="radio-group">
+                                                    <div class="form-radio">
+                                                        <input type="radio" id="radio-1" name="radio" checked="checked"/>
+                                                        <label for="radio-1"><span>여</span></label>
+                                                    </div>
+                                                    <div class="form-radio">
+                                                        <input type="radio" id="radio-2" name="radio"/>
+                                                        <label for="radio-2"><span>부</span></label>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">순서<i class="icon icon-required">필수값</i></th> 
+                                            <td>
+                                                <input type="text" class="input" value="01">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="sub-title mt-30">
+                                <h3 class="">접근권한</h3>
+                                <div class="btn-box btn-box-sm">
+                                    <button type="button" class="btn btn-dark-blue"><span>권한변경</span><i class="icon icon-change">권한변경보기</i></button> 
+                                </div>
+                            </div>
+                            <div class="table table-list">
+                                <table>
+                                    <colgroup>
+                                        <col width="*"/>
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="row">권한 그룹</th> 
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>전체 관리자</td> 
+                                        </tr>
+                                        <tr>
+                                            <td>영업 담당자</td> 
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+			</div>
+            <!-- //main-content -->
+        </section>
+    </div>
+</body>
+</html>

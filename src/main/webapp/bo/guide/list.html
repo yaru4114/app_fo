@@ -1,0 +1,2435 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML BO 목록 | SORIN e-Commerce</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/guide/assets_guide/guide.css">
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+
+    <style>
+        thead tr { background: #eee; }
+        /* tbody tr:not(.do) {
+            display: none;
+        } */
+        tbody tr.todo th:not(.d1):not(.d2):not(.d3), 
+        tbody tr.todo th:not(.d1):not(.d2):not(.d3) span, 
+        tbody tr.todo td:not(.d1):not(.d2):not(.d3), 
+        tbody tr.todo td:not(.d1):not(.d2):not(.d3) span,
+        tbody tr.todo td:not(.d1):not(.d2):not(.d3) a {
+            color: rgb(0, 119, 255);
+        }
+        
+        .del {
+            position: relative;
+        }
+        /* .del::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 0; 
+            width: 100%;
+            height: 1px;
+            background: black;
+        } */
+        tr td:last-child {
+            text-align: left;
+        }
+        th[rowspan] {
+            background: #fff !important;
+        }
+        .state .no, .state .unit {
+            color: rgb(0, 119, 255);
+        }
+        
+        h3.list-tit {font-size:1.5rem; padding:10px 20px; margin:30px 0 0; border-top:1px solid #ddd; background-color:#f4f4f4;}
+        .mt0 {margin-top:0 !important}        
+		        
+    </style>
+</head>
+<body>
+<div class="guide_wrap">
+    <header class="g_header">
+        <ul>
+            <li><h1><a  href="/guide/list.html">서린 e-Commerce</a></h1></li>
+            <!-- <li><a href="/guide/guide.html">Guide</a></li> -->
+            <li><a href="/guide/list.html">List</a></li>
+            <li><a href="/guide/assets_guide/elements/elements.html">Elements</a></li>
+            <!-- <li><a href="/guide/components.html">Components</a></li> -->
+           
+        </ul>
+    </header>
+    <div class="g_container" style="flex-direction: column; padding: 0 20px;">
+        <div class="hgroup">
+            <h1> HTML 목록 | BO </h1>
+            <ul class="state">
+                <li class="progress"><strong>진척률</strong><span class="no">0</span><span class="unit">%</span></li>
+                <li class="total"><strong>총본수</strong><span class="no">0</span></li>
+                <!-- <li class="ing"><strong>작업중</strong><span class="no">0</span></li> -->
+                <!-- <li class="review"><strong>검수중</strong><span class="no">0</span></li> -->
+                <li class="cancel"><strong>취소</strong><span class="no">0</span></li>
+                <li class="left"><strong>남은수</strong><span class="no">0</span></li>
+                <li class="done"><strong>완료</strong><span class="no">0</span></li>
+            </ul>
+        </div>
+        
+        <h3 class="list-tit mt0">고도화 (UI 설계서 2022-06-24 기준)</h3>
+        <table class="tbl_guide">
+            <thead>
+                <tr>
+                    <th scope="col">Depth1</th>
+                    <th scope="col">Depth2</th>
+                    <th scope="col">Depth3</th>
+                    <th scope="col">Depth4</th>
+                    <th scope="col">화면ID</th>
+                    <th scope="col">완료일</th>
+                    <th scope="col">상태</th>
+                    <th scope="col">작업자</th>
+                    <th scope="col">비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">승인요청회원사조회</th>
+                    <th scope="row" class="d3">목록</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-101</span></td>
+                    <td class="date">22-06-21</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">승인요청회원사조회</th>
+                    <th scope="row" class="d3">상세</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-102</span></td>
+                    <td class="date">22-06-21</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-MBB-101 내 [승인요청업체 상세]</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">승인요청회원사조회</th>
+                    <th scope="row" class="d3">수정</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-103</span></td>
+                    <td class="date">22-06-21</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-MBB-102 동일</td>
+                </tr>
+               <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">KYC 승인요청회원사조회​</th>
+                    <th scope="row" class="d3">상세</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-126</span></td>
+                    <td class="date">22-12-12</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td>
+						<span class="pa-add">페이지추가</span>   
+						<ol class="modify-list">
+	                		<li>22/12/12 - KYC 승인요청회원사조회 상세페이지 추가</li>
+	                		<li>23/01/11 - KYC 승인요청회원사조회 > 첨부서류 > 테이블 항목 추가 (연회계 감사보고서/ 등기부등본/ 주주명부, 소유지분 비율 증명서류)</li>
+	                	</ol>            	
+	                </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">기업회원조회</th>
+                    <th scope="row" class="d3">목록</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-104</span></td>
+                    <td class="date">22-06-21</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">기업회원조회</th>
+                    <th scope="row" class="d3">등급 기여 내역</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-105</span></td>
+                    <td class="date">22-06-21</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-MBB-104 내 [등급기여 내역]</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">기업회원조회</th>
+                    <th scope="row" class="d3">상세-기업</th>
+                    <th scope="row" class="d4">회원가입</th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-106</span></td>
+                    <td class="date">22-06-22</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">기업회원조회</th>
+                    <th scope="row" class="d3">상세-기업</th>
+                    <th scope="row" class="d4">수정</th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-107</span></td>
+                    <td class="date">22-06-22</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">기업회원조회</th>
+                    <th scope="row" class="d3">상세-기업</th>
+                    <th scope="row" class="d4">회원정보 상세(수정)</th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-108</span></td>
+                    <td class="date">22-06-22</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-MBB-106 내 [회원정보 수정]</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">기업회원조회</th>
+                    <th scope="row" class="d3">상세-e-Wallet</th>
+                    <th scope="row" class="d4">목록</th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-109</span></td>
+                    <td class="date">22-06-22</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">기업회원조회</th>
+                    <th scope="row" class="d3">상세-담보보증</th>
+                    <th scope="row" class="d4">목록</th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-110</span></td>
+                    <td class="date">22-06-22</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">기업회원조회</th>
+                    <th scope="row" class="d3">상세-대출보증</th>
+                    <th scope="row" class="d4">목록</th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-111</span></td>
+                    <td class="date">22-06-23</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">기업회원조회</th>
+                    <th scope="row" class="d3">상세-마일리지</th>
+                    <th scope="row" class="d4">목록</th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-112</span></td>
+                    <td class="date">22-06-23</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">회원등급별 혜택</th>
+                    <th scope="row" class="d3">목록</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-113</span></td>
+                    <td class="date">22-06-23</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">회원등급별 혜택</th>
+                    <th scope="row" class="d3">등록</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-114</span></td>
+                    <td class="date">22-06-23</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-MBB-113 내 [회원등급별 혜택 등록]</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">회원등급별 혜택</th>
+                    <th scope="row" class="d3">수정</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-115</span></td>
+                    <td class="date">22-06-23</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-MBB-114 동일</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">평가등급관리(재무등급관리)</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-116</span></td>
+                    <td class="date">22-06-23</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">퍼포먼스 등급 관리</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-117</span></td>
+                    <td class="date">22-06-23</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+				<tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">마일리지 관리</th>
+                    <th scope="row" class="d3">목록</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-118</span></td>
+                    <td class="date">22-06-24</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">신보 신청 업체 목록</th>
+                    <th scope="row" class="d3">목록</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-119</span></td>
+                    <td class="date">22-06-24</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">신보 신청 업체 목록</th>
+                    <th scope="row" class="d3">상세</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-122</span></td>
+                    <td class="date">22-06-24</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-MBB-119 내 [신보 신청 업체 상세]</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">잔액/보증관리</th>
+                    <th scope="row" class="d3">고객사별 담보보증 관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-120</span></td>
+                    <td class="date">22-06-24</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">잔액/보증관리</th>
+                    <th scope="row" class="d3">고객사별 대출보증 관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-121</span></td>
+                    <td class="date">22-06-24</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td>SOREC-SC-MBB-120 동일</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">투자성향 등급관리</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-123</span></td>
+                    <td class="date">22-06-23</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>              
+                <tr>
+                    <th scope="row" class="d1">공통</th>
+                    <th scope="row" class="d2">변경이력</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td><a href="html/mb/SOREC-SC-GEB-101.html" target="_blank" style="font-size:14px">SOREC-SC-GEB-101</a></td>
+                    <td class="date">22-06-23</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span> 등급관리 내 [변경이력]</td>
+                </tr>                             
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">업체관리</th>
+                    <th scope="row" class="d3">B2B 담보보증 계약 관리</th>
+                    <th scope="row" class="d4">목록</th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-124</span></td>
+                    <td class="date">22-06-24</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td>화면 ID 및 페이지 변경 확인 필요</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">업체관리</th>
+                    <th scope="row" class="d3">B2B 담보보증 계약 관리</th>
+                    <th scope="row" class="d4">상세</th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-125</span></td>
+                    <td class="date">22-06-24</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span> 담보보증 계약 관리 내 [상세]</td>
+                </tr>             
+                <tr data-group="hr">    
+                    <th scope="row" class="d1">계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2">판매계약관리</th>
+                    <th scope="row" class="d3">통합주문상세</th>
+                    <th scope="row" class="d4">결제정보(Tab)</th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-101</span></td>
+                    <td class="date">22-06-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2">판매계약관리</th>
+                    <th scope="row" class="d3">결제 예정 목록</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-102</span></td>
+                    <td class="date">22-06-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>                
+                <tr>
+                    <th scope="row" class="d1">계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2">판매계약관리</th>
+                    <th scope="row" class="d3">결제 예정 목록</th>
+                    <th scope="row" class="d4">SMS보내기</th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-103</span></td>
+                    <td class="date">22-06-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-ORB-102 내 [SMS 보내기]</td>
+                </tr>                
+                <tr>
+                    <th scope="row" class="d1">계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2">판매계약관리</th>
+                    <th scope="row" class="d3">결제 예정 목록</th>
+                    <th scope="row" class="d4">상환처리(e-Wallet)</th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-104</span></td>
+                    <td class="date">22-06-28</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-ORB-101 내 [상환처리]</td>
+                </tr>                
+                <tr>
+                    <th scope="row" class="d1">계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2">판매계약관리</th>
+                    <th scope="row" class="d3">결제 예정 목록</th>
+                    <th scope="row" class="d4">상환처리(서린모계좌)</th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-105</span></td>
+                    <td class="date">22-06-28</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-ORB-104 동일</td>
+                </tr>                 
+            </tbody>
+        </table>        
+        
+        <h3 class="list-tit">구축</h3>                
+        <table class="tbl_guide">
+            <thead>
+                <tr>
+                    <th scope="col">Depth1</th>
+                    <th scope="col">Depth2</th>
+                    <th scope="col">Depth3</th>
+                    <th scope="col" >Depth4</th>
+                    <th scope="col">화면ID</th>
+                    <th scope="col">최종수정일</th>
+                    <th scope="col">상태</th>
+                    <th scope="col">작업자</th>
+                    <th scope="col">비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="do">
+                    <th scope="row" class="d1">메인<br/>(MA)</th>
+                    <th scope="row" class="d2">로그인</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MAB-001</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1">메인<br/>(MA)</th>
+                    <th scope="row" class="d2">메인</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MAB-002</span><span class="mo"></span></td>
+                    <td class="date">21-06-28</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1">메인<br/>(MA)</th>
+                    <th scope="row" class="d2">메인</th>
+                    <th scope="row" class="d3">대시보드</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MAB-003</span><span class="mo"></span></td>
+                    <td class="date">21-06-28</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td>1920 x 1080 최적화(브라우저 전체화면(F11)으로 화면 확인 필수)</td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1">메인<br/>(MA)</th>
+                    <th scope="row" class="d2">메인</th>
+                    <th scope="row" class="d3">대시보드</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MAB-004</span><span class="mo"></span></td>
+                    <td class="date">23-01-10</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td>
+                    	<span class="pa-add">페이지추가</span>
+                    	<ol class="modify-list">
+                    		<li>23-01-10 - 서린몰 탭 추가</li>
+                    	</ol>
+                   	</td>
+                </tr>    
+                <tr class="do">
+                    <th scope="row" class="d1">메인<br/>(MA)</th>
+                    <th scope="row" class="d2">메인</th>
+                    <th scope="row" class="d3">대시보드</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MAB-005</span><span class="mo"></span></td>
+                    <td class="date">23-04-25</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td>
+                    	<span class="pa-add">페이지추가</span>
+                    	<ol class="modify-list">
+                    		<li>23-04-25 [고도화 3차] Dashboard renewal</li>
+                    	</ol>
+                   	</td>
+                </tr>   
+                <tr class="do">
+                    <th scope="row" class="d1">메인<br/>(MA)</th>
+                    <th scope="row" class="d2">메인</th>
+                    <th scope="row" class="d3">대시보드</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MAB-006</span><span class="mo"></span></td>
+                    <td class="date">23-05-09</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td>
+                    	<span class="pa-add">페이지추가</span>
+                    	<ol class="modify-list">
+                    		<li>23-05-09 회원 트래킹 DashBoard</li>
+                    		<li>23-07-27 회원 트래킹 DashBoard > Today 주문 기업 목록 > 항목 및 간격 수정</li>
+                    	</ol>
+                   	</td>
+                </tr>   
+                <tr class="do">
+                    <th scope="row" class="d1">메인<br/>(MA)</th>
+                    <th scope="row" class="d2">메인</th>
+                    <th scope="row" class="d3">대시보드</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MAB-007</span><span class="mo"></span></td>
+                    <td class="date">23-11-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td>
+                    	<span class="pa-add">페이지추가</span>
+                    	<ol class="modify-list">
+                    		<li>서린닷컴 실적분석(트랜잭션) DashBoard</li>
+                    	</ol>
+                   	</td>
+                </tr>         
+                <!-- 기준정보 -->
+                <tr data-group="hr" class="do">
+                    <th scope="row" class="d1" >기준정보<br/>(CO)</th>
+                    <th scope="row" class="d2" >공통코드</th>
+                    <th scope="row" class="d3">코드조회</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-COB-001</span><span class="mo"></span></td>
+                    <td class="date">21-05-17</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1" >기준정보<br/>(CO)</th>
+                    <th scope="row" class="d2" >공통코드</th>
+                    <th scope="row" class="d3">메인코드 추가/수정</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-COB-002</span><span class="mo"></span></td>
+                    <td class="date">21-05-17</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-COB-001 내 [메인 코드 추가]</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >기준정보<br/>(CO)</th>
+                    <th scope="row" class="d2" >공통코드</th>
+                    <th scope="row" class="d3">서브코드 추가/수정</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-COB-003</span><span class="mo"></span></td>
+                    <td class="date">21-05-17</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-COB-001 내 [서브 코드 추가]</td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1" >기준정보<br/>(CO)</th>
+                    <th scope="row" class="d2" >메뉴관리</th>
+                    <th scope="row" class="d3">BO</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-COB-004</span><span class="mo"></span></td>
+                    <td class="date">21-05-17</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >기준정보<br/>(CO)</th>
+                    <th scope="row" class="d2" >메뉴관리</th>
+                    <th scope="row" class="d3">FO</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-COB-005</span><span class="mo"></span></td>
+                    <td class="date">21-05-17</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >기준정보<br/>(CO)</th>
+                    <th scope="row" class="d2" >메뉴관리</th>
+                    <th scope="row" class="d3">접근권한변경</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-COB-006</span><span class="mo"></span></td>
+                    <td class="date">21-05-17</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-COB-005 내 [권한변경]</td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1" >기준정보<br/>(CO)</th>
+                    <th scope="row" class="d2" >권한관리</th>
+                    <th scope="row" class="d3">BO</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-COB-007</span><span class="mo"></span></td>
+                    <td class="date">21-05-17</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1" >기준정보<br/>(CO)</th>
+                    <th scope="row" class="d2" >권한관리</th>
+                    <th scope="row" class="d3">권한추가</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-COB-008</span><span class="mo"></span></td>
+                    <td class="date">21-05-17</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-COB-007 내 [추가]</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >기준정보<br/>(CO)</th>
+                    <th scope="row" class="d2" >권한관리</th>
+                    <th scope="row" class="d3">FO</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-COB-009</span><span class="mo"></span></td>
+                    <td class="date">21-05-17</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >기준정보<br/>(CO)</th>
+                    <th scope="row" class="d2" >내부사용자</th>
+                    <th scope="row" class="d3">목록</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-COB-010</span><span class="mo"></span></td>
+                    <td class="date">21-05-17</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >기준정보<br/>(CO)</th>
+                    <th scope="row" class="d2" >내부사용자</th>
+                    <th scope="row" class="d3">상세</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-COB-011</span><span class="mo"></span></td>
+                    <td class="date">21-05-17</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-COB-010 내부사용자 상세</td>
+                </tr>
+                <!-- 운영관리 -->
+                <!-- 운영관리: 템플릿관리 -->
+                <tr data-group="hr">
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2">템플릿 관리</th>
+                    <th scope="row" class="d3">메시지 템플릿 관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-001</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2">템플릿 관리</th>
+                    <th scope="row" class="d3">메시지 템플릿 등록/수정</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-002</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2">템플릿 관리</th>
+                    <th scope="row" class="d3">이메일 템플릿 관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-003</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2">템플릿 관리</th>
+                    <th scope="row" class="d3">이메일 템플릿 등록/수정</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-004</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-OPB-003 내 [등록]</td>
+                </tr>
+                <!-- 운영관리: 발송내역관리 -->
+                <tr>
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2">발송내역 관리</th>
+                    <th scope="row" class="d3">PUSH/알림톡/문자</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-005</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2">발송내역 관리</th>
+                    <th scope="row" class="d3">이메일</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-006</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2">발송내역 관리</th>
+                    <th scope="row" class="d3">뉴스레터 발송관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-007</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2">발송내역 관리</th>
+                    <th scope="row" class="d3">뉴스레터 신규발송</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-008</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-OPB-007 내 [신규발송]</td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2">발송내역 관리</th>
+                    <th scope="row" class="d3">뉴스레터 수신자 관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-009</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2">발송내역 관리</th>
+                    <th scope="row" class="d3">메시지 상세</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-027</span><span class="mo"></span></td>
+                    <td class="date">21-06-14</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-OPB-006 내 메시지상세</td>
+                </tr>
+                <!-- 운영관리: 컨텐츠관리 -->
+                <tr>
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2" >컨텐츠 관리</th>
+                    <th scope="row" class="d3">서비스 약관 관리(기업회원)</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-010</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2" >컨텐츠 관리</th>
+                    <th scope="row" class="d3">서비스 약관 관리(개인회원)</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-011</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2" >컨텐츠 관리</th>
+                    <th scope="row" class="d3">서비스 약관 관리(구매계약)</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-012</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2" >컨텐츠 관리</th>
+                    <th scope="row" class="d3">서비스 약관 관리(개인정보)</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-013</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2" >컨텐츠 관리</th>
+                    <th scope="row" class="d3">서비스 약관 관리(정보수집이용)</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-014</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+
+                <!-- 운영관리: 게시판 -->
+                <tr>
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2" >게시판</th>
+                    <th scope="row" class="d3">관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-015</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2" >게시판</th>
+                    <th scope="row" class="d3">등록</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-016</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td> ------------</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2" >게시판</th>
+                    <th scope="row" class="d3">게시글 관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-017</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2" >게시판</th>
+                    <th scope="row" class="d3">게시글 등록/수정</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-018</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2" >게시판</th>
+                    <th scope="row" class="d3">공지사항 관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-019</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2" >게시판</th>
+                    <th scope="row" class="d3">공지사항 등록/수정</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-020</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-OPB-019 내 [등록]</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2" >게시판</th>
+                    <th scope="row" class="d3">FAQ 관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-021</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2" >게시판</th>
+                    <th scope="row" class="d3">FAQ 등록/수정</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-022</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-OPB-021 내 [등록]</td>
+                </tr>
+                <!-- 운영관리: 모니터링 -->
+                <tr>
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2">모니터링</th>
+                    <th scope="row" class="d3">API</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-025</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <!-- <tr class="do"> -->
+                    <!-- <th scope="row" class="d1">운영관리</th> -->
+                    <!-- <th scope="row" class="d2">모니터링</th> -->
+                    <!-- <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-024</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="coder"></td>
+                    <td class="state" data-state="done"></td>
+                    <td>팝업재시도 쪽 노티 디자인 요청</td>
+                </tr> -->
+                <!-- 운영관리: 앱관리 -->
+                <!-- <tr> -->
+                    <!-- <th scope="row" class="d1">운영관리</th> -->
+                    <!-- <th scope="row" class="d2" rowspan="2">앱관리</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-025</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="coder"></td>
+                    <td class="state" data-state="done"></td>
+                    <td></td>
+                </tr> -->
+                <tr>
+                    <th scope="row" class="d1" >운영관리<br/>(OP)</th>
+                    <th scope="row" class="d2">앱관리</th>
+                    <th scope="row" class="d3">앱설치 목록</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-OPB-026</span><span class="mo"></span></td>
+                    <td class="date">21-05-20</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                
+                <!-- 회원/업체관리 -->
+                <tr data-group="hr" class="do">
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2" >승인요청 업체 관리</th>
+                    <th scope="row" class="d3">목록</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-001</span><span class="mo"></span></td>
+                    <td class="date">21-05-11</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2" >승인요청 업체 관리</th>
+                    <th scope="row" class="d3">상세</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-002</span><span class="mo"></span></td>
+                    <td class="date">21-05-11</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-MBB-001 내 상세</td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2" >기업회원</th>
+                    <th scope="row" class="d3">조회</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-003</span><span class="mo"></span></td>
+                    <td class="date">21-05-11</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2" >기업회원</th>
+                    <th scope="row" class="d3">상세-기업</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-004</span><span class="mo"></span></td>
+                    <td class="date">21-05-12</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2" >기업회원</th>
+                    <th scope="row" class="d3">상세-회원</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-005</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2" >기업회원</th>
+                    <th scope="row" class="d3">회원정보등록</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-006</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-MBB-005 내 [등록]</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2" >기업회원</th>
+                    <th scope="row" class="d3">회원정보수정</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-007</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-MBB-005 내 [수정]</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3">상세-배송지</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-008</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3">배송지 등록/수정</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-009</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-MBB-008 내 [등록]</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3">상세-주문내역</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-010</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3">배송상태 상세</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-027</span><span class="mo"></span></td>
+                    <td class="date">21-06-15</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-MBB-010 내 물류정보 - 배송상태상세</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3">상세 - e-wallet</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-011</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3">상세-신용여신</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-012</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="cancel"></td>
+                    <td class="coder"></td>
+                    <td>0603 삭제</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3">상세-SGI여신</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-013</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="cancel"></td>
+                    <td class="coder"></td>
+                    <td>0603 삭제</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3">상세-메시지발송</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-014</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3">상세-메일발송</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-015</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3">상세-상담/문의</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-016</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">간편 회원 조회</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-017</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">간편회원상세</th>
+                    <th scope="row" class="d3">접속이력</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-018</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2 hidden">간편회원상세</th>
+                    <th scope="row" class="d3">알림내역</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-019</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-020</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="cancel"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2" >회원사 등급 기준</th>
+                    <th scope="row" class="d3">관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-021</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3">등록/수정</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-022</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-MBB-021 내 [등록]</td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2">회원사 등급 평가 관리</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-023</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2" >잔액/보증 관리</th>
+                    <th scope="row" class="d3">e-wallet 내역 조회</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-024</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2"></th> 
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-025</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="cancel"></td>
+                    <td class="coder"></td>
+                    <td>0603 삭제</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >회원/업체관리<br/>(MB)</th>
+                    <th scope="row" class="d2"></th> 
+                    <th scope="row" class="d3">고객사별 출금요청 내역 조회</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-MBB-026</span><span class="mo"></span></td>
+                    <td class="date">21-05-27</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+
+                <!-- 상품관리 -->
+                <tr data-group="hr">
+                    <th scope="row" class="d1">상품관리<br/>(IT)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3">아이템 관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-001</span><span class="mo"></span></td>
+                    <td class="date">22-05-24</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td>
+	                	<span class="modify-title"><span>수정내용</span></span>
+	                	<ol class="modify-list">
+	                		<li>22/05/24 - 리스트 상세 상단으로 추가(123번 라인 시작)</li>
+	                	</ol>
+                    </td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1">상품관리<br/>(IT)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3">아이템 등록/수정</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-002</span><span class="mo"></span></td>
+                    <td class="date">21-06-15</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1">상품관리<br/>(IT)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3">온라인 판매재고 관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-003</span><span class="mo"></span></td>
+                    <td class="date">21-06-28</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">상품관리<br/>(IT)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-004</span><span class="mo"></span></td>
+                    <td class="date"></td>
+                    <td class="state" data-state="cancel"></td>
+                    <td class="coder"></td>
+                    <td>삭제</td>
+                </tr>
+            
+                <tr>
+                    <th scope="row" class="d1">상품관리<br/>(IT)</th>
+                    <th scope="row" class="d2" >영업관리</th>
+                    <th scope="row" class="d3">LME 휴일 조회</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-005</span><span class="mo"></span></td>
+                    <td class="date">21-05-28</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">상품관리<br/>(IT)</th>
+                    <th scope="row" class="d2" >영업관리</th>
+                    <th scope="row" class="d3">휴무시간 관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-006</span><span class="mo"></span></td>
+                    <td class="date">21-05-28</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1">상품관리<br/>(IT)</th>
+                    <th scope="row" class="d2" >영업관리</th>
+                    <th scope="row" class="d3">물류 휴일 관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-007</span><span class="mo"></span></td>
+                    <td class="date">21-05-28</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">상품관리<br/>(IT)</th>
+                    <th scope="row" class="d2" >영업관리</th>
+                    <th scope="row" class="d3">이벤트 휴일 관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-008</span><span class="mo"></span></td>
+                    <td class="date">21-05-28</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">상품관리<br/>(IT)</th>
+                    <th scope="row" class="d2" >영업관리</th>
+                    <th scope="row" class="d3">영업관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-009</span><span class="mo"></span></td>
+                    <td class="date">21-05-28</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1">상품관리<br/>(IT)</th>
+                    <th scope="row" class="d2" >영업관리</th>
+                    <th scope="row" class="d3">영업관리 추가/수정</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-010</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">상품관리<br/>(IT)</th>
+                    <th scope="row" class="d2" >영업관리</th>
+                    <th scope="row" class="d3">사이드카 관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-011</span><span class="mo"></span></td>
+                    <td class="date">21-05-28</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <th scope="row" class="d1 ">상품관리<br/>(IT)</th>
+                    <th scope="row" class="d2" >가격관리</th>
+                    <th scope="row" class="d3">경쟁사 가격 관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-012</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="">
+                    <th scope="row" class="d1 ">상품관리<br/>(IT)</th>
+                    <th scope="row" class="d2 " >가격관리</th>
+                    <th scope="row" class="d3">프리미엄 가격관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-013</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1 ">상품관리<br/>(IT)</th>
+                    <th scope="row" class="d2">영업관리</th>
+                    <th scope="row" class="d3">프리미엄 가격 등록/수정</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-014</span><span class="mo"></span></td>
+                    <td class="date">21-06-28</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+            
+                <!-- 전시/카테고리 관리 -->
+                <tr data-group="hr" >
+                    <th scope="row" class="d1" >전시/카테고리</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-015</span><span class="mo"></span></td>
+                    <td class="date">21-05-28</td>
+                    <td class="state" data-state="cancel"></td>
+                    <td class="coder"></td>
+                    <td>삭제</td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1 " >전시/카테고리<br/>(IT)</th>
+                    <th scope="row" class="d2">카테고리</th>
+                    <th scope="row" class="d3">브랜드 관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-016</span><span class="mo"></span></td>
+                    <td class="date">21-05-28</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >전시/카테고리<br/>(IT)</th>
+                    <th scope="row" class="d2" >전시관리</th>
+                    <th scope="row" class="d3">전시/카테고리 관리</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-017</span><span class="mo"></span></td>
+                    <td class="date">21-05-28</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td> ---------- 익스확인</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >전시/카테고리<br/>(IT)</th>
+                    <th scope="row" class="d2">전시관리</th>
+                    <th scope="row" class="d3">아이템 조회</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-018</span><span class="mo"></span></td>
+                    <td class="date">21-05-28</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-ITB-017 내 [아이템추가]</td>
+                </tr> 
+                <tr class="">
+                    <th scope="row" class="d1 " >전시/카테고리<br/>(IT)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3">재고 설정</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-019</span><span class="mo"></span></td>
+                    <td class="date">21-06-09</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>신규</td>
+                </tr> 
+                <tr class="">
+                    <th scope="row" class="d1 " >전시/카테고리<br/>(IT)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3">구매 정보-B/L 정보</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-020</span><span class="mo"></span></td>
+                    <td class="date">21-06-15</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td>신규팝업</td>
+                </tr> 
+                <tr class="">
+                    <th scope="row" class="d1 " >전시/카테고리<br/>(IT)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3">LOT 정보</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-021</span><span class="mo"></span></td>
+                    <td class="date">21-06-15</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>신규</td>
+                </tr> 
+                <tr class="">
+                    <th scope="row" class="d1 " >전시/카테고리<br/>(IT)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3">프리미엄 가격등록/수정</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ITB-023</span><span class="mo"></span></td>
+                    <td class="date">21-11-02</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>신규</td>
+                </tr> 
+                <!-- 가격 모니터링 -->
+                <tr data-group="hr" >
+                    <th scope="row" class="d1" >가격모니터링<br/>(PR)</th>
+                    <th scope="row" class="d2" >LME 가격조회</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-PRB-001</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1 " >가격모니터링<br/>(PR)</th>
+                    <th scope="row" class="d2 " >LME 가격조회</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-PRB-002</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >가격모니터링<br/>(PR)</th>
+                    <th scope="row" class="d2" >선물환 조회</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-PRB-003</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >가격모니터링<br/>(PR)</th>
+                    <th scope="row" class="d2 " >선물환 조회</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-PRB-004</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >가격모니터링<br/>(PR)</th>
+                    <th scope="row" class="d2">거래가격 관리</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-PRB-005</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >가격모니터링<br/>(PR)</th>
+                    <th scope="row" class="d2 ">거래가격 관리</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-PRB-006</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1 " >가격모니터링<br/>(PR)</th>
+                    <th scope="row" class="d2">실시간 LME/FX 모니터링</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-PRB-007</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >가격모니터링<br/>(PR)</th>
+                    <th scope="row" class="d2">실시간 판매가격 모니터링</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-PRB-008</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >가격모니터링<br/>(PR)</th>
+                    <th scope="row" class="d2">LME/환율 모니터링</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-PRB-009</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1">가격모니터링<br/>(PR)</th>
+                    <th scope="row" class="d2">판매가격 모니터링</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-PRB-010</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+            
+                <!-- 판매계약관리 -->
+                <tr data-group="hr" >
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2" >판매계약관리</th>
+                    <th scope="row" class="d3">통합주문 조회</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-001</span><span class="mo"></span></td>
+                    <td class="date">22-06-16</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="modify-title">수정내용</span>통합주문조회 Summary 추가</td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2 " >판매계약관리</th>
+                    <th scope="row" class="d3">통합주문 상세-주문정보</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-002</span><span class="mo"></span></td>
+                    <td class="date">22-08-29</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="modify-title">수정내용</span>input radio disable 다양화 스타일 처리</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2 " >판매계약관리</th>
+                    <th scope="row" class="d3">통합주문 상세-주문정보-변경 이력</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-023</span><span class="mo"></span></td>
+                    <td class="date">21-08-26</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-ORB-002 내 [변경이력]</td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2 " >판매계약관리</th>
+                    <th scope="row" class="d3">통합주문 상세-배송지변경</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-022</span><span class="mo"></span></td>
+                    <td class="date">21-06-23</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-ORB-002 내 [배송지변경]</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2 " >판매계약관리</th>
+                    <th scope="row" class="d3">통합주문 조회-결제정보</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-003</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2 " >판매계약관리</th>
+                    <th scope="row" class="d3">통합주문 조회-물류정보</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-004</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2 " >판매계약관리</th>
+                    <th scope="row" class="d3">통합주문 조회-계산서</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-020</span><span class="mo"></span></td>
+                    <td class="date">21-06-23</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2 " >판매계약관리</th>
+                    <th scope="row" class="d3">통합주문 조회-손익정보</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-021</span><span class="mo"></span></td>
+                    <td class="date">21-06-23</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr class="cancel">
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2 " >판매계약관리</th>
+                    <th scope="row" class="d3">통합주문 조회-연계정보</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-005</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td>삭제</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2 " >판매계약관리</th>
+                    <th scope="row" class="d3">통합주문 조회-클레임</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-006</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2 " >판매계약관리</th>
+                    <th scope="row" class="d3">클레임 요청내역 목록조회</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-007</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-ORB-006 내 [클레임등록]</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2 " >판매계약관리</th>
+                    <th scope="row" class="d3">통합주문조회-voc</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-008</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2 " >판매계약관리</th>
+                    <th scope="row" class="d3">통합주문조회-관련 서류</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-024</span><span class="mo"></span></td>
+                    <td class="date">21-09-02</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2 " >판매계약관리</th>
+                    <th scope="row" class="d3">성적서 &amp; 패킹리스트</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-025</span><span class="mo"></span></td>
+                    <td class="date">21-09-02</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-ORB-024 내 [성적서&amp;패킹리스트]</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2 " >판매계약관리</th>
+                    <th scope="row" class="d3">선물거래내역목록조회</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-009</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2 " >판매계약관리</th>
+                    <th scope="row" class="d3">클레임요청내역목록조회</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-010</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2 " >판매계약관리</th>
+                    <th scope="row" class="d3">세금계산서발행조회</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-011</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2">물류진행내역관리</th>
+                    <th scope="row" class="d3">진행물류목록조회</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-012</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2" >정산관리</th>
+                    <th scope="row" class="d3">판매정산조회</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-013</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2 " >정산관리</th>
+                    <th scope="row" class="d3">PG 수수료 정산내역 조회</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-014</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-015</span><span class="mo"></span></td>
+                    <td class="date"></td>
+                    <td class="state" data-state="cancel"></td>
+                    <td class="coder"></td>
+                    <td>삭제</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2" >판매계약관리</th>
+                    <th scope="row" class="d3" >프라이싱 dashboard</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-016</span><span class="mo"></span></td>
+                    <td class="date"></td>
+                    <td class="state" data-state="cancel"></td>
+                    <td class="coder"></td>
+                    <td>디자인 작업중</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2 " >판매계약관리</th>
+                    <th scope="row" class="d3 " >프라이싱 dashboard</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-017</span><span class="mo"></span></td>
+                    <td class="date"></td>
+                    <td class="state" data-state="cancel"></td>
+                    <td class="coder"></td>
+                    <td>디자인 작업중</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1" >계약관리<br/>(OR)</th>
+                    <th scope="row" class="d2 " >판매계약관리</th>
+                    <th scope="row" class="d3">B/L 선택</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ORB-018</span><span class="mo"></span></td>
+                    <td class="date">21-06-23</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td>팝업 (9/1)</td>
+                </tr>
+
+                <!-- 물류관리 -->
+                <tr data-group="hr" >
+                    <th scope="row" class="d1" >물류관리<br/>(LO)</th>
+                    <th scope="row" class="d2" >재고관리</th>
+                    <th scope="row" class="d3">창고별 재고조회</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-LOB-001</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >물류관리<br/>(LO)</th>
+                    <th scope="row" class="d2"></th> 
+                    <th scope="row" class="d3">ITEM별 재고조회</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-LOB-002</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 ">물류관리<br/>(LO)</th>
+                    <th scope="row" class="d2">창고관리</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-LOB-003</span><span class="mo"></span></td>
+                    <td class="date"></td>
+                    <td class="state" data-state="cancel"></td>
+                    <td class="coder"></td>
+                    <td>삭제</td>
+                </tr>
+                <tr class="do">
+                    <th scope="row" class="d1 ">물류관리<br/>(LO)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-LOB-004</span><span class="mo"></span></td>
+                    <td class="date"></td>
+                    <td class="state" data-state="cancel"></td>
+                    <td class="coder"></td>
+                    <td>삭제</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 ">물류관리<br/>(LO)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-LOB-005</span><span class="mo"></span></td>
+                    <td class="date"></td>
+                    <td class="state" data-state="cancel"></td>
+                    <td class="coder"></td>
+                    <td>삭제</td>
+                </tr> 
+                <tr>
+                    <th scope="row" class="d1 ">물류관리<br/>(LO)</th>
+                    <th scope="row" class="d2"></th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-LOB-006</span><span class="mo"></span></td>
+                    <td class="date">21-06-04</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td>신규</td>
+                </tr>
+                <!-- CS관리 -->
+                <tr data-group="hr" class="do">
+                    <th scope="row" class="d1">CS관리<br/>(CS)</th>
+                    <th scope="row" class="d2" >voc관리</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-CSB-001</span><span class="mo"></span></td>
+                    <td class="date">21-06-09</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 ">CS관리<br/>(CS)</th>
+                    <th scope="row" class="d2">voc관리</th> 
+                    <th scope="row" class="d3">상품문의 등록/수정</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-CSB-002</span><span class="mo"></span></td>
+                    <td class="date">21-06-09</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td><span class="ly-in">레이어팝업</span>SOREC-SC-CSB-001 내 [등록]</td>
+                </tr>
+                <!-- 통계 -->
+                <tr data-group="hr" >
+                    <th scope="row" class="d1" >통계<br/>(ST)</th>
+                    <th scope="row" class="d2" >매출통계</th>
+                    <th scope="row" class="d3">회원별 매출통계</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-STB-002</span><span class="mo"></span></td>
+                    <td class="date">21-06-09</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td>신규추가</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 ">통계<br/>(ST)</th>
+                    <th scope="row" class="d2"></th> 
+                    <th scope="row" class="d3">아이템별 매출통계</th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-STB-003</span><span class="mo"></span></td>
+                    <td class="date">21-06-09</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td>신규추가</td>
+                </tr>
+                <!-- 기타 -->
+                <tr data-group="hr" >
+                    <th scope="row" class="d1 " >기타<br/>(ET)</th>
+                    <th scope="row" class="d2">404 에러</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ETC-001</span><span class="mo"></span></td>
+                    <td class="date">21-06-09</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 ">기타<br/>(ET)</th>
+                    <th scope="row" class="d2">503 에러</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ETC-002</span><span class="mo"></span></td>
+                    <td class="date">21-06-09</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 ">기타<br/>(ET)</th>
+                    <th scope="row" class="d2">작업중(서비스중지)</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ETC-003</span><span class="mo"></span></td>
+                    <td class="date">21-06-09</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 ">기타<br/>(ET)</th>
+                    <th scope="row" class="d2">연계상태 모니터링</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ETC-004</span><span class="mo"></span></td>
+                    <td class="date">21-11-01</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 ">기타<br/>(ET)</th>
+                    <th scope="row" class="d2">알림메세지</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-ETC-005</span><span class="mo"></span></td>
+                    <td class="date">22-10-18</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td>신규추가</td>
+                </tr>
+                 <!-- 메일 -->
+                 <tr data-group="hr" >
+                    <th scope="row" class="d1" >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">회원가입완료</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-001</span><span class="mo"></span></td>
+                    <td class="date">21-06-29</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">회원가입승인완료</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-002</span><span class="mo"></span></td>
+                    <td class="date">21-06-29</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">회원가입승인거절</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-003</span><span class="mo"></span></td>
+                    <td class="date">21-06-29</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">탈퇴완료 메시지</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-004</span><span class="mo"></span></td>
+                    <td class="date">21-06-29</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">휴면전환 예정</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-005</span><span class="mo"></span></td>
+                    <td class="date">21-06-29</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">휴면전환</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-006</span><span class="mo"></span></td>
+                    <td class="date">21-06-29</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">약관변경안내</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-007</span><span class="mo"></span></td>
+                    <td class="date">21-06-29</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">개인정보 처리 방침 변경</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-008</span><span class="mo"></span></td>
+                    <td class="date">21-06-29</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">개인정보 이용내역 안내</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-009</span><span class="mo"></span></td>
+                    <td class="date">21-06-29</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">서비스 공지(작업안내)</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-010</span><span class="mo"></span></td>
+                    <td class="date">21-06-29</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">Q&A 문의답변, 상담원 발송</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-011</span><span class="mo"></span></td>
+                    <td class="date">21-06-29</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">주문 완료</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-012</span><span class="mo"></span></td>
+                    <td class="date">21-06-29</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">주문 취소 신청</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-013</span><span class="mo"></span></td>
+                    <td class="date">21-12-08</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">배차 완료</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-014</span><span class="mo"></span></td>
+                    <td class="date">21-06-29</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">배송 완료</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-015</span><span class="mo"></span></td>
+                    <td class="date">21-06-29</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">주문취소 승인</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-016</span><span class="mo"></span></td>
+                    <td class="date">21-06-29</td>
+                    <td class="state" data-state="cancel"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">환불신청</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-017</span><span class="mo"></span></td>
+                    <td class="date">21-06-29</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">환불완료</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-018</span><span class="mo"></span></td>
+                    <td class="date">21-06-29</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row" class="d1 " >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">회원가입승인보류</th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-019</span><span class="mo"></span></td>
+                    <td class="date">21-11-16</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td></td>
+                </tr>   
+                <tr>
+                    <th scope="row" class="d1 " >메일<br/>(MAIL)</th>
+                    <th scope="row" class="d2">KYC 접수 내용 확인 요청 </th>
+                    <th scope="row" class="d3"></th>
+                    <th scope="row" class="d4"></th>
+                    <td class="sbid"><span class="pc">SOREC-SC-DM-021</span><span class="mo"></span></td>
+                    <td class="date">22-12-14</td>
+                    <td class="state" data-state="done"></td>
+                    <td class="coder"></td>
+                    <td>
+                    	<span class="pa-add">페이지 추가</span>   
+						<ol class="modify-list">
+	                		<li>22/12/14 - KYC 접수 내용 확인요청 이메일 템플릿</li>
+	                		<li>23/01/11 - KYC 접수 내용 확인요청 이메일 템플릿 > 첨부서류 > 테이블 항목 추가 (연회계 감사보고서/ 등기부등본/ 주주명부, 소유지분 비율 증명서류)</li>
+	                	</ol>    
+                    </td>
+                </tr>             
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- script -->
+<script type="text/javascript">
+    let total = $('.tbl_guide tbody tr').length;
+    $('.total .no').text(total);
+    // 작업 상태 처리 
+    $('.tbl_guide .state').each(function(){
+        let letter = $(this).attr('data-state');
+        let letterCancel = $('.tbl_guide .state[data-state=cancel]');
+        let letterIng = $('.tbl_guide .state[data-state=ing]');
+        let letterReview = $('.tbl_guide .state[data-state=review]');
+        let letterDone = $('.tbl_guide .state[data-state=done]');
+        let letterProgress = Math.round((letterDone.length + letterCancel.length) / total * 100);
+        let letterLeft = total - (letterDone.length + letterCancel.length);
+        console.log('letterLeft', letterLeft);
+        letterCancel.text('취소');
+        letterIng.text('작업중');
+        letterReview.text('검수중');
+        letterDone.text('완료');
+        $('ul.state .left .no').text(letterLeft);
+        switch (letter) {
+            case 'cancel' :
+                $('ul.state .cancel .no').text(letterCancel.length);
+                break;
+            case 'ing' :
+                $('ul.state .ing .no').text(letterIng.length);
+                break;
+            case 'review' :
+                $('ul.state .review .no').text(letterReview.length);
+                break;
+            case 'done' :
+                $('ul.state .done .no').text(letterDone.length);
+                $('ul.state .progress .no').text(letterProgress);
+                break;
+            default :
+                break;
+        }
+    });
+    // SBID 링크 처리 
+    $('.tbl_guide .sbid .pc').each(function(){
+        let thisHtml = $(this).text()+'.html';
+        let thisCate = $(this).text().substr(9, 2);
+        console.log('thisCate', thisCate);
+
+        // let thisCate = $(this).parent().siblings('.d1').text();
+        // console.log('thisHtml', thisHtml);
+        switch (thisCate) {
+            case 'MA' : //메인
+                thisHtml = 'ma/'+thisHtml;
+                break;
+            case 'CO' : //기준정보
+                thisHtml = 'co/'+thisHtml;
+                break;
+            case 'OP' : //운영관리
+                thisHtml = 'op/'+thisHtml;
+                break;
+            case 'MB' : //회원/업체관리
+                thisHtml = 'mb/'+thisHtml;
+                break;
+            case 'IT' : //상품관리, 전시/카테고리
+                thisHtml = 'it/'+thisHtml;
+                break;
+            case 'PR' : //가격모니터링
+                thisHtml = 'pr/'+thisHtml;
+                break;
+            case 'OR' : //판매계약관리, 계약관리
+                thisHtml = 'or/'+thisHtml;
+                break;
+            case 'LO' : //물류관리
+                thisHtml = 'lo/'+thisHtml;
+                break;
+            case 'CS' : //CS관리
+                thisHtml = 'cs/'+thisHtml;
+                break;
+            case 'ST' : //통계
+                thisHtml = 'st/'+thisHtml;
+                break;
+            case 'ET' : //기타
+                thisHtml = 'etc/'+thisHtml;
+                break;
+            case 'DM' : //메일
+                thisHtml = 'email/'+thisHtml;
+                break;
+            default :
+                break;
+        }
+        $(this).append('<a href="/guide/html/'+thisHtml+'" target="_blank">'+$(this).text()+'</a>');
+    });
+  
+    // 중복 카테고리 hidden 처리 
+    for (let index = 1; index < $('.tbl_guide th').length; index++) {
+        $('.tbl_guide .d'+index).each(function(){
+            if ( $(this).text() == $(this).parent().prev().find('.d'+index).text() ) {
+                $(this).addClass('hidden');            
+            }
+        });
+    };
+    $('.tbl_guide .state').each(function(){
+        $(this).attr('data-state') == 'done' ? $(this).parent().removeAttr('class').addClass('done') : '';
+        $(this).attr('data-state') == 'cancel' ? $(this).parent().removeAttr('class').addClass('cancel') : '';
+        $(this).attr('data-state') == 'review' ? $(this).parent().removeAttr('class').addClass('review') : '';
+        $(this).attr('data-state') == 'ing' ? $(this).parent().removeAttr('class').addClass('ing') : '';
+        $(this).attr('data-state') == 'modify' ? $(this).parent().removeAttr('class').addClass('modify') : '';
+    });
+    $('tr[data-group="hr"]').addClass('hr');
+</script>
+</body>
+</html>

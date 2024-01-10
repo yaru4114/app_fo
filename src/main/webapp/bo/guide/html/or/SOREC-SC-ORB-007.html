@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css">
+	<!-- Folder tree -->
+	<link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+	<link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+	<link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+	<script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+	<!-- realGrid -->
+	<script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+	<!-- script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script -->
+	<script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script>
+	<script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+	<!-- //realGrid -->
+	<script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript"
+		src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+	<script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+	<script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+	<script type="text/javascript" src="/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
+	<script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+
+</head>
+
+
+<body>
+
+	<div class="web-wrapper">
+		<!-- [D] 사이드바 부분 인클루드 시작 -->
+		<!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
+		<aside class="web-sidebar"></aside>
+		<script type="text/javascript"> $(".web-sidebar").load("/guide/html/include/sidebar.html");</script>
+		<!-- // [D] 사이드바 부분 인클루드 끝 -->
+
+		<section class="web-container">
+			<!-- [D] 상단메뉴 부분 인클루드 시작 -->
+			<!-- [D] 활성화된 메뉴 : .is-active 추가 -->
+			<header class="web-header"></header>
+			<script type="text/javascript"> $(".web-header").load("/guide/html/include/header.html");</script>
+			<!-- // [D] 상단메뉴 부분 인클루드 끝 -->
+
+			<div class="main-content">
+				<div class="inner">
+
+					<!-- Button trigger modal -->
+                    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">클레임 등록 및 승인</button>
+                    <!-- Modal -->
+                    <!-- [D]모달 위치는 변경 하셔도 됩니다! -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">클레임 등록 및 승인</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="sub-title mt-0">
+										<h3 class="">주문정보</h3>
+									</div>
+									<div class="table table-view">
+										<table>
+											<colgroup>
+												<col class="col-md"/>
+												<col width="*"/>
+												<col class="col-md"/>
+												<col width="*"/>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">주문번호</th> 
+													<td>SOR-00000010</td>
+													<th scope="row">주문일자</th> 
+													<td>2021-01-01</td>
+												</tr>
+												<tr>
+													<th scope="row">법인명</th> 
+													<td>한강메탈</td>
+													<th scope="row">결제일자</th> 
+													<td>2021-01-01</td>
+												</tr>
+												<tr>
+													<th scope="row">아이템</th> 
+													<td>XX</td>
+													<th scope="row">주문중량</th> 
+													<td class="">100</td>
+												</tr>
+												<tr>
+													<th scope="row">브랜드그룹</th> 
+													<td>비서구산</td>
+													<th scope="row">브랜드</th> 
+													<td class="">Vedanta</td>
+												</tr>
+												<tr>
+													<th scope="row">가격옵션</th> 
+													<td>LME/GTC</td>
+													<th scope="row">결제금액</th> 
+													<td class="">1,000,000</td>
+												</tr>
+												<tr>
+													<th scope="col" rowspan="3">B/L 정보</th> 
+													<td colspan="3">
+														<div class="table table-inner text-center">
+															<table>
+																<colgroup>
+																	<col width="">
+																	<col width="">
+																	<col width="">
+																</colgroup>
+																<thead>
+																	<tr>
+																		<th scope="col">B/L 번호</th>
+																		<th scope="col">중량</th>
+																		<th scope="col">Bundle 수</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>BL001</td>
+																		<td>26,250</td>
+																		<td>25</td>
+																	</tr>
+																	<tr>
+																		<td>BL002</td>
+																		<td>25,250</td>
+																		<td>24</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="sub-title">
+										<h3 class="">클레임</h3>
+									</div>
+									<div class="table table-view">
+										<table>
+											<colgroup>
+												<col class="col-md"/>
+												<col width="*"/>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">구분<i class="icon icon-required">필수값</i></th> 
+													<td>
+														<select class="form-select select-sm">
+															<option value="선택">선택</option>
+															<option value="취소신청">취소신청</option>
+															<option value="반품신청">반품신청</option>
+															<option value="교환신청">교환신청</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">교환B/L</th> 
+													<td>
+														<div class="table-control">
+															<h3 class=""></h3>
+															<div class="btn-box">
+																<button type="button" class="btn">B/L 선택</button>
+																<button type="button" class="btn">삭제</button>
+															</div>
+														</div>
+														<div class="table table-inner text-center">
+															<table>
+																<colgroup>
+																	<col width="80px">
+																	<col width="">
+																	<col width="">
+																	<col width="">
+																</colgroup>
+																<thead>
+																	<tr>
+																		<th scope="col">선택</th>
+																		<th scope="col">B/L 번호</th>
+																		<th scope="col">중량</th>
+																		<th scope="col">Bundle 수</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>
+																			<div class="form-checkbox no-label">
+																				<input type="checkbox" id="checkbox-nolabel1" name="checkbox" />
+																				<label for="checkbox-nolabel1"></label>
+																			</div>
+																		</td>
+																		<td>BL001</td>
+																		<td>26,250</td>
+																		<td>25</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			<div class="form-checkbox no-label">
+																				<input type="checkbox" id="checkbox-nolabel2" name="checkbox" />
+																				<label for="checkbox-nolabel2"></label>
+																			</div>
+																		</td>
+																		<td>BL002</td>
+																		<td>25,250</td>
+																		<td>24</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">귀책사유<i class="icon icon-required">필수값</i></th> 
+													<td>
+														<select class="form-select select-sm">
+															<option value="선택">선택</option>
+															<option value="고객변심">고객변심</option>
+															<option value="상품결함">상품결함</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">요청사유</th> 
+													<td>
+														<textarea class="textarea textarea-md" placeholder="사유를 입력해주세요."></textarea>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">첨부파일</th> 
+													<td>
+														<span class="file">
+															<input type="text" class="input" title="첨부된 파일명">
+															<!-- [D] 파일 첨부 ( common.js 파일 ) 스크립트 임의작성 -->
+															<label for="sFiles1" class="btn btn-file" role="button">
+																<input type="file" name="sFiles1" id="sFiles1" value="찾아보기" tabindex="-1" aria-hidden="true">
+																파일 첨부하기
+															</label>
+														</span>
+														<div class="table table-inner">
+															<table>
+																<colgroup>
+																	<col width="">
+																	<col width="150px">
+																</colgroup>
+																<thead>
+																	<tr>
+																		<th>첨부파일명</th>
+																		<th>용량</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>
+																			<div class="file-group">
+																				<span class="file">사업자등록증_사본.pdf</span>
+																				<div class="btn-box btn-box-sm">
+																					<button type="button" class="btn btn-border"><span>다운로드</span><i class="icon icon-download"></i></button>
+																					<button type="button" class="btn btn-border"><span>미리보기</span><i class="icon icon-preview"></i></button>
+																					<button type="button" class="btn btn-border"><span>삭제하기</span><i class="icon icon-delete"></i></button>
+																				</div>
+																				
+																			</div>
+																		</td>
+																		<td class="text-center">208.16KB</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			<div class="file-group">
+																				<span class="file">통장사본.jpg</span>
+																				<div class="btn-box btn-box-sm">
+																					<button type="button" class="btn btn-border" disabled=""><span>다운로드</span><i class="icon icon-download"></i></button>
+																					<button type="button" class="btn btn-border" disabled=""><span>미리보기</span><i class="icon icon-preview"></i></button>
+																					<button type="button" class="btn btn-border" disabled=""><span>삭제하기</span><i class="icon icon-delete"></i></button>
+																				</div>
+																			</div>
+																		</td>
+																		<td class="text-center">224.96KB</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</td>
+												</tr>
+												<!-- <tr>
+													<th scope="row">패널티금액</th> 
+													<td>
+														<input type="text" class="input"/>
+														<p class="table-noti">※ 페널티 금액은 자동 계산 되며, 고객 정산 시 차감됩니다.</p>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">승인</th> 
+													<td>
+														<select class="form-select select-sm">
+															<option value="선택">선택</option>
+															<option value="취소완료">취소완료</option>
+															<option value="반품완료">반품완료</option>
+															<option value="교환완료">교환완료</option>
+															<option value="반려">반려</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">사유</th> 
+													<td>
+														<textarea class="textarea textarea-md" placeholder="사유를 입력해주세요."></textarea>
+													</td>
+												</tr> -->
+											</tbody>
+										</table>
+									</div>
+									
+								</div>
+								<div class="modal-footer">
+									<div class="btn-box">
+										<button type="button" class="btn">등록</button>
+										<!-- <button type="button" class="btn btn-purple">승인</button> -->
+										<button type="button" class="btn btn-gray" data-dismiss="modal">닫기</button>
+									</div>
+								</div>
+							</div>
+						</div>
+                    </div>
+				</div>
+			</div>
+
+
+		</section>
+	</div>
+
+
+</body>
+
+</html>

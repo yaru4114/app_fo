@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/jquery.mCustomScrollbar.css" />
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <!-- script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <script type="text/javascript" src="/guide/js/realgridCustom.js"></script>  <!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/jquery.mCustomScrollbar.concat.min.js"></script><!-- 퍼블 작성 -->
+    
+</head>
+
+
+<body>
+
+	<div class="web-wrapper">
+		<!-- [D] 사이드바 부분 인클루드 시작 -->
+		<!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
+		<aside class="web-sidebar"></aside>
+		<script type="text/javascript"> $(".web-sidebar").load("/guide/html/include/sidebar.html");</script>
+		<!-- // [D] 사이드바 부분 인클루드 끝 -->
+
+		<section class="web-container">
+			<!-- [D] 상단메뉴 부분 인클루드 시작 -->
+			<!-- [D] 활성화된 메뉴 : .is-active 추가 -->
+			<header class="web-header"></header>
+			<script type="text/javascript"> $(".web-header").load("/guide/html/include/header.html");</script>
+			<!-- // [D] 상단메뉴 부분 인클루드 끝 -->
+
+			<div class="main-content main-content-kyc">
+                <div class="inner">
+					<div class="table-wrap">
+						<!-- 1. 기업 기본 정보 -->
+						<section class="bo-section">
+							<div class="sub-title">
+				                <h3 class=""> 기업 기본 정보</h3>
+				            </div>
+							<table class="bo-tbl-kyc">
+								<caption> 기업 기본 정보</caption>
+								<colgroup>
+									<col style="width: 120px"/>
+									<col width="*"/>
+									<col style="width: 120px"/>
+									<col width="*"/>
+								</colgroup>
+								<tbody>
+	                                <tr>
+	                                    <th scope="row" class="required">
+	                                    	<label for="">회사명</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="액션메탈 인더스트리" class="w300px" required readonly>
+	                                    </td>
+	                                    <th scope="row" class="required">
+	                                    	<label for="">창립기념일</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="1999-07-07" class="w300px" required readonly>
+	                                    </td>
+								   </tr>              
+								   <tr>
+	                                    <th scope="row" class="required">
+	                                    	<label for="">전화번호</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="02-519-2788" class="w300px" required readonly>
+	                                    </td>
+	                                    <th scope="row" class="required">
+	                                    	<label for="">종업원수</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="500" class="w300px" required readonly>
+	                                    </td>
+								   </tr>
+								   <tr>
+	                                    <th scope="row" class="required">
+	                                    	<label for="">팩스번호</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="02-519-2788" class="w300px" required readonly>
+	                                    </td>
+	                                    <th scope="row" class="required">
+	                                    	<label for="">이메일</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="actionmetal@sorincorp.com" class="w300px" required readonly>
+	                                    </td>
+								   </tr>
+								   <tr>
+	                                    <th scope="row" class="required">
+	                                    	<label for="">회사주소</label>
+	                                    </th>
+	                                    <td colspan="3">
+	                                        <input type="text" name="" id="" value="서울특별시 강남구 강남대로542 영풍빌딩 7층" class="w300px" required readonly>
+	                                    </td>
+								   </tr>	
+								   <tr>
+	                                    <th scope="row">
+	                                    	<label for="">웹사이트 주소</label>
+	                                    </th>
+	                                    <td colspan="3">
+	                                        <input type="text" name="" id="" value="-" class="w300px" required readonly>
+	                                    </td>
+								   </tr>
+								</tbody>
+							</table>
+						</section>
+						<!-- //1.  기업 기본 정보 -->
+						
+						<!-- 2. 대표자 정보 -->
+						<section class="bo-section">
+							<div class="sub-title">
+				                <h3 class="">대표자 정보</h3>
+				            </div>
+							<table class="bo-tbl-kyc">
+								<caption>대표자 정보</caption>
+								<colgroup>
+									<col style="width: 120px"/>
+									<col />
+									<col style="width: 120px"/>
+									<col />
+								</colgroup>
+								<tbody>
+	                                <tr>
+	                                    <th scope="row"class="required">
+	                                    	<label for="">대표자명</label>
+	                                    </th>
+	                                    <td colspan="3">
+	                                        <input type="text" name="" id="" value="홍길동" class="w300px" required readonly>
+	                                    </td>
+								   </tr>              
+								    <tr>
+	                                    <th scope="row" class="required">
+	                                    	<label for="">전화번호</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="02-2222-2222" class="w300px" required readonly>
+	                                    </td>	  
+	                                    <th scope="row" class="required">
+	                                    	<label for="">이메일</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="02-2222-2222" class="w300px" required readonly>
+	                                    </td>
+								   </tr>  
+								</tbody>
+							</table>
+						</section>
+						<!-- //2. 대표자 정보 -->
+						
+						<!-- 3. 자금/ 회계 담당자 정보 -->
+						<section class="bo-section">
+							<div class="sub-title">
+				                <h3 class="">자금/ 회계 담당자 정보</h3>
+				            </div>
+							<table class="bo-tbl-kyc">
+								<caption>자금/ 회계 담당자 정보</caption>
+								<colgroup>
+									<col style="width: 120px"/>
+									<col />
+									<col style="width: 120px"/>
+									<col />
+								</colgroup>
+								<tbody>
+	                                <tr>
+	                                    <th scope="row">
+	                                    	<label for="">담당자명</label>
+	                                    </th>
+	                                    <td colspan="3">
+	                                        <input type="text" name="" id="" value="홍길동" class="w300px" required readonly>
+	                                    </td>
+								   </tr>              
+								    <tr>
+	                                    <th scope="row">
+	                                    	<label for="">전화번호</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="02-2222-2222" class="w300px" readonly>
+	                                    </td>	  
+	                                    <th scope="row">
+	                                    	<label for="">이메일</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="02-2222-2222" class="w300px" readonly>
+	                                    </td>
+								   </tr>  
+								</tbody>
+							</table>
+						</section>
+						<!-- //3. 자금/ 회계 담당자 정보 -->
+						
+						<!-- 4. 첨부 서류 -->
+						<section class="bo-section center">
+							<div class="sub-title">
+				                <h3 class="">첨부 서류</h3>
+				            </div>
+				            <table class="bo-tbl-kyc">
+								<caption>자금/ 회계 담당자 정보</caption>
+								<colgroup>
+									<col style="width: 20%"/>
+									<col style="width: 63%"/>
+									<col style="width: 20%"/>
+								</colgroup>
+								<tbody>
+	                                <tr>
+	                                    <th scope="row" class="required">
+	                                    	<label for="">연 회계 감사보고서 (재무제표 포함)</label>
+	                                    </th>
+	                                    <td>
+	                                    	<div class="flex-ac-jsb">
+	                                    		<p class="file-name">파일명이 노출됩니다.jpg 파일명이 노출됩니다.jpg파일명이 노출됩니다.jpg파일명이 노출됩니다.jpg파일명이 노출됩니다.jpg파일명이 노출됩니다.jpg파일명이 노출됩니다.jpg</p>
+		                                    	<div class="btn-box">
+		                                    		<button type="button" id="" class="btn">다운로드</button>
+		                                    		<button type="button" id="" class="btn">삭제하기</button>
+		                                    	</div>
+	                                    	</div>
+	                                    </td>
+	                                    <td>10KB</td>
+								   </tr>              
+ 	                                <tr>
+	                                    <th scope="row" class="required">
+	                                    	<label for="">(법인)등기부등본</label>
+	                                    </th>
+	                                    <td>
+	                                    	<div class="flex-ac-jsb">
+	                                    		<p class="file-name">파일명이 노출됩니다.jpg</p>
+		                                    	<div class="btn-box">
+		                                    		<button type="button" id="" class="btn">다운로드</button>
+		                                    		<button type="button" id="" class="btn">삭제하기</button>
+		                                    	</div>
+	                                    	</div>
+	                                    </td>
+	                                    <td>10KB</td>
+								   </tr> 
+								   <tr>
+	                                    <th scope="row" class="required">
+	                                    	<label for="">주주명부, 소유지분 비율 증명서류</label>
+	                                    </th>
+	                                    <td>
+	                                    	<div class="flex-ac-jsb">
+	                                    		<p class="file-name">파일명이 노출됩니다.jpg</p>
+		                                    	<div class="btn-box">
+		                                    		<button type="button" id="" class="btn">다운로드</button>
+		                                    		<button type="button" id="" class="btn">삭제하기</button>
+		                                    	</div>
+	                                    	</div>
+	                                    </td>
+	                                    <td>10KB</td>
+								   </tr> 
+								</tbody>
+							</table>
+						</section>
+						<!-- //4. 첨부 서류 -->
+						
+						<!-- 5. 업무 담당자/ 동의 여부 -->
+						<section class="bo-section">
+							<div class="sub-title">
+				                <h3 class="">업무 담당자/ 동의 여부</h3>
+				            </div>
+							<table class="bo-tbl-kyc">
+								<caption>자금/ 회계 담당자 정보</caption>
+								<colgroup>
+									<col style="width: 120px"/>
+									<col />
+									<col style="width: 120px"/>
+									<col />
+								</colgroup>
+								<tbody>
+	                                <tr>
+	                                    <th scope="row" class="required">
+	                                    	<label for="">담당자명</label>
+	                                    </th>
+	                                    <td colspan="3">
+	                                        <input type="text" name="" id="" value="홍길동" class="w300px" required readonly>
+	                                    </td>
+								   </tr>              
+								    <tr>
+	                                    <th scope="row" class="required">
+	                                    	<label for="">가입동의여부</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="동의" class="w300px" required readonly>
+	                                    </td>	 
+	                                    <th scope="row" class="required">
+	                                    	<label for="">가입동의날짜</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="2022-12-06" class="w300px" required readonly>
+	                                    </td>
+								   </tr>  
+								</tbody>
+							</table>
+						</section>
+						<!-- //5. 업무 담당자 / 동의 여부 -->
+						
+						<!-- 6. 사업배경 (*관리자 입력 필수)​ -->
+						<section class="bo-section">
+							<div class="sub-title">
+				                <h3 class="">사업배경</h3>
+				                <div class="btn-box">
+				                	<button type="button" id="" class="btn">저장</button>
+				                </div>
+				            </div>
+							<table class="bo-tbl-kyc">
+								<caption>사업배경</caption>
+								<colgroup>
+									<col style="width: 120px"/>
+									<col />
+									<col style="width: 120px"/>
+									<col />
+								</colgroup>
+								<tbody>
+	                                <tr>
+	                                    <th scope="row" class="required">
+	                                    	<label for="">업종</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="서린닷컴 회원가입 DB 자동 세팅값​" class="w300px" required readonly>
+	                                    </td>	
+	                                    <th scope="row" class="required">
+	                                    	<label for="">업태</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="서린닷컴 회원가입 DB 자동 세팅값​" class="w300px" required readonly>
+	                                    </td>	
+								   </tr>              
+								   <tr>
+ 										<th scope="row" class="required">
+	                                    	<label for="">매출</label>
+	                                    </th>
+	                                    <td colspan="3">
+	                                        <input type="text" name="" id="" value="" class="w300px border-gray">
+	                                    </td>
+								   </tr>  
+								   <tr>
+ 										<th scope="row" class="required">
+	                                    	<label for="">자기자본/ 순자산</label>
+	                                    </th>
+	                                    <td colspan="3">
+	                                        <input type="text" name="" id="" value="" class="w300px border-gray">
+	                                    </td>
+								   </tr>
+								   <tr>
+ 										<th scope="row" class="required">
+	                                    	<label for="">부채총액</label>
+	                                    </th>
+	                                    <td colspan="3">
+	                                        <input type="text" name="" id="" value="" class="w300px border-gray">
+	                                    </td>
+								   </tr>  
+								</tbody>
+							</table>
+						</section>
+						<!-- //6. 사업배경 (*관리자 입력 필수)​ -->
+						
+						<!-- 7. 은행정보 -->
+						<section class="bo-section">
+							<div class="sub-title">
+				                <h3 class="">은행정보</h3>
+				            </div>
+							<table class="bo-tbl-kyc">
+								<caption>은행정보</caption>
+							    <colgroup>
+									<col style="width: 170px"/>
+									<col />
+									<col style="width: 170px"/>
+									<col />
+							    </colgroup>
+								<tbody>
+	                                <tr>
+	                                    <th scope="row" class="required">
+	                                    	<label for="">은행명</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="하나은행" class="w300px" required readonly>
+	                                    </td>	
+	                                    <th scope="row" class="required">
+	                                    	<label for="">계좌주명</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="서린닷컴 회원가입 DB 자동 세팅값​" class="w300px" required readonly>
+	                                    </td>	
+								   </tr>              
+								   <tr>
+ 										<th scope="row" class="required">
+	                                    	<label for="">Bank Account Number​</label>
+	                                    </th>
+	                                    <td colspan="3">
+	                                        <input type="text" name="" id="" value="서린닷컴 내 고객의 에스크로 가상 계좌번호 기재 (이월렛)(서린닷컴 회원가입 DB자동 세팅 값)​" class="w300px" required readonly>
+	                                    </td>
+								   </tr>  
+								</tbody>
+							</table>
+						</section>
+						<!-- // 7. 은행정보 -->
+						
+						<!-- 8. 이사회/ 주주명단(*관리자 입력 필수) -->
+						<section class="bo-section">
+							<div class="sub-title">
+				                <h3 class="">이사회/ 주주명단</h3>
+				            </div>
+				            <div class="">
+				            	<!-- realGrid -->
+								<div id="realgrid" class="realgrid-wrap"></div>
+								<!-- paging -->
+								<div class="paging-row">
+									<div class="paging">
+										<div id="paging"></div>
+									</div>
+								</div>
+				            </div>
+				        </section>
+						<!-- //8. 이사회/ 주주명단(*관리자 입력 필수) -->
+						
+						<!-- 9. 서린크레딧 신청 희망 금액 -->
+						<section class="bo-section">
+							<div class="sub-title">
+				                <h3 class="">서린크레딧 신청 희망 금액</h3>
+				            </div>							
+				            <table class="bo-tbl-kyc">
+								<caption>서린크레딧 신청 희망 금액</caption>
+							    <colgroup>
+									<col style="width: 120px"/>
+									<col />
+									<col style="width: 120px"/>
+									<col />
+							    </colgroup>
+								<tbody>
+	                                <tr>
+	                                    <th scope="row" class="required">
+	                                    	<label for="">신청 희망금액</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="640,000,000" class="w300px fill-border-gray" required readonly>
+	                                    </td>	
+	                                    <th scope="row" class="required">
+	                                    	<label for="">신청날짜</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="2022-12-12" class="w300px fill-border-gray" required readonly>
+	                                    </td>	
+								   </tr>              
+	                                <tr>
+	                                    <th scope="row" class="required">
+	                                    	<label for="">보험 번호</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="" class="w300px border-gray">
+	                                    </td>	
+	                                    <th scope="row" class="required">
+	                                    	<label for="">보험 계약 기간</label>
+	                                    </th>
+	                                    <td>
+	                                    	<div class="period w200px flex-ac-jsb">
+	                                       		<input type="text" name="" id="" value="2022-12-12" class="">
+	                                       		<span>~</span>
+	                                       		<input type="text" name="" id="" value="2022-12-12" class="">
+	                                        </div>
+	                                    </td>	
+								   </tr>    
+								   <tr>
+								   	    <th scope="row" class="required">
+	                                    	<label for="">부보 금액</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="" class="w300px border-gray">
+	                                    </td>	
+	                                    <th scope="row" class="required">
+	                                    	<label for="">가능한도액</label>
+	                                    </th>
+	                                    <td>
+	                                        <input type="text" name="" id="" value="" class="w300px border-gray">
+	                                    </td>
+								   </tr>
+								</tbody>
+							</table>
+				        </section>
+						<!-- //9. 서린크레딧 신청 희망 금액 -->
+
+						<!-- 10. 영업관리팀 메일 발송 이력 -->
+						<section class="bo-section center">
+							<div class="sub-title">
+				                <h3 class="">영업관리팀 메일 발송 이력</h3>
+				            </div>							
+				            <table class="bo-tbl-kyc">
+								<caption>서린크레딧 신청 희망 금액</caption>
+								<colgroup>
+									<col width="10%"/>
+									<col width="10%"/>
+									<col width="20%"/>
+									<col width="30%"/>
+									<col width="15%"/>
+									<col width="15%"/>
+							    </colgroup>
+								<tbody>
+	                                <tr>
+	                                    <th scope="col">
+	                                    	<label for="">유형</label>
+	                                    </th>
+										<th scope="col">
+	                                    	<label for="">영업 수신자명</label>
+	                                    </th>
+										<th scope="col">
+	                                    	<label for="">메일주소</label>
+	                                    </th>
+										<th scope="col">
+	                                    	<label for="">메일 제목</label>
+	                                    </th>
+										<th scope="col">
+	                                    	<label for="">발송일</label>
+	                                    </th>
+										<th scope="col">
+	                                    	<label for="">발송자</label>
+	                                    </th>
+								   	</tr>
+								   	<tr>
+										<td>
+	                                        <input type="text" name="" id="" value="메일" class="fill-border-gray" required readonly>
+	                                    </td>	
+										<td>
+	                                        <input type="text" name="" id="" value="나영업" class="fill-border-gray" required readonly>
+	                                    </td>	
+										<td>
+	                                        <input type="text" name="" id="" value="test@gmail.com" class="fill-border-gray" required readonly>
+	                                    </td>	
+										<td>
+	                                        <input type="text" name="" id="" value="[엠투엠 글로벌] KYC 정보를 확인해주세요." class="fill-border-gray" required readonly>
+	                                    </td>	
+										<td>
+	                                        <input type="text" name="" id="" value="2022-12-12 10:00:20" class="fill-border-gray" required readonly>
+	                                    </td>
+										<td>
+	                                        <input type="text" name="" id="" value="김일곤" class="fill-border-gray" required readonly>
+	                                    </td>
+								   	</tr>               
+	                        	</tbody>
+							</table>
+				        </section>
+						<!-- //10. 영업관리팀 메일 발송 이력 -->	
+						
+					</div>
+					<div class="btm-btns">
+		                <div class="btn-box">
+		                   <button type="button" id="" class="btn btn-blue btn-pop-toast">영업관리팀 메일보내기​</button>
+		                   <button type="button" id="" class="btn btn-refuse">거절</button>
+		                   <button type="button" id="" class="btn">승인</button>
+		                </div>
+		            </div>
+                </div>
+            </div>
+		</section>
+	</div>
+
+
+	<!-- toast popup layout-->
+	<div class="pop-modal pop-toast">
+		<div class="pop-inner">
+			<!-- 관리자 추가 항목이 입력 안된 경우 -->
+			<p>
+				관리가 추가 항목 입력 필수 입니다. <br>
+				입력 후 저장버튼  눌러주세요.​
+			</p>
+			<!-- 사업배경, 이사.주주명단 작성 후 저장 버튼 클릭 안한 경우 
+			<p>
+				 관리가 추가 항목 입력 필수 입니다. <br>​
+ 				 입력 후 저장버튼  눌러주세요.​​
+			</p>
+			-->
+		</div>
+	</div>
+	<!-- //toast popup layout -->
+	
+	<!-- 영업관리팀 수신자 메일 설정 팝업 (리얼그리드) -->
+	<div class="pop-modal">
+		<div class="pop-inner w700px">
+			<div class="pop-title">
+				<h2 class="title">영업관리팀 수신자 메일 설정</h2>
+			</div>
+			<div class="pop-cont">
+				<div class="btn-box2">
+                    <button type="button" class="btn btn-blue">행추가</button>
+				</div>
+				<!-- realGrid -->
+				<div id="realgrid" class="realgrid-wrap"></div>
+				<!-- paging -->
+				<div class="paging-row">
+					<div class="paging">
+						<div id="paging"></div>
+					</div>
+				</div>
+				<div class="btm-btns btm-btns2">
+	                <div class="btn-box">
+	                   <button type="button" id="" class="btn">발송하기</button>
+	                </div>
+	            </div>
+			</div>
+		</div>
+	</div>
+	<!-- //영업관리팀 수신자 메일 설정 팝업 (리얼그리드) -->
+
+	<!-- 거절사유 입력 textarea -->
+	<div class="pop-modal pop-refuse">
+		<div class="pop-inner w450px">
+			<div class="pop-title">
+				<h2 class="title">거절사유를 입력해주세요.</h2>
+			</div>
+			<div class="pop-cont">
+				<textarea name="" id="" cols="30" rows="10" placeholder="사유를 입력해주세요."></textarea>
+				<div class="btm-btns btm-btns2">
+	                <div class="btn-box">
+	                   <button type="button" id="" class="btn btn-blue">취소​</button>
+	                   <button type="button" id="" class="btn btn-refuse">거절하기</button>
+	                </div>
+	            </div>
+			</div>
+		</div>
+	</div>
+	<!-- //거절사유 입력 textarea -->
+	
+	
+	<!-- 승인버튼 클릭 시 최종 승인 팝업 -->
+	<div class="pop-modal pop-modal2 pop-credit-confirm">
+		<div class="pop-inner w700px">
+			<div class="pop-title">
+				<h2 class="title">서린크레딧 승인 한도 금액을 아래와 같이 작성하였습니다. <br>최종 승인 하시겠습니까?​</h2>
+			</div>
+			<div class="pop-cont">
+				<table class="bo-tbl-kyc">
+					<caption>서린크레딧 최종 승인 팝업</caption>
+					<colgroup>
+						<col style="width: 120px" />
+						<col />
+						<col style="width: 120px" />
+						<col />
+					</colgroup>
+					<tbody>
+	                    <tr>
+	                        <th scope="row">
+	                        	<label for="">신청 희망 금액</label>
+	                        </th>
+	                        <td>
+	                            <input type="text" name="" id="" value="640,000,000" class="" required readonly>
+	                        </td>
+	                        <th scope="row">
+	                        	<label for="">신청일</label>
+	                        </th>
+	                        <td>
+	                            <input type="text" name="" id="" value="2022-12-12" class="" required readonly>
+	                        </td>
+					   </tr>              
+					   <tr>
+	                        <th scope="row">
+	                        	<label for="">보험번호</label>
+	                        </th>
+	                        <td>
+	                            <input type="text" name="" id="" value="" class="border-gray" required readonly>
+	                        </td>
+	                        <th scope="row">
+	                        	<label for="">보험계약기간</label>
+	                        </th>
+	                        <td>
+	                            <input type="text" name="" id="" value="" class="border-gray" required>
+	                        </td>
+					   </tr>
+					   <tr>
+	                        <th scope="row">
+	                        	<label for="">부보금액</label>
+	                        </th>
+	                        <td>
+	                            <input type="text" name="" id="" value="" class="border-gray" required>
+	                        </td>
+	                        <th scope="row">
+	                        	<label for="">가능한도액</label>
+	                        </th>
+	                        <td>
+	                            <input type="text" name="" id="" value="" class="border-gray" required>
+	                        </td>
+					   </tr>
+	
+					</tbody>
+				</table>
+				<div class="btm-btns btm-btns2">
+	                <div class="btn-box">
+	                   <button type="button" id="" class="btn btn-blue">취소​</button>
+	                   <button type="button" id="" class="btn btn-refuse">승인하기</button>
+	                </div>
+	            </div>
+			</div>
+		</div>
+	</div>
+	<!-- //승인버튼 클릭 시 최종 승인 팝업  -->
+	
+	<!-- 최종 승인 팝업 > 승인하기 버튼 클릭시 -->
+	<div class="pop-modal pop-modal2 pop-center">
+		<div class="pop-inner w350px">
+			<div class="pop-title">
+				<h2 class="title">승인처리 되었습니다.​</h2>
+			</div>
+			<div class="pop-cont">
+				<div class="btm-btns btm-btns2">
+	                <div class="btn-box">
+	                   <button type="button" id="" class="btn btn-blue">확인​</button>
+	                   <button type="button" id="" class="btn btn-refuse">기업회원조회 가기</button>
+	                </div>
+	            </div>
+			</div>
+		</div>
+	</div>
+	<!-- //최종 승인 팝업 > 승인하기 버튼 클릭시 -->
+	
+	<script>
+		$(function () {
+		
+			
+		    // toast popup
+		    $('.btn-pop-toast').on('click',function () {
+
+		        //토스트팝업
+		        $('.pop-toast').fadeIn(300);
+		
+		        setTimeout(function(){
+		             $('.pop-toast').fadeOut(300);
+		        },2000);
+		    });
+		    
+		    
+        	// contents height
+		    let winH = $(window).height();
+		    $('.main-content-kyc .table-wrap').height(winH - 270);
+		    
+		    // resize contents height
+		    $(window).on('resize', function(){
+				let winH = $(window).height();
+			    $('.main-content-kyc .table-wrap').height(winH - 270);
+			});
+			
+			//scrollbar
+		    $(window).on("load",function(){
+			    $(".main-content-kyc .table-wrap").mCustomScrollbar();
+			});
+		});
+
+	</script>
+</body>
+
+
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <!-- script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <script type="text/javascript" src="/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+</head>
+
+
+<body>
+
+	<div class="web-wrapper">
+		<!-- [D] 사이드바 부분 인클루드 시작 -->
+		<!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
+		<aside class="web-sidebar"></aside>
+		<script type="text/javascript"> $(".web-sidebar").load("/guide/html/include/sidebar.html");</script>
+		<!-- // [D] 사이드바 부분 인클루드 끝 -->
+
+		<section class="web-container">
+			<!-- [D] 상단메뉴 부분 인클루드 시작 -->
+			<!-- [D] 활성화된 메뉴 : .is-active 추가 -->
+			<header class="web-header"></header>
+			<script type="text/javascript"> $(".web-header").load("/guide/html/include/header.html");</script>
+			<!-- // [D] 상단메뉴 부분 인클루드 끝 -->
+
+			<div class="main-content">
+				<div class="inner">
+					<div class="search-control">
+
+						<div class="form-set">
+							<span class="label">구분</span>
+							<select class="form-select select-sm">
+								<option value="전체">전체</option>
+								<option value="공통">공통</option>
+								<option value="주문">주문</option>
+								<option value="결제">결제</option>
+								<option value="배송">배송</option>
+								<option value="회원">회원</option>
+							</select>
+							<select class="form-select">
+								<option value="전체">전체</option>
+								<option value="회원가입">회원가입</option>
+								<option value="회원탈퇴">회원탈퇴</option>
+								<option value="회원명의변경">회원명의변경</option>
+								<option value="회원가입조건">회원가입조건</option>
+								<option value="반품/취소접수">반품/취소접수</option>
+							</select>
+						</div>
+						<div class="form-set">
+							<span class="label">조회 구분</span>
+							<select class="form-select select-sm">
+								<option value="전체">전체</option>
+								<option value="질문">질문</option>
+								<option value="답변">답변</option>
+							</select>
+							<input type="text" class="input" value="" placeholder="검색어를 입력해주세요." />
+						</div>
+						<div class="form-set">
+							<span class="label">노출여부</span>
+							<select class="form-select">
+								<option value="전체">전체</option>
+								<option value="예">예</option>
+								<option value="아니오">아니오</option>
+							</select>
+						</div>
+						<div class="search-btn">
+							<button type="button" class="btn btn-blue">검색</button>
+						</div>
+					</div>
+
+					<div class="sub-title">
+						<h3 class=""></h3>
+						<div class="btn-box">
+							<button type="button" class="btn">등록</button>
+							<button type="button" class="btn">수정</button>
+							<button type="button" class="btn">삭제</button>
+							<button type="button" class="btn btn-green has-icon"><i class="icon icon-excel">엑셀</i></button>
+						</div>
+					</div>
+					<!-- realGrid -->
+					<div id="realgrid" class="realgrid-wrap"></div>
+					<!-- paging -->
+					<div class="paging-row">
+						<div class="paging">
+							<div id="paging"></div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+		</section>
+	</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <!-- script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <script type="text/javascript" src="/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+</head>
+
+
+<body>
+
+	<div class="web-wrapper">
+		<!-- [D] 사이드바 부분 인클루드 시작 -->
+		<!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
+		<aside class="web-sidebar"></aside>
+		<script type="text/javascript"> $(".web-sidebar").load("/guide/html/include/sidebar.html");</script>
+		<!-- // [D] 사이드바 부분 인클루드 끝 -->
+
+		<section class="web-container">
+			<!-- [D] 상단메뉴 부분 인클루드 시작 -->
+			<!-- [D] 활성화된 메뉴 : .is-active 추가 -->
+			<header class="web-header"></header>
+			<script type="text/javascript"> $(".web-header").load("/guide/html/include/header.html");</script>
+			<!-- // [D] 상단메뉴 부분 인클루드 끝 -->
+
+			<div class="main-content">
+                 <div class="inner">
+
+					<div class="table-control">
+						<div class="form-set"></div>
+						<div class="btn-box">
+                            <button type="button" class="btn">변경이력</button>
+						</div>
+					</div>
+
+					<div class="table table-view">
+						<table>
+							<colgroup>
+								<col class="col-md" />
+								<col width="*" />
+							</colgroup>
+							<tbody>
+								<tr>
+									<th scope="row" class="text-center">등급평가일</th>
+									<td>
+                                        <select class="form-select select-sm">
+                                            <option value="선택">선택</option>
+                                        </select> 마다
+                                        <label class="label px-10">익월</label>
+                                        <input type="text" class="input input-sm text-right" value="1">
+                                        <span class="unit">일</span>
+
+                                    </td>
+								</tr>
+							</tbody>
+						</table>
+					</div>                    
+
+                    <!-- 퍼포먼스 등급 관리 시작 -->
+					<div class="table table-view text-center">
+						<table>
+							<colgroup>
+								<col style="width:20%" />
+								<col style="width:13.33%" />
+								<col style="width:20%" />
+								<col style="width:13.33%" />
+								<col style="width:20%" />
+								<col style="width:13.33%" />
+							</colgroup>
+                            <tbody>
+                                <tr>
+                                    <th colspan="2">주문 톤수 기준</th>
+                                    <th colspan="2">주문 빈도 기준</th>
+                                    <th colspan="2">등급 평가 기준</th>
+                                </tr>
+                                <tr>
+                                    <th>톤(MT)</th>
+                                    <th>점수</th>
+                                    <th>빈도수</th>
+                                    <th>점수</th>
+                                    <th>합계 점수</th>
+                                    <th>등급</th>
+                                </tr>
+								<tr>
+									<td nowrap="nowrap">
+                                        <input type="text" class="input text-right w-48" value="2001">
+                                        ~
+                                        <input type="text" class="input text-right w-48" value="0">
+                                    </td>
+									<td>
+                                        <input type="text" class="input text-right" value="5">
+                                    </td>
+									<td nowrap="nowrap">
+                                        <input type="text" class="input text-right w-48" value="20">
+                                        ~
+                                        <input type="text" class="input text-right w-48" value="0">
+                                    </td>
+									<td>
+                                        <input type="text" class="input text-right" value="5">
+                                    </td>
+									<td nowrap="nowrap">
+                                        <input type="text" class="input text-right w-48" value="9">
+                                        ~
+                                        <input type="text" class="input text-right w-48" value="10">
+                                    </td>
+									<td nowrap="nowrap">
+                                        <select class="form-select">
+                                            <option value="선택">플래티넘</option>
+                                        </select>
+                                    </td>
+								</tr>
+								<tr>
+									<td nowrap="nowrap">
+                                        <input type="text" class="input text-right w-48" value="1501">
+                                        ~
+                                        <input type="text" class="input text-right w-48" value="2000">
+                                    </td>
+									<td>
+                                        <input type="text" class="input text-right" value="4">
+                                    </td>
+									<td nowrap="nowrap">
+                                        <input type="text" class="input text-right w-48" value="16">
+                                        ~
+                                        <input type="text" class="input text-right w-48" value="20">
+                                    </td>
+									<td>
+                                        <input type="text" class="input text-right" value="4">
+                                    </td>
+									<td nowrap="nowrap">
+                                        <input type="text" class="input text-right w-48" value="7">
+                                        ~
+                                        <input type="text" class="input text-right w-48" value="8">
+                                    </td>
+									<td nowrap="nowrap">
+                                        <select class="form-select">
+                                            <option value="선택">다이아몬드</option>
+                                        </select>
+                                    </td>
+								</tr>
+								<tr>
+									<td nowrap="nowrap">
+                                        <input type="text" class="input text-right w-48" value="1001">
+                                        ~
+                                        <input type="text" class="input text-right w-48" value="1500">
+                                    </td>
+									<td>
+                                        <input type="text" class="input text-right" value="3">
+                                    </td>
+									<td nowrap="nowrap">
+                                        <input type="text" class="input text-right w-48" value="11">
+                                        ~
+                                        <input type="text" class="input text-right w-48" value="15">
+                                    </td>
+									<td>
+                                        <input type="text" class="input text-right" value="3">
+                                    </td>
+									<td nowrap="nowrap">
+                                        <input type="text" class="input text-right w-48" value="5">
+                                        ~
+                                        <input type="text" class="input text-right w-48" value="6">
+                                    </td>
+									<td nowrap="nowrap">
+                                        <select class="form-select">
+                                            <option value="선택">골드</option>
+                                        </select>
+                                    </td>
+								</tr>
+								<tr>
+									<td nowrap="nowrap">
+                                        <input type="text" class="input text-right w-48" value="501">
+                                        ~
+                                        <input type="text" class="input text-right w-48" value="1000">
+                                    </td>
+									<td>
+                                        <input type="text" class="input text-right" value="2">
+                                    </td>
+									<td nowrap="nowrap">
+                                        <input type="text" class="input text-right w-48" value="5">
+                                        ~
+                                        <input type="text" class="input text-right w-48" value="10">
+                                    </td>
+									<td>
+                                        <input type="text" class="input text-right" value="2">
+                                    </td>
+									<td nowrap="nowrap">
+                                        <input type="text" class="input text-right w-48" value="3">
+                                        ~
+                                        <input type="text" class="input text-right w-48" value="4">
+                                    </td>
+									<td nowrap="nowrap">
+                                        <select class="form-select">
+                                            <option value="선택">실버</option>
+                                        </select>
+                                    </td>
+								</tr>
+								<tr>
+									<td nowrap="nowrap">
+                                        <input type="text" class="input text-right w-48" value="0">
+                                        ~
+                                        <input type="text" class="input text-right w-48" value="500">
+                                    </td>
+									<td>
+                                        <input type="text" class="input text-right" value="1">
+                                    </td>
+									<td nowrap="nowrap">
+                                        <input type="text" class="input text-right w-48" value="0">
+                                        ~
+                                        <input type="text" class="input text-right w-48" value="4">
+                                    </td>
+									<td>
+                                        <input type="text" class="input text-right" value="1">
+                                    </td>
+									<td nowrap="nowrap">
+                                        <input type="text" class="input text-right w-48" value="0">
+                                        ~
+                                        <input type="text" class="input text-right w-48" value="2">
+                                    </td>
+									<td nowrap="nowrap">
+                                        <select class="form-select">
+                                            <option value="선택">브론즈</option>
+                                        </select>
+                                    </td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+                    <!-- // 퍼포먼스 등급 관리 끝 -->
+
+					<div class="table table-view">
+						<table>
+							<colgroup>
+								<col class="col-md" />
+								<col width="*" />
+								<col class="col-md" />
+								<col width="*" />
+							</colgroup>
+							<tbody>
+								<tr>
+									<th scope="row" class="text-center">작성자</th>
+									<td>홍길동</td>
+									<th scope="row" class="text-center">작성일지</th>
+									<td>2022-05-15 11:11:10</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+                    <div class="btn-box btn-box-lg">
+                        <button type="button" class="btn">저장</button>
+                    </div>
+
+                </div>
+                
+			</div>
+
+
+		</section>
+	</div>
+
+
+</body>
+
+</html>

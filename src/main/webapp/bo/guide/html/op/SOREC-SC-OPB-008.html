@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <!-- script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <script type="text/javascript" src="/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+</head>
+
+
+<body>
+
+	<div class="web-wrapper">
+		<!-- [D] 사이드바 부분 인클루드 시작 -->
+		<!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
+		<aside class="web-sidebar"></aside>
+		<script type="text/javascript"> $(".web-sidebar").load("/guide/html/include/sidebar.html");</script>
+		<!-- // [D] 사이드바 부분 인클루드 끝 -->
+
+		<section class="web-container">
+			<!-- [D] 상단메뉴 부분 인클루드 시작 -->
+			<!-- [D] 활성화된 메뉴 : .is-active 추가 -->
+			<header class="web-header"></header>
+			<script type="text/javascript"> $(".web-header").load("/guide/html/include/header.html");</script>
+			<!-- // [D] 상단메뉴 부분 인클루드 끝 -->
+
+			<div class="main-content">
+				<div class="inner">
+					
+					<!-- Button trigger modal -->
+					<button type="button" class="btn" data-toggle="modal" data-target="#exampleModal-full">Full Popup</button>
+					<!-- Modal : full popoup -->
+					<!-- [D]모달 위치는 변경 하셔도 됩니다! -->
+					<div class="modal fade" id="exampleModal-full" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-full" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-full" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel-full">팝업 타이틀</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">×</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<!-- 테이블이 왼쪽이 작게 나뉜경우 .group-sm -->
+									<div class="table-group group-sm">
+										<div class="table-set">
+											<div class="table table-view">
+												<table>
+													<colgroup>
+														<col width="180px" />
+														<col width="*" />
+													</colgroup>
+													<tbody>
+														<tr>
+															<th scope="row">템플릿<i class="icon icon-required">필수값</i></th>
+															<td>
+																<select class="form-select">
+																	<option value="">뉴스레터 탬플릿 #1</option>
+																</select>
+															</td>
+														</tr>
+														<tr>
+															<th scope="row">제목</th>
+															<td>
+																<p class="lines">
+																	[서린EC 뉴스레터] <span>{{userName}}</span> 고객님을 위한 비철 소식 8호 – <span></span>{{Date}}</span>
+																</p>
+															</td>
+														</tr>
+														<tr>
+															<th colspan="2" class="text-center">내용</th>
+														</tr>
+														<tr>
+															<td colspan="2">
+																<div class="template-layout">
+																	<div class="template-head">{{Title}}</div>
+																	<div class="template-content">
+																		<div class="left">
+																			{{leftCont}}
+																		</div>
+																		<div class="right">
+																			<div class="">{{rightCont}}</div>
+																			<div class="">첨부파일 : {{pdfAttach}}</div>
+																		</div>
+																	</div>
+																	<div class="template-foot">
+																		{{footer}}
+																	</div>
+																</div>
+															</td>
+														</tr>
+														<tr>
+															<th scope="col" colspan="2" class="text-center">첨부파일</th>
+														</tr>
+														<tr>
+															<td colspan="2">
+																<span class="file">
+																	<input type="text" class="input" title="첨부된 파일명">
+																	<!-- [D] 파일 첨부 ( common.js 파일 ) 스크립트 임의작성 -->
+																	<label for="sFiles1" class="btn btn-file" role="button">
+																		<input type="file" name="sFiles1" id="sFiles1" value="찾아보기" tabindex="-1" aria-hidden="true">
+																		파일 첨부하기
+																	</label>
+																</span>
+																<div class="table table-inner">
+																	<table>
+																		<colgroup>
+																			<col width="">
+																		</colgroup>
+																		<thead>
+																			<tr>
+																				<th>첨부파일명</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																			<tr>
+																				<td>
+																					<div class="file-group">
+																						<span class="file">사업자등록증_사본.pdf</span>
+																						<div class="btn-box btn-box-sm">
+																							<button type="button" class="btn btn-border"><span>미리보기</span><i class="icon icon-preview"></i></button>
+																							<button type="button" class="btn btn-border"><span>삭제하기</span><i class="icon icon-delete"></i></button>
+																						</div>
+
+																					</div>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<div class="file-group">
+																						<span class="file">통장사본.jpg</span>
+																						<div class="btn-box btn-box-sm">
+																							<button type="button" class="btn btn-border" disabled><span>미리보기</span><i class="icon icon-preview"></i></button>
+																							<button type="button" class="btn btn-border" disabled><span>삭제하기</span><i class="icon icon-delete"></i></button>
+																						</div>
+																					</div>
+																				</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</div>
+															</td>
+														</tr>
+														<tr>
+															<th scope="row">예약발송일시</th>
+															<td>
+																<!-- [D] 월 선택 경우 .form-month 추가 -->
+																<!-- [D] 날짜 선택 경우 .form-date 추가 -->
+																<div class="input-group date form-date"> 
+																	<input type="text" class="input" id="datepicker1" value="2021-01" />
+																	<label for="datepicker1" class="btn has-icon"><i class="icon icon-calendar">달력</i></label>
+																</div>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+
+										</div>
+
+										<div class="table-set">
+											<div class="table-control mt-0">
+												<h3 class="form-set">
+													<input type="text" class="input input-md" value="srec0011@sorincorp.com" />
+													<button type="button" class="btn">테스트 발송</button>
+												</h3>
+												<div class="btn-box">
+													<button type="button" class="btn btn-purple">미리보기</button>
+													<button type="button" class="btn">발송</button>
+												</div>
+											</div>
+
+											<div class="table table-view table-fixed-head text-center">
+												<!-- //헤더부 -->
+												<table class="table-head">
+													<colgroup>
+														<col class="col-xm" />
+														<col width="*" />
+													</colgroup>
+													<thead>
+														<tr>
+															<th scope="col">치환 코드</th>
+															<th scope="col">값</th>
+														</tr>
+													</thead>
+												</table>
+												<!-- //바디부 -->
+												<div class="table-body md">
+													<table>
+														<colgroup>
+															<col class="col-xm" />
+															<col width="*" />
+														</colgroup>
+														<tbody>
+															<tr>
+																<th scope="row">{{Title}}</th>
+																<td><textarea type="text" class="textarea textarea-md" value="">비철 동향 소개</textarea></td>
+															</tr>
+															<tr>
+																<th scope="row"> {{leftCont}}</th>
+																<td><textarea type="text" class="textarea textarea-md" value="">LEM의 추세 내용에 대해 블라블라블라</textarea></td>
+															</tr>
+															<tr>
+																<th scope="row">{{rightCont}}</th>
+																<td><textarea type="text" class="textarea textarea-md" value="">LEM의 추세 내용에 대해 블라블라블라</textarea></td>
+															</tr>
+															<tr>
+																<th scope="row">{{footer}}</th>
+																<td><textarea type="text" class="textarea textarea-md" value="">LEM의 추세 내용에 대해 블라블라블라</textarea></td>
+															</tr>
+															<tr>
+																<th scope="row">{{pdfAttach}}</th>
+																<td><textarea type="text" class="textarea textarea-md" value="">http://sorincorp.com/content/20214015_news.pdf</textarea></td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+
+											<div class="sub-title">
+												<h3 class="form-count">
+													<span class="label">발송 대상자 :</span>
+													<span class="desc">총<span class="count">420</span>명</span>
+												</h3>
+												<div class="btn-box">
+													<!-- <button type="button" class="btn">엑셀 양식 다운로드</button> -->
+													<button type="button" class="btn">발송 대상자 추출</button>
+													<button type="button" class="btn">엑셀 업로드</button>
+													<button type="button" class="btn">삭제</button>
+													<button type="button" class="btn btn-green has-icon"><i class="icon icon-excel">엑셀 양식 다운로드</i></button>
+												</div>
+											</div>
+											<!-- [D] 영역을 잡기 위해 넣어놓은 스타일입니다. 개발 시 지워주세요 -->
+											<!-- realGrid 넣는 곳 -->
+											<div id="realgrid" class="realgrid-wrap stretch-content">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<div class="btn-box">
+										<button type="button" class="btn">저장</button>
+										<button type="button" class="btn" data-dismiss="modal">삭제</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- //main-content -->
+		</section>
+	</div>
+
+
+</body>
+
+</html>

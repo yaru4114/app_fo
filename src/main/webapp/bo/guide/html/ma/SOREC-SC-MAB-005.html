@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[고도화 3차] Dashbroard Renewal</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/jquery.mCustomScrollbar.css"><!-- mCustomScrollbar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+   <!--  <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <script type="text/javascript" src="/guide/js/jquery.mCustomScrollbar.concat.min.js"></script><!-- mCustomScrollbar -->
+    <!-- <script type="text/javascript" src="/guide/js/realgridCustom.js"></script>퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+</head>
+
+
+<body>
+	<div class="dashboard2-wrap">
+		<div class="dashboard2-inner flex-afs-jsb column-scroll">
+			<div class="dashboard2-column dashboard2-column1">
+				<!-- 1-1. 주문 접수 현황 -->
+				<section class="dashboard2 dashboard2-order-status">
+					<h2 class="dashboard2-title">주문 접수 현황</h2>
+					<div class="dashboard2-cont flex-jsb">
+						<div class="card">
+							<h3 class="card-title">오늘주문/당월주문</h3>
+							<div class="card-cont flex-afe-jsb">
+								<span>29</span>
+								<span>2,936</span>
+							</div>
+						</div>
+						<div class="card">
+							<h3 class="card-title">오늘수량/당월수량</h3>
+							<div class="card-cont flex-afe-jsb">
+								<span>278</span>
+								<span>52,815</span>
+							</div>
+						</div>
+						<div class="card">
+							<h3 class="card-title">지정가 체결/대기</h3>
+							<div class="card-cont flex-afe-jsb">
+								<span>36</span>
+								<span>18</span>
+							</div>
+						</div>
+						<div class="card">
+							<h3 class="card-title">공동구매 완료/진행</h3>
+							<div class="card-cont flex-afe-jsb">
+								<span>16</span>
+								<span>3</span>
+							</div>
+						</div>
+					</div>
+				</section>
+				<div class="section-bottom-wrap">
+					<!-- 1-2. 호가창 -->
+					<section class="dashboard2 dashboard2-asking-price">
+						<h2 class="dashboard2-title">호가창</h2>
+						<div class="dashboard2-cont flex-jsb">
+							<div class="tbl-wrap tbl-asking-price">
+	                        	<div class="tbl-head">
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-th asking-price">호가</div>
+	                                    <div class="tbl-th stock-level">접수</div>
+	                                    <div class="tbl-th amount">주문톤수</div>
+	                                </div>
+	                            </div>
+	                            <div class="tbl-body scroll">									
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td asking-price">3,000,000</div>
+	                                    <!-- 
+	                                        [호가창 > 재고잔량 Guide Message]
+	                                        1. 40칸 컨셉 (총 1000톤)
+	                                        - 1000ton 이상 주문시, 내 위치 보이지 않음.
+	                                        2. class Guide
+	                                        - 기본: 40칸 유지 
+	                                        - 주문 없음: (#F0F0F0)
+	                                        - .other: 타인 주문 (#FFE5E5)
+	                                    -->
+	                                    <div class="tbl-td stock-level">
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                    </div>
+	                                    <div class="tbl-td amount">100</div>
+	                                </div>
+	                                <div class="tbl-tr highlight">
+	                                    <div class="tbl-td asking-price">2,900,000</div>
+	                                    <div class="tbl-td stock-level">
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                    </div>
+	                                    <div class="tbl-td amount">350</div>
+	                                </div>
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td asking-price">2,800,000</div>
+	                                    <div class="tbl-td stock-level">
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                    </div>
+	                                    <div class="tbl-td amount">500</div>
+	                                </div>
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td asking-price">2,700,000</div>
+	                                    <div class="tbl-td stock-level">
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                    </div>
+	                                    <div class="tbl-td amount">25</div>
+	                                </div>
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td asking-price">2,600,000</div>
+	                                    <div class="tbl-td stock-level">
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                    </div>
+	                                    <div class="tbl-td amount">100</div>
+	                                </div>
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td asking-price">2,500,000</div>
+	                                    <div class="tbl-td stock-level">
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                    </div>
+	                                    <div class="tbl-td amount">125</div>
+	                                </div>
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td asking-price">2,400,000</div>
+	                                    <div class="tbl-td stock-level">
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                    </div>
+	                                    <div class="tbl-td amount">500</div>
+	                                </div>									
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td asking-price">2,300,000</div>
+	                                    <div class="tbl-td stock-level">
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                    </div>
+	                                    <div class="tbl-td amount">700</div>
+	                                </div>
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td asking-price">2,200,000</div>
+	                                    <div class="tbl-td stock-level">
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class="other"></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                        <span class=""></span>
+	                                    </div>
+	                                    <div class="tbl-td amount">525</div>
+	                                </div>
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td asking-price">2,100,000</div>
+	                                    <div class="tbl-td stock-level">
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                        <span></span>
+	                                    </div>
+	                                    <div class="tbl-td amount">1500</div>
+	                                </div>
+	                                
+	                            </div>
+	                        </div>
+						</div>
+					</section>
+					<!-- 1-3. 지정가 주문 접수 목록 -->
+					<section class="dashboard2 dashboard2-limit">
+						<h2 class="dashboard2-title">지정가 주문 접수 목록</h2>
+						<div class="dashboard2-cont flex-jsb">
+	                        <div class="tbl-wrap tbl-list tbl-limit">
+	                            <div class="tbl-head">
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-th">주문일자</div>
+	                                    <div class="tbl-th">기업</div>
+	                                    <!--<div class="tbl-th">아이템</div>-->
+	                                    <div class="tbl-th">출고권역/브랜드</div>
+	                                    <div class="tbl-th">주문톤수</div>
+	                                    <div class="tbl-th">가격</div>
+	                                </div>
+	                            </div>
+	                            <div class="tbl-body scroll">
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td">23-04-24</div>
+	                                    <div class="tbl-td">다산물산</div>
+	                                    <!--<div class="tbl-td item">Zinc_SHG _ Zn 99.995%(up)</div>-->
+	                                    <div class="tbl-td item-detail">인천/비서구산/VEDANTA </div>
+	                                    <div class="tbl-td">25</div>
+	                                    <div class="tbl-td">3,000,000</div>
+	                                </div>
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td">23-04-24</div>
+	                                    <div class="tbl-td">다산물산</div>
+	                                    <!--<div class="tbl-td item">P1020</div>-->
+	                                    <div class="tbl-td item-detail">부산/비서구산/SOHAR</div>
+	                                    <div class="tbl-td">100</div>
+	                                    <div class="tbl-td">3,000,000</div>
+	                                </div>
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td">23-04-24</div>
+	                                    <div class="tbl-td">콘탱고메탈</div>
+	                                    <!--<div class="tbl-td item">P1020</div>-->
+	                                    <div class="tbl-td item-detail">인천/비서구산/VEDANTA </div>
+	                                    <div class="tbl-td">50</div>
+	                                    <div class="tbl-td">3,100,000</div>
+	                                </div>
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td">23-04-24</div>
+	                                    <div class="tbl-td">콘탱고메탈</div>
+	                                    <!--<div class="tbl-td item">P1020</div>-->
+	                                    <div class="tbl-td item-detail">인천/서구산/PMB</div>
+	                                    <div class="tbl-td">25</div>
+	                                    <div class="tbl-td">3,100,000</div>
+	                                </div>
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td">23-04-24</div>
+	                                    <div class="tbl-td">케이피유</div>
+	                                    <!--<div class="tbl-td item">P1020</div>-->
+	                                    <div class="tbl-td item-detail">인천/서구산/VEDANTA </div>
+	                                    <div class="tbl-td">100</div>
+	                                    <div class="tbl-td">3,000,000</div>
+	                                </div>   
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td">23-04-24</div>
+	                                    <div class="tbl-td">케이피유</div>
+	                                    <!--<div class="tbl-td item">P1020</div>-->
+	                                    <div class="tbl-td item-detail">인천/서구산/PMB</div>
+	                                    <div class="tbl-td">100</div>
+	                                    <div class="tbl-td">3,000,000</div>
+	                                </div>
+                                </div>
+	                                
+	                                <!-- [case - 데이터 없음] 공통 > 각 table 영역에 데이터가 없는 경우 예시 START {
+		                            <div class="tbl-body  scroll">
+		                            	<div class="tbl-tr">
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                </div>
+		                                <div class="tbl-tr">
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                </div>
+		                                <div class="tbl-tr">
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                </div>
+		                                <div class="tbl-tr">
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                </div>
+		                                <div class="tbl-tr">
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                </div>
+		                                <div class="tbl-tr">
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                    <div class="tbl-td"></div>
+		                                </div>
+		                            </div>-->
+	                            	<!--} //[case - 데이터 없음] 공통 > 각 table 영역에 데이터가 없는 경우 예시 FINISH -->
+								
+	                        </div>
+						</div>
+					</section>
+				</div>
+			</div>
+			<div class="dashboard2-column dashboard2-column2">
+				<!-- 2-1. 재고 현황 -->
+				<section class="dashboard2 dashboard2-stock-status">
+					<h2 class="dashboard2-title">재고 현황</h2>
+					<div class="dashboard2-cont flex">
+						<div class="card">
+							<h3 class="card-title flex-ac">알루미늄</h3>
+							<div class="card-cont">
+								<dl class="flex-ac-jsb">
+									<dt>인천 서구산</dt>
+									<dd>2,176</dd>
+								</dl>
+								<dl class="flex-ac-jsb">
+									<dt>인천 비서구산</dt>
+									<dd>624</dd>
+								</dl>
+								<dl class="flex-ac-jsb">
+									<dt>부산 서구산</dt>
+									<dd>2,176</dd>
+								</dl>
+								<dl class="flex-ac-jsb">
+									<dt>부산 비서구산</dt>
+									<dd>624</dd>
+								</dl>
+								<dl class="stock-status-total flex-ac-jsb">
+									<dt>소계</dt>
+									<dd>2,800</dd>
+								</dl>
+							</div>
+						</div>
+						<div class="card">
+							<h3 class="card-title flex-ac">아연</h3>
+							<div class="card-cont">
+								<dl class="flex-ac-jsb">
+									<dt>인천 수입산</dt>
+									<dd>1,724</dd>
+								</dl>
+								<dl class="flex-ac-jsb">
+									<dt>인천 국내산</dt>
+									<dd>110</dd>
+								</dl>
+								<!--
+								<dl class="flex-ac-jsb">
+									<dt>부산 수입산</dt>
+									<dd>1,724</dd>
+								</dl>
+								
+								<dl class="flex-ac-jsb">
+									<dt>부산 국내산</dt>
+									<dd>110</dd>
+								</dl>
+								-->
+								<dl class="stock-status-total flex-ac-jsb">
+									<dt>소계</dt>
+									<dd>1,834</dd>
+								</dl>
+								
+							</div>
+						</div>
+						<!-- 23.05.04 구리 주석처리
+						<div class="card">
+							<h3 class="card-title flex-ac">구리</h3>
+							<div class="card-cont">
+								<dl class="flex-ac-jsb">
+									<dt>인천 수입산</dt>
+									<dd>1,724</dd>
+								</dl>
+								<dl class="flex-ac-jsb">
+									<dt>인천 국내산</dt>
+									<dd>110</dd>
+								</dl>
+								<dl class="flex-ac-jsb">
+									<dt>부산 수입산</dt>
+									<dd>1,724</dd>
+								</dl>
+								<dl class="flex-ac-jsb">
+									<dt>부산 국내산</dt>
+									<dd>110</dd>
+								</dl>
+								<dl class="stock-status-total flex-ac-jsb">
+									<dt>소계</dt>
+									<dd>4,634</dd>
+								</dl>
+							</div>
+						</div>
+						 -->
+					</div>
+				</section>
+				<div class="section-bottom-wrap">
+					<!-- 2-2. 공동 구매 현황 -->
+					<section class="dashboard2 dashboard2-group-buying-status">
+						<h2 class="dashboard2-title">공동 구매 현황</h2>
+						<div class="dashboard2-cont">
+							<div class="tbl-wrap tbl-group-buying-status">
+	                            <div class="tbl-head">
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-th num">차수</div>
+	                                    <div class="tbl-th metal">메탈</div>
+	                                    <div class="tbl-th product">상품</div>
+	                                    <div class="tbl-th ton">모집톤수</div>
+	                                    <div class="tbl-th receipt-rate">접수율</div>
+	                                    <div class="tbl-th price">현재가격</div>
+	                                </div>
+	                            </div>
+	                            <div class="tbl-body scroll">
+	                                <div class="tbl-tr">
+			                             <div class="tbl-td num">1</div>
+			                             <div class="tbl-td metal">주석</div>
+			                             <div class="tbl-td product">TIN</div>
+			                             <div class="tbl-td ton">5</div>
+			                             <div class="tbl-td receipt-rate">
+			                                <!--
+					                          [접수율 > .bar 스타일 가이드 > 하단 script 참고]
+					                          * 접수율을 100% 기준으로 3등분하여 .bar의 background-color를 다르게 한다.
+					                           - 1단계(0% ~ 33.33%): #A6E3FF
+					                           - 2단계(33.33% ~ 66.66%): #FFDDC7
+					                           - 3단계(66.66% ~ 100%): #FFB1B1
+					                       -->
+			                                <div class="receipt-rate-bar">
+			                                   <span class="gauge" per="32"></span>
+			                                   <span class="time">-2:27:43</span>
+			                                   <span class="percent"></span>
+			                                </div>
+			                             </div>
+			                             <div class="tbl-td price">32,179,000</div>
+			                         </div>
+			                         <div class="tbl-tr">
+			                             <div class="tbl-td num">2</div>
+			                             <div class="tbl-td metal">주석</div>
+			                             <div class="tbl-td product">TIN</div>
+			                             <div class="tbl-td ton">5</div>
+			                             <div class="tbl-td receipt-rate">
+			                                <div class="receipt-rate-bar">
+			                                   <span class="gauge" per="93"></span>
+			                                   <span class="time">0:00:00</span>
+			                                   <span class="percent"></span>
+			                                </div>
+			                             </div>
+			                             <div class="tbl-td price">32,179,000</div>
+			                         </div>
+			                         <div class="tbl-tr">
+			                             <div class="tbl-td num">3</div>
+			                             <div class="tbl-td metal">주석</div>
+			                             <div class="tbl-td product">TIN</div>
+			                             <div class="tbl-td ton">5</div>
+			                             <div class="tbl-td receipt-rate">
+			                                <div class="receipt-rate-bar">
+			                                   <span class="gauge" per="46"></span>
+			                                   <span class="time">-2:27:43</span>
+			                                   <span class="percent"></span>
+			                                </div>
+			                             </div>
+			                             <div class="tbl-td price">32,179,000</div>
+			                         </div>
+			                         <div class="tbl-tr">
+			                             <div class="tbl-td num">4</div>
+			                             <div class="tbl-td metal">주석</div>
+			                             <div class="tbl-td product">TIN</div>
+			                             <div class="tbl-td ton">5</div>
+			                             <div class="tbl-td receipt-rate">
+			                                <div class="receipt-rate-bar">
+			                                   <span class="gauge" per="80"></span>
+			                                   <span class="time">-2:27:43</span>
+			                                   <span class="percent"></span>
+			                                </div>
+			                             </div>
+			                             <div class="tbl-td price">32,179,000</div>
+			                         </div>
+			                         <div class="tbl-tr">
+			                             <div class="tbl-td num">5</div>
+			                             <div class="tbl-td metal">주석</div>
+			                             <div class="tbl-td product">TIN</div>
+			                             <div class="tbl-td ton">5</div>
+			                             <div class="tbl-td receipt-rate">
+			                                <div class="receipt-rate-bar">
+			                                   <span class="gauge" per="24"></span>
+			                                   <span class="time">-2:27:43</span>
+			                                   <span class="percent"></span>
+			                                </div>
+			                             </div>
+			                             <div class="tbl-td price">32,179,000</div>
+			                         </div>
+			                         <div class="tbl-tr">
+			                             <div class="tbl-td num">6</div>
+			                             <div class="tbl-td metal">주석</div>
+			                             <div class="tbl-td product">TIN</div>
+			                             <div class="tbl-td ton">5</div>
+			                             <div class="tbl-td receipt-rate">
+			                                <div class="receipt-rate-bar">
+			                                   <span class="gauge" per="60"></span>
+			                                   <span class="time">-2:27:43</span>
+			                                   <span class="percent"></span>
+			                                </div>
+			                             </div>
+			                             <div class="tbl-td price">32,179,000</div>
+			                         </div>
+			                         <div class="tbl-tr">
+			                             <div class="tbl-td num">7</div>
+			                             <div class="tbl-td metal">주석</div>
+			                             <div class="tbl-td product">TIN</div>
+			                             <div class="tbl-td ton">5</div>
+			                             <div class="tbl-td receipt-rate">
+			                                <div class="receipt-rate-bar">
+			                                   <span class="gauge" per="0"></span>
+			                                   <span class="time">-2:27:43</span>
+			                                   <span class="percent"></span>
+			                                </div>
+			                             </div>
+			                             <div class="tbl-td price">32,179,000</div>
+			                         </div>
+								</div>
+	                        </div>
+						</div>
+					</section>
+					<!-- 2-3. 공구 주문 접수 목록 -->
+					<section class="dashboard2 dashboard2-group-buying-list">
+						<h2 class="dashboard2-title">공구 주문 접수 목록</h2>
+						<div class="dashboard2-cont">
+							<div class="tbl-wrap tbl-list tbl-group-buying-list">
+	                        	<div class="tbl-head">
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-th">주문일자</div>
+	                                    <div class="tbl-th">기업</div>
+	                                    <!--<div class="tbl-th">아이템</div>-->
+	                                    <div class="tbl-th">출고권역/브랜드</div>
+	                                    <div class="tbl-th">주문톤수</div>
+	                                    <div class="tbl-th">가격</div>
+	                                </div>
+	                            </div>
+	                            <div class="tbl-body scroll">
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td">23-04-24</div>
+	                                    <div class="tbl-td">다산물산</div>
+	                                   <!-- <div class="tbl-td item">Zinc_SHG _ Zn 99.995%(up)</div>-->
+	                                    <div class="tbl-td item-detail">인천/비서구산/VEDANTA </div>
+	                                    <div class="tbl-td">25</div>
+	                                    <div class="tbl-td">3,000,000</div>
+	                                </div>
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td">23-04-24</div>
+	                                    <div class="tbl-td">다산물산</div>
+	                                    <!--<div class="tbl-td item">P1020</div>-->
+	                                    <div class="tbl-td item-detail">부산/비서구산/SOHAR</div>
+	                                    <div class="tbl-td">100</div>
+	                                    <div class="tbl-td">3,000,000</div>
+	                                </div>
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td">23-04-24</div>
+	                                    <div class="tbl-td">콘탱고메탈</div>
+	                                   <!-- <div class="tbl-td item">P1020</div>-->
+	                                    <div class="tbl-td item-detail">인천/비서구산/VEDANTA </div>
+	                                    <div class="tbl-td">50</div>
+	                                    <div class="tbl-td">3,100,000</div>
+	                                </div>
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td">23-04-24</div>
+	                                    <div class="tbl-td">콘탱고메탈</div>
+	                                    <!--<div class="tbl-td item">P1020</div>-->
+	                                    <div class="tbl-td item-detail">인천/서구산/PMB</div>
+	                                    <div class="tbl-td">25</div>
+	                                    <div class="tbl-td">3,100,000</div>
+	                                </div>
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td">23-04-24</div>
+	                                    <div class="tbl-td">케이피유</div>
+	                                    <!--<div class="tbl-td item">P1020</div>-->
+	                                    <div class="tbl-td item-detail">인천/서구산/VEDANTA </div>
+	                                    <div class="tbl-td">100</div>
+	                                    <div class="tbl-td">3,000,000</div>
+	                                </div>   
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-td">23-04-24</div>
+	                                    <div class="tbl-td">케이피유</div>
+	                                    <!--<div class="tbl-td item">P1020</div>-->
+	                                    <div class="tbl-td item-detail">인천/서구산/PMB</div>
+	                                    <div class="tbl-td">100</div>
+	                                    <div class="tbl-td">3,000,000</div>
+	                                </div>
+                                </div>
+	                        </div>
+						</div>
+					</section>
+				</div>
+			</div>
+			<div class="dashboard2-column dashboard2-column3">
+				<!-- 3-1. rChart -->
+				<section class="dashboard2 dashboard2-chart">
+					<div class="dashboard2-cont">
+						<!-- 3-1-1. rChart > 상단 차트 정보 영역 START {-->
+						<div class="chart-top-info">
+							<div class="flex-ac">
+	                            <!-- scopi-->
+	                            <div class="scopi">
+	                                <span class="scopi-a">SCOPI-A</span>
+	                                <span class="scopi-z" style="display:none">SCOPI-Z</span>
+	                            </div>
+	                            <!-- 메탈 -->
+	                            <div class="prod">
+	                                <span class="prod-a">알루미늄</span>
+	                                <span class="prod-z" style="display:none">아연</span>
+	                            </div>
+	                            <!-- 종목코드 -->
+	                            <div class="prod-ticker">
+	                                <span class="ticker-a">
+	                                    Primary Aluminium Ingot(P1020)
+	                                </span>
+	                                <span class="ticker-z" style="display:none">
+	                                    Primary SHG Ingot
+	                                </span>                                  
+	                            </div>
+                            </div>
+                            
+	                        <!-- summary price  -->
+	                        <div class="rChart-sum">
+	                            <div class="rChart-current up flex-afe-jsb"><!-- vs down-->
+	                            	<div>
+		                                <span class="c-price">
+		                                    2,825,000
+		                                    <span class="txt">KRW</span>
+		                                </span>
+		                                <span class="c-rate">1.04%</span>
+		                                <span class="c-gap">251,200</span>
+	                                </div>
+	
+	                                <div class="desc flex-ac">
+	                                    <span class="desc-txt">부산</span>(<span class="brand">비서구산</span>, 부가세 별도)
+	                                </div>
+	                            </div>
+	
+	                            <!-- summary state: 시가/ 고가/ 저가/ 전일가 -->
+	                            <div class="rChart-summary">
+	                                <ul class="rChart-summary-list flex-ac">
+	                                    <li>
+	                                        <span class="stit">시가</span>
+	                                        <span class="m-price">2,978,300</span>
+	                                    </li>
+	                                    <li>
+	                                        <span class="stit">고가</span>
+	                                        <span class="h-price">2,978,300</span>
+	                                    </li>
+	                                    <li>
+	                                        <span class="stit">저가</span>
+	                                        <span class="l-price">2,769,210</span>
+	                                    </li>
+	                                    <li>
+	                                        <span class="stit">전일가</span>
+	                                        <span class="y-price">2,769,210</span>
+	                                    </li>
+	                                </ul>
+	                            </div>
+	                        </div>
+                        </div>
+						<!--} //3-1-1. rChart > 상단 차트 정보 영역 FINISH -->
+						
+						<!-- 3-1-2. rChart > 차트 그래프 영역 START {-->
+						<div class="chart-graph-area">
+                        	<!-- charts area start -->
+	                        <div class="rcharts-wrap" id="rCharts">
+	                        	차트 영역
+	                        </div> 
+	                        <!-- //charts area end -->
+	                    </div>
+						<!--} //3-1-2. rChart > 차트 그래프 영역 FINISH {-->
+					</div>
+				</section>
+				<!-- 3-2. Total -->
+				<section class="dashboard2 dashboard2-total">
+					<h2 class="dashboard2-title">Total 29/278건</h2>
+					<div class="dashboard2-cont scroll">
+						<div class="card flex-ac-jsb">
+							<div class="left flex-ac">
+								<!-- 
+								[메탈 구분(6대 비철) class 가이드]
+								.metal-label-AL | .metal-label-ZN | .metal-label-CU | .metal-label-PB | .metal-label-NI | .metal-label-SN
+								
+								[.order-labels >  class 가이드]
+								1. 가격 주문 방식: .label-price
+								 - 지정가: .label-price-limit
+								 - LIVE: .label-price-live
+								 
+								2. 결제 방식: .label-payment
+								
+								3. 배송 방식: .label-delivery
+								 - 자차배송: .label-delivery-self
+								 - 자차배송: .label-delivery-sorin
+								-->
+								<div class="metal-label metal-label-AL">AL</div>
+								<div class="info-list">
+									<ul class="flex-ac">
+										<li>S00530</li>
+										<li>2023.04.24 10:18</li>
+									</ul>
+									<p class="orderer">삼보산업(주)</p>
+								</div>
+							</div>
+							<div class="right">
+								<ul class="info-list flex-jfe">
+									<li>부산</li>
+									<li>VENDANTA</li>
+									<li>25톤</li>
+								</ul>
+								<ul class="order-labels flex-jfe">
+									<li class="label-price label-price-limit">지정가</li>
+									<li class="label-payment">전자상거래보증</li>
+									<li class="label-delivery label-delivery-self">자차배송</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card flex-ac-jsb">
+							<div class="left flex-ac">
+								<!-- 메탈 구분(6대 비철) -->
+								<div class="metal-label metal-label-ZN">ZN</div>
+								<div class="info-list">
+									<ul class="flex-ac">
+										<li>S00530</li>
+										<li>2023.04.24 10:18</li>
+									</ul>
+									<p class="orderer">삼보산업(주)</p>
+								</div>
+							</div>
+							<div class="right">
+								<ul class="info-list flex-jfe">
+									<li>부산</li>
+									<li>VENDANTA</li>
+									<li>25톤</li>
+								</ul>
+								<ul class="order-labels flex-jfe">
+									<li class="label-order label-price-live">LIVE</li>
+									<li class="label-payment">이월렛</li>
+									<li class="label-delivery label-delivery-sorin">서린배송</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card flex-ac-jsb">
+							<div class="left flex-ac">
+								<!-- 메탈 구분(6대 비철) -->
+								<div class="metal-label metal-label-CU">CU</div>
+								<div class="info-list">
+									<ul class="flex-ac">
+										<li>S00530</li>
+										<li>2023.04.24 10:18</li>
+									</ul>
+									<p class="orderer">삼보산업(주)</p>
+								</div>
+							</div>
+							<div class="right">
+								<ul class="info-list flex-jfe">
+									<li>부산</li>
+									<li>VENDANTA</li>
+									<li>25톤</li>
+								</ul>
+								<ul class="order-labels flex-jfe">
+									<li class="label-price label-price-limit">지정가</li>
+									<li class="label-payment">이월렛</li>
+									<li class="label-delivery label-delivery-sorin">서린배송</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card flex-ac-jsb">
+							<div class="left flex-ac">
+								<!-- 메탈 구분(6대 비철) -->
+								<div class="metal-label metal-label-AL">AL</div>
+								<div class="info-list">
+									<ul class="flex-ac">
+										<li>S00530</li>
+										<li>2023.04.24 10:18</li>
+									</ul>
+									<p class="orderer">삼보산업(주)</p>
+								</div>
+							</div>
+							<div class="right">
+								<ul class="info-list flex-jfe">
+									<li>부산</li>
+									<li>VENDANTA</li>
+									<li>25톤</li>
+								</ul>
+								<ul class="order-labels flex-jfe">
+									<li class="label-price label-price-live">LIVE</li>
+									<li class="label-payment">증거금</li>
+									<li class="label-delivery label-delivery-sorin">서린배송</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card flex-ac-jsb">
+							<div class="left flex-ac">
+								<!-- 메탈 구분(6대 비철) -->
+								<div class="metal-label metal-label-ZN">ZN</div>
+								<div class="info-list">
+									<ul class="flex-ac">
+										<li>S00530</li>
+										<li>2023.04.24 10:18</li>
+									</ul>
+									<p class="orderer">삼보산업(주)</p>
+								</div>
+							</div>
+							<div class="right">
+								<ul class="info-list flex-jfe">
+									<li>부산</li>
+									<li>VENDANTA</li>
+									<li>25톤</li>
+								</ul>
+								<ul class="order-labels flex-jfe">
+									<li class="label-price label-price-limit">지정가</li>
+									<li class="label-payment">서린크레딧</li>
+									<li class="label-delivery label-delivery-self">자차배송</li>
+								</ul>
+							</div>
+						</div>
+						<div class="card flex-ac-jsb">
+							<div class="left flex-ac">
+								<!-- 메탈 구분(6대 비철) -->
+								<div class="metal-label metal-label-CU">CU</div>
+								<div class="info-list">
+									<ul class="flex-ac">
+										<li>S00530</li>
+										<li>2023.04.24 10:18</li>
+									</ul>
+									<p class="orderer">삼보산업(주)</p>
+								</div>
+							</div>
+							<div class="right">
+								<ul class="info-list flex-jfe">
+									<li>부산</li>
+									<li>VENDANTA</li>
+									<li>25톤</li>
+								</ul>
+								<ul class="order-labels flex-jfe">
+									<li class="label-price label-price-limit">지정가</li>
+									<li class="label-payment">서린크레딧</li>
+									<li class="label-delivery label-delivery-self">자차배송</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	
+
+	<script>
+	
+	    /* ::::: 1. [공통] script ::::: */
+		$(window).on('load', () => {
+
+			heightCommonFunc ()
+		})
+		
+		$(window).on('resize', () => {
+
+			heightCommonFunc ()
+
+		})
+		
+		// function: scrollbar plugin/ dashboard2-column height 계산
+		function heightCommonFunc () {
+			
+			// 1-1. scrollbar plugin: mCustomScrollbar.js 사용
+			$(".scroll").mCustomScrollbar();
+			
+			// 1-2. [공통] .dashboard2-column height 계산
+			let dashboardColumnHeight = Math.round($('.dashboard2-column').height());
+			let dashboardChartHeight = Math.round($('.dashboard2-chart').innerHeight());
+			let calcHeight = `${dashboardColumnHeight}` - `${dashboardChartHeight}`;
+			let dashboardTotalHeight = $('.dashboard2-total').outerHeight(calcHeight);
+			
+		}
+		
+		 
+		/* ::::: 2. 공동 구매 현황 > 접수율 > .gauge ::::: */
+		$('.receipt-rate-bar').each(function () {
+			
+			// 2-1. .gauge > width
+		    const gauge = $(this).find('.gauge')
+		    const gaugePer = gauge.attr('per');
+		    const textPercent=  $(this).find('.percent').text(`${gaugePer}%`)
+		    gauge.css({'width':`${gaugePer}%`});
+		
+			// 2-2. .gauge > background-color
+		    const gaugeFull = 100
+		    const gaugeStep = 3
+		    const gaugeValue1 = (gaugeFull * 1) / gaugeStep
+		    const gaugeValue2 = (gaugeFull * 2) / gaugeStep
+		    const gaugeValue3 = (gaugeFull * 3) / gaugeStep
+
+		    let value = [gaugeValue1 , gaugeValue2, gaugeValue3];
+		    let valueBg = ['#A6E3FF', '#FFDDC7', '#FFB1B1'];
+		
+		    if (gaugePer <= value[0]) {
+		
+		        gauge.css({'background-color' : valueBg[0]});
+		
+		    } else if (value[0] <= gaugePer &&  gaugePer <=value[1]) {
+		
+		        gauge.css({'background-color' : valueBg[1]});
+		
+		    } else if (value[1] <= gaugePer &&  gaugePer <= value[2]) {
+		
+		        gauge.css({'background-color' : valueBg[2]});
+		        
+		    } 
+		
+		});
+		
+		
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/assets_guide/highlight/styles/default.css"><!-- 가이드 파일용 -->
+    <link rel="stylesheet" type="text/css" href="/guide/assets_guide/guideAdd.css" /><!-- 가이드 파일용 -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script>
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script><!-- Modal -->
+    <script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/assets_guide/highlight/highlight.pack.js"></script><!-- 가이드 파일용 -->
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <!-- <script type="text/javascript" src="/guide/js/realgridCustom.js"></script> --><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+</head>
+<body>
+
+    <div class="web-wrapper">
+        <section class="web-container">
+            <div class="main-content">
+
+                <div class="g-example-wrap">
+                    <div class="g-example-head">
+                        <p class="title">checkbox (텍스트가 없는 경우 - 센터정렬)</p>
+                    </div>
+                    <div class="g-example-body">
+                        <div class="form-checkbox no-label">
+                            <input type="checkbox" id="checkbox-nolabel" name="checkbox" />
+                            <label for="checkbox-nolabel"></label>
+                        </div>
+                    </div>
+                    <div class="g-example-foot">
+                        <pre><code class="html">
+    &lt;div class="form-checkbox no-label">
+        &lt;input type="checkbox" id="checkbox-nolabel" name="checkbox" />
+        &lt;label for="checkbox-nolabel">&lt;/label>
+    &lt;/div>
+                        </code></pre>
+                    </div>
+                </div>
+
+
+                
+                <div class="g-example-wrap">
+                    <div class="g-example-head">
+                        <p class="title">checkbox group</p>
+                    </div>
+                    <div class="g-example-body">
+                        <div class="check-group">
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="checkbox1-1" name="checkbox" />
+                                <label for="checkbox1-1"><span>unchecked</span></label>
+                            </div>
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="checkbox1-2" name="checkbox" checked="checked" />
+                                <label for="checkbox1-2"><span>checked</span></label>
+                            </div>
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="checkbox1-3" name="checkbox" disabled="disabled" />
+                                <label for="checkbox1-3"><span>disabled</span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="g-example-foot">
+                        <pre><code class="html">
+    &lt;div class="check-group">
+        &lt;div class="form-checkbox">
+            &lt;input type="checkbox" id="checkbox1-1" name="checkbox" />
+            &lt;label for="checkbox1-1">&lt;span>unchecked&lt;/span>&lt;/label>
+        &lt;/div>
+        &lt;div class="form-checkbox">
+            &lt;input type="checkbox" id="checkbox1-2" name="checkbox" checked="checked" />
+            &lt;label for="checkbox1-2">&lt;span>checked&lt;/span>&lt;/label>
+        &lt;/div>
+        &lt;div class="form-checkbox">
+            &lt;input type="checkbox" id="checkbox1-3" name="checkbox" disabled="disabled" />
+            &lt;label for="checkbox1-3">&lt;span>disabled&lt;/span>&lt;/label>
+        &lt;/div>
+    &lt;/div>
+                        </code></pre>
+                    </div>
+                </div>
+
+
+
+                <div class="g-example-wrap">
+                    <div class="g-example-head">
+                        <p class="title">radio group</p>
+                    </div>
+                    <div class="g-example-body">
+                        <div class="radio-group">
+                            <div class="form-radio">
+                                <input type="radio" id="radio1-1" name="radio" checked="checked"/>
+                                <label for="radio1-1"><span>unchecked</span></label>
+                            </div>
+                            <div class="form-radio">
+                                <input type="radio" id="radio1-2" name="radio"/>
+                                <label for="radio1-2"><span>checked</span></label>
+                            </div>
+                            <div class="form-radio">
+                                <input type="radio" id="radio1-3" name="radio" disabled="disabled"/>
+                                <label for="radio1-3"><span>disabled</span></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="g-example-foot">
+                        <pre><code class="html">
+    &lt;div class="radio-group">
+        &lt;div class="form-radio">
+            &lt;input type="radio" id="radio1-1" name="radio" checked="checked"/>
+            &lt;label for="radio1-1">&lt;span>unchecked&lt;/span>&lt;/label>
+        &lt;/div>
+        &lt;div class="form-radio">
+            &lt;input type="radio" id="radio1-2" name="radio"/>
+            &lt;label for="radio1-2">&lt;span>checked&lt;/span>&lt;/label>
+        &lt;/div>
+        &lt;div class="form-radio">
+            &lt;input type="radio" id="radio1-3" name="radio" disabled="disabled"/>
+            &lt;label for="radio1-3">&lt;span>disabled&lt;/span>&lt;/label>
+        &lt;/div>
+    &lt;/div>
+                        </code></pre>
+                    </div>
+                </div>
+              
+
+                
+
+			</div>
+
+			<!-- [D] 하단 부분 인클루드 시작 -->
+			<footer class="main-footer"></footer>
+			<script type="text/javascript"> $(".main-footer").load("/guide/html/include/footer.html"); </script>
+			<!-- // [D] 하단 부분 인클루드 끝 -->
+        </section>
+    </div>
+    <script type="text/javascript">hljs.highlightAll();</script>
+    
+
+</body>
+</html>

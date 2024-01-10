@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <!-- script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <script type="text/javascript" src="/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+</head>
+
+
+<body>
+
+    <div class="web-wrapper">
+        <!-- [D] 사이드바 부분 인클루드 시작 -->
+        <!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
+        <aside class="web-sidebar"></aside>
+        <script type="text/javascript"> $(".web-sidebar").load("/guide/html/include/sidebar.html");</script>
+        <!-- // [D] 사이드바 부분 인클루드 끝 -->
+
+        <section class="web-container">
+            <!-- [D] 상단메뉴 부분 인클루드 시작 --> 
+            <!-- [D] 활성화된 메뉴 : .is-active 추가 -->
+            <header class="web-header"></header>
+            <script type="text/javascript"> $(".web-header").load("/guide/html/include/header.html");</script>
+            <!-- // [D] 상단메뉴 부분 인클루드 끝 -->
+
+            <div class="main-content">
+                <div class="inner">
+                    <label class="switch">
+                        <input type="checkbox" checked="checked">
+                        <span class="slider round">
+                            <a class="menu" href="/guide/html/co/SOREC-SC-COB-009.html">FO</a>
+                            <a class="menu" href="/guide/html/co/SOREC-SC-COB-007.html">BO</a>
+                        </span>
+                    </label>
+                    <!-- 테이블이 왼쪽이 작게 나뉜경우 .group-sm -->
+                    <div class="table-group group-sm">
+                        <div class="table-set">
+                            <div class="sub-title">
+                                <h3 class="">권한 목록</h3>
+                                <div class="btn-box">
+                                   <button type="button" class="btn">추가</button>
+                                   <button type="button" class="btn">삭제</button>
+                                   <button type="button" class="btn btn-green has-icon"><i class="icon icon-excel">엑셀</i></button>
+                                </div>
+                            </div>
+                            <!-- 변경요청 반영 -->
+                            <!-- realGrid 넣는 곳 -->
+                            <div class="realgrid-wrap"></div>
+                        </div>
+                       
+                        <div class="table-set">
+                            <div class="sub-title">
+                                <h3 class="">권한 상세</h3>
+                                <div class="btn-box">
+                                   <button type="button" class="btn">상세정보 저장</button>
+                                </div>
+                            </div>
+                            <div class="table table-view">
+                                <table>
+                                    <colgroup>
+                                        <col class="col-md"/>
+                                        <col width="*"/>
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">권한 ID<i class="icon icon-required"></i></th> 
+                                            <td><input type="text" class="input" value="EC_PREMIUM"></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">권한명<i class="icon icon-required"></i></th> 
+                                            <td><input type="text" class="input" value="EC 프리미엄 담당자"></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">권한설명<i class="icon icon-required"></i></th> 
+                                            <td><input type="text" class="input" value="EC의 프리미엄 관리할 수 있는 권한"></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">순서<i class="icon icon-required"></i></th> 
+                                            <td><input type="text" class="input" value="20"></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">사용여부<i class="icon icon-required"></i></th> 
+                                            <td>
+                                                <div class="radio-group">
+                                                    <div class="form-radio">
+                                                        <input type="radio" id="radio-1" name="radio" checked="checked"/>
+                                                        <label for="radio-1"><span>여</span></label>
+                                                    </div>
+                                                    <div class="form-radio">
+                                                        <input type="radio" id="radio-2" name="radio"/>
+                                                        <label for="radio-2"><span>부</span></label>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sub-title">
+                        <h3 class="">권한 부여 목록</h3>
+                        <div class="btn-box">
+                            <button type="button" class="btn">추가</button>
+                            <button type="button" class="btn">삭제</button>
+                        </div>
+                    </div>
+                    
+
+                    <!-- realGrid 넣는 곳 -->
+                    <div id="realgrid" class="realgrid-wrap"></div>
+                    <!-- paging -->
+                    <div class="paging-row">
+                        <div class="paging">
+                            <div id="paging"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //main-content -->
+        </section>
+    </div>
+</body>
+
+</html>

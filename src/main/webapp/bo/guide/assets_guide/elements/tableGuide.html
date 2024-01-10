@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/assets_guide/highlight/styles/default.css"><!-- 가이드 파일용 -->
+    <link rel="stylesheet" type="text/css" href="/guide/assets_guide/guideAdd.css" /><!-- 가이드 파일용 -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script>
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+     //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script><!-- Modal -->
+    <script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/assets_guide/highlight/highlight.pack.js"></script><!-- 가이드 파일용 -->
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <!-- <script type="text/javascript" src="/guide/js/realgridCustom.js"></script> --><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+</head>
+<body>
+
+    <div class="web-wrapper">
+        <section class="web-container">
+            <div class="main-content">
+                
+                <div class="g-example-wrap">
+                    <div class="g-example-head">
+                        <p class="title">form 요소</p>
+                    </div>
+                    <div class="g-example-body">
+                        <div class="table table-view">
+                            <table>
+                                <colgroup>
+                                    <col class="col-md" />
+                                    <col width="*" />
+                                    <col class="col-md" />
+                                    <col width="*" />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">인풋 + 버튼<i class="icon icon-required">필수값</i></th>
+                                        <td>
+                                            <div class="form-set">
+                                                <input type="text" class="input" value="board001">
+                                                <button type="button" class="btn">버튼</button>
+                                            </div>
+                                        </td>
+                                        <th scope="row">인풋<i class="icon icon-required">필수값</i></th>
+                                        <td>
+                                            <input type="text" class="input" placeholder="placeholder">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">셀렉트<i class="icon icon-required">필수값</i></th>
+                                        <td>
+                                            <select class="form-select">
+                                                <option value="선택">선택</option>
+                                            </select>
+                                        </td>
+                                        <th scope="row">인풋 + 단위<i class="icon icon-required">필수값</i></th>
+                                        <td>
+                                            <div class="form-set">
+                                                <input type="text" class="input" value="24">
+                                                <span class="unit">시간</span>
+                                            </div>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">라디오<i class="icon icon-required">필수값</i></th>
+                                        <td>
+                                            <div class="radio-group">
+                                                <div class="form-radio">
+                                                    <input type="radio" id="radio1-1" name="radio1" checked="checked" />
+                                                    <label for="radio1-1"><span>예</span></label>
+                                                </div>
+                                                <div class="form-radio">
+                                                    <input type="radio" id="radio1-2" name="radio1" />
+                                                    <label for="radio1-2"><span>아니오</span></label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <th scope="row">라디오 + 인풋<i class="icon icon-required">필수값</i></th>
+                                        <td>
+                                            <div class="form-set">
+                                                <div class="radio-group">
+                                                    <div class="form-radio">
+                                                        <input type="radio" id="radio2-1" name="radio2" checked="checked">
+                                                        <label for="radio2-1"><span>선택1</span></label>
+                                                    </div>
+                                                    <div class="form-radio">
+                                                        <input type="radio" id="radio2-2" name="radio2">
+                                                        <label for="radio2-2"><span>선택2</span></label>
+                                                    </div>
+                                                </div>
+                                                <input type="text" class="input" value="">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">기간<i class="icon icon-required">필수값</i></th>
+                                        <td>
+                                            <div class="form-set">
+                                                <!-- [D] 월 선택 경우 .form-month 추가 -->
+                                                <!-- [D] 날짜 선택 경우 .form-date 추가 -->
+                                                <div class="input-group date form-date"> 
+                                                    <input type="text" class="input" id="datepicker1">
+                                                    <label for="datepicker1" class="btn has-icon"><i class="icon icon-calendar">달력</i></label>
+                                                </div>
+                                                <span>~</span>
+                                                <!-- [D] 월 선택 경우 .form-month 추가 -->
+                                                <!-- [D] 날짜 선택 경우 .form-date 추가 -->
+                                                <div class="input-group date form-date"> 
+                                                    <input type="text" class="input" id="datepicker2">
+                                                    <label for="datepicker2" class="btn has-icon"><i class="icon icon-calendar">달력</i></label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- [D] 조회 완료 시 .is-checked 추가 -->
+                                        <th scope="row" class="is-checked">폼 그룹<i class="icon icon-required">필수값</i><i class="icon icon-check">조회완료</i></th>
+                                        <td>
+                                            <div class="form-group">
+                                                <div class="form-set">
+                                                    <input type="text" class="input" value="">
+                                                    <button type="button" class="btn">조회</button>
+                                                </div>
+                                                <!-- [D] 월 선택 경우 .form-month 추가 -->
+                                                <!-- [D] 날짜 선택 경우 .form-date 추가 -->
+                                                <div class="input-group date form-date">
+                                                    <input type="text" class="input">
+                                                    <label for="datepicker1" class="btn has-icon"><i class="icon icon-calendar">달력</i></label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">셀렉트 + 셀렉트<i class="icon icon-required">필수값</i></th>
+                                        <td>
+                                            <div class="form-set">
+                                                <select class="form-select select-sm">
+                                                    <option value="선택">선택</option>
+                                                </select>
+                                                <select class="form-select select-sm">
+                                                    <option value="선택">선택</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <th scope="row">인풋 + 인풋 + 버튼<i class="icon icon-required">필수값</i></th>
+                                        <td>
+                                            <div class="form-set">
+                                                <input type="text" class="input input-sm" value="하나은행">
+                                                <input type="text" class="input" value="22-233-232-23">
+                                                <button type="button" class="btn">조회</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">인풋 + 체크박스<i class="icon icon-required">필수값</i></th>
+                                        <td>
+                                            <div class="form-set">
+                                                <input type="text" class="input" placeholder="placeholder">
+                                                <div class="form-checkbox">
+                                                    <input type="checkbox" id="checkbox1-1" name="checkbox" aria-label="입력선택">
+                                                    <label for="checkbox1-1"><span>기본</span></label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <th scope="row">체크박스 그룹<i class="icon icon-required">필수값</i></th>
+                                        <td>
+                                            <div class="check-group">
+                                                <div class="form-checkbox">
+                                                    <input type="checkbox" id="checkbox2-1" name="checkbox" checked="checked">
+                                                    <label for="checkbox2-1"><span>체크1</span></label>
+                                                </div>
+                                                <div class="form-checkbox">
+                                                    <input type="checkbox" id="checkbox2-2" name="checkbox">
+                                                    <label for="checkbox2-2"><span>체크2</span></label>
+                                                </div>
+                                                <div class="form-checkbox">
+                                                    <input type="checkbox" id="checkbox2-3" name="checkbox">
+                                                    <label for="checkbox2-3"><span>체크3</span></label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">단위정보<i class="icon icon-required">필수값</i></th>
+                                        <td>
+                                            <div class="form-set form-set-sm">
+                                                <span class="cal">-</span>
+                                                <input type="text" class="input" value="">
+                                                <span class="unit">%</span>
+                                            </div>
+                                        </td>
+                                        
+                                        <th scope="row">전화번호<i class="icon icon-required">필수값</i></th>
+                                        <td>
+                                            <div class="form-set">
+                                                <input type="text" class="input" value="">
+                                                <input type="text" class="input" value="">
+                                                <input type="text" class="input" value="">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">인풋 + 체크박스<i class="icon icon-required">필수값</i></th>
+                                        <td>
+                                            <div class="form-group">
+                                                <div class="form-set form-set-sm">
+                                                    <span class="cal">-</span>
+                                                    <input type="text" class="input" value="5">
+                                                    <span class="unit">%</span>
+                                                </div>
+                                                <span class="mr-12">~</span>
+                                                <div class="form-set form-set-sm">
+                                                    <sapn class="cal">+</sapn>
+                                                    <input type="text" class="input" value="5">
+                                                    <span class="unit">%</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <th scope="row">셀렉트+라벨+인풋+단위<i class="icon icon-required">필수값</i></th>
+                                        <td>
+                                            <div class="form-group">
+                                                <div class="form-set">
+                                                    <select class="form-select select-sm">
+                                                        <option value="선택">선택</option>
+                                                        <option value=""></option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-set">
+                                                    <span class="form-label">레이블</span>
+                                                    <input type="text" class="input" value="">
+                                                    <span class="unit">Kg</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">단위정보<i class="icon icon-required">필수값</i></th>
+                                        <td>
+                                            <div class="form-set form-set-sm">
+                                                <input type="text" class="input" value="50.000">
+                                                <span class="unit">Kg</span>
+                                            </div>
+                                        </td>
+                                        <th scope="row">체크박스 그룹<i class="icon icon-required">필수값</i></th>
+                                        <td>
+                                            <div class="form-group">
+                                                <div class="check-group">
+                                                    <div class="form-checkbox">
+                                                        <input type="checkbox" id="checkbox3-1" name="checkbox" checked="checked">
+                                                        <label for="checkbox3-1"><span>체크1</span></label>
+                                                    </div>
+                                                    <div class="form-checkbox">
+                                                        <input type="checkbox" id="checkbox3-2" name="checkbox">
+                                                        <label for="checkbox3-2"><span>체크2</span></label>
+                                                    </div>
+                                                    <div class="form-checkbox">
+                                                        <input type="checkbox" id="checkbox3-3" name="checkbox">
+                                                        <label for="checkbox3-3"><span>체크3</span></label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-set">
+                                                    <input type="text" class="input input-xs text-right" value="7">
+                                                    <span class="unit">일</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">체크박스 + 인풋 + 단위<i class="icon icon-required">필수값</i></th>
+                                        <td colspan="3">
+                                            <div class="form-group">
+                                                <div class="form-set">
+                                                    <div class="form-checkbox">
+                                                        <input type="checkbox" id="checkbox4-1" name="checkbox" checked="checked">
+                                                        <label for="checkbox4-1"><span>체크1</span></label>
+                                                    </div>
+                                                    <input type="text" class="input input-sm" value="">
+                                                    <span class="unit">원 이상</span>
+                                                </div>
+                                                <div class="form-set">
+                                                    <div class="form-checkbox">
+                                                        <input type="checkbox" id="checkbox4-2" name="checkbox" disabled="disabled">
+                                                        <label for="checkbox4-2"><span>체크2</span></label>
+                                                    </div>
+                                                    <input type="text" class="input input-sm" value="" disabled="disabled">
+                                                    <span class="unit">건 이상</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">체크박스 그룹<i class="icon icon-required">필수값</i></th>
+                                        <td colspan="3">
+                                            <div class="form-set">
+                                                <div class="radio-group">
+                                                    <div class="form-radio">
+                                                        <input type="radio" id="radio3-1" name="radio3" checked="checked">
+                                                        <label for="radio3-1"><span>제한 없음</span></label>
+                                                    </div>
+                                                    <div class="form-radio">
+                                                        <input type="radio" id="radio3-2" name="radio3">
+                                                        <label for="radio3-2"><span>제한 있음</span></label>
+                                                    </div>
+                                                </div>
+                                                <select class="form-select select-sm">
+                                                    <option value="1일전">1일전</option>
+                                                </select>
+                                                <span class="unit">부터</span>
+                                                <select class="form-select select-sm">
+                                                    <option value="1개월">1개월</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">체크박스 그룹<i class="icon icon-required">필수값</i></th>
+                                        <td colspan="3">
+                                            <div class="form-group">
+                                                <div class="form-set">
+                                                    <input type="text" class="input" value="3">
+                                                    <span class="unit">개</span>
+                                                </div>
+                                                <div class="check-group">
+                                                    <div class="form-checkbox">
+                                                        <input type="checkbox" id="checkbox5-1" name="checkbox" checked="checked">
+                                                        <label for="checkbox5-1"><span>체크1</span></label>
+                                                    </div>
+                                                    <div class="form-checkbox">
+                                                        <input type="checkbox" id="checkbox5-2" name="checkbox">
+                                                        <label for="checkbox5-2"><span>체크2</span></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">브레드크럼<i class="icon icon-required">필수값</i></th>
+                                        <td colspan="3">
+                                            <div class="breadcrumb-group">
+                                                <div class="breadcrumb">
+                                                    <span class="breadcrumb-item">알루미늄</span>
+                                                    <span class="breadcrumb-item">서구산</span> 
+                                                </div>
+                                                <button type="button" class="btn btn-white-border"><span>삭제하기</span><i class="icon icon-delete"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">카테고리<i class="icon icon-required">필수값</i></th>
+                                        <td colspan="3">
+                                            <div class="form-set">
+                                                <select class="form-select select-md">
+                                                    <option value="대분류">대분류</option>
+                                                </select>
+                                                <select class="form-select select-md">
+                                                    <option value="중분류">중분류</option>
+                                                </select>
+                                                <select class="form-select select-md">
+                                                    <option value="중분류">소분류</option>
+                                                </select>
+                                                <button type="button" class="btn">추가</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">진행상태<i class="icon icon-required">필수값</i></th>
+                                        <td colspan="3">
+                                            <div class="step-box">
+                                                <span class="step-state state-past">주문접수</span>
+                                                <span class="step-state state-current">주문완료</span>
+                                                <span class="step-state state-next">배송지시</span>
+                                                <span class="step-state state-next">배차중</span>
+                                                <span class="step-state state-next">배송완료</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <!-- [D] 조회 완료 시 .is-checked 추가 -->
+                                        <th scope="row">텍스트에어리어<i class="icon icon-required">필수값</i><i class="icon icon-check">조회완료</i></th>
+                                        <td colspan="3">
+                                            <textarea class="textarea textarea-md" placeholder="공지사항 내용을 입력해주세요."></textarea>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="g-example-foot">
+                        <pre><code class="html">
+    &lt;div class="table table-view">
+        &lt;table>
+            &lt;colgroup>
+                &lt;col class="col-md" />
+                &lt;col width="*" />
+                &lt;col class="col-md" />
+                &lt;col width="*" />
+            &lt;/colgroup>
+            &lt;tbody>
+                &lt;tr>
+                    &lt;th scope="row">인풋 + 버튼&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td>
+                        &lt;div class="form-set">
+                            &lt;input type="text" class="input" value="board001">
+                            &lt;button type="button" class="btn">버튼&lt;/button>
+                        &lt;/div>
+                    &lt;/td>
+                    &lt;th scope="row">인풋&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td>
+                        &lt;input type="text" class="input" placeholder="placeholder">
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th scope="row">셀렉트&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td>
+                        &lt;select class="form-select">
+                            &lt;option value="선택">선택&lt;/option>
+                        &lt;/select>
+                    &lt;/td>
+                    &lt;th scope="row">인풋 + 단위&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td>
+                        &lt;div class="form-set">
+                            &lt;input type="text" class="input" value="24">
+                            &lt;span class="unit">시간&lt;/span>
+                        &lt;/div>
+                    &lt;/td>
+                    
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th scope="row">라디오&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td>
+                        &lt;div class="radio-group">
+                            &lt;div class="form-radio">
+                                &lt;input type="radio" id="radio1-1" name="radio1" checked="checked" />
+                                &lt;label for="radio1-1">&lt;span>예&lt;/span>&lt;/label>
+                            &lt;/div>
+                            &lt;div class="form-radio">
+                                &lt;input type="radio" id="radio1-2" name="radio1" />
+                                &lt;label for="radio1-2">&lt;span>아니오&lt;/span>&lt;/label>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/td>
+                    &lt;th scope="row">라디오 + 인풋&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td>
+                        &lt;div class="form-set">
+                            &lt;div class="radio-group">
+                                &lt;div class="form-radio">
+                                    &lt;input type="radio" id="radio2-1" name="radio2" checked="checked">
+                                    &lt;label for="radio2-1">&lt;span>선택1&lt;/span>&lt;/label>
+                                &lt;/div>
+                                &lt;div class="form-radio">
+                                    &lt;input type="radio" id="radio2-2" name="radio2">
+                                    &lt;label for="radio2-2">&lt;span>선택2&lt;/span>&lt;/label>
+                                &lt;/div>
+                            &lt;/div>
+                            &lt;input type="text" class="input" value="">
+                        &lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th scope="row">기간&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td>
+                        &lt;div class="form-set">
+                            &lt;!-- [D] 월 선택 경우 .form-month 추가 -->
+                            &lt;!-- [D] 날짜 선택 경우 .form-date 추가 -->
+                            &lt;div class="input-group date form-date"> 
+                                &lt;input type="text" class="input" id="datepicker1">
+                                &lt;label for="datepicker1" class="btn has-icon">&lt;i class="icon icon-calendar">달력&lt;/i>&lt;/label>
+                            &lt;/div>
+                            &lt;span>~&lt;/span>
+                            &lt;!-- [D] 월 선택 경우 .form-month 추가 -->
+                            &lt;!-- [D] 날짜 선택 경우 .form-date 추가 -->
+                            &lt;div class="input-group date form-date"> 
+                                &lt;input type="text" class="input" id="datepicker2">
+                                &lt;label for="datepicker2" class="btn has-icon">&lt;i class="icon icon-calendar">달력&lt;/i>&lt;/label>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/td>
+                    &lt;!-- [D] 조회 완료 시 .is-checked 추가 -->
+                    &lt;th scope="row" class="is-checked">폼 그룹&lt;i class="icon icon-required">필수값&lt;/i>&lt;i class="icon icon-check">조회완료&lt;/i>&lt;/th>
+                    &lt;td>
+                        &lt;div class="form-group">
+                            &lt;div class="form-set">
+                                &lt;input type="text" class="input" value="">
+                                &lt;button type="button" class="btn">조회&lt;/button>
+                            &lt;/div>
+                            &lt;!-- [D] 월 선택 경우 .form-month 추가 -->
+                            &lt;!-- [D] 날짜 선택 경우 .form-date 추가 -->
+                            &lt;div class="input-group date form-date">
+                                &lt;input type="text" class="input">
+                                &lt;label for="datepicker1" class="btn has-icon">&lt;i class="icon icon-calendar">달력&lt;/i>&lt;/label>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th scope="row">셀렉트 + 셀렉트&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td>
+                        &lt;div class="form-set">
+                            &lt;select class="form-select select-sm">
+                                &lt;option value="선택">선택&lt;/option>
+                            &lt;/select>
+                            &lt;select class="form-select select-sm">
+                                &lt;option value="선택">선택&lt;/option>
+                            &lt;/select>
+                        &lt;/div>
+                    &lt;/td>
+                    &lt;th scope="row">인풋 + 인풋 + 버튼&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td>
+                        &lt;div class="form-set">
+                            &lt;input type="text" class="input input-sm" value="하나은행">
+                            &lt;input type="text" class="input" value="22-233-232-23">
+                            &lt;button type="button" class="btn">조회&lt;/button>
+                        &lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th scope="row">인풋 + 체크박스&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td>
+                        &lt;div class="form-set">
+                            &lt;input type="text" class="input" placeholder="placeholder">
+                            &lt;div class="form-checkbox">
+                                &lt;input type="checkbox" id="checkbox1-1" name="checkbox" aria-label="입력선택">
+                                &lt;label for="checkbox1-1">&lt;span>기본&lt;/span>&lt;/label>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/td>
+                    &lt;th scope="row">체크박스 그룹&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td>
+                        &lt;div class="check-group">
+                            &lt;div class="form-checkbox">
+                                &lt;input type="checkbox" id="checkbox2-1" name="checkbox" checked="checked">
+                                &lt;label for="checkbox2-1">&lt;span>체크1&lt;/span>&lt;/label>
+                            &lt;/div>
+                            &lt;div class="form-checkbox">
+                                &lt;input type="checkbox" id="checkbox2-2" name="checkbox">
+                                &lt;label for="checkbox2-2">&lt;span>체크2&lt;/span>&lt;/label>
+                            &lt;/div>
+                            &lt;div class="form-checkbox">
+                                &lt;input type="checkbox" id="checkbox2-3" name="checkbox">
+                                &lt;label for="checkbox2-3">&lt;span>체크3&lt;/span>&lt;/label>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th scope="row">단위정보&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td>
+                        &lt;div class="form-set form-set-sm">
+                            &lt;span class="cal">-&lt;/span>
+                            &lt;input type="text" class="input" value="">
+                            &lt;span class="unit">%&lt;/span>
+                        &lt;/div>
+                    &lt;/td>
+                    
+                    &lt;th scope="row">전화번호&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td>
+                        &lt;div class="form-set">
+                            &lt;input type="text" class="input" value="">
+                            &lt;input type="text" class="input" value="">
+                            &lt;input type="text" class="input" value="">
+                        &lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th scope="row">인풋 + 체크박스&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td>
+                        &lt;div class="form-group">
+                            &lt;div class="form-set form-set-sm">
+                                &lt;span class="cal">-&lt;/span>
+                                &lt;input type="text" class="input" value="5">
+                                &lt;span class="unit">%&lt;/span>
+                            &lt;/div>
+                            &lt;span class="mr-12">~&lt;/span>
+                            &lt;div class="form-set form-set-sm">
+                                &lt;sapn class="cal">+&lt;/sapn>
+                                &lt;input type="text" class="input" value="5">
+                                &lt;span class="unit">%&lt;/span>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/td>
+                    &lt;th scope="row">셀렉트+라벨+인풋+단위&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td>
+                        &lt;div class="form-group">
+                            &lt;div class="form-set">
+                                &lt;select class="form-select select-sm">
+                                    &lt;option value="선택">선택&lt;/option>
+                                    &lt;option value="">&lt;/option>
+                                &lt;/select>
+                            &lt;/div>
+                            &lt;div class="form-set">
+                                &lt;span class="form-label">레이블&lt;/span>
+                                &lt;input type="text" class="input" value="">
+                                &lt;span class="unit">Kg&lt;/span>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th scope="row">단위정보&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td>
+                        &lt;div class="form-set form-set-sm">
+                            &lt;input type="text" class="input" value="50.000">
+                            &lt;span class="unit">Kg&lt;/span>
+                        &lt;/div>
+                    &lt;/td>
+                    &lt;th scope="row">체크박스 그룹&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td>
+                        &lt;div class="form-group">
+                            &lt;div class="check-group">
+                                &lt;div class="form-checkbox">
+                                    &lt;input type="checkbox" id="checkbox3-1" name="checkbox" checked="checked">
+                                    &lt;label for="checkbox3-1">&lt;span>체크1&lt;/span>&lt;/label>
+                                &lt;/div>
+                                &lt;div class="form-checkbox">
+                                    &lt;input type="checkbox" id="checkbox3-2" name="checkbox">
+                                    &lt;label for="checkbox3-2">&lt;span>체크2&lt;/span>&lt;/label>
+                                &lt;/div>
+                                &lt;div class="form-checkbox">
+                                    &lt;input type="checkbox" id="checkbox3-3" name="checkbox">
+                                    &lt;label for="checkbox3-3">&lt;span>체크3&lt;/span>&lt;/label>
+                                &lt;/div>
+                            &lt;/div>
+                            &lt;div class="form-set">
+                                &lt;input type="text" class="input input-xs text-right" value="7">
+                                &lt;span class="unit">일&lt;/span>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th scope="row">체크박스 + 인풋 + 단위&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td colspan="3">
+                        &lt;div class="form-group">
+                            &lt;div class="form-set">
+                                &lt;div class="form-checkbox">
+                                    &lt;input type="checkbox" id="checkbox4-1" name="checkbox" checked="checked">
+                                    &lt;label for="checkbox4-1">&lt;span>체크1&lt;/span>&lt;/label>
+                                &lt;/div>
+                                &lt;input type="text" class="input input-sm" value="">
+                                &lt;span class="unit">원 이상&lt;/span>
+                            &lt;/div>
+                            &lt;div class="form-set">
+                                &lt;div class="form-checkbox">
+                                    &lt;input type="checkbox" id="checkbox4-2" name="checkbox" disabled="disabled">
+                                    &lt;label for="checkbox4-2">&lt;span>체크2&lt;/span>&lt;/label>
+                                &lt;/div>
+                                &lt;input type="text" class="input input-sm" value="" disabled="disabled">
+                                &lt;span class="unit">건 이상&lt;/span>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th scope="row">체크박스 그룹&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td colspan="3">
+                        &lt;div class="form-set">
+                            &lt;div class="radio-group">
+                                &lt;div class="form-radio">
+                                    &lt;input type="radio" id="radio3-1" name="radio3" checked="checked">
+                                    &lt;label for="radio3-1">&lt;span>제한 없음&lt;/span>&lt;/label>
+                                &lt;/div>
+                                &lt;div class="form-radio">
+                                    &lt;input type="radio" id="radio3-2" name="radio3">
+                                    &lt;label for="radio3-2">&lt;span>제한 있음&lt;/span>&lt;/label>
+                                &lt;/div>
+                            &lt;/div>
+                            &lt;select class="form-select select-sm">
+                                &lt;option value="1일전">1일전&lt;/option>
+                            &lt;/select>
+                            &lt;span class="unit">부터&lt;/span>
+                            &lt;select class="form-select select-sm">
+                                &lt;option value="1개월">1개월&lt;/option>
+                            &lt;/select>
+                        &lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th scope="row">체크박스 그룹&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td colspan="3">
+                        &lt;div class="form-group">
+                            &lt;div class="form-set">
+                                &lt;input type="text" class="input" value="3">
+                                &lt;span class="unit">개&lt;/span>
+                            &lt;/div>
+                            &lt;div class="check-group">
+                                &lt;div class="form-checkbox">
+                                    &lt;input type="checkbox" id="checkbox5-1" name="checkbox" checked="checked">
+                                    &lt;label for="checkbox5-1">&lt;span>체크1&lt;/span>&lt;/label>
+                                &lt;/div>
+                                &lt;div class="form-checkbox">
+                                    &lt;input type="checkbox" id="checkbox5-2" name="checkbox">
+                                    &lt;label for="checkbox5-2">&lt;span>체크2&lt;/span>&lt;/label>
+                                &lt;/div>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th scope="row">브레드크럼&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td colspan="3">
+                        &lt;div class="breadcrumb-group">
+                            &lt;div class="breadcrumb">
+                                &lt;span class="breadcrumb-item">알루미늄&lt;/span>
+                                &lt;span class="breadcrumb-item">서구산&lt;/span> 
+                            &lt;/div>
+                            &lt;button type="button" class="btn btn-white-border">&lt;span>삭제하기&lt;/span>&lt;i class="icon icon-delete">&lt;/i>&lt;/button>
+                        &lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th scope="row">카테고리&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td colspan="3">
+                        &lt;div class="form-set">
+                            &lt;select class="form-select select-md">
+                                &lt;option value="대분류">대분류&lt;/option>
+                            &lt;/select>
+                            &lt;select class="form-select select-md">
+                                &lt;option value="중분류">중분류&lt;/option>
+                            &lt;/select>
+                            &lt;select class="form-select select-md">
+                                &lt;option value="중분류">소분류&lt;/option>
+                            &lt;/select>
+                            &lt;button type="button" class="btn">추가&lt;/button>
+                        &lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th scope="row">진행상태&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th>
+                    &lt;td colspan="3">
+                        &lt;div class="step-box">
+                            &lt;span class="step-state state-past">주문접수&lt;/span>
+                            &lt;span class="step-state state-current">주문완료&lt;/span>
+                            &lt;span class="step-state state-next">배송지시&lt;/span>
+                            &lt;span class="step-state state-next">배차중&lt;/span>
+                            &lt;span class="step-state state-next">배송완료&lt;/span>
+                        &lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;!-- [D] 조회 완료 시 .is-checked 추가 -->
+                    &lt;th scope="row">텍스트에어리어&lt;i class="icon icon-required">필수값&lt;/i>&lt;i class="icon icon-check">조회완료&lt;/i>&lt;/th>
+                    &lt;td colspan="3">
+                        &lt;textarea class="textarea textarea-md" placeholder="공지사항 내용을 입력해주세요.">&lt;/textarea>
+                    &lt;/td>
+                &lt;/tr>
+            &lt;/tbody>
+        &lt;/table>
+    &lt;/div>
+                        </code></pre>
+                    </div>
+                </div>
+
+                <div class="g-example-wrap">
+                    <div class="g-example-head">
+                        <p class="title">table1 (좌측에 타이틀 오는경우)</p>
+                    </div>
+                    <div class="g-example-body">
+                        <div class="table table-view">
+                            <table>
+                                <colgroup>
+                                    <col class="col-md">
+                                    <col width="*">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">텍스트</th> 
+                                        <td>내용</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">인풋</th> 
+                                        <td>
+                                            <input type="text" class="input" value="input">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">체크박스</th> 
+                                        <td>
+                                            <div class="radio-group">
+                                                <div class="form-radio">
+                                                    <input type="radio" id="radio-1" name="radio" checked="checked">
+                                                    <label for="radio-1"><span>여</span></label>
+                                                </div>
+                                                <div class="form-radio">
+                                                    <input type="radio" id="radio-2" name="radio">
+                                                    <label for="radio-2"><span>부</span></label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">에디트 박스<i class="icon icon-required">필수값</i></th> 
+                                        <td>
+                                            <div class="edit-box">
+                                            <!-- [D] 에티트가 들어갑니다 -->
+                                            에디터 개발공간
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">타이틀<i class="icon icon-required"></i></th> 
+                                        <td>
+                                            <span class="file">
+                                                <input type="text" class="input" title="첨부된 파일명">
+                                                <!-- [D] 파일 첨부 ( common.js 파일 ) 스크립트 임의작성 -->
+                                                <label for="sFiles1" class="btn btn-file" role="button">
+                                                    <input type="file" name="sFiles1" id="sFiles1" value="찾아보기" tabindex="-1" aria-hidden="true">
+                                                    파일 첨부하기
+                                                </label>
+                                            </span>
+                                            <div class="table table-inner">
+                                                <table>
+                                                    <colgroup>
+                                                        <col width="">
+                                                        <col width="150px">
+                                                    </colgroup>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>첨부파일명</th>
+                                                            <th>용량</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="file-group">
+                                                                    <span class="file">사업자등록증_사본.pdf</span>
+                                                                    <div class="btn-box btn-box-sm">
+                                                                        <button type="button" class="btn btn-border"><span>다운로드</span><i class="icon icon-download"></i></button>
+                                                                        <button type="button" class="btn btn-border"><span>미리보기</span><i class="icon icon-preview"></i></button>
+                                                                        <button type="button" class="btn btn-border"><span>삭제하기</span><i class="icon icon-delete"></i></button>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">208.16KB</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="file-group">
+                                                                    <span class="file">통장사본.jpg</span>
+                                                                    <div class="btn-box btn-box-sm">
+                                                                        <button type="button" class="btn btn-border" disabled=""><span>다운로드</span><i class="icon icon-download"></i></button>
+                                                                        <button type="button" class="btn btn-border" disabled=""><span>미리보기</span><i class="icon icon-preview"></i></button>
+                                                                        <button type="button" class="btn btn-border" disabled=""><span>삭제하기</span><i class="icon icon-delete"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center">224.96KB</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>주소</th>
+                                        <td>
+                                            <div class="form-group row">
+                                                <div class="form-set">
+                                                    <input type="text" class="input input-sm" value="06110">
+                                                    <button type="button" class="btn">우편번호</button>
+                                                </div>
+                                                <div class="form-set">
+                                                    <input type="text" class="input" placeholder="도로명 기본주소" value="서울특별시 강남구 강남대로 542">
+                                                    <input type="text" class="input" placeholder="도로명 상세주소" value="영풍빌딩 10층">
+                                                </div>
+                                                <div class="form-set">
+                                                    <input type="text" class="input" placeholder="지번 기본주소" value="서울특별시 강남구 논현동 142">
+                                                    <input type="text" class="input" placeholder="지번 상세주소" value="(논현동)영풍빌딩 10층">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>주소</th>
+                                        <td>
+                                            <div class="form-group row">
+                                                <div class="form-set">
+                                                    <button type="button" class="btn">주소 검색 </button>
+                                                    <button type="button" class="btn">주소 초기화</button>
+                                                    <input type="text" class="input input-sm" value="06110" placeholder="우편번호">
+                                                </div>
+                                                <div class="form-set">
+                                                    <input type="text" class="input" placeholder="도로명 기본주소" value="서울특별시 강남구 강남대로 542">
+                                                    <input type="text" class="input" placeholder="도로명 상세주소" value="영풍빌딩 10층">
+                                                </div>
+                                                <div class="form-set">
+                                                    <input type="text" class="input" placeholder="지번 기본주소" value="서울특별시 강남구 논현동 142">
+                                                    <input type="text" class="input" placeholder="지번 상세주소" value="(논현동)영풍빌딩 10층">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>탭</th>
+                                        <td>
+                                            <div class="tab-button">
+                                                <a href="javascript:;" class="btn active">PC</a>
+                                                <a href="javascript:;" class="btn">Mobile</a>
+                                            </div>
+                                            <div class="tab-panel edit-box"></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="g-example-foot">
+                        <pre><code class="html">
+    &lt;div class="table table-view">
+        &lt;table>
+            &lt;colgroup>
+                &lt;col class="col-md">
+                &lt;col width="*">
+            &lt;/colgroup>
+            &lt;tbody>
+                &lt;tr>
+                    &lt;th scope="row">텍스트&lt;/th> 
+                    &lt;td>내용&lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th scope="row">인풋&lt;/th> 
+                    &lt;td>
+                        &lt;input type="text" class="input" value="input">
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th scope="row">체크박스&lt;/th> 
+                    &lt;td>
+                        &lt;div class="radio-group">
+                            &lt;div class="form-radio">
+                                &lt;input type="radio" id="radio-1" name="radio" checked="checked">
+                                &lt;label for="radio-1">&lt;span>여&lt;/span>&lt;/label>
+                            &lt;/div>
+                            &lt;div class="form-radio">
+                                &lt;input type="radio" id="radio-2" name="radio">
+                                &lt;label for="radio-2">&lt;span>부&lt;/span>&lt;/label>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th scope="row">에디트 박스&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th> 
+                    &lt;td>
+                        &lt;div class="edit-box">
+                        &lt;!-- [D] 에티트가 들어갑니다 -->
+                        에디터 개발공간
+                        &lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th scope="row">타이틀&lt;i class="icon icon-required">&lt;/i>&lt;/th> 
+                    &lt;td>
+                        &lt;span class="file">
+                            &lt;input type="text" class="input" title="첨부된 파일명">
+                            &lt;!-- [D] 파일 첨부 ( common.js 파일 ) 스크립트 임의작성 -->
+                            &lt;label for="sFiles1" class="btn btn-file" role="button">
+                                &lt;input type="file" name="sFiles1" id="sFiles1" value="찾아보기" tabindex="-1" aria-hidden="true">
+                                파일 첨부하기
+                            &lt;/label>
+                        &lt;/span>
+                        &lt;div class="table table-inner">
+                            &lt;table>
+                                &lt;colgroup>
+                                    &lt;col width="">
+                                    &lt;col width="150px">
+                                &lt;/colgroup>
+                                &lt;thead>
+                                    &lt;tr>
+                                        &lt;th>첨부파일명&lt;/th>
+                                        &lt;th>용량&lt;/th>
+                                    &lt;/tr>
+                                &lt;/thead>
+                                &lt;tbody>
+                                    &lt;tr>
+                                        &lt;td>
+                                            &lt;div class="file-group">
+                                                &lt;span class="file">사업자등록증_사본.pdf&lt;/span>
+                                                &lt;div class="btn-box btn-box-sm">
+                                                    &lt;button type="button" class="btn btn-border">&lt;span>다운로드&lt;/span>&lt;i class="icon icon-download">&lt;/i>&lt;/button>
+                                                    &lt;button type="button" class="btn btn-border">&lt;span>미리보기&lt;/span>&lt;i class="icon icon-preview">&lt;/i>&lt;/button>
+                                                    &lt;button type="button" class="btn btn-border">&lt;span>삭제하기&lt;/span>&lt;i class="icon icon-delete">&lt;/i>&lt;/button>
+                                                &lt;/div>
+                                                
+                                            &lt;/div>
+                                        &lt;/td>
+                                        &lt;td class="text-center">208.16KB&lt;/td>
+                                    &lt;/tr>
+                                    &lt;tr>
+                                        &lt;td>
+                                            &lt;div class="file-group">
+                                                &lt;span class="file">통장사본.jpg&lt;/span>
+                                                &lt;div class="btn-box btn-box-sm">
+                                                    &lt;button type="button" class="btn btn-border" disabled="">&lt;span>다운로드&lt;/span>&lt;i class="icon icon-download">&lt;/i>&lt;/button>
+                                                    &lt;button type="button" class="btn btn-border" disabled="">&lt;span>미리보기&lt;/span>&lt;i class="icon icon-preview">&lt;/i>&lt;/button>
+                                                    &lt;button type="button" class="btn btn-border" disabled="">&lt;span>삭제하기&lt;/span>&lt;i class="icon icon-delete">&lt;/i>&lt;/button>
+                                                &lt;/div>
+                                            &lt;/div>
+                                        &lt;/td>
+                                        &lt;td class="text-center">224.96KB&lt;/td>
+                                    &lt;/tr>
+                                &lt;/tbody>
+                            &lt;/table>
+                        &lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th>주소&lt;/th>
+                    &lt;td>
+                        &lt;div class="form-group row">
+                            &lt;div class="form-set">
+                                &lt;input type="text" class="input input-sm" value="06110">
+                                &lt;button type="button" class="btn">우편번호&lt;/button>
+                            &lt;/div>
+                            &lt;div class="form-set">
+                                &lt;input type="text" class="input" placeholder="도로명 기본주소" value="서울특별시 강남구 강남대로 542">
+                                &lt;input type="text" class="input" placeholder="도로명 상세주소" value="영풍빌딩 10층">
+                            &lt;/div>
+                            &lt;div class="form-set">
+                                &lt;input type="text" class="input" placeholder="지번 기본주소" value="서울특별시 강남구 논현동 142">
+                                &lt;input type="text" class="input" placeholder="지번 상세주소" value="(논현동)영풍빌딩 10층">
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th>주소&lt;/th>
+                    &lt;td>
+                        &lt;div class="form-group row">
+                            &lt;div class="form-set">
+                                &lt;button type="button" class="btn">주소 검색 &lt;/button>
+                                &lt;button type="button" class="btn">주소 초기화&lt;/button>
+                                &lt;input type="text" class="input input-sm" value="06110" placeholder="우편번호">
+                            &lt;/div>
+                            &lt;div class="form-set">
+                                &lt;input type="text" class="input" placeholder="도로명 기본주소" value="서울특별시 강남구 강남대로 542">
+                                &lt;input type="text" class="input" placeholder="도로명 상세주소" value="영풍빌딩 10층">
+                            &lt;/div>
+                            &lt;div class="form-set">
+                                &lt;input type="text" class="input" placeholder="지번 기본주소" value="서울특별시 강남구 논현동 142">
+                                &lt;input type="text" class="input" placeholder="지번 상세주소" value="(논현동)영풍빌딩 10층">
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th>탭&lt;/th>
+                    &lt;td>
+                        &lt;div class="tab-button">
+                            &lt;a href="javascript:;" class="btn active">PC&lt;/a>
+                            &lt;a href="javascript:;" class="btn">Mobile&lt;/a>
+                        &lt;/div>
+                        &lt;div class="tab-panel edit-box">&lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+            &lt;/tbody>
+        &lt;/table>
+    &lt;/div>
+                        </code></pre>
+                    </div>
+                </div>
+              
+                <div class="g-example-wrap">
+                    <div class="g-example-head">
+                        <p class="title">table2 (상단에 타이틀 오는경우)</p>
+                    </div>
+                    <div class="g-example-body">
+                        <div class="table table-list">
+                            <table>
+                                <colgroup>
+                                    <col width="*">
+                                    <col width="*">
+                                    <col width="*">
+                                    <col width="*">
+                                    <col width="*">
+                                    <col width="*">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="row">타이틀</th> 
+                                        <th scope="row">타이틀</th> 
+                                        <th scope="row">타이틀</th> 
+                                        <th scope="row">타이틀</th> 
+                                        <th scope="row">타이틀</th> 
+                                        <th scope="row">타이틀</th> 
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>내용1</td> 
+                                        <!-- [D] 증가의 경우 .up -->
+                                        <!-- [D] 감소의 경우 .down -->
+                                        <!-- [D] 그대로인 경우 .up & .down 삭제 -->
+                                        <td class="text-right up">
+                                            <i class="icon icon-updown"></i><span>2백만</span>
+                                        </td>
+                                        <td class="text-right down">
+                                            <i class="icon icon-updown"></i><span>2백만</span>
+                                        </td>
+                                        <td class="text-right down">
+                                            <i class="icon icon-updown"></i><span>2백만</span>
+                                        </td>
+                                        <td class="text-right up">
+                                            <i class="icon icon-updown"></i><span>2백만</span>
+                                        </td>
+                                        <td class="text-right up">
+                                            <i class="icon icon-updown"></i><span>2백만</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>내용2</td> 
+                                        <td>
+                                            <div class="form-checkbox no-label">
+                                                <input type="checkbox" id="checkbox-6" name="checkbox" aria-label="조회선택">
+                                                <label for="checkbox-6"></label>
+                                            </div>
+                                        </td> 
+                                        <td>
+                                            <div class="form-checkbox no-label">
+                                                <input type="checkbox" id="checkbox-7" name="checkbox" aria-label="입력선택">
+                                                <label for="checkbox-7"></label>
+                                            </div>
+                                        </td> 
+                                        <td>
+                                            <div class="form-checkbox no-label">
+                                                <input type="checkbox" id="checkbox-8" name="checkbox" aria-label="수정선택">
+                                                <label for="checkbox-8"></label>
+                                            </div>
+                                        </td> 
+                                        <td>
+                                            <div class="form-checkbox no-label">
+                                                <input type="checkbox" id="checkbox-9" name="checkbox" aria-label="삭제선택">
+                                                <label for="checkbox-9"></label>
+                                            </div>
+                                        </td> 
+                                        <td>
+                                            <div class="form-checkbox no-label">
+                                                <input type="checkbox" id="checkbox-10" name="checkbox" aria-label="엑셀선택">
+                                                <label for="checkbox-10"></label>
+                                            </div>
+                                        </td> 
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="g-example-foot">
+                        <pre><code class="html">
+    &lt;div class="table table-list">
+        &lt;table>
+            &lt;colgroup>
+                &lt;col width="*">
+                &lt;col width="*">
+                &lt;col width="*">
+                &lt;col width="*">
+                &lt;col width="*">
+                &lt;col width="*">
+            &lt;/colgroup>
+            &lt;thead>
+                &lt;tr>
+                    &lt;th scope="row">타이틀&lt;/th> 
+                    &lt;th scope="row">타이틀&lt;/th> 
+                    &lt;th scope="row">타이틀&lt;/th> 
+                    &lt;th scope="row">타이틀&lt;/th> 
+                    &lt;th scope="row">타이틀&lt;/th> 
+                    &lt;th scope="row">타이틀&lt;/th> 
+                    
+                &lt;/tr>
+            &lt;/thead>
+            &lt;tbody>
+                &lt;tr>
+                    &lt;td>내용1&lt;/td> 
+                    &lt;!-- [D] 증가의 경우 .up -->
+                    &lt;!-- [D] 감소의 경우 .down -->
+                    &lt;!-- [D] 그대로인 경우 .up & .down 삭제 -->
+                    &lt;td class="text-right up">
+                        &lt;i class="icon icon-updown">&lt;/i>&lt;span>2백만&lt;/span>
+                    &lt;/td>
+                    &lt;td class="text-right down">
+                        &lt;i class="icon icon-updown">&lt;/i>&lt;span>2백만&lt;/span>
+                    &lt;/td>
+                    &lt;td class="text-right down">
+                        &lt;i class="icon icon-updown">&lt;/i>&lt;span>2백만&lt;/span>
+                    &lt;/td>
+                    &lt;td class="text-right up">
+                        &lt;i class="icon icon-updown">&lt;/i>&lt;span>2백만&lt;/span>
+                    &lt;/td>
+                    &lt;td class="text-right up">
+                        &lt;i class="icon icon-updown">&lt;/i>&lt;span>2백만&lt;/span>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;td>내용2&lt;/td> 
+                    &lt;td>
+                        &lt;div class="form-checkbox no-label">
+                            &lt;input type="checkbox" id="checkbox-6" name="checkbox" aria-label="조회선택">
+                            &lt;label for="checkbox-6">&lt;/label>
+                        &lt;/div>
+                    &lt;/td> 
+                    &lt;td>
+                        &lt;div class="form-checkbox no-label">
+                            &lt;input type="checkbox" id="checkbox-7" name="checkbox" aria-label="입력선택">
+                            &lt;label for="checkbox-7">&lt;/label>
+                        &lt;/div>
+                    &lt;/td> 
+                    &lt;td>
+                        &lt;div class="form-checkbox no-label">
+                            &lt;input type="checkbox" id="checkbox-8" name="checkbox" aria-label="수정선택">
+                            &lt;label for="checkbox-8">&lt;/label>
+                        &lt;/div>
+                    &lt;/td> 
+                    &lt;td>
+                        &lt;div class="form-checkbox no-label">
+                            &lt;input type="checkbox" id="checkbox-9" name="checkbox" aria-label="삭제선택">
+                            &lt;label for="checkbox-9">&lt;/label>
+                        &lt;/div>
+                    &lt;/td> 
+                    &lt;td>
+                        &lt;div class="form-checkbox no-label">
+                            &lt;input type="checkbox" id="checkbox-10" name="checkbox" aria-label="엑셀선택">
+                            &lt;label for="checkbox-10">&lt;/label>
+                        &lt;/div>
+                    &lt;/td> 
+                &lt;/tr>
+            &lt;/tbody>
+        &lt;/table>
+    &lt;/div>
+                        </code></pre>
+                    </div>
+                </div>
+
+
+                <div class="g-example-wrap">
+                    <div class="g-example-head">
+                        <p class="title">table3 (스크롤)</p>
+                    </div>
+                    <div class="g-example-body">
+                        <div class="sub-title">
+                            <h3 class="">스크롤 테이블</h3>
+                            <div class="btn-box">
+                            <button type="button" class="btn">버튼</button>
+                            <button type="button" class="btn btn-green has-icon"><i class="icon icon-excel">엑셀</i></button>
+                            </div>
+                        </div>
+                        <div class="table table-view table-fixed-head text-center">
+                            <!-- //헤더부 -->
+                            <table class="table-head border-none">
+                                <colgroup>
+                                    <col width="150px" />
+                                    <col width="150px" />
+                                    <col width="150px" />
+                                    <col width="" />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">타이틀1</th>
+                                        <th scope="col">타이틀2</th>
+                                        <th scope="col">타이틀3</th>
+                                        <th scope="col">타이틀4</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <!-- //바디부 -->
+                            <div class="table-body body-sm">
+                                <table>
+                                    <colgroup>
+                                        <col width="150px" />
+                                        <col width="150px" />
+                                        <col width="150px" />
+                                        <col width="" />
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <td>내용1</td>
+                                            <td>내용1</td>
+                                            <td>내용1</td>
+                                            <td>내용1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>내용2</td>
+                                            <td>내용2</td>
+                                            <td>내용2</td>
+                                            <td>내용2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>내용3</td>
+                                            <td>내용3</td>
+                                            <td>내용3</td>
+                                            <td>내용3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>내용4</td>
+                                            <td>내용4</td>
+                                            <td>내용4</td>
+                                            <td>내용4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>내용5</td>
+                                            <td>내용5</td>
+                                            <td>내용5</td>
+                                            <td>내용5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>내용6</td>
+                                            <td>내용6</td>
+                                            <td>내용6</td>
+                                            <td>내용6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>내용7</td>
+                                            <td>내용7</td>
+                                            <td>내용7</td>
+                                            <td>내용7</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="g-example-foot">
+                        <pre><code class="html">
+    &lt;div class="sub-title">
+        &lt;h3 class="">스크롤 테이블&lt;/h3>
+        &lt;div class="btn-box">
+        &lt;button type="button" class="btn">버튼&lt;/button>
+        &lt;button type="button" class="btn btn-green has-icon">&lt;i class="icon icon-excel">엑셀&lt;/i>&lt;/button>
+        &lt;/div>
+    &lt;/div>
+    &lt;div class="table table-view table-fixed-head text-center">
+        &lt;!-- //헤더부 -->
+        &lt;table class="table-head border-none">
+            &lt;colgroup>
+                &lt;col width="150px" />
+                &lt;col width="150px" />
+                &lt;col width="150px" />
+                &lt;col width="" />
+            &lt;/colgroup>
+            &lt;thead>
+                &lt;tr>
+                    &lt;th scope="col">타이틀1&lt;/th>
+                    &lt;th scope="col">타이틀2&lt;/th>
+                    &lt;th scope="col">타이틀3&lt;/th>
+                    &lt;th scope="col">타이틀4&lt;/th>
+                &lt;/tr>
+            &lt;/thead>
+        &lt;/table>
+        &lt;!-- //바디부 -->
+        &lt;div class="table-body body-sm">
+            &lt;table>
+                &lt;colgroup>
+                    &lt;col width="150px" />
+                    &lt;col width="150px" />
+                    &lt;col width="150px" />
+                    &lt;col width="" />
+                &lt;/colgroup>
+                &lt;tbody>
+                    &lt;tr>
+                        &lt;td>내용1&lt;/td>
+                        &lt;td>내용1&lt;/td>
+                        &lt;td>내용1&lt;/td>
+                        &lt;td>내용1&lt;/td>
+                    &lt;/tr>
+                    &lt;tr>
+                        &lt;td>내용2&lt;/td>
+                        &lt;td>내용2&lt;/td>
+                        &lt;td>내용2&lt;/td>
+                        &lt;td>내용2&lt;/td>
+                    &lt;/tr>
+                    &lt;tr>
+                        &lt;td>내용3&lt;/td>
+                        &lt;td>내용3&lt;/td>
+                        &lt;td>내용3&lt;/td>
+                        &lt;td>내용3&lt;/td>
+                    &lt;/tr>
+                    &lt;tr>
+                        &lt;td>내용4&lt;/td>
+                        &lt;td>내용4&lt;/td>
+                        &lt;td>내용4&lt;/td>
+                        &lt;td>내용4&lt;/td>
+                    &lt;/tr>
+                    &lt;tr>
+                        &lt;td>내용5&lt;/td>
+                        &lt;td>내용5&lt;/td>
+                        &lt;td>내용5&lt;/td>
+                        &lt;td>내용5&lt;/td>
+                    &lt;/tr>
+                    &lt;tr>
+                        &lt;td>내용6&lt;/td>
+                        &lt;td>내용6&lt;/td>
+                        &lt;td>내용6&lt;/td>
+                        &lt;td>내용6&lt;/td>
+                    &lt;/tr>
+                    &lt;tr>
+                        &lt;td>내용7&lt;/td>
+                        &lt;td>내용7&lt;/td>
+                        &lt;td>내용7&lt;/td>
+                        &lt;td>내용7&lt;/td>
+                    &lt;/tr>
+                &lt;/tbody>
+            &lt;/table>
+        &lt;/div>
+    &lt;/div>
+                        </code></pre>
+                    </div>
+                </div>
+
+
+                <div class="g-example-wrap">
+                    <div class="g-example-head">
+                        <p class="title">이중 테이블</p>
+                    </div>
+                    <div class="g-example-body">
+                        <div class="table table-view">
+                            <table>
+                                <colgroup>
+                                    <col width="140px">
+                                    <col width="*">
+                                    <col width="140px">
+                                    <col width="*">
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">타이틀<i class="icon icon-required"></i></th> 
+                                        <td>
+                                            <select class="form-select">
+                                                <option value="">선택</option>
+                                                <option value=""></option>
+                                            </select>
+                                        </td>
+                                        <th scope="row">타이틀<i class="icon icon-required">필수값</i></th> 
+                                        <td><input type="text" class="input" value=""></td>
+                                    </tr>
+                                   
+                                    <tr>
+                                        <td colspan="4">
+                                             <div class="tab-line templeteRegister">
+                                                <button type="button" class="btn active"><span>탭메뉴1</span></button>
+                                                <button type="button" class="btn"><span>탭메뉴2</span></button>
+                                            </div>
+                                            <div class="templeteRegisterCon">
+                                                <!-- //첫번째 탭 -->
+                                                <div class="table table-view tab-panel">
+                                                    <table>
+                                                        <colgroup>
+                                                            <col width="140px">
+                                                            <col width="*">
+                                                        </colgroup>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th scope="row">타이틀<i class="icon icon-required">필수값</i></th> 
+                                                                <td>
+                                                                    <div class="radio-group">
+                                                                        <div class="form-radio">
+                                                                            <input type="radio" id="radio-3" name="radio2" checked="checked">
+                                                                            <label for="radio-3"><span>예</span></label>
+                                                                        </div>
+                                                                        <div class="form-radio">
+                                                                            <input type="radio" id="radio-4" name="radio2">
+                                                                            <label for="radio-4"><span>아니오</span></label>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <textarea class="textarea textarea-md">※ 치환코드(아래 코드를 치환하여 삽입합니다.
+{ITEM_NAME} : 아이템명
+{DELIVERY_FEE} : 배송비
+                                                                    </textarea>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">타이틀</th> 
+                                                                <td>
+                                                                    <input type="text" class="input" value="">
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- //두번째 탭 -->
+                                                <div class="table table-view tab-panel">
+                                                    <table>
+                                                        <colgroup>
+                                                            <col width="140px">
+                                                            <col width="*">
+                                                        </colgroup>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th scope="row">타이틀<i class="icon icon-required">필수값</i></th> 
+                                                                <td>
+                                                                    <div class="radio-group">
+                                                                        <div class="form-radio">
+                                                                            <input type="radio" id="radio-5" name="radio3" checked="checked">
+                                                                            <label for="radio-5"><span>예</span></label>
+                                                                        </div>
+                                                                        <div class="form-radio">
+                                                                            <input type="radio" id="radio-6" name="radio3">
+                                                                            <label for="radio-6"><span>아니오</span></label>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2">
+                                                                    <textarea class="textarea textarea-md">※ 치환코드(아래 코드를 치환하여 삽입합니다.
+{ITEM_NAME} : 아이템명
+{DELIVERY_FEE} : 배송비
+                                                                    </textarea>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">타이틀<i class="icon icon-required">필수값</i></th> 
+                                                                <td>
+                                                                    <input type="text" class="input" value="">
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <script type="text/javascript">
+                                                $(function() {
+                                                    tab(".templeteRegister", 0);
+                                                });
+                                            </script>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">타이틀<i class="icon icon-required"></i></th> 
+                                        <td class="align-top">
+                                            <div class="table table-inner">
+                                                <table>
+                                                    <colgroup>
+                                                        <col width="">
+                                                        <col width="">
+                                                        <col width="">
+                                                        <col width="">
+                                                    </colgroup>
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Metal</th>
+                                                            <th scope="col">Option</th>
+                                                            <th scope="col">Spec1</th>
+                                                            <th scope="col">Spec2</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Al</td>
+                                                            <td>Max</td>
+                                                            <td>0.001</td>
+                                                            <td>-</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Cd</td>
+                                                            <td>Max</td>
+                                                            <td>0.002</td>
+                                                            <td>-</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                        <th scope="row">타이틀<i class="icon icon-required"></i></th> 
+                                        <td class="align-top">
+                                            <div class="table table-inner">
+                                                <table>
+                                                    <colgroup>
+                                                        <col width="">
+                                                        <col width="">
+                                                        <col width="">
+                                                        <col width="">
+                                                    </colgroup>
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Metal</th>
+                                                            <th scope="col">Option</th>
+                                                            <th scope="col">Spec1</th>
+                                                            <th scope="col">Spec2</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Al</td>
+                                                            <td>Max</td>
+                                                            <td>0.001</td>
+                                                            <td>-</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Cd</td>
+                                                            <td>Max</td>
+                                                            <td>0.002</td>
+                                                            <td>-</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Cu</td>
+                                                            <td>Max</td>
+                                                            <td>0.001</td>
+                                                            <td>-</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="g-example-foot">
+                        <pre><code class="html">
+    &lt;div class="table table-view">
+        &lt;table>
+            &lt;colgroup>
+                &lt;col width="140px">
+                &lt;col width="*">
+                &lt;col width="140px">
+                &lt;col width="*">
+            &lt;/colgroup>
+            &lt;tbody>
+                &lt;tr>
+                    &lt;th scope="row">타이틀&lt;i class="icon icon-required">&lt;/i>&lt;/th> 
+                    &lt;td>
+                        &lt;select class="form-select">
+                            &lt;option value="">선택&lt;/option>
+                            &lt;option value="">&lt;/option>
+                        &lt;/select>
+                    &lt;/td>
+                    &lt;th scope="row">타이틀&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th> 
+                    &lt;td>&lt;input type="text" class="input" value="">&lt;/td>
+                &lt;/tr>
+                
+                &lt;tr>
+                    &lt;td colspan="4">
+                            &lt;div class="tab-line templeteRegister">
+                            &lt;button type="button" class="btn active">&lt;span>탭메뉴1&lt;/span>&lt;/button>
+                            &lt;button type="button" class="btn">&lt;span>탭메뉴2&lt;/span>&lt;/button>
+                        &lt;/div>
+                        &lt;div class="templeteRegisterCon">
+                            &lt;!-- //첫번째 탭 -->
+                            &lt;div class="table table-view tab-panel">
+                                &lt;table>
+                                    &lt;colgroup>
+                                        &lt;col width="140px">
+                                        &lt;col width="*">
+                                    &lt;/colgroup>
+                                    &lt;tbody>
+                                        &lt;tr>
+                                            &lt;th scope="row">타이틀&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th> 
+                                            &lt;td>
+                                                &lt;div class="radio-group">
+                                                    &lt;div class="form-radio">
+                                                        &lt;input type="radio" id="radio-3" name="radio2" checked="checked">
+                                                        &lt;label for="radio-3">&lt;span>예&lt;/span>&lt;/label>
+                                                    &lt;/div>
+                                                    &lt;div class="form-radio">
+                                                        &lt;input type="radio" id="radio-4" name="radio2">
+                                                        &lt;label for="radio-4">&lt;span>아니오&lt;/span>&lt;/label>
+                                                    &lt;/div>
+                                                &lt;/div>
+                                            &lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;td colspan="2">
+                                                &lt;textarea class="textarea textarea-md">※ 치환코드(아래 코드를 치환하여 삽입합니다.
+{ITEM_NAME} : 아이템명
+{DELIVERY_FEE} : 배송비
+                                                &lt;/textarea>
+                                            &lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;th scope="row">타이틀&lt;/th> 
+                                            &lt;td>
+                                                &lt;input type="text" class="input" value="">
+                                            &lt;/td>
+                                        &lt;/tr>
+                                    &lt;/tbody>
+                                &lt;/table>
+                            &lt;/div>
+                            &lt;!-- //두번째 탭 -->
+                            &lt;div class="table table-view tab-panel">
+                                &lt;table>
+                                    &lt;colgroup>
+                                        &lt;col width="140px">
+                                        &lt;col width="*">
+                                    &lt;/colgroup>
+                                    &lt;tbody>
+                                        &lt;tr>
+                                            &lt;th scope="row">타이틀&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th> 
+                                            &lt;td>
+                                                &lt;div class="radio-group">
+                                                    &lt;div class="form-radio">
+                                                        &lt;input type="radio" id="radio-5" name="radio3" checked="checked">
+                                                        &lt;label for="radio-5">&lt;span>예&lt;/span>&lt;/label>
+                                                    &lt;/div>
+                                                    &lt;div class="form-radio">
+                                                        &lt;input type="radio" id="radio-6" name="radio3">
+                                                        &lt;label for="radio-6">&lt;span>아니오&lt;/span>&lt;/label>
+                                                    &lt;/div>
+                                                &lt;/div>
+                                            &lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;td colspan="2">
+                                                &lt;textarea class="textarea textarea-md">※ 치환코드(아래 코드를 치환하여 삽입합니다.
+{ITEM_NAME} : 아이템명
+{DELIVERY_FEE} : 배송비
+                                                &lt;/textarea>
+                                            &lt;/td>
+                                        &lt;/tr>
+                                        &lt;tr>
+                                            &lt;th scope="row">타이틀&lt;i class="icon icon-required">필수값&lt;/i>&lt;/th> 
+                                            &lt;td>
+                                                &lt;input type="text" class="input" value="">
+                                            &lt;/td>
+                                        &lt;/tr>
+                                    &lt;/tbody>
+                                &lt;/table>
+                            &lt;/div>
+                        &lt;/div>
+
+                        &lt;script type="text/javascript">
+                            $(function() {
+                                tab(".templeteRegister", 0);
+                            });
+                        &lt;/script>
+                    &lt;/td>
+                &lt;/tr>
+                &lt;tr>
+                    &lt;th scope="row">타이틀&lt;i class="icon icon-required">&lt;/i>&lt;/th> 
+                    &lt;td class="align-top">
+                        &lt;div class="table table-inner">
+                            &lt;table>
+                                &lt;colgroup>
+                                    &lt;col width="">
+                                    &lt;col width="">
+                                    &lt;col width="">
+                                    &lt;col width="">
+                                &lt;/colgroup>
+                                &lt;thead>
+                                    &lt;tr>
+                                        &lt;th scope="col">Metal&lt;/th>
+                                        &lt;th scope="col">Option&lt;/th>
+                                        &lt;th scope="col">Spec1&lt;/th>
+                                        &lt;th scope="col">Spec2&lt;/th>
+                                    &lt;/tr>
+                                &lt;/thead>
+                                &lt;tbody>
+                                    &lt;tr>
+                                        &lt;td>Al&lt;/td>
+                                        &lt;td>Max&lt;/td>
+                                        &lt;td>0.001&lt;/td>
+                                        &lt;td>-&lt;/td>
+                                    &lt;/tr>
+                                    &lt;tr>
+                                        &lt;td>Cd&lt;/td>
+                                        &lt;td>Max&lt;/td>
+                                        &lt;td>0.002&lt;/td>
+                                        &lt;td>-&lt;/td>
+                                    &lt;/tr>
+                                &lt;/tbody>
+                            &lt;/table>
+                        &lt;/div>
+                    &lt;/td>
+                    &lt;th scope="row">타이틀&lt;i class="icon icon-required">&lt;/i>&lt;/th> 
+                    &lt;td class="align-top">
+                        &lt;div class="table table-inner">
+                            &lt;table>
+                                &lt;colgroup>
+                                    &lt;col width="">
+                                    &lt;col width="">
+                                    &lt;col width="">
+                                    &lt;col width="">
+                                &lt;/colgroup>
+                                &lt;thead>
+                                    &lt;tr>
+                                        &lt;th scope="col">Metal&lt;/th>
+                                        &lt;th scope="col">Option&lt;/th>
+                                        &lt;th scope="col">Spec1&lt;/th>
+                                        &lt;th scope="col">Spec2&lt;/th>
+                                    &lt;/tr>
+                                &lt;/thead>
+                                &lt;tbody>
+                                    &lt;tr>
+                                        &lt;td>Al&lt;/td>
+                                        &lt;td>Max&lt;/td>
+                                        &lt;td>0.001&lt;/td>
+                                        &lt;td>-&lt;/td>
+                                    &lt;/tr>
+                                    &lt;tr>
+                                        &lt;td>Cd&lt;/td>
+                                        &lt;td>Max&lt;/td>
+                                        &lt;td>0.002&lt;/td>
+                                        &lt;td>-&lt;/td>
+                                    &lt;/tr>
+                                    &lt;tr>
+                                        &lt;td>Cu&lt;/td>
+                                        &lt;td>Max&lt;/td>
+                                        &lt;td>0.001&lt;/td>
+                                        &lt;td>-&lt;/td>
+                                    &lt;/tr>
+                                &lt;/tbody>
+                            &lt;/table>
+                        &lt;/div>
+                    &lt;/td>
+                &lt;/tr>
+            &lt;/tbody>
+        &lt;/table>
+    &lt;/div>
+                        </code></pre>
+                    </div>
+                </div>
+
+                
+
+
+              
+
+
+			</div>
+
+			<!-- [D] 하단 부분 인클루드 시작 -->
+			<footer class="main-footer"></footer>
+			<script type="text/javascript"> $(".main-footer").load("/guide/html/include/footer.html"); </script>
+			<!-- // [D] 하단 부분 인클루드 끝 -->
+        </section>
+    </div>
+    <script type="text/javascript">hljs.highlightAll();</script>
+    
+
+</body>
+</html>

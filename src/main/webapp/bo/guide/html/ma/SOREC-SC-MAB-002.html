@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <!-- script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <script type="text/javascript" src="/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+</head>
+
+<body>
+
+    <div class="web-wrapper">
+        <!-- [D] 사이드바 부분 인클루드 시작 -->
+        <!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
+        <aside class="web-sidebar"></aside>
+        <script type="text/javascript"> $(".web-sidebar").load("/guide/html/include/sidebar.html");</script>
+        <!-- // [D] 사이드바 부분 인클루드 끝 -->
+
+        <section class="web-container">
+            <!-- [D] 상단메뉴 부분 인클루드 시작 -->
+            <!-- [D] 활성화된 메뉴 : .is-active 추가 -->
+            <header class="web-header"></header>
+            <script type="text/javascript"> $(".web-header").load("/guide/html/include/header.html");</script>
+            <!-- // [D] 상단메뉴 부분 인클루드 끝 -->
+
+            <div class="main-content">
+                <div class="inner">
+                    <div class="dashboard-wrap">
+                        <div class="dashboard-head">
+                            <h3>알루미늄 Alumunum</h3>
+                        </div>
+                        <div class="dashboard-con">
+                            <!-- rCharts -->
+                            <div class="rChart-graph">
+                                <!-- charts area-->
+                                <div class="rcharts-wrap" id="rCharts">
+                                    <img src="/guide/images/dashboard.jpg" alt="대시보드 그래프" />
+                                </div>            
+                            </div>
+                            <!-- rChart table -->
+                            <div class="rChart-table">
+                                <div class="rChart-sum">
+                                    <!-- [D] 마이너스의 경우 .up -> .down 변경 -->
+                                    <div class="rChart-current up">
+                                        <span class="c-price">2,825,000</span>
+                                        <span class="c-rate">1.04%</span>
+                                        <span class="c-gap">251,200</span>
+                                    </div>
+                                    <div class="rChart-summary">
+                                        <ul class="rChart-summ">
+                                            <li>
+                                                <span class="tit">고가</span>
+                                                <span class="price h-price">2,978,300</span>
+                                            </li>
+                                            <li>
+                                                <span class="tit">저가</span>
+                                                <span class="price l-price">2,769,210</span>
+                                            </li>
+                                            <li>
+                                                <span class="tit">전일가</span>
+                                                <span class="price y-price">2,769,210</span>
+                                            </li>
+                                        </ul>
+                                        <ul class="rChart-summ">
+                                            <li>
+                                                <span class="tit">거래량</span>
+                                                <span class="price t-volumn">7,825,791,000</span>
+                                            </li>
+                                            <li>
+                                                <span class="tit">거래대금</span>
+                                                <span class="price t-amount">7,825,791,000</span>
+                                                <span class="unit">KRW</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- info -->
+                                <div class="info">
+                                    <div class="li">
+                                        <div class="info-tit">
+                                            가격정보 / 창고상차도
+                                        </div>
+                                        <div class="info-desc">
+                                            <span>부산</span><span class="number">2,829,225</span><br>
+                                            <span>인천</span><span class="number">2,831,225</span><br>
+                                            <span>광양</span><span class="number">2,831,225</span><br>
+                                            <span>울산</span><span class="number">2,831,225</span><br>
+                                        </div>
+                                    </div>
+                                    <div class="li">
+                                        <div class="info-tit">LME</div>
+                                        <div class="info-desc">
+                                            2,427(USD/MT)
+                                        </div>
+                                    </div>
+                                    <div class="li">
+                                        <div class="info-tit">
+                                            조달청 고시가
+                                        </div>
+                                        <div class="info-desc">
+                                            <span>부산</span><span class="number">2,829,225</span><br>
+                                            <span>인천</span><span class="number">2,831,225</span><br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--// info -->
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dashboard-group mt-24">
+                        <div class="dashboard-wrap">
+                            <div class="dashboard-head">
+                                <h3>금일 주문 현황</h3>
+                                <div class="panel-list">
+                                    <span class="list status-web">웹</span>
+                                    <span class="list status-mobile">모바일</span>
+                                </div>
+                            </div>
+                            <div class="dashboard-con">
+                                <div class="board-title purple">
+                                    <p class="title">총 주문 수</p>
+                                    <p class="desc">26</p>
+                                </div>
+                                <div class="table table-view has-border text-right">
+                                    <table>
+                                        <colgroup>
+                                            <col width="80px">
+                                            <col width="80px">
+                                            <col width="*">
+                                            <col width="*">
+                                            <col width="*">
+                                            <col width="*">
+                                            <col width="*">
+                                            <col width="*">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">권역</th> 
+                                                <th scope="col">배송유형</th> 
+                                                <th scope="col" colspan="2">건수</th> 
+                                                <th scope="col" colspan="2">중량(MT)</th> 
+                                                <th scope="col" colspan="2">금액(백만원)</th> 
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td rowspan="2" class="text-center">부산</td> 
+                                                <td class="text-center">자차</td> 
+                                                <td>5</td> 
+                                                <td class="status-mobile">4</td> 
+                                                <td>500</td> 
+                                                <td class="status-mobile">50</td> 
+                                                <td>250</td> 
+                                                <td class="status-mobile">200</td> 
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">서린</td> 
+                                                <td>10</td> 
+                                                <td class="status-mobile">0</td> 
+                                                <td>500</td> 
+                                                <td class="status-mobile">0</td> 
+                                                <td>50</td> 
+                                                <td class="status-mobile">240</td> 
+                                            </tr>
+                                            <tr>
+                                                <td rowspan="2" class="text-center">인천</td> 
+                                                <td class="text-center">자차</td> 
+                                                <td>5</td> 
+                                                <td class="status-mobile">4</td> 
+                                                <td>500</td> 
+                                                <td class="status-mobile">50</td> 
+                                                <td>250</td> 
+                                                <td class="status-mobile">200</td> 
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">서린</td> 
+                                                <td>10</td> 
+                                                <td class="status-mobile">0</td> 
+                                                <td>500</td> 
+                                                <td class="status-mobile">0</td> 
+                                                <td>50</td> 
+                                                <td class="status-mobile">240</td> 
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-wrap">
+                            <div class="dashboard-head">
+                                <h3>금일 재고 현황</h3>
+                            </div>
+                            <div class="dashboard-con">
+                                <div class="board-title blue">
+                                    <p class="title">재고 현황</p>
+                                    <p class="desc">3,000</p>
+                                </div>
+                                <div class="table table-view has-border text-right">
+                                    <table>
+                                        <colgroup>
+                                            <col width="80px">
+                                            <col width="80px">
+                                            <col width="*">
+                                            <col width="*">
+                                            <col width="*">
+                                            <col width="*">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">권역</th> 
+                                                <th scope="col">출고유형</th> 
+                                                <th scope="col">시작</th> 
+                                                <th scope="col">판매</th> 
+                                                <th scope="col">잔량</th> 
+                                                <th scope="col">미할당</th> 
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td rowspan="2" class="text-center">부산</td> 
+                                                <td class="text-center">자차</td> 
+                                                <td>2,250</td> 
+                                                <td>1,000</td> 
+                                                <td>1,000</td> 
+                                                <td class="text-center">-</td> 
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">서린</td> 
+                                                <td>5,000</td> 
+                                                <td>5,000</td> 
+                                                <td>1,000</td> 
+                                                <td class="text-center">-</td> 
+                                            </tr>
+                                            <tr>
+                                                <td rowspan="2" class="text-center">인천</td> 
+                                                <td class="text-center">자차</td> 
+                                                <td>2,250</td> 
+                                                <td>1,000</td> 
+                                                <td>1,000</td> 
+                                                <td class="text-center">-</td> 
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">서린</td> 
+                                                <td>5,000</td> 
+                                                <td>5,000</td> 
+                                                <td>1,000</td> 
+                                                <td class="text-center">-</td> 
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-button tab-expand" style="max-width: 480px">
+                        <a href="" class="btn active">매출현황</a>
+                        <a href="" class="btn">배송현황</a>
+                        <a href="" class="btn">e-Wallet 잔고</a>
+                        <a href="" class="btn">접속자 현황</a>
+                    </div>
+
+                    <div class="dashboard-wrap mt-24">
+                        <div class="dashboard-head">
+                            <h3>매출 현황</h3>
+                        </div>
+                        <div class="dashboard-con">
+                            <div class="table-group group-half">
+                                <div class="table table-view has-border text-right" style="height: unset">
+                                    <table>
+                                        <colgroup>
+                                            <col width="94px">
+                                            <col width="*">
+                                            <col width="*">
+                                            <col width="*">
+                                            <col width="*">
+                                            <col width="*">
+                                            <col width="*">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" rowspan="2">날짜</th> 
+                                                <th scope="col" colspan="3">이론</th> 
+                                                <th scope="col" colspan="3">정산</th> 
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">수량(MT)</th> 
+                                                <th scope="col">매출</th> 
+                                                <th scope="col">이익</th> 
+                                                <th scope="col">수량</th> 
+                                                <th scope="col">매출</th> 
+                                                <th scope="col">이익</th> 
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center">2021-06-01</td> 
+                                                <!-- [D] 증가 상태일 경우 .up 추가 -->
+                                                <!-- [D] 감소 상태일 경우 .down 추가 -->
+                                                <!-- [D] 그대로 상태일 경우 비워둠 -->
+                                                <td class="up">
+                                                    <i class="icon icon-updown"></i><span>500</span>
+                                                </td> 
+                                                <td class="up">
+                                                    <i class="icon icon-updown"></i><span>43백만</span>
+                                                </td> 
+                                                <td class="up">
+                                                    <i class="icon icon-updown"></i><span>2백만</span>
+                                                </td> 
+                                                <td>-2톤</td> 
+                                                <td>2백만</td> 
+                                                <td class="up">
+                                                     <i class="icon icon-updown"></i><span>2백만</span>
+                                                </td> 
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">2021-06-01</td> 
+                                                <td class="">
+                                                    <i class="icon icon-updown"></i><span>500</span>
+                                                </td> 
+                                                <td class="">
+                                                    <i class="icon icon-updown"></i><span>43백만</span>
+                                                </td> 
+                                                <td class="">
+                                                    <i class="icon icon-updown"></i><span>2백만</span>
+                                                </td> 
+                                                <td>-2톤</td> 
+                                                <td>2백만</td> 
+                                                <td class="">
+                                                    <i class="icon icon-updown"></i><span>2백만</span>
+                                               </td> 
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">2021-06-01</td> 
+                                                <td class="up">
+                                                    <i class="icon icon-updown"></i><span>500</span>
+                                                </td> 
+                                                <td class="up">
+                                                    <i class="icon icon-updown"></i><span>43백만</span>
+                                                </td> 
+                                                 <td class="up">
+                                                    <i class="icon icon-updown"></i><span>2백만</span>
+                                                </td>
+                                                <td>-2톤</td> 
+                                                <td>2백만</td> 
+                                                <td class="up">
+                                                    <i class="icon icon-updown"></i><span>2백만</span>
+                                               </td> 
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">2021-06-01</td> 
+                                                <td class="up">
+                                                    <i class="icon icon-updown"></i><span>500</span>
+                                                </td> 
+                                                <td class="up">
+                                                    <i class="icon icon-updown"></i><span>43백만</span>
+                                                </td> 
+                                                <td class="up">
+                                                    <i class="icon icon-updown"></i><span>2백만</span>
+                                                </td> 
+                                                <td>-2톤</td> 
+                                                <td>2백만</td> 
+                                                <td class="up">
+                                                     <i class="icon icon-updown"></i><span>2백만</span>
+                                                </td> 
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">2021-06-01</td> 
+                                                <td class="up">
+                                                    <i class="icon icon-updown"></i><span>500</span>
+                                                </td> 
+                                                <td class="up">
+                                                    <i class="icon icon-updown"></i><span>43백만</span>
+                                                </td> 
+                                                <td class="up">
+                                                    <i class="icon icon-updown"></i><span>2백만</span>
+                                                </td> 
+                                                <td>-2톤</td> 
+                                                <td>2백만</td> 
+                                                <td class="up">
+                                                     <i class="icon icon-updown"></i><span>2백만</span>
+                                                </td> 
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">2021-06-01</td> 
+                                                <td class="up">
+                                                    <i class="icon icon-updown"></i><span>500</span>
+                                                </td> 
+                                                <td class="up">
+                                                    <i class="icon icon-updown"></i><span>43백만</span>
+                                                </td> 
+                                                <td class="up">
+                                                    <i class="icon icon-updown"></i><span>2백만</span>
+                                                </td> 
+                                                <td>-2톤</td> 
+                                                <td>2백만</td> 
+                                                <td class="up">
+                                                     <i class="icon icon-updown"></i><span>2백만</span>
+                                                </td> 
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">2021-06-01</td> 
+                                                <td class="down">
+                                                    <i class="icon icon-updown"></i><span>500</span>
+                                                </td> 
+                                                <td class="down">
+                                                    <i class="icon icon-updown"></i><span>43백만</span>
+                                                </td> 
+                                                <td class="down">
+                                                    <i class="icon icon-updown"></i><span>2백만</span>
+                                                </td> 
+                                                <td>-2톤</td> 
+                                                <td>2백만</td> 
+                                                <td class="down">
+                                                     <i class="icon icon-updown"></i><span>2백만</span>
+                                                </td> 
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td class="text-center">6월 누적</td> 
+                                                <td>5,700</td> 
+                                                <td>57,000</td> 
+                                                <td>10,000</td> 
+                                                <td>5,700</td> 
+                                                <td>57,000</td> 
+                                                <td>10,000</td> 
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <div class="dashboard-graph">
+                                    <img src="/guide/images/graph-ex.jpg" alt="대시보드 그래프" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+</body>
+
+</html>

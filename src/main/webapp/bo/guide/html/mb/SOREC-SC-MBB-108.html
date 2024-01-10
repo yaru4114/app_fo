@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <!-- script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <script type="text/javascript" src="/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+</head>
+
+
+<body>
+
+	<div class="web-wrapper">
+		<!-- [D] 사이드바 부분 인클루드 시작 -->
+		<!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
+		<aside class="web-sidebar"></aside>
+		<script type="text/javascript"> $(".web-sidebar").load("/guide/html/include/sidebar.html");</script>
+		<!-- // [D] 사이드바 부분 인클루드 끝 -->
+
+		<section class="web-container">
+			<!-- [D] 상단메뉴 부분 인클루드 시작 -->
+			<!-- [D] 활성화된 메뉴 : .is-active 추가 -->
+			<header class="web-header"></header>
+			<script type="text/javascript"> $(".web-header").load("/guide/html/include/header.html");</script>
+			<!-- // [D] 상단메뉴 부분 인클루드 끝 -->
+
+			<div class="main-content">
+                <div class="inner">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">회원정보 상세</button>
+
+                    <!-- Modal -->
+                    <!-- [D]모달 위치는 변경 하셔도 됩니다! -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">회원정보 상세</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="table table-view">
+										<table>
+											<colgroup>
+												<col width="180px"/>
+												<col width="330px"/>
+												<col width="180px"/>
+												<col width="*"/>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th>회원ID<i class="icon icon-required"></i></th>
+													<td>
+														<div class="form-set">
+															<input type="text" class="input" value="abc6" />
+															<button type="button" class="btn">중복검사</button>
+														</div>
+													</td>
+													<th>회원명<i class="icon icon-required"></i></th>
+													<td>
+														<input type="text" class="input" value="홍길동6" />
+													</td>
+												</tr>
+												<tr>
+													<th>담당자 구분<i class="icon icon-required"></i></th>
+													<td>
+														<select class="form-select">
+															<option value="전체">전체</option>
+															<option value="마스터">마스터</option>
+															<option value="구매담당자">구매담당자</option>
+															<option value="판매담당자">판매담당자</option>
+															<option value="정산담당자">정산담당자</option>
+														</select>
+													</td>
+													<th>회원 상태<i class="icon icon-required"></i></th>
+													<td>
+														<select class="form-select" disabled="disabled">
+															<option value="임시회원">임시회원</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<th>전화번호</th>
+													<td>
+														<input type="text" class="input" value="02-1234-5678" />
+													</td>
+													<th>핸드폰번호<i class="icon icon-required"></i></th>
+													<td>
+														<input type="text" class="input" value="010-1234-5678" />
+													</td>
+												</tr>
+												<tr>
+													<th>이메일</th>
+													<td>
+														<input type="text" class="input input-xs" value="email" /> @ <input type="text" class="input input-xs" value="" />
+														<select class="form-select select-xs">
+															<option value="직접입력">직접입력</option>
+															<option value="naver">naver.com</option>
+															<option value="daum">daum.net</option>
+															<option value="google">google.com</option>
+														</select>                            
+													</td>
+													<th>가입일</th>
+													<td>2021-08-14 14:43:26</td>
+												</tr>
+												<tr>
+													<th>최근 접속일</th>
+													<td>2021-08-14 14:43:26</td>
+													<th>이용 약관동의일</th>
+													<td>2021-08-14 14:43:26</td>
+												</tr>
+												<tr>
+													<th>개인정보 처리방침 동의일</th>
+													<td>2021-08-14 14:43:26</td>
+													<th>정보성 메일 수신동의</th>
+													<td>동의함(2021-08-14 14:43:26)</td>
+												</tr>
+												<tr>
+													<th>정보성 메시지 수신동의</th>
+													<td>동의함(2021-08-14 14:43:26)</td>
+													<th>마케팅 정보 메일 수신동의</th>
+													<td>동의 안함(2021-08-14 14:43:26)</td>
+												</tr>
+												<tr>
+													<th>마케팅 정보 메시지 수신동의</th>
+													<td>동의함(2021-08-14 14:43:26)</td>
+													<th>마케팅 정보 PUSH 수신동의</th>
+													<td>동의함(2021-08-14 14:43:26)</td>
+												</tr>
+												<tr>
+													<th>제 3자 정보제공 동의</th>
+													<td>동의함(2021-08-14 14:43:26)</td>
+													<th>증거금 약관 동의</th>
+													<td>동의함(2021-08-14 14:43:26)</td>
+												</tr>												
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<div class="btn-box">
+										<button type="button" class="btn">저장</button>
+										<button type="button" class="btn" data-dismiss="modal">취소</button>
+									</div>
+								</div>
+							</div>
+						</div>
+                    </div>
+                </div> 
+
+			</div>
+
+
+		</section>
+	</div>
+
+
+</body>
+
+</html>

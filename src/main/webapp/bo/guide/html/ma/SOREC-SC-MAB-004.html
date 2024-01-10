@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <!-- script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <script type="text/javascript" src="/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+    <script>
+    //배송 리스트 클릭 시 active
+    $(document).on('click', '.list-delivery', function() {
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+    </script>    
+</head>
+
+<body>
+<div class="web-wrapper dashboard-full-wrap">
+    <div class="main-content">
+
+        <!-- dashboard left area 시작 -->
+        <div class="inner inner-left">
+            <div class="dashboard-wrap">
+
+                <!-- 차트 -->
+                <div class="charts-wrap new">
+                    <div class="inwrap">
+
+                        <!-- chart title start -->
+                        <div class="chart-title-area">
+                            <!-- scopi start -->
+                            <div class="scopi">
+                                <span class="sc-a">SCOPI-A</span>
+                                <span class="sc-z" style="display:none">SCOPI-Z</span>
+                                <span class="sc-m" style="display:none">서린몰</span>
+                            </div>
+                            <!-- //scopi end-->
+
+                            <!-- title start -->
+                            <div class="chart-title">
+                                <div class="prod" id="headProd">
+                                    <span class="prod-a">알루미늄</span>
+                                    <span class="prod-z" style="display:none">아연</span>
+                                    <span class="prod-m" style="display:none">아연</span>
+                                </div>
+                                <div class="ticker" id="headTicker">
+                                    <span class="ticker-a">
+                                        Primary <span class="t-a">Aluminium Ingot</span> (p1020)
+                                    </span>
+                                    <span class="ticker-z" style="display:none">
+                                        Primary <span class="t-z">SHG Ingot</span>
+                                    </span>
+                                    <span class="ticker-m" style="display:none">
+                                        <span class="t-m">ZINC ALLOY DC1</span>
+                                    </span>                                    
+                                </div>
+                            </div>
+                            <!-- //title end -->
+
+                            <!-- btn start 
+                            <div class="btns">
+                                <button type="button" class="btn-stroke-md btn-alarm" data-popup="modal" data-target="sorinModalAlarm">알림설정</button>
+                                <button type="button" class="btn-blue-md btn-buy">BUY</button>
+                            </div>
+                             //btn end -->
+                        </div>
+                        <!-- //chart title end -->
+
+                        <!-- chart content start -->
+                        <div class="charts-con">
+                        
+                            <!-- chart title -->
+<!--                             <div class="chart-sum-title">
+                              <p class="sum-title">일시휴장/서린닷컴 운영시간까지 <span class="off-time">-00:03:28</span> 남았습니다.</p>
+                            </div> -->
+                            <!-- //chart title -->
+                                                    
+                            <!-- rCharts start -->
+                            <div class="rChart-graph">
+                                <!-- charts summary start -->
+                                <div class="rChart-sum">
+
+                                    <!-- summary price start -->
+                                    <div class="rChart-current up"><!-- vs down-->
+                                        <span class="c-price">
+                                            2,825,000
+                                            <span class="txt">KRW</span>
+                                        </span>
+                                        <span class="c-rate">1.04%</span>
+                                        <span class="c-gap">251,200</span>
+
+                                        <div class="desc" id="headDesc">
+                                            <span class="desc-txt">부산</span> 보세창고 상차도 기준(<span class="brand">서구산</span>, 부가세미포함)
+                                        </div>
+                                    </div>
+                                    <!-- //summary price end -->
+
+                                    <!-- summary state start -->
+                                    <div class="rChart-summary">
+                                        <ul class="rChart-summ">
+                                            <li>
+                                                <span class="stit">시가</span>
+                                                <span class="m-price">2,978,300</span>
+                                            </li>
+                                            <li>
+                                                <span class="stit">고가</span>
+                                                <span class="h-price">2,978,300</span>
+                                            </li>
+                                            <li>
+                                                <span class="stit">저가</span>
+                                                <span class="l-price">2,769,210</span>
+                                            </li>
+                                            <li>
+                                                <span class="stit">전일가</span>
+                                                <span class="y-price">2,769,210</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- //summary state end -->
+
+                                </div>
+                                <!-- //charts summary end -->
+
+                                <!-- charts area start -->
+                                <div class="rcharts-wrap" id="rCharts">
+                                    <img src="/guide/images/dashboard.jpg" alt="임시 차트 이미지"><!-- rCharts 위치 -->
+                                </div>
+                                <!-- //charts area end -->
+                                
+                                <!-- charts area : no-data start  -->
+                                <div class="rcharts-wrap nodata" id="rCharts" style="display: none;">
+                                	<div>합금아연괴(고정가)는 차트를 제공하지 않습니다.</div>
+                                </div> 
+                                <!-- charts area : no-data end -->
+
+                                <!-- chart bottom text start -->
+                                <div class="scopi-info">
+                                    <span class="sc-info-a">SCOPI-<strong>A</strong> (<strong>S</strong>orin <strong>C</strong>ommodity c<strong>O</strong>mposite <strong>P</strong>rice <strong>I</strong>ndex - <strong>A</strong>luminium)</span>
+                                    <span class="sc-info-z" style="display:none">SCOPI-<strong>Z</strong> (<strong>S</strong>orin <strong>C</strong>ommodity c<strong>O</strong>mposite <strong>P</strong>rice <strong>I</strong>ndex - <strong>Z</strong>inc)</span>
+                                </div>
+                                <!-- //chart bottom text end -->
+
+                            </div>
+                            <!-- //rCharts end -->
+
+                            <!-- 개장 전 : 차트 멈춰 있는 상태 -->
+                            <div class="sorin-state off-login">
+                                <p>서린닷컴 운영시간까지 <span class="off-time">-00:03:28</span> 남았습니다.</p>
+                                <div class="state-bottom-text">
+                                    <span>시가&nbsp;&nbsp;-</span>
+                                    <span>고가&nbsp;&nbsp;-</span>
+                                    <span>저가&nbsp;&nbsp;-</span>
+                                    <span>전일가&nbsp;&nbsp;-</span>
+                                </div>
+                            </div>
+
+                            <!-- 사이트카 발생 시 :차트 멈춰 있는 상태 -->
+                            <div class="sorin-state sidecar">
+                                <p>서비스 중지 중입니다.</p>
+                            </div> 
+
+                            <!-- rChart table start -->
+                            <div class="rChart-table">
+
+                                <div class="exchange">
+                                    환율
+                                    <span class="number">1,120.60</span>
+                                    <span class="unit">USD</span>
+                                </div>
+                                
+                                <!-- tab area start -->
+                                <div class="chart-tab-area">
+                                    <button type="button" class="btn-al active">알루미늄</button>
+                                    <button type="button" class="btn-zn">아연</button>
+                                    <button type="button" class="btn-sm">서린몰</button>
+                                <!-- <button type="button" class="btn-al active w-100">알루미늄</button>  하나일 때 --> 
+                                </div>
+                                <!-- //tab area end -->
+
+                                <!-- table list area start -->
+                                <div class="table-list-area">
+                                    <!-- thead -->
+<!--                                     <div class="table-list-thead">
+                                        <ul class="th-text">
+                                            <li>품목</li>
+                                            <li>현재가</li>
+                                            <li>등락률</li>
+                                        </ul>
+                                    </div> -->
+                                    <!--// thead-->
+
+                                    <!-- 
+                                    div class="l-inner up" 상승
+                                    div class="l-inner down" 하락 
+                                    div class="l-inner" 보합
+                                    div class="l-inner up close" 장마감
+                                    -->
+
+                                    <!-- tbody list : Aluminium start -->
+                                    <div class="table-list-tbody" id="tbodyAl">
+	                                    <div class="table-list-thead">
+	                                        <ul class="th-text">
+	                                            <li>품목</li>
+	                                            <li>현재가</li>
+	                                            <li>등락률</li>
+	                                        </ul>
+	                                    </div>
+                                        <!-- list inner : sorin start -->
+                                        <div class="tb-list-section">
+                                            <!-- list title start -->
+                                            <div class="tbody-title">
+                                                <span class="tit">서린닷컴</span>
+                                                <span class="txt">(KRW/MT)</span>
+                                            </div>
+                                            <!-- //list title end -->
+
+                                            <!-- list inner items start -->
+                                            <div class="list-inner al-sorin">
+                                                <!-- item 1 -->
+                                                <div class="l-inner up">
+                                                    <div class="c-wrhous">
+                                                        <span class="wrhous">부산/</span>
+                                                        <span class="brand-group">서구산</span>
+                                                    </div>
+                                                    <div class="c-price">2,825,000</div>
+                                                    <div class="c-rate">+100.04%</div>
+                                                </div>
+                                                <!-- item 2 -->
+                                                <div class="l-inner up">
+                                                    <div class="c-wrhous">
+                                                        <span class="wrhous">부산/</span>
+                                                        <span class="brand-group">비서구산</span>
+                                                    </div>
+                                                    <div class="c-price">2,825,000</div>
+                                                    <div class="c-rate">+100.04%</div>
+                                                </div>
+                                                <!-- item 3 -->
+                                                <div class="l-inner down">
+                                                    <div class="c-wrhous">
+                                                        <span class="wrhous">인천/</span>
+                                                        <span class="brand-group">서구산</span>
+                                                    </div>
+                                                    <div class="c-price">2,825,000</div>
+                                                    <div class="c-rate">-10.04%</div>
+                                                </div>
+                                                <!-- item 4 -->
+                                                <div class="l-inner">
+                                                    <div class="c-wrhous">
+                                                        <span class="wrhous">인천/</span>
+                                                        <span class="brand-group">비서구산</span>
+                                                    </div>
+                                                    <div class="c-price">2,825,000</div>
+                                                    <div class="c-rate">0.0%</div>
+                                                </div>
+                                            </div>
+                                            <!-- //list inner items end -->
+                                        </div>
+                                        <!-- //list inner : sorin end -->
+
+                                        <!-- list inner : pps(조달청) start -->
+                                        <div class="tb-list-section">
+                                            <!-- list title start -->
+                                            <div class="tbody-title">
+                                                <span class="tit">조달청</span>
+                                                <span class="txt">(KRW/MT)</span>
+                                                <button class="btn-vat-view" id="buttonVat">부가세 제외보기</button>
+                                            </div>
+                                            <!-- //list title end -->
+
+                                            <!-- list inner items start -->
+                                            <div class="list-inner al-pps">
+                                                <!-- item 1 -->
+                                                <div class="l-inner up">
+                                                    <div class="c-wrhous">
+                                                        <span class="brand-group">서구산</span>
+                                                    </div>
+                                                    <div class="c-price">2,825,000</div>
+                                                    <div class="c-rate">+100.04%</div>
+                                                </div>
+                                                <!-- item 2 -->
+                                                <div class="l-inner">
+                                                    <div class="c-wrhous">
+                                                        <span class="brand-group">비서구산</span>
+                                                    </div>
+                                                    <div class="c-price">2,825,000</div>
+                                                    <div class="c-rate">+100.04%</div>
+                                                </div>
+                                            </div>
+                                            <!-- //list inner items end -->
+                                        </div>
+                                        <!-- //list inner : pps(조달청) end -->
+
+                                        <!-- list inner : LME start -->
+                                        <div class="tb-list-section">
+                                            <!-- list title start -->
+                                            <div class="tbody-title">
+                                                <span class="tit">LME</span>
+                                                <span class="txt">(USD/MT)</span>
+                                            </div>
+                                            <!-- //list title end -->
+
+                                            <!-- list inner items start -->
+                                            <div class="list-inner al-lme">
+                                                <!-- item 1 -->
+                                                <div class="l-inner">
+                                                    <div class="c-lme">
+                                                        <span class="day">전일</span>
+                                                        <span class="off">OFFICIAL CASH</span>
+                                                    </div>
+                                                    <div class="c-price">2,825,000</div>
+                                                    <div class="c-rate">+100.04%</div>
+                                                </div>
+                                                <!-- item 2 -->
+                                                <div class="l-inner">
+                                                    <div class="c-lme">
+                                                        <span class="day">전일</span>
+                                                        <span class="off">CLOSING CASH</span>
+                                                    </div>
+                                                    <div class="c-price">2,825,000</div>
+                                                    <div class="c-rate">+100.04%</div>
+                                                </div>
+                                                <!-- item 3 -->
+                                                <div class="l-inner">
+                                                    <div class="c-lme">
+                                                        <span class="day">전일</span>
+                                                        <span class="off">OFFICIAL 3M</span>
+                                                    </div>
+                                                    <div class="c-price">2,825,000</div>
+                                                    <div class="c-rate">-100.04%</div>
+                                                </div>
+                                                <!-- item 4 -->
+                                                <div class="l-inner">
+                                                    <div class="c-lme">
+                                                        <span class="day">전일</span>
+                                                        <span class="off">CLOSING 3M</span>
+                                                    </div>
+                                                    <div class="c-price">2,825,000</div>
+                                                    <div class="c-rate">1.04%</div>
+                                                </div>
+                                            </div>
+                                            <!-- //list inner items end -->
+                                        </div>
+                                        <!-- //list inner : LME end -->
+                                    </div>
+                                    <!--//tbody : Aluminium end -->
+
+                                    <!-- tbody list : Zinc start -->
+                                    <div class="table-list-tbody" id="tbodyZn" style="display:none">
+	                                    <div class="table-list-thead">
+	                                        <ul class="th-text">
+	                                            <li>품목</li>
+	                                            <li>현재가</li>
+	                                            <li>등락률</li>
+	                                        </ul>
+	                                    </div>
+                                        <!-- list inner : sorin start -->
+                                        <div class="tb-list-section">
+                                            <!-- list title start -->
+                                            <div class="tbody-title">
+                                                <span class="tit">가격정보 / 창고상차도</span>
+                                            </div>
+                                            <!-- //list title end -->
+
+                                            <!-- list inner items start -->
+                                            <div class="list-inner zn-price-info">
+                                                <!-- item 1 -->
+                                                <div class="l-inner">
+                                                    <div class="c-wrhous">
+                                                        <span class="wrhous">SHG Ingot</span>
+                                                    </div>
+                                                    <div class="c-price">2,825,000</div>
+                                                    <div class="c-rate">+100.04%</div>
+                                                </div>
+                                                <!-- item 2 -->
+                                                <div class="l-inner">
+                                                    <div class="c-wrhous">
+                                                        <span class="wrhous">ZIPPER</span>
+                                                    </div>
+                                                    <div class="c-price">2,825,000</div>
+                                                    <div class="c-rate">+100.04%</div>
+                                                </div>
+                                            </div>
+                                            <!-- //list inner items end -->
+                                        </div>
+                                        <!-- //list inner : sorin end -->
+
+                                    </div>
+                                    <!--//tbody : Zinc end -->
+
+									<!-- tbody list : Sorin Mall start -->
+                                    <div class="table-list-tbody" id="tbodySm" style="display:none">
+                                    	<div class="tb-list-section-head">
+                                    		<ul>
+                                    			<li>품목</li>
+                                    			<li>현재가</li>
+                                    		</ul>
+                                    	</div>
+                                        <!-- list inner : sorin start -->
+                                        <div class="tb-list-section">
+                                            <!-- list title start -->
+                                            <!--<div class="tbody-title">
+                                                <span class="tit">가격정보 / 창고상차도</span>
+                                            </div>-->
+                                            <!-- //list title end -->
+
+                                            <!-- list inner items start -->
+                                            <div class="list-inner sm-price-info">
+                                                <!-- item 1 start -->
+                                                <a href="#" class="l-inner flex-ac-jsb active">
+                                                    <div class="c-metal-type">합금 아연</div>
+                                                    <div class="c-price">2,825,000</div>
+                                                </a>
+                                                <!-- item 1 end -->
+                                                <!-- item 2 start -->
+                                                <a href="#" class="l-inner flex-ac-jsb">
+                                                    <div class="c-metal-type">일반아연괴</div>
+                                                    <div class="c-price">2,825,000</div>
+                                                </a>
+                                                <!-- item 2 end -->
+                                                <!-- item 3 start -->
+                                                <a href="#" class="l-inner flex-ac-jsb">
+                                                    <div class="c-metal-type">전기동</div>
+                                                    <div class="c-price">2,825,000</div>
+                                                </a>
+                                                <!-- item 3 end -->
+                                                <!-- item 4 start -->
+                                                <a href="#" class="l-inner flex-ac-jsb">
+                                                    <div class="c-metal-type">주석</div>
+                                                    <div class="c-price">2,825,000</div>
+                                                </a>
+                                                <!-- item 4 end -->
+                                                <!-- item 5 start -->
+                                                <a href="#" class="l-inner flex-ac-jsb">
+                                                    <div class="c-metal-type">니켈</div>
+                                                    <div class="c-price">2,825,000</div>
+                                                </a>
+                                                <!-- item 5 end -->    
+                                                <!-- item 6 start -->
+                                                <a href="#" class="l-inner flex-ac-jsb">
+                                                    <div class="c-metal-type">카드뮴</div>
+                                                    <div class="c-price">2,825,000</div>
+                                                </a>
+                                                <!-- item 6 end -->
+                                                <!-- item 7 start -->
+                                                <a href="#" class="l-inner flex-ac-jsb">
+                                                    <div class="c-metal-type">비스무스</div>
+                                                    <div class="c-price">2,825,000</div>
+                                                </a>
+                                                <!-- item 7 end --> 
+                                                <!-- item 8 start -->
+                                                <a href="#" class="l-inner flex-ac-jsb">
+                                                    <div class="c-metal-type">안티몬</div>
+                                                    <div class="c-price">2,825,000</div>
+                                                </a>
+                                                <!-- item 8 end -->
+                                                <!-- item 9 start -->
+                                                <a href="#" class="l-inner flex-ac-jsb">
+                                                    <div class="c-metal-type">연</div>
+                                                    <div class="c-price">2,825,000</div>
+                                                </a>
+                                                <!-- item 9 end -->                                                                                                                                                                                             
+                                            </div>
+                                            <!-- //list inner items end -->
+                                        </div>
+                                        <!-- //list inner : sorin end -->
+
+                                    </div>
+									<!-- tbody list : Sorin Mall end -->
+
+                                </div>
+                                <!-- //table list area end -->
+                            </div>
+                            <!-- //rChart table end -->
+                        </div>
+                        <!-- //chart content end -->
+                    </div> 
+                </div>
+                <!--// 차트  -->
+
+            </div>
+
+            <div class="dashboard-group mt-10">
+                <div class="dashboard-wrap">
+                    <div class="dashboard-head">
+                        <h3>금일 주문 현황</h3>
+                        <div class="panel-list">
+                            <span class="list status-web">웹</span>
+                            <span class="list status-mobile">모바일</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-con">
+                        <div class="board-title purple">
+                            <p class="title">총 주문 수</p>
+                            <p class="desc">26</p>
+                        </div>
+                        <div class="table table-view has-border text-right">
+                            <table>
+                                <colgroup>
+                                    <col width="55px">
+                                    <col width="55px">
+                                    <col width="*">
+                                    <col width="*">
+                                    <col width="*">
+                                    <col width="*">
+                                    <col width="*">
+                                    <col width="*">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">권역</th> 
+                                        <th scope="col">배송</th> 
+                                        <th scope="col" colspan="2">건수</th> 
+                                        <th scope="col" colspan="2">중량(MT)</th> 
+                                        <th scope="col" colspan="2">금액(백만원)</th> 
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="2" class="text-center">부산</td> 
+                                        <td class="text-center">자차</td> 
+                                        <td>5</td> 
+                                        <td class="status-mobile">4</td> 
+                                        <td>500</td> 
+                                        <td class="status-mobile">50</td> 
+                                        <td>250</td> 
+                                        <td class="status-mobile">200</td> 
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">서린</td> 
+                                        <td>10</td> 
+                                        <td class="status-mobile">0</td> 
+                                        <td>500</td> 
+                                        <td class="status-mobile">0</td> 
+                                        <td>50</td> 
+                                        <td class="status-mobile">240</td> 
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2" class="text-center">인천</td> 
+                                        <td class="text-center">자차</td> 
+                                        <td>5</td> 
+                                        <td class="status-mobile">4</td> 
+                                        <td>500</td> 
+                                        <td class="status-mobile">50</td> 
+                                        <td>250</td> 
+                                        <td class="status-mobile">200</td> 
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">서린</td> 
+                                        <td>10</td> 
+                                        <td class="status-mobile">0</td> 
+                                        <td>500</td> 
+                                        <td class="status-mobile">0</td> 
+                                        <td>50</td> 
+                                        <td class="status-mobile">240</td> 
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-wrap">
+                    <div class="dashboard-head">
+                        <h3>금일 재고 현황</h3>
+                    </div>
+                    <div class="dashboard-con">
+                        <div class="board-title blue">
+                            <p class="title">재고 현황</p>
+                            <p class="desc">3,000</p>
+                        </div>
+                        <div class="table table-view has-border text-right">
+                            <table>
+                                <colgroup>
+                                    <col width="55px">
+                                    <col width="55px">
+                                    <col width="*">
+                                    <col width="*">
+                                    <col width="*">
+                                    <col width="*">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">권역</th> 
+                                        <th scope="col">출고</th> 
+                                        <th scope="col">시작</th> 
+                                        <th scope="col">판매</th> 
+                                        <th scope="col">잔량</th> 
+                                        <th scope="col">미할당</th> 
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="2" class="text-center">부산</td> 
+                                        <td class="text-center">자차</td> 
+                                        <td>2,250</td> 
+                                        <td>1,000</td> 
+                                        <td>1,000</td> 
+                                        <td class="text-center">-</td> 
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">서린</td> 
+                                        <td>5,000</td> 
+                                        <td>5,000</td> 
+                                        <td>1,000</td> 
+                                        <td class="text-center">-</td> 
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2" class="text-center">인천</td> 
+                                        <td class="text-center">자차</td> 
+                                        <td>2,250</td> 
+                                        <td>1,000</td> 
+                                        <td>1,000</td> 
+                                        <td class="text-center">-</td> 
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">서린</td> 
+                                        <td>5,000</td> 
+                                        <td>5,000</td> 
+                                        <td>1,000</td> 
+                                        <td class="text-center">-</td> 
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-wrap mt-10">                       
+                <div class="dashboard-con">
+                    <div class="tab-button tab-expand">
+                        <a href="" class="btn">매출현황</a>
+                        <a href="" class="btn active">배송현황</a>
+                        <a href="" class="btn">e-Wallet 잔고</a>
+                        <a href="" class="btn">접속자 현황</a>
+                    </div>                             
+                    <div class="table-group group-half">
+                        <div class="dashboard-graph">
+                            <img src="/guide/images/graph-ex.jpg" alt="대시보드 그래프" />
+                        </div>
+
+                        <!-- 매출현황 테이블 시작 > tbody 하단 설명 pre 태그 주석처리 필요
+                        <div class="table table-view has-border text-right" style="height: unset">
+                            <table>
+                                <colgroup>
+                                    <col width="94px">
+                                    <col width="*">
+                                    <col width="*">
+                                    <col width="*">
+                                    <col width="*">
+                                    <col width="*">
+                                    <col width="*">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" rowspan="2">날짜</th> 
+                                        <th scope="col" colspan="3">이론</th> 
+                                        <th scope="col" colspan="3">정산</th> 
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">수량(MT)</th> 
+                                        <th scope="col">매출</th> 
+                                        <th scope="col">이익</th> 
+                                        <th scope="col">수량</th> 
+                                        <th scope="col">매출</th> 
+                                        <th scope="col">이익</th> 
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">2021-06-01</td> 
+                                        <pre>
+                                        [D] 증가 상태일 경우 .up 추가
+                                            [D] 감소 상태일 경우 .down 추가
+                                        [D] 그대로 상태일 경우 비워둠
+                                        </pre>
+                                        <td class="up">
+                                            <i class="icon icon-updown"></i><span>500</span>
+                                        </td> 
+                                        <td class="up">
+                                            <i class="icon icon-updown"></i><span>43백만</span>
+                                        </td> 
+                                        <td class="up">
+                                            <i class="icon icon-updown"></i><span>2백만</span>
+                                        </td> 
+                                        <td>-2톤</td> 
+                                        <td>2백만</td> 
+                                        <td class="up">
+                                                <i class="icon icon-updown"></i><span>2백만</span>
+                                        </td> 
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">2021-06-01</td> 
+                                        <td class="">
+                                            <i class="icon icon-updown"></i><span>500</span>
+                                        </td> 
+                                        <td class="">
+                                            <i class="icon icon-updown"></i><span>43백만</span>
+                                        </td> 
+                                        <td class="">
+                                            <i class="icon icon-updown"></i><span>2백만</span>
+                                        </td> 
+                                        <td>-2톤</td> 
+                                        <td>2백만</td> 
+                                        <td class="">
+                                            <i class="icon icon-updown"></i><span>2백만</span>
+                                        </td> 
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">2021-06-01</td> 
+                                        <td class="up">
+                                            <i class="icon icon-updown"></i><span>500</span>
+                                        </td> 
+                                        <td class="up">
+                                            <i class="icon icon-updown"></i><span>43백만</span>
+                                        </td> 
+                                            <td class="up">
+                                            <i class="icon icon-updown"></i><span>2백만</span>
+                                        </td>
+                                        <td>-2톤</td> 
+                                        <td>2백만</td> 
+                                        <td class="up">
+                                            <i class="icon icon-updown"></i><span>2백만</span>
+                                        </td> 
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">2021-06-01</td> 
+                                        <td class="up">
+                                            <i class="icon icon-updown"></i><span>500</span>
+                                        </td> 
+                                        <td class="up">
+                                            <i class="icon icon-updown"></i><span>43백만</span>
+                                        </td> 
+                                        <td class="up">
+                                            <i class="icon icon-updown"></i><span>2백만</span>
+                                        </td> 
+                                        <td>-2톤</td> 
+                                        <td>2백만</td> 
+                                        <td class="up">
+                                                <i class="icon icon-updown"></i><span>2백만</span>
+                                        </td> 
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">2021-06-01</td> 
+                                        <td class="up">
+                                            <i class="icon icon-updown"></i><span>500</span>
+                                        </td> 
+                                        <td class="up">
+                                            <i class="icon icon-updown"></i><span>43백만</span>
+                                        </td> 
+                                        <td class="up">
+                                            <i class="icon icon-updown"></i><span>2백만</span>
+                                        </td> 
+                                        <td>-2톤</td> 
+                                        <td>2백만</td> 
+                                        <td class="up">
+                                                <i class="icon icon-updown"></i><span>2백만</span>
+                                        </td> 
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">2021-06-01</td> 
+                                        <td class="up">
+                                            <i class="icon icon-updown"></i><span>500</span>
+                                        </td> 
+                                        <td class="up">
+                                            <i class="icon icon-updown"></i><span>43백만</span>
+                                        </td> 
+                                        <td class="up">
+                                            <i class="icon icon-updown"></i><span>2백만</span>
+                                        </td> 
+                                        <td>-2톤</td> 
+                                        <td>2백만</td> 
+                                        <td class="up">
+                                                <i class="icon icon-updown"></i><span>2백만</span>
+                                        </td> 
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">2021-06-01</td> 
+                                        <td class="down">
+                                            <i class="icon icon-updown"></i><span>500</span>
+                                        </td> 
+                                        <td class="down">
+                                            <i class="icon icon-updown"></i><span>43백만</span>
+                                        </td> 
+                                        <td class="down">
+                                            <i class="icon icon-updown"></i><span>2백만</span>
+                                        </td> 
+                                        <td>-2톤</td> 
+                                        <td>2백만</td> 
+                                        <td class="down">
+                                                <i class="icon icon-updown"></i><span>2백만</span>
+                                        </td> 
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td class="text-center">6월 누적</td> 
+                                        <td>5,700</td> 
+                                        <td>57,000</td> 
+                                        <td>10,000</td> 
+                                        <td>5,700</td> 
+                                        <td>57,000</td> 
+                                        <td>10,000</td> 
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                            //매출현황 테이블 끝 -->
+
+                        <!-- 배송현황 테이블 시작 -->
+                        <div class="table table-view has-border text-right" style="height: unset">
+                            <table>
+                                <colgroup>
+                                    <col width="80px">
+                                    <col width="*">
+                                    <col width="*">
+                                    <col width="*">
+                                    <col width="*">
+                                    <col width="*">
+                                    <col width="*">
+                                    <col width="*">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" rowspan="2">날짜</th> 
+                                        <th scope="col" colspan="2">총합계</th> 
+                                        <th scope="col" colspan="2">자차배송</th> 
+                                        <th scope="col" colspan="3">서린배송</th> 
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">배송준비</th> 
+                                        <th scope="col">출고완료</th> 
+                                        <th scope="col">배송준비</th> 
+                                        <th scope="col">출고완료</th> 
+                                        <th scope="col">배송준비</th> 
+                                        <th scope="col">출고완료</th> 
+                                        <th scope="col">배송완료</th> 
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">2021-08-04</td>
+                                        <td>300,000</td>
+                                        <td>123.15</td>
+                                        <td>300.000</td>
+                                        <td>250.000</td>
+                                        <td>300.000</td>
+                                        <td>300.000</td>
+                                        <td>300.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">2021-08-03</td>
+                                        <td>400,000</td>
+                                        <td>123.15</td>
+                                        <td>400.000</td>
+                                        <td>250.000</td>
+                                        <td>400.000</td>
+                                        <td>400.000</td>
+                                        <td>400.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">2021-08-02</td>
+                                        <td>500,000</td>
+                                        <td>123.15</td>
+                                        <td>500.000</td>
+                                        <td>250.000</td>
+                                        <td>500.000</td>
+                                        <td>500.000</td>
+                                        <td>500.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">2021-08-01</td>
+                                        <td>500,000</td>
+                                        <td>123.15</td>
+                                        <td>500.000</td>
+                                        <td>250.000</td>
+                                        <td>500.000</td>
+                                        <td>500.000</td>
+                                        <td>500.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">2021-07-31</td>
+                                        <td>500,000</td>
+                                        <td>123.15</td>
+                                        <td>500.000</td>
+                                        <td>250.000</td>
+                                        <td>500.000</td>
+                                        <td>500.000</td>
+                                        <td>500.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">2021-07-30</td>
+                                        <td>500,000</td>
+                                        <td>123.15</td>
+                                        <td>500.000</td>
+                                        <td>250.000</td>
+                                        <td>500.000</td>
+                                        <td>500.000</td>
+                                        <td>500.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">2021-07-29</td>
+                                        <td>500,000</td>
+                                        <td>123.15</td>
+                                        <td>500.000</td>
+                                        <td>250.000</td>
+                                        <td>500.000</td>
+                                        <td>500.000</td>
+                                        <td>500.000</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td class="text-center">누적</td> 
+                                        <td>3,900.000</td> 
+                                        <td>-</td> 
+                                        <td>3,850.000</td> 
+                                        <td>499.025</td> 
+                                        <td>3,900.000</td> 
+                                        <td>-</td> 
+                                        <td>298.025</td> 
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <!-- //매출현황 테이블 끝 -->
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- //dashboard left area 끝 -->
+
+        <!-- dashboard right area 시작 -->
+        <div class="inner-right">
+            <div class="right-top">
+                <span>Total
+                    <span>102 / </span>
+                    <span class="cnt">5</span>건
+                </span>
+            </div>
+
+            <!-- right content area 시작 -->
+            <div class="right-content-area">
+
+                <!-- right > list 시작 -->
+                <div class="right-list-area">
+                    <!-- list item 시작 -->
+                    <div class="list-inner">
+                        <!-- item 시작 -->
+                        <div class="list-delivery active">
+                            <div class="item-top">
+                                <span class="etc">자차배송</span>
+                                <span class="sorin hidden">서린배송</span>
+                                <span class="date">2021-08-04 14:00</span>
+                            </div>
+                            <div class="item-company">
+                                <span class="code">P0012</span>
+                                <span class="name">빅히트상사</span>
+                            </div>
+                            <div class="item-information">
+                                <span class="code">아연</span>
+                                <span class="area">부산권역</span>
+                                <span class="brand">Vedanta</span>
+                                <span class="weight">100톤</span>
+                            </div>
+                        </div>
+                        <!-- //item 끝 -->
+                        <!-- item 시작 -->
+                        <div class="list-delivery">
+                            <div class="item-top">
+                                <span class="etc hidden">자차배송</span>
+                                <span class="sorin">서린배송</span>
+                                <span class="date">2021-08-04 14:00</span>
+                            </div>
+                            <div class="item-company">
+                                <span class="code">P0012</span>
+                                <span class="name">빅히트상사</span>
+                            </div>
+                            <div class="item-information">
+                                <span class="code">아연</span>
+                                <span class="area">부산권역</span>
+                                <span class="brand">Vedanta</span>
+                                <span class="weight">100톤</span>
+                            </div>
+                        </div>
+                        <!-- item 끝 -->
+                    </div>
+                    <!-- //list item 끝 -->
+                </div>
+                <!-- //right > list 끝 -->
+
+                <!-- right > list detail 시작 -->
+                <div class="right-detail-area">
+
+                    <!-- title area 시작 -->
+                    <div class="right-title">
+                        <div class="title">
+                            <p>고도종합통상</p>
+                            <span>P020210805-000001</span>
+                        </div>
+                        <div class="diver">AL</div>
+                    </div>
+                    <!-- //title area 끝 -->
+
+                    <!-- 주문이력 시작 -->
+                    <div class="right-order-history">
+                        <h3>주문이력</h3>
+
+                        <!-- 주문 이력 상태 시작 -->
+                        <div class="order-history">
+                            <div class="order-step">
+                                <span class="state">
+                                    <span class="dot">dot</span>
+                                    결제완료
+                                </span>
+                                <ul class="detail">
+                                    <li>2021-08-04 14:45</li>
+                                    <li>인천권역 / Vananta / 510MT</li>
+                                    <li>5,650,000원</li>
+                                </ul>
+                            </div>
+                            <div class="order-step">
+                                <span class="state">
+                                    <span class="dot">dot</span>
+                                    장바구니
+                                </span>
+                                <ul class="detail">
+                                    <li>2021-08-04 14:45</li>
+                                    <li>5,650,000원</li>
+                                </ul>
+                            </div>
+                            <div class="order-step">
+                                <span class="state">
+                                    <span class="dot">dot</span>
+                                    상품검색
+                                </span>
+                                <ul class="detail">
+                                    <li>2021-08-04 14:45</li>
+                                    <li>5,650,000원</li>
+                                </ul>
+                            </div>
+                            <span class="dot-line">dot-line</span>
+                        </div>
+                        <!-- //주문 이력 상태 끝 -->
+
+                        <!-- 이전 검색 이력 상태 시작 -->
+                        <div class="order-history search">
+                            <div class="order-step">
+                                <span class="state">
+                                    <span class="dot">dot</span>
+                                    상품검색
+                                </span>
+                                <ul class="detail">
+                                    <li>2021-08-04 14:45</li>
+                                    <li>인천권역 / Vananta / 510MT</li>
+                                    <li>5,650,000원</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="order-history search">
+                            <div class="order-step">
+                                <span class="state">
+                                    <span class="dot">dot</span>
+                                    상품검색
+                                </span>
+                                <ul class="detail">
+                                    <li>2021-08-04 14:45</li>
+                                    <li>인천권역 / Vananta / 510MT</li>
+                                    <li>5,650,000원</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- //이전 검색 이력 상태 끝 -->
+
+                    </div>
+                    <!-- //주문이력 끝 -->
+
+                    <!-- 물류정보 시작 -->
+                    <div class="logistics-information">
+                        <h3>물류정보</h3>
+                        <ul class="logi-item">
+                            <li>
+                                <p>출고 요청일</p>
+                                <span>2021-08-12</span>
+                            </li>
+                            <li>
+                                <p>배송지</p>
+                                <span>경기도 수원시 권선구 호매실 123</span>
+                            </li>
+                            <li>
+                                <p>출고정보</p>
+                                <span>삼미창고 25톤 20개</span>
+                                <span>인천창고 25톤 15개</span>
+                                <span>동부창고 25톤 25개</span>
+                                <span>삼미창고 25톤 30개</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- //물류정보 끝 -->
+                </div>
+                <!-- //right > list detail 끝 -->
+            </div>
+            <!-- //right content area 끝 -->
+        </div>
+        <!-- //dashboard right area 끝 -->
+
+    </div>
+</div>
+
+<script>
+$(document).ready(function(){
+
+    // chart-tab 클릭 이벤트
+    $(document).on('click','.chart-tab-area > button', function(e) {
+    e.preventDefault;
+
+    var buttonAl = $('.chart-tab-area .btn-al');
+    var buttonZn = $('.chart-tab-area .btn-zn');
+    var buttonSm = $('.chart-tab-area .btn-sm');
+
+    if ( $(this).hasClass('btn-al') ) { // 알루미늄 탭 선택 시
+
+        buttonAl.addClass('active').siblings().removeClass('active');  // 버튼 
+        $('#tbodyAl').show().siblings('div[id^="tbody"]').hide();      // 테이블 
+        $('#headProd > .prod-a').show().siblings().hide();             // 제품명
+        $('#headTicker > .ticker-a').show().siblings().hide();         // 제품명 > 기준가 설명
+        $('.scopi > .sc-a').show().siblings().hide();                  // 제품명 > scopi
+        $('.scopi-info > .sc-info-a').show().siblings().hide();        // scopi 설명
+        $('.rcharts-wrap').show();
+        $('.rcharts-wrap.nodata').hide();
+        
+    } else if ( $(this).hasClass('btn-zn') ) {  // 아연 탭 선택 시
+
+        buttonZn.addClass('active').siblings().removeClass('active');   // 버튼 
+        $('#tbodyZn').show().siblings('div[id^="tbody"]').hide();       // 테이블
+        $('#headProd > .prod-z').show().siblings().hide();              // 제품명
+        $('#headTicker > .ticker-z').show().siblings().hide();          // 제품명 > 기준가 설명
+        $('.scopi > .sc-z').show().siblings().hide();                   // 제품명 > scopi
+        $('.scopi-info > .sc-info-z').show().siblings().hide();         // scopi 설명
+        $('.rcharts-wrap').show();
+        $('.rcharts-wrap.nodata').hide();
+
+    } else if ( $(this).hasClass('btn-sm') ) {   // 서린몰 탭 선택 시 
+        
+        buttonSm.addClass('active').siblings().removeClass('active');   // 버튼 
+        $('#tbodySm').show().siblings('div[id^="tbody"]').hide();       // 테이블
+        $('#headProd > .prod-m').show().siblings().hide();              // 제품명
+        $('#headTicker > .ticker-m').show().siblings().hide();          // 제품명 > 기준가 설명
+        $('.scopi > .sc-m').show().siblings().hide();                   // 제품명 > scopi
+        $('.scopi-info > .sc-info-m').show().siblings().hide();         // scopi 설명  
+        $('.rcharts-wrap').hide();
+        $('.rcharts-wrap.nodata').show();
+       
+    } else {
+        return false;
+    }
+    
+    $(this).hasClass('btn-sm') ?  $('.rChart-current .c-rate, .rChart-current .c-gap').hide() : $('.rChart-current .c-rate, .rChart-current .c-gap').show();
+    
+    });
+    
+    
+
+    // 차트 내 부가세 제외보기 클릭 이벤트
+    $(document).on('click','#buttonVat', function() {
+        if ( $(this).hasClass('active') ) {
+            $(this).removeClass('active');
+            $(this).text('부가세 제외보기');
+        } else {
+            $(this).addClass('active');
+            $(this).text('부가세 포함보기');
+        }
+    });
+
+});    
+</script>
+
+
+</body>
+
+</html>

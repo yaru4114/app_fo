@@ -1,0 +1,207 @@
+@charset "utf-8";
+
+/* noto-sans-kr-regular - korean */
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-style: normal; 
+    font-weight: 400;
+    src: url('/fonts/noto-sans-kr-v13-korean/noto-sans-kr-v13-korean-regular.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('/fonts/noto-sans-kr-v13-korean/noto-sans-kr-v13-korean-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/fonts/noto-sans-kr-v13-korean/noto-sans-kr-v13-korean-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('/fonts/noto-sans-kr-v13-korean/noto-sans-kr-v13-korean-regular.woff') format('woff'), /* Modern Browsers */
+         url('/fonts/noto-sans-kr-v13-korean/noto-sans-kr-v13-korean-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/fonts/noto-sans-kr-v13-korean/noto-sans-kr-v13-korean-regular.svg#NotoSansKR') format('svg'); /* Legacy iOS */
+}
+/* noto-sans-kr-500 - korean */
+@font-face {
+font-family: 'Noto Sans KR';
+font-style: normal;
+font-weight: 500;
+src: url('/fonts/noto-sans-kr-v13-korean/noto-sans-kr-v13-korean-500.eot'); /* IE9 Compat Modes */
+src: local(''),
+    url('/fonts/noto-sans-kr-v13-korean/noto-sans-kr-v13-korean-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('/fonts/noto-sans-kr-v13-korean/noto-sans-kr-v13-korean-500.woff2') format('woff2'), /* Super Modern Browsers */
+    url('/fonts/noto-sans-kr-v13-korean/noto-sans-kr-v13-korean-500.woff') format('woff'), /* Modern Browsers */
+    url('/fonts/noto-sans-kr-v13-korean/noto-sans-kr-v13-korean-500.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('/fonts/noto-sans-kr-v13-korean/noto-sans-kr-v13-korean-500.svg#NotoSansKR') format('svg'); /* Legacy iOS */
+}
+/* noto-sans-kr-700 - korean */
+@font-face {
+font-family: 'Noto Sans KR';
+font-style: normal;
+font-weight: 700;
+src: url('/fonts/noto-sans-kr-v13-korean/noto-sans-kr-v13-korean-700.eot'); /* IE9 Compat Modes */
+src: local(''),
+    url('/fonts/noto-sans-kr-v13-korean/noto-sans-kr-v13-korean-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('/fonts/noto-sans-kr-v13-korean/noto-sans-kr-v13-korean-700.woff2') format('woff2'), /* Super Modern Browsers */
+    url('/fonts/noto-sans-kr-v13-korean/noto-sans-kr-v13-korean-700.woff') format('woff'), /* Modern Browsers */
+    url('/fonts/noto-sans-kr-v13-korean/noto-sans-kr-v13-korean-700.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('/fonts/noto-sans-kr-v13-korean/noto-sans-kr-v13-korean-700.svg#NotoSansKR') format('svg'); /* Legacy iOS */
+}
+
+
+/* roboto-regular - latin */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/roboto-v27-latin/roboto-v27-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('/fonts/roboto-v27-latin/roboto-v27-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/fonts/roboto-v27-latin/roboto-v27-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('/fonts/roboto-v27-latin/roboto-v27-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('/fonts/roboto-v27-latin/roboto-v27-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/fonts/roboto-v27-latin/roboto-v27-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+  }
+  /* roboto-500 - latin */
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    src: url('/fonts/roboto-v27-latin/roboto-v27-latin-500.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('/fonts/roboto-v27-latin/roboto-v27-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/fonts/roboto-v27-latin/roboto-v27-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+         url('/fonts/roboto-v27-latin/roboto-v27-latin-500.woff') format('woff'), /* Modern Browsers */
+         url('/fonts/roboto-v27-latin/roboto-v27-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/fonts/roboto-v27-latin/roboto-v27-latin-500.svg#Roboto') format('svg'); /* Legacy iOS */
+  }
+  /* roboto-700 - latin */
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/fonts/roboto-v27-latin/roboto-v27-latin-700.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('/fonts/roboto-v27-latin/roboto-v27-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/fonts/roboto-v27-latin/roboto-v27-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+         url('/fonts/roboto-v27-latin/roboto-v27-latin-700.woff') format('woff'), /* Modern Browsers */
+         url('/fonts/roboto-v27-latin/roboto-v27-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/fonts/roboto-v27-latin/roboto-v27-latin-700.svg#Roboto') format('svg'); /* Legacy iOS */
+  }
+  
+* {font-family: 'Noto Sans KR', sans-serif; color:#333; box-sizing:border-box;}
+:root {font-size:10px;}
+html, body {height:100%; margin:0; padding:0; font-size:1.4rem;}
+.hgroup {position:relative;
+display: flex;
+align-items: center;
+justify-content: space-between;}
+.on {display:block !important;}
+.roboto {font-family: 'Roboto', sans-serif;}
+.g_article {margin-top:3rem;}
+.g_article:first-of-type {margin-top:0;}
+/* .g_code {} */
+code.html, .g_html {display:block; padding:1rem 2rem; background-color:#fff; border:1px #ddd solid;} /* highlight.js */
+.code {position:relative; padding:1rem; margin-top:1rem; border:1px #ddd solid; background-color:#f0f0f0;}
+.g_view {min-height:1em; padding:2rem; margin-bottom:1rem; border:1px #ddd solid; border-radius:1rem; background-color:#f0f0f0;}
+.g_view .p + .p, .g_html .p + .p {margin-top:1rem;}
+
+/* Guide Header */
+.wrapper {height:100%;}
+.g_header {height:5rem; background-color:lightgray;}
+.g_header ul {list-style:none; margin:0; padding:0; display:flex;}
+.g_header ul li {padding:0 1rem; line-height:5rem;}
+.g_header ul li a {display:block;}
+.g_header h1 {margin:0; font-size:1.8rem;}
+.g_container {width:100%; min-height:calc(100% - 5rem); height: 100%; display:flex; align-items:stretch; }
+.g_container.hasList .g_menu {width:0; overflow:hidden;}
+.g_container.hasList .g_content {width:100%;}
+.g_menu {width:20rem; border-right:1px #ddd solid;}
+.g_menu h2 {padding:0.5rem 1.8rem 0; text-transform:capitalize;}
+.g_menu ul {list-style:none; padding:0;}
+.g_menu ul li a {display:block; padding:0.7rem 2rem;}
+/* .g_menu #guide, 
+.g_menu #elements,
+.g_menu #components {display:none;} */
+.g_content {width:calc(100% - 20rem);}
+.g_content .ifr_con {width:100%; height:100%;}
+.g_wrapper,
+.g_container.hasList .g_content .ifr_con {padding:1rem 1.8rem;}
+
+/* Guide Left Menu */
+
+/* Google Material Icons */
+.li_folder .material-icons {vertical-align:middle; margin-right:.4rem;}
+
+/* Guide Content Style */
+.li_folder {position:relative;}
+.li_folder > li {position:relative;}
+.li_folder > li > .li_folder {margin-top:.5rem; margin-bottom:.5rem;}
+.li_folder > li > .li_folder li {padding:0 2rem;}
+.li_folder_desc {display:block; width:50%; position:absolute; top:.4rem; right:0;}
+.dl {display:table; table-layout:fixed;}
+.dl dt, .dl dd {display:table-cell;}
+.dl dt {width:20rem;}
+.dl dd {width:calc(100% - 20rem);}
+
+/* HTML List */
+.guide_wrap {position:relative;}
+/* ul.state {display:table; padding:0; margin:0; position:absolute; bottom:0; right:1rem;} */
+ul.state li {display:table-cell;}
+ul.state li strong, 
+ul.state li span {display:inline-block;}
+ul.state li strong{margin-right:1rem; margin-left:1rem;}
+.tbl_guide {width:100%; border-spacing:0; border-collapse:collapse; border-bottom:1px solid #ddd}
+.tbl_guide thead th {padding:0.5rem; font-size:13px; font-weight:normal; background-color:#1d5fd0; color:#fff;}
+.tbl_guide tbody th, 
+.tbl_guide tbody td {font-size:13px; padding:0.4rem 0.5rem; text-align:center; line-height:1.5; border:1px #ddd solid; border-bottom:0; background-color:#fff}
+.tbl_guide tbody th {font-weight:normal;}
+.tbl_guide .sbid {font-size:0;}
+.tbl_guide .sbid a {font-size:14px;}
+.tbl_guide .hidden {font-size:0;}
+.tbl_guide .d1 {width:10rem; color:#000}
+.tbl_guide .d2 {width:18rem; text-align:left;}
+.tbl_guide .d3 {width:22rem; text-align:left;}
+.tbl_guide .d4 {display:table-cell; width:16rem; text-align:left;}
+.tbl_guide .sbid {width:25rem;}
+.tbl_guide .coder {width:10rem;}
+.tbl_guide .date {width:10rem;}
+.tbl_guide .state {width:10rem;}
+.tbl_guide tbody tr.hr th,.tbl_guide tbody tr.hr td {border-top:1px dashed #666}
+.tbl_guide tbody td .ly-in,
+.tbl_guide tbody td .pa-add {display:inline-block; margin-right:5px; padding:1px 4px; border-radius:4px; color:#fff}
+.tbl_guide tbody td .ly-in {background-color:#99bdfb;}
+.tbl_guide tbody td .modify-title {display:inline-block; margin-right:5px; padding:1px 4px; border-radius:4px; background-color:#eee; color:#333}
+.ing th, .ing td {background-color:rgb(222, 237, 247) !important;}
+/* .done th, .done td {background-color:rgba(199, 202, 204, .4);} */
+.review th, .review td {background-color:rgba(103, 221, 6, .2) !important;}
+.cancel th, .cancel td, .cancel td a {text-decoration:line-through; background-color:rgba(199, 202, 204, .4) !important;}
+.modify th, .modify td {background-color:khaki !important;}
+
+.g_header {
+    height: 90px;
+    background: #000;
+    padding: 20px;
+}
+.g_container {min-height:calc(100% - 90px);}
+.g_header ul li h1 a {
+    font-size: 24px;
+    color: #fff;  
+    text-decoration: none;
+}
+.g_header ul li:first-child {
+    margin-right: 20px;
+}
+.g_header ul li a {
+    color: #fff;
+    font-size: 16px;
+    /* text-decoration: none; */
+    
+}
+
+        
+.tbl_guide .hide * {display:none;}
+/* .tbl-guide.finished .done th,  */
+/* .tbl-guide.finished .done td {background-color:#fff;} */
+.tbl_guide tbody tr.hr th,.tbl-guide tbody tr.hr td {border-top:1px dashed #666}
+.tbl_guide tbody td .modify-title {display:block; margin:5px 0 3px;}
+.tbl_guide tbody td .modify-title span {padding:2px 10px; border-radius:4px; background-color:#eee; color:#333}
+.tbl_guide tbody td .modify-list {margin:0; padding-inline-start: 14px}
+.tbl_guide tbody td .modify-list li {list-style:decimal; padding-left:2px;}
+.tbl_guide tbody td .ly-in,
+.tbl_guide tbody td .pa-add {display:inline-block; margin-right:5px; padding:1px 4px; border-radius:4px; color:#fff}
+.tbl_guide tbody td .ly-in {background-color:#99bdfb;}
+.tbl_guide tbody td .pa-add {background-color:#fba799;}
+

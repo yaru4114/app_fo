@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/HemantNegi-jquery.sumoselect-2cd5349/sumoselect.css" />
+    <link rel="stylesheet" type="text/css" href="/guide/assets_guide/highlight/styles/default.css"><!-- 가이드 파일용 -->
+    <link rel="stylesheet" type="text/css" href="/guide/assets_guide/guideAdd.css" /><!-- 가이드 파일용 -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script>
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+     //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script><!-- Modal -->
+    <script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/assets_guide/highlight/highlight.pack.js"></script><!-- 가이드 파일용 -->
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/HemantNegi-jquery.sumoselect-2cd5349/jquery.sumoselect.js"></script>
+    <!-- <script type="text/javascript" src="/guide/js/realgridCustom.js"></script> --><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+</head>
+<body>
+
+	<div class="web-wrapper">
+        <section class="web-container">
+            <div class="main-content">
+                <div class="g-example-wrap">
+                    <div class="g-example-head">
+                        <p class="title">Input Status</p>
+                    </div>
+                    <div class="g-example-body flex-block">
+                        <!-- [D] default 상태 -->
+                        <input type="text" class="input" placeholder="default" />
+                        <!-- [D] readonly 상태 -->
+                        <input type="text" class="input" value="readonly" readonly="readonly" />
+                        <!-- [D] disabled 상태 -->
+                        <input type="text" class="input" value="disabled" disabled="disabled" />
+                    </div>
+                    <div class="g-example-foot">
+                        <pre><code class="html">
+&lt;!-- [D] default 상태 -->
+&lt;input type="text" class="input" placeholder="default" />
+&lt;!-- [D] readonly 상태 -->
+&lt;input type="text" class="input" value="readonly" readonly="readonly" />
+&lt;!-- [D] disabled 상태 -->
+&lt;input type="text" class="input" value="disabled" disabled="disabled" />
+                        </code></pre>
+                    </div>
+                </div>
+
+
+                <div class="g-example-wrap">
+                    <div class="g-example-head">
+                        <p class="title">Input Size</p>
+                    </div>
+                    <div class="g-example-body flex-block">
+                         <!-- [D] xsmall size -->
+                         <input type="text" class="input input-xs" placeholder="xsmall" />
+                         <!-- [D] small size -->
+                         <input type="text" class="input input-sm" placeholder="small" />
+                         <!-- [D] medium size -->
+                         <input type="text" class="input input-md" placeholder="medium" />
+                        <!-- [D] expand size -->
+                        <input type="text" class="input" placeholder="expand" />
+                    </div>
+                    <div class="g-example-foot">
+                        <pre><code class="html">
+    &lt;!-- [D] xsmall size -->
+    &lt;input type="text" class="input input-xs" placeholder="xsmall" />
+    &lt;!-- [D] small size -->
+    &lt;input type="text" class="input input-sm" placeholder="small" />
+    &lt;!-- [D] medium size -->
+    &lt;input type="text" class="input input-md" placeholder="medium" />
+    &lt;!-- [D] expand size -->
+    &lt;input type="text" class="input" placeholder="expand" />
+                        </code></pre>
+                    </div>
+                </div>
+
+
+                <div class="g-example-wrap">
+                    <div class="g-example-head">
+                        <p class="title">Textarea Status</p>
+                    </div>
+                    <div class="g-example-body flex-block">
+                        <!-- [D] default 상태 -->
+                        <textarea type="text" class="textarea" placeholder="default" ></textarea>
+                        <!-- [D] readonly 상태 -->
+                        <textarea type="text" class="textarea" placeholder="readonly" readonly="readonly"></textarea>
+                        <!-- [D] disabled 상태 -->
+                        <textarea type="text" class="textarea" placeholder="disabled" disabled="disabled"></textarea>
+                    </div>
+                    <div class="g-example-foot">
+                        <pre><code class="html">
+    &lt;!-- [D] default 상태 -->
+    &lt;textarea type="text" class="textarea" placeholder="default" >&lt;/textarea>
+    &lt;!-- [D] readonly 상태 -->
+    &lt;textarea type="text" class="textarea" placeholder="readonly" readonly="readonly">&lt;/textarea>
+    &lt;!-- [D] disabled 상태 -->
+    &lt;textarea type="text" class="textarea" placeholder="disabled" disabled="disabled">&lt;/textarea>
+                        </code></pre>
+                    </div>
+                </div>
+
+                <div class="g-example-wrap">
+                    <div class="g-example-head">
+                        <p class="title">Textarea Size</p>
+                    </div>
+                    <div class="g-example-body">
+                        <!-- [D] default -->
+                        <textarea type="text" class="textarea" placeholder="default" ></textarea>
+                        <!-- [D] medium -->
+                        <textarea type="text" class="textarea textarea-md" placeholder="medium" ></textarea>
+                    </div>
+                    <div class="g-example-foot">
+                        <pre><code class="html">
+    &lt;!-- [D] default -->
+    &lt;textarea type="text" class="textarea" placeholder="default" >&lt;/textarea>
+    &lt;!-- [D] medium -->
+    &lt;textarea type="text" class="textarea textarea-md" placeholder="medium" >&lt;/textarea>
+                        </code></pre>
+                    </div>
+                </div>
+
+
+                <div class="g-example-wrap">
+                    <div class="g-example-head">
+                        <p class="title">Select Size</p>
+                    </div>
+                    <div class="g-example-body flex-inline">
+                        <select class="form-select select-sm">
+                            <option value="small">small</option>
+                            <option value="옵션1">옵션1</option>
+                            <option value="옵션2">옵션2</option>
+                            <option value="옵션3">옵션3</option>
+                        </select>
+                        <select class="form-select select-md">
+                            <option value="medium">medium</option>
+                            <option value="옵션1">옵션1</option>
+                            <option value="옵션2">옵션2</option>
+                            <option value="옵션3">옵션3</option>
+                        </select>
+                        <select class="form-select">
+                            <option value="expand">expand</option>
+                            <option value="옵션1">옵션1</option>
+                            <option value="옵션2">옵션2</option>
+                            <option value="옵션3">옵션3</option>
+                        </select>
+                    </div>
+                    <div class="g-example-foot">
+                        <pre><code class="html">
+    &lt;select class="form-select select-sm">
+        &lt;option value="small">small&lt;/option>
+        &lt;option value="옵션1">옵션1&lt;/option>
+        &lt;option value="옵션2">옵션2&lt;/option>
+        &lt;option value="옵션3">옵션3&lt;/option>
+    &lt;/select>
+    &lt;select class="form-select select-md">
+        &lt;option value="medium">medium&lt;/option>
+        &lt;option value="옵션1">옵션1&lt;/option>
+        &lt;option value="옵션2">옵션2&lt;/option>
+        &lt;option value="옵션3">옵션3&lt;/option>
+    &lt;/select>
+    &lt;select class="form-select">
+        &lt;option value="expand">expand&lt;/option>
+        &lt;option value="옵션1">옵션1&lt;/option>
+        &lt;option value="옵션2">옵션2&lt;/option>
+        &lt;option value="옵션3">옵션3&lt;/option>
+    &lt;/select>
+                        </code></pre>
+                    </div>
+                </div>
+
+
+                <div class="g-example-wrap">
+                    <div class="g-example-head">
+                        <p class="title">Multi Select</p>
+                    </div>
+                    <div class="g-example-body flex-inline">
+                        <select multiple="multiple" placeholder="선택" class="SlectBox" required>
+                            <!-- [D] disabled 일 경우 -->
+                            <!-- <option disabled="disabled" value="Disabled">Disabled</option> -->
+                            <option value="인천 북항">인천 북항</option>
+                            <option value="인천 신항">인천 신항</option>
+                            <option value="인천 남항">인천 남항</option>
+                        </select>
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+                                window.asd = $('.SlectBox').SumoSelect({ csvDispCount: 6, okCancelInMulti:true, selectAll:true, locale :  ['확인', '취소', '전체'], });   
+                            });
+                        </script>
+                    </div>
+                    <div class="g-example-foot">
+                        <pre><code class="html">
+    &lt;select multiple="multiple" placeholder="선택" class="SlectBox" required>
+        &lt;!-- [D] disabled 일 경우 -->
+        &lt;!-- &lt;option disabled="disabled" value="Disabled">Disabled&lt;/option> -->
+        &lt;option value="인천 북항">인천 북항&lt;/option>
+        &lt;option value="인천 신항">인천 신항&lt;/option>
+        &lt;option value="인천 남항">인천 남항&lt;/option>
+    &lt;/select>
+    &lt;script type="text/javascript">
+        $(document).ready(function () {
+            window.asd = $('.SlectBox').SumoSelect({ csvDispCount: 6, okCancelInMulti:true, selectAll:true, locale :  ['확인', '취소', '전체'], });   
+        });
+    &lt;/script>
+                        </code></pre>
+                    </div>
+                </div>
+
+
+            </div>
+		</section>
+	</div>
+	
+    <script type="text/javascript">hljs.highlightAll();</script>
+</body>
+
+</html>

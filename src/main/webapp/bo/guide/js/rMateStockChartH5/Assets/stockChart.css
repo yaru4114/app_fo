@@ -1,0 +1,78 @@
+@CHARSET "UTF-8";
+/* rMate 증권 차트 내부 클래스 정의한 CSS 입니다.*/
+/* 차트를 스타일링 하고자 하는 경우 해당 CSS 파일도 같이 수정하십시오. */
+
+/* rMateStock 데이터팁 Div */
+.rMateStock_DataTip {
+	font-size: 12px;
+	padding: 4px;
+	background-color: rgba(255,255,255,0.9);
+	border: 1px solid #008299;
+	cursor: default;
+	text-align: left;
+	color:#00000;
+	width: 140px;
+}
+
+/* rMateStock 십자가 표시할 때 X축 날짜 Div */
+.rMateStock_xTip {
+	font-size: 11px;
+	padding: 0 4px;
+	margin: 0px;
+	border: 1px solid #999999;
+	background-color: #ffffff;
+	cursor: default;
+	color: #ff0000;
+}
+
+/* rMateStock 십자가 표시할 때 Y축 값 Div */
+.rMateStock_yTip {
+	font-size: 11px;
+	text-align: right;
+	border: 1px solid #999999;
+	padding: 0 4px 0 1px;
+	margin: 0px;
+	background-color: #ffffff;
+	cursor: default;
+	color: #ff0000;
+}
+
+/* rMateStock 프리로더 Div */
+.rMateStock_preloader {
+	background:rgba(255,255,255,0.5) url(../assets/loader.gif) 50% 50% no-repeat;
+}
+
+/* rMateStock 범례 메인 Span */
+.rMateStock_Legend .legend_main {
+float: left;
+padding-right: 0;
+display: inline;
+height: 13px;
+text-align: center;
+}
+
+/* rMateStock 범례 마커 Span */
+.rMateStock_Legend .legend_main .legend_marker {
+display: inline-block;
+width: 12px;
+height: 12px;
+margin: 0 2px 2px 8px;
+vertical-align: bottom;
+}
+
+/* 스크롤바 트랙 Div */
+.rMateStock_ScrollBar .rMateStock_HScrollTrack {
+	background-color:#eeeeee;
+}
+
+/* 스크롤바 썸 Div */
+.rMateStock_ScrollBar .rMateStock_HScrollThumb {
+	background-color:#bbbbbb;
+}
+
+/* 심볼 div*/
+.rMateStock_SymbolDiv{
+	position : absolute;
+	font-family : 맑은고딕;
+	font-size : 13px;
+}

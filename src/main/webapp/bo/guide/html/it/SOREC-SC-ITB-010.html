@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <!-- script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <script type="text/javascript" src="/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+</head>
+
+
+<body>
+
+    <div class="web-wrapper">
+        <!-- [D] 사이드바 부분 인클루드 시작 -->
+        <!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
+        <aside class="web-sidebar"></aside>
+        <script type="text/javascript"> $(".web-sidebar").load("/guide/html/include/sidebar.html");</script>
+        <!-- // [D] 사이드바 부분 인클루드 끝 -->
+
+        <section class="web-container">
+            <!-- [D] 상단메뉴 부분 인클루드 시작 -->
+            <!-- [D] 활성화된 메뉴 : .is-active 추가 -->
+            <header class="web-header"></header>
+            <script type="text/javascript"> $(".web-header").load("/guide/html/include/header.html");</script>
+            <!-- // [D] 상단메뉴 부분 인클루드 끝 -->
+
+            <div class="main-content">
+                <div class="inner">
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">회원정보 등록</button>
+
+
+                    <!-- Modal : full popoup -->
+                    <!-- [D]모달 위치는 변경 하셔도 됩니다! -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-full" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">회원정보 등록</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									
+                                    <!-- [D] .search-control 안 .form-set 클래스가 하나일 경우 .only 추가 -->
+                                    <div class="search-control only">
+                                        <div class="form-set">
+                                            <span class="label">적용일자</span>
+                                            <!-- [D] 월 선택 경우 .form-month 추가 -->
+                                            <!-- [D] 날짜 선택 경우 .form-date 추가 -->
+                                            <div class="input-group date form-date"> 
+                                                <input type="text" class="input" id="datepicker1" />
+                                                <label for="datepicker" class="btn has-icon"><i class="icon icon-calendar">달력</i></label>
+                                            </div>
+                                        </div>
+                                        <div class="search-btn">
+                                            <button type="button" class="btn btn-blue">검색</button>
+                                        </div>
+                                    </div>
+                
+                                    <div class="sub-title">
+                                        <h3 class="">영업 시간 설정</h3>
+                                    </div>
+                    
+                                    <div class="table table-view">
+                                        <table>
+                                            <colgroup>
+                                                <col class="col-md" />
+                                                <col class="col-sm" />
+                                                <col width="" />
+                                                <col class="col-md" />
+                                                <col class="col-sm" />
+                                                <col width="" />
+                                            </colgroup>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row" rowspan="2">영업시간<i class="icon icon-required"></i></th>
+                                                    <td>
+                                                        <div class="form-checkbox">
+                                                            <input type="checkbox" id="checkbox1" name="checkbox" checked="checked" />
+                                                            <label for="checkbox1"><span>LIVE</span></label>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <!-- <select class="form-select">
+                                                            <option value="선택">선택</option>
+                                                            <option value="09:40 ~ 19:50">09:40 ~ 19:50</option>
+                                                        </select> -->
+                                                        <div class="form-set">
+                                                            <div class="input-group timepicker form-time">
+                                                                <input type="text" id="timepicker1-1" class="input" value="01:11" readonly="readonly"/>
+                                                                <label class="btn has-icon" for="timepicker1-1" readonly="readonly">
+                                                                    <i class="icon icon-time">달력</i>
+                                                                </label>
+                                                            </div>
+                                                            <span>~</span>
+                                                            <div class="input-group timepicker form-time">
+                                                                <input type="text" id="timepicker1-2" class="input" value="01:11"/>
+                                                                <label class="btn has-icon" for="timepicker1-2">
+                                                                    <i class="icon icon-time">달력</i>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </td>
+                                                    <th scope="row">EC 영업 요일<i class="icon icon-required"></i></th>
+                                                    <td colspan="2">
+                                                        <div class="check-group">
+                                                            <div class="form-checkbox">
+                                                                <input type="checkbox" id="checkbox1-1" name="checkbox" />
+                                                                <label for="checkbox1-1"><span>일</span></label>
+                                                            </div>
+                                                            <div class="form-checkbox">
+                                                                <input type="checkbox" id="checkbox1-2" name="checkbox" checked="checked" />
+                                                                <label for="checkbox1-2"><span>월</span></label>
+                                                            </div>
+                                                            <div class="form-checkbox">
+                                                                <input type="checkbox" id="checkbox1-3" name="checkbox" checked="checked" />
+                                                                <label for="checkbox1-3"><span>화</span></label>
+                                                            </div>
+                                                            <div class="form-checkbox">
+                                                                <input type="checkbox" id="checkbox1-4" name="checkbox" checked="checked" />
+                                                                <label for="checkbox1-4"><span>수</span></label>
+                                                            </div>
+                                                            <div class="form-checkbox">
+                                                                <input type="checkbox" id="checkbox1-5" name="checkbox" checked="checked" />
+                                                                <label for="checkbox1-5"><span>목</span></label>
+                                                            </div>
+                                                            <div class="form-checkbox">
+                                                                <input type="checkbox" id="checkbox1-6" name="checkbox" checked="checked" />
+                                                                <label for="checkbox1-6"><span>금</span></label>
+                                                            </div>
+                                                            <div class="form-checkbox">
+                                                                <input type="checkbox" id="checkbox1-7" name="checkbox" />
+                                                                <label for="checkbox1-7"><span>토</span></label>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-checkbox">
+                                                            <input type="checkbox" id="checkbox2" name="checkbox" checked="checked" />
+                                                            <label for="checkbox2"><span>고정가</span></label>
+                                                        </div>
+                                                    </td>   
+                                                    <td>  
+                                                       <div class="form-set">
+                                                            <div class="input-group timepicker form-time">
+                                                                <input type="text" id="timepicker2-1" class="input" value="04:11"/>
+                                                                <label class="btn has-icon input-group-addon" for="timepicker2-1">
+                                                                    <i class="icon icon-time">달력</i>  
+                                                                </label>
+                                                            </div>
+                                                            <span>~</span>
+                                                            <div class="input-group timepicker form-time">
+                                                                <input type="text" id="timepicker2-2" class="input" value="01:11"/>
+                                                                <label class="btn has-icon input-group-addon" for="timepicker2-2">
+                                                                    <i class="icon icon-time">달력</i>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <th scope="row">물류 영업 요일<i class="icon icon-required"></i></th>
+                                                    <td colspan="2">
+                                                        <div class="check-group">
+                                                            <div class="form-checkbox">
+                                                                <input type="checkbox" id="checkbox2-1" name="checkbox" />
+                                                                <label for="checkbox2-1"><span>일</span></label>
+                                                            </div>
+                                                            <div class="form-checkbox">
+                                                                <input type="checkbox" id="checkbox2-2" name="checkbox" checked="checked" />
+                                                                <label for="checkbox2-2"><span>월</span></label>
+                                                            </div>
+                                                            <div class="form-checkbox">
+                                                                <input type="checkbox" id="checkbox2-3" name="checkbox" checked="checked" />
+                                                                <label for="checkbox2-3"><span>화</span></label>
+                                                            </div>
+                                                            <div class="form-checkbox">
+                                                                <input type="checkbox" id="checkbox2-4" name="checkbox" checked="checked" />
+                                                                <label for="checkbox2-4"><span>수</span></label>
+                                                            </div>
+                                                            <div class="form-checkbox">
+                                                                <input type="checkbox" id="checkbox2-5" name="checkbox" checked="checked" />
+                                                                <label for="checkbox2-5"><span>목</span></label>
+                                                            </div>
+                                                            <div class="form-checkbox">
+                                                                <input type="checkbox" id="checkbox2-6" name="checkbox" checked="checked" />
+                                                                <label for="checkbox2-6"><span>금</span></label>
+                                                            </div>
+                                                            <div class="form-checkbox">
+                                                                <input type="checkbox" id="checkbox2-7" name="checkbox" />
+                                                                <label for="checkbox2-7"><span>토</span></label>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                                                        
+                                    <div class="sub-title">
+                                        <h3 class="">배송 설정</h3>
+                                    </div>
+                                    <div class="table table-view">
+                                        <table>
+                                            <colgroup>
+                                                <col class="col-md" />
+                                                <col width="*" />
+                                                <col width="*" />
+                                                <col width="*" />
+                                                <col width="*" />
+                                            </colgroup>    
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">배송방식</th>
+                                                    <th scope="col" colspan="2" class="text-center">자차배송</th>
+                                                    <th scope="col" colspan="2" class="text-center">서린배송</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>알루미늄</th>
+                                                    <td>
+                                                    	<div class="form-group">
+	                                                        <div class="form-set">
+	                                                        	<span class="label">D + </span>
+	                                                            <input type="text" class="input" value="2">
+	                                                            <span class="unit">일</span>
+	                                                        </div>
+	                                                        	<span> ~ </span>         
+	                                                        <div class="form-set">                                                   
+	                                                        	<span class="label">D + </span>
+	                                                            <input type="text" class="input" value="30">
+	                                                            <span class="unit">일</span>
+	                                                        </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                    	<div class="form-group">
+                                                    		<div class="input-group timepicker form-time">
+	                                                        	<div class="form-set">
+	                                                            	<span class="label">당일배송 마감시간</span>
+	                                                                <input type="text" id="timepicker3-1" class="input" value="15:00" />
+	                                                                <label class="btn has-icon" for="timepicker3-1">
+	                                                                    <i class="icon icon-time">달력</i>
+	                                                                </label>
+	                                                            </div>
+	                                                        </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                    	<div class="form-group">
+	                                                        <div class="form-set">
+	                                                        	<span class="label">D + </span>
+	                                                            <input type="text" class="input" value="2">
+	                                                            <span class="unit">일</span>
+	                                                        </div>
+	                                                        	<span> ~ </span>         
+	                                                        <div class="form-set">                                                   
+	                                                        	<span class="label">D + </span>
+	                                                            <input type="text" class="input" value="30">
+	                                                            <span class="unit">일</span>
+	                                                        </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                    	<div class="form-group">
+                                                    		<div class="input-group timepicker form-time">
+	                                                        	<div class="form-set">
+	                                                            	<span class="label">당일배송 마감시간</span>
+	                                                                <input type="text" id="timepicker3-1" class="input" value="15:00" />
+	                                                                <label class="btn has-icon" for="timepicker3-1">
+	                                                                    <i class="icon icon-time">달력</i>
+	                                                                </label>
+	                                                            </div>
+	                                                        </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>아연</th>
+                                                    <td>
+                                                    	<div class="form-group">
+	                                                        <div class="form-set">
+	                                                        	<span class="label">D + </span>
+	                                                            <input type="text" class="input" value="2">
+	                                                            <span class="unit">일</span>
+	                                                        </div>
+	                                                        	<span> ~ </span>         
+	                                                        <div class="form-set">                                                   
+	                                                        	<span class="label">D + </span>
+	                                                            <input type="text" class="input" value="30">
+	                                                            <span class="unit">일</span>
+	                                                        </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                    	<div class="form-group">
+                                                    		<div class="input-group timepicker form-time">
+	                                                        	<div class="form-set">
+	                                                            	<span class="label">당일배송 마감시간</span>
+	                                                                <input type="text" id="timepicker3-1" class="input" value="15:00" />
+	                                                                <label class="btn has-icon" for="timepicker3-1">
+	                                                                    <i class="icon icon-time">달력</i>
+	                                                                </label>
+	                                                            </div>
+	                                                        </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                    	<div class="form-group">
+	                                                        <div class="form-set">
+	                                                        	<span class="label">D + </span>
+	                                                            <input type="text" class="input" value="2">
+	                                                            <span class="unit">일</span>
+	                                                        </div>
+	                                                        	<span> ~ </span>         
+	                                                        <div class="form-set">                                                   
+	                                                        	<span class="label">D + </span>
+	                                                            <input type="text" class="input" value="30">
+	                                                            <span class="unit">일</span>
+	                                                        </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                    	<div class="form-group">
+                                                    		<div class="input-group timepicker form-time">
+	                                                        	<div class="form-set">
+	                                                            	<span class="label">당일배송 마감시간</span>
+	                                                                <input type="text" id="timepicker3-1" class="input" value="15:00" />
+	                                                                <label class="btn has-icon" for="timepicker3-1">
+	                                                                    <i class="icon icon-time">달력</i>
+	                                                                </label>
+	                                                            </div>
+	                                                        </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                
+                                    <div class="sub-title">
+                                        <h3 class="">수수료/이자율 설정</h3>
+                                    </div>
+                                    <div class="table table-view">
+                                        <table>
+                                            <colgroup>
+                                                <col class="col-md" />
+                                                <col class="col-sm" />
+                                                <col class="col-sm" />
+                                                <col width="*" />
+                                                <col class="col-sm" />
+                                                <col width="*" />
+                                            </colgroup>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row" rowspan="2">금융비용</th>
+                                                    <th>PG 수수료</th>
+                                                    <th>수수료율(비용)<i class="icon icon-required"></i></th>
+                                                    <td>
+                                                        <div class="form-set">
+                                                            <input type="text" class="input input-sm text-right" value="2.30" /><span class="unit">%/결제액</span>
+                                                        </div>
+                                                    </td>
+                                                    <th>수수료율(이익)</th>
+                                                    <td>
+                                                        <div class="form-set">
+                                                            <input type="text" class="input input-sm text-right" value="2.30" /><span class="unit">%/결제액</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>선물 수수료</th>
+                                                    <th>수수료 상수(비용)<i class="icon icon-required"></i></th>
+                                                    <td>
+                                                        <div class="form-set">
+                                                            <input type="text" class="input input-sm text-right" value="2.30" />
+                                                        </div>
+                                                    </td>
+                                                    <th>수수료 상수(이익)</th>
+                                                    <td>
+                                                        <div class="form-set">
+                                                            <input type="text" class="input input-sm text-right" value="2.30" />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="sub-title">
+                                        <h3 class="">조정 계수 설정</h3>
+                                    </div>
+                                    <div class="table table-view">
+                                        <table>
+                                            <colgroup>
+                                                <col class="col-md" />
+                                                <col width="*" />
+                                            </colgroup>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">LME 조정계수<i class="icon icon-required"></i></th>
+                                                    <td>
+                                                        <div class="form-set">
+                                                            <input type="text" class="input input-sm text-right" value="2.00" /><span class="unit">USD</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">환율 조정계수<i class="icon icon-required"></i></th>
+                                                    <td>
+                                                        <div class="form-set">
+                                                            <input type="text" class="input input-sm text-right" value="1.00" /><span class="unit">KRW</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+								</div>
+								<div class="modal-footer">
+									<div class="btn-box">
+										<button type="button" class="btn">저장</button>
+										<button type="button" class="btn" data-dismiss="modal">삭제</button>
+									</div>
+								</div>
+							</div>
+						</div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- //main-content -->
+        </section>
+    </div>
+</body>
+
+</html>

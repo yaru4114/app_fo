@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <!-- script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <script type="text/javascript" src="/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+</head>
+
+
+<body>
+
+	<div class="web-wrapper">
+		<!-- [D] 사이드바 부분 인클루드 시작 -->
+		<!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
+		<aside class="web-sidebar"></aside>
+		<script type="text/javascript"> $(".web-sidebar").load("/guide/html/include/sidebar.html");</script>
+		<!-- // [D] 사이드바 부분 인클루드 끝 -->
+
+		<section class="web-container">
+			<!-- [D] 상단메뉴 부분 인클루드 시작 -->
+			<!-- [D] 활성화된 메뉴 : .is-active 추가 -->
+			<header class="web-header"></header>
+			<script type="text/javascript"> $(".web-header").load("/guide/html/include/header.html");</script>
+			<!-- // [D] 상단메뉴 부분 인클루드 끝 -->
+
+			<div class="main-content">
+				<div class="inner">
+
+					<div class="search-control">
+						<div class="form-set">
+							<span class="label">주문번호</span>
+							<input type="text" class="input" />
+						</div>
+						<div class="form-set">
+							<span class="label">회사검색</span>
+							<input type="text" class="input" />
+							<button type="button" class="btn">찾기</button>
+						</div>
+						<div class="form-set">
+							<span class="label">주문상태</span>
+							<select class="form-select">
+								<option value="전체">전체</option>
+								<option value="결제대기">결제대기</option>
+								<option value="결제완료">결제완료</option>
+								<option value="배송중">배송중</option>
+								<option value="배송완료">배송완료</option>
+								<option value="취소신청">취소신청</option>
+								<option value="취소완료">취소완료</option>
+								<option value="반품신청">반품신청</option>
+								<option value="반품완료">반품완료</option>
+								<option value="교환신청">교환신청</option>
+								<option value="교환완료">교환완료</option>
+							</select>
+						</div>
+						<div class="form-set">
+							<span class="label">주문방식</span>
+							<select class="form-select">
+								<option value="전체">전체</option>
+								<option value="LIVE">LIVE</option>
+								<option value="지정가">지정가</option>
+							</select>
+						</div>
+						<div class="form-set form-expand">
+							<span class="label">기간검색</span>
+							<div class="form-period-set">
+								<div class="form-period-box">
+									<select class="form-select select-sm">
+										<option value="전체">전체</option>
+										<option value="주문번호">주문자ID</option>
+										<option value="납품요청일">납품요청일</option>
+										<option value="출고(예정)일">출고(예정)일</option>
+										<option value="배송완료일">배송완료일</option>
+									</select>
+									<!-- [D] 월 선택 경우 .form-month 추가 -->
+									<!-- [D] 날짜 선택 경우 .form-date 추가 -->
+									<div class="input-group date form-date"> 
+										<input type="text" class="input" id="datepicker1" />
+										<label for="datepicker1" class="btn has-icon"><i class="icon icon-calendar">달력</i></label>
+									</div>
+									<span>~</span>
+									<!-- [D] 월 선택 경우 .form-month 추가 -->
+									<!-- [D] 날짜 선택 경우 .form-date 추가 -->
+									<div class="input-group date form-date"> 
+										<input type="text" class="input" id="datepicker2" />
+										<label for="datepicker2" class="btn has-icon"><i class="icon icon-calendar">달력</i></label>
+									</div>
+								</div>
+								<div class="btn-box btn-period">
+									<button type="button" class="btn active">오늘</button>
+									<button type="button" class="btn">7일</button>
+									<button type="button" class="btn">15일</button>
+									<button type="button" class="btn">1개월</button>
+									<button type="button" class="btn">3개월</button>
+								</div>
+							</div>
+						</div>
+						<div class="search-btn">
+							<button type="button" class="btn btn-blue">검색</button>
+						</div>
+					</div>
+
+					<div class="tab-button">
+						<a href="#;" class="btn active">전체</a>
+						<a href="#;" class="btn">결제완료</a>
+						<a href="#;" class="btn">출고지시</a>
+						<a href="#;" class="btn">배송중</a>
+						<a href="#;" class="btn">배송완료</a>
+						<!-- <a href="#;" class="btn">취소신청</a>
+						<a href="#;" class="btn">취소완료</a>
+						<a href="#;" class="btn">반품신청</a>
+						<a href="#;" class="btn">반품완료</a>
+						<a href="#;" class="btn">교환신청</a>
+						<a href="#;" class="btn">교환완료</a> -->
+
+					</div>
+					<div class="table-top">
+						<div class="table-summary">
+							<ul class="total-box">
+								<li>
+									<ul><li>총 중량(MT)</li><li class="total-value">1,675.0<span class="unit">MT</span></li></ul>
+								</li>
+								<li>
+									<ul><li>총 주문금액</li><li class="total-value">255,000,000<span class="unit">원</span></li></ul>
+								</li>
+							</ul>
+						</div>
+						<div class="table-control">
+							<div class="form-set"></div>
+							<div class="btn-box">
+								<button type="button" class="btn btn-green has-icon"><i class="icon icon-excel">엑셀</i></button>
+							</div>
+						</div>
+					</div>
+					
+					<!-- realGrid -->
+					<div id="realgrid" class="realgrid-wrap"></div>
+					<!-- paging -->
+					<div class="paging-row">
+						<div class="paging">
+							<div id="paging"></div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+		</section>
+	</div>
+
+
+</body>
+
+</html>

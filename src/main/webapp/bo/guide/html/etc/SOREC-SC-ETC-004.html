@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <!-- script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <!-- <script type="text/javascript" src="/guide/js/realgridCustom.js"></script> 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+    <script type="text/javascript" src="/guide/js/realgridClass.js"></script> <!-- realgridCommon.js 선언 (필수) -->
+    <script type="text/javascript" src="/guide/js/sorinCommon.js"></script> <!-- realgridCommon.js 선언 (필수) -->
+    
+    <script>
+	
+      // 그리드 샘플 첨부 >  실제 개발 샘플  >> /jsp/sample/gridSample.jsp
+    
+	  //화면에 사용할 grid class 선언 gird 변수명은 자유 여러개인 경우 여러개 선언
+	  var grid1 = new Grids();
+	  grid1.name = "realgrid1"; //그리드명 (필수)
+	  grid1.insertButton = "insert1"; //추가 버튼 id
+	  grid1.deleteButton = "delete1"; //삭제 버튼 id
+	  grid1.updateButton = "update1"; //수정 버튼 id
+	  grid1.saveButton = "save1"; //저장 버튼 id
+	  grid1.searchParams = null; //검색 값들
+	  grid1.isInsertPopUpModal = true; //추가작업이 Modal 일 경우 true, Modal이 아니면 false (필수코드)
+	  grid1.isUpdatePopUpModal = true; //수정작업이 Modal 일 경우 true, Modal이 아니면 false (필수코드)
+	  grid1.modalContentClass = ".modal-content"; //Modal Class 부분
+	  grid1.modalId = "#exampleModal"; //Modal ID 부분
+	
+	  grid1.selectURL = "/sample/selectListGridData"; //select시 설정할 URL
+	  grid1.selectAddParams = {validation : true}; // select시 추가할 Parameters
+	
+	  grid1.insertAndUpdateURL = "/sample/insertAndUpdateGridDataList"; //insertAndUpdate시 설정할 URL
+	  grid1.insertAndUpdateAddParams = {validation : true}; // insertAndUpdate시 추가할 Parameters
+	
+	  grid1.deleteURL = "/sample/deleteGridDataList"; //delete시 설정할 URL
+	  grid1.deleteAddParams = {validation : true}; // delete시 추가할 Parameters
+	
+	  grid1.popUpModalURL = "/sample/popUpModal"; //popUpModal시 설정할 URL
+	  grid1.popUpModalAddParams = {validation : true}; // popUpModal시 추가할 Parameters
+	
+	
+	  //화면에 사용할 grid 에 맞는 page class 선언 page 변수명은 자유
+	  var page1 = new Pages();
+	  page1.page = "#paging1"; //페이지 id (필수)
+	  page1.totalRowCount = 0; //모든 row의 count 정보 (필수 기본으로 0)
+	  page1.currentPage = 1; //현재 페이지 (필수)
+	  page1.pageCount = 10; //페이징 숫자에 보여줄 페이지의 숫자 (필수)
+	  page1.dataRowPerPage = 10; //한 grid에 보여줄 최대 row 갯수 (필수)
+	
+	  var grid2 = new Grids();
+	  grid2.name = "realgrid2";
+	  grid2.insertButton = "insert2"; //추가 버튼 id
+	  grid2.deleteButton = "delete2"; //삭제 버튼 id
+	  grid2.updateButton = "update2"; //수정 버튼 id
+	  grid2.saveButton = "save2"; //저장 버튼 id
+	  grid2.isInsertPopUpModal = true; //추가작업이 Modal 일 경우 true, Modal이 아니면 false (필수코드)
+	  grid2.isUpdatePopUpModal = true; //수정작업이 Modal 일 경우 true, Modal이 아니면 false (필수코드)
+	  grid2.selectURL = "/sample/selectListGridData";
+	  grid2.insertAndUpdateURL = "/sample/insertAndUpdateGridDataList";
+	  grid2.deleteURL = "/sample/deleteGridDataList";
+	
+	  var page2 = new Pages();
+	  page2.page = "#paging2";
+	  page2.totalRowCount = 0;
+	  page2.currentPage = 1;
+	  page2.pageCount = 10;
+	  page2.dataRowPerPage = 10;
+	
+	  var gridForExcel = new Grids();
+	  gridForExcel.name = "realgridForExcel";
+	  gridForExcel.selectURL = "/sample/selectListGridDataForExcel";
+	
+	  //grid fields1 정의 (필수코드)
+	  var fields1 = [
+	  	{
+	  		fieldName: "id",
+	  		dataType: "text"
+	  	},
+	  	{
+	  		fieldName: "name",
+	  		dataType: "text"
+	  	},
+	  	{
+	  		fieldName: "description",
+	  		dataType: "text"
+	  	},
+	  	{
+	  		fieldName: "useYn",
+	  		dataType: "text"
+	  	},
+	  	{
+	  		fieldName: "regUser",
+	  		dataType: "text"
+	  	}
+	  ];
+	
+	  //grid column1 정의 (필수코드)
+	  var columns1 = [
+	  	{
+	  		name: "id",
+	  		fieldName: "id",
+	  		type: "data",
+	  		width: "70",
+	  		header: {
+	  			text: "아이디"
+	  		},
+	  		//styleCallback 은 없어도 됨
+	  		styleCallback: function(grid, dataCell){
+	  			var ret = {}
+	
+	  			if((dataCell.index.dataRow > -1) && (dataCell.item.rowState != 'created')){
+	  				ret.editable = false;
+	  			}
+	
+	  			return ret;
+	  		}
+	  	},
+	  	{
+	  		name: "name",
+	  		fieldName: "name",
+	  		type: "data",
+	  		width: "120",
+	  		header: {
+	  			text: "이름"
+	  		},
+	  		//editable (필수코드)
+	  		editable: grid1.isUpdatePopUpModal?false:true
+	  	},
+	  	{
+	  		name: "description",
+	  		fieldName: "description",
+	  		type: "data",
+	  		width: "120",
+	  		header: {
+	  			text: "설명"
+	  		},
+	  		styleName: "right-column",
+	  		//editable (필수코드)
+	  		editable: grid1.isUpdatePopUpModal?false:true
+	
+	  	},
+	  	{
+	  		name: "useYn",
+	  		fieldName: "useYn",
+	  		type: "data",
+	  		width: "30",
+	  		header: {
+	  			text: "사용여부"
+	  		},
+	  		//editable (필수코드)
+	  		editable: grid1.isUpdatePopUpModal?false:true
+	  	},
+	  	{
+	  		name: "regUser",
+	  		fieldName: "regUser",
+	  		type: "data",
+	  		width: "60",
+	  		header: {
+	  			text: "등록사용자"
+	  		},
+	  		//editable (필수코드)
+	  		editable: grid1.isUpdatePopUpModal?false:true
+	  	}
+	  ];
+	
+	  //grid fields2 정의 (필수코드)
+	  var fields2 = [
+	  	{
+	  		fieldName: "id",
+	  		dataType: "text"
+	  	},
+	  	{
+	  		fieldName: "name",
+	  		dataType: "text"
+	  	},
+	  	{
+	  		fieldName: "description",
+	  		dataType: "text"
+	  	},
+	  	{
+	  		fieldName: "useYn",
+	  		dataType: "text"
+	  	},
+	  	{
+	  		fieldName: "regUser",
+	  		dataType: "text"
+	  	}
+	  ];
+	
+	  //grid column2 정의 (필수코드)
+	  var columns2 = [
+	  	{
+	  		name: "id",
+	  		fieldName: "id",
+	  		type: "data",
+	  		width: "70",
+	  		header: {
+	  			text: "아이디"
+	  		},
+	  		//styleCallback 은 없어도 됨
+	  		styleCallback: function(grid, dataCell){
+	  			var ret = {}
+	
+	  			if((dataCell.index.dataRow > -1) && (dataCell.item.rowState != 'created')){
+	  				ret.editable = false;
+	  			}
+	
+	  			return ret;
+	  		}
+	  	},
+	  	{
+	  		name: "name",
+	  		fieldName: "name",
+	  		type: "data",
+	  		width: "120",
+	  		header: {
+	  			text: "이름"
+	  		},
+	  		//editable (필수코드)
+	  		editable: grid2.isUpdatePopUpModal?false:true
+	  	},
+	  	{
+	  		name: "description",
+	  		fieldName: "description",
+	  		type: "data",
+	  		width: "120",
+	  		header: {
+	  			text: "설명"
+	  		},
+	  		styleName: "right-column",
+	  		//editable (필수코드)
+	  		editable: grid2.isUpdatePopUpModal?false:true
+	
+	  	},
+	  	{
+	  		name: "useYn",
+	  		fieldName: "useYn",
+	  		type: "data",
+	  		width: "30",
+	  		header: {
+	  			text: "사용여부"
+	  		},
+	  		//editable (필수코드)
+	  		editable: grid2.isUpdatePopUpModal?false:true
+	  	},
+	  	{
+	  		name: "regUser",
+	  		fieldName: "regUser",
+	  		type: "data",
+	  		width: "60",
+	  		header: {
+	  			text: "등록사용자"
+	  		},
+	  		//editable (필수코드)
+	  		editable: grid2.isUpdatePopUpModal?false:true
+	  	}
+	  ];
+	
+	  grid1.fields = fields1; //필드정보 (필수)
+	  grid1.columns = columns1; //컬럼 정보 (필수)
+	
+	  grid2.fields = fields2;
+	  grid2.columns = columns2;
+	
+	  //숨긴 엑셀 전용
+	  gridForExcel.fields = fields1;
+	  gridForExcel.columns = columns1;
+	
+	  //시작 function이다. Event등을 구현해야 한다면 realGridStart()안에 구현한다.
+	  //grid 선언 함수, 화면의 갯수에 맞게 grid와 page를 맞춰 createGrid를 작성한다.
+	  function realGridStart() {
+	
+	  	createGrid(grid1, page1);
+	  	createGrid(grid2, page2);
+	  	createGridForNonShowExcel(gridForExcel);
+	
+	  	//validation 제약 설정
+	  	setValidateColumn(grid1);
+	
+	  	$("#searchSelect1").change(function() {
+	  		if($("#searchSelect1 option:selected").val() == "") {
+	  			$("#searchKeyword").val("");
+	  			$("#searchKeyword").prop("readonly", true);
+	  		} else {
+	  			$("#searchKeyword").prop("readonly", false);
+	  		}
+	  	});
+	
+	  	$("#searchBtn").click(function(event){
+	  	    event.preventDefault();
+	
+	  	    //grid1 의 searchParams 설정
+	  	    grid1.searchParams = searchProcess();
+	      	loadData(grid1, page1);
+	  	});
+	
+	  	//달력 현재 날짜 지정
+	  	/* $('#datepicker2').datepicker({
+	  		startDate: new Date(), //달력 시작 날짜 지정
+	  		format: "yyyy-mm-dd",
+	  		todayHighlight: true,
+	  	}); */
+	
+	  	//달력 현재 날짜 지정
+	  	$("#datepicker1").change(function (){
+	  		$('#datepicker2').datepicker({
+	  			startDate: $('#datepicker1').datepicker().val(), //달력 시작 날짜 지정
+	  			format: "yyyy-mm-dd",
+	  			todayHighlight: true,
+	  		});
+	  	});
+	
+	  	//달력 현재 날짜 지정
+	  	$("#datepicker2").change(function (){
+	  		$('#datepicker1').datepicker({
+	  			endDate: $('#datepicker2').datepicker().val(), //달력 마지막 날짜 지정
+	  			format: "yyyy-mm-dd",
+	  			todayHighlight: true,
+	  		});
+	  	});
+	
+	  }
+	
+	  //grid의 각 column 에 validation 제약을 설정한다.
+	  function setValidateColumn(grid){
+	  	grid.gridView.editOptions.commitLevel = "error"; //필수값
+	
+	  	grid.gridView.onValidateColumn = function(grid, column, inserting, value, itemIndex, dataRow) {
+	  		var error = {};
+	
+	  		if((column == "<spring:message code='sample.grid.column.id' />" && !value)) {
+	   			error.level = "error"; //필수값
+	  			error.message = column + "은(는) 필수 값입니다."; //필수값, message를 설정한다. validation.properties에 메시지가 있다면 해당 코드를 삽입한다.
+	  		}
+	  		if(column == "<spring:message code='sample.grid.column.useYn' />") {
+	  			if(!(value == "Y" || value == "N")) {
+	  				error.level = "error"; //필수값
+	  				error.message = column + "은(는) 'Y' 또는 'N' 으로만 가능합니다."; //필수값, message를 설정한다. validation.properties에 메시지가 있다면 해당 코드를 삽입한다.
+	  			}
+	  		}
+	
+	  		return error;
+	  	};
+	  }
+
+  </script>
+
+
+  <script type="text/javascript" src="/guide/js/realgridCommon.js" charset="utf-8"></script> <!-- realgridCommon.js 선언 (필수) -->
+  <script src="/guide/js/xlsx.full.min.js"></script> <!-- realgrid Excel import를 위한 js -->
+      
+    </script>
+    
+    
+</head>
+<body> 
+
+
+<body>
+	<div class="web-wrapper">
+		<!-- [D] 사이드바 부분 인클루드 시작 -->
+		<!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
+		<aside class="web-sidebar"></aside>
+		<script type="text/javascript"> $(".web-sidebar").load("/guide/html/include/sidebar.html");</script>
+		<!-- // [D] 사이드바 부분 인클루드 끝 -->
+
+		<section class="web-container">
+			<!-- [D] 상단메뉴 부분 인클루드 시작 -->
+			<!-- [D] 활성화된 메뉴 : .is-active 추가 -->
+			<header class="web-header"></header>
+			<script type="text/javascript"> $(".web-header").load("/guide/html/include/header.html");</script>
+			<!-- // [D] 상단메뉴 부분 인클루드 끝 -->
+
+			<div class="main-content">
+				<div class="inner">
+					<!-- 연계상태 모니터링 시작 -->
+					<div class="table-control mt-0">
+					  <h3 class="">연계상태 모니터링</h3>
+					  <div class="btn-box">
+					      <button type="button" class="btn">삼성선물 시퀀드 동기화</button>
+					      <button type="button" class="btn">데이터초기화</button>
+					  </div>
+					</div>
+			          
+					<!-- realGrid -->
+					<div id="realgrid1" class="realgrid-wrap grid-half"></div>
+					<!-- paging -->
+					<div class="paging-row">
+						<div class="paging">
+							<div id="paging1"></div>
+						</div>
+					</div>
+          			<!-- //연계상태 모니터링 끝 -->
+
+					<!-- 이월렛 관리상태 모니터링 시작 -->
+					<div class="table-control mt-30">
+					  <h3 class="">이월렛 관리상태 모니터링</h3>
+					  <div class="btn-box">
+					      <button type="button" class="btn">이월렛 개시</button>
+					      <button type="button" class="btn">이월렛 종료</button>
+					      <button type="button" class="btn">이월렛 장애요청</button>
+					      <button type="button" class="btn">이월렛 장애해제</button>
+					  </div>
+					</div>
+					<!-- realGrid -->
+					<div id="realgrid2" class="realgrid-wrap"></div>
+					<!-- paging -->
+					<div class="paging-row">
+						<div class="paging">
+							<div id="paging2"></div>
+						</div>
+					</div>
+          			<!-- //이월렛 관리상태 모니터링 끝 -->
+
+				</div>
+			</div>
+			<!-- //main-content -->
+		</section>
+	</div>
+
+
+
+</body>
+</html>

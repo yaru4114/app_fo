@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 트래킹 DashBoard</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/jquery.mCustomScrollbar.css"><!-- mCustomScrollbar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+   <!--  <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <script type="text/javascript" src="/guide/js/jquery.mCustomScrollbar.concat.min.js"></script><!-- mCustomScrollbar -->
+    <!-- <script type="text/javascript" src="/guide/js/realgridCustom.js"></script>퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+</head>
+
+
+<body>
+	<div class="dashboard2-wrap tracking">
+		<div class="dashboard2-inner flex-afs-jsb column-scroll">
+			<div class="dashboard2-column dashboard2-column1">
+                <div class="section-top-wrap flex-afs-jsb">
+                    <!-- 1-1. Today Report -->
+                    <section class="dashboard2 dashboard2-card-report today">
+                        <h2 class="dashboard2-title">
+                            Today Report
+                            <p class="side-info time">2023.04.26 11:33</p>
+                        </h2>
+                        <div class="dashboard2-cont flex-ac-jsb">
+                            <dl>
+                                <dt>오늘 누적 방문자</dt>
+                                <dd>397</dd>
+                            </dl>
+                            <dl class="access-num">
+                                <dt>현재 접속자</dt>
+                                <dd class="flex-ac-jac">
+                                    <span class="not-login">06</span>
+                                    <span class="login">38</span>
+                                </dd>
+                            </dl>
+                            <dl class="text-emphasis">
+                                <dt>오늘 구매 회원사</dt>
+                                <dd>52</dd>
+                            </dl>
+                        </div>
+                    </section>
+                    <!-- 1-2. Month Report -->
+                    <section class="dashboard2 dashboard2-card-report month">
+                        <h2 class="dashboard2-title">
+                            Month Report
+                            <p class="side-info period">2023.04.01 ~ 2023.04.23</p>
+                            <p class="side-info total">목표 회원사 <span class="num">350</span>개 사</p>
+                        </h2> 
+                        <div class="dashboard2-cont flex-ac-jsb">
+                            <dl>
+                                <dt>신규 가입자</dt>
+                                <dd>06</dd>
+                            </dl>
+                            <dl>
+                                <dt>탈퇴자</dt>
+                                <dd>0</dd>
+                            </dl>
+                            <dl>
+                                <dt>누적 회원사</dt>
+                                <dd>293</dd>
+                            </dl> 
+                            <dl class="text-emphasis">
+                                <dt>남은 목표 회원사</dt>
+                                <dd>57</dd>
+                            </dl>
+                        </div>
+                    </section>
+                </div>
+                <div class="section-bottom-wrap flex-afs-jsb">
+                    <!-- 1-3. 최근 5일 회원사 추이 -->
+                    <section class="dashboard2 dashboard2-tbl dashboard2-tbl1">
+                        <h2 class="dashboard2-title">최근 5일 회원사 추이</h2>
+                        <div class="dashboard2-cont">
+                            <div class="chart-area"></div>
+                        </div>
+                    </section>
+                    <!-- 1-4. 당일 퍼널 별, 구매 전환율 -->
+                    <section class="dashboard2 dashboard2-tbl">
+                        <h2 class="dashboard2-title">당일 퍼널 별, 구매 전환율</h2>
+                        <div class="dashboard2-cont">
+                            <div class="chart-area"></div>
+                        </div>
+                    </section>
+                    <!-- 1-5. 누적 접속 랭킹 TOP10 -->
+                    <section class="dashboard2 dashboard2-tbl dashboard2-tbl1">
+                        <h2 class="dashboard2-title">누적 접속 랭킹 TOP10</h2>
+                        <div class="dashboard2-cont">
+                            <div class="tbl-wrap">
+	                            <div class="tbl-head">
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-th">순위</div>
+	                                    <div class="tbl-th">회사명</div>
+	                                    <div class="tbl-th">로그인횟수</div>
+	                                    <div class="tbl-th">구매횟수</div>
+	                                </div>
+	                            </div> 
+	                            <div class="tbl-body scroll">
+	                                <div class="tbl-tr">
+			                             <div class="tbl-td">1</div>
+			                             <div class="tbl-td">반진 컴퍼니 테스트 회사명</div>
+			                             <div class="tbl-td">207</div>
+			                             <div class="tbl-td">165</div>
+			                         </div> 
+                                     <div class="tbl-tr">
+                                        <div class="tbl-td">2</div>
+                                        <div class="tbl-td">반진</div>
+                                        <div class="tbl-td">207</div>
+                                        <div class="tbl-td">165</div>
+                                    </div>
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">3</div>
+                                        <div class="tbl-td">반진</div>
+                                        <div class="tbl-td">207</div>
+                                        <div class="tbl-td">165</div>
+                                    </div>
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">4</div>
+                                        <div class="tbl-td">반진</div>
+                                        <div class="tbl-td">207</div>
+                                        <div class="tbl-td">165</div>
+                                    </div>
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">5</div>
+                                        <div class="tbl-td">반진</div>
+                                        <div class="tbl-td">207</div>
+                                        <div class="tbl-td">165</div>
+                                    </div>
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">6</div>
+                                        <div class="tbl-td">반진</div>
+                                        <div class="tbl-td">207</div>
+                                        <div class="tbl-td">165</div>
+                                    </div>
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">7</div>
+                                        <div class="tbl-td">반진</div>
+                                        <div class="tbl-td">207</div>
+                                        <div class="tbl-td">165</div>
+                                    </div>
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">8</div>
+                                        <div class="tbl-td">반진</div>
+                                        <div class="tbl-td">207</div>
+                                        <div class="tbl-td">165</div>
+                                    </div>
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">9</div>
+                                        <div class="tbl-td">반진</div>
+                                        <div class="tbl-td">207</div>
+                                        <div class="tbl-td">165</div>
+                                    </div>
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">10</div>
+                                        <div class="tbl-td">반진</div>
+                                        <div class="tbl-td">207</div>
+                                        <div class="tbl-td">165</div>
+                                    </div>
+								</div>
+	                        </div> 
+                        </div>
+                    </section>
+                     <!-- 1-6. 누적 구매 랭킹 TOP10 -->
+                    <section class="dashboard2 dashboard2-tbl dashboard2-tbl2">
+                        <h2 class="dashboard2-title"> 누적 구매 랭킹 TOP10</h2>
+                        <div class="dashboard2-cont">
+                            <div class="tbl-wrap">
+	                            <div class="tbl-head">
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-th">순위</div>
+	                                    <div class="tbl-th">회사명</div>
+	                                    <div class="tbl-th">주문중량</div>
+	                                    <div class="tbl-th">평균단가</div>
+	                                </div>
+	                            </div> 
+	                            <div class="tbl-body scroll">
+	                                <div class="tbl-tr">
+			                             <div class="tbl-td">1</div>
+			                             <div class="tbl-td">반진</div>
+			                             <div class="tbl-td">3,975</div>
+			                             <div class="tbl-td">3,310,750</div>
+			                         </div> 
+                                     <div class="tbl-tr">
+                                        <div class="tbl-td">2</div>
+                                        <div class="tbl-td">반진</div>
+                                        <div class="tbl-td">3,975</div>
+                                        <div class="tbl-td">3,310,750</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">3</div>
+                                        <div class="tbl-td">반진</div>
+                                        <div class="tbl-td">3,975</div>
+                                        <div class="tbl-td">3,310,750</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">4</div>
+                                        <div class="tbl-td">반진</div>
+                                        <div class="tbl-td">3,975</div>
+                                        <div class="tbl-td">3,310,750</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">5</div>
+                                        <div class="tbl-td">반진</div>
+                                        <div class="tbl-td">3,975</div>
+                                        <div class="tbl-td">3,310,750</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">6</div>
+                                        <div class="tbl-td">반진</div>
+                                        <div class="tbl-td">3,975</div>
+                                        <div class="tbl-td">3,310,750</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">7</div>
+                                        <div class="tbl-td">반진</div>
+                                        <div class="tbl-td">3,975</div>
+                                        <div class="tbl-td">3,310,750</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">8</div>
+                                        <div class="tbl-td">반진</div>
+                                        <div class="tbl-td">3,975</div>
+                                        <div class="tbl-td">3,310,750</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">9</div>
+                                        <div class="tbl-td">반진</div>
+                                        <div class="tbl-td">3,975</div>
+                                        <div class="tbl-td">3,310,750</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">10</div>
+                                        <div class="tbl-td">반진</div>
+                                        <div class="tbl-td">3,975</div>
+                                        <div class="tbl-td">3,310,750</div>
+                                    </div> 
+								</div>
+	                        </div>
+                        </div>
+                    </section>
+                    <!-- 1-7. Today 방문자 기록 -->
+                    <section class="dashboard2 dashboard2-tbl dashboard2-tbl3">
+                        <h2 class="dashboard2-title">
+                            Today 방문자 기록
+                            <p class="side-info total">총 <span class="num">397</span>개 사</p> 
+                        </h2>
+                        <div class="dashboard2-cont">
+                            <div class="tbl-wrap">
+	                            <div class="tbl-head">
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-th">접속시간</div>
+	                                    <div class="tbl-th">유입경로</div>
+	                                    <div class="tbl-th">최종 뷰</div>
+	                                    <div class="tbl-th">체류시간</div>
+	                                </div>
+	                            </div> 
+	                            <div class="tbl-body scroll">
+	                                <div class="tbl-tr">
+			                             <div class="tbl-td">11:13:42</div>
+			                             <div class="tbl-td">철강신문</div>
+			                             <div class="tbl-td">메인</div>
+			                             <div class="tbl-td">08:48:33</div>
+			                         </div> 
+                                     <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">네이버</div>
+                                        <div class="tbl-td">상품</div>
+                                        <div class="tbl-td">08:48:33</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">네이버</div>
+                                        <div class="tbl-td">상품</div>
+                                        <div class="tbl-td">08:48:33</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">구글</div>
+                                        <div class="tbl-td">주문</div>
+                                        <div class="tbl-td">08:48:33</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">다음</div>
+                                        <div class="tbl-td">완료</div>
+                                        <div class="tbl-td">08:48:33</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">구글</div>
+                                        <div class="tbl-td">원자재</div>
+                                        <div class="tbl-td">08:48:33</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">네이버</div>
+                                        <div class="tbl-td">MP</div>
+                                        <div class="tbl-td">08:48:33</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">네이버</div>
+                                        <div class="tbl-td">완료</div>
+                                        <div class="tbl-td">08:48:33</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">구글</div>
+                                        <div class="tbl-td">완료</div>
+                                        <div class="tbl-td">08:48:33</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">네이버</div>
+                                        <div class="tbl-td">MP</div>
+                                        <div class="tbl-td">08:48:33</div>
+                                    </div> 
+								</div>
+	                        </div>
+                        </div>
+                    </section>
+                    <!-- 1-8. Today 로그인 회원사 목록 -->
+                    <section class="dashboard2 dashboard2-tbl dashboard2-tbl4">
+                        <h2 class="dashboard2-title">
+                            Today 로그인 회원사 목록
+                            <p class="side-info total">총 <span class="num">96</span>개 사</p> 
+                        </h2>
+                        <div class="dashboard2-cont">
+                            <div class="tbl-wrap">
+	                            <div class="tbl-head">
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-th">접속시간</div>
+	                                    <div class="tbl-th">기업명</div>
+	                                    <div class="tbl-th">최종 뷰</div>
+	                                    <div class="tbl-th">주문</div>
+	                                    <div class="tbl-th">체류시간</div>
+	                                </div>
+	                            </div> 
+	                            <div class="tbl-body scroll">
+	                                <div class="tbl-tr">
+			                             <div class="tbl-td">11:13:42</div>
+			                             <div class="tbl-td">철강신문</div>
+			                             <div class="tbl-td">메인</div>
+			                             <div class="tbl-td">3</div>
+			                             <div class="tbl-td">08:48:33</div>
+			                         </div> 
+                                     <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">네이버</div>
+                                        <div class="tbl-td">상품</div>
+                                        <div class="tbl-td">2</div>
+                                        <div class="tbl-td">08:48:33</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">네이버</div>
+                                        <div class="tbl-td">상품</div>
+                                        <div class="tbl-td">2</div>
+                                        <div class="tbl-td">08:48:33</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">구글</div>
+                                        <div class="tbl-td">주문</div>
+                                        <div class="tbl-td">1</div>
+                                        <div class="tbl-td">08:48:33</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">다음</div>
+                                        <div class="tbl-td">완료</div>
+                                        <div class="tbl-td">2</div>
+                                        <div class="tbl-td">08:48:33</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">구글</div>
+                                        <div class="tbl-td">원자재</div>
+                                        <div class="tbl-td">0</div>
+                                        <div class="tbl-td">08:48:33</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">네이버</div>
+                                        <div class="tbl-td">MP</div>
+                                        <div class="tbl-td">2</div>
+                                        <div class="tbl-td">08:48:33</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">네이버</div>
+                                        <div class="tbl-td">완료</div>
+                                        <div class="tbl-td">2</div>
+                                        <div class="tbl-td">08:48:33</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">구글</div>
+                                        <div class="tbl-td">완료</div>
+                                        <div class="tbl-td">3</div>
+                                        <div class="tbl-td">08:48:33</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">네이버</div>
+                                        <div class="tbl-td">MP</div>
+                                        <div class="tbl-td">1</div>
+                                        <div class="tbl-td">08:48:33</div>
+                                    </div> 
+								</div>
+	                        </div>
+                        </div> 
+                    </section>
+                    <!-- 1-9. Today 주문 기업 목록 -->
+                    <section class="dashboard2 dashboard2-tbl dashboard2-tbl5">
+                        <h2 class="dashboard2-title">
+                            Today 주문 기업 목록
+                            <p class="side-info total">총 <span class="num">52</span>개 사</p>
+                        </h2>
+                        <div class="dashboard2-cont">
+                            <div class="tbl-wrap">
+	                            <div class="tbl-head">
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-th">최종주문</div>
+	                                    <div class="tbl-th">기업명</div>
+	                                    <div class="tbl-th">주문건수</div>
+	                                    <div class="tbl-th">톤수</div>
+	                                </div>
+	                            </div> 
+	                            <div class="tbl-body scroll">
+	                                <div class="tbl-tr">
+			                             <div class="tbl-td">11:13:42</div>
+			                             <div class="tbl-td">태성</div>
+			                             <div class="tbl-td">5</div>
+			                             <div class="tbl-td">100</div>
+			                         </div> 
+                                     <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">팬코</div>
+                                        <div class="tbl-td">7</div>
+                                        <div class="tbl-td">100</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">한강</div>
+                                        <div class="tbl-td">5</div>
+                                        <div class="tbl-td">25</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">팬코</div>
+                                        <div class="tbl-td">5</div>
+                                        <div class="tbl-td">50</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">MK</div>
+                                        <div class="tbl-td">5</div>
+                                        <div class="tbl-td">25</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">CA</div>
+                                        <div class="tbl-td">5</div>
+                                        <div class="tbl-td">75</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">서부</div>
+                                        <div class="tbl-td">5</div>
+                                        <div class="tbl-td">75</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">KPT</div>
+                                        <div class="tbl-td">5</div>
+                                        <div class="tbl-td">100</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">11:13:42</div>
+                                        <div class="tbl-td">CA</div>
+                                        <div class="tbl-td">5</div>
+                                        <div class="tbl-td">25</div>
+                                    </div> 
+                                    <div class="tbl-tr">
+			                             <div class="tbl-td">11:13:42</div>
+			                             <div class="tbl-td">빈진</div>
+			                             <div class="tbl-td">5</div>
+			                             <div class="tbl-td">75</div>
+			                         </div> 
+								</div>
+	                        </div>
+                        </div>
+                    </section>
+                    <!-- 1-10. 당월 신규 회원사 목록 -->
+                    <section class="dashboard2 dashboard2-tbl dashboard2-tbl6">
+                        <h2 class="dashboard2-title">
+                            당월 신규 회원사 목록 
+                            <p class="side-info total">총 <span class="num">6</span>개 사</p>
+                        </h2>
+                        <div class="dashboard2-cont">
+                            <div class="tbl-wrap">
+	                            <div class="tbl-head">
+	                                <div class="tbl-tr">
+	                                    <div class="tbl-th">가입일시</div>
+	                                    <div class="tbl-th">기업명</div>
+	                                    <div class="tbl-th">최종방문</div>
+	                                </div>
+	                            </div> 
+	                            <div class="tbl-body scroll">
+	                                <div class="tbl-tr">
+			                             <div class="tbl-td">05.04 10:24</div>
+			                             <div class="tbl-td">빈진</div>
+			                             <div class="tbl-td">05.05 16:45</div>
+			                        </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">05.04 10:24</div>
+                                        <div class="tbl-td">서부</div>
+                                        <div class="tbl-td">05.05 16:45</div>
+                                    </div>
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">05.04 10:24</div>
+                                        <div class="tbl-td">CA</div>
+                                        <div class="tbl-td">05.05 16:45</div>
+                                    </div>
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td">05.04 10:24</div>
+                                        <div class="tbl-td">MK</div>
+                                        <div class="tbl-td">05.04 18:19</div>
+                                   </div> 
+                                   <div class="tbl-tr">
+                                       <div class="tbl-td">05.04 10:24</div>
+                                       <div class="tbl-td">액션</div>
+                                       <div class="tbl-td">05.04 12:20</div>
+                                   </div>
+                                   <div class="tbl-tr">
+                                       <div class="tbl-td">05.01 22:47</div>
+                                       <div class="tbl-td">삼원</div>
+                                       <div class="tbl-td">05.03 23:15</div>
+                                   </div>
+                                   <div class="tbl-tr">
+			                             <div class="tbl-td"></div>
+			                             <div class="tbl-td"></div>
+			                             <div class="tbl-td"></div>
+			                        </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td"></div>
+                                        <div class="tbl-td"></div>
+                                        <div class="tbl-td"></div>
+                                   </div> 
+                                   <div class="tbl-tr">
+                                        <div class="tbl-td"></div>
+                                        <div class="tbl-td"></div>
+                                        <div class="tbl-td"></div>
+                                    </div> 
+                                    <div class="tbl-tr">
+                                        <div class="tbl-td"></div>
+                                        <div class="tbl-td"></div>
+                                        <div class="tbl-td"></div>
+                                    </div> 
+								</div>
+	                        </div> 
+                        </div>
+                    </section>
+                </div>
+			</div>
+			<div class="dashboard2-column dashboard2-column2">
+                <!-- 2-1. 현재 로그인 접속 위치 -->
+                <section class="dashboard2 dashboard2-current-place">
+                    <h2 class="dashboard2-title">
+                        현재 로그인 접속 위치
+                        <p class="side-info total">총 <span class="num">59</span>개 사</p>
+                    </h2>
+                    <div class="dashboard2-cont scroll">
+                        <section class="place place1">
+                            <div class="place-title">
+                                <h3>랜딩 <span class="total">04</span></h3>
+                                <p class="side-info">비로그인 <span class="num">3</span></p>
+                            </div>
+                            <div class="place-cont">
+                                <span class="label-login-user">프라</span>
+                            </div>
+                        </section>
+                        <section class="place place2">
+                            <div class="place-title">
+                                <h3>메인 <span class="total">05</span></h3>
+                                <p class="side-info">비로그인 <span class="num">3</span></p>
+                            </div>
+                            <div class="place-cont">
+                                <span class="label-login-user">한강</span>
+                                <span class="label-login-user">빈진</span>
+                            </div>
+                        </section>
+                        <section class="place place3">
+                            <div class="place-title">
+                                <h3>상품탐색 <span class="total">09</span></h3>
+                            </div>
+                            <div class="place-cont">
+                                <span class="label-login-user">한강</span>
+                                <span class="label-login-user">빈진</span>
+                                <span class="label-login-user">린노</span>
+                                <span class="label-login-user">동신</span>
+                                <span class="label-login-user">TS</span>
+                                <span class="label-login-user">한강</span>
+                                <span class="label-login-user">빈진</span>
+                                <span class="label-login-user">린노</span>
+                                <span class="label-login-user">동신</span>
+                            </div>
+                        </section>
+                        <section class="place place4">
+                            <div class="place-title">
+                                <h3>주문입력 <span class="total">32</span></h3>
+                            </div>
+                            <div class="place-cont">
+                                <span class="label-login-user normal">한강</span> <!-- 간편회원(.normal)/ FO class 정책에 따름 -->
+                                <span class="label-login-user">빈진</span>
+                                <span class="label-login-user">린노</span>
+                                <span class="label-login-user normal">동신</span>
+                                <span class="label-login-user normal">TS</span>
+                                <span class="label-login-user">한강</span>
+                                <span class="label-login-user">빈진</span>
+                                <span class="label-login-user">린노</span>
+                                <span class="label-login-user">동신</span>
+                                <span class="label-login-user">동신</span>
+                                <span class="label-login-user">한강</span>
+                                <span class="label-login-user">빈진</span>
+                                <span class="label-login-user">린노</span>
+                                <span class="label-login-user">동신</span>
+                                <span class="label-login-user">TS</span>
+                                <span class="label-login-user">한강</span>
+                                <span class="label-login-user">빈진</span>
+                                <span class="label-login-user">린노</span>
+                                <span class="label-login-user">동신</span>
+                                <span class="label-login-user">동신</span>
+                                <span class="label-login-user">한강</span>
+                                <span class="label-login-user">빈진</span>
+                                <span class="label-login-user">린노</span>
+                                <span class="label-login-user">동신</span>
+                                <span class="label-login-user">TS</span>
+                                <span class="label-login-user">한강</span>
+                                <span class="label-login-user">빈진</span>
+                                <span class="label-login-user">린노</span>
+                                <span class="label-login-user">동신</span>
+                                <span class="label-login-user">동신</span>
+                                <span class="label-login-user">동신</span>
+                                <span class="label-login-user">동신</span>
+                            </div>
+                        </section>
+                        <section class="place place5">
+                            <div class="place-title">
+                                <h3>주문완료 <span class="total">08</span></h3>
+                            </div>
+                            <div class="place-cont">
+                                <span class="label-login-user">한강</span>
+                                <span class="label-login-user">빈진</span>
+                                <span class="label-login-user">린노</span>
+                                <span class="label-login-user">동신</span>
+                                <span class="label-login-user">TS</span>
+                                <span class="label-login-user">한강</span>
+                                <span class="label-login-user">빈진</span>
+                                <span class="label-login-user">린노</span>
+                            </div>
+                        </section>
+                        <section class="place place6">
+                            <div class="place-title">
+                                <h3>원자재 <span class="total">00</span></h3>
+                            </div>
+                            <div class="place-cont">
+
+                            </div>
+                        </section>
+                        <section class="place place7">
+                            <div class="place-title">
+                                <h3>마이페이지 <span class="total">02</span></h3>
+                            </div>
+                            <div class="place-cont">
+                                <span class="label-login-user">액션</span>
+                                <span class="label-login-user">콘탱</span>
+                            </div>
+                        </section>
+                        <section class="place place8">
+                            <div class="place-title">
+                                <h3>기타 <span class="total">03</span></h3>
+                                <p class="side-info">비로그인 <span class="num">2</span></p>
+                            </div>
+                            <div class="place-cont">
+                                <span class="label-login-user">태양</span>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+		</div>
+	</div>
+	
+
+	<script>
+	
+	    /* ::::: 1. [공통] script ::::: */
+		$(window).on('load', () => {
+
+			heightCommonFunc ()
+		})
+		
+		$(window).on('resize', () => {
+
+			heightCommonFunc ()
+
+		})
+		
+		// function: scrollbar plugin/ dashboard2-column height 계산
+		function heightCommonFunc () {
+			
+			// 1-1. scrollbar plugin: mCustomScrollbar.js 사용
+			$(".scroll").mCustomScrollbar();
+			
+			// 1-2. [공통] .dashboard2-column height 계산
+			let dashboardColumnHeight = Math.round($('.dashboard2-column').height());
+			let dashboardChartHeight = Math.round($('.dashboard2-chart').innerHeight());
+			let calcHeight = `${dashboardColumnHeight}` - `${dashboardChartHeight}`;
+			let dashboardTotalHeight = $('.dashboard2-total').outerHeight(calcHeight);
+			
+		}
+
+		
+	</script>
+	
+</body>
+</html>

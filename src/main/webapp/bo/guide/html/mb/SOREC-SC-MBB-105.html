@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <!-- script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <script type="text/javascript" src="/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+</head>
+
+
+<body>
+
+	<div class="web-wrapper">
+		<!-- [D] 사이드바 부분 인클루드 시작 -->
+		<!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
+		<aside class="web-sidebar"></aside>
+		<script type="text/javascript"> $(".web-sidebar").load("/guide/html/include/sidebar.html");</script>
+		<!-- // [D] 사이드바 부분 인클루드 끝 -->
+
+		<section class="web-container">
+			<!-- [D] 상단메뉴 부분 인클루드 시작 -->
+			<!-- [D] 활성화된 메뉴 : .is-active 추가 -->
+			<header class="web-header"></header>
+			<script type="text/javascript"> $(".web-header").load("/guide/html/include/header.html");</script>
+			<!-- // [D] 상단메뉴 부분 인클루드 끝 -->
+
+			<div class="main-content">
+                <div class="inner">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">등급 기여 내역</button>
+
+                    <!-- Modal -->
+                    <!-- [D]모달 위치는 변경 하셔도 됩니다! -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">등급 기여 내역</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+
+									<!-- 업체 정보 시작 -->
+									<div class="sub-title mt-0">
+                                        <h3>업체정보</h3>
+                                    </div>									
+									<div class="table table-view">
+										<table>
+											<colgroup>
+												<col class="col-md" />
+												<col width="*"/>
+												<col class="col-md" />
+												<col width="*"/>
+											</colgroup>
+											<tbody>
+												<tr>
+													<th>업체명</th>
+													<td>(주)업체명</td>
+													<th>가입일시</th>
+													<td>2022-04-25 11:11:10</td>
+												</tr>
+												<tr>
+													<th>퍼포먼스 등급</th>
+													<td>다이아몬드</td>
+													<th>퍼포먼스 등급산정일시</th>
+													<td>2022-04-25 11:11:10</td>
+												</tr>
+												<tr>
+													<th>평가등급</th>
+													<td>최우수</td>
+													<th>평가등급 산정일시</th>
+													<td>2022-04-25 11:11:10</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- // 업체 정보 끝 -->
+
+									<!-- 퍼포먼스 등급 기여 시작 -->
+									<div class="sub-title">
+                                        <h3>퍼포먼스 등급 기여</h3>
+                                    </div>									
+									<div class="table table-view text-center">
+										<table>
+											<colgroup>
+												<col style="width:14%" />
+												<col style="width:14%" />
+												<col style="width:14%" />
+												<col style="width:14%" />
+												<col style="width:14%" />
+												<col style="width:14%" />
+												<col style="width:16%" />
+											</colgroup>
+											<tbody>
+												<tr>
+													<th colspan="3">주문 톤수</th>
+													<th colspan="3">주문 빈도</th>
+													<th rowspan="2">합계점수</th>
+												</tr>
+												<tr>
+													<th>직전분기 누계</th>
+													<th>당해누적</th>
+													<th>점수</th>
+													<th>직전분기 누계</th>
+													<th>당해누적</th>
+													<th>점수</th>
+												</tr>
+												<tr>
+													<td>150</td>
+													<td>550</td>
+													<td>2</td>
+													<td>10</td>
+													<td>10</td>
+													<td>5</td>
+													<td>7</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- // 퍼포먼스 등급 기여 끝 -->
+
+									<!-- 평가등급 및 신용 거래 범위 시작 -->
+									<div class="sub-title">
+                                        <h3>평가등급 및 <span class="">신용 거래 범위</span></h3>
+                                    </div>									
+									<div class="table table-view text-center">
+										<table>
+											<colgroup>
+												<col width="*" />
+											</colgroup>
+											<tbody>
+												<tr>
+													<th>크레탑</th>
+													<th>여신구간</th>
+													<th>담보보증 허용 상환기간</th>
+												</tr>
+												<tr>
+													<td>AA</td>
+													<td>30</td>
+													<td>90일</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<!-- // 평가등급 및 신용 거래 범위 끝 -->
+
+								</div>
+								<div class="modal-footer">
+									<div class="btn-box">
+										<button type="button" class="btn" data-dismiss="modal">확인</button>
+									</div>
+								</div>
+							</div>
+						</div>
+                    </div>
+                </div>
+
+			</div>
+
+
+		</section>
+	</div>
+
+
+</body>
+
+</html>

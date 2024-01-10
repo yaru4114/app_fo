@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <!-- script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <script type="text/javascript" src="/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+</head>
+
+
+<body>
+
+	<div class="web-wrapper">
+		<!-- [D] 사이드바 부분 인클루드 시작 -->
+		<!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
+		<aside class="web-sidebar"></aside>
+		<script type="text/javascript"> $(".web-sidebar").load("/guide/html/include/sidebar.html");</script>
+		<!-- // [D] 사이드바 부분 인클루드 끝 -->
+
+		<section class="web-container">
+			<!-- [D] 상단메뉴 부분 인클루드 시작 -->
+			<!-- [D] 활성화된 메뉴 : .is-active 추가 -->
+			<header class="web-header"></header>
+			<script type="text/javascript"> $(".web-header").load("/guide/html/include/header.html");</script>
+			<!-- // [D] 상단메뉴 부분 인클루드 끝 -->
+
+			<div class="main-content">
+				<div class="inner">
+
+					<!-- Button trigger modal -->
+					<button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">승인요청업체 상세</button>
+					<!-- Modal -->
+					<!-- [D]모달 위치는 변경 하셔도 됩니다! -->
+					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-full" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">승인요청업체 상세</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+								   <div class="sub-title mt-0">
+									   <h3 class="">기업정보</h3>
+								   </div>
+								   <div class="table table-view">
+									   <table>
+										   <colgroup>
+											   <col style="width:12%" />
+											   <col style="width:38%" />
+											   <col style="width:12%" />
+											   <col style="width:13%" />
+											   <col style="width:12%" />
+											   <col style="width:13%" />
+										   </colgroup>
+										   <tbody>
+											   <tr>
+												   <th scope="row">기업명<i class="icon icon-required"></i></th>
+												   <td>
+													   <input type="text" class="input" value="서린상사" readonly="readonly">
+												   </td>
+												   <th scope="row">대표자<i class="icon icon-required"></i></th>
+												   <td colspan="3">
+													   <input type="text" class="input" value="장세환, 곽재요" readonly="readonly">
+												   </td>
+											   </tr>
+											   <tr>
+												   <th scope="row">사업자등록번호<i class="icon icon-required"></i></th>
+												   <td>
+													   <input type="text" class="input" value="111-222-33333~4" readonly="readonly">
+												   </td>
+												   <th scope="row">법인등록번호</th>
+												   <td colspan="3">
+													   <input type="text" class="input" value="1234-11-567890-4" readonly="readonly">
+												   </td>
+											   </tr>
+											   <tr>
+												   <th scope="row">업종/업태<i class="icon icon-required"></i></th>
+												   <td>
+													   <div class="form-set">
+														   <input type="text" class="input" value="제조업" readonly="readonly">
+														   <input type="text" class="input" value="가공판매" readonly="readonly">
+													   </div>
+												   </td>
+												   <th scope="row">사업자유형<i class="icon icon-required"></i></th>
+												   <td colspan="3">
+													   <input type="text" class="input" value="법인" readonly="readonly">
+												   </td>
+											   </tr>
+											   <tr>
+												   <th scope="row">대표 전화번호<i class="icon icon-required"></i></th>
+												   <td>
+													   <input type="text" class="input" value="02-519-3381">
+												   </td>
+												   <!-- [D] 조회 완료 시 .is-checked 추가 -->
+												   <th scope="row" class="">기업신용등급<i class="icon icon-required"></i></th>
+												   <td>
+													   <div class="form-set">
+															<select class="form-select">
+																<option value="AA">AA</option>
+															</select>
+													   </div>
+												   </td>
+												   <th scope="row" class="">평가등급<i class="icon icon-required"></i></th>
+												   <td>
+													   <div class="form-set">
+															<select class="form-select">
+																<option value="최우수">최우수</option>
+															</select>
+													   </div>
+												   </td>
+											   </tr>
+											   <tr>
+												   <th scope="row">팩스번호</th>
+												   <td>
+													   <input type="text" class="input" value="02-542-0013">
+												   </td>
+												   <!-- [D] 조회 완료 시 .is-checked 추가 -->
+												   <th scope="row" class="is-checked">기업인증</th>
+												   <td colspan="3">
+													   <div class="form-group">
+														   <div class="form-set">
+															   <select class="form-select select-sm">
+																   <option value="선택">선택</option>
+																   <option value="폐업">폐업</option>
+															   </select>
+															   <input type="text" class="input input-md" value="부가가치세 일반과세자" readonly="readonly">
+															   <button type="button" class="btn">조회</button>
+														   </div>
+													   </div>
+												   </td>
+											   </tr>
+											   <tr>
+												   <th scope="row">가입 신청일<i class="icon icon-required"></i></th>
+												   <td>
+													   <div class="form-set">
+														   <input type="text" class="input" value="2021-03-04 14:05:23">
+													   </div>
+												   </td>
+												   <th scope="row" class="th-pos-relative">기업등급/기업상태<i class="icon icon-required"></i><button type="button" class="btn btn-border th-inner-btn">상세</button></th>
+												   <td colspan="3">
+													   <div class="form-set">
+														   <select class="form-select">
+															   <option value="선택">선택</option>
+															   <option value="선택">선택</option>
+														   </select>
+														   <select class="form-select">
+															   <option value="선택">선택</option>
+															   <option value="선택">선택</option>
+														   </select>
+													   </div>
+												   </td>
+											   </tr>
+											   <tr>
+												   <th scope="row">ERP 코드<i class="icon icon-required"></i></th>
+												   <td>
+													   <div class="form-set">
+														   <input type="text" class="input" value="">
+														   <button type="button" class="btn">발급</button>
+													   </div>
+												   </td>
+												   <th scope="row">T 코드<i class="icon icon-required"></i></th>
+												   <td colspan="3">
+													   미등록
+												   </td>
+											   </tr>
+											   <tr>
+												   <th scope="row">구매담당자 E-mail<i class="icon icon-required"></i></th>
+												   <td>
+													   <div class="form-set">
+														   <input type="text" class="input" value="">
+													   </div>
+												   </td>
+												   <th scope="row">투자성향<i class="icon icon-required"></i></th>
+												   <td colspan="3">
+														<div class="form-set">
+															<select class="form-select">
+																<option value="선택">선택</option>
+																<option value="선택">선택</option>
+															</select>															
+															<input type="text" class="input" value="안정적" disabled="disabled">
+														</div>
+												   </td>
+											   </tr>
+											   <tr>
+												   <th scope="row">판매금속<i class="icon icon-required"></i></th>
+												   <td colspan="5">
+														<div class="check-group">
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox1-1" name="checkbox"  checked="checked" />
+																<label for="checkbox1-1"><span>알루미늄(AL)</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox1-2" name="checkbox" />
+																<label for="checkbox1-2"><span>아연(ZN)</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox1-3" name="checkbox" />
+																<label for="checkbox1-3"><span>구리(CU)</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox1-4" name="checkbox" />
+																<label for="checkbox1-4"><span>납(PB)</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox1-5" name="checkbox" />
+																<label for="checkbox1-5"><span>니켈(NI)</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox1-6" name="checkbox" />
+																<label for="checkbox1-6"><span>주석(SN)</span></label>
+															</div>
+														</div>
+												   </td>
+											   </tr>
+											   <tr>
+												   <th scope="row">회사주소<i class="icon icon-required"></i></th>
+												   <td colspan="5">
+													   <div class="form-group row">
+														   <div class="form-set">
+															   <input type="text" class="input input-sm" value="06110">
+															   <button type="button" class="btn">우편번호</button>
+														   </div>
+														   <div class="form-set">
+															   <input type="text" class="input" placeholder="도로명 기본주소" value="서울특별시 강남구 강남대로 542">
+															   <input type="text" class="input" placeholder="도로명 상세주소" value="영풍빌딩 10층">
+														   </div>
+														   <div class="form-set">
+															   <input type="text" class="input" placeholder="지번 기본주소" value="서울특별시 강남구 논현동 142">
+															   <input type="text" class="input" placeholder="지번 상세주소" value="(논현동)영풍빌딩 10층">
+														   </div>
+													   </div>
+												   </td>
+											   </tr>
+											   <tr>
+												   <!-- [D] 조회 완료 시 .is-checked 추가 -->
+												   <th scope="row" class="is-checked">e-Wallet 설정
+													   <i class="icon icon-required"></i>
+													   <i class="icon icon-check"></i>
+													   <i class="icon icon-warning"></i>
+												   </th>
+												   <td>
+													   <div class="form-set">
+														   <select class="form-select select-sm">
+															   <option>하나은행</option>
+															   <option>국민은행</option>
+														   </select>
+														   <input type="text" class="input" value="22-233-232-23">
+														   <button type="button" class="btn">조회</button>
+													   </div>
+												   </td>
+												   <!-- [D] 조회 완료 시 .is-checked 추가 -->
+												   <th scope="row" class="is-checked">환불계좌<i class="icon icon-required"></i><i class="icon icon-check"></i></th>
+												   <td colspan="3">
+													   <div class="form-set">
+														   <select class="form-select select-sm">
+															   <option>하나은행</option>
+															   <option>국민은행</option>
+														   </select>
+														   <input type="text" class="input" value="22-233-232-23">
+														   <button type="button" class="btn">확인</button>
+													   </div>
+												   </td>
+											   </tr>
+											   <tr>
+												   <th scope="row">관련문서(첨부파일)</th>
+												   <td colspan="5">
+													   <span class="file">
+														   <input type="text" class="input" title="첨부된 파일명">
+														   <!-- [D] 파일 첨부 ( common.js 파일 ) 스크립트 임의작성 -->
+														   <label for="sFiles1" class="btn btn-file" role="button">
+															   <input type="file" name="sFiles1" id="sFiles1" value="찾아보기"
+																   tabindex="-1" aria-hidden="true">
+															   파일 첨부하기
+														   </label>
+													   </span>
+													   <div class="table table-inner">
+														   <table>
+															   <colgroup>
+																   <col width="">
+																   <col width="150px">
+															   </colgroup>
+															   <thead>
+																   <tr>
+																	   <th>첨부파일명</th>
+																	   <th>용량</th>
+																   </tr>
+															   </thead>
+															   <tbody>
+																   <tr>
+																	   <td>
+																		   <div class="file-group">
+																			   <span class="file">사업자등록증_사본.pdf</span>
+																			   <div class="btn-box btn-box-sm">
+																				   <button type="button" class="btn btn-border"><span>다운로드</span><i class="icon icon-download"></i></button>
+																				   <button type="button" class="btn btn-border"><span>미리보기</span><i class="icon icon-preview"></i></button>
+																				   <button type="button" class="btn btn-border"><span>삭제하기</span><i class="icon icon-delete"></i></button>
+																			   </div>
+																		   </div>
+																	   </td>
+																	   <td class="text-center">208.16KB</td>
+																   </tr>
+																   <tr>
+																	   <td>
+																		   <div class="file-group">
+																			   <span class="file">통장사본.jpg</span>
+																			   <div class="btn-box btn-box-sm">
+																				   <button type="button" class="btn btn-border" disabled><span>다운로드</span><i class="icon icon-download"></i></button>
+																				   <button type="button" class="btn btn-border" disabled><span>미리보기</span><i class="icon icon-preview"></i></button>
+																				   <button type="button" class="btn btn-border" disabled><span>삭제하기</span><i class="icon icon-delete"></i></button>
+																			   </div>
+																		   </div>
+																	   </td>
+																	   <td class="text-center">224.96KB</td>
+																   </tr>
+															   </tbody>
+														   </table>
+													   </div>
+												   </td>
+											   </tr>
+			   
+										   </tbody>
+									   </table>
+								   </div>
+			   
+								   <div class="sub-title">
+									   <h3 class="">담당자 정보(마스터)</h3>
+								   </div>
+								   <div class="table table-view">
+									   <table>
+										   <colgroup>
+											   <col class="col-md" />
+											   <col width="*" />
+											   <col class="col-md" />
+											   <col width="*" />
+										   </colgroup>
+										   <tbody>
+											   <tr>
+												   <th scope="row">아이디<i class="icon icon-required"></i></th>
+												   <td>
+													   <input type="text" class="input" value="sorintop007" readonly="readonly">
+												   </td>
+												   <th scope="row">담당자 이름<i class="icon icon-required"></i></th>
+												   <td>
+													   <input type="text" class="input" value="sorintop007" readonly="readonly">
+												   </td>
+											   </tr>
+											   <tr>
+												   <th scope="row">휴대폰번호<i class="icon icon-required"></i></th>
+												   <td>
+													   <input type="text" class="input" value="010-3323-4421" readonly="readonly">
+												   </td>
+												   <th scope="row">SMS 수신여부</th>
+												   <td>
+													   <input type="text" class="input" value="수신" readonly="readonly">
+												   </td>
+											   </tr>
+											   <tr>
+												   <th scope="row">E-mail 수신여부</th>
+												   <td>
+													   <input type="text" class="input" value="수신" readonly="readonly">
+												   </td>
+												   <th></th>
+												   <td></td>
+											   </tr>
+										   </tbody>
+									   </table>
+								   </div>
+			   
+								    <!-- 권한 설정 추가 시작 -->
+									<div class="sub-title">
+										<h3>권한설정</h3>
+									</div>
+									<div class="table table-view">
+										<table>
+											<colgroup>
+												<col class="col-md" />
+												<col width="*" />
+												<col width="*" />
+											</colgroup>
+											<thead>
+												<tr>
+													<th>메탈</th>
+													<th>판매방식에 따른 구매권한</th>
+													<th>입찰기준 권한</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th scope="row">알루미늄</th>
+													<td>
+														<div class="check-group tb-inner-center">
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox2-1" name="checkbox" checked="checked" />
+																<label for="checkbox2-1"><span>고정가</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox2-2" name="checkbox" />
+																<label for="checkbox2-2"><span>라이브가</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox2-3" name="checkbox" />
+																<label for="checkbox2-3"><span>지정가</span></label>
+															</div>
+														</div>														
+													</td>
+													<td>
+														<div class="check-group tb-inner-center">
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox3-1" name="checkbox"/>
+																<label for="checkbox3-1"><span>CUSTOMER</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox3-2" name="checkbox" />
+																<label for="checkbox3-2"><span>VENDER</span></label>
+															</div>
+														</div>															
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">아연</th>
+													<td>
+														<div class="check-group tb-inner-center">
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox4-1" name="checkbox" checked="checked" />
+																<label for="checkbox4-1"><span>고정가</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox4-2" name="checkbox" />
+																<label for="checkbox4-2"><span>라이브가</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox4-3" name="checkbox" />
+																<label for="checkbox4-3"><span>지정가</span></label>
+															</div>
+														</div>														
+													</td>
+													<td>
+														<div class="check-group tb-inner-center">
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox5-1" name="checkbox"/>
+																<label for="checkbox5-1"><span>CUSTOMER</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox5-2" name="checkbox" />
+																<label for="checkbox5-2"><span>VENDER</span></label>
+															</div>
+														</div>															
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">전기동</th>
+													<td>
+														<div class="check-group tb-inner-center">
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox6-1" name="checkbox" checked="checked" />
+																<label for="checkbox6-1"><span>고정가</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox6-2" name="checkbox" />
+																<label for="checkbox6-2"><span>라이브가</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox6-3" name="checkbox" />
+																<label for="checkbox6-3"><span>지정가</span></label>
+															</div>
+														</div>														
+													</td>
+													<td>
+														<div class="check-group tb-inner-center">
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox7-1" name="checkbox"/>
+																<label for="checkbox7-1"><span>CUSTOMER</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox7-2" name="checkbox" />
+																<label for="checkbox7-2"><span>VENDER</span></label>
+															</div>
+														</div>															
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">연</th>
+													<td>
+														<div class="check-group tb-inner-center">
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox8-1" name="checkbox" checked="checked" />
+																<label for="checkbox8-1"><span>고정가</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox8-2" name="checkbox" />
+																<label for="checkbox8-2"><span>라이브가</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox8-3" name="checkbox" />
+																<label for="checkbox8-3"><span>지정가</span></label>
+															</div>
+														</div>														
+													</td>
+													<td>
+														<div class="check-group tb-inner-center">
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox9-1" name="checkbox"/>
+																<label for="checkbox9-1"><span>CUSTOMER</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox9-2" name="checkbox" />
+																<label for="checkbox9-2"><span>VENDER</span></label>
+															</div>
+														</div>															
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">니켈</th>
+													<td>
+														<div class="check-group tb-inner-center">
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox10-1" name="checkbox" checked="checked" />
+																<label for="checkbox10-1"><span>고정가</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox10-2" name="checkbox" />
+																<label for="checkbox10-2"><span>라이브가</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox10-3" name="checkbox" />
+																<label for="checkbox10-3"><span>지정가</span></label>
+															</div>
+														</div>														
+													</td>
+													<td>
+														<div class="check-group tb-inner-center">
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox11-1" name="checkbox"/>
+																<label for="checkbox11-1"><span>CUSTOMER</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox11-2" name="checkbox" />
+																<label for="checkbox11-2"><span>VENDER</span></label>
+															</div>
+														</div>															
+													</td>
+												</tr>
+												<tr>
+													<th scope="row">주석</th>
+													<td>
+														<div class="check-group tb-inner-center">
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox12-1" name="checkbox" checked="checked" />
+																<label for="checkbox12-1"><span>고정가</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox12-2" name="checkbox" />
+																<label for="checkbox12-2"><span>라이브가</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox12-3" name="checkbox" />
+																<label for="checkbox12-3"><span>지정가</span></label>
+															</div>
+														</div>														
+													</td>
+													<td>
+														<div class="check-group tb-inner-center">
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox13-1" name="checkbox"/>
+																<label for="checkbox13-1"><span>CUSTOMER</span></label>
+															</div>
+															<div class="form-checkbox">
+																<input type="checkbox" id="checkbox13-2" name="checkbox" />
+																<label for="checkbox13-2"><span>VENDER</span></label>
+															</div>
+														</div>															
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								    <!-- // 권한 설정 추가 끝 -->
+			   
+								    <!-- 추가 결제 수단 시작 -->
+									<div class="sub-title">
+										<h3>추가 결제 수단</h3>
+									</div>
+									<div class="table table-view">
+										<table>
+											<colgroup>
+												<col class="col-md" />
+												<col class="w-20"/>
+												<col width="*" />
+											</colgroup>
+											<thead>
+												<tr>
+													<th>결제 수단</th>
+													<th>사용여부</th>
+													<th>결제 상세정보</th>
+												</tr>
+											</thead>
+											<tbody>
+												<!-- 증거금 -->
+												<tr>
+													<th scope="row">증거금</th>
+													<td id="radioToggle1">
+														<div class="radio-group tb-inner-center">
+															<div class="form-radio">
+																<input type="radio" id="radio1-1" name="rd-1" value="rd1-N" checked="checked" />
+																<label for="radio1-1"><span>미사용</span></label>
+															</div>
+															<div class="form-radio">
+																<input type="radio" id="radio1-2" name="rd-1" value="rd1-Y" />
+																<label for="radio1-2"><span>사용</span></label>
+															</div>
+														</div>
+													</td>
+													<td>
+														<!-- 미사용 선택 시 -->
+														<div class="td-radio-none active">사용 신청을 하지 않았습니다.</div>
+
+														<!-- 사용 선택 시 -->
+														<div class="td-radio-used">
+															<div class="form-group">
+																<div class="form-set">
+																	<span class="label">약관동의일</span>
+																	<input type="text" class="input input-sm text-center" value="2022-06-14" disabled>
+																</div>
+																<div class="form-set">
+																	<span class="label">해지일</span>
+																	<input type="text" class="input input-sm text-center" value="2022-08-14" disabled>
+																</div>
+															</div>
+															<div class="form-group">
+																<div class="form-set">
+																	<span class="label">주문 시</span>
+																	<input type="text" class="input input-sm text-right" value="50">
+																	<span class="unit">%</span>
+																</div>
+																<div class="form-set">
+																	<span class="label">출고 시</span>
+																	<input type="text" class="input input-sm text-right" value="50">
+																	<span class="unit">%</span>
+																</div>
+															</div>
+														</div>
+													</td>
+												</tr>
+
+												<!-- 담보보증 -->
+												<tr>
+													<th scope="row">담보보증</th>
+													<td id="radioToggle2">
+														<div class="radio-group tb-inner-center">
+															<div class="form-radio">
+																<input type="radio" id="radio2-1" name="rd-2" value="rd2-N" checked="checked" />
+																<label for="radio2-1"><span>미사용</span></label>
+															</div>
+															<div class="form-radio">
+																<input type="radio" id="radio2-2" name="rd-2" value="rd2-Y" />
+																<label for="radio2-2"><span>사용</span></label>
+															</div>
+														</div>
+													</td>
+													<td>
+														<!-- 미사용 선택 시 -->
+														<div class="td-radio-none active">사용 신청을 하지 않았습니다.</div>
+
+														<!-- 사용 선택 시 -->
+														<div class="td-radio-used">
+															<div class="form-group">
+																<div class="form-set">
+																	<span class="label">신청일</span>
+																	<input type="text" class="input input-sm text-center" value="2022-06-14" disabled>
+																</div>
+																<div class="form-set">
+																	<span class="label">계약여부</span>
+																	<input type="text" class="input input-sm text-center" value="미계약" disabled>
+																</div>
+																<button type="button" class="btn btn-used-toggle">계약여부 확인하기</button>
+															</div>
+															<div class="radio-used-toggle">
+																<div class="form-group">
+																	<div class="form-set">
+																		<span class="label">보증번호</span>
+																		<input type="text" class="input input-sm text-center" value="2022-06-14" disabled>
+																	</div>
+																	<div class="form-set">
+																		<span class="label">계약기간</span>
+																		<input type="text" class="input input-sm text-center" value="2022-06-14 ~ 2022-12-31" disabled>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<div class="form-set">
+																		<span class="label">보증한도</span>
+																		<input type="text" class="input input-sm text-right" value="500,000,000" disabled>
+																		<span class="unit">원</span>
+																	</div>
+																	<div class="form-set">
+																		<span class="label">남은 보증한도</span>
+																		<input type="text" class="input input-sm text-right" value="500,000,000" disabled>
+																		<span class="unit">원</span>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<div class="form-set">
+																		<span class="label">보험료율</span>
+																		<input type="text" class="input input-sm text-right" value="3" disabled>
+																		<span class="unit">%</span>
+																	</div>
+																	<div class="form-set">
+																		<span class="label">상환기간</span>
+																		<input type="text" class="input input-sm text-right" value="180" disabled>
+																		<span class="unit">일</span>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<div class="form-set">
+																		<span class="label">MP수수료 부담</span>
+																		<div class="radio-group">
+																			<div class="form-radio">
+																				<input type="radio" id="radio4-1" name="radio4-1" checked="checked" />
+																				<label for="radio4-1"><span>판매자</span></label>
+																			</div>
+																			<div class="form-radio">
+																				<input type="radio" id="radio4-2" name="radio4-1" />
+																				<label for="radio4-2"><span>구매자</span></label>
+																			</div>
+																		</div>																																
+																	</div>
+																</div>
+															</div>
+														</div>
+													</td>
+												</tr>
+
+												<!-- 대출보증 -->
+												<tr>
+													<th scope="row">대출보증</th>
+													<td id="radioToggle3">
+														<div class="radio-group tb-inner-center">
+															<div class="form-radio">
+																<input type="radio" id="radio3-1" name="rd-3" value="rd3-N" checked="checked" />
+																<label for="radio3-1"><span>미사용</span></label>
+															</div>
+															<div class="form-radio">
+																<input type="radio" id="radio3-2" name="rd-3" value="rd3-Y"/>
+																<label for="radio3-2"><span>사용</span></label>
+															</div>
+														</div>
+													</td>
+													<td>
+														<!-- 미사용 선택 시 -->
+														<div class="td-radio-none active">사용 신청을 하지 않았습니다.</div>
+
+														<!-- 사용 선택 시 -->
+														<div class="td-radio-used">
+															<div class="form-group">
+																<div class="form-set">
+																	<span class="label">신청일</span>
+																	<input type="text" class="input input-sm text-center" value="2022-06-14" disabled>
+																</div>
+																<div class="form-set">
+																	<span class="label">결제은행</span>
+																	<input type="text" class="input input-sm text-center" value="국민은행, 우리은행" disabled>
+																</div>
+																<button type="button" class="btn btn-used-toggle">계약여부 확인하기</button>
+															</div>
+															<div class="radio-used-toggle">
+																<div class="table text-center mt-8" style="width:700px">
+																	<table>
+																		<colgroup>
+																			<col class="col-sm" />
+																			<col class="*" />
+																		</colgroup>
+																		<tbody>
+																			<tr>
+																				<th>사용승인</th>
+																				<th>은행명</th>
+																				<th>대출한도</th>
+																			</tr>
+																			<tr>
+																				<td>
+																					<div class="form-checkbox no-label">
+																						<input type="checkbox" id="checkbox-nolabel1" name="checkbox" />
+																						<label for="checkbox-nolabel1"></label>
+																					</div>
+																				</td>
+																				<td>
+																					<input type="text" class="input text-center" value="국민은행" disabled>
+																				</td>
+																				<td>
+																					<div class="form-set">
+																						<input type="text" class="input text-right" value="100,000,000" disabled>
+																						<span class="unit">원</span>
+																					</div>
+																					<span style="display:none">대출한도 정보가 없습니다.</span>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<div class="form-checkbox no-label">
+																						<input type="checkbox" id="checkbox-nolabel2" name="checkbox" />
+																						<label for="checkbox-nolabel2"></label>
+																					</div>
+																				</td>
+																				<td>
+																					<input type="text" class="input text-center" value="우리은행" disabled>
+																				</td>
+																				<td>
+																					<div class="form-set" style="display:none">
+																						<input type="text" class="input text-right" value="100,000,000" disabled>
+																						<span class="unit">원</span>
+																					</div>
+																					<span>대출한도 정보가 없습니다.</span>
+																				</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</div>
+																<div class="form-group">
+																	<div class="form-set">
+																		<span class="label">MP수수료 부담</span>
+																		<div class="radio-group">
+																			<div class="form-radio">
+																				<input type="radio" id="radio5-1" name="radio5-1" checked="checked" />
+																				<label for="radio5-1"><span>판매자</span></label>
+																			</div>
+																			<div class="form-radio">
+																				<input type="radio" id="radio5-2" name="radio5-1" />
+																				<label for="radio5-2"><span>구매자</span></label>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								    <!-- // 추가 결제 수단 끝 -->
+
+								   <div class="sub-title">
+									   <h3 class="">기본 배송지 정보</h3>
+								   </div>
+								   <div class="table table-view">
+									   <table>
+										   <colgroup>
+											   <col class="col-md" />
+											   <col width="*" />
+											   <col class="col-md" />
+											   <col width="*" />
+										   </colgroup>
+										   <tbody>
+											   <tr>
+												   <th scope="row">배송지명<i class="icon icon-required"></i></th>
+												   <td>
+													   <input type="text" class="input" value="인천창고" readonly="readonly">
+												   </td>
+												   <th scope="row">배송지 구분<i class="icon icon-required"></i></th>
+												   <td>
+													   <input type="text" class="input" value="본사 물류센터" readonly="readonly">
+												   </td>
+											   </tr>
+											   <tr>
+												   <th scope="row">배송지 주소<i class="icon icon-required"></i></th>
+												   <td>
+													   <input type="text" class="input" value="인천시 중구 항동" readonly="readonly">
+												   </td>
+												   <th scope="row">배송지 담당자<i class="icon icon-required"></i></th>
+												   <td>
+													   <input type="text" class="input" value="홍길동" readonly="readonly">
+												   </td>
+											   </tr>
+										   </tbody>
+									   </table>
+								   </div>
+								
+								   <div class="sub-title">
+									   <h3 class="">승인 처리</h3>
+								   </div>
+								   <div class="table table-view">
+									   <table>
+										   <colgroup>
+											   <col class="col-md" />
+											   <col width="*" />
+											   <col class="col-md" />
+											   <col width="*" />
+										   </colgroup>
+										   <tbody>
+											   <tr>
+												   <th scope="row">승인자</th>
+												   <td>
+													   <input type="text" class="input" value="홍길동" readonly="readonly">
+												   </td>
+												   <th scope="row">처리</th>
+												   <td>
+													   <div class="radio-group">
+														   <div class="form-radio">
+															   <input type="radio" id="radio-1" name="radio" checked="checked" />
+															   <label for="radio-1"><span>승인</span></label>
+														   </div>
+														   <div class="form-radio">
+															   <input type="radio" id="radio-2" name="radio" />
+															   <label for="radio-2"><span>보류</span></label>
+														   </div>
+														   <div class="form-radio">
+															   <input type="radio" id="radio-3" name="radio" />
+															   <label for="radio-3"><span>승인거절</span></label>
+														   </div>
+													   </div>
+												   </td>
+											   </tr>
+											   <tr>
+												   <th scope="row">요청 사유</th>
+												   <td colspan="3">
+													   <textarea class="textarea textarea-md" readonly="readonly">폐업으로 인한 탈퇴입니다.
+														폐업으로 인한 탈퇴입니다.폐업으로 인한 탈퇴입니다.
+														여러줄 일때 내용 표현
+												   </textarea>
+												   </td>
+											   </tr>
+											   <tr>
+												   <th>승인 사유 입력<i class="icon icon-required"></i></th>
+												   <td colspan="3">
+			   
+													   <div class="edit-box">
+														   <!-- [D] 에티트가 들어갑니다 -->
+													   </div>
+												   </td>
+											   </tr>
+										   </tbody>
+									   </table>
+								   </div>
+								</div>
+								<div class="modal-footer">
+									<div class="btn-box">
+										<button type="button" class="btn">저장</button>
+										<button type="button" class="btn" data-dismiss="modal">취소</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				   <!-- <div class="btn-box btn-box-lg">
+					   <button type="button" class="btn">저장</button>
+					   <button type="button" class="btn">취소</button>
+				   </div> -->
+			   </div>
+			</div>
+
+
+		</section>
+	</div>
+
+</body>
+
+<script>
+$(document).ready(function() {
+
+	// 증거금 라디오 토글
+	$(document).on('change', '#radioToggle1 input[type=radio]', function() {
+		if (this.value == 'rd1-N') {
+			$('#radio1-2').removeAttr('checked');
+			$('#radio1-1').attr('checked', 'checked');
+			$('#radioToggle1').next().children('.td-radio-none').addClass('active').next('.td-radio-used').removeClass('active');
+		} else if (this.value == 'rd1-Y') {
+			$('#radio1-1').removeAttr('checked');
+			$('#radio1-2').attr('checked', 'checked');
+			$('#radioToggle1').next().children('.td-radio-none').removeClass('active').next('.td-radio-used').addClass('active');;
+		}
+	});
+	// 담보보증 라디오 토글
+	$(document).on('change','#radioToggle2 input[type=radio]', function() {
+		if (this.value == 'rd2-N') {
+			$('#radio2-2').removeAttr('checked');
+			$('#radio2-1').attr('checked', 'checked');
+			$('#radioToggle2').next().children('.td-radio-none').addClass('active').next('.td-radio-used').removeClass('active');
+		} else if (this.value == 'rd2-Y') {
+			$('#radio2-1').removeAttr('checked');
+			$('#radio2-2').attr('checked', 'checked');
+			$('#radioToggle2').next().children('.td-radio-none').removeClass('active').next('.td-radio-used').addClass('active');;
+		}
+	});
+	// 대출보증 라디오 토글
+	$(document).on('change','#radioToggle3 input[type=radio]', function() {
+		if (this.value == 'rd3-N') {
+			$('#radio3-2').removeAttr('checked');
+			$('#radio3-1').attr('checked', 'checked');
+			$('#radioToggle3').next().children('.td-radio-none').addClass('active').next('.td-radio-used').removeClass('active');
+		} else if (this.value == 'rd3-Y') {
+			$('#radio3-1').removeAttr('checked');
+			$('#radio3-2').attr('checked', 'checked');
+			$('#radioToggle3').next().children('.td-radio-none').removeClass('active').next('.td-radio-used').addClass('active');;
+		}
+	});
+
+	// 계약 내용 확인하기 토글
+	$(document).on('click', '.btn-used-toggle', function(){
+		$(this).toggleClass('on');
+		$(this).parent().next('.radio-used-toggle').toggleClass('selected');
+	});
+	
+});
+
+</script>
+
+
+</html>

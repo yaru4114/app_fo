@@ -1,0 +1,126 @@
+
+/* 진희 추가 */
+* {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+}
+
+.web-wrapper, .web-container {
+    min-width: unset;
+}
+
+.main-content {
+    /* background-color: #fff; */
+}
+.guide-box {
+    margin-top: 12px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.guide-box.guide-start {
+    align-items: flex-start;
+}
+.guide-box.guide-start .guide-title {
+    padding-top: 4px;
+}
+.guide-title {
+    width: 200px;
+    font-size: 14px;
+    letter-spacing: -0.3px;
+    flex: 0 0 200px;
+    color: #666;
+}
+.guide-header {
+    position: relative;
+    min-width: 150px;
+    height: 100%;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    transition: margin .2s;
+    z-index: 10;
+}
+.main-title {
+    margin-top: 20px;
+}
+.table-info.guide-style {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px; background: #ddd; border-radius: 8px; padding: 12px;
+}
+.table-info.guide-style .noti {
+    color: #555;
+    line-height: 18px;
+}
+.main-content {
+    overflow: scroll;
+    padding: 0 20px;
+}
+.g-example-wrap {
+    position: relative;
+    padding-top: 36px;
+    margin: 20px 0;
+    border:  1px solid #eee;
+    border-radius: 5px;
+    /* overflow: hidden; */
+}
+.g-example-head {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 7px 15px;
+    background-color: #666;
+    line-height: 1;
+    border-bottom: 1px solid #eee;
+}
+.g-example-head .title {
+    float: left;
+    padding: 2px 0px;
+    font-size: 12px;
+    color: #fff;
+    line-height: 1.4;
+}
+.g-example-body {
+    padding: 10px;
+    background: #fff;
+    border-right: 1px solid #eee;
+}
+.g-example-foot {
+    /* display: none; */
+    width: 100%;
+    padding: 5px;
+    background: #fff;
+    border-top: 1px solid #eee;
+    color: #333;
+    font-size: 12px;
+    max-height: 80vh;
+    overflow: auto;
+}
+.hljs, .hljs-substmp {
+    max-height: 400px;
+    overflow: auto;
+    padding: 0px 0px 0px 10px;
+    background: #fff;
+}
+
+.flex-inline {
+    display: flex;
+    align-items: center;
+    
+}
+
+.flex-inline > *  {
+    margin: 0 10px;
+}
+.flex-block {
+    display: flex;
+    flex-direction: column;
+}
+.flex-block > *  {
+    margin: 5px 0;
+}

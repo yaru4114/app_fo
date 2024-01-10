@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <!-- script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script>
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <script type="text/javascript" src="/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+
+</head>
+
+<body>
+
+    <div class="web-wrapper">
+        <!-- [D] 사이드바 부분 인클루드 시작 -->
+        <!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
+        <aside class="web-sidebar"></aside>
+        <script type="text/javascript"> $(".web-sidebar").load("/guide/html/include/sidebar.html");</script>
+        <!-- // [D] 사이드바 부분 인클루드 끝 -->
+
+        <section class="web-container">
+            <!-- [D] 상단메뉴 부분 인클루드 시작 -->
+            <!-- [D] 활성화된 메뉴 : .is-active 추가 -->
+            <header class="web-header"></header>
+            <script type="text/javascript"> $(".web-header").load("/guide/html/include/header.html");</script>
+            <!-- // [D] 상단메뉴 부분 인클루드 끝 -->
+
+            <div class="main-content">
+				<div class="inner">
+				<!-- Button trigger modal -->
+                	<button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">입찰 회원 상세</button>
+                    <!-- Modal -->
+                    <!-- [D]모달 위치는 변경 하셔도 됩니다! -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
+                        	<div class="modal-content">
+                            	<div class="modal-header">
+                                	<h5 class="modal-title" id="exampleModalLabel">회원관리&nbsp;&nbsp;&gt;&nbsp;엠투엠글로벌</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    </button>
+								</div>
+                                <div class="modal-body">
+                                	<!-- 회사 기본 정보 -->
+	  								<div class="sub-title mt-12">
+										<h3 class="">회사 기본 정보</h3>
+									</div>
+									<div class="table table-view">
+										<table>
+											<colgroup>
+									            <col class="col-sm" />
+									            <col width="" />
+									            <col class="col-sm" />
+									            <col width="" />
+        									</colgroup>
+        									<tbody>
+									        	<tr>
+									        		<th>ID</th>
+									        		<td>srec0077</td>
+									        		<th>기업명</th>
+									        		<td>엠투엠글로벌</td>
+									        	</tr>
+									        	<tr>
+									        		<th>외국기업유무</th>
+									        		<td>무</td>
+									        		<th>사업자등록번호</th>
+									        		<td>123-45-67890</td>
+									        	</tr>
+									        	<tr>
+									        		<th>이메일</th>
+									        		<td>srec0077@sorincorp.co.kr</td>
+									        		<th>폰번호</th>
+									        		<td>010-1234-5678</td>
+									        	</tr>
+       										</tbody>
+   										</table>
+									</div>
+
+                                	<!-- 입찰 대리 정보 -->
+                                    <div class="sub-title mt-12">
+                                        <h3 class="">입찰 대리 정보</h3>
+                                    </div>
+									<div class="table table-view">
+										<table>
+											<colgroup>
+									            <col class="col-sm" />
+									            <col width="" />
+									            <col class="col-sm" />
+									            <col width="" />
+        									</colgroup>
+        									<tbody>
+									        	<tr>
+									        		<th>기업명</th>
+									        		<td>엠투엠글로벌</td>
+									        		<th>사업자등록번호</th>
+									        		<td>121-04-12345</td>
+									        	</tr>
+									        	<tr>
+									        		<th>이메일</th>
+									        		<td>srec0077@gmail.com</td>
+									        		<th>폰번호</th>
+									        		<td>010-3450-6790</td>
+									        	</tr>
+       										</tbody>
+   										</table>
+									</div>
+
+                                	<!-- 가입 날짜 -->
+                                    <div class="sub-title mt-12">
+                                        <h3 class="">가입 날짜</h3>
+                                    </div>
+									<div class="table table-view">
+										<table>
+											<colgroup>
+									            <col class="col-sm" />
+									            <col width="" />
+									            <col class="col-sm" />
+									            <col width="" />
+									            <col class="col-sm" />
+									            <col width="" />
+        									</colgroup>
+        									<tbody>
+									        	<tr>
+									        		<th>가입접수일</th>
+									        		<td>2023-06-20 10:11:12</td>
+									        		<th>가입승인일<br><span class="color-red">(차단일)</span></th>
+									        		<td>2023-06-22 14:05:00<br><span class="color-red">(2023-06-22 16:00:00)</span></td>
+									        		<th>상태</th>
+									        		<td>차단</td>
+									        	</tr>
+									        	<tr>
+									        		<th>비고</th>
+									        		<td colspan="5">투찰 취소 3회 초과로 차단되었습니다.</td>
+									        	</tr>
+       										</tbody>
+   										</table>
+									</div>
+
+
+                                 </div>
+                                 <div class="modal-footer">
+                                     <!-- <div class="btn-box">
+                                         <button type="button" class="btn">등록</button>
+                                         <button type="button" class="btn" data-dismiss="modal">취소</button>
+                                     </div> -->
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                    <!-- <div class="btn-box btn-box-lg">
+                        <button type="button" class="btn">저장</button>
+                        <button type="button" class="btn">취소</button>
+                    </div> -->
+                </div>
+            </div>
+            <!-- //main-content -->
+        </section>
+    </div>
+</body>
+
+</html>

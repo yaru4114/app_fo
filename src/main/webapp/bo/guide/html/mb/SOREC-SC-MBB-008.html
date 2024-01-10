@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
+    <link rel="stylesheet" type="text/css" href="/guide/css/style.css" />
+
+    <script type="text/javascript" src="/guide/js/jquery-3.6.0.js"></script>
+    <!-- realGrid -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-lic.js"></script>
+    <!-- script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid-utils.js"></script -->
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/realgrid.2.3.2.min.js"></script> 
+    <script type="text/javascript" src="/guide/js/realgrid.2.3.2/libs/jszip.min.js"></script>
+    <!-- //realGrid -->
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
+    <script type="text/javascript" src="/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+	<script type="text/javascript" src="/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
+    <script type="text/javascript" src="/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
+    <script type="text/javascript" src="/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
+    <script type="text/javascript" src="/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    
+</head>
+
+
+<body>
+
+	<div class="web-wrapper">
+		<!-- [D] 사이드바 부분 인클루드 시작 -->
+		<!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
+		<aside class="web-sidebar"></aside>
+		<script type="text/javascript"> $(".web-sidebar").load("/guide/html/include/sidebar.html");</script>
+		<!-- // [D] 사이드바 부분 인클루드 끝 -->
+
+		<section class="web-container">
+			<!-- [D] 상단메뉴 부분 인클루드 시작 -->
+			<!-- [D] 활성화된 메뉴 : .is-active 추가 -->
+			<header class="web-header"></header>
+			<script type="text/javascript"> $(".web-header").load("/guide/html/include/header.html");</script>
+			<!-- // [D] 상단메뉴 부분 인클루드 끝 -->
+
+			<div class="main-content">
+				<div class="inner">
+					<div class="main-title">
+						<h2 class="lt">서린상사(주)</h2>
+						<div class="rt amount-list">
+							<dl class="amount-item">
+								<dt class="title">총 주문금액</dt>
+								<dd class="desc">
+									<span class="amount amount-price">350,000,000</span>
+									<span class="unit">원</span>
+								</dd>
+							</dl>
+							<dl class="amount-item">
+								<dt class="title">총 주문 건수</dt>
+								<dd class="desc">
+									<span class="amount">5</span>
+									<span class="unit">건</span>
+								</dd>
+							</dl>
+							<dl class="amount-item">
+								<dt class="title">총 상담 건수</dt>
+								<dd class="desc">
+									<span class="amount">0</span>
+									<span class="unit">회</span>
+								</dd>
+							</dl>
+							<dl class="amount-item">
+								<dt class="title">1:1문의 건수</dt>
+								<dd class="desc">
+									<span class="amount">0</span>
+									<span class="unit">회</span>
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<div class="tab-button">
+						<a href="/guide/html/mb/SOREC-SC-MBB-004.html" class="btn">기업</a>
+						<a href="/guide/html/mb/SOREC-SC-MBB-005.html" class="btn">회원</a>
+						<a href="/guide/html/mb/SOREC-SC-MBB-008.html" class="btn active">배송지</a>
+						<a href="/guide/html/mb/SOREC-SC-MBB-010.html" class="btn">주문내역</a>
+						<a href="/guide/html/mb/SOREC-SC-MBB-011.html" class="btn">E-wallet</a>
+						<!-- <a href="/guide/html/mb/SOREC-SC-MBB-012.html" class="btn">신용여신</a>
+						<a href="/guide/html/mb/SOREC-SC-MBB-013.html" class="btn">SGI여신</a> -->
+						<a href="/guide/html/mb/SOREC-SC-MBB-014.html" class="btn">메시지발송</a>
+						<a href="/guide/html/mb/SOREC-SC-MBB-015.html" class="btn">메일발송</a>
+						<a href="/guide/html/mb/SOREC-SC-MBB-016.html" class="btn">상담/문의</a>
+					</div>
+					<div class="search-control">
+						<div class="form-set">
+							<span class="label">배송지 구분</span>
+							<select class="form-select">
+								<option value="전체">전체</option>
+								<option value="본사 창고">본사 창고</option>
+								<option value="본사 물류센터">본사 물류센터</option>
+								<option value="거래처 창고">거래처 창고</option>
+								<option value="거래처 물류센터">거래처 물류센터</option>
+								<option value="기타 배송지">기타 배송지</option>
+							</select>
+
+						</div>
+						<div class="form-set">
+							<span class="label">배송지명</span>
+							<input type="text" class="input" />
+						</div>
+						<div class="search-btn">
+							<button type="button" class="btn btn-blue">검색</button>
+						</div>
+					</div>
+
+					<div class="table-control">
+						<div class="form-set">
+						</div>
+						<div class="btn-box">
+							<button type="button" class="btn">등록</button>
+							<button type="button" class="btn">삭제</button>
+                            <button type="button" class="btn btn-purple">목록</button>
+						</div>
+					</div>
+					<!-- realGrid -->
+					<div id="realgrid" class="realgrid-wrap"></div>
+					<!-- paging -->
+					<div class="paging-row">
+						<div class="paging">
+							<div id="paging"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //main-content -->
+		</section>
+	</div>
+</body>
+
+</html>
