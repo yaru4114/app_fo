@@ -1,6 +1,7 @@
 package com.bid.fo.member.controller;
 
-import com.bid.fo.member.model.BidMemberVO;
+import com.bid.common.model.BidMemberVO;
+import com.bid.fo.member.model.LoginVO;
 import com.bid.fo.member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,13 +25,13 @@ public class MemberController {
 
     /** 로그인 */
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody BidMemberVO vo) {
-        return ResponseEntity.ok(null);
+    public ResponseEntity<?> login(@RequestBody LoginVO vo) {
+        return ResponseEntity.ok(memberService.login(vo));
     }
 
     /** 로그아웃 */
     @PostMapping("/logout")
-    public ResponseEntity<?> logout(@RequestBody BidMemberVO vo) {
+    public ResponseEntity<?> logout() {
         return ResponseEntity.ok(null);
     }
 }

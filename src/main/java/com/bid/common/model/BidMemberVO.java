@@ -1,4 +1,4 @@
-package com.bid.fo.member.model;
+package com.bid.common.model;
 
 import lombok.Data;
 
