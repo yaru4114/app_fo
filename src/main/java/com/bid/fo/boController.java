@@ -1,14 +1,14 @@
-package fo;
+package com.bid.fo;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class foController {
+public class boController {
 
-	@RequestMapping("/webapp/WEB-INF/fo/")
+	@RequestMapping("/webapp/WEB-INF/bo/")
 	public String start() {
-		return "fo-main";
+		return "bo-main";
 	}
 }
-   
+ 
