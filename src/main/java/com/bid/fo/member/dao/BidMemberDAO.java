@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Map;
 
 @Repository
-public class MemberDAO {
+public class BidMemberDAO {
     public String creMember(BidMemberVO vo) {
         return null;
     }
@@ -18,5 +18,8 @@ public class MemberDAO {
 
     public Map<String,Object> login(LoginVO vo) {
         return null;
+    }
+
+    public void creBsnmResistDoc(int bsnmRegistDocNo1) {
     }
 }

@@ -2,7 +2,7 @@ package com.bid.fo.member.controller;
 
 import com.bid.common.model.BidMemberVO;
 import com.bid.fo.member.model.LoginVO;
-import com.bid.fo.member.service.MemberService;
+import com.bid.fo.member.service.BidMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/fo/member")
-public class MemberController {
+public class BidMemberController {
 
     @Autowired
-    private MemberService memberService;
+    private BidMemberService memberService;
 
     /** 회원 가입 */
     @PostMapping("/creMember")
