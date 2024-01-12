@@ -3,5 +3,175 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bid.fo.repository.BidMemberDAO" >
-
+<!--    아이디 중복 체크-->
+    <select id="idDuplicateCheck" parameterType="String" resultType="int">
+        SELECT
+            COUNT(BID_MBER_ID)
+        FROM
+            BD_ENTRPS_INFO_BAS
+        WHERE
+            BID_MBER_ID = #{userId}
+    </select>
+<!--    로그인-->
+    <select id="login" parameterType="com.bid.fo.member.model.LoginVO" resultType="com.bid.common.model.BidMemberVO">
+        SELECT
+            *
+        FROM
+            BD_ENTRPS_INFO_BAS
+        WHERE
+            BID_MBER_ID = #{userId}
+            AND BID_MBER_SECRET_NO = #{userPwd}
+            AND DELETE_AT = 'N'
+    </select>
+<!--    회원가입-->
+    <insert id="creMember" parameterType="com.bid.common.model.BidMemberVO">
+        INSERT INTO BD_ENTRPS_INFO_BAS (
+            -- 업체 정보
+            BID_ENTRPS_NO,
+            BID_MBER_ID,
+            BID_MBER_SECRET_NO,
+            ENTRPS_NM,
+            BSNM_REGIST_NO,
+            BID_MBER_EMAIL,
+            MOBLPHON_NO2,
+            ENTRPS_TLPHON_NO,
+            FRNTN_ENTRPS_AT,
+            POST_NO,
+            ADRES,
+            DETAIL_ADRES,
+            RN_ADRES,
+            RN_DETAIL_ADRES,
+            BSNM_REGIST_DOC_NO1,
+            -- 상태
+            BID_MBER_STTUS_CODE,
+            BID_CONFM_STTUS_CODE,
+            BID_CONFM_DETAIL_STTUS_CODE,
+            --	대행
+            VRSC_ENTRPS_NM,
+            VRSC_BSNM_REGIST_NO,
+            VRSC_BID_MBER_EMAIL,
+            VRSC_MOBLPHON_NO,
+            VRSC_TLPHON_NO,
+            BSNM_REGIST_DOC_NO2,
+            -- 약관
+            USE_STPLAT_AGRE_AT,
+            INDVDL_INFO_THREEMAN_PROVD_AGRE_AT,
+            INDVDL_INFO_PROCESS_POLCY_AGRE_AT,
+            MARKT_RECPTN_AGRE_AT,
+            MBER_CHRCTR_RECPTN_AGRE_AT,
+            MBER_EMAIL_RECPTN_AGRE_AT,
+            MBER_PUSH_RECPTN_AGRE_AT,
+            -- 일시
+            ETR_CONFM_REQUST_DT,
+            BID_MBER_ETR_DT,
+            USE_STPLAT_AGRE_DT,
+            INDVDL_INFO_THREEMAN_PROVD_AGRE_DT,
+            INDVDL_INFO_PROCESS_POLCY_AGRE_DT,
+            MARKT_RECPTN_AGRE_DT,
+            MBER_CHRCTR_RECPTN_AGRE_DT,
+            MBER_EMAIL_RECPTN_AGRE_DT,
+            MBER_PUSH_RECPTN_AGRE_DT,
+            FRST_REGIST_DT
+        )
+        VALUES (
+            -- 업체 정보
+            (
+                SELECT
+                    CONCAT('B',FORMAT((ISNULL(MAX((RIGHT(BID_ENTRPS_NO,4))+1),1)),'0000'))
+                FROM
+                    BD_ENTRPS_INFO_BAS
+            ),
+            #{bidMberId},
+            #{bidMberSecretNo},
+            #{entrpsNm},
+            #{bsnmRegistNo},
+            #{bidMberEmail},
+            #{moblphoneNo2},
+            #{entrpsTlphonNo},
+            #{frntnEntrpsAt},
+            #{postNo},
+            #{adres},
+            #{detailAdres},
+            #{rnAdres},
+            #{rnDetailAdres},
+            -- 사업자 등록증 파일번호 (업체)
+            (
+            SELECT
+                ISNULL((MAX(DOC_NO)+1),1)
+            FROM
+                CO_DOC_BAS
+            ),
+            --	상태
+            FORMAT(3,'00'), -- bidMberSttusCode : 승인대기
+            FORMAT(1,'00'), -- bidConfmSttusCode : 승인 요청
+            FORMAT(1,'00'), -- bidConfmDetailSttusCode : 회원 가입
+            --	대행
+            #{vrscEntrpsNm},
+            #{vrscBsnmRegistNo},
+            #{vrscBidMberEmail},
+            #{vrscMoblphonNo},
+            #{vrscTlphonNo},
+            -- 사업자 등록증 파일번호 (대행)
+            (
+            SELECT
+                ISNULL((MAX(DOC_NO)+2),2)
+            FROM
+                CO_DOC_BAS
+            ),
+            --	약관
+            #{useStplatAgreAt},
+            #{indvdlInfoThreemanProvdAgreAt},
+            #{indvdlInfoProcessPolcyAgreAt},
+            #{marktRecptnAgreAt},
+            #{mberChrctrRecptnAgreAt},
+            #{mberEmailRecptnAgreAt},
+            #{mberPushRecptnAgreAt},
+            -- 일시
+            getDate(),
+            getDate(),
+            getDate(),
+            getDate(),
+            getDate(),
+            getDate(),
+            getDate(),
+            getDate(),
+            getDate(),
+            getDate()
+        )
+        <selectKey keyColumn="BSNM_REGIST_DOC_NO1, BSNM_REGIST_DOC_NO2" keyProperty="bsnmRegistDocNo1,bsnmRegistDocNo2" order="AFTER" resultType="com.bid.common.model.BidMemberVO">
+            SELECT
+                BSNM_REGIST_DOC_NO1,
+                BSNM_REGIST_DOC_NO2
+            FROM
+                BD_ENTRPS_INFO_BAS
+            WHERE
+                BID_ENTRPS_NO = (
+                    SELECT
+                        MAX(RIGHT(BID_ENTRPS_NO,4))
+                    FROM
+                        BD_ENTRPS_INFO_BAS
+                )
+        </selectKey>
+    </insert>
+<!--    사업자등록증 문서 입력-->
+    <insert id="creBsnmResistDoc" parameterType="com.bid.common.model.DocVO">
+        INSERT INTO CO_DOC_BAS (
+            DOC_NO,
+            JOB_SE_CODE,
+            DOC_FILE_NM,
+            DOC_FILE_COURS,
+            DOC_FILE_REAL_COURS,
+            DOC_FILE_MG,
+            FRST_REGISTER_ID
+        )
+        VALUES (
+            #{docNo},
+            'MB',
+            #{doc_file_nm},
+            #{doc_file_cours},
+            #{doc_file_real_cours},
+            #{doc_file_mg},
+            #{frst_register_id}
+        )
+    </insert>
 </mapper>

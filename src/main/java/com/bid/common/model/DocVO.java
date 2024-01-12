@@ -3,7 +3,7 @@ package com.bid.common.model;
 import lombok.Data;
 
 @Data
-public class docVO {
+public class DocVO {
     private int docNo; // 문서 번호
     private String jobSeCode; // 업무 구분 코드
     private String docFileNm; // 문서 파일명
