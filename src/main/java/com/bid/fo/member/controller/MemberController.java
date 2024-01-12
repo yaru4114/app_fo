@@ -1,0 +1,36 @@
+package com.bid.fo.member.controller;
+
+import com.bid.fo.member.model.BidMemberVO;
+import com.bid.fo.member.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/fo/member")
+public class MemberController {
+
+    @Autowired
+    private MemberService memberService;
+
+    /** 회원 가입 */
+    @PostMapping("/creMember")
+    public ResponseEntity<?> creMember(@RequestBody BidMemberVO vo) {
+        return ResponseEntity.ok(memberService.creMember(vo));
+    }
+
+    /** 로그인 */
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody BidMemberVO vo) {
+        return ResponseEntity.ok(null);
+    }
+
+    /** 로그아웃 */
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(@RequestBody BidMemberVO vo) {
+        return ResponseEntity.ok(null);
+    }
+}
