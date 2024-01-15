@@ -3,23 +3,15 @@ package com.bid.fo.member.dao;
 import com.bid.common.model.BidMemberVO;
 import com.bid.common.model.DocVO;
 import com.bid.fo.member.model.LoginVO;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Mapper;
 
-@Repository
-public class BidMemberDAO {
-    public void creMember(BidMemberVO vo){
+@Mapper
+public interface BidMemberDAO {
+    void creMember(BidMemberVO vo);
 
-    }
+    int idDuplicateCheck(String bidMberId);
 
-    public int idDuplicateCheck(String bidMberId) {
-        return 0;
-    }
+    BidMemberVO login(LoginVO vo);
 
-    public BidMemberVO login(LoginVO vo) {
-        return null;
-    }
-
-    public void creBsnmResistDoc(DocVO doc) {
-
-    }
+    void creBsnmResistDoc(DocVO doc);
 }

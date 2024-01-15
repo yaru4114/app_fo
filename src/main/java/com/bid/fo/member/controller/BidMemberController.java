@@ -6,6 +6,7 @@ import com.bid.fo.member.service.BidMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,18 @@ public class BidMemberController {
 
     @Autowired
     private BidMemberService memberService;
+
+
+    /**페이지 이동 */
+    @GetMapping("/create_1")
+    public String createPage1 () { return "/fo/member/createMember_1"; };
+
+    @GetMapping("/create_2")
+    public String createPage2 () { return "/fo/member/createMember_2"; };
+
+    @GetMapping("/create_3")
+    public String createPage3 () { return "/fo/member/createMember_3"; };
+
 
     /** 회원 가입 */
     @PostMapping("/creMember")
