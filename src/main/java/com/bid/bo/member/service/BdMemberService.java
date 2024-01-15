@@ -17,8 +17,23 @@ public class BdMemberService {
     @Autowired
     private BdMemberDAO bdMemberDAO;
     public Map<String, Object> getMemberList(PagingVO vo) {
+        int totalCnt = bdMemberDAO.getMemberListCnt(vo);
+        vo.calPaging(totalCnt);
+
         Map<String, Object> resultMap = new HashMap<>();
-        return resultMap;
+
+        List<BidMemberVO> resultList = bdMemberDAO.getMemberList(vo);
+        log.info("객체 리스트 : {}", resultList);
+
+        if (resultList.size() > 0) {
+            resultMap.put("success", true);
+            resultMap.put("result", resultList);
+            resultMap.put("paging", vo);
+            return resultMap;
+        } else {
+            resultMap.put("success", false);
+            return resultMap;
+        }
     }
 
     public Map<String, Object> test() {
