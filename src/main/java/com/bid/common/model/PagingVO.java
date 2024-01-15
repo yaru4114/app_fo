@@ -14,8 +14,8 @@ public class PagingVO {
     private String status;
     private String searchType;
     private String searchKeyword;
-    private String asFymd;
-    private String asTymd;
+    private String startDate;
+    private String endDate;
 
     public void calPaging(int totalCount) {
         this.totalCount = totalCount;

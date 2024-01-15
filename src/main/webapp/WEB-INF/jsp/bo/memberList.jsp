@@ -55,6 +55,7 @@
 
         <div class="main-content">
             <div class="inner">
+                <h1>입찰 회원 관리</h1>
 
                 <div class="count-banner">
                     <div class="list list-total">
@@ -75,9 +76,9 @@
                     <div class="form-set">
                         <span class="label">상태</span>
                         <select class="form-select">
-                            <option value="전체">전체</option>
-                            <option value="정상">정상</option>
-                            <option value="차단">차단</option>
+                            <option value="00">전체</option>
+                            <option value="01">정상</option>
+                            <option value="02">차단</option>
                         </select>
                     </div>
                     <div class="form-set">
@@ -116,7 +117,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="search-btn">
+                    <div class="search-btn" id="searchBtn">
                         <button type="button" class="btn btn-blue">검색</button>
                     </div>
                 </div>
@@ -181,13 +182,41 @@
 
             // 🛠️ 검색 버튼 클릭 이벤트 처리
             $('#searchBtn').on('click', function () {
+                console.log('TEST');
                 // 서버에 보낼 데이터
                 var status = $('.form-select').val();
                 var searchType = $('.select-sm').val();
                 var searchKeyword = $('.input').val();
                 var startDate = $('#datepicker1').val();
                 var endDate = $('#datepicker2').val();
-            })
+
+                // 페이징 관련
+                var currentPage = 1;
+                var pageSize = 30;
+
+                var param = {
+                    status: status,
+                    searchType: searchType,
+                    searchKeyword: searchKeyword,
+                    startDate: startDate,
+                    endDate: endDate,
+                    currentPage: currentPage,
+                    pageSize: pageSize
+                };
+
+                $.ajax({
+                  type: 'POST',
+                  url: '/bo/member/getList',
+                  contentType: 'application/json',
+                  data: JSON.stringify(param),
+                  success: function (response) {
+                      console.log(response.data);
+                  },
+                  error: function (error) {
+                      console.error(error);
+                  }
+                });
+            });
         });
     </script>
 

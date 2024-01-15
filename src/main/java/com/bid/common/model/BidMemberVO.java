@@ -21,6 +21,8 @@ public class BidMemberVO {
     private String rnAdres; // 도로명 주소
     private String rnDetailAdres; // 도로명 상세 주소
     private int bsnmRegistDocNo1; // 사업자등록증 문서 번호1 (입찰 업체)
+    private int scsbidCnt; // 낙찰 건수
+    private int nonScsbidCnt; // 패찰 건수
 
     /** 입찰 회원 상태 */
     private String bidMberSttusCode; // 입찰 회원 상태 코드
