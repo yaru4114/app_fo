@@ -239,6 +239,15 @@
       $(this).parent().removeClass('on');
     });
 
+    // 취소버튼
+    $(document).on('click','#cancelBtn',function(){
+        if(confirm("가입을 취소하시겠습니까?")){
+            // location.href = "";
+        }
+    });
+
+
+    // 확인버튼
     $(document).on('click','#submitBtn', function() {
         if(!$('#agreeAll').prop('checked')){
             alert('필수 약관에 동의 하셔야 가입 하실 수 있습니다.')
@@ -263,7 +272,8 @@
 /*
             $.ajax({
                 url : "/fo/member/create_2",
-                //data : form,
+                contentType: 'application/json',
+                data : JSON.stringify(form),
                 method : "GET",
                 success : function(res){
 

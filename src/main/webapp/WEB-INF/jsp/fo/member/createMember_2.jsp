@@ -340,48 +340,88 @@ $(document).ready(function(){
 	});
 });
 
-// 외국업체 체크
+// 외국업체 체크 => 회사 사업자등록번호 : disabled
 $('#foreign').on('click',function () {
     if ($('#foreign').prop('checked')) {
         $('#ipCoRegiNo').addClass('etr');
-        // $('ipCoRegiNoCheckBtn').disabled = true;
+        $('#ipCoRegiNo').attr("disabled", true);
+        $('#ipCoRegiNoCheckBtn').attr("disabled", true);
     } else {
         $('#ipCoRegiNo').removeClass('etr');
-        // $('ipCoRegiNoCheckBtn').disabled = false;
+        $('#ipCoRegiNo').attr("disabled", false);
+        $('#ipCoRegiNoCheckBtn').attr("disabled", false);
     }
-
-    console.log($('ipCoRegiNoCheckBtn'));
-
 });
 
-// 위 정보와 동일 체크
+// 위 정보와 동일 체크 => 회사정보 = 대행정보 입력
 $('#agreeAll2').on('click',function () {
     if ($('#agreeAll2').prop('checked')) {
-        /*
-        $('#vrsc_cname').value = '1';
-        $('#vrsc_ipCoRegiNo').value = '1';
-        $('#vrsc_ipUserEmail').value = '1';
-        $('#vrsc_ipUserEmailDomain2').value = '1';
 
-        $('#vrsc_mobile1').value = '1';
-        $('#vrsc_mobile2').value = '1';
-        $('#vrsc_telPhone1').value = '1';
-        $('#vrsc_telPhone2').value = '1';
-        */
+        $('#vrsc_cname').val($('#cname').val());
+        $('#vrsc_ipCoRegiNo').val($('#ipCoRegiNo').val());
+        $('#vrsc_ipUserEmail').val($('#ipUserEmail').val());
+        $('#vrsc_ipUserEmailDomain2').val($('#ipUserEmailDomain').val());
+
+        $('#vrsc_mobile1').val($('#mobile1').val());
+        $('#vrsc_mobile2').val($('#mobile2').val());
+        $('#vrsc_telPhone1').val($('#telPhone1').val());
+        $('#vrsc_telPhone2').val($('#telPhone2').val());
     }
+});
+
+// 이전 페이지 버튼
+$('#prevBtn').on('click', function(){
+   if (confirm("이전 페이지로 이동하시겠습니까? 작성된 정보는 삭제됩니다.")) {
+        location.href = "/fo/member/create_1";
+   }
 });
 
 // 가입신청 버튼 클릭
 $('#submitBtn').on('click',function(){
 
-
-
     var form = {};
     // 회사 기본 정보입력
+
     form.bidMberId = $('#uid').val(); // 아이디
+
+    if (form.bidMberId === null || form.bidMberId === '') {
+        alert('아이디를 입력해주세요');
+        $('#uid').focus();
+        return;
+    } else if (form.bidMberId.length > 13) {
+        alert('아이디는 12자 이내로만 사용 가능합니다');
+        $('#uid').focus();
+        return;
+    }
+
     form.bidMberSecretNo = $('#upw').val(); // 비밀번호
+
+    if (form.bidMberSecretNo === null || form.bidMberSecretNo === '') {
+        alert('비밀번호를 입력해주세요');
+        $('#upw').focus();
+        return;
+    } else if (form.bidMberSecretNo.length < 8 || form.bidMberSecretNo.length > 12  ) {
+        alert('비밀번호는 8~12자 까지만 가능합니다.');
+        $('#upw').focus();
+        return;
+    }
+
     form.bidMberSecretNoCheck = $('#upw2').val(); // 비밀번호 확인
+
+    if (form.bidMberSecretNo !== form.bidMberSecretNoCheck) {
+        alert('비밀번호가 확인란과 일치하지 않습니다.');
+        $('#upw2').focus();
+        return;
+    }
+
     form.entrpsNm = $('#cname').val(); // 회사명
+
+    if (form.entrpsNm === null || form.entrpsNm === '') {
+        alert('회사명을 입력해주세요.');
+        $('#cname').focus();
+        return;
+    }
+
     form.bsnmRegistNo = $('#ipCoRegiNo').val(); // 사업자번호
 
     form.postNo = $('#foreignerZinCode').val(); // 우편번호
@@ -391,7 +431,7 @@ $('#submitBtn').on('click',function(){
     form.bidMberEmail = $('#ipUserEmail').val() + "@" + $('#ipUserEmailDomain').val(); // 이메일
 
     form.moblphoneNo2 = $('#mobile1').val() + $('#mobile2').val(); // 휴대폰 번호
-    form.entrpsTlphonNo = $('#telPhone1').val() + $('#telPhone2').val();; // 회사 전화 번호
+    form.entrpsTlphonNo = $('#telPhone1').val() + $('#telPhone2').val(); // 회사 전화 번호
 
     // 입찰 대리 정보
 
@@ -402,17 +442,20 @@ $('#submitBtn').on('click',function(){
     form.vrscTlphonNo = $('#vrsc_telPhone1').val() + $('#vrsc_telPhone2').val();
 
     const formData = new FormData();
+    // 고객정보
     formData.append('BidMemberVO',JSON.stringify(form));
+    // 사업자등록증 회사/대행
+    formData.append('docFiles',updFile1);
+    formData.append('docFiles',updFile2);
+
+    console.log(form);
     console.log(formData);
 
-/*
     $.ajax({
         type : 'POST',
         url : '/fo/member/creMember',
-        // contentType: 'application/json',
         processData : false,
         contentType: false,
-        // data : JSON.stringify(form),
         data : formData,
         success : function (response) {
             console.log(response);
@@ -425,7 +468,7 @@ $('#submitBtn').on('click',function(){
             console.log(error);
         }
     });
-    */
+
 });
 </script>
 

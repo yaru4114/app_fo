@@ -23,7 +23,7 @@ public class BidMemberService {
         // 아이디 중복 체크
         if (memberDAO.idDuplicateCheck(vo.getBidMberId()) > 0) {
             // 아이디 중복
-            resultMap.put("suceess", false);
+            resultMap.put("success", false);
             resultMap.put("message", "중복된 아이디 입니다.");
             return resultMap;
         }
@@ -51,7 +51,7 @@ public class BidMemberService {
         memberDAO.creBsnmResistDoc(doc1);
 //        memberDAO.creBsnmResistDoc(doc2);
 
-        resultMap.put("suceess", true);
+        resultMap.put("success", true);
         resultMap.put("message", "가입 요청이 완료되었습니다. 가입 승인 후 이용 가능합니다.");
 
         return resultMap;
