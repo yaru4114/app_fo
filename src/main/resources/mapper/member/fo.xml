@@ -2,15 +2,15 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.bid.fo.repository.BidMemberDAO" >
+<mapper namespace="com.bid.fo.member.dao.BidMemberDAO" >
 <!--    아이디 중복 체크-->
-    <select id="idDuplicateCheck" parameterType="String" resultType="int">
+    <select id="idDuplicateCheck" parameterType="string" resultType="int">
         SELECT
             COUNT(BID_MBER_ID)
         FROM
             BD_ENTRPS_INFO_BAS
         WHERE
-            BID_MBER_ID = #{userId}
+            BID_MBER_ID = #{bidMberId}
     </select>
 <!--    로그인-->
     <select id="login" parameterType="com.bid.fo.member.model.LoginVO" resultType="com.bid.common.model.BidMemberVO">
@@ -138,19 +138,19 @@
             getDate(),
             getDate()
         )
-        <selectKey keyColumn="BSNM_REGIST_DOC_NO1, BSNM_REGIST_DOC_NO2" keyProperty="bsnmRegistDocNo1,bsnmRegistDocNo2" order="AFTER" resultType="com.bid.common.model.BidMemberVO">
+        <selectKey keyColumn="BSNM_REGIST_DOC_NO1" keyProperty="bsnmRegistDocNo1" order="AFTER" resultType="com.bid.common.model.BidMemberVO">
             SELECT
                 BSNM_REGIST_DOC_NO1,
                 BSNM_REGIST_DOC_NO2
             FROM
                 BD_ENTRPS_INFO_BAS
             WHERE
-                BID_ENTRPS_NO = (
+                BID_ENTRPS_NO = CONCAT('B',(
                     SELECT
                         MAX(RIGHT(BID_ENTRPS_NO,4))
                     FROM
                         BD_ENTRPS_INFO_BAS
-                )
+                ))
         </selectKey>
     </insert>
 <!--    사업자등록증 문서 입력-->
@@ -162,16 +162,18 @@
             DOC_FILE_COURS,
             DOC_FILE_REAL_COURS,
             DOC_FILE_MG,
-            FRST_REGISTER_ID
+            FRST_REGISTER_ID,
+            LAST_CHANGER_ID
         )
         VALUES (
             #{docNo},
             'MB',
-            #{doc_file_nm},
-            #{doc_file_cours},
-            #{doc_file_real_cours},
-            #{doc_file_mg},
-            #{frst_register_id}
+            #{docFileNm},
+            #{docFileCours},
+            #{docFileRealCours},
+            #{docFileMg},
+            #{frstRegisterId},
+            #{lastChangerId}
         )
     </insert>
 </mapper>

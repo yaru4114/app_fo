@@ -357,14 +357,24 @@ $('#foreign').on('click',function () {
 // 위 정보와 동일 체크
 $('#agreeAll2').on('click',function () {
     if ($('#agreeAll2').prop('checked')) {
+        /*
+        $('#vrsc_cname').value = '1';
+        $('#vrsc_ipCoRegiNo').value = '1';
+        $('#vrsc_ipUserEmail').value = '1';
+        $('#vrsc_ipUserEmailDomain2').value = '1';
 
-    } else {
-
+        $('#vrsc_mobile1').value = '1';
+        $('#vrsc_mobile2').value = '1';
+        $('#vrsc_telPhone1').value = '1';
+        $('#vrsc_telPhone2').value = '1';
+        */
     }
 });
 
 // 가입신청 버튼 클릭
 $('#submitBtn').on('click',function(){
+
+
 
     var form = {};
     // 회사 기본 정보입력
@@ -391,7 +401,31 @@ $('#submitBtn').on('click',function(){
     form.vrscMoblphonNo = $('#vrsc_mobile1').val() + $('#vrsc_mobile2').val();
     form.vrscTlphonNo = $('#vrsc_telPhone1').val() + $('#vrsc_telPhone2').val();
 
-    console.log(form);
+    const formData = new FormData();
+    formData.append('BidMemberVO',JSON.stringify(form));
+    console.log(formData);
+
+/*
+    $.ajax({
+        type : 'POST',
+        url : '/fo/member/creMember',
+        // contentType: 'application/json',
+        processData : false,
+        contentType: false,
+        // data : JSON.stringify(form),
+        data : formData,
+        success : function (response) {
+            console.log(response);
+            if (response.success) {
+                location.href="/fo/member/create_3";
+            }
+            alert(response.message);
+        },
+        error : function (error) {
+            console.log(error);
+        }
+    });
+    */
 });
 </script>
 

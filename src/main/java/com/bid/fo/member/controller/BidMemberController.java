@@ -1,23 +1,29 @@
 package com.bid.fo.member.controller;
 
 import com.bid.common.model.BidMemberVO;
+import com.bid.common.model.DocVO;
 import com.bid.fo.member.model.LoginVO;
 import com.bid.fo.member.service.BidMemberService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
+import java.util.List;
 
 @Controller
+@Slf4j
 @RequestMapping("/fo/member")
 public class BidMemberController {
 
     @Autowired
     private BidMemberService memberService;
 
+    @Autowired
+    private ObjectMapper objectMapper;
 
     /**페이지 이동 */
     @GetMapping("/create_1")
@@ -32,7 +38,19 @@ public class BidMemberController {
 
     /** 회원 가입 */
     @PostMapping("/creMember")
-    public ResponseEntity<?> creMember(@RequestBody BidMemberVO vo) {
+    public ResponseEntity<?> creMember(@RequestPart("BidMemberVO") String jsonMemberVO){
+
+        BidMemberVO vo = null;
+        List<DocVO> docFiles = null;
+
+        try {
+            vo = objectMapper.readValue(jsonMemberVO, BidMemberVO.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        log.info("USER DATA : {}",vo);
+
         return ResponseEntity.ok(memberService.creMember(vo));
     }
 
