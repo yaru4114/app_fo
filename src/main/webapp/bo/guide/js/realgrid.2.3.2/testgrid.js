@@ -195,8 +195,11 @@ function createGrid(container) {
     gridView.displayOptions.emptyMessage = "입찰 회원이 존재하지 않습니다.";
     gridView.header.height = 40;
     gridView.displayOptions.rowHeight = 36;
-    gridView.footer.height = 40;
     gridView.stateBar.width = 16;
+
+    gridView.setFooters({
+        visible: false
+    });
 
     gridView.setCheckBar({
         visible: false

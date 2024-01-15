@@ -2,11 +2,13 @@ package com.bid.bo.member.dao;
 
 import com.bid.common.model.BidMemberVO;
 import com.bid.common.model.PagingVO;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-@Repository
+@Mapper
 public interface BdMemberDAO {
-    public List<BidMemberVO> getMemberList(PagingVO vo);
+    // public List<BidMemberVO> getMemberList(PagingVO vo);
+
+    public List<BidMemberVO> test();
 }
