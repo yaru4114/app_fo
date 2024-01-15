@@ -13,8 +13,8 @@ public class CoCmmnCdVO {
     private String subCode;
     private String extrlSysMainCode;
     private String codeNm;
-    private String codeLt;
-    private String codeOrdr;
+    private int codeLt;
+    private int codeOrdr;
     private String codeDcone;
     private String codeDctwo;
     private String codeRefrnone;
