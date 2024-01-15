@@ -181,45 +181,125 @@
                 $('#datepicker1').datepicker('setDate', startDate.toDate());
                 $('#datepicker2').datepicker('setDate', endDate.toDate());
             });
-
-            // 🛠️ 검색 버튼 클릭 이벤트 처리
-            $('#searchBtn').on('click', function () {
-                console.log('TEST');
-                // 서버에 보낼 데이터
-                var status = $('.form-select').val();
-                var searchType = $('.select-sm').val();
-                var searchKeyword = $('.input').val();
-                var startDate = $('#datepicker1').val();
-                var endDate = $('#datepicker2').val();
-
-                // 페이징 관련
-                var currentPage = 1;
-                var pageSize = 30;
-
-                var param = {
-                    status: status,
-                    searchType: searchType,
-                    searchKeyword: searchKeyword,
-                    startDate: startDate,
-                    endDate: endDate,
-                    currentPage: currentPage,
-                    pageSize: pageSize
-                };
-
-                $.ajax({
-                  type: 'POST',
-                  url: '/bo/member/getList',
-                  contentType: 'application/json',
-                  data: JSON.stringify(param),
-                  success: function (response) {
-                      console.log('결과 : ', response);
-                  },
-                  error: function (error) {
-                      console.error(error);
-                  }
-                });
-            });
+            start();
+            getMemberList();
         });
+
+        // 🛠️ getMemberList 함수 정의
+        function getMemberList() {
+            // 서버에 보낼 데이터
+            var status = $('.form-select').val();
+            var searchType = $('.select-sm').val();
+            var searchKeyword = $('.input').val();
+            var startDate = $('#datepicker1').val();
+            var endDate = $('#datepicker2').val();
+
+            // 페이징 관련
+            var currentPage = 1;
+            var pageSize = 30;
+
+            var param = {
+                status: status,
+                searchType: searchType,
+                searchKeyword: searchKeyword,
+                startDate: startDate,
+                endDate: endDate,
+                currentPage: currentPage,
+                pageSize: pageSize
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/bo/member/getList',
+                contentType: 'application/json',
+                data: JSON.stringify(param),
+                success: function (response) {
+                    console.log('결과 : ', response);
+                    drawRealGrid(response.result);
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        };
+
+        // 🛠️ 검색 버튼 클릭 이벤트 처리
+        $('#searchBtn').on('click', function () {
+            getMemberList();
+        });
+
+        var httpRequest;
+        var dataProvider, gridContainer, gridView;
+
+        function createGrid(container) {
+            dataProvider = new RealGrid.LocalDataProvider();
+            dataProvider.setFields(fields);
+
+            gridView = new RealGrid.GridView(container);
+
+            gridView.header.height = 40;
+            gridView.displayOptions.rowHeight = 36;
+            gridView.stateBar.width = 16;
+
+            gridView.setFooters({
+                visible: false
+            });
+
+            gridView.setCheckBar({
+                visible: false
+            });
+            gridView.setRowIndicator({
+                visible: false
+            });
+            gridView.setDisplayOptions({
+                showEmptyMessage: true,
+                emptyMessage: "입찰 회원이 존재하지 않습니다."
+            });
+            gridView.displayOptions.fitStyle = "even";
+            gridView.setDataSource(dataProvider);
+            gridView.setColumns(columns);
+
+            gridView.editOptions.insertable = true;
+            gridView.editOptions.appendable = true;
+        }
+
+        function drawRealGrid(data) {
+            if (!dataProvider) {
+                dataProvider = new RealGrid.LocalDataProvider();
+                dataProvider.setFields(fields);
+            } else {
+                dataProvider.clearRows();
+            }
+            dataProvider.setRows(data);
+
+            // gridView 생성
+            if (!gridView) {
+                gridView = new RealGrid.GridView("realgrid");
+            } else {
+                gridView.refresh();
+            }
+
+            gridView.setDataSource(dataProvider);
+            gridView.setColumns(columns);
+        }
+
+        function start() {
+            createGrid("realgrid");
+        }
+
+        // $.document.ready(start);
+        window.onload = start;
+        // domloaded를 대신 써도 됩니다.
+
+        window.onunload = function() {
+            dataProvider.clearRows();
+
+            gridView.destroy();
+            dataProvider.destroy();
+
+            gridView = null;
+            dataProvider = null;
+        };
     </script>
 
 </div>
