@@ -25,15 +25,9 @@ public class BdMemberService {
         List<BidMemberVO> resultList = bdMemberDAO.getMemberList(vo);
         log.info("객체 리스트 : {}", resultList);
 
-        if (resultList.size() > 0) {
-            resultMap.put("success", true);
-            resultMap.put("result", resultList);
-            resultMap.put("paging", vo);
-            return resultMap;
-        } else {
-            resultMap.put("success", false);
-            return resultMap;
-        }
+        resultMap.put("result", resultList);
+        resultMap.put("paging", vo);
+        return resultMap;
     }
 
     public Map<String, Object> test() {

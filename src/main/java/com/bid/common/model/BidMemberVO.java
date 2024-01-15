@@ -6,6 +6,7 @@ import lombok.Data;
 public class BidMemberVO {
 
     /** 입찰 회원 정보 */
+    private int rowNo; // 순번
     private String bidEntrpsNo; // 입찰 회원 정보
     private String bidMberId; // 회원 아이디
     private String bidMberSecretNo; // 비밀번호
@@ -23,6 +24,8 @@ public class BidMemberVO {
     private int bsnmRegistDocNo1; // 사업자등록증 문서 번호1 (입찰 업체)
     private int scsbidCnt; // 낙찰 건수
     private int nonScsbidCnt; // 패찰 건수
+    private String etrConfmRequstDt; // 가입 승인 요청일시
+    private String etrConfmProcessDt; // 가입 승인 처리 일시
 
     /** 입찰 회원 상태 */
     private String bidMberSttusCode; // 입찰 회원 상태 코드

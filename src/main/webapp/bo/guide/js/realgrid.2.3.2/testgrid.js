@@ -2,8 +2,8 @@
 
 var fields = [
     {
-        fieldName: "bidEntrpsNo",
-        dataType: "number",
+        fieldName: "rowNo",
+        dataType: "text"
     },
     {
         fieldName: "entrpsNm",
@@ -15,7 +15,7 @@ var fields = [
     },
     {
         fieldName: "bsnmRegistNo",
-        dataType: "number",
+        dataType: "text",
     },
     {
         fieldName: "bidMberEmail",
@@ -31,26 +31,23 @@ var fields = [
     },
     {
         fieldName: "etrConfmRequstDt",
-        dataType: "datetime",
-        datetimeFormat: "yyyy-MM-dd HH:mm:ss"
+        dataType: "text"
     },
     {
         fieldName: "etrConfmProcessDt",
-        dataType: "datetime",
-        datetimeFormat: "yyyy-MM-dd HH:mm:ss"
+        dataType: "text"
     },
     {
         fieldName: "bidMberIntrcpDt",
-        dataType: "datetime",
-        datetimeFormat: "yyyy-MM-dd HH:mm:ss"
+        dataType: "text"
     },
     {
-        fieldName: "successCount",
-        dataType: "number",
+        fieldName: "scsbidCnt",
+        dataType: "text"
     },
     {
-        fieldName: "failCount",
-        dataType: "number",
+        fieldName: "nonScsbidCnt",
+        dataType: "text"
     },
     {
         fieldName: "sttusCode",
@@ -61,8 +58,8 @@ var fields = [
 
 var columns = [
     {
-        name: "bidEntrpsNo",
-        fieldName: "bidEntrpsNo",
+        name: "rowNo",
+        fieldName: "rowNo",
         width: "94",
         header: {
             text: "순번"
@@ -141,16 +138,16 @@ var columns = [
         }
     },
     {
-        name: "successCount",
-        fieldName: "successCount",
+        name: "scsbidCnt",
+        fieldName: "scsbidCnt",
         width: "100",
         header: {
             text: "낙찰건수"
         }
     },
     {
-        name: "failCount",
-        fieldName: "failCount",
+        name: "nonScsbidCnt",
+        fieldName: "nonScsbidCnt",
         width: "100",
         header: {
             text: "패찰건수"
@@ -165,85 +162,3 @@ var columns = [
         }
     }
 ];
-
-var httpRequest;
-
-function setProvider(filename) {
-    httpRequest = new XMLHttpRequest();
-    httpRequest.onreadystatechange = loadData;
-    httpRequest.open("GET", "/public/data/" + filename);
-    httpRequest.send();
-}
-
-function loadData() {
-    if (httpRequest.readyState === XMLHttpRequest.DONE) {
-        if (httpRequest.status === 200) {
-            var data = JSON.parse(httpRequest.responseText);
-            dataProvider.setRows(data);
-            gridView.refresh();
-        }
-    }
-}
-
-var dataProvider, gridContainer, gridView;
-
-function createGrid(container) {
-    dataProvider = new RealGrid.LocalDataProvider();
-    dataProvider.setFields(fields);
-
-    gridView = new RealGrid.GridView(container);
-    gridView.displayOptions.emptyMessage = "입찰 회원이 존재하지 않습니다.";
-    gridView.header.height = 40;
-    gridView.displayOptions.rowHeight = 36;
-    gridView.stateBar.width = 16;
-
-    gridView.setFooters({
-        visible: false
-    });
-
-    gridView.setCheckBar({
-        visible: false
-    });
-    gridView.setRowIndicator({
-        visible: false
-    });
-    gridView.displayOptions.fitStyle = "even";
-    gridView.setDataSource(dataProvider);
-    gridView.setColumns(columns);
-    // setProvider("simple_data.json");
-
-    gridView.editOptions.insertable = true;
-    gridView.editOptions.appendable = true;
-
-
-}
-
-function start() {
-    createGrid("realgrid");
-}
-
-// $.document.ready(start);
-window.onload = start;
-// domloaded를 대신 써도 됩니다.
-
-window.onunload = function() {
-    dataProvider.clearRows();
-
-    gridView.destroy();
-    dataProvider.destroy();
-
-    gridView = null;
-    dataProvider = null;
-};
-
-// function changeCSS(cssFile, cssLinkIndex) {
-//
-//     var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
-//
-//     var newlink = document.createElement("link");
-//     newlink.setAttribute("rel", "stylesheet");
-//     newlink.setAttribute("type", "text/css");
-//     newlink.setAttribute("href", cssFile);
-//
-//     document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
-// }
