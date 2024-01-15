@@ -79,6 +79,7 @@
                             <option value="00">전체</option>
                             <option value="01">정상</option>
                             <option value="02">차단</option>
+                            <option value="03">승인대기</option>
                         </select>
                     </div>
                     <div class="form-set">
@@ -86,6 +87,7 @@
                         <select class="form-select select-sm">
                             <option value="전체">전체</option>
                             <option value="회사명">회사명</option>
+                            <option value="ID">ID</option>
                         </select>
                         <input type="text" class="input" />
                     </div>
@@ -210,7 +212,7 @@
                   contentType: 'application/json',
                   data: JSON.stringify(param),
                   success: function (response) {
-                      console.log(response.data);
+                      console.log('결과 : ', response);
                   },
                   error: function (error) {
                       console.error(error);
