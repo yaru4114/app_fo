@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" %>
+         pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,10 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" type="text/css" href="/bo/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css"><!-- Folder tree -->
+    <link rel="stylesheet" type="text/css" href="/bo/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css">
+    <!-- Folder tree -->
     <link rel="stylesheet" type="text/css" href="/bo/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
     <link rel="stylesheet" type="text/css" href="/bo/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
-    <link rel="stylesheet" type="text/css" href="/bo/guide/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/bo/guide/css/style.css"/>
 
     <script type="text/javascript" src="/bo/guide/js/jquery-3.6.0.js"></script>
     <!-- realGrid -->
@@ -23,12 +24,15 @@
     <script type="text/javascript" src="/bo/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
     <script type="text/javascript" src="/bo/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
     <script type="text/javascript" src="/bo/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
-    <script type="text/javascript" src="/bo/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+    <script type="text/javascript"
+            src="/bo/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
     <script type="text/javascript" src="/bo/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
-    <script type="text/javascript" src="/bo/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script><!-- Folder tree -->
+    <script type="text/javascript" src="/bo/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script>
+    <!-- Folder tree -->
     <script type="text/javascript" src="/bo/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
-    <script type="text/javascript" src="/bo/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
-<%--    <script type="text/javascript" src="/bo/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->--%>
+    <script type="text/javascript" src="/bo/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script>
+    <!-- Full calendar(한글) -->
+    <%--    <script type="text/javascript" src="/bo/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->--%>
     <script type="text/javascript" src="/bo/guide/js/realgrid.2.3.2/testgrid.js"></script>
     <script type="text/javascript" src="/bo/guide/js/common.js"></script><!-- 퍼블 작성 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
@@ -51,16 +55,21 @@
         <div class="main-content">
             <div class="inner">
                 <h1>입찰 회원 관리</h1>
+                <div class="btm-btns">
+                    <div class="btn-box">
+                        <button type="button" id="blockButton" class="btn">모달 테스트</button>
+                    </div>
+                </div>
                 <div class="count-banner">
                     <div class="list list-total">
                         <span class="label">정상 회원</span>
                         <span class="count">85</span>
                     </div>
-                    <div class="list list-done">
+                    <div class="list list-total">
                         <span class="label">차단 회원</span>
                         <span class="count">1274</span>
                     </div>
-                    <div class="list list-todo">
+                    <div class="list list-total">
                         <span class="label">가입승인대기</span>
                         <span class="count">12</span>
                     </div>
@@ -82,7 +91,7 @@
                             <option value="회사명">회사명</option>
                             <option value="ID">ID</option>
                         </select>
-                        <input type="text" class="input" />
+                        <input type="text" class="input"/>
                     </div>
                     <div class="form-set form-expand">
                         <span class="label">일시</span>
@@ -91,15 +100,17 @@
                                 <!-- [D] 월 선택 경우 .form-month 추가 -->
                                 <!-- [D] 날짜 선택 경우 .form-date 추가 -->
                                 <div class="input-group date form-date">
-                                    <input type="text" class="input" id="datepicker1" />
-                                    <label for="datepicker1" class="btn has-icon"><i class="icon icon-calendar">달력</i></label>
+                                    <input type="text" class="input" id="datepicker1"/>
+                                    <label for="datepicker1" class="btn has-icon"><i
+                                            class="icon icon-calendar">달력</i></label>
                                 </div>
                                 <span>~</span>
                                 <!-- [D] 월 선택 경우 .form-month 추가 -->
                                 <!-- [D] 날짜 선택 경우 .form-date 추가 -->
                                 <div class="input-group date form-date">
-                                    <input type="text" class="input" id="datepicker2" />
-                                    <label for="datepicker2" class="btn has-icon"><i class="icon icon-calendar">달력</i></label>
+                                    <input type="text" class="input" id="datepicker2"/>
+                                    <label for="datepicker2" class="btn has-icon"><i
+                                            class="icon icon-calendar">달력</i></label>
                                 </div>
                             </div>
                             <div class="btn-box btn-period">
@@ -121,21 +132,211 @@
                 <div id="realgrid" class="realgrid-wrap"></div>
                 <!-- paging -->
                 <div class="paging-row">
-                    <button onclick="setPrevPage()">
-                        이전 페이지
-                    </button>
-                    <span id="current-page-view"></span>
-                    /
-                    <span id="total-page-view"></span>
-                    <button onclick="setNextPage()">
-                        다음 페이지
-                    </button>
+                    <div class="paging wrapper">
+                        <button type="button" class="btn btn-bid-black" onclick="setPrevPage()">
+                            <
+                        </button>
+                        <span id="current-page-view"></span>
+                        /
+                        <span id="total-page-view"></span>
+                        <button type="button" class="btn btn-bid-black" onclick="setNextPage()">
+                            >
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+</div>
+<div class="pop-modal pop-modal2 pop-credit-confirm" id="blockModal">
+    <div class="pop-inner w1400px">
+        <div class="pop-title">
+            <h1 class="title">회원관리 > 엠투엠글로벌</h1>
+        </div>
+        <table class="bo-tbl-kyc">
+            <caption>회원 목록 상세</caption>
+            <div class="table-wrap">
+                <section class="bo-section">
+                    <div class="sub-title">
+                        <h3 class=""> 회사 기본 정보</h3>
+                        <div class="btm-btns">
+                            <div class="btn-box">
+                                <button type="button" id="blockButton" class="btn">차단하기</button>
+                                <button type="button" id="cancelButton" class="btn btn-blue">목록</button>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="bo-tbl-kyc">
+                        <caption> 회사 기본 정보</caption>
+                        <colgroup>
+                            <col style="width: 120px"/>
+                            <col width="*"/>
+                            <col style="width: 120px"/>
+                            <col width="*"/>
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th scope="row">
+                                <label for="">ID</label>
+                            </th>
+                            <td>
+                                <input type="text" name="" id="" value="test001" class="w300px" required readonly>
+                            </td>
+                            <th scope="row">
+                                <label for="">PW</label>
+                            </th>
+                            <td>
+                                <input type="password" name="" id="" value="1999-07-07" class="w300px" required
+                                       readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <label for="">기업명</label>
+                            </th>
+                            <td>
+                                <input type="text" name="" id="" value="엠투엠글로벌" class="w300px" required readonly>
+                            </td>
+                            <th scope="row">
+                                <label for="">외국기업유무</label>
+                            </th>
+                            <td>
+                                <input type="text" name="" id="" value="-" class="w300px" required readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <label for="">사업자등록번호</label>
+                            </th>
+                            <td>
+                                <input type="text" name="" id="" value="0123456789" class="w300px" required readonly>
+                            </td>
+                            <th scope="row">
+                                <label for="">아이디</label>
+                            </th>
+                            <td>
+                                <input type="text" name="" id="" value="B0001" class="w300px" required readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <label for="">이메일</label>
+                            </th>
+                            <td>
+                                <input type="text" name="" id="" value="test01@naver.com" class="w300px" required
+                                       readonly>
+                            </td>
+                            <th scope="row">
+                                <label for="">폰번호</label>
+                            </th>
+                            <td>
+                                <input type="text" name="" id="" value="01098983434" class="w300px" required readonly>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="bo-section">
+                    <div class="sub-title">
+                        <h3 class="">입찰 대리 정보</h3>
+                    </div>
+                    <table class="bo-tbl-kyc">
+                        <caption>입찰 대리 정보</caption>
+                        <colgroup>
+                            <col style="width: 120px"/>
+                            <col/>
+                            <col style="width: 120px"/>
+                            <col/>
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th scope="row">
+                                <label for="">기업명</label>
+                            </th>
+                            <td>
+                                <input type="text" name="" id="" value="테스트회사" class="w300px" required readonly>
+                            </td>
+                            <th scope="row">
+                                <label for="">사업자등록번호</label>
+                            </th>
+                            <td>
+                                <input type="text" name="" id="" value="02020202" class="w300px" required readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <label for="">이메일</label>
+                            </th>
+                            <td>
+                                <input type="text" name="" id="" value="dfdf@kakao.com" class="w300px" required
+                                       readonly>
+                            </td>
+                            <th scope="row">
+                                <label for="">폰번호</label>
+                            </th>
+                            <td>
+                                <input type="text" name="" id="" value="010-2222-2222" class="w300px" required readonly>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="bo-section">
+                    <div class="sub-title">
+                        <h3 class="">가입 날짜</h3>
+                    </div>
+                    <table class="bo-tbl-kyc">
+                        <caption>가입 날짜</caption>
+                        <colgroup>
+                            <col style="width: 120px"/>
+                            <col/>
+                            <col style="width: 90px"/>
+                            <col/>
+                            <col style="width: 90px"/>
+                            <col/>
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th scope="row">
+                                <label for="">가입접수일</label>
+                            </th>
+                            <td>
+                                <input type="text" name="" id="" value="2024-01-01 02:00" class="w300px" readonly>
+                            </td>
+                            <th scope="row">
+                                <label for="">가입승인일</label>
+                            </th>
+                            <td>
+                                <input type="text" name="" id="" value="2024-01-03 09:00" class="w300px" readonly>
+                            </td>
+                            <th scope="row">
+                                <label for="">상태</label>
+                            </th>
+                            <td>
+                                <input type="text" name="" id="" value="정상" class="w300px" readonly>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </table>
+    </div>
     <script type="text/javascript">
         $(document).ready(function () {
+            start();
+            getMemberList();
+            // 상태별 회원 수!!
+            var statusParam = {
+                statusCode: []
+            };
+            $('.list-total .label').each(function (index, element) {
+                statusParam.statusCode.push($(element).text().trim());
+            });
+            getCountByStatus(statusParam);
+
             // datepicker 초기화
             $('#datepicker1, #datepicker2').datepicker({
                 format: 'yyyy-mm-dd',
@@ -179,8 +380,6 @@
                 $('#datepicker1').datepicker('setDate', startDate.toDate());
                 $('#datepicker2').datepicker('setDate', endDate.toDate());
             });
-            start();
-            getMemberList();
         });
 
         // getMemberList 함수 정의
@@ -224,13 +423,8 @@
         var dataProvider, gridContainer, gridView;
 
         function createGrid(container) {
-            if (gridView) {
-                gridView.destroy();
-            }
-
             dataProvider = new RealGrid.LocalDataProvider();
             dataProvider.setFields(fields);
-
             gridView = new RealGrid.GridView(container);
 
             gridView.header.height = 40;
@@ -324,7 +518,56 @@
             var currentPage = gridView.getPage();
             gridView.setPage(currentPage + 1);
         }
+
+        // 상태별 회원 수 조회
+        function setCountByStatus(label, count) {
+            const countElements = document.querySelectorAll('.list-total .label');
+            countElements.forEach(element => {
+                if (element.textContent.includes(label)) {
+                    element.nextElementSibling.textContent = count;
+                }
+            });
+        }
+
+        function getCountByStatus(stausParam) {
+            $.ajax({
+                type: 'POST',
+                url: '/bo/member/statusCnt',
+                contentType: 'application/json',
+                data: JSON.stringify(stausParam),
+                success: function (response) {
+                    for (const label in response) {
+                        if (response.hasOwnProperty(label)) {
+                            const count = response[label];
+                            setCountByStatus(label, count);
+                        }
+                    }
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        };
+
+        // 차단하기 버튼 클릭 이벤트
+        document.getElementById('blockButton').addEventListener('click', function () {
+            // 모달 보이게 설정
+            document.getElementById('blockModal').style.display = 'block';
+        });
+
+        // 취소 버튼 클릭 이벤트
+        document.getElementById('cancelButton').addEventListener('click', function () {
+            // 모달 숨기게 설정
+            document.getElementById('blockModal').style.display = 'none';
+        });
+
+        // 승인하기 버튼 클릭 이벤트
+        document.getElementById('approveButton').addEventListener('click', function () {
+            // 모달 숨기게 설정
+            document.getElementById('blockModal').style.display = 'none';
+            // 승인 로직 추가
+        });
+
     </script>
-</div>
 </body>
 </html>

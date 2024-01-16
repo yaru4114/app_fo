@@ -3,6 +3,7 @@ package com.bid.bo.bid.controller;
 import com.bid.bo.bid.service.BidNoticeService;
 import com.bid.bo.bid.vo.BidNoticeVO;
 import com.bid.common.model.CoCmmnCdVO;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,31 +32,48 @@ public class BidNoticeController {
     **/
     @RequestMapping("/noticeMngForm")
     public String NoticeMngForm( ModelMap map ) {
-
         // 입찰공고상태
         List<CoCmmnCdVO> bidStatCodeList = bidNoticeService.getBidStatCodeList();
 
-        map.addAttribute("ccmmnCdList" , bidStatCodeList);
+        map.addAttribute("ccmmnCdList", bidStatCodeList);
 
         return "/bo/bidNoticeMngList";
     }
 
     /**
-     입찰공고관리 목록 조회
+     입찰상태코드별 공고 카운트 조회
     * @date : 2024-01-15
     * @author  xyzp1539
     **/
     @ResponseBody
-    @RequestMapping(value="/noticeMngForm/list")
-    public BidNoticeVO getNoticeMngList(@RequestBody BidNoticeVO paramVo ) {
-        log.info("test getNoticeMngList param : {} " , paramVo.toString());
-        HashMap<String , Object > resultMap = new HashMap<>();
+    @RequestMapping(value="/noticeMngForm/cntList")
+    public BidNoticeVO getBidNoticeMngStatCnt(@RequestBody BidNoticeVO paramVo ) {
+        log.info("test getBidNoticeMngStatCnt param : {} ", paramVo.toString());
 
-        BidNoticeVO resultVo = bidNoticeService.getBidStatCnt(paramVo);
+        BidNoticeVO resultVo = bidNoticeService.getBidNoticeMngStatCnt(paramVo);
 
-        log.info("test resultVo : {} " , resultVo.toString());
+        log.info("test resultVo : {} ", resultVo.toString());
 
         return resultVo;
+    }
+
+    /**
+     입찰상태코드별 공고 리스트 조회
+    * @date : 2024-01-16
+    * @author  xyzp1539
+    **/
+    @ResponseBody
+    @RequestMapping(value="noticeMngForm/bidList")
+    public List<BidNoticeVO> getBidNoticeMngBidList(@RequestBody BidNoticeVO paramVo) {
+        log.info("test getBidNoticeMngBidList param : {} ", paramVo.toString());
+
+        List<BidNoticeVO> resultList = bidNoticeService.getBidNoticeMngBidList(paramVo);
+
+        for(BidNoticeVO vo : resultList ) {
+            log.info("test getBidNoticeMngBidList {} " ,vo.getBidPblancId());
+        }
+
+        return resultList;
     }
 
 }

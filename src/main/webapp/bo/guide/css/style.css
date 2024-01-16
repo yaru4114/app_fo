@@ -3368,7 +3368,10 @@
 }
 
 .paging {
-  display: table;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
   margin: auto;
 }
 
@@ -3397,19 +3400,19 @@
 }
 
 .paging #first {
-  background-image: url("/guide/images/lg/paging-first.png");
+  background-image: url("/bo/guide/images/lg/paging-first.png");
 }
 
 .paging #prev {
-  background-image: url("/guide/images/lg/paging-prev.png");
+  background-image: url("/bo/guide/images/lg/paging-prev.png");
 }
 
 .paging #next {
-  background-image: url("/guide/images/lg/paging-next.png");
+  background-image: url("/bo/guide/images/lg/paging-next.png");
 }
 
 .paging #last {
-  background-image: url("/guide/images/lg/paging-last.png");
+  background-image: url("/bo/guide/images/lg/paging-last.png");
 }
 
 .paging #first,
@@ -7491,7 +7494,7 @@ select::-ms-expand {
   border: 1px solid #ddd;
   border: 1px solid #ddd;
   background-color: #fff;
-  background-image: url("/guide/images/select.png");
+  background-image: url("/bo/guide/images/select.png");
   background-repeat: no-repeat;
   background-position: calc(100% - 0.625rem) 50%;
   font-size: 0.75rem;
@@ -8377,7 +8380,7 @@ select::-ms-expand {
 .icon-calendar {
   width: 0.875rem;
   height: 0.875rem;
-  background-image: url("/guide/images/sm/btn-calendar.png");
+  background-image: url("/bo/guide/images/sm/btn-calendar.png");
 }
 
 .icon-time {
@@ -9136,7 +9139,7 @@ td.tbl-bg-green {background:#d4ffec}
 .bo-tbl-kyc .required label {position: relative;}
 .bo-tbl-kyc .required label::after{content: "*"; position: absolute; top: 0; right: -10px;font-size: inherit;color: #FF6600;}
 
-.pop-modal {display:none;position: fixed;left: 0; top: 0; width: 100%;height: 100%;z-index: 9;}
+.pop-modal {display:none; position: fixed;left: 110px; top: 0; width: 100%;height: 100%;z-index: 9;}
 .pop-modal.active {display:block;}
 .pop-modal .pop-inner {position: relative;top: 50%;transform: translateY(-50%);margin: auto;border-radius: 15px;}
 .pop-modal.pop-toast .pop-inner {width:275px;padding: 25px 0;background-color: rgba(0,0,0,0.7);text-align: center;}
@@ -9165,6 +9168,7 @@ td.tbl-bg-green {background:#d4ffec}
 .w350px{width: 350px !important;}
 .w450px{width: 450px !important;}
 .w700px{width: 700px !important;}
+.w1400px{width: 1400px !important;}
 .pop-modal {background-color: rgba(0,0,0,0.4);}
 .pop-modal .pop-inner {padding: 35px 40px;background-color: #fff;}
 .pop-modal .pop-title {margin-bottom: 15px;display: flex;align-items: center;justify-content: space-between;}

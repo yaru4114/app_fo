@@ -2,6 +2,8 @@ package com.bid.common.model;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class SearchVO {
     private int pageSize = 10;
@@ -16,6 +18,8 @@ public class SearchVO {
     private String searchKeyword;
     private String startDate;
     private String endDate;
+
+    private List<String> statusCode;
 
     public void calPaging(int totalCount) {
         this.totalCount = totalCount;

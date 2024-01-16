@@ -11,7 +11,11 @@
             BSNM_REGIST_NO,
             BID_MBER_EMAIL,
             MOBLPHON_NO2,
-            FRNTN_ENTRPS_AT,
+            (CASE
+                WHEN FRNTN_ENTRPS_AT = 'Y' THEN 'O'
+                WHEN FRNTN_ENTRPS_AT = 'N' THEN '-'
+                ELSE ''
+            END) AS FRNTN_ENTRPS_AT,
             ETR_CONFM_REQUST_DT,
             ETR_CONFM_PROCESS_DT,
             BID_MBER_INTRCP_DT,
@@ -65,8 +69,16 @@
         ORDER BY BID_ENTRPS_NO DESC, rowNo ASC
     </select>
 
-    <select id="getMemberStatusCnt" parameterType="com.bid.common.model.SearchVO" resultType="int">
-
+    <select id="getMemberStatusCnt" parameterType="string" resultType="int">
+        SELECT COUNT(*)
+        FROM BD_ENTRPS_INFO_BAS
+        WHERE BID_MBER_STTUS_CODE =
+            CASE #{status}
+                WHEN '정상 회원' THEN '01'
+                WHEN '차단 회원' THEN '02'
+                WHEN '가입승인대기' THEN '03'
+                ELSE #{status}
+            END
     </select>
 
     <select id="getApprovalCnt" parameterType="com.bid.common.model.SearchVO" resultType="int">
