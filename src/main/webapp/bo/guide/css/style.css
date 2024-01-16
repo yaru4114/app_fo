@@ -7491,7 +7491,7 @@ select::-ms-expand {
   border: 1px solid #ddd;
   border: 1px solid #ddd;
   background-color: #fff;
-  background-image: url("/guide/images/select.png");
+  background-image: url("/bo/guide/images/select.png");
   background-repeat: no-repeat;
   background-position: calc(100% - 0.625rem) 50%;
   font-size: 0.75rem;
@@ -8377,7 +8377,7 @@ select::-ms-expand {
 .icon-calendar {
   width: 0.875rem;
   height: 0.875rem;
-  background-image: url("/guide/images/sm/btn-calendar.png");
+  background-image: url("/bo/guide/images/sm/btn-calendar.png");
 }
 
 .icon-time {

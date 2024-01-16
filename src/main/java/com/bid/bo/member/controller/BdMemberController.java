@@ -18,6 +18,7 @@ public class BdMemberController {
     @Autowired
     private BdMemberService bdMemberService;
 
+    // 입찰 회원 목록 페이지
     @GetMapping("/list")
     public String mainPage() {
         return "bo/memberList";
@@ -29,7 +30,14 @@ public class BdMemberController {
         log.info("회원 목록 param : {}", vo);
         return ResponseEntity.ok(bdMemberService.getMemberList(vo));
     }
-    
+
+    // 상태별 회원 수 조회
+    @PostMapping("/statusCnt")
+    public ResponseEntity<?> getMemberStatusCnt(@RequestBody SearchVO vo) {
+        log.info("상태 코드 param : {}", vo);
+        return ResponseEntity.ok(bdMemberService.getMemberStatusCnt(vo));
+    }
+
     // 가입 승인 대기 페이지
     @GetMapping("/approvalList")
     public String approvalPage(){ return "bo/memberApprovalList"; }

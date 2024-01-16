@@ -5,11 +5,12 @@ import com.bid.common.model.SearchVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface BdMemberDAO {
     public List<BidMemberVO> getMemberList(SearchVO vo);
-    public List<BidMemberVO> test();
+    public int getMemberStatusCnt(String statusCode);
     public int getApprovalCnt(SearchVO vo);
     public List<BidMemberVO> getApprovalList(SearchVO vo);
 }

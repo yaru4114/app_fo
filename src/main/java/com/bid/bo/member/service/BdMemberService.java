@@ -26,6 +26,18 @@ public class BdMemberService {
         return resultMap;
     }
 
+    public Map<String, Object> getMemberStatusCnt(SearchVO vo) {
+        Map<String, Object> resultMap = new HashMap<>();
+        List<String> paramList = vo.getStatusCode();
+
+        for (String data : paramList) {
+            int cnt = bdMemberDAO.getMemberStatusCnt(data);
+            resultMap.put(data, cnt);
+        }
+
+        return resultMap;
+    }
+
     public Map<String, Object>  getApprovalList(SearchVO vo) {
         int totalCnt = bdMemberDAO.getApprovalCnt(vo);
         vo.calPaging(totalCnt);
