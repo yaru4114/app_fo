@@ -56,11 +56,11 @@
                         <span class="label">정상 회원</span>
                         <span class="count">85</span>
                     </div>
-                    <div class="list list-done">
+                    <div class="list list-total">
                         <span class="label">차단 회원</span>
                         <span class="count">1274</span>
                     </div>
-                    <div class="list list-todo">
+                    <div class="list list-total">
                         <span class="label">가입승인대기</span>
                         <span class="count">12</span>
                     </div>
@@ -136,6 +136,15 @@
     </section>
     <script type="text/javascript">
         $(document).ready(function () {
+            // 상태별 회원 수!!
+            var statusParam = {
+                statusCode: []
+            };
+            $('.list-total .label').each(function(index, element) {
+                statusParam.statusCode.push($(element).text().trim());
+            });
+            getCountByStatus(statusParam);
+
             // datepicker 초기화
             $('#datepicker1, #datepicker2').datepicker({
                 format: 'yyyy-mm-dd',
@@ -324,6 +333,36 @@
             var currentPage = gridView.getPage();
             gridView.setPage(currentPage + 1);
         }
+
+        // 상태별 회원 수 조회
+        function setCountByStatus(label, count) {
+            const countElements = document.querySelectorAll('.list-total .label');
+            countElements.forEach(element => {
+                if (element.textContent.includes(label)) {
+                    element.nextElementSibling.textContent = count;
+                }
+            });
+        }
+
+        function getCountByStatus(stausParam) {
+            $.ajax({
+                type: 'POST',
+                url: '/bo/member/statusCnt',
+                contentType: 'application/json',
+                data: JSON.stringify(stausParam),
+                success: function (response) {
+                    for (const label in response) {
+                        if (response.hasOwnProperty(label)) {
+                            const count = response[label];
+                            setCountByStatus(label, count);
+                        }
+                    }
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        };
     </script>
 </div>
 </body>
