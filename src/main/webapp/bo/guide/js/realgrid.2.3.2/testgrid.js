@@ -50,7 +50,7 @@ var fields = [
         dataType: "text"
     },
     {
-        fieldName: "sttusCode",
+        fieldName: "bidMberSttusCode",
         dataType: "text",
     }
 ];
@@ -154,8 +154,8 @@ var columns = [
         }
     },
     {
-        name: "sttusCode",
-        fieldName: "sttusCode",
+        name: "bidMberSttusCode",
+        fieldName: "bidMberSttusCode",
         width: "60",
         header: {
             text: "상태"

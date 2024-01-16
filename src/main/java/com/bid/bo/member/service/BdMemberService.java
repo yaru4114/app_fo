@@ -17,7 +17,7 @@ public class BdMemberService {
     @Autowired
     private BdMemberDAO bdMemberDAO;
     public Map<String, Object> getMemberList(PagingVO vo) {
-        int totalCnt = bdMemberDAO.getMemberListCnt(vo);
+        int totalCnt = bdMemberDAO.getMemberCnt(vo);
         vo.calPaging(totalCnt);
 
         Map<String, Object> resultMap = new HashMap<>();

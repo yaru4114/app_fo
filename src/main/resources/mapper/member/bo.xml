@@ -5,7 +5,7 @@
 <mapper namespace="com.bid.bo.member.dao.BdMemberDAO" >
     <select id="getMemberList" parameterType="com.bid.common.model.PagingVO" resultType="com.bid.common.model.BidMemberVO">
         SELECT
-            ROW_NUMBER() OVER(ORDER BY (SELECT 1)) AS rowNo,
+            ROW_NUMBER() OVER (ORDER BY (SELECT 1)) AS rowNo,
             ENTRPS_NM,
             BID_MBER_ID,
             BSNM_REGIST_NO,
@@ -15,22 +15,32 @@
             ETR_CONFM_REQUST_DT,
             ETR_CONFM_PROCESS_DT,
             BID_MBER_INTRCP_DT,
-            BID_MBER_STTUS_CODE,
-            COUNT(CASE WHEN c.BID_STTUS_CODE = '31' AND b.JDGMN_STTUS_CODE = '40' THEN c.BID_PBLANC_ID END) AS SCSBID_CNT,
-            COUNT(CASE WHEN d.SCSBID_AT = 'N' THEN d.BID_PBLANC_ID END) AS NON_SCSBID_CNT
-        FROM BD_ENTRPS_INFO_BAS AS a
-        INNER JOIN BD_SCSBID_DTL AS b
-            ON a.BID_ENTRPS_NO = b.BID_ENTRPS_NO
-        INNER JOIN BD_BID_BAS AS c
-            ON b.BID_PBLANC_ID = c.BID_PBLANC_ID
-        LEFT JOIN BD_BDDPR_DTL AS d
-            ON c.BID_PBLANC_ID = d.BID_PBLANC_ID
+            (CASE
+                WHEN BID_MBER_STTUS_CODE = '01' THEN '정상'
+                WHEN BID_MBER_STTUS_CODE = '02' THEN '차단'
+                ELSE ''
+            END) AS BID_MBER_STTUS_CODE,
+            (
+                SELECT COUNT(*)
+                FROM BD_BDDPR_DTL a
+                INNER JOIN BD_SCSBID_DTL b ON a.BID_PBLANC_ID = b.BID_PBLANC_ID
+                WHERE a.SCSBID_AT = 'Y'
+                AND a.BID_ENTRPS_NO = BD_ENTRPS_INFO_BAS.BID_ENTRPS_NO
+                AND b.JDGMN_STTUS_CODE = '40'
+            ) AS SCSBID_CNT,
+            (
+                SELECT COUNT(*)
+                FROM BD_BDDPR_DTL
+                WHERE SCSBID_AT = 'N'
+                AND BID_ENTRPS_NO = BD_ENTRPS_INFO_BAS.BID_ENTRPS_NO
+            ) AS NON_SCSBID_CNT
+        FROM BD_ENTRPS_INFO_BAS
         WHERE
             1 = 1
-        <if test="status != null and status != ''">
+        <if test="status != null and status != '' and status != '03'">
             <choose>
                 <when test="status == '00'">
-                    AND (BID_MBER_STTUS_CODE = '01' OR BID_MBER_STTUS_CODE = '02' OR BID_MBER_STTUS_CODE = '03')
+                    AND (BID_MBER_STTUS_CODE = '01' OR BID_MBER_STTUS_CODE = '02')
                 </when>
                 <otherwise>
                     AND BID_MBER_STTUS_CODE = #{status}
@@ -52,34 +62,23 @@
         <if test="startDate != null and startDate != '' and endDate != null and endDate != ''">
             AND ETR_CONFM_REQUST_DT BETWEEN #{startDate} AND #{endDate}
         </if>
-        GROUP BY
-            ENTRPS_NM,
-            BID_MBER_ID,
-            BSNM_REGIST_NO,
-            BID_MBER_EMAIL,
-            MOBLPHON_NO2,
-            FRNTN_ENTRPS_AT,
-            ETR_CONFM_REQUST_DT,
-            ETR_CONFM_PROCESS_DT,
-            BID_MBER_INTRCP_DT,
-            BID_MBER_STTUS_CODE,
-            a.BID_ENTRPS_NO
-        ORDER BY a.BID_ENTRPS_NO DESC, rowNo ASC
+        ORDER BY BID_ENTRPS_NO DESC, rowNo ASC
     </select>
 
-    <select id="getMemberListCnt" parameterType="com.bid.common.model.PagingVO" resultType="int">
+    <select id="getMemberCnt" parameterType="com.bid.common.model.PagingVO" resultType="int">
         SELECT COUNT(*)
-        FROM BD_ENTRPS_INFO_BAS AS a
-        INNER JOIN BD_SCSBID_DTL AS b
-        ON a.BID_ENTRPS_NO = b.BID_ENTRPS_NO
-        INNER JOIN BD_BID_BAS AS c
-        ON b.BID_PBLANC_ID = c.BID_PBLANC_ID
-        LEFT JOIN BD_BDDPR_DTL AS d
-        ON c.BID_PBLANC_ID = d.BID_PBLANC_ID
+        FROM BD_ENTRPS_INFO_BAS
         WHERE
         1 = 1
-        <if test="status != null and status != ''">
-            AND BID_MBER_STTUS_CODE = #{status}
+        <if test="status != null and status != '' and status != '03'">
+            <choose>
+                <when test="status == '00'">
+                    AND (BID_MBER_STTUS_CODE = '01' OR BID_MBER_STTUS_CODE = '02')
+                </when>
+                <otherwise>
+                    AND BID_MBER_STTUS_CODE = #{status}
+                </otherwise>
+            </choose>
         </if>
         <if test="searchType eq '회사명'">
             AND ENTRPS_NM LIKE '%' + #{searchKeyword} + '%'
