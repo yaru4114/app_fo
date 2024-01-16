@@ -30,11 +30,20 @@ public class BidNoticeService{
     }
 
     /**
-     입찰 상태별 공고수 조회
+     입찰상태코드별 공고 카운트 조회
     * @date : 2024-01-15
     * @author  xyzp1539
     **/
-    public BidNoticeVO getBidStatCnt( BidNoticeVO paramVo ) {
-        return bidNoticeDao.getBidStatCnt(paramVo);
+    public BidNoticeVO getBidNoticeMngStatCnt( BidNoticeVO paramVo ) {
+        return bidNoticeDao.getBidNoticeMngStatCnt(paramVo);
+    }
+
+    /**
+     입찰상태코드별 공고 리스트 조회
+    * @date : 2024-01-16
+    * @author  xyzp1539
+    **/
+    public List<BidNoticeVO> getBidNoticeMngBidList(BidNoticeVO paramVo) {
+        return bidNoticeDao.getBidNoticeMngBidList(paramVo);
     }
 }

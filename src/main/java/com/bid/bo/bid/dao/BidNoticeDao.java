@@ -20,5 +20,12 @@ public interface BidNoticeDao {
     * @date : 2024-01-15
     * @author  xyzp1539
     **/
-    BidNoticeVO getBidStatCnt(BidNoticeVO resultVo);
+    BidNoticeVO getBidNoticeMngStatCnt(BidNoticeVO resultVo);
+
+    /**
+     입찰상태코드별 공고 리스트 조회
+    * @date : 2024-01-16
+    * @author  xyzp1539
+    **/
+    List<BidNoticeVO> getBidNoticeMngBidList(BidNoticeVO paramVo);
 }

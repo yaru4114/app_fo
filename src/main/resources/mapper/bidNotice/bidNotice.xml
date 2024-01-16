@@ -15,17 +15,31 @@
   </select>
 
   <!-- 입찰 상태별 공고수 조회 -->
-  <select id="getBidStatCnt" parameterType="com.bid.bo.bid.vo.BidNoticeVO" resultType="com.bid.bo.bid.vo.BidNoticeVO">
-    /* bidNotice.getBidStatCnt */
+  <select id="getBidNoticeMngStatCnt" parameterType="com.bid.bo.bid.vo.BidNoticeVO" resultType="com.bid.bo.bid.vo.BidNoticeVO">
+    /* bidNotice.getBidNoticeMngStatCnt */
       SELECT ISNULL(SUM(CASE WHEN BID_STTUS_CODE = '12' THEN 1 ELSE 0 END),0) AS BDNG_SCHDL_CNT
            , ISNULL(SUM(CASE WHEN BID_STTUS_CODE = '13' THEN 1 ELSE 0 END),0) AS BDNG_PRGRS_CNT
            , ISNULL(SUM(CASE WHEN BID_STTUS_CODE = '30' THEN 1 ELSE 0 END),0) AS BDNG_DDLN_CNT
-           , ISNULL(SUM(CASE WHEN BID_STTUS_CODE = '32' THEN 1 ELSE 0 END),0) AS BDNG_CLCNT_CNT
+           , ISNULL(SUM(CASE WHEN BID_STTUS_CODE = '33' THEN 1 ELSE 0 END),0) AS BDNG_CLCNT_CNT
            , ISNULL(SUM(CASE WHEN BID_STTUS_CODE = '11' THEN 1 ELSE 0 END),0) AS BDNG_WTNG_CNT
+           , ISNULL(SUM(CASE WHEN BID_STTUS_CODE = '31' THEN 1 ELSE 0 END),0) AS BDNG_SUCS_CNT
+           , ISNULL(SUM(CASE WHEN BID_STTUS_CODE = '32' THEN 1 ELSE 0 END),0) AS BDNG_PSTPN_CNT
            , ISNULL(COUNT(BID_PBLANC_ID) , 0) AS BDNG_ALL_CNT
        FROM BD_BID_BAS
-      WHERE FRST_REGISTER_ID >= CONVERT( DATE , #{startDate})
-        AND FRST_REGISTER_ID <![CDATA[ <= ]]> CONVERT(DATE , #{endDate})
+      WHERE FRST_REGIST_DT >= CONVERT( DATE , #{startDate})
+        AND FRST_REGIST_DT <![CDATA[ <= ]]> DATEADD( DAY , 1 , CONVERT(DATE , #{endDate}))
+  </select>
+
+  <!-- 입찰상태코드별 공고 리스트 조회 -->
+  <select id="getBidNoticeMngBidList" parameterType="com.bid.bo.bid.vo.BidNoticeVO" resultType="com.bid.bo.bid.vo.BidNoticeVO">
+    /* bidNotice.getBidNoticeMngBidList */
+    SELECT *
+      FROM BD_BID_BAS
+     WHERE FRST_REGIST_DT >= CONVERT( DATE , #{startDate})
+       AND FRST_REGIST_DT <![CDATA[ <= ]]> CONVERT(DATE , #{endDate})
+      <if test='bidSttusCode != null and bidSttusCode != ""'>
+       AND BID_STTUS_CODE = #{bidSttusCode}
+      </if>
   </select>
 
 </mapper>
