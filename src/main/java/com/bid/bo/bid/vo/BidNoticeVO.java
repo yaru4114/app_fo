@@ -61,7 +61,11 @@ public class BidNoticeVO {
     private int bdngDdlnCnt;      // 마감
     private int bdngClcntCnt;     // 공고취소
     private int bdngWtngCnt;      // 공고대기
+    private int bdngSucsCnt;      // 공고낙찰
+    private int bdngPstpnCnt;     // 공고유찰
 
     private String startDate;
     private String endDate;
+
+
 }
