@@ -29,12 +29,6 @@ public class BdMemberController {
         log.info("회원 목록 param : {}", vo);
         return ResponseEntity.ok(bdMemberService.getMemberList(vo));
     }
-
-    // 회원 검색
-    @PostMapping("/test")
-    public ResponseEntity<?> test() {
-        return ResponseEntity.ok(bdMemberService.test());
-    }
     
     // 가입 승인 대기 페이지
     @GetMapping("/approvalList")

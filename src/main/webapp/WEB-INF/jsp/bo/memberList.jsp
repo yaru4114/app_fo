@@ -192,18 +192,12 @@
             var startDate = $('#datepicker1').val();
             var endDate = $('#datepicker2').val();
 
-            // 페이징 관련 (페이징 그리드 자체 기능으로 구현하여 서버에 작성한 paging 관련 삭제 예정)
-            var currentPage = 1;
-            var pageSize = 30;
-
             var param = {
                 status: status,
                 searchType: searchType,
                 searchKeyword: searchKeyword,
                 startDate: startDate,
-                endDate: endDate,
-                currentPage: currentPage,
-                pageSize: pageSize
+                endDate: endDate
             };
 
             $.ajax({
@@ -230,6 +224,10 @@
         var dataProvider, gridContainer, gridView;
 
         function createGrid(container) {
+            if (gridView) {
+                gridView.destroy();
+            }
+
             dataProvider = new RealGrid.LocalDataProvider();
             dataProvider.setFields(fields);
 

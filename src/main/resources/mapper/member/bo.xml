@@ -65,42 +65,6 @@
         ORDER BY BID_ENTRPS_NO DESC, rowNo ASC
     </select>
 
-    <select id="getMemberCnt" parameterType="com.bid.common.model.PagingVO" resultType="int">
-        SELECT COUNT(*)
-        FROM BD_ENTRPS_INFO_BAS
-        WHERE
-        1 = 1
-        <if test="status != null and status != '' and status != '03'">
-            <choose>
-                <when test="status == '00'">
-                    AND (BID_MBER_STTUS_CODE = '01' OR BID_MBER_STTUS_CODE = '02')
-                </when>
-                <otherwise>
-                    AND BID_MBER_STTUS_CODE = #{status}
-                </otherwise>
-            </choose>
-        </if>
-        <if test="searchType eq '회사명'">
-            AND ENTRPS_NM LIKE '%' + #{searchKeyword} + '%'
-        </if>
-        <if test="searchType eq 'ID'">
-            AND BID_MBER_ID LIKE '%' + #{searchKeyword} + '%'
-        </if>
-        <if test="searchType eq '전체'">
-            AND (
-            (ENTRPS_NM LIKE '%' + #{searchKeyword} + '%')
-            OR (BID_MBER_ID LIKE '%' + #{searchKeyword} + '%')
-            )
-        </if>
-        <if test="startDate != null and startDate != '' and endDate != null and endDate != ''">
-            AND ETR_CONFM_REQUST_DT BETWEEN #{startDate} AND #{endDate}
-        </if>
-    </select>
-
-    <select id="test" resultType="com.bid.common.model.BidMemberVO">
-        SELECT BID_ENTRPS_NO FROM BD_ENTRPS_INFO_BAS
-    </select>
-
     <select id="getApprovalCnt" parameterType="com.bid.common.model.PagingVO" resultType="int">
         SELECT COUNT(*)
         FROM BD_ENTRPS_INFO_BAS AS a
