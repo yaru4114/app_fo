@@ -136,6 +136,8 @@
     </section>
     <script type="text/javascript">
         $(document).ready(function () {
+            start();
+            getMemberList();
             // 상태별 회원 수!!
             var statusParam = {
                 statusCode: []
@@ -188,8 +190,6 @@
                 $('#datepicker1').datepicker('setDate', startDate.toDate());
                 $('#datepicker2').datepicker('setDate', endDate.toDate());
             });
-            start();
-            getMemberList();
         });
 
         // getMemberList 함수 정의
