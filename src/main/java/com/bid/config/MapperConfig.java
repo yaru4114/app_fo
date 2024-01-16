@@ -14,7 +14,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan({"com.bid.bo.member.dao", "com.bid.fo.member.dao"})
+@MapperScan({"com.bid.bo.member.dao", "com.bid.fo.member.dao" , "com.bid.bo.bid.dao"})
 public class MapperConfig {
     @Bean
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
