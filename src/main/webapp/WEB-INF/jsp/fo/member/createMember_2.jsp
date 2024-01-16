@@ -377,7 +377,8 @@ $('#agreeAll2').on('click',function () {
 // 이전 페이지 버튼
 $('#prevBtn').on('click', function(){
    if (confirm("이전 페이지로 이동하시겠습니까? 작성된 정보는 삭제됩니다.")) {
-        location.href = "/fo/member/create_1";
+        window.history.back()
+        // location.href = "/fo/member/create_1";
    }
 });
 
@@ -390,7 +391,7 @@ function chkInfo(form){
         $('#uid').focus();
         return false;
     } else if (form.bidMberId.length > 13) {
-        alert('아이디는 12자 이내로만 사용 가능합니다');
+        alert('아이디는 4-12자 이내의 문자+숫자만 사용 가능합니다');
         $('#uid').focus();
         return false;
     }
@@ -497,6 +498,7 @@ function chkInfo(form){
         $('#vrsc_mobile2').focus();
         return false;
     }
+
     // 회사 전화 번호
     if (($('#vrsc_telPhone1').val() === null || $('#vrsc_telPhone1').val().length <= 0) || ($('#vrsc_telPhone2').val() === null || $('#vrsc_telPhone2').val().length <= 0)) {
         alert('대행 업체 전화 번호를  입력해주세요.');
