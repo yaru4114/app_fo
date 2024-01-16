@@ -32,13 +32,9 @@
     <script type="text/javascript" src="/bo/guide/js/realgrid.2.3.2/testgrid.js"></script>
     <script type="text/javascript" src="/bo/guide/js/common.js"></script><!-- 퍼블 작성 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-
-
 </head>
 
-
 <body>
-
 <div class="web-wrapper">
     <!-- [D] 사이드바 부분 인클루드 시작 -->
     <!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
@@ -52,11 +48,9 @@
         <header class="web-header"></header>
         <script type="text/javascript"> $(".web-header").load("/bo/guide/html/include/header.html");</script>
         <!-- // [D] 상단메뉴 부분 인클루드 끝 -->
-
         <div class="main-content">
             <div class="inner">
                 <h1>입찰 회원 관리</h1>
-
                 <div class="count-banner">
                     <div class="list list-total">
                         <span class="label">정상 회원</span>
@@ -127,9 +121,15 @@
                 <div id="realgrid" class="realgrid-wrap"></div>
                 <!-- paging -->
                 <div class="paging-row">
-                    <div class="paging">
-                        <div id="paging"></div>
-                    </div>
+                    <button onclick="setPrevPage()">
+                        이전 페이지
+                    </button>
+                    <span id="current-page-view"></span>
+                    /
+                    <span id="total-page-view"></span>
+                    <button onclick="setNextPage()">
+                        다음 페이지
+                    </button>
                 </div>
             </div>
         </div>
@@ -192,7 +192,7 @@
             var startDate = $('#datepicker1').val();
             var endDate = $('#datepicker2').val();
 
-            // 페이징 관련
+            // 페이징 관련 (페이징 그리드 자체 기능으로 구현하여 서버에 작성한 paging 관련 삭제 예정)
             var currentPage = 1;
             var pageSize = 30;
 
@@ -259,6 +259,19 @@
 
             gridView.editOptions.insertable = true;
             gridView.editOptions.appendable = true;
+
+            // 페이징 설정
+            gridView.setPaging(true, 30);
+
+            // 페이지 변경 이벤트 핸들러 등록
+            gridView.onPageChanged = function (grid, page) {
+                $('#current-page-view').text(page + 1);
+            };
+
+            // 페이지 수 변경 이벤트 핸들러 등록
+            gridView.onPageCountChanged = function (grid, pageCount) {
+                $('#total-page-view').text(pageCount);
+            };
         }
 
         function drawRealGrid(data) {
@@ -279,17 +292,22 @@
 
             gridView.setDataSource(dataProvider);
             gridView.setColumns(columns);
+
+            // 페이지 정보 업데이트
+            var page = gridView.getPage();
+            var pageCount = gridView.getPageCount();
+            // console.log('page : ', page);
+            // console.log('pageCount : ', pageCount);
+            $('#current-page-view').text(page + 1);
+            $('#total-page-view').text(pageCount);
         }
 
         function start() {
             createGrid("realgrid");
         }
 
-        // $.document.ready(start);
         window.onload = start;
-        // domloaded를 대신 써도 됩니다.
-
-        window.onunload = function() {
+        window.onunload = function () {
             dataProvider.clearRows();
 
             gridView.destroy();
@@ -298,8 +316,19 @@
             gridView = null;
             dataProvider = null;
         };
-    </script>
 
+        // 이전 페이지로 이동
+        function setPrevPage() {
+            var currentPage = gridView.getPage();
+            gridView.setPage(currentPage - 1);
+        }
+
+        // 다음 페이지로 이동
+        function setNextPage() {
+            var currentPage = gridView.getPage();
+            gridView.setPage(currentPage + 1);
+        }
+    </script>
 </div>
 </body>
 </html>
