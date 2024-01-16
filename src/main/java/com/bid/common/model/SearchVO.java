@@ -3,7 +3,7 @@ package com.bid.common.model;
 import lombok.Data;
 
 @Data
-public class PagingVO {
+public class SearchVO {
     private int pageSize = 10;
     private int totalCount = 0;
     private int totalPage = 0;
