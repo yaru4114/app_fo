@@ -3397,19 +3397,19 @@
 }
 
 .paging #first {
-  background-image: url("/guide/images/lg/paging-first.png");
+  background-image: url("/bo/guide/images/lg/paging-first.png");
 }
 
 .paging #prev {
-  background-image: url("/guide/images/lg/paging-prev.png");
+  background-image: url("/bo/guide/images/lg/paging-prev.png");
 }
 
 .paging #next {
-  background-image: url("/guide/images/lg/paging-next.png");
+  background-image: url("/bo/guide/images/lg/paging-next.png");
 }
 
 .paging #last {
-  background-image: url("/guide/images/lg/paging-last.png");
+  background-image: url("/bo/guide/images/lg/paging-last.png");
 }
 
 .paging #first,
