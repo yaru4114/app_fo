@@ -79,7 +79,6 @@
                             <option value="00">전체</option>
                             <option value="01">정상</option>
                             <option value="02">차단</option>
-                            <option value="03">승인대기</option>
                         </select>
                     </div>
                     <div class="form-set">
@@ -132,7 +131,6 @@
                         <div id="paging"></div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>

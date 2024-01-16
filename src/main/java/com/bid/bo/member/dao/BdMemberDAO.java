@@ -9,6 +9,6 @@ import java.util.List;
 @Mapper
 public interface BdMemberDAO {
     public List<BidMemberVO> getMemberList(PagingVO vo);
-    public int getMemberListCnt(PagingVO vo);
+    public int getMemberCnt(PagingVO vo);
     public List<BidMemberVO> test();
 }
