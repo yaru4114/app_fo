@@ -198,126 +198,8 @@
                                 <col width="80px" />
                                 <col width="120px" />
                             </colgroup>
-                            <tbody>
-                            <tr>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                            </tr>
-                            <tr>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                            </tr>
-                            <tr>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                            </tr>
-                            <tr>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                            </tr>
-                            <tr>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                            </tr>
-                            <tr>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                            </tr>
-                            <tr>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                            </tr>
+                            <tbody id="dynamicTbody">
+                            <%--동적 테이블 생성 예정--%>
                             </tbody>
                         </table>
                 </div>
@@ -339,11 +221,15 @@
       format: 'yyyy-mm-dd'
     }).datepicker('setDate', 'today');
 
+    var jsonData = getCreateJsonData("");
     $(".btn-box .btn").on("click", getDatePickerButtonId);
     $('#btn_search').on("click", getSearchBtn);
     $(".tab-button .btn").on("click" , getBidStatList);
 
-    getSearchBtn();
+
+    ajaxBidNoticeMngStatCntList(jsonData);
+    ajaxBidNoticeMngList(jsonData);
+
   });
 
   // 입찰상태 버튼들 클릭시 리스트 조회
@@ -365,80 +251,48 @@
       bidStat = "30";
     }else if (buttonId == "btn_bdngWtngCnt") {
       bidStat = "11";
+    }else if (buttonId == "bdngSucsCnt") {
+      bidStat = "31";
+    }else if (buttonId == "bdngPstpnCnt") {
+      bidStat = "32";
     }
-
     $("#"+buttonId).addClass('active');
 
-    var jsonData = {
-      startDate: $("#datepicker1").datepicker({dateformat: 'yyyy-mm-dd'}).val(),
-      endDate: $("#datepicker2").datepicker({dateformat: 'yyyy-mm-dd'}).val(),
-      bidSttusCode: bidStat
-    };
+    console.log("getBidStatList buttonId : " + buttonId + " bidStat : " + bidStat);
 
+    var jsonData = getCreateJsonData(bidStat);
 
+    ajaxBidNoticeMngList(jsonData);
 }
-
-  function getDatePickerButtonId() {
-    // 클릭된 버튼의 아이디 가져오기
-    var buttonId = $(this).attr('id');
-
-    //시작날짜는 오늘로 고정
-    $("#datepicker1").datepicker('setDate', 'today');
-    $(".btn-box.btn-period .btn").removeClass('active');
-
-    if (buttonId == "btn_today") {
-      $("#datepicker2").datepicker('setDate', 'today');
-    } else if (buttonId == "btn_afterWeek") {
-      $("#datepicker2").datepicker('setDate', '+7D');
-    } else if (buttonId == "btn_afterMonth") {
-      $("#datepicker2").datepicker('setDate', '+1M');
-    } else if (buttonId == "btn_after6Month") {
-      $("#datepicker2").datepicker('setDate', '+6M');
-    } else if (buttonId == "btn_afterYear") {
-      $("#datepicker2").datepicker('setDate', '+1Y');
-    } else if (buttonId == "btn_after2Year") {
-      $("#datepicker2").datepicker('setDate', '+2Y');
-    }
-
-    $("#" + buttonId).addClass('active');
-  }
-
-  function getDatePickerButtonId() {
-    // 클릭된 버튼의 아이디 가져오기
-    var buttonId = $(this).attr('id');
-
-    //시작날짜는 오늘로 고정
-    $("#datepicker1").datepicker('setDate', 'today');
-    $(".btn-box.btn-period .btn").removeClass('active');
-
-    if (buttonId == "btn_today") {
-      $("#datepicker2").datepicker('setDate', 'today');
-    } else if (buttonId == "btn_afterWeek") {
-      $("#datepicker2").datepicker('setDate', '+7D');
-    } else if (buttonId == "btn_afterMonth") {
-      $("#datepicker2").datepicker('setDate', '+1M');
-    } else if (buttonId == "btn_after6Month") {
-      $("#datepicker2").datepicker('setDate', '+6M');
-    } else if (buttonId == "btn_afterYear") {
-      $("#datepicker2").datepicker('setDate', '+1Y');
-    } else if (buttonId == "btn_after2Year") {
-      $("#datepicker2").datepicker('setDate', '+2Y');
-    }
-
-    $("#" + buttonId).addClass('active');
-  }
-
+  // 검색버튼 클릭시
   function getSearchBtn() {
-    var jsonData = {
-      startDate: $("#datepicker1").datepicker({dateformat: 'yyyy-mm-dd'}).val(),
-      endDate: $("#datepicker2").datepicker({dateformat: 'yyyy-mm-dd'}).val(),
-      bidSttusCode: $("#bidSttusCodeSelectBox option:selected").val()
-    };
+    var bidStat = $("#bidSttusCodeSelectBox option:selected").val();
+    var buttonId = "";
+    var jsonData = getCreateJsonData(bidStat);
 
-    // 입찰상태코드별 공고 카운트 조회
-    ajaxBidNoticeMngStatCntList(jsonData);
+    $(".tab-button .btn").removeClass('active');
 
-    // 입찰상태코드별 공고 리스트 조회
+    if(bidStat == "" ) {
+      buttonId = "btn_bdngAllCnt";
+    } else if(bidStat == "12") {
+      buttonId = "btn_bdngSchdlCnt";
+    } else if(bidStat == "13") {
+      buttonId = "btn_bdngPrgrsCnt";
+    } else if(bidStat == "33") {
+      buttonId = "btn_bdngClcntCnt";
+    } else if(bidStat == "30") {
+      buttonId = "btn_bdngDdlnCnt";
+    } else if(bidStat == "11") {
+      buttonId = "btn_bdngWtngCnt";
+    } else if(bidStat == "31") {
+      buttonId = "btn_bdngSucsCnt";
+    } else if(bidStat == "32") {
+      buttonId = "btn_bdngPstpnCnt";
+    }
+
+    console.log("getSearchBtn buttonId :" + buttonId + " bidStat : " + bidStat);
+    $("#"+buttonId).addClass('active');
+
     ajaxBidNoticeMngList(jsonData);
 
   }
@@ -481,6 +335,13 @@
       dataType: "json",
       success: function (data) {
         console.log("서버 응답:", data);
+        var html = "";
+
+        /*for(key in data ) {
+          html += '<tr>';
+          html += '<td>'+data[]
+
+        }*/
 
       },
       error: function (xhr, status, error) {
@@ -490,6 +351,40 @@
     });
   }
 
+  function getDatePickerButtonId() {
+    // 클릭된 버튼의 아이디 가져오기
+    var buttonId = $(this).attr('id');
+
+    //시작날짜는 오늘로 고정
+    $("#datepicker1").datepicker('setDate', 'today');
+    $(".btn-box.btn-period .btn").removeClass('active');
+
+    if (buttonId == "btn_today") {
+      $("#datepicker2").datepicker('setDate', 'today');
+    } else if (buttonId == "btn_afterWeek") {
+      $("#datepicker2").datepicker('setDate', '+7D');
+    } else if (buttonId == "btn_afterMonth") {
+      $("#datepicker2").datepicker('setDate', '+1M');
+    } else if (buttonId == "btn_after6Month") {
+      $("#datepicker2").datepicker('setDate', '+6M');
+    } else if (buttonId == "btn_afterYear") {
+      $("#datepicker2").datepicker('setDate', '+1Y');
+    } else if (buttonId == "btn_after2Year") {
+      $("#datepicker2").datepicker('setDate', '+2Y');
+    }
+
+    $("#" + buttonId).addClass('active');
+  }
+
+  function getCreateJsonData(bidSttusCode){
+    var jsonData = {
+      startDate: $("#datepicker1").datepicker({dateformat: 'yyyy-mm-dd'}).val(),
+      endDate: $("#datepicker2").datepicker({dateformat: 'yyyy-mm-dd'}).val(),
+      bidSttusCode: bidSttusCode
+    };
+
+    return jsonData;
+  }
 
 </script>
 </html>

@@ -53,6 +53,13 @@ public class BidNoticeVO {
     private String premiumPcCode;
     private String pcAppnPdSb;
     private String pcAppnMthSb;
+    private String ItmPrdlstKorean;
+    private String itmQty;
+    private String activeAt;
+    private String bidStatNm;
+    private String stepNm;
+    private String bdngCmpny;
+    private String lwstPrprc;
 
     // 입찰상태별 공고수
     private int bdngAllCnt;       // 전체

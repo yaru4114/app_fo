@@ -1,8 +1,14 @@
 package com.bid.fo.member.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class LoginVO {
 
     private String userNo; // 회원 번호

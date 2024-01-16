@@ -242,7 +242,7 @@
     // 취소버튼
     $(document).on('click','#cancelBtn',function(){
         if(confirm("가입을 취소하시겠습니까?")){
-            // location.href = "";
+            window.history.back();
         }
     });
 

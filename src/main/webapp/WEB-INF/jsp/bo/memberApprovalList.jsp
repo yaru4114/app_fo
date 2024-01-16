@@ -77,8 +77,8 @@
                         <span class="label">상태</span>
                         <select class="form-select">
                             <option value="">전체</option>
-                            <option value="02">차단</option>
-                            <option value="03">승인대기</option>
+                            <option value="01">대기</option>
+                            <option value="02">거절</option>
                         </select>
                     </div>
                     <div class="form-set">

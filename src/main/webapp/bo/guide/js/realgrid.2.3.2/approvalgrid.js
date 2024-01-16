@@ -3,7 +3,7 @@
 var fields = [
     {
         fieldName: "rowNo",
-        dataType: "text"
+        dataType: "int"
     },
     {
         fieldName: "entrpsNm",
@@ -34,7 +34,7 @@ var fields = [
         dataType: "text"
     },
     {
-        fieldName: "bidMberSttusCode",
+        fieldName: "bidConfmSttusCode",
         dataType: "text",
     }
 ];
@@ -106,8 +106,8 @@ var columns = [
         }
     },
     {
-        name: "bidMberSttusCode",
-        fieldName: "bidMberSttusCode",
+        name: "bidConfmSttusCode",
+        fieldName: "bidConfmSttusCode",
         width: "60",
         header: {
             text: "상태"
