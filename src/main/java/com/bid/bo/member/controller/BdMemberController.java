@@ -35,4 +35,15 @@ public class BdMemberController {
     public ResponseEntity<?> test() {
         return ResponseEntity.ok(bdMemberService.test());
     }
+    
+    // 가입 승인 대기 페이지
+    @GetMapping("/approvalList")
+    public String approvalPage(){ return "bo/memberApprovalList"; }
+    
+    // 가입 승인 목록 조회
+    @PostMapping("/getApprovalList")
+    public ResponseEntity<?> getApprovalList(@RequestBody PagingVO vo){
+        log.info("회원 목록 param : {}", vo);
+        return ResponseEntity.ok(bdMemberService.getApprovalList(vo));
+    }
 }

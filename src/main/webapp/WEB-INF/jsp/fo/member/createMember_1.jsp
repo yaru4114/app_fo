@@ -217,11 +217,11 @@
 	        if ($(this).prop('checked') == true) {
 	        	agreeAllBox.find('.form-chk > input:checkbox').each(function(){
 	                $(this).prop('checked', true);
-	            })
+	            });
 	        } else {
 	        	agreeAllBox.find('.form-chk > input:checkbox').each(function(){
 	                $(this).prop('checked', false);
-	            })
+	            });
 	        }
 	    });
     }
@@ -250,8 +250,8 @@
     // 확인버튼
     $(document).on('click','#submitBtn', function() {
         if(!$('#agreeAll').prop('checked')){
-            alert('필수 약관에 동의 하셔야 가입 하실 수 있습니다.')
-            return
+            alert('필수 약관에 동의 하셔야 가입 하실 수 있습니다.');
+            return;
         }
 
         var form = {};
@@ -268,21 +268,18 @@
         form.mberPushRecptnAgreAt = $('#agreePush').prop('checked') ? 'Y' : 'N' ;
 
         console.log(form);
-        location.href="/fo/member/create_2";
-/*
-            $.ajax({
-                url : "/fo/member/create_2",
-                contentType: 'application/json',
-                data : JSON.stringify(form),
-                method : "GET",
-                success : function(res){
-
-                },
-                error : function () {
-
-                }
-            });
-*/
+        $.ajax({
+            url : "/fo/member/create_2",
+            contentType: 'application/json',
+            data : JSON.stringify(form),
+            method : "POST",
+            success : function(res){
+                location.href="/fo/member/create_2";
+            },
+            error : function (error) {
+                console.log(error);
+            }
+        });
     });
 
 /*

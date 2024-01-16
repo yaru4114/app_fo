@@ -38,4 +38,19 @@ public class BdMemberService {
 
         return resultMap;
     }
+
+    public Map<String, Object>  getApprovalList(PagingVO vo) {
+        int totalCnt = bdMemberDAO.getApprovalCnt(vo);
+        vo.calPaging(totalCnt);
+
+        Map<String, Object> resultMap = new HashMap<>();
+
+        List<BidMemberVO> resultList = bdMemberDAO.getApprovalList(vo);
+        log.info("객체 리스트 : {}", resultList);
+
+        resultMap.put("result", resultList);
+        resultMap.put("paging", vo);
+
+        return resultMap;
+    }
 }
