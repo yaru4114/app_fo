@@ -36,7 +36,7 @@
     SELECT *
       FROM BD_BID_BAS
      WHERE FRST_REGIST_DT >= CONVERT( DATE , #{startDate})
-       AND FRST_REGIST_DT <![CDATA[ <= ]]> CONVERT(DATE , #{endDate})
+       AND FRST_REGIST_DT <![CDATA[ <= ]]> DATEADD( DAY , 1 , CONVERT(DATE , #{endDate}))
       <if test='bidSttusCode != null and bidSttusCode != ""'>
        AND BID_STTUS_CODE = #{bidSttusCode}
       </if>
