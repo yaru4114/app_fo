@@ -29,6 +29,10 @@ spring:
   messages:
     basename: message/message-comm_ko
     encoding: UTF-8
+  servlet:
+    multipart:
+#      첨부파일 경로
+      location: C:\Users\USER\OneDrive\바탕 화면
 
 mybatis:
   config-location: classpath:mybatis-config.xml

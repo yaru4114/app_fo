@@ -195,7 +195,7 @@
 										    <option value="3">옵션</option>
 									    </select>
 									    <span class="input">
-		                                    <input type="text" name="mobile2" id="mobile2" placeholder="휴대폰 번호">
+		                                    <input type="tel" name="mobile2" id="mobile2" placeholder="휴대폰 번호">
 		                                </span>
 	                                </div>
 	                            </div>
@@ -208,7 +208,7 @@
 										    <option value="3">옵션</option>
 									    </select>
 									    <span class="input">
-		                                    <input type="text" name="telPhone2" id="telPhone2" placeholder="회사 전화 번호">
+		                                    <input type="tel" name="telPhone2" id="telPhone2" placeholder="회사 전화 번호">
 		                                </span>
 	                                </div>
 	                            </div>
@@ -282,7 +282,7 @@
 										    <option value="3">옵션</option>
 									    </select>
 									    <span class="input">
-		                                    <input type="text" name="vrsc_mobile2" id="vrsc_mobile2" placeholder="휴대폰 번호">
+		                                    <input type="tel" name="vrsc_mobile2" id="vrsc_mobile2" placeholder="휴대폰 번호">
 		                                </span>
 	                                </div>
 	                            </div>
@@ -295,7 +295,7 @@
 										    <option value="3">옵션</option>
 									    </select>
 									    <span class="input">
-		                                    <input type="text" name="vrsc_telPhone2" id="vrsc_telPhone2" placeholder="회사 전화 번호">
+		                                    <input type="tel" name="vrsc_telPhone2" id="vrsc_telPhone2" placeholder="회사 전화 번호">
 		                                </span>
 	                                </div>
 	                            </div>
@@ -328,18 +328,16 @@
 <script src="/guide/js/sorin.js"></script>
 <!-- embedded -->
 <script>
-var updFile1 = {};
-var updFile2 = {};
+var fileList = [];
 
 $(document).ready(function(){
 
 	$(".hidden-file").each(function(){
 		$(this).on('change',function(){
-		    console.log($(this));
-		    // console.log($(this).);
 			let fileName = $(this).val();
-			console.log(fileName)
+			console.log(fileName);
 			$(this).parent().parents(".file-upload").find(".upload-name").val(fileName);
+			const a = $(this).parent().parents(".file-upload").find(".upload-name");
 		});
 	});
 });
@@ -385,12 +383,20 @@ $('#prevBtn').on('click', function(){
 // 회원가입 조건처리
 function chkInfo(form){
 
+    // 정규표현식 필터
+    var idFilter = /^[a-zA-Z](?=.*[a-zA-Z])(?=.*[0-9]).{4,12}$/g;
+    var pwdFilter = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,12}$/;
+    //var mobileFilter = /^\d{3}-\d{3,4}-\d{4}$/;
+    var mobileFilter = /^\d{10,11}$/;
+    //var telPhoneFilter = /^\d{2,3}-\d{3,4}-\d{4}$/;
+    var telPhoneFilter = /^\d{9,11}$/;
+
     // 아이디
     if (form.bidMberId === null || form.bidMberId.length <= 0) {
         alert('아이디를 입력해주세요');
         $('#uid').focus();
         return false;
-    } else if (form.bidMberId.length > 13) {
+    } else if (!idFilter.test(form.bidMberId)) {
         alert('아이디는 4-12자 이내의 문자+숫자만 사용 가능합니다');
         $('#uid').focus();
         return false;
@@ -401,7 +407,7 @@ function chkInfo(form){
         alert('비밀번호를 입력해주세요');
         $('#upw').focus();
         return false;
-    } else if (form.bidMberSecretNo.length < 8 || form.bidMberSecretNo.length > 12) {
+    } else if (!pwdFilter.test(form.bidMberSecretNo)) {
         alert('비밀번호는 8~12자 까지만 가능합니다.');
         $('#upw').focus();
         return false;
@@ -461,11 +467,19 @@ function chkInfo(form){
         alert('휴대폰 번호를 입력해주세요.');
         $('#mobile2').focus();
         return false;
+    } else if (!mobileFilter.test($('#mobile2').val())) {
+        alert('휴대폰 번호는 - 없이 10~11자리 숫자를 입력해야합니다.');
+        $('#mobile2').focus();
+        return false;
     }
 
     // 회사 전화 번호
     if (($('#telPhone1').val() === null || $('#telPhone1').val() <= 0) || ($('#telPhone2').val() === null || $('#telPhone2').val().length <= 0)) {
         alert('회사 전화 번호를 입력해주세요.');
+        $('#telPhone2').focus();
+        return false;
+    } else if (!telPhoneFilter.test($('#telPhone2'))) {
+        alert('회사 전화 번호는 - 없이 9~11자리 숫자를 입력해야합니다.');
         $('#telPhone2').focus();
         return false;
     }
@@ -497,6 +511,10 @@ function chkInfo(form){
         alert('대행 업체 휴대폰 번호를 입력해주세요.');
         $('#vrsc_mobile2').focus();
         return false;
+    } else if (!mobileFilter.test($('#vrsc_mobile2').val())) {
+        alert('휴대폰 번호는 - 없이 10~11자리 숫자를 입력해야합니다.');
+        $('#vrsc_mobile2').focus();
+        return false;
     }
 
     // 회사 전화 번호
@@ -504,8 +522,23 @@ function chkInfo(form){
         alert('대행 업체 전화 번호를  입력해주세요.');
         $('#vrsc_telPhone2').focus();
         return false;
+    } else if (!telPhoneFilter.test($('#vrsc_telPhone2'))) {
+        alert('회사 전화 번호는 - 없이 9~11자리 숫자를 입력해야합니다.');
+        $('#vrsc_telPhone2').focus();
+        return false;
     }
 
+    // 사업자등록증
+    if ($('#updFile1')[0].files[0] == null) {
+        alert('사업자등록증을 첨부해주세요.');
+        $('#updFile1').click();
+        return false;
+    }
+    if ($('#updFile2')[0].files[0] == null) {
+        alert('대행 사업자등록증을 첨부해주세요.');
+        $('#updFile2').click();
+        return false;
+    }
 
     return true;
 }
@@ -542,22 +575,19 @@ $('#submitBtn').on('click',function(){
     form.vrscTlphonNo = $('#vrsc_telPhone1').val() + $('#vrsc_telPhone2').val();
 
     // 필수 조건 검증
+
     if (!chkInfo(form)) {
         return;
     }
+
 
     const formData = new FormData();
     // 고객정보
     formData.append('BidMemberVO',JSON.stringify(form));
 
     // 사업자등록증 회사/대행
-
-    var updFile1 = {};
-    var updFile2 = {};
-    formData.append('docFiles',updFile1);
-    formData.append('docFiles',updFile2);
-
-    console.log(form);
+    formData.append('docFiles',$('#updFile1')[0].files[0]);
+    formData.append('docFiles',$('#updFile2')[0].files[0]);
 
     $.ajax({
         type : 'POST',

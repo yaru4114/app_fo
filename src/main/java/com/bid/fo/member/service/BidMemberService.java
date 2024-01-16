@@ -3,12 +3,17 @@ package com.bid.fo.member.service;
 import com.bid.common.model.BidMemberVO;
 
 import com.bid.common.model.DocVO;
+import com.bid.common.model.FileVO;
+import com.bid.common.util.FileUtil;
 import com.bid.fo.member.dao.BidMemberDAO;
 import com.bid.fo.member.model.LoginVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -17,7 +22,10 @@ public class BidMemberService {
     @Autowired
     BidMemberDAO memberDAO;
 
-    public Map<String,Object> creMember(BidMemberVO vo) {
+    @Autowired
+    FileUtil fileUtil;
+
+    public Map<String,Object> creMember(BidMemberVO vo, List<MultipartFile> fileList, HttpSession session) {
 
         Map<String,Object> resultMap = new HashMap<>();
         // 아이디 중복 체크
@@ -30,27 +38,12 @@ public class BidMemberService {
 
         // 회원정보 입력
         memberDAO.creMember(vo);
+        vo.setBsnmRegistDocNo2(vo.getBsnmRegistDocNo1() + 1);
 
-        // 사업자등록증(업체) 입력
+        // 사업자등록증 입력
+        fileUpload(fileList,vo);
 
-        // doc1 doc2 -> 차후 파라메터로 가져오기
-        DocVO doc1 = new DocVO();
-        doc1.setDocNo(vo.getBsnmRegistDocNo1());
-        doc1.setDocFileNm("");
-        doc1.setDocFileCours("");
-        doc1.setDocFileRealCours("");
-        doc1.setDocFileMg(10);
-        doc1.setFrstRegisterId(vo.getBidMberId());
-        doc1.setLastChangerId(vo.getBidMberId());
-//
-//        DocVO doc2 = new DocVO();
-//        doc2.setDocNo(vo.getBsnmRegistDocNo2());
-//        doc2.setFrstRegisterId(vo.getBidMberId());
-//        doc2.setLastChangerId(vo.getBidMberId());
-//
-        memberDAO.creBsnmResistDoc(doc1);
-//        memberDAO.creBsnmResistDoc(doc2);
-
+        session.removeAttribute("terms");
         resultMap.put("success", true);
         resultMap.put("message", "가입 요청이 완료되었습니다. 가입 승인 후 이용 가능합니다.");
 
@@ -66,25 +59,76 @@ public class BidMemberService {
         // 회원 가입 승인 상태 판별 (요청 / 거절 / 정상)
         switch (result.getBidConfmSttusCode()) {
             case "01" :
+                resultMap.put("success", false);
+                resultMap.put("message", "관리자 승인 대기상태입니다.\n" +
+                        "승인 후 로그인 가능합니다.\n" +
+                        "고객센터에 문의해주세요.\n" +
+                        "(02-6952-5095)");
                 break;
             case "02" :
+                resultMap.put("success", false);
+                resultMap.put("message", "승인 거절된 계정입니다.\n" +
+//                        "거절 사유 : " + "\n"+
+                        "고객센터에 문의해주세요.\n" +
+                        "(02-6952-5095)");
                 break;
             case "03" :
+                // 회원 상태 판별 (정상 / 차단 / 승인대기)
+                switch (result.getBidMberSttusCode()) {
+                    case "01" :
+                        LoginVO loginUser = LoginVO.builder()
+                                .userNo(result.getBidEntrpsNo())
+                                .userId(result.getBidMberId())
+                                .userNm(result.getEntrpsNm())
+                                .build();
+
+                        resultMap.put("success", true);
+                        resultMap.put("loginUser",loginUser);
+                        break;
+                    case "02" :
+                        resultMap.put("success", false);
+                        resultMap.put("message", "투찰 취소 3회 초과로 로그인이 차단되었습니다.\n" +
+                                "자세한 사항은 고객센터로 문의해주세요.\n" +
+                                "(02-6952-5095)");
+                        break;
+                    case "03" :
+                        resultMap.put("success", false);
+                        resultMap.put("message", "관리자 승인 대기상태입니다.\n" +
+                                "승인 후 로그인 가능합니다.\n" +
+                                "고객센터에 문의해주세요.\n" +
+                                "(02-6952-5095)");
+                        break;
+                }
                 break;
         }
-
-        // 회원 상태 판별 (정상 / 차단 / 승인대기)
-        switch (result.getBidMberSttusCode()) {
-            case "01" :
-                break;
-            case "02" :
-                break;
-            case "03" :
-                break;
-        }
-
-        resultMap.put("result",result);
-
         return resultMap;
+    }
+
+    private void fileUpload(List<MultipartFile> fileList, BidMemberVO vo){
+        if (fileList != null) {
+            int count = 0;
+            for (MultipartFile file : fileList) {
+                String uldFileName = fileUtil.setTimestampedFileName(file);
+                String folder = "/member/bsnmRegist/";
+
+                FileVO fileVO = fileUtil.upload(file, folder, uldFileName);
+
+                DocVO docVO = DocVO.builder()
+                        .docNo(vo.getBsnmRegistDocNo1() + count)
+                        .jobSeCode("MB")
+                        .docFileMg(fileVO.getFILE_SIZE())
+                        .docFileNm(fileVO.getORI_FILE_NAME())
+                        .docFileCours(fileVO.getFILE_PATH())
+                        .docFileRealCours(fileVO.getFULL_PATH())
+                        .frstRegisterId(vo.getBidMberId())
+                        .lastChangerId(vo.getBidMberId())
+                        .build();
+
+                memberDAO.creBsnmResistDoc(docVO);
+
+                count++;
+            }
+
+        }
     }
 }

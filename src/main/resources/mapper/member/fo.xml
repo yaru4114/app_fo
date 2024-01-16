@@ -163,7 +163,8 @@
             DOC_FILE_REAL_COURS,
             DOC_FILE_MG,
             FRST_REGISTER_ID,
-            LAST_CHANGER_ID
+            LAST_CHANGER_ID,
+            LAST_CHANGE_DT
         )
         VALUES (
             #{docNo},
@@ -173,7 +174,8 @@
             #{docFileRealCours},
             #{docFileMg},
             #{frstRegisterId},
-            #{lastChangerId}
+            #{lastChangerId},
+            getDate()
         )
     </insert>
 </mapper>

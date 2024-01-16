@@ -1,7 +1,6 @@
 package com.bid.fo.member.controller;
 
 import com.bid.common.model.BidMemberVO;
-import com.bid.common.model.DocVO;
 import com.bid.fo.member.model.LoginVO;
 import com.bid.fo.member.service.BidMemberService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -47,13 +46,13 @@ public class BidMemberController {
     @GetMapping("/create_3")
     public String createPage3 () { return "/fo/member/createMember_3"; };
 
-
     /** 회원 가입 */
     @PostMapping("/creMember")
-    public ResponseEntity<?> creMember(@RequestPart("BidMemberVO") String jsonMemberVO, HttpSession session){
+    public ResponseEntity<?> creMember(@RequestPart("BidMemberVO") String jsonMemberVO,
+                                       @RequestPart(value = "docFiles", required = false)List<MultipartFile> fileList,
+                                       HttpSession session){
 
         BidMemberVO vo = null;
-        List<DocVO> docFiles = null;
         BidMemberVO terms = null;
         Map<String,Object> resultMap = new HashMap<>();
 
@@ -72,7 +71,7 @@ public class BidMemberController {
                 vo.setMberEmailRecptnAgreAt(terms.getMberEmailRecptnAgreAt());
                 vo.setMberPushRecptnAgreAt(terms.getMberPushRecptnAgreAt());
 
-                resultMap = memberService.creMember(vo);
+                resultMap = memberService.creMember(vo,fileList,session);
             } else {
                 resultMap.put("success", false);
                 resultMap.put("message", "잘못된 접근입니다.");
@@ -83,20 +82,25 @@ public class BidMemberController {
         }
 
         log.info("USER DATA : {}",vo);
-        log.info("TERM DATA : {}",terms);
+        log.info("FILE DATA : {}",fileList);
 
         return ResponseEntity.ok(resultMap);
     }
 
     /** 로그인 */
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginVO vo) {
-        return ResponseEntity.ok(memberService.login(vo));
+    public ResponseEntity<?> login(@RequestBody LoginVO vo, HttpSession session) {
+        Map<String,Object> resultMap = memberService.login(vo);
+        if ((boolean)resultMap.get("success")) {
+            session.setAttribute("loginUser",resultMap.get("loginUser"));
+        }
+        return ResponseEntity.ok(resultMap);
     }
 
     /** 로그아웃 */
     @PostMapping("/logout")
-    public ResponseEntity<?> logout() {
+    public ResponseEntity<?> logout(HttpSession session) {
+        session.removeAttribute("loginUser");
         return ResponseEntity.ok(null);
     }
 }
