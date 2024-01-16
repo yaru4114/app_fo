@@ -183,7 +183,7 @@
             getMemberList();
         });
 
-        // 🛠️ getMemberList 함수 정의
+        // getMemberList 함수 정의
         function getMemberList() {
             // 서버에 보낼 데이터
             var status = $('.form-select').val();
@@ -215,7 +215,7 @@
             });
         };
 
-        // 🛠️ 검색 버튼 클릭 이벤트 처리
+        // 검색 버튼 클릭 이벤트 처리
         $('#searchBtn').on('click', function () {
             getMemberList();
         });
@@ -294,8 +294,6 @@
             // 페이지 정보 업데이트
             var page = gridView.getPage();
             var pageCount = gridView.getPageCount();
-            // console.log('page : ', page);
-            // console.log('pageCount : ', pageCount);
             $('#current-page-view').text(page + 1);
             $('#total-page-view').text(pageCount);
         }

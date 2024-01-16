@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bid.bo.member.dao.BdMemberDAO" >
-    <select id="getMemberList" parameterType="com.bid.common.model.PagingVO" resultType="com.bid.common.model.BidMemberVO">
+    <select id="getMemberList" parameterType="com.bid.common.model.SearchVO" resultType="com.bid.common.model.BidMemberVO">
         SELECT
             ROW_NUMBER() OVER (ORDER BY (SELECT 1)) AS rowNo,
             ENTRPS_NM,
@@ -65,7 +65,11 @@
         ORDER BY BID_ENTRPS_NO DESC, rowNo ASC
     </select>
 
-    <select id="getApprovalCnt" parameterType="com.bid.common.model.PagingVO" resultType="int">
+    <select id="getMemberStatusCnt" parameterType="com.bid.common.model.SearchVO" resultType="int">
+
+    </select>
+
+    <select id="getApprovalCnt" parameterType="com.bid.common.model.SearchVO" resultType="int">
         SELECT COUNT(*)
         FROM BD_ENTRPS_INFO_BAS AS a
         WHERE
@@ -91,7 +95,7 @@
         </if>
     </select>
 
-    <select id="getApprovalList" parameterType="com.bid.common.model.PagingVO" resultType="com.bid.common.model.BidMemberVO">
+    <select id="getApprovalList" parameterType="com.bid.common.model.SearchVO" resultType="com.bid.common.model.BidMemberVO">
         SELECT
             ROW_NUMBER() OVER(ORDER BY (SELECT 1)) AS rowNo,
             ENTRPS_NM,

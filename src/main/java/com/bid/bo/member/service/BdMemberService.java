@@ -2,7 +2,7 @@ package com.bid.bo.member.service;
 
 import com.bid.bo.member.dao.BdMemberDAO;
 import com.bid.common.model.BidMemberVO;
-import com.bid.common.model.PagingVO;
+import com.bid.common.model.SearchVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import java.util.Map;
 public class BdMemberService {
     @Autowired
     private BdMemberDAO bdMemberDAO;
-    public Map<String, Object> getMemberList(PagingVO vo) {
+    public Map<String, Object> getMemberList(SearchVO vo) {
         Map<String, Object> resultMap = new HashMap<>();
 
         List<BidMemberVO> resultList = bdMemberDAO.getMemberList(vo);
@@ -26,7 +26,7 @@ public class BdMemberService {
         return resultMap;
     }
 
-    public Map<String, Object>  getApprovalList(PagingVO vo) {
+    public Map<String, Object>  getApprovalList(SearchVO vo) {
         int totalCnt = bdMemberDAO.getApprovalCnt(vo);
         vo.calPaging(totalCnt);
 

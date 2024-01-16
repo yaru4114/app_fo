@@ -1,7 +1,7 @@
 package com.bid.bo.member.controller;
 
 import com.bid.bo.member.service.BdMemberService;
-import com.bid.common.model.PagingVO;
+import com.bid.common.model.SearchVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +25,7 @@ public class BdMemberController {
 
     // 입찰 회원 목록 조회
     @PostMapping("/getList")
-    public ResponseEntity<?> getMemberList(@RequestBody PagingVO vo) {
+    public ResponseEntity<?> getMemberList(@RequestBody SearchVO vo) {
         log.info("회원 목록 param : {}", vo);
         return ResponseEntity.ok(bdMemberService.getMemberList(vo));
     }
@@ -36,7 +36,7 @@ public class BdMemberController {
     
     // 가입 승인 목록 조회
     @PostMapping("/getApprovalList")
-    public ResponseEntity<?> getApprovalList(@RequestBody PagingVO vo){
+    public ResponseEntity<?> getApprovalList(@RequestBody SearchVO vo){
         log.info("회원 목록 param : {}", vo);
         return ResponseEntity.ok(bdMemberService.getApprovalList(vo));
     }
