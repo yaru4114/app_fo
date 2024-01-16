@@ -233,10 +233,6 @@
         var dataProvider, gridContainer, gridView;
 
         function createGrid(container) {
-            if (gridView) {
-                gridView.destroy();
-            }
-
             dataProvider = new RealGrid.LocalDataProvider();
             dataProvider.setFields(fields);
 
