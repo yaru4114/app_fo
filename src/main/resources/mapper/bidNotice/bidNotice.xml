@@ -33,13 +33,46 @@
   <!-- 입찰상태코드별 공고 리스트 조회 -->
   <select id="getBidNoticeMngBidList" parameterType="com.bid.bo.bid.vo.BidNoticeVO" resultType="com.bid.bo.bid.vo.BidNoticeVO">
     /* bidNotice.getBidNoticeMngBidList */
-    SELECT *
-      FROM BD_BID_BAS
+    SELECT BID_PBLANC_ID                                            -- AS 입찰공고번호
+         , (SELECT CODE_CHRCTR_REFRNTHREE
+              FROM CO_CMMN_CD D
+             WHERE A.BRAND_GROUP_CODE = D.SUB_CODE
+               AND D.MAIN_CODE = 'BRAND_GROUP_CODE'
+               AND D.CODE_REFRNONE = A.METAL_CODE
+            ) AS METAL_CODE                                         -- AS 메탈코드
+         , BRAND_CODE                                               -- AS 브랜드_구분
+         , (SELECT C.ITM_PRDLST_KOREAN
+              FROM IT_ITM_INFO_BAS C
+             WHERE A.METAL_CODE = C.METAL_CODE
+               AND A.ITM_SN = C.ITM_SN
+           ) AS ITM_PRDLST_KOREAN                                    -- AS 상품명
+         , dbo.fn_getCodeNm('BRAND_GROUP_CODE' , BRAND_GROUP_CODE )  AS BRAND_GROUP_CODE -- AS 브랜드_그룹
+         , dbo.fn_getCodeNm('DSTRCT_LCLSF_CODE' , DSTRCT_LCLSF_CODE) AS DSTRCT_LCLSF_CODE --AS 권역
+         , BID_WT                                                    -- AS 수량
+         , '5' AS ITM_QTY                                            -- AS 중량
+         , BDDPR_BEGIN_DT                                            -- AS 투찰시작일시
+         , BDDPR_END_DT                                              -- AS 투찰종료일시
+         , '' as ACTIVE_AT                                           -- AS 활성여부
+         , FRST_REGISTER_ID                                          -- AS 최초등록자아이디
+         , FRST_REGIST_DT                                            -- AS 최초등록날짜
+         , dbo.fn_getCodeNm('BID_STAT_001' , BID_STTUS_CODE) AS bidStatNm -- AS 상태
+         , '' as stepNm                                              -- AS 단계
+         , ISNULL((SELECT COUNT(BID_ENTRPS_NO)
+                     FROM BD_BDDPR_DTL B
+                    WHERE B.BID_PBLANC_ID = A.BID_PBLANC_ID
+                      AND ISNULL(B.DELETE_AT , 'N') = 'N')
+                  ,0) AS BDNG_CMPNY                                 -- AS 투찰기업
+         , ISNULL((SELECT MIN(BDDPR_PREMIUM_PC)
+                     FROM BD_BDDPR_DTL B
+                    WHERE A.BID_PBLANC_ID = B.BID_PBLANC_ID
+                      AND ISNULL(B.DELETE_AT , 'N') = 'N'), 0) as LWST_PRPRC -- AS 최저프리미엄
+      FROM BD_BID_BAS A
      WHERE FRST_REGIST_DT >= CONVERT( DATE , #{startDate})
        AND FRST_REGIST_DT <![CDATA[ <= ]]> DATEADD( DAY , 1 , CONVERT(DATE , #{endDate}))
       <if test='bidSttusCode != null and bidSttusCode != ""'>
        AND BID_STTUS_CODE = #{bidSttusCode}
       </if>
+     ORDER BY FRST_REGIST_DT DESC
   </select>
 
 </mapper>

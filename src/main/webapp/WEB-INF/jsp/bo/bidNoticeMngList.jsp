@@ -198,126 +198,8 @@
                                 <col width="80px" />
                                 <col width="120px" />
                             </colgroup>
-                            <tbody>
-                            <tr>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                                <td>내용1</td>
-                            </tr>
-                            <tr>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                                <td>내용2</td>
-                            </tr>
-                            <tr>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                                <td>내용3</td>
-                            </tr>
-                            <tr>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                                <td>내용4</td>
-                            </tr>
-                            <tr>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                                <td>내용5</td>
-                            </tr>
-                            <tr>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                                <td>내용6</td>
-                            </tr>
-                            <tr>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                                <td>내용7</td>
-                            </tr>
+                            <tbody id="dynamicTbody">
+                            <%--동적 테이블 생성 예정--%>
                             </tbody>
                         </table>
                 </div>
@@ -453,6 +335,13 @@
       dataType: "json",
       success: function (data) {
         console.log("서버 응답:", data);
+        var html = "";
+
+        /*for(key in data ) {
+          html += '<tr>';
+          html += '<td>'+data[]
+
+        }*/
 
       },
       error: function (xhr, status, error) {
