@@ -6,6 +6,7 @@
     <select id="getMemberList" parameterType="com.bid.common.model.SearchVO" resultType="com.bid.common.model.BidMemberVO">
         SELECT
             ROW_NUMBER() OVER (ORDER BY (SELECT 1)) AS rowNo,
+            BID_ENTRPS_NO,
             ENTRPS_NM,
             BID_MBER_ID,
             BSNM_REGIST_NO,

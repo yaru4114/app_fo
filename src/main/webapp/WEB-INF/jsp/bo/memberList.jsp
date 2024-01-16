@@ -57,7 +57,7 @@
                 <h1>입찰 회원 관리</h1>
                 <div class="btm-btns">
                     <div class="btn-box">
-                        <button type="button" id="blockButton" class="btn">모달 테스트</button>
+                        <button type="button" id="testButton" class="btn">모달 테스트</button>
                     </div>
                 </div>
                 <div class="count-banner">
@@ -148,7 +148,7 @@
         </div>
     </section>
 </div>
-<div class="pop-modal pop-modal2 pop-credit-confirm" id="blockModal">
+<div class="pop-modal pop-modal2 pop-credit-confirm" id="detailModal">
     <div class="pop-inner w1400px">
         <div class="pop-title">
             <h1 class="title">회원관리 > 엠투엠글로벌</h1>
@@ -485,11 +485,20 @@
             gridView.setDataSource(dataProvider);
             gridView.setColumns(columns);
 
+            gridView.columnByName("bidEntrpsNo").visible =  false;
+
             // 페이지 정보 업데이트
             var page = gridView.getPage();
             var pageCount = gridView.getPageCount();
             $('#current-page-view').text(page + 1);
             $('#total-page-view').text(pageCount);
+
+            gridView.onCellClicked = function (grid, clickData) {
+                const rowIndex = clickData.itemIndex;
+                const rowData = grid.getDataSource().getJsonRow(rowIndex);
+
+                console.log('onCellClicked: ', JSON.stringify(rowData));
+            };
         }
 
         function start() {
@@ -549,25 +558,17 @@
             });
         };
 
-        // 차단하기 버튼 클릭 이벤트
-        document.getElementById('blockButton').addEventListener('click', function () {
-            // 모달 보이게 설정
-            document.getElementById('blockModal').style.display = 'block';
+        // 모달 생성
+        document.getElementById('testButton').addEventListener('click', function () {
+            document.getElementById('detailModal').style.display = 'block';
         });
 
-        // 취소 버튼 클릭 이벤트
+        // 모달 닫기
         document.getElementById('cancelButton').addEventListener('click', function () {
-            // 모달 숨기게 설정
-            document.getElementById('blockModal').style.display = 'none';
-        });
-
-        // 승인하기 버튼 클릭 이벤트
-        document.getElementById('approveButton').addEventListener('click', function () {
-            // 모달 숨기게 설정
-            document.getElementById('blockModal').style.display = 'none';
-            // 승인 로직 추가
+            document.getElementById('detailModal').style.display = 'none';
         });
 
     </script>
+</div>
 </body>
 </html>
