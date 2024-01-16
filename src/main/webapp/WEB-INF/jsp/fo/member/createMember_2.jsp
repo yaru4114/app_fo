@@ -328,11 +328,15 @@
 <script src="/guide/js/sorin.js"></script>
 <!-- embedded -->
 <script>
+var updFile1 = {};
+var updFile2 = {};
 
 $(document).ready(function(){
 
 	$(".hidden-file").each(function(){
 		$(this).on('change',function(){
+		    console.log($(this));
+		    // console.log($(this).);
 			let fileName = $(this).val();
 			console.log(fileName)
 			$(this).parent().parents(".file-upload").find(".upload-name").val(fileName);
@@ -343,6 +347,7 @@ $(document).ready(function(){
 // 외국업체 체크 => 회사 사업자등록번호 : disabled
 $('#foreign').on('click',function () {
     if ($('#foreign').prop('checked')) {
+        $('#ipCoRegiNo').val('');
         $('#ipCoRegiNo').addClass('etr');
         $('#ipCoRegiNo').attr("disabled", true);
         $('#ipCoRegiNoCheckBtn').attr("disabled", true);
@@ -376,6 +381,133 @@ $('#prevBtn').on('click', function(){
    }
 });
 
+// 회원가입 조건처리
+function chkInfo(form){
+
+    // 아이디
+    if (form.bidMberId === null || form.bidMberId.length <= 0) {
+        alert('아이디를 입력해주세요');
+        $('#uid').focus();
+        return false;
+    } else if (form.bidMberId.length > 13) {
+        alert('아이디는 12자 이내로만 사용 가능합니다');
+        $('#uid').focus();
+        return false;
+    }
+
+    // 비밀번호
+    if (form.bidMberSecretNo === null || form.bidMberSecretNo.length <= 0) {
+        alert('비밀번호를 입력해주세요');
+        $('#upw').focus();
+        return false;
+    } else if (form.bidMberSecretNo.length < 8 || form.bidMberSecretNo.length > 12) {
+        alert('비밀번호는 8~12자 까지만 가능합니다.');
+        $('#upw').focus();
+        return false;
+    }
+
+    // 비밀번호 확인
+    if (form.bidMberSecretNo !== form.bidMberSecretNoCheck) {
+        alert('비밀번호가 확인란과 일치하지 않습니다.');
+        $('#upw2').focus();
+        return false;
+    }
+
+    // 회사명
+    if (form.entrpsNm === null || form.entrpsNm <= 0) {
+        alert('회사명을 입력해주세요.');
+        $('#cname').focus();
+        return false;
+    }
+
+    // 사업자번호
+    if(form.frntnEntrpsAt === 'N' && (form.bsnmRegistNo === null || form.bsnmRegistNo.length <= 0)) {
+        alert('사업자번호를 입력해주세요.');
+        $('#ipCoRegiNo').focus();
+        return false;
+    }
+
+    // 우편번호
+    if(form.postNo === null || form.postNo.length <= 0){
+        alert('우편번호를 입력해주세요.');
+        $('#foreignerZinCode').focus();
+        return false;
+    }
+
+    // 주소
+    if(form.adres === null || form.adres.length <= 0) {
+        alert('주소를 입력해주세요.');
+        $('#foreigneradd1').focus();
+        return false;
+    }
+
+    // 상세주소
+    if (form.detailAdres === null || form.detailAdres.length <= 0) {
+        alert('상세주소를 입력해주세요.');
+        $('#foreigneradd2').focus();
+        return false;
+    }
+
+    // 이메일
+    if (($('#ipUserEmail').val() === null || $('#ipUserEmail').val() <= 0) || ($('#ipUserEmailDomain').val() === null || $('#ipUserEmailDomain').val().length <= 0)) {
+        alert('이메일을 입력해주세요.');
+        $('#ipUserEmail').focus();
+        return false;
+    }
+
+    // 휴대폰번호
+    if (($('#mobile1').val() === null || $('#mobile1').val() <= 0) || ($('#mobile2').val() === null || $('#mobile2').val().length <= 0)) {
+        alert('휴대폰 번호를 입력해주세요.');
+        $('#mobile2').focus();
+        return false;
+    }
+
+    // 회사 전화 번호
+    if (($('#telPhone1').val() === null || $('#telPhone1').val() <= 0) || ($('#telPhone2').val() === null || $('#telPhone2').val().length <= 0)) {
+        alert('회사 전화 번호를 입력해주세요.');
+        $('#telPhone2').focus();
+        return false;
+    }
+
+    // ** 대행업체
+    // 업체명
+    if (form.vrscEntrpsNm === null || form.vrscEntrpsNm.length <= 0) {
+        alert('대행 업체명을 입력해주세요.');
+        $('#vrsc_cname').focus();
+        return false;
+    }
+
+    // 사업자번호
+    if (form.vrscBsnmRegistNo === null || form.vrscBsnmRegistNo.length <= 0) {
+        alert('대행 사업자번호를 입력해주세요.');
+        $('#vrsc_ipCoRegiNo').focus();
+        return false;
+    }
+
+    // 이메일
+    if (($('#vrsc_ipUserEmail').val() === null || $('#vrsc_ipUserEmail').val().length <= 0) || ($('#vrsc_ipUserEmailDomain2').val() === null || $('#vrsc_ipUserEmailDomain2').val().length <= 0)) {
+        alert('대행 업체 이메일을 입력해주세요.');
+        $('#vrsc_ipUserEmail').focus();
+        return false;
+    }
+
+    // 휴대폰 번호
+    if (($('#vrsc_mobile1').val() === null || $('#vrsc_mobile1').val().length <= 0) || ($('#vrsc_mobile2').val() === null || $('#vrsc_mobile2').val().length <= 0)) {
+        alert('대행 업체 휴대폰 번호를 입력해주세요.');
+        $('#vrsc_mobile2').focus();
+        return false;
+    }
+    // 회사 전화 번호
+    if (($('#vrsc_telPhone1').val() === null || $('#vrsc_telPhone1').val().length <= 0) || ($('#vrsc_telPhone2').val() === null || $('#vrsc_telPhone2').val().length <= 0)) {
+        alert('대행 업체 전화 번호를  입력해주세요.');
+        $('#vrsc_telPhone2').focus();
+        return false;
+    }
+
+
+    return true;
+}
+
 // 가입신청 버튼 클릭
 $('#submitBtn').on('click',function(){
 
@@ -383,46 +515,12 @@ $('#submitBtn').on('click',function(){
     // 회사 기본 정보입력
 
     form.bidMberId = $('#uid').val(); // 아이디
-
-    if (form.bidMberId === null || form.bidMberId === '') {
-        alert('아이디를 입력해주세요');
-        $('#uid').focus();
-        return;
-    } else if (form.bidMberId.length > 13) {
-        alert('아이디는 12자 이내로만 사용 가능합니다');
-        $('#uid').focus();
-        return;
-    }
-
     form.bidMberSecretNo = $('#upw').val(); // 비밀번호
-
-    if (form.bidMberSecretNo === null || form.bidMberSecretNo === '') {
-        alert('비밀번호를 입력해주세요');
-        $('#upw').focus();
-        return;
-    } else if (form.bidMberSecretNo.length < 8 || form.bidMberSecretNo.length > 12  ) {
-        alert('비밀번호는 8~12자 까지만 가능합니다.');
-        $('#upw').focus();
-        return;
-    }
-
     form.bidMberSecretNoCheck = $('#upw2').val(); // 비밀번호 확인
-
-    if (form.bidMberSecretNo !== form.bidMberSecretNoCheck) {
-        alert('비밀번호가 확인란과 일치하지 않습니다.');
-        $('#upw2').focus();
-        return;
-    }
-
     form.entrpsNm = $('#cname').val(); // 회사명
-
-    if (form.entrpsNm === null || form.entrpsNm === '') {
-        alert('회사명을 입력해주세요.');
-        $('#cname').focus();
-        return;
-    }
-
     form.bsnmRegistNo = $('#ipCoRegiNo').val(); // 사업자번호
+
+    form.frntnEntrpsAt = $('#foreign').prop('checked') ? 'Y' : 'N' // 외부업체 여부
 
     form.postNo = $('#foreignerZinCode').val(); // 우편번호
     form.adres = $('#foreigneradd1').val(); // 주소1
@@ -441,15 +539,23 @@ $('#submitBtn').on('click',function(){
     form.vrscMoblphonNo = $('#vrsc_mobile1').val() + $('#vrsc_mobile2').val();
     form.vrscTlphonNo = $('#vrsc_telPhone1').val() + $('#vrsc_telPhone2').val();
 
+    // 필수 조건 검증
+    if (!chkInfo(form)) {
+        return;
+    }
+
     const formData = new FormData();
     // 고객정보
     formData.append('BidMemberVO',JSON.stringify(form));
+
     // 사업자등록증 회사/대행
+
+    var updFile1 = {};
+    var updFile2 = {};
     formData.append('docFiles',updFile1);
     formData.append('docFiles',updFile2);
 
     console.log(form);
-    console.log(formData);
 
     $.ajax({
         type : 'POST',

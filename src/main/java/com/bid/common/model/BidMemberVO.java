@@ -13,7 +13,7 @@ public class BidMemberVO {
     private String entrpsNm; // 업체명
     private String bsnmRegistNo; // 사업자 등록 번호
     private String bidMberEmail; // 이메일
-    private String moblphoneNo2; // 휴대폰 번호
+    private String moblphonNo2; // 휴대폰 번호
     private String entrpsTlphonNo; // 업체 전화 번호
     private String frntnEntrpsAt; // 외국업체 여부
     private String postNo; // 우편번호

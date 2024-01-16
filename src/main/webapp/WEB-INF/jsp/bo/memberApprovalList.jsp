@@ -29,12 +29,16 @@
     <script type="text/javascript" src="/bo/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
     <script type="text/javascript" src="/bo/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script><!-- Full calendar(한글) -->
 <%--    <script type="text/javascript" src="/bo/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->--%>
-    <script type="text/javascript" src="/bo/guide/js/realgrid.2.3.2/testgrid.js"></script>
+    <script type="text/javascript" src="/bo/guide/js/realgrid.2.3.2/approvalgrid.js"><!-- 승인대기 그리드 --></script>
     <script type="text/javascript" src="/bo/guide/js/common.js"></script><!-- 퍼블 작성 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+
 </head>
 
+
 <body>
+
 <div class="web-wrapper">
     <!-- [D] 사이드바 부분 인클루드 시작 -->
     <!-- [D] 활성화된 메뉴 : .active 추가(스크립트 적용됨) -->
@@ -48,9 +52,11 @@
         <header class="web-header"></header>
         <script type="text/javascript"> $(".web-header").load("/bo/guide/html/include/header.html");</script>
         <!-- // [D] 상단메뉴 부분 인클루드 끝 -->
+
         <div class="main-content">
             <div class="inner">
-                <h1>입찰 회원 관리</h1>
+                <h1>가입 승인 대기</h1>
+
                 <div class="count-banner">
                     <div class="list list-total">
                         <span class="label">정상 회원</span>
@@ -58,7 +64,7 @@
                     </div>
                     <div class="list list-done">
                         <span class="label">차단 회원</span>
-                        <span class="count">1274</span>
+                        <span class="count">74</span>
                     </div>
                     <div class="list list-todo">
                         <span class="label">가입승인대기</span>
@@ -70,9 +76,9 @@
                     <div class="form-set">
                         <span class="label">상태</span>
                         <select class="form-select">
-                            <option value="00">전체</option>
-                            <option value="01">정상</option>
+                            <option value="">전체</option>
                             <option value="02">차단</option>
+                            <option value="03">승인대기</option>
                         </select>
                     </div>
                     <div class="form-set">
@@ -121,16 +127,11 @@
                 <div id="realgrid" class="realgrid-wrap"></div>
                 <!-- paging -->
                 <div class="paging-row">
-                    <button onclick="setPrevPage()">
-                        이전 페이지
-                    </button>
-                    <span id="current-page-view"></span>
-                    /
-                    <span id="total-page-view"></span>
-                    <button onclick="setNextPage()">
-                        다음 페이지
-                    </button>
+                    <div class="paging">
+                        <div id="paging"></div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -180,11 +181,11 @@
                 $('#datepicker2').datepicker('setDate', endDate.toDate());
             });
             start();
-            getMemberList();
+            getMemberApprovalList();
         });
 
-        // getMemberList 함수 정의
-        function getMemberList() {
+        // 🛠️ getMemberApprovalList 함수 정의
+        function getMemberApprovalList() {
             // 서버에 보낼 데이터
             var status = $('.form-select').val();
             var searchType = $('.select-sm').val();
@@ -192,17 +193,23 @@
             var startDate = $('#datepicker1').val();
             var endDate = $('#datepicker2').val();
 
+            // 페이징 관련
+            var currentPage = 1;
+            var pageSize = 30;
+
             var param = {
                 status: status,
                 searchType: searchType,
                 searchKeyword: searchKeyword,
                 startDate: startDate,
-                endDate: endDate
+                endDate: endDate,
+                currentPage: currentPage,
+                pageSize: pageSize
             };
 
             $.ajax({
                 type: 'POST',
-                url: '/bo/member/getList',
+                url: '/bo/member/getApprovalList',
                 contentType: 'application/json',
                 data: JSON.stringify(param),
                 success: function (response) {
@@ -215,19 +222,15 @@
             });
         };
 
-        // 검색 버튼 클릭 이벤트 처리
+        // 🛠️ 검색 버튼 클릭 이벤트 처리
         $('#searchBtn').on('click', function () {
-            getMemberList();
+            getMemberApprovalList();
         });
 
         var httpRequest;
         var dataProvider, gridContainer, gridView;
 
         function createGrid(container) {
-            if (gridView) {
-                gridView.destroy();
-            }
-
             dataProvider = new RealGrid.LocalDataProvider();
             dataProvider.setFields(fields);
 
@@ -257,19 +260,6 @@
 
             gridView.editOptions.insertable = true;
             gridView.editOptions.appendable = true;
-
-            // 페이징 설정
-            gridView.setPaging(true, 30);
-
-            // 페이지 변경 이벤트 핸들러 등록
-            gridView.onPageChanged = function (grid, page) {
-                $('#current-page-view').text(page + 1);
-            };
-
-            // 페이지 수 변경 이벤트 핸들러 등록
-            gridView.onPageCountChanged = function (grid, pageCount) {
-                $('#total-page-view').text(pageCount);
-            };
         }
 
         function drawRealGrid(data) {
@@ -290,20 +280,17 @@
 
             gridView.setDataSource(dataProvider);
             gridView.setColumns(columns);
-
-            // 페이지 정보 업데이트
-            var page = gridView.getPage();
-            var pageCount = gridView.getPageCount();
-            $('#current-page-view').text(page + 1);
-            $('#total-page-view').text(pageCount);
         }
 
         function start() {
             createGrid("realgrid");
         }
 
+        // $.document.ready(start);
         window.onload = start;
-        window.onunload = function () {
+        // domloaded를 대신 써도 됩니다.
+
+        window.onunload = function() {
             dataProvider.clearRows();
 
             gridView.destroy();
@@ -312,19 +299,8 @@
             gridView = null;
             dataProvider = null;
         };
-
-        // 이전 페이지로 이동
-        function setPrevPage() {
-            var currentPage = gridView.getPage();
-            gridView.setPage(currentPage - 1);
-        }
-
-        // 다음 페이지로 이동
-        function setNextPage() {
-            var currentPage = gridView.getPage();
-            gridView.setPage(currentPage + 1);
-        }
     </script>
+
 </div>
 </body>
 </html>

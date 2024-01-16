@@ -34,22 +34,6 @@ var fields = [
         dataType: "text"
     },
     {
-        fieldName: "etrConfmProcessDt",
-        dataType: "text"
-    },
-    {
-        fieldName: "bidMberIntrcpDt",
-        dataType: "text"
-    },
-    {
-        fieldName: "scsbidCnt",
-        dataType: "text"
-    },
-    {
-        fieldName: "nonScsbidCnt",
-        dataType: "text"
-    },
-    {
         fieldName: "bidMberSttusCode",
         dataType: "text",
     }
@@ -119,38 +103,6 @@ var columns = [
         width: "140",
         header: {
             text: "승인요청일"
-        }
-    },
-    {
-        name: "etrConfmProcessDt",
-        fieldName: "etrConfmProcessDt",
-        width: "140",
-        header: {
-            text: "승인처리일"
-        }
-    },
-    {
-        name: "bidMberIntrcpDt",
-        fieldName: "bidMberIntrcpDt",
-        width: "140",
-        header: {
-            text: "차단일"
-        }
-    },
-    {
-        name: "scsbidCnt",
-        fieldName: "scsbidCnt",
-        width: "100",
-        header: {
-            text: "낙찰건수"
-        }
-    },
-    {
-        name: "nonScsbidCnt",
-        fieldName: "nonScsbidCnt",
-        width: "100",
-        header: {
-            text: "패찰건수"
         }
     },
     {

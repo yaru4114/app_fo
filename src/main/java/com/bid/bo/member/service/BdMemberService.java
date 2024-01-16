@@ -2,7 +2,7 @@ package com.bid.bo.member.service;
 
 import com.bid.bo.member.dao.BdMemberDAO;
 import com.bid.common.model.BidMemberVO;
-import com.bid.common.model.PagingVO;
+import com.bid.common.model.SearchVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,25 +16,27 @@ import java.util.Map;
 public class BdMemberService {
     @Autowired
     private BdMemberDAO bdMemberDAO;
-    public Map<String, Object> getMemberList(PagingVO vo) {
-        int totalCnt = bdMemberDAO.getMemberListCnt(vo);
-        vo.calPaging(totalCnt);
-
+    public Map<String, Object> getMemberList(SearchVO vo) {
         Map<String, Object> resultMap = new HashMap<>();
 
         List<BidMemberVO> resultList = bdMemberDAO.getMemberList(vo);
         log.info("객체 리스트 : {}", resultList);
 
         resultMap.put("result", resultList);
-        resultMap.put("paging", vo);
         return resultMap;
     }
 
-    public Map<String, Object> test() {
+    public Map<String, Object>  getApprovalList(SearchVO vo) {
+        int totalCnt = bdMemberDAO.getApprovalCnt(vo);
+        vo.calPaging(totalCnt);
+
         Map<String, Object> resultMap = new HashMap<>();
-        List<BidMemberVO> result = bdMemberDAO.test();
-        resultMap.put("result", result);
-        resultMap.put("success", true);
+
+        List<BidMemberVO> resultList = bdMemberDAO.getApprovalList(vo);
+        log.info("객체 리스트 : {}", resultList);
+
+        resultMap.put("result", resultList);
+        resultMap.put("paging", vo);
 
         return resultMap;
     }

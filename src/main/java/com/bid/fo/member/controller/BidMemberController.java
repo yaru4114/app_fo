@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -31,6 +33,13 @@ public class BidMemberController {
 
     @GetMapping("/create_2")
     public String createPage2 () { return "/fo/member/createMember_2"; };
+
+    @PostMapping("/create_2")
+    public String createPage2 (@RequestBody BidMemberVO vo, HttpSession session) {
+        log.info("약관 정보 : {}",vo);
+        session.setAttribute("terms",vo);
+        return "/fo/member/createMember_2";
+    };
 
     @GetMapping("/create_3")
     public String createPage3 () { return "/fo/member/createMember_3"; };
