@@ -58,15 +58,15 @@
                 <div class="count-banner">
                     <div class="list list-total">
                         <span class="label">정상 회원</span>
-                        <span class="count">85</span>
+                        <span class="count"></span>
                     </div>
                     <div class="list list-total">
                         <span class="label">차단 회원</span>
-                        <span class="count">1274</span>
+                        <span class="count"></span>
                     </div>
                     <div class="list list-total">
                         <span class="label">가입승인대기</span>
-                        <span class="count">12</span>
+                        <span class="count"></span>
                     </div>
                 </div>
 
@@ -302,15 +302,25 @@
                             </td>
                             <th scope="row">
                                 <label for="">가입승인일</label>
+                                <label for="blockDate">(차단일)</label>
                             </th>
                             <td>
                                 <input type="text" id="etrConfmProcessDt" value="" class="w300px" readonly>
+                                <input type="text" id="bidMberIntrcpDt" value="" class="w300px" readonly>
                             </td>
                             <th scope="row">
                                 <label for="">상태</label>
                             </th>
                             <td>
                                 <input type="text" id="bidMberSttusCode" value="" class="w300px" readonly>
+                            </td>
+                        </tr>
+                        <tr id="blockMemo">
+                            <th scope="row">
+                                <label for="">비고</label>
+                            </th>
+                            <td colspan="5">
+                                <input type="text" id="" value="투찰 취소 3회 초과로 차단되었습니다." class="w300px" readonly>
                             </td>
                         </tr>
                         </tbody>
@@ -602,7 +612,19 @@
                     $('#etrConfmRequstDt').val(memberInfo.etrConfmRequstDt);
                     $('#etrConfmProcessDt').val(memberInfo.etrConfmProcessDt);
                     $('#bidMberSttusCode').val(memberInfo.bidMberSttusCode);
+                    var formattedIntrcpDt = '(' + memberInfo.bidMberIntrcpDt + ')';
+                    $('#bidMberIntrcpDt').val(formattedIntrcpDt);
                     buttonByStatus(memberInfo.bidMberSttusCode);
+
+                    if (memberInfo.bidMberSttusCode === '정상') {
+                        $('label[for="blockDate"]').hide();
+                        $('#bidMberIntrcpDt').hide();
+                        $('#blockMemo').hide(); // ❗투찰 취소 3회 초과 로직 생성 후 삭제 예정
+                    } else {
+                        $('label[for="blockDate"]').show();
+                        $('#bidMberIntrcpDt').show();
+                        $('#blockMemo').show(); // ❗투찰 취소 3회 초과 로직 생성 후 삭제 예정
+                    }
                 },
                 error: function (error) {
                     console.error(error);
@@ -658,7 +680,16 @@
         // 모달 닫기
         $('#cancelButton').on('click', function () {
             $('#detailModal').hide();
+
             getMemberList();
+
+            var statusParam = {
+                statusCode: []
+            };
+            $('.list-total .label').each(function (index, element) {
+                statusParam.statusCode.push($(element).text().trim());
+            });
+            getCountByStatus(statusParam);
         });
 
     </script>
