@@ -60,7 +60,6 @@ public class BdMemberService {
         Map<String, Object> resultMap = new HashMap<>();
 
         List<BidMemberVO> resultList = bdMemberDAO.getApprovalList(vo);
-        log.info("객체 리스트 : {}", resultList);
 
         resultMap.put("result", resultList);
         resultMap.put("paging", vo);
@@ -82,13 +81,14 @@ public class BdMemberService {
 
         bdMemberDAO.udtApproval(vo);
 
-        resultMap.put("success",true);
-
         if (vo.getBidConfmSttusCode().equals("03")) {
             resultMap.put("message","승인되었습니다.");
         } else if (vo.getBidConfmSttusCode().equals("02")) {
             resultMap.put("message","가입 거절 처리 되었습니다.");
         }
+
+        resultMap.put("success",true);
+
         return resultMap;
     }
 }

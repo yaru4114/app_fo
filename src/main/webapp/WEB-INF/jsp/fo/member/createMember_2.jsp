@@ -150,7 +150,7 @@
 	                                <label for="foreignerZinCode">외국 업체 주소 직접 입력</label>
 	                                <span class="input-complex">
 		                                <span class="zip-code">
-		                                    <input type="text" name="foreignerZinCode" id="foreignerZinCode" placeholder="우편번호">
+		                                    <input type="tel" name="foreignerZinCode" id="foreignerZinCode" placeholder="우편번호">
 		                                </span>
 		                                <span class="input">
 		                                    <input type="text" name="foreigneradd1" id="foreigneradd1" placeholder="주소1">
@@ -331,6 +331,7 @@
 var fileList = [];
 
 $(document).ready(function(){
+    $('.t-info').hide();
 
 	$(".hidden-file").each(function(){
 		$(this).on('change',function(){
@@ -386,9 +387,7 @@ function chkInfo(form){
     // 정규표현식 필터
     var idFilter = /^[a-zA-Z](?=.*[a-zA-Z])(?=.*[0-9]).{4,12}$/g;
     var pwdFilter = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,12}$/;
-    //var mobileFilter = /^\d{3}-\d{3,4}-\d{4}$/;
     var mobileFilter = /^\d{10,11}$/;
-    //var telPhoneFilter = /^\d{2,3}-\d{3,4}-\d{4}$/;
     var telPhoneFilter = /^\d{9,11}$/;
 
     // 아이디
@@ -408,7 +407,7 @@ function chkInfo(form){
         $('#upw').focus();
         return false;
     } else if (!pwdFilter.test(form.bidMberSecretNo)) {
-        alert('비밀번호는 8~12자 까지만 가능합니다.');
+        alert('비밀번호는 8~12자 이내의 영문+숫자+특수문자만 사용 가능합니다.');
         $('#upw').focus();
         return false;
     }
@@ -478,7 +477,7 @@ function chkInfo(form){
         alert('회사 전화 번호를 입력해주세요.');
         $('#telPhone2').focus();
         return false;
-    } else if (!telPhoneFilter.test($('#telPhone2'))) {
+    } else if (!telPhoneFilter.test($('#telPhone2').val())) {
         alert('회사 전화 번호는 - 없이 9~11자리 숫자를 입력해야합니다.');
         $('#telPhone2').focus();
         return false;
@@ -522,7 +521,7 @@ function chkInfo(form){
         alert('대행 업체 전화 번호를  입력해주세요.');
         $('#vrsc_telPhone2').focus();
         return false;
-    } else if (!telPhoneFilter.test($('#vrsc_telPhone2'))) {
+    } else if (!telPhoneFilter.test($('#vrsc_telPhone2').val())) {
         alert('회사 전화 번호는 - 없이 9~11자리 숫자를 입력해야합니다.');
         $('#vrsc_telPhone2').focus();
         return false;

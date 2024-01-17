@@ -60,15 +60,15 @@
                 <div class="count-banner">
                     <div class="list list-total">
                         <span class="label">정상 회원</span>
-                        <span class="count">85</span>
+                        <span class="count"></span>
                     </div>
-                    <div class="list list-done">
+                    <div class="list list-total">
                         <span class="label">차단 회원</span>
-                        <span class="count">74</span>
+                        <span class="count"></span>
                     </div>
-                    <div class="list list-todo">
+                    <div class="list list-total">
                         <span class="label">가입승인대기</span>
-                        <span class="count">12</span>
+                        <span class="count"></span>
                     </div>
                 </div>
 
@@ -127,11 +127,18 @@
                 <div id="realgrid" class="realgrid-wrap"></div>
                 <!-- paging -->
                 <div class="paging-row">
-                    <div class="paging">
-                        <div id="paging"></div>
+                    <div class="paging wrapper">
+                        <button type="button" class="btn btn-bid-black" onclick="setPrevPage()">
+                            <
+                        </button>
+                        <span id="current-page-view"></span>
+                        /
+                        <span id="total-page-view"></span>
+                        <button type="button" class="btn btn-bid-black" onclick="setNextPage()">
+                            >
+                        </button>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -150,7 +157,7 @@
     <div class="pop-modal pop-modal2 pop-credit-confirm" id="blockModal">
         <div class="pop-inner w1000px">
             <div class="pop-title">
-                <h1 class="title" id="modalTitle">엠투엠글로벌(승인대기)</h1>
+                <h1 class="title" id="modalTitle">-</h1>
                 <div class="modal-btn-close" onclick="modalClose()">
                     <span/>
                 </div>
@@ -177,13 +184,13 @@
                                     <label for="">ID</label>
                                 </th>
                                 <td>
-                                    <input type="text" name="" id="" class="modalUserId" value="test001" class="w300px" required readonly>
+                                    <input type="text" name="modalUserId1" id="modalUserId1" class="modalUserId" class="w300px" required readonly>
                                 </td>
                                 <th scope="row">
                                     <label for="">PW</label>
                                 </th>
                                 <td>
-                                    <input type="password" name="modalUserPwd" id="modalUserPwd" value="1999-07-07" class="w300px" required
+                                    <input type="password" name="modalUserPwd" id="modalUserPwd" class="w300px" required
                                            readonly>
                                 </td>
                             </tr>
@@ -192,7 +199,7 @@
                                     <label for="">기업명</label>
                                 </th>
                                 <td>
-                                    <input type="text" name="modalEntrpsName" id="modalEntrpsName" value="엠투엠글로벌" class="w300px" required readonly>
+                                    <input type="text" name="modalEntrpsName" id="modalEntrpsName" class="w300px" required readonly>
                                 </td>
                                 <th scope="row">
                                     <label for="">외국기업유무</label>
@@ -206,13 +213,13 @@
                                     <label for="">사업자등록번호</label>
                                 </th>
                                 <td>
-                                    <input type="text" name="modalBsnmRegistNo" id="modalBsnmRegistNo" value="0123456789" class="w300px" required readonly>
+                                    <input type="text" name="modalBsnmRegistNo" id="modalBsnmRegistNo" class="w300px" required readonly>
                                 </td>
                                 <th scope="row">
                                     <label for="">아이디</label>
                                 </th>
                                 <td>
-                                    <input type="text" name="modalUserId" id="modalUserId" class="modalUserId" value="B0001" class="w300px" required readonly>
+                                    <input type="text" name="modalUserId2" id="modalUserId2" class="modalUserId" class="w300px" required readonly>
                                 </td>
                             </tr>
                             <tr>
@@ -220,14 +227,14 @@
                                     <label for="">이메일</label>
                                 </th>
                                 <td>
-                                    <input type="text" name="modalEmail" id="modalEmail" value="test01@naver.com" class="w300px" required
+                                    <input type="text" name="modalEmail" id="modalEmail" class="w300px" required
                                            readonly>
                                 </td>
                                 <th scope="row">
                                     <label for="">폰번호</label>
                                 </th>
                                 <td>
-                                    <input type="text" name="modalMobile" id="modalMobile" value="01098983434" class="w300px" required readonly>
+                                    <input type="text" name="modalMobile" id="modalMobile" class="w300px" required readonly>
                                 </td>
                             </tr>
                             </tbody>
@@ -252,13 +259,13 @@
                                     <label for="">기업명</label>
                                 </th>
                                 <td>
-                                    <input type="text" name="modalVrscEntrpsName" id="modalVrscEntrpsName" value="테스트회사" class="w300px" required readonly>
+                                    <input type="text" name="modalVrscEntrpsName" id="modalVrscEntrpsName" class="w300px" required readonly>
                                 </td>
                                 <th scope="row">
                                     <label for="">사업자등록번호</label>
                                 </th>
                                 <td>
-                                    <input type="text" name="modalVrscBsnmRegistNo" id="modalVrscBsnmRegistNo" value="02020202" class="w300px" required readonly>
+                                    <input type="text" name="modalVrscBsnmRegistNo" id="modalVrscBsnmRegistNo" class="w300px" required readonly>
                                 </td>
                             </tr>
                             <tr>
@@ -266,14 +273,14 @@
                                     <label for="">이메일</label>
                                 </th>
                                 <td>
-                                    <input type="text" name="modalVrscEmail" id="modalVrscEmail" value="dfdf@kakao.com" class="w300px" required
+                                    <input type="text" name="modalVrscEmail" id="modalVrscEmail" class="w300px" required
                                            readonly>
                                 </td>
                                 <th scope="row">
                                     <label for="">폰번호</label>
                                 </th>
                                 <td>
-                                    <input type="text" name="modalVrscMobile" id="modalVrscMobile" value="010-2222-2222" class="w300px" required readonly>
+                                    <input type="text" name="modalVrscMobile" id="modalVrscMobile" class="w300px" required readonly>
                                 </td>
                             </tr>
                             </tbody>
@@ -300,19 +307,19 @@
                                     <label for="">가입접수일</label>
                                 </th>
                                 <td>
-                                    <input type="text" name="modalConfmRequestDt" id="modalConfmRequestDt" value="2024-01-01 02:00" class="w300px" readonly>
+                                    <input type="text" name="modalConfmRequestDt" id="modalConfmRequestDt" class="w300px" readonly>
                                 </td>
                                 <th scope="row">
                                     <label for="">가입승인일</label>
                                 </th>
                                 <td>
-                                    <input type="text" name="modalConfmProcessDt" id="modalConfmProcessDt" value="2024-01-03 09:00" class="w300px" readonly>
+                                    <input type="text" name="modalConfmProcessDt" id="modalConfmProcessDt" class="w300px" readonly>
                                 </td>
                                 <th scope="row">
                                     <label for="">상태</label>
                                 </th>
                                 <td>
-                                    <input type="text" name="modalConfmSttus" id="modalConfmSttus" value="승인대기" class="w300px" readonly>
+                                    <input type="text" name="modalConfmSttus" id="modalConfmSttus" class="w300px" readonly>
                                 </td>
                             </tr>
                             </tbody>
@@ -332,6 +339,20 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+
+            start();
+            getMemberApprovalList();
+
+            // 상태별 회원 수 Count
+            var statusParam = {
+                statusCode: []
+            };
+            $('.list-total .label').each(function (index, element) {
+                statusParam.statusCode.push($(element).text().trim());
+            });
+            console.log(statusParam);
+            getCountByStatus(statusParam);
+
             // datepicker 초기화
             $('#datepicker1, #datepicker2').datepicker({
                 format: 'yyyy-mm-dd',
@@ -375,8 +396,6 @@
                 $('#datepicker1').datepicker('setDate', startDate.toDate());
                 $('#datepicker2').datepicker('setDate', endDate.toDate());
             });
-            start();
-            getMemberApprovalList();
         });
 
         /** GRID CONTROL */
@@ -390,18 +409,12 @@
             var startDate = $('#datepicker1').val();
             var endDate = $('#datepicker2').val();
 
-            // 페이징 관련
-            var currentPage = 1;
-            var pageSize = 30;
-
             var param = {
                 status: status,
                 searchType: searchType,
                 searchKeyword: searchKeyword,
                 startDate: startDate,
-                endDate: endDate,
-                currentPage: currentPage,
-                pageSize: pageSize
+                endDate: endDate
             };
 
             $.ajax({
@@ -460,6 +473,19 @@
             gridView.editOptions.insertable = true;
             gridView.editOptions.appendable = true;
 
+            // 페이징 설정
+            gridView.setPaging(true, 10);
+
+            // 페이지 변경 이벤트 핸들러 등록
+            gridView.onPageChanged = function (grid, page) {
+                $('#current-page-view').text(page + 1);
+            };
+
+            // 페이지 수 변경 이벤트 핸들러 등록
+            gridView.onPageCountChanged = function (grid, pageCount) {
+                $('#total-page-view').text(pageCount);
+            };
+
             gridView.onCellClicked = function (grid, clickData) {
                 showDetailPopup(dataProvider.getRows()[clickData.dataRow]);
             }
@@ -483,10 +509,28 @@
 
             gridView.setDataSource(dataProvider);
             gridView.setColumns(columns);
+
+            // 페이지 정보 업데이트
+            var page = gridView.getPage();
+            var pageCount = gridView.getPageCount();
+            $('#current-page-view').text(page + 1);
+            $('#total-page-view').text(pageCount);
         }
 
         function start() {
             createGrid("realgrid");
+        }
+
+        // 이전 페이지로 이동
+        function setPrevPage() {
+            var currentPage = gridView.getPage();
+            gridView.setPage(currentPage - 1);
+        }
+
+        // 다음 페이지로 이동
+        function setNextPage() {
+            var currentPage = gridView.getPage();
+            gridView.setPage(currentPage + 1);
         }
 
         /** /GRID CONTROL */
@@ -495,6 +539,7 @@
         $('#modalBtn').on('click', function () {
             showDetailPopup()
         })
+
         // Grid.Row 클릭시
         function showDetailPopup(row){
             var BidMemberVO = {
@@ -518,12 +563,12 @@
             });
         }
 
+        // 팝업에 ROW 데이터 입력
         function setModalTable(data){
 
             $("#allowBtn").show();
             $("#rejectBtn").show();
             $("#closeBtn").show();
-
 
             $('#modalTitle').text(data.entrpsNm + "(" +data.bidConfmSttusCode +")");
 
@@ -553,11 +598,12 @@
 
         }
 
+        // 승인 & 거절 버튼
         $("#allowBtn").on('click',function(){
-            submitApproval('01','03',$("#modalUserId").val());
+            submitApproval('01','03',$("#modalUserId1").val());
         });
         $("#rejectBtn").on('click',function(){
-            submitApproval('03','02',$("#modalUserId").val());
+            submitApproval('03','02',$("#modalUserId1").val());
         });
 
         // 가입 승인시 팝업
@@ -577,8 +623,6 @@
                 contentType: 'application/json',
                 success: function (response) {
                     if (response.success) {
-                        getMemberApprovalList();
-                        // $("#blockModal").hide();
                         modalClose();
                         $('.pop-toast > .pop-inner > #toastText').text(response.message);
                         $('.pop-toast').fadeIn(300);
@@ -597,8 +641,19 @@
 
         }
 
+        // 모달 닫기
         function modalClose(){
             $("#blockModal").hide();
+
+            getMemberApprovalList();
+
+            var statusParam = {
+                statusCode: []
+            };
+            $('.list-total .label').each(function (index, element) {
+                statusParam.statusCode.push($(element).text().trim());
+            });
+            getCountByStatus(statusParam);
         }
 
         /** /MODAL CONTROL */
@@ -617,6 +672,37 @@
             dataProvider = null;
         };
 
+        /* 상태별 회원 수 */
+            // 1. setter
+        function setCountByStatus(label, count) {
+            const countElements = document.querySelectorAll('.list-total .label');
+            countElements.forEach(element => {
+                if (element.textContent.includes(label)) {
+                    element.nextElementSibling.textContent = count;
+                }
+            });
+        }
+            // 2. getter
+        function getCountByStatus(stausParam) {
+            $.ajax({
+                type: 'POST',
+                url: '/bo/member/statusCnt',
+                contentType: 'application/json',
+                data: JSON.stringify(stausParam),
+                success: function (response) {
+                    for (const label in response) {
+                        if (response.hasOwnProperty(label)) {
+                            const count = response[label];
+                            setCountByStatus(label, count);
+                        }
+                    }
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        }
+        /* /상태별 회원 수 */
     </script>
 
 </div>
