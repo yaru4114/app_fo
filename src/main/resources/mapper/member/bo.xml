@@ -110,6 +110,17 @@
         FROM BD_ENTRPS_INFO_BAS
         WHERE BID_ENTRPS_NO = #{bidEntrpsNo}
     </select>
+    
+    <update id="chgMemberBlock" parameterType="com.bid.common.model.BidMemberVO">
+        UPDATE BD_ENTRPS_INFO_BAS
+        <if test="bidMberSttusCode == '정상'">
+            SET BID_MBER_STTUS_CODE = '02'
+        </if>
+        <if test="bidMberSttusCode == '차단'">
+            SET BID_MBER_STTUS_CODE = '01'
+        </if>
+        WHERE BID_ENTRPS_NO = #{bidEntrpsNo}
+    </update>
 
     <select id="getApprovalCnt" parameterType="com.bid.common.model.SearchVO" resultType="int">
         SELECT COUNT(*)

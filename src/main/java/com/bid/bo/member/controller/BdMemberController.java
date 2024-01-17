@@ -43,6 +43,12 @@ public class BdMemberController {
         return ResponseEntity.ok(bdMemberService.getMemberInfo(vo));
     }
 
+    // 입찰 회원 차단/해제
+    @PostMapping("/chgStatus")
+    public ResponseEntity<?> chgMemberBlock(@RequestBody BidMemberVO vo) {
+        return ResponseEntity.ok(bdMemberService.chgMemberBlock(vo));
+    }
+
     // 가입 승인 대기 페이지
     @GetMapping("/approvalList")
     public String approvalPage(){ return "bo/memberApprovalList"; }
