@@ -45,6 +45,14 @@ public class BdMemberService {
         return resultMap;
     }
 
+    public Map<String, Object> chgMemberBlock(BidMemberVO vo) {
+        Map<String, Object> resultMap = new HashMap<>();
+        bdMemberDAO.chgMemberBlock(vo);
+
+        resultMap.put("success", true);
+        return resultMap;
+    }
+
     public Map<String, Object>  getApprovalList(SearchVO vo) {
         int totalCnt = bdMemberDAO.getApprovalCnt(vo);
         vo.calPaging(totalCnt);

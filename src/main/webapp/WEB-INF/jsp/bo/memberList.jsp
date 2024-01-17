@@ -158,6 +158,7 @@
                         <div class="btm-btns">
                             <div class="btn-box">
                                 <button type="button" id="blockButton" class="btn">차단하기</button>
+                                <button type="button" id="releaseButton" class="btn">해제하기</button>
                                 <button type="button" id="cancelButton" class="btn btn-blue">목록</button>
                             </div>
                         </div>
@@ -376,9 +377,8 @@
             });
         });
 
-        // getMemberList 함수 정의
+        // 입찰 회원 목록 조회
         function getMemberList() {
-            // 서버에 보낼 데이터
             var status = $('.form-select').val();
             var searchType = $('.select-sm').val();
             var searchKeyword = $('.input').val();
@@ -406,15 +406,19 @@
                     console.error(error);
                 }
             });
-        };
+        }
 
         // 검색 버튼 클릭 이벤트 처리
         $('#searchBtn').on('click', function () {
             getMemberList();
         });
 
+        /* 그리드 관련 함수 */
         var httpRequest;
         var dataProvider, gridContainer, gridView;
+
+        var bidEntrpsNo; // 입찰 회원 번호
+        var bidMberSttusCode; // 회원 상태 코드
 
         function createGrid(container) {
             dataProvider = new RealGrid.LocalDataProvider();
@@ -492,12 +496,14 @@
                 const rowData = grid.getDataSource().getJsonRow(rowIndex);
                 const temp = JSON.stringify(rowData);
                 const param = JSON.parse(temp);
+                bidEntrpsNo = param.bidEntrpsNo;
+                bidMberSttusCode = param.bidMberSttusCode;
 
                 // 입찰 회원 정보 조회 호출
-                getMemberInfo(param.bidEntrpsNo);
+                getMemberInfo(bidEntrpsNo);
 
                 // 모달 생성
-                document.getElementById('detailModal').style.display = 'block';
+                $('#detailModal').show();
             };
         }
 
@@ -515,6 +521,7 @@
             gridView = null;
             dataProvider = null;
         };
+        /* 그리드 관련 함수 */
 
         // 이전 페이지로 이동
         function setPrevPage() {
@@ -528,7 +535,8 @@
             gridView.setPage(currentPage + 1);
         }
 
-        // 상태별 회원 수 조회
+        /* 상태별 회원 수 */
+            // 1. setter
         function setCountByStatus(label, count) {
             const countElements = document.querySelectorAll('.list-total .label');
             countElements.forEach(element => {
@@ -537,7 +545,7 @@
                 }
             });
         }
-
+            // 2. getter
         function getCountByStatus(stausParam) {
             $.ajax({
                 type: 'POST',
@@ -556,8 +564,10 @@
                     console.error(error);
                 }
             });
-        };
+        }
+        /* 상태별 회원 수 */
 
+        // 회원 상세 정보 조회
         function getMemberInfo(data) {
             var param = {
                 bidEntrpsNo: data
@@ -570,7 +580,6 @@
                 data: JSON.stringify(param),
                 success: function (response) {
                     var memberInfo = response.result[0];
-                    console.log('memberInfo : ', memberInfo);
 
                     // 회사 기본 정보
                     $('#bidMberId').val(memberInfo.bidMberId);
@@ -593,16 +602,63 @@
                     $('#etrConfmRequstDt').val(memberInfo.etrConfmRequstDt);
                     $('#etrConfmProcessDt').val(memberInfo.etrConfmProcessDt);
                     $('#bidMberSttusCode').val(memberInfo.bidMberSttusCode);
+                    buttonByStatus(memberInfo.bidMberSttusCode);
                 },
                 error: function (error) {
                     console.error(error);
                 }
             });
-        };
+        }
+
+        /* 차단 및 해제 관련 함수 */
+            // 상태 변경
+        function chgStatusMember(bidNo, status) {
+            var param = {
+                bidEntrpsNo: bidNo,
+                bidMberSttusCode: status
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/bo/member/chgStatus',
+                contentType: 'application/json',
+                data: JSON.stringify(param),
+                success: function (response) {
+                    console.log('chgStatusMember response ! : ', response);
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        }
+
+        $('#blockButton').on('click', function () {
+            chgStatusMember(bidEntrpsNo, bidMberSttusCode);
+            buttonByStatus('차단');
+        });
+
+        $('#releaseButton').on('click', function () {
+            chgStatusMember(bidEntrpsNo, bidMberSttusCode);
+            buttonByStatus('정상');
+        });
+
+            // 회원 상태별 버튼 상태 관리
+        function buttonByStatus(status) {
+            // 차단인 경우
+            if (status === '차단') {
+                $('#blockButton').hide();
+                $('#releaseButton').show();
+            } else {
+                $('#blockButton').show();
+                $('#releaseButton').hide();
+            }
+        }
+        /* 차단 관련 함수 */
 
         // 모달 닫기
-        document.getElementById('cancelButton').addEventListener('click', function () {
-            document.getElementById('detailModal').style.display = 'none';
+        $('#cancelButton').on('click', function () {
+            $('#detailModal').hide();
+            getMemberList();
         });
 
     </script>
