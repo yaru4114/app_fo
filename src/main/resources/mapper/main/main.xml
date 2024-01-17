@@ -9,8 +9,8 @@
 			 , BRAND_CODE				/* 브랜드 코드 */
 			 , (SELECT ITM_PRDLST_ENG FROM IT_ITM_INFO_BAS WHERE ITM_SN = BBB.ITM_SN) AS DSPY_GOODS_NM
 			 , BID_WT					/* 입찰 중량 */
-			 , BDDPR_BEGIN_DT			/* 투찰 시작 일시 */
-			 , BDDPR_END_DT				/* 투찰 종료 일시 */
+			 , BDDPR_BEGIN_DT 			/* 투찰 시작 일시 */
+			 , BDDPR_END_DT 				/* 투찰 종료 일시 */
 			 , BID_STTUS_CODE			/* 입찰 상태 코드 */
 			 , ISNULL(PARTCPTN_ENTRPS_QY,0)	AS PARTCPTN_ENTRPS_QY	/* 참여 업체 수량 */
 			 , ISNULL(INTRST_ENTRPS_QY,0)	AS INTRST_ENTRPS_QY			/* 관심 업체 수량 */
@@ -35,7 +35,12 @@
 				</if>
 			</if>
 			<if test="bidSttusCode != null and bidSttusCode != ''">
-				AND BID_STTUS_CODE = #{bidSttusCode}
+				<if test="bidSttusCode =='12' or bidSttusCode =='13'">
+					AND BID_STTUS_CODE = #{bidSttusCode}
+				</if>
+				<if test="bidSttusCode =='30'">
+					AND BID_STTUS_CODE IN ('31','32')
+				</if>
 			</if>
 			<if test="brandGroupCode != null and brandGroupCode != ''">
 				AND BRAND_GROUP_CODE = #{brandGroupCode}
@@ -65,9 +70,6 @@
 				<if test="endDate != null and endDate != ''" >
 					AND BDDPR_END_DT  <![CDATA[<]]> #{endDate} + '235959' 
 				</if>
-			</if>
-			<if test="bidSttusCode != null and bidSttusCode != ''">
-				AND BID_STTUS_CODE = #{bidSttusCode}
 			</if>
 			<if test="brandGroupCode != null and brandGroupCode != ''">
 				AND BRAND_GROUP_CODE = #{brandGroupCode}

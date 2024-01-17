@@ -364,34 +364,36 @@ $(function(){
 		var day = ('0'+today.getDate()).slice(-2);
 		
 		var d1 = new Date();
-		var d2 = dateFormat(today);
+		var d2 = year + '-' + month + '-' + day;
 		
 		switch (period){
 		case '':
-			d1 = '';
-			d2 = '';
+			$("#startDate").val('');
+			$("#endDate").val('');
 			break;
 		case '1':
-			d1.setMonth(d1.getMonth() - 1);
+			d1 = new Date(year, today.getMonth() - 1, today.getDate());
+			dateFormat(d1, d2)
 			break;
 		case '3':
-			d1.setMonth(d1.getMonth() - 3);
+			d1 = new Date(year, today.getMonth() - 3, today.getDate());
+			dateFormat(d1, d2)
 			break;
 		case '6':
-			d1.setMonth(d1.getMonth() - 6);
+			d1 = new Date(year, today.getMonth() - 6, today.getDate());
+			dateFormat(d1, d2)
 			break;
 		}
 		
-		d1 = dateFormat(d1);
-		$("#startDate").val(d1);
-		$("#endDate").val(d2);
 	}
 	
-	function dateFormat(date){
-		var year = date.getFullYear();
-		var month = ('0'+ (date.getMonth() + 1)).slice(-2);
-		var day = ('0'+date.getDate()).slice(-2);
-		return year +'-'+ month +'-'+ day;
+	function dateFormat(d1, d2){
+		var year = d1.getFullYear();
+		var month = ('0'+ (d1.getMonth() + 1)).slice(-2);
+		var day = ('0'+d1.getDate()).slice(-2);
+		d1 = year + '-' + month + '-' + day;
+		$('#startDate').val(d1);
+		$('#endDate').val(d2);
 	}
 	
 	
@@ -514,23 +516,21 @@ $(function(){
 				html += '           <span class="bid-d-day abs-info">';
 				html += '       		투찰 마감까지 <span class="time">- 3일 3시간 20분 36초</span>';
 				html += '       	</span>';
-			}else if(res.bidList[i].bidSttusCode == '30' ){
+			}else if(res.bidList[i].bidSttusCode == '30' || res.bidList[i].bidSttusCode == '31' || res.bidList[i].bidSttusCode == '32' ){
 				html += '           <div class="btns">';
 				html += '               <a href="javascript:;" class="btn-bid-black">마감</a>';
 				html += '           </div>';
-				html += '           <span class="t-info abs-info">기한마감</span>';
-			}else if(res.bidList[i].bidSttusCode == '32' ){
-				html += '           <div class="btns">';
-				html += '               <a href="javascript:;" class="btn-bid-black">마감</a>';
-				html += '           </div>';
-				html += '           <span class="t-info abs-info">유찰공고</span>';
+				if(res.bidList[i].bidSttusCode == '30' ){
+					html += '           <span class="t-info abs-info">기한마감</span>';
+				}else if(res.bidList[i].bidSttusCode == '32' ){
+					html += '           <span class="t-info abs-info">유찰공고</span>';
+				}
 			}
 			html += '       </div>';
 			html += '   </li>';
-			
-			$("#bdDiv").append(html)	
+				
 		}
-		
+		$("#bdDiv").append(html)
 		
     
 		if(res.bidList.length == 0){	

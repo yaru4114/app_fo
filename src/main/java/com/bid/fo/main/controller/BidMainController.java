@@ -59,12 +59,12 @@ public class BidMainController {
 				exceptCnt += vo.getBidSttusCnt();
 			}else if(vo.getBidSttusCode().equals("13")) {
 				bddprCnt += vo.getBidSttusCnt();
-			}else if(vo.getBidSttusCode().equals("30")) {
+			}else if(vo.getBidSttusCode().equals("30")||vo.getBidSttusCode().equals("31")||vo.getBidSttusCode().equals("32")) {
 				endCnt += vo.getBidSttusCnt();
 			}
 			totalCnt += vo.getBidSttusCnt();
 		}
-		
+		log.info("data : {}",totalCnt);
 		map.put("bidList", bidList);
 		map.put("totalCnt", totalCnt);
 		map.put("exceptCnt", exceptCnt);
