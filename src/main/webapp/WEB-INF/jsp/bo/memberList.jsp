@@ -55,11 +55,6 @@
         <div class="main-content">
             <div class="inner">
                 <h1>입찰 회원 관리</h1>
-                <div class="btm-btns">
-                    <div class="btn-box">
-                        <button type="button" id="blockButton" class="btn">모달 테스트</button>
-                    </div>
-                </div>
                 <div class="count-banner">
                     <div class="list list-total">
                         <span class="label">정상 회원</span>
@@ -148,10 +143,11 @@
         </div>
     </section>
 </div>
-<div class="pop-modal pop-modal2 pop-credit-confirm" id="blockModal">
-    <div class="pop-inner w1400px">
+<div class="pop-modal pop-modal2 pop-credit-confirm" id="detailModal">
+    <div class="pop-inner w1000px">
         <div class="pop-title">
-            <h1 class="title">회원관리 > 엠투엠글로벌</h1>
+            <h1 class="title">회원관리 ></h1>
+            <h1 class="title" id="companyNm"></h1>
         </div>
         <table class="bo-tbl-kyc">
             <caption>회원 목록 상세</caption>
@@ -162,6 +158,7 @@
                         <div class="btm-btns">
                             <div class="btn-box">
                                 <button type="button" id="blockButton" class="btn">차단하기</button>
+                                <button type="button" id="releaseButton" class="btn">해제하기</button>
                                 <button type="button" id="cancelButton" class="btn btn-blue">목록</button>
                             </div>
                         </div>
@@ -180,14 +177,13 @@
                                 <label for="">ID</label>
                             </th>
                             <td>
-                                <input type="text" name="" id="" value="test001" class="w300px" required readonly>
+                                <input type="text" id="bidMberId" value="" class="w300px" required readonly>
                             </td>
                             <th scope="row">
                                 <label for="">PW</label>
                             </th>
                             <td>
-                                <input type="password" name="" id="" value="1999-07-07" class="w300px" required
-                                       readonly>
+                                <input type="password" id="bidMberSecretNo" value="" class="w300px" required readonly>
                             </td>
                         </tr>
                         <tr>
@@ -195,13 +191,13 @@
                                 <label for="">기업명</label>
                             </th>
                             <td>
-                                <input type="text" name="" id="" value="엠투엠글로벌" class="w300px" required readonly>
+                                <input type="text" id="entrpsNm" value="" class="w300px" required readonly>
                             </td>
                             <th scope="row">
                                 <label for="">외국기업유무</label>
                             </th>
                             <td>
-                                <input type="text" name="" id="" value="-" class="w300px" required readonly>
+                                <input type="text" id="frntnEntrpsAt" value="" class="w300px" required readonly>
                             </td>
                         </tr>
                         <tr>
@@ -209,13 +205,13 @@
                                 <label for="">사업자등록번호</label>
                             </th>
                             <td>
-                                <input type="text" name="" id="" value="0123456789" class="w300px" required readonly>
+                                <input type="text" id="bsnmRegistNo" value="" class="w300px" required readonly>
                             </td>
                             <th scope="row">
                                 <label for="">아이디</label>
                             </th>
                             <td>
-                                <input type="text" name="" id="" value="B0001" class="w300px" required readonly>
+                                <input type="text" id="bidEntrpsNo" value="" class="w300px" required readonly>
                             </td>
                         </tr>
                         <tr>
@@ -223,14 +219,13 @@
                                 <label for="">이메일</label>
                             </th>
                             <td>
-                                <input type="text" name="" id="" value="test01@naver.com" class="w300px" required
-                                       readonly>
+                                <input type="text" id="bidMberEmail" value="" class="w300px" required readonly>
                             </td>
                             <th scope="row">
                                 <label for="">폰번호</label>
                             </th>
                             <td>
-                                <input type="text" name="" id="" value="01098983434" class="w300px" required readonly>
+                                <input type="text" id="moblphonNo2" value="" class="w300px" required readonly>
                             </td>
                         </tr>
                         </tbody>
@@ -255,13 +250,13 @@
                                 <label for="">기업명</label>
                             </th>
                             <td>
-                                <input type="text" name="" id="" value="테스트회사" class="w300px" required readonly>
+                                <input type="text" id="vrscEntrpsNm" value="" class="w300px" required readonly>
                             </td>
                             <th scope="row">
                                 <label for="">사업자등록번호</label>
                             </th>
                             <td>
-                                <input type="text" name="" id="" value="02020202" class="w300px" required readonly>
+                                <input type="text" id="vrscBsnmRegistNo" value="" class="w300px" required readonly>
                             </td>
                         </tr>
                         <tr>
@@ -269,14 +264,14 @@
                                 <label for="">이메일</label>
                             </th>
                             <td>
-                                <input type="text" name="" id="" value="dfdf@kakao.com" class="w300px" required
+                                <input type="text" id="vrscBidMberEmail" value="" class="w300px" required
                                        readonly>
                             </td>
                             <th scope="row">
                                 <label for="">폰번호</label>
                             </th>
                             <td>
-                                <input type="text" name="" id="" value="010-2222-2222" class="w300px" required readonly>
+                                <input type="text" id="vrscMoblphonNo" value="" class="w300px" required readonly>
                             </td>
                         </tr>
                         </tbody>
@@ -303,19 +298,19 @@
                                 <label for="">가입접수일</label>
                             </th>
                             <td>
-                                <input type="text" name="" id="" value="2024-01-01 02:00" class="w300px" readonly>
+                                <input type="text" id="etrConfmRequstDt" value="" class="w300px" readonly>
                             </td>
                             <th scope="row">
                                 <label for="">가입승인일</label>
                             </th>
                             <td>
-                                <input type="text" name="" id="" value="2024-01-03 09:00" class="w300px" readonly>
+                                <input type="text" id="etrConfmProcessDt" value="" class="w300px" readonly>
                             </td>
                             <th scope="row">
                                 <label for="">상태</label>
                             </th>
                             <td>
-                                <input type="text" name="" id="" value="정상" class="w300px" readonly>
+                                <input type="text" id="bidMberSttusCode" value="" class="w300px" readonly>
                             </td>
                         </tr>
                         </tbody>
@@ -382,9 +377,8 @@
             });
         });
 
-        // getMemberList 함수 정의
+        // 입찰 회원 목록 조회
         function getMemberList() {
-            // 서버에 보낼 데이터
             var status = $('.form-select').val();
             var searchType = $('.select-sm').val();
             var searchKeyword = $('.input').val();
@@ -412,15 +406,19 @@
                     console.error(error);
                 }
             });
-        };
+        }
 
         // 검색 버튼 클릭 이벤트 처리
         $('#searchBtn').on('click', function () {
             getMemberList();
         });
 
+        /* 그리드 관련 함수 */
         var httpRequest;
         var dataProvider, gridContainer, gridView;
+
+        var bidEntrpsNo; // 입찰 회원 번호
+        var bidMberSttusCode; // 회원 상태 코드
 
         function createGrid(container) {
             dataProvider = new RealGrid.LocalDataProvider();
@@ -485,11 +483,28 @@
             gridView.setDataSource(dataProvider);
             gridView.setColumns(columns);
 
+            gridView.columnByName("bidEntrpsNo").visible =  false;
+
             // 페이지 정보 업데이트
             var page = gridView.getPage();
             var pageCount = gridView.getPageCount();
             $('#current-page-view').text(page + 1);
             $('#total-page-view').text(pageCount);
+
+            gridView.onCellClicked = function (grid, clickData) {
+                const rowIndex = clickData.itemIndex;
+                const rowData = grid.getDataSource().getJsonRow(rowIndex);
+                const temp = JSON.stringify(rowData);
+                const param = JSON.parse(temp);
+                bidEntrpsNo = param.bidEntrpsNo;
+                bidMberSttusCode = param.bidMberSttusCode;
+
+                // 입찰 회원 정보 조회 호출
+                getMemberInfo(bidEntrpsNo);
+
+                // 모달 생성
+                $('#detailModal').show();
+            };
         }
 
         function start() {
@@ -506,6 +521,7 @@
             gridView = null;
             dataProvider = null;
         };
+        /* 그리드 관련 함수 */
 
         // 이전 페이지로 이동
         function setPrevPage() {
@@ -519,7 +535,8 @@
             gridView.setPage(currentPage + 1);
         }
 
-        // 상태별 회원 수 조회
+        /* 상태별 회원 수 */
+            // 1. setter
         function setCountByStatus(label, count) {
             const countElements = document.querySelectorAll('.list-total .label');
             countElements.forEach(element => {
@@ -528,7 +545,7 @@
                 }
             });
         }
-
+            // 2. getter
         function getCountByStatus(stausParam) {
             $.ajax({
                 type: 'POST',
@@ -547,27 +564,104 @@
                     console.error(error);
                 }
             });
-        };
+        }
+        /* 상태별 회원 수 */
 
-        // 차단하기 버튼 클릭 이벤트
-        document.getElementById('blockButton').addEventListener('click', function () {
-            // 모달 보이게 설정
-            document.getElementById('blockModal').style.display = 'block';
+        // 회원 상세 정보 조회
+        function getMemberInfo(data) {
+            var param = {
+                bidEntrpsNo: data
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/bo/member/detail',
+                contentType: 'application/json',
+                data: JSON.stringify(param),
+                success: function (response) {
+                    var memberInfo = response.result[0];
+
+                    // 회사 기본 정보
+                    $('#bidMberId').val(memberInfo.bidMberId);
+                    $('#bidMberSecretNo').val(memberInfo.bidMberSecretNo);
+                    $('#entrpsNm').val(memberInfo.entrpsNm);
+                    $('#companyNm').text(memberInfo.entrpsNm);
+                    $('#frntnEntrpsAt').val(memberInfo.frntnEntrpsAt);
+                    $('#bsnmRegistNo').val(memberInfo.bsnmRegistNo);
+                    $('#bidEntrpsNo').val(memberInfo.bidEntrpsNo);
+                    $('#bidMberEmail').val(memberInfo.bidMberEmail);
+                    $('#moblphonNo2').val(memberInfo.moblphonNo2);
+
+                    // 입찰 대리 정보
+                    $('#vrscEntrpsNm').val(memberInfo.vrscEntrpsNm);
+                    $('#vrscBsnmRegistNo').val(memberInfo.vrscBsnmRegistNo);
+                    $('#vrscBidMberEmail').val(memberInfo.vrscBidMberEmail);
+                    $('#vrscMoblphonNo').val(memberInfo.vrscMoblphonNo);
+
+                    // 가입 날짜
+                    $('#etrConfmRequstDt').val(memberInfo.etrConfmRequstDt);
+                    $('#etrConfmProcessDt').val(memberInfo.etrConfmProcessDt);
+                    $('#bidMberSttusCode').val(memberInfo.bidMberSttusCode);
+                    buttonByStatus(memberInfo.bidMberSttusCode);
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        }
+
+        /* 차단 및 해제 관련 함수 */
+            // 상태 변경
+        function chgStatusMember(bidNo, status) {
+            var param = {
+                bidEntrpsNo: bidNo,
+                bidMberSttusCode: status
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/bo/member/chgStatus',
+                contentType: 'application/json',
+                data: JSON.stringify(param),
+                success: function (response) {
+                    console.log('chgStatusMember response ! : ', response);
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        }
+
+        $('#blockButton').on('click', function () {
+            chgStatusMember(bidEntrpsNo, bidMberSttusCode);
+            buttonByStatus('차단');
         });
 
-        // 취소 버튼 클릭 이벤트
-        document.getElementById('cancelButton').addEventListener('click', function () {
-            // 모달 숨기게 설정
-            document.getElementById('blockModal').style.display = 'none';
+        $('#releaseButton').on('click', function () {
+            chgStatusMember(bidEntrpsNo, bidMberSttusCode);
+            buttonByStatus('정상');
         });
 
-        // 승인하기 버튼 클릭 이벤트
-        document.getElementById('approveButton').addEventListener('click', function () {
-            // 모달 숨기게 설정
-            document.getElementById('blockModal').style.display = 'none';
-            // 승인 로직 추가
+            // 회원 상태별 버튼 상태 관리
+        function buttonByStatus(status) {
+            // 차단인 경우
+            if (status === '차단') {
+                $('#blockButton').hide();
+                $('#releaseButton').show();
+            } else {
+                $('#blockButton').show();
+                $('#releaseButton').hide();
+            }
+        }
+        /* 차단 관련 함수 */
+
+        // 모달 닫기
+        $('#cancelButton').on('click', function () {
+            $('#detailModal').hide();
+            getMemberList();
         });
 
     </script>
+</div>
 </body>
 </html>

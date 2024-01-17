@@ -11,6 +11,8 @@ import java.util.Map;
 public interface BdMemberDAO {
     public List<BidMemberVO> getMemberList(SearchVO vo);
     public int getMemberStatusCnt(String statusCode);
+    public List<BidMemberVO> getMemberInfo(BidMemberVO vo);
+    public void chgMemberBlock(BidMemberVO vo);
     public int getApprovalCnt(SearchVO vo);
     public List<BidMemberVO> getApprovalList(SearchVO vo);
     public BidMemberVO searchById(String bidMberId);

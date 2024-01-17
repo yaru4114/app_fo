@@ -6,6 +6,10 @@ var fields = [
         dataType: "text"
     },
     {
+        fieldName: "bidEntrpsNo",
+        dataType: "text"
+    },
+    {
         fieldName: "entrpsNm",
         dataType: "text",
     },
@@ -63,6 +67,14 @@ var columns = [
         width: "94",
         header: {
             text: "순번"
+        }
+    },
+    {
+        name: "bidEntrpsNo",
+        fieldName: "bidEntrpsNo",
+        width: "94",
+        header: {
+            text: "BidNo"
         }
     },
     {

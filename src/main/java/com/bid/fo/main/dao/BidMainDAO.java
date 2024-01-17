@@ -1,8 +1,17 @@
 package com.bid.fo.main.dao;
 
-import org.springframework.stereotype.Repository;
+import java.util.List;
 
-@Repository
-public class BidMainDAO {
+import org.apache.ibatis.annotations.Mapper;
 
+import com.bid.fo.main.model.MainVO;
+
+@Mapper
+public interface BidMainDAO {
+	
+	List<MainVO> selectBidList(MainVO mainVO);
+
+	List<MainVO> selectBidListCnt(MainVO mainVO);
+	
+	List<MainVO> selectBidTabCnt(MainVO mainVO);
 }
