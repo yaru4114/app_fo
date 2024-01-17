@@ -13,4 +13,6 @@ public interface BdMemberDAO {
     public int getMemberStatusCnt(String statusCode);
     public int getApprovalCnt(SearchVO vo);
     public List<BidMemberVO> getApprovalList(SearchVO vo);
+    public BidMemberVO searchById(String bidMberId);
+    public void udtApproval(BidMemberVO vo);
 }

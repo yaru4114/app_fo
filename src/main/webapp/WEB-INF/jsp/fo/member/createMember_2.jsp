@@ -596,7 +596,6 @@ $('#submitBtn').on('click',function(){
         contentType: false,
         data : formData,
         success : function (response) {
-            console.log(response);
             if (response.success) {
                 location.href="/fo/member/create_3";
             }

@@ -52,4 +52,28 @@ public class BdMemberService {
 
         return resultMap;
     }
+
+    public Map<String, Object> searchById(String bidMberId) {
+        Map<String, Object> resultMap = new HashMap<>();
+
+        resultMap.put("result",bdMemberDAO.searchById(bidMberId));
+        resultMap.put("success",true);
+
+        return resultMap;
+    }
+
+    public Map<String, Object> udtApproval(BidMemberVO vo) {
+        Map<String, Object> resultMap = new HashMap<>();
+
+        bdMemberDAO.udtApproval(vo);
+
+        resultMap.put("success",true);
+
+        if (vo.getBidConfmSttusCode().equals("03")) {
+            resultMap.put("message","승인되었습니다.");
+        } else if (vo.getBidConfmSttusCode().equals("02")) {
+            resultMap.put("message","가입 거절 처리 되었습니다.");
+        }
+        return resultMap;
+    }
 }

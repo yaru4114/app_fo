@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="/bo/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
     <link rel="stylesheet" type="text/css" href="/bo/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
     <link rel="stylesheet" type="text/css" href="/bo/guide/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/guide/css/sorin-pop.css" />
 
     <script type="text/javascript" src="/bo/guide/js/jquery-3.6.0.js"></script>
     <!-- realGrid -->
@@ -135,6 +136,202 @@
             </div>
         </div>
     </section>
+
+    <!-- toast popup layout-->
+    <div class="pop-modal pop-toast">
+        <div class="pop-inner">
+            <p id="toastText">
+                승인되었습니다.​
+            </p>
+        </div>
+    </div>
+    <!-- //toast popup layout-->
+
+    <!-- Grid-Row 클릭 시 승인 팝업 -->
+    <div class="pop-modal pop-modal2 pop-credit-confirm" id="blockModal">
+        <div class="pop-inner w1400px">
+            <!-- 팝업 종료버튼 CSS 수정 필요 -->
+            <div class="btn-pop-close">
+                <span class="" onclick="modalClose()"><img src="/guide/images/btn-x.png"></span>
+            </div>
+            <div class="pop-title">
+                <h1 class="title" id="modalTitle">엠투엠글로벌(승인대기)</h1>
+            </div>
+
+            <table class="bo-tbl-kyc">
+                <caption>회원 목록 상세</caption>
+                <div class="table-wrap">
+                    <section class="bo-section">
+                        <div class="sub-title">
+                            <h3 class=""> 회사 기본 정보</h3>
+                        </div>
+                        <table class="bo-tbl-kyc">
+                            <caption> 회사 기본 정보</caption>
+                            <colgroup>
+                                <col style="width: 120px"/>
+                                <col width="*"/>
+                                <col style="width: 120px"/>
+                                <col width="*"/>
+                            </colgroup>
+                            <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <label for="">ID</label>
+                                </th>
+                                <td>
+                                    <input type="text" name="" id="" class="modalUserId" value="test001" class="w300px" required readonly>
+                                </td>
+                                <th scope="row">
+                                    <label for="">PW</label>
+                                </th>
+                                <td>
+                                    <input type="password" name="modalUserPwd" id="modalUserPwd" value="1999-07-07" class="w300px" required
+                                           readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="">기업명</label>
+                                </th>
+                                <td>
+                                    <input type="text" name="modalEntrpsName" id="modalEntrpsName" value="엠투엠글로벌" class="w300px" required readonly>
+                                </td>
+                                <th scope="row">
+                                    <label for="">외국기업유무</label>
+                                </th>
+                                <td>
+                                    <input type="text" name="modalFrntnAt" id="modalFrntnAt" value="-" class="w300px" required readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="">사업자등록번호</label>
+                                </th>
+                                <td>
+                                    <input type="text" name="modalBsnmRegistNo" id="modalBsnmRegistNo" value="0123456789" class="w300px" required readonly>
+                                </td>
+                                <th scope="row">
+                                    <label for="">아이디</label>
+                                </th>
+                                <td>
+                                    <input type="text" name="modalUserId" id="modalUserId" class="modalUserId" value="B0001" class="w300px" required readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="">이메일</label>
+                                </th>
+                                <td>
+                                    <input type="text" name="modalEmail" id="modalEmail" value="test01@naver.com" class="w300px" required
+                                           readonly>
+                                </td>
+                                <th scope="row">
+                                    <label for="">폰번호</label>
+                                </th>
+                                <td>
+                                    <input type="text" name="modalMobile" id="modalMobile" value="01098983434" class="w300px" required readonly>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section class="bo-section">
+                        <div class="sub-title">
+                            <h3 class="">입찰 대리 정보</h3>
+                        </div>
+                        <table class="bo-tbl-kyc">
+                            <caption>입찰 대리 정보</caption>
+                            <colgroup>
+                                <col style="width: 120px"/>
+                                <col/>
+                                <col style="width: 120px"/>
+                                <col/>
+                            </colgroup>
+                            <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <label for="">기업명</label>
+                                </th>
+                                <td>
+                                    <input type="text" name="modalVrscEntrpsName" id="modalVrscEntrpsName" value="테스트회사" class="w300px" required readonly>
+                                </td>
+                                <th scope="row">
+                                    <label for="">사업자등록번호</label>
+                                </th>
+                                <td>
+                                    <input type="text" name="modalVrscBsnmRegistNo" id="modalVrscBsnmRegistNo" value="02020202" class="w300px" required readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <label for="">이메일</label>
+                                </th>
+                                <td>
+                                    <input type="text" name="modalVrscEmail" id="modalVrscEmail" value="dfdf@kakao.com" class="w300px" required
+                                           readonly>
+                                </td>
+                                <th scope="row">
+                                    <label for="">폰번호</label>
+                                </th>
+                                <td>
+                                    <input type="text" name="modalVrscMobile" id="modalVrscMobile" value="010-2222-2222" class="w300px" required readonly>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section class="bo-section">
+                        <div class="sub-title">
+                            <h3 class="">가입 승인 요청</h3>
+                        </div>
+                        <table class="bo-tbl-kyc">
+                            <caption>가입 승인 요청</caption>
+                            <colgroup>
+                                <col style="width: 120px"/>
+                                <col/>
+                                <col style="width: 90px"/>
+                                <col/>
+                                <col style="width: 90px"/>
+                                <col/>
+                            </colgroup>
+                            <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <label for="">가입접수일</label>
+                                </th>
+                                <td>
+                                    <input type="text" name="modalConfmRequestDt" id="modalConfmRequestDt" value="2024-01-01 02:00" class="w300px" readonly>
+                                </td>
+                                <th scope="row">
+                                    <label for="">가입승인일</label>
+                                </th>
+                                <td>
+                                    <input type="text" name="modalConfmProcessDt" id="modalConfmProcessDt" value="2024-01-03 09:00" class="w300px" readonly>
+                                </td>
+                                <th scope="row">
+                                    <label for="">상태</label>
+                                </th>
+                                <td>
+                                    <input type="text" name="modalConfmSttus" id="modalConfmSttus" value="승인대기" class="w300px" readonly>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <div class="btm-btns">
+                        <div class="btn-box">
+                            <button type="button" id="closeBtn" class="btn" onclick="modalClose()">확인</button>
+                            <button type="button" id="allowBtn" class="btn">가입 승인</button>
+                            <button type="button" id="rejectBtn" class="btn">가입 거절</button>
+                        </div>
+                    </div>
+                </div>
+            </table>
+        </div>
+    <!-- //승인버튼 클릭 시 최종 승인 팝업  -->
+
     <script type="text/javascript">
         $(document).ready(function () {
             // datepicker 초기화
@@ -183,6 +380,8 @@
             start();
             getMemberApprovalList();
         });
+
+        /** GRID CONTROL */
 
         // 🛠️ getMemberApprovalList 함수 정의
         function getMemberApprovalList() {
@@ -250,16 +449,22 @@
             gridView.setRowIndicator({
                 visible: false
             });
+
             gridView.setDisplayOptions({
                 showEmptyMessage: true,
-                emptyMessage: "입찰 회원이 존재하지 않습니다."
+                emptyMessage: "승인 대기 회원이 존재하지 않습니다."
             });
             gridView.displayOptions.fitStyle = "even";
+            gridView.displayOptions.selectionStyle = "rows";
             gridView.setDataSource(dataProvider);
             gridView.setColumns(columns);
 
             gridView.editOptions.insertable = true;
             gridView.editOptions.appendable = true;
+
+            gridView.onCellClicked = function (grid, clickData) {
+                showDetailPopup(dataProvider.getRows()[clickData.dataRow]);
+            }
         }
 
         function drawRealGrid(data) {
@@ -286,6 +491,120 @@
             createGrid("realgrid");
         }
 
+        /** /GRID CONTROL */
+
+        /** MODAL CONTROL */
+        $('#modalBtn').on('click', function () {
+            showDetailPopup()
+        })
+        // Grid.Row 클릭시
+        function showDetailPopup(row){
+            var BidMemberVO = {
+                bidMberId: row[2] // ID
+            }
+            // ID 참조 데이터 검색
+            $.ajax({
+                type: "POST",
+                url: "/bo/member/searchById",
+                contentType: 'application/json',
+                data: JSON.stringify(BidMemberVO),
+                success: function (response) {
+                    if(response.success){
+                        setModalTable(response.result);
+                        $("#blockModal").show();
+                    }
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+
+        function setModalTable(data){
+
+            $("#allowBtn").show();
+            $("#rejectBtn").show();
+            $("#closeBtn").show();
+
+
+            $('#modalTitle').text(data.entrpsNm + "(" +data.bidConfmSttusCode +")");
+
+            $('.modalUserId').val(data.bidMberId);
+            $('#modalUserPwd').val(data.bidMberSecretNo);
+            $('#modalEntrpsName').val(data.entrpsNm);
+            $('#modalFrntnAt').val(data.frntnEntrpsAt);
+            $('#modalBsnmRegistNo').val(data.bsnmRegistNo);
+            $('#modalEmail').val(data.bidMberEmail);
+            $('#modalMobile').val(data.moblphonNo2);
+
+            $('#modalVrscEntrpsName').val(data.vrscEntrpsNm);
+            $('#modalVrscBsnmRegistNo').val(data.vrscBsnmRegistNo);
+            $('#modalVrscEmail').val(data.vrscBidMberEmail);
+            $('#modalVrscMobile').val(data.vrscMoblphonNo);
+
+            $('#modalConfmRequestDt').val(data.etrConfmRequstDt);
+            $('#modalConfmProcessDt').val(data.etrConfmProcessDt);
+            $('#modalConfmSttus').val(data.bidConfmSttusCode);
+
+            if (data.bidConfmSttusCode === '승인거절') {
+                $("#allowBtn").hide();
+                $("#rejectBtn").hide();
+            } else {
+                $("#closeBtn").hide();
+            }
+
+        }
+
+        $("#allowBtn").on('click',function(){
+            submitApproval('01','03',$("#modalUserId").val());
+        });
+        $("#rejectBtn").on('click',function(){
+            submitApproval('03','02',$("#modalUserId").val());
+        });
+
+        // 가입 승인시 팝업
+        function submitApproval(memberStatus,confirmStatus,userId){
+            var rowData = {
+                bidMberId: userId,
+                bidMberSttusCode: memberStatus,
+                bidConfmSttusCode: confirmStatus
+            }
+
+            var text = "";
+
+            $.ajax({
+                type: 'POST',
+                url: '/bo/member/udtApproval',
+                data: JSON.stringify(rowData),
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.success) {
+                        getMemberApprovalList();
+                        // $("#blockModal").hide();
+                        modalClose();
+                        $('.pop-toast > .pop-inner > #toastText').text(response.message);
+                        $('.pop-toast').fadeIn(300);
+                        setTimeout(function(){
+                             $('.pop-toast').fadeOut(300);
+                        },2000);
+                    } else {
+                        alert("잘못된 접근입니다.");
+                    }
+                },
+                error: function(error) {
+                    console.log(error);
+                    alert("서버 에러");
+                }
+            });
+
+        }
+
+        function modalClose(){
+            $("#blockModal").hide();
+        }
+
+        /** /MODAL CONTROL */
+
         // $.document.ready(start);
         window.onload = start;
         // domloaded를 대신 써도 됩니다.
@@ -299,6 +618,7 @@
             gridView = null;
             dataProvider = null;
         };
+
     </script>
 
 </div>

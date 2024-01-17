@@ -127,6 +127,7 @@
             BD_ENTRPS_INFO_BAS AS a
         WHERE
             1 = 1
+            AND DELETE_AT = 'N'
             AND BID_CONFM_STTUS_CODE IN ('01','02')
         <if test="status != null and status != ''">
             AND BID_CONFM_STTUS_CODE = #{status}
@@ -147,4 +148,53 @@
             AND ETR_CONFM_REQUST_DT BETWEEN #{startDate} AND #{endDate}
         </if>
     </select>
+    
+    <select id="searchById" parameterType="string" resultType="com.bid.common.model.BidMemberVO">
+        SELECT
+        -- 업체
+            BID_ENTRPS_NO,
+            BID_MBER_SECRET_NO,
+            ENTRPS_NM,
+            FRNTN_ENTRPS_AT,
+            BSNM_REGIST_NO,
+            BID_MBER_ID,
+            BID_MBER_EMAIL,
+            MOBLPHON_NO2,
+        -- 대행
+        VRSC_ENTRPS_NM,
+        VRSC_BSNM_REGIST_NO,
+        VRSC_BID_MBER_EMAIL,
+        VRSC_MOBLPHON_NO,
+        -- 요청상태
+        ETR_CONFM_REQUST_DT,
+        ETR_CONFM_PROCESS_DT,
+        (
+        CASE
+            WHEN BID_CONFM_STTUS_CODE = '01' THEN '승인대기'
+            WHEN BID_CONFM_STTUS_CODE = '02' THEN '승인거절'
+            WHEN BID_CONFM_STTUS_CODE = '03' THEN '승인정상'
+        END
+        ) AS BID_CONFM_STTUS_CODE
+        FROM
+            BD_ENTRPS_INFO_BAS
+        WHERE
+            BID_MBER_ID = #{bidMberId}
+            AND DELETE_AT = 'N'
+    </select>
+
+    <update id="udtApproval" parameterType="com.bid.common.model.BidMemberVO">
+        UPDATE
+            BD_ENTRPS_INFO_BAS
+        SET
+            BID_CONFM_STTUS_CODE = #{bidConfmSttusCode},
+            BID_MBER_STTUS_CODE = #{bidMberSttusCode}
+        <if test="bidConfmSttusCode eq '03'">
+            ,
+            ETR_CONFM_PROCESS_DT = getDate()
+        </if>
+        WHERE
+            BID_MBER_ID = #{bidMberId}
+            AND DELETE_AT = 'N'
+    </update>
+
 </mapper>

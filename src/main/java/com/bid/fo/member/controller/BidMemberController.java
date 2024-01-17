@@ -93,6 +93,7 @@ public class BidMemberController {
         Map<String,Object> resultMap = memberService.login(vo);
         if ((boolean)resultMap.get("success")) {
             session.setAttribute("loginUser",resultMap.get("loginUser"));
+            session.setMaxInactiveInterval(60*60);
         }
         return ResponseEntity.ok(resultMap);
     }

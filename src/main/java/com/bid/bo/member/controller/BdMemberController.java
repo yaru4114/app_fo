@@ -1,15 +1,13 @@
 package com.bid.bo.member.controller;
 
 import com.bid.bo.member.service.BdMemberService;
+import com.bid.common.model.BidMemberVO;
 import com.bid.common.model.SearchVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @Slf4j
@@ -47,5 +45,19 @@ public class BdMemberController {
     public ResponseEntity<?> getApprovalList(@RequestBody SearchVO vo){
         log.info("회원 목록 param : {}", vo);
         return ResponseEntity.ok(bdMemberService.getApprovalList(vo));
+    }
+
+    // 아이디로 회원 정보 검색
+    @PostMapping("/searchById")
+    public ResponseEntity<?> searchById(@RequestBody BidMemberVO vo) {
+        log.info("ID param : {}", vo.getBidMberId());
+        return ResponseEntity.ok(bdMemberService.searchById(vo.getBidMberId()));
+    }
+
+    // 가입 승인 처리
+    @PostMapping("/udtApproval")
+    public ResponseEntity<?> udtApproval(@RequestBody BidMemberVO vo){
+        log.info("상태 변경 param : {}", vo);
+        return ResponseEntity.ok(bdMemberService.udtApproval(vo));
     }
 }
