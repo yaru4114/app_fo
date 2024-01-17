@@ -26,8 +26,13 @@
            , ISNULL(SUM(CASE WHEN BID_STTUS_CODE = '32' THEN 1 ELSE 0 END),0) AS BDNG_PSTPN_CNT
            , ISNULL(COUNT(BID_PBLANC_ID) , 0) AS BDNG_ALL_CNT
        FROM BD_BID_BAS
-      WHERE FRST_REGIST_DT >= CONVERT( DATE , #{startDate})
+      WHERE 1=1
+      <if test='startDate != null and startDate != ""'>
+        AND FRST_REGIST_DT >= CONVERT( DATE , #{startDate})
+      </if>
+      <if test='endDate != null and endDate != ""'>
         AND FRST_REGIST_DT <![CDATA[ <= ]]> DATEADD( DAY , 1 , CONVERT(DATE , #{endDate}))
+      </if>
   </select>
 
   <!-- 입찰상태코드별 공고 리스트 조회 -->
@@ -67,8 +72,13 @@
                     WHERE A.BID_PBLANC_ID = B.BID_PBLANC_ID
                       AND ISNULL(B.DELETE_AT , 'N') = 'N'), 0) as LWST_PRPRC -- AS 최저프리미엄
       FROM BD_BID_BAS A
-     WHERE FRST_REGIST_DT >= CONVERT( DATE , #{startDate})
+     WHERE 1=1
+      <if test='startDate != null and startDate != ""'>
+       AND FRST_REGIST_DT >= CONVERT( DATE , #{startDate})
+      </if>
+      <if test='endDate != null and endDate != ""'>
        AND FRST_REGIST_DT <![CDATA[ <= ]]> DATEADD( DAY , 1 , CONVERT(DATE , #{endDate}))
+      </if>
       <if test='bidSttusCode != null and bidSttusCode != ""'>
        AND BID_STTUS_CODE = #{bidSttusCode}
       </if>

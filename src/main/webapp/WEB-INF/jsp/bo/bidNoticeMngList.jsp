@@ -8,11 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" type="text/css"
-          href="/bo/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css">
+    <link rel="stylesheet" type="text/css" href="/bo/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css">
     <!-- Folder tree -->
-    <link rel="stylesheet" type="text/css"
-          href="/bo/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
+    <link rel="stylesheet" type="text/css" href="/bo/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
     <link rel="stylesheet" type="text/css" href="/bo/guide/js/fullcalendar-5.7.0/lib/main.css">
     <!-- Full calendar -->
     <link rel="stylesheet" type="text/css" href="/bo/guide/css/style.css"/>
@@ -25,14 +23,10 @@
     <!-- //realGrid -->
     <script type="text/javascript" src="/bo/guide/js/bootstrap-4.6.0/js/dist/util.js"></script>
     <script type="text/javascript" src="/bo/guide/js/bootstrap-4.6.0/js/dist/modal.js"></script>
-    <script type="text/javascript"
-            src="/bo/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
-    <script type="text/javascript"
-            src="/bo/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
-    <script type="text/javascript"
-            src="/bo/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
-    <script type="text/javascript"
-            src="/bo/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script>
+    <script type="text/javascript" src="/bo/guide/js/bootstrap4-datepicker-master/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="/bo/guide/js/bootstrap4-datepicker-master/js/locales/bootstrap-datepicker.ko.js"></script>
+    <script type="text/javascript" src="/bo/guide/js/bootstrap-timepicker-0.5.2/js/bootstrap-timepicker.js"></script>
+    <script type="text/javascript" src="/bo/guide/js/vakata-jstree-4a77e59/dist/jstree.min.js"></script>
     <!-- Folder tree -->
     <script type="text/javascript" src="/bo/guide/js/fullcalendar-5.7.0/lib/main.js"></script>
     <!-- Full calendar -->
@@ -40,6 +34,7 @@
     <!-- Full calendar(한글) -->
     <script type="text/javascript" src="/bo/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
     <script type="text/javascript" src="/bo/guide/js/common.js"></script><!-- 퍼블 작성 -->
+    <link rel="stylesheet" type="text/css" href="/bo/guide/css/common.css" />
 
 </head>
 
@@ -61,6 +56,31 @@
                     <div class="btn-box">
                         <button type="button" id="bid_noticeAdd" class="btn btn-green">입찰 공고 등록
                         </button>
+                    </div>
+                </div>
+                <div class="dashboard2-wrap tracking">
+                    <div class="section-top-wrap flex-afs-jsb">
+                        <section class="dashboard2 dashboard2-card-report month" style="width: 100%">
+                            <h2 class="dashboard2-title"> * 등록 입찰 공고 현황</h2>
+                            <div class="dashboard2-cont flex-ac-jsb">
+                                <dl>
+                                    <dt>전체 등록 공고 건</dt>
+                                    <dd id="dash_bdngAllCnt"></dd>
+                                </dl>
+                                <dl>
+                                    <dt>입찰중</dt>
+                                    <dd id="dash_bdngPrgrsCnt"></dd>
+                                </dl>
+                                <dl>
+                                    <dt>입찰마감</dt>
+                                    <dd id="dash_bdngDdlnCnt"></dd>
+                                </dl>
+                                <dl>
+                                    <dt>입찰예정</dt>
+                                    <dd id="dash_bdngSchdlCnt"></dd>
+                                </dl>
+                            </div>
+                        </section>
                     </div>
                 </div>
                 <div class="search-control">
@@ -144,8 +164,6 @@
                             <th rowspan="2" scope="col">입찰공고<br>번호</th>
                             <th rowspan="2"scope="col">메탈</th>
                             <th rowspan="2"scope="col">아이템<br>상품명</th>
-                            <%--                                <th scope="col">구분</th>--%>
-                            <%--                                <th scope="col">그룹</th>--%>
                             <th colspan="2">브랜드</th>
                             <th rowspan="2"scope="col">권역</th>
                             <th rowspan="2"scope="col">수량</th>
@@ -159,21 +177,8 @@
                             <th rowspan="2"scope="col">최저<br>프리미엄가</th>
                         </tr>
                         <tr>
-                            <%--                                <th></th>--%>
-                            <%--                                <th></th>--%>
-                            <%--                                <th></th>--%>
                             <th>구분</th>
                             <th>그룹</th>
-                            <%--                                <th></th>--%>
-                            <%--                                <th></th>--%>
-                            <%--                                <th></th>--%>
-                            <%--                                <th></th>--%>
-                            <%--                                <th></th>--%>
-                            <%--                                <th></th>--%>
-                            <%--                                <th></th>--%>
-                            <%--                                <th></th>--%>
-                            <%--                                <th></th>--%>
-                            <%--                                <th></th>--%>
                         </tr>
                         </thead>
                         </thead>
@@ -216,10 +221,10 @@
     // Datepicker 초기화 및 오늘 날짜로 설정
     $("#datepicker1").datepicker({
       format: 'yyyy-mm-dd'
-    }).datepicker('setDate', 'today');
+    });
     $("#datepicker2").datepicker({
       format: 'yyyy-mm-dd'
-    }).datepicker('setDate', 'today');
+    });
 
     var jsonData = getCreateJsonData("");
     $(".btn-box .btn").on("click", getDatePickerButtonId);
@@ -318,6 +323,11 @@
         $("#btn_bdngSucsCnt").text("낙찰(" + data.bdngSucsCnt + ")");
         $("#btn_bdngPstpnCnt").text("유찰(" + data.bdngPstpnCnt + ")");
 
+        $("#dash_bdngAllCnt").text(data.bdngAllCnt);
+        $("#dash_bdngPrgrsCnt").text(data.bdngPrgrsCnt);
+        $("#dash_bdngDdlnCnt").text(data.bdngDdlnCnt);
+        $("#dash_bdngSchdlCnt").text(data.bdngSchdlCnt);
+
       },
       error: function (xhr, status, error) {
         // 에러 처리 코드
@@ -341,7 +351,7 @@
 
         $.each(data , function(index , item) {
           $("#dynamicTbody").append('<tr>');
-          $("#dynamicTbody").append('<td>' + item.bidPblancId + '</td>');
+          $("#dynamicTbody").append('<td>  ' + item.bidPblancId + '</td>');
           $("#dynamicTbody").append('<td>' + item.metalCode + '</td>');
           $("#dynamicTbody").append('<td>' + item.itmPrdlstKorean + '</td>');
           $("#dynamicTbody").append('<td>' + item.brandCode + '</td>');
