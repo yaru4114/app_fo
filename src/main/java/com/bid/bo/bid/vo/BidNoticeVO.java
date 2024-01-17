@@ -6,7 +6,7 @@ import lombok.Data;
 public class BidNoticeVO {
     private String bidPblancId;
     private String metalCode;
-    private String BrandGroupCode;
+    private String brandGroupCode;
     private String brandCode;
     private String itmSn;
     private String dstrctLclsfCode;
@@ -53,7 +53,7 @@ public class BidNoticeVO {
     private String premiumPcCode;
     private String pcAppnPdSb;
     private String pcAppnMthSb;
-    private String ItmPrdlstKorean;
+    private String itmPrdlstKorean;
     private String itmQty;
     private String activeAt;
     private String bidStatNm;

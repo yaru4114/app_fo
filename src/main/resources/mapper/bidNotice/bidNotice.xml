@@ -56,7 +56,7 @@
          , FRST_REGISTER_ID                                          -- AS 최초등록자아이디
          , FRST_REGIST_DT                                            -- AS 최초등록날짜
          , dbo.fn_getCodeNm('BID_STAT_001' , BID_STTUS_CODE) AS bidStatNm -- AS 상태
-         , '' as stepNm                                              -- AS 단계
+         , '' as STEP_NM                                              -- AS 단계
          , ISNULL((SELECT COUNT(BID_ENTRPS_NO)
                      FROM BD_BDDPR_DTL B
                     WHERE B.BID_PBLANC_ID = A.BID_PBLANC_ID

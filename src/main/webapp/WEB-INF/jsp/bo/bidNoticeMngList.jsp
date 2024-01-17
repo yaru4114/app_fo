@@ -251,9 +251,9 @@
       bidStat = "30";
     }else if (buttonId == "btn_bdngWtngCnt") {
       bidStat = "11";
-    }else if (buttonId == "bdngSucsCnt") {
+    }else if (buttonId == "btn_bdngSucsCnt") {
       bidStat = "31";
-    }else if (buttonId == "bdngPstpnCnt") {
+    }else if (buttonId == "btn_bdngPstpnCnt") {
       bidStat = "32";
     }
     $("#"+buttonId).addClass('active');
@@ -293,6 +293,7 @@
     console.log("getSearchBtn buttonId :" + buttonId + " bidStat : " + bidStat);
     $("#"+buttonId).addClass('active');
 
+    ajaxBidNoticeMngStatCntList(jsonData);
     ajaxBidNoticeMngList(jsonData);
 
   }
@@ -335,13 +336,28 @@
       dataType: "json",
       success: function (data) {
         console.log("서버 응답:", data);
-        var html = "";
 
-        /*for(key in data ) {
-          html += '<tr>';
-          html += '<td>'+data[]
+        $("#dynamicTbody").empty();
 
-        }*/
+        $.each(data , function(index , item) {
+          $("#dynamicTbody").append('<tr>');
+          $("#dynamicTbody").append('<td>' + item.bidPblancId + '</td>');
+          $("#dynamicTbody").append('<td>' + item.metalCode + '</td>');
+          $("#dynamicTbody").append('<td>' + item.itmPrdlstKorean + '</td>');
+          $("#dynamicTbody").append('<td>' + item.brandCode + '</td>');
+          $("#dynamicTbody").append('<td>' + item.brandGroupCode + '</td>');
+          $("#dynamicTbody").append('<td>' + item.dstrctLclsfCode + '</td>');
+          $("#dynamicTbody").append('<td>' + item.bidWt + '</td>');
+          $("#dynamicTbody").append('<td>' + item.itmQty + '</td>');
+          $("#dynamicTbody").append('<td>' + item.bddprBeginDt + ' ~ ' + item.bddprEndDt + '</td>');
+          $("#dynamicTbody").append('<td>' + item.activeAt + '</td>');
+          $("#dynamicTbody").append('<td>' + item.frstRegistDt + '<br>' + '(' + item.frstRegisterId + ')' + '</td>');
+          $("#dynamicTbody").append('<td>' + item.bidStatNm + '</td>');
+          $("#dynamicTbody").append('<td>' + item.stepNm + '</td>');
+          $("#dynamicTbody").append('<td>' + item.bdngCmpny + '</td>');
+          $("#dynamicTbody").append('<td>' + item.lwstPrprc + '</td>');
+          $("#dynamicTbody").append('</tr>');
+        });
 
       },
       error: function (xhr, status, error) {

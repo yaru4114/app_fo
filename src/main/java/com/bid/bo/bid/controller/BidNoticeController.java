@@ -70,7 +70,7 @@ public class BidNoticeController {
         List<BidNoticeVO> resultList = bidNoticeService.getBidNoticeMngBidList(paramVo);
 
         for(BidNoticeVO vo : resultList ) {
-            log.info("test getBidNoticeMngBidList {} " ,vo.getBidPblancId());
+            log.info("test getBidNoticeMngBidList {} " ,vo.toString());
         }
 
         return resultList;
