@@ -127,6 +127,15 @@
         WHERE BID_ENTRPS_NO = #{bidEntrpsNo}
     </update>
 
+    <select id="getMemberBddtrCnt" parameterType="com.bid.common.model.BidMemberVO" resultType="int">
+        SELECT COUNT(*)
+        FROM BD_BDDPR_DTL a
+        INNER JOIN
+            BD_BID_BAS b ON a.BID_PBLANC_ID = b.BID_PBLANC_ID
+        WHERE b.BID_STTUS_CODE IN ('13', '23')
+            AND a.BID_ENTRPS_NO = #{bidEntrpsNo}
+    </select>
+
     <select id="getApprovalCnt" parameterType="com.bid.common.model.SearchVO" resultType="int">
         SELECT COUNT(*)
         FROM BD_ENTRPS_INFO_BAS AS a

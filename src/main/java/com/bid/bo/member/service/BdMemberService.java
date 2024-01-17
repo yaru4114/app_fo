@@ -47,9 +47,20 @@ public class BdMemberService {
 
     public Map<String, Object> chgMemberBlock(BidMemberVO vo) {
         Map<String, Object> resultMap = new HashMap<>();
-        bdMemberDAO.chgMemberBlock(vo);
+        if (vo.getBidMberSttusCode().equals("정상")) {
+            int bddtrCnt = bdMemberDAO.getMemberBddtrCnt(vo);
+            if (bddtrCnt == 0) {
+                bdMemberDAO.chgMemberBlock(vo);
+                resultMap.put("success", true);
+            } else {
+                resultMap.put("success", false);
+                resultMap.put("message", "차단이 불가능 합니다.");
+            }
+        } else {
+            bdMemberDAO.chgMemberBlock(vo);
+            resultMap.put("success", true);
+        }
 
-        resultMap.put("success", true);
         return resultMap;
     }
 
