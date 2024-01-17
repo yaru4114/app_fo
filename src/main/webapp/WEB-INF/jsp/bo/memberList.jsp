@@ -619,12 +619,11 @@
                     if (memberInfo.bidMberSttusCode === '정상') {
                         $('label[for="blockDate"]').hide();
                         $('#bidMberIntrcpDt').hide();
-                        $('#blockMemo').hide(); // ❗투찰 취소 3회 초과 로직 생성 후 삭제 예정
                     } else {
                         $('label[for="blockDate"]').show();
                         $('#bidMberIntrcpDt').show();
-                        $('#blockMemo').show(); // ❗투찰 취소 3회 초과 로직 생성 후 삭제 예정
                     }
+                    isBlockMemoView();
                 },
                 error: function (error) {
                     console.error(error);
@@ -674,6 +673,31 @@
                 $('#blockButton').show();
                 $('#releaseButton').hide();
             }
+        }
+
+            // 투찰 취소 횟수 관련 함수
+        function isBlockMemoView() {
+            var param = {
+                bidEntrpsNo: bidEntrpsNo
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/common/bddtrCnlCnt',
+                contentType: 'application/json',
+                data: JSON.stringify(param),
+                success: function (response) {
+                    console.log('isBlockMemoView response : ', response);
+                    if (response.result) {
+                        $('#blockMemo').show();
+                    } else {
+                        $('#blockMemo').hide();
+                    }
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
         }
         /* 차단 관련 함수 */
 
