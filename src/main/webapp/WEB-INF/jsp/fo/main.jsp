@@ -278,10 +278,11 @@
 <!-- <script src="/guide/js/sorin-ma.js"></script>main js -->
 <!-- script custom :: END -->
 <script>
-	
+var loginYn = "${loginYn}";
 
 $(function(){
 	
+
 	// =============== SELECT BOX ==================
 	$('.brand').select2({
 	    width: 'element',
@@ -324,8 +325,12 @@ $(function(){
 	})
 
 	// =============== BTN.LIKE ==================
-	$('.ico.like').click(function(e){
-	    e.preventDefault();
+	$(document).on('click', ".ico.like", function(e) {
+		if(loginYn == 'N'){
+			alert("로그인이 필요한 화면입니다.");
+			return;
+		}
+	 
 	    $(this).toggleClass('active');
 	})
 
@@ -477,19 +482,23 @@ $(function(){
 			html += '                           </ul>';
 			if(res.bidList[i].bidSttusCode == '12' || res.bidList[i].bidSttusCode == '13'){
 				if(res.loginYn == 'Y'){
-					
+	
 				}else if(res.loginYn == 'N'){
-					
+					html += '                           <a href="javascript:;" class="ico like">';
+					html += '                               <span class="material-symbols-outlined">favorite</span>';
+					html += '                               <span>관심추가</span>';
+					html += '                           </a>';	
 				}
-				html += '                           <a href="javascript:;" class="ico like active">';
+				/* html += '                           <a href="javascript:;" class="ico like active">';
 				html += '                               <span class="material-symbols-outlined">favorite</span>';
 				html += '                               <span>관심추가</span>';
-				html += '                           </a>';	
+				html += '                           </a>';	 */
+				
 			}
 			html += '                       </div>';
 			html += '                   </div>';
 			html += '                   <div class="pd-name">';
-			html += '                       <span class="item">Primary Aluminium Ingot (p1020)_434</span>';
+			html += '                       <span class="item">'+res.bidList[i].dspyGoodsNm+'</span>';
 			html += '                       <span class="wrhous">출고권역 - '+res.bidList[i].dstrctLclsfCodeNm+'</span>';
 			html += '                       <span class="brand-group">'+res.bidList[i].brandGroupCodeNm+'</span>';
 			html += '                   </div>';
@@ -504,21 +513,21 @@ $(function(){
 			html += '           </div>';
 			if(res.bidList[i].bidSttusCode == '12' ){
 				html += '           <div class="btns">';
-				html += '               <a href="javascript:;" class="btn-bid-stroke">입찰예정</a>';
+				html += '               <a href="javascript:;" class="btn-bid-stroke" onclick="moveToDetail()">입찰예정</a>';
 				html += '           </div>';
 				html += '           <span class="bid-d-day abs-info">';
 				html += '       		투찰 시작까지 <span class="time">- 3일 3시간 20분 36초</span>';
 				html += '       	</span>';
 			}else if(res.bidList[i].bidSttusCode == '13' ){
 				html += '           <div class="btns">';
-				html += '               <a href="javascript:;" class="btn-bid-blue">투찰중</a>';
+				html += '               <a href="javascript:;" class="btn-bid-blue" onclick="moveToDetail()">투찰중</a>';
 				html += '           </div>';
 				html += '           <span class="bid-d-day abs-info">';
 				html += '       		투찰 마감까지 <span class="time">- 3일 3시간 20분 36초</span>';
 				html += '       	</span>';
 			}else if(res.bidList[i].bidSttusCode == '30' || res.bidList[i].bidSttusCode == '31' || res.bidList[i].bidSttusCode == '32' ){
 				html += '           <div class="btns">';
-				html += '               <a href="javascript:;" class="btn-bid-black">마감</a>';
+				html += '               <a href="javascript:;" class="btn-bid-black" onclick="moveToDetail()">마감</a>';
 				html += '           </div>';
 				if(res.bidList[i].bidSttusCode == '30' ){
 					html += '           <span class="t-info abs-info">기한마감</span>';
@@ -544,6 +553,14 @@ $(function(){
 	}
 	
 	
+	function moveToDetail(){
+		if(loginYn == 'N'){
+			alert("로그인이 필요한 화면입니다.");
+			return;
+			
+		}
+		
+	}
 	
 	
 /* 	// =============== DATEPICKER ==================
