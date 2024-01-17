@@ -5049,6 +5049,18 @@ body {
   font-size: 0;
 }
 
+.modal-btn-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 1.25rem;
+  width: 2.625rem;
+  height: 2.625rem;
+  background-image: url("/guide/images/btn-x.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 0;
+}
+
 /*
 * ------------------------------
 * body

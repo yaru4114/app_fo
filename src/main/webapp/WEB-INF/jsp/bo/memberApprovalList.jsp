@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="/bo/guide/js/bootstrap-timepicker-0.5.2/css/bootstrap-timepicker.css">
     <link rel="stylesheet" type="text/css" href="/bo/guide/js/fullcalendar-5.7.0/lib/main.css"><!-- Full calendar -->
     <link rel="stylesheet" type="text/css" href="/bo/guide/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="/guide/css/sorin-pop.css" />
 
     <script type="text/javascript" src="/bo/guide/js/jquery-3.6.0.js"></script>
     <!-- realGrid -->
@@ -149,13 +148,12 @@
 
     <!-- Grid-Row 클릭 시 승인 팝업 -->
     <div class="pop-modal pop-modal2 pop-credit-confirm" id="blockModal">
-        <div class="pop-inner w1400px">
-            <!-- 팝업 종료버튼 CSS 수정 필요 -->
-            <div class="btn-pop-close">
-                <span class="" onclick="modalClose()"><img src="/guide/images/btn-x.png"></span>
-            </div>
+        <div class="pop-inner w1000px">
             <div class="pop-title">
                 <h1 class="title" id="modalTitle">엠투엠글로벌(승인대기)</h1>
+                <div class="modal-btn-close" onclick="modalClose()">
+                    <span/>
+                </div>
             </div>
 
             <table class="bo-tbl-kyc">
