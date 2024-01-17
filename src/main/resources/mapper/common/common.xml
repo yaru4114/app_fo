@@ -19,4 +19,12 @@
      ORDER BY CODE_ORDR
   </select>
 
+    <select id="getBddtrCancelCnt" parameterType="com.bid.common.model.BidMemberVO" resultType="int">
+        SELECT COUNT(*)
+        FROM BD_BDDPR_DTL
+        WHERE
+            CANCL_AT = 'Y'
+        AND
+            BID_ENTRPS_NO = #{bidEntrpsNo}
+    </select>
 </mapper>
