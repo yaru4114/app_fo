@@ -82,6 +82,35 @@
             END
     </select>
 
+    <select id="getMemberInfo" parameterType="com.bid.common.model.BidMemberVO" resultType="com.bid.common.model.BidMemberVO">
+        SELECT
+            BID_MBER_ID,
+            BID_MBER_SECRET_NO,
+            ENTRPS_NM,
+            (CASE
+                WHEN FRNTN_ENTRPS_AT = 'Y' THEN 'O'
+                WHEN FRNTN_ENTRPS_AT = 'N' THEN '-'
+                ELSE ''
+            END) AS FRNTN_ENTRPS_AT,
+            BSNM_REGIST_NO,
+            BID_ENTRPS_NO,
+            BID_MBER_EMAIL,
+            MOBLPHON_NO2,
+            VRSC_ENTRPS_NM,
+            VRSC_BSNM_REGIST_NO,
+            VRSC_BID_MBER_EMAIL,
+            VRSC_MOBLPHON_NO,
+            ETR_CONFM_REQUST_DT,
+            ETR_CONFM_PROCESS_DT,
+            (CASE
+                WHEN BID_MBER_STTUS_CODE = '01' THEN '정상'
+                WHEN BID_MBER_STTUS_CODE = '02' THEN '차단'
+                ELSE ''
+            END) AS BID_MBER_STTUS_CODE
+        FROM BD_ENTRPS_INFO_BAS
+        WHERE BID_ENTRPS_NO = #{bidEntrpsNo}
+    </select>
+
     <select id="getApprovalCnt" parameterType="com.bid.common.model.SearchVO" resultType="int">
         SELECT COUNT(*)
         FROM BD_ENTRPS_INFO_BAS AS a

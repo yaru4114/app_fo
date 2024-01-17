@@ -9168,12 +9168,12 @@ td.tbl-bg-green {background:#d4ffec}
 .w350px{width: 350px !important;}
 .w450px{width: 450px !important;}
 .w700px{width: 700px !important;}
-.w1400px{width: 1400px !important;}
+.w1000px{width: 1000px !important;}
 .pop-modal {background-color: rgba(0,0,0,0.4);}
 .pop-modal .pop-inner {padding: 35px 40px;background-color: #fff;}
-.pop-modal .pop-title {margin-bottom: 15px;display: flex;align-items: center;justify-content: space-between;}
+.pop-modal .pop-title {margin-bottom: 15px;display: flex;align-items: center;justify-content: flex-start; gap: 0.5em}
 .pop-modal.pop-center .pop-title {justify-content: center;}
-.pop-modal .pop-title .title {font-size: 14px;font-weight: 500;line-height: 1.35;}
+.pop-modal .pop-title .title {font-size: 14px;font-weight: 900;line-height: 1.35;}
 .pop-modal .btm-btns {margin-top: 1rem;}
 .pop-refuse textarea {resize: none;width: 100%;height: 100px;border: 1px solid #ddd; border-radius: 5px;padding: 15px;font-size: 12px;color: #555;}
 

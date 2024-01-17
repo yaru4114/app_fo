@@ -20,7 +20,6 @@ public class BdMemberService {
         Map<String, Object> resultMap = new HashMap<>();
 
         List<BidMemberVO> resultList = bdMemberDAO.getMemberList(vo);
-        log.info("객체 리스트 : {}", resultList);
 
         resultMap.put("result", resultList);
         return resultMap;
@@ -35,6 +34,14 @@ public class BdMemberService {
             resultMap.put(data, cnt);
         }
 
+        return resultMap;
+    }
+
+    public Map<String, Object> getMemberInfo(BidMemberVO vo) {
+        Map<String, Object> resultMap = new HashMap<>();
+        List<BidMemberVO> voList = bdMemberDAO.getMemberInfo(vo);
+
+        resultMap.put("result", voList);
         return resultMap;
     }
 
