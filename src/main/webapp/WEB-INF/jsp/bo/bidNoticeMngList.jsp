@@ -35,7 +35,7 @@
     <script type="text/javascript" src="/bo/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
     <script type="text/javascript" src="/bo/guide/js/common.js"></script><!-- 퍼블 작성 -->
     <link rel="stylesheet" type="text/css" href="/bo/guide/css/common.css" />
-
+    <script src="bidModal.jsp"></script>
 </head>
 
 <body>
@@ -54,9 +54,12 @@
                 <div class="sub-title mt-0">
                     <h3 class="">입찰 공고 관리</h3>
                     <div class="btn-box">
-                        <button type="button" id="bid_noticeAdd" class="btn btn-green">입찰 공고 등록
-                        </button>
+                        <button type="button" id="bid_noticeAdd" class="btn"
+                                data-toggle="modal" data-target="#exampleModal">입찰 공고 등록</button>
                     </div>
+                </div>
+                <div id="myModalContainer">
+                    <jsp:include page="bidModal.jsp"/>
                 </div>
                 <div class="dashboard2-wrap tracking">
                     <div class="section-top-wrap flex-afs-jsb">
@@ -584,6 +587,16 @@
 
     ajaxBidNoticeMngStatCntList(jsonData);
     ajaxBidNoticeMngList(jsonData);
+
+      $('#bid_noticeAdd').click(function () {
+          $('#myModalContainer').load("bidModal.jsp", function () {
+              $('#exampleModal').show();
+
+              $('.close').click(function () {
+                  $('#exampleModal').hide();
+              });
+          });
+      });
 
   });
 
