@@ -34,13 +34,9 @@ public class BidMemberController {
     public String createPage1 () { return "/fo/member/createMember_1"; };
 
     @GetMapping("/create_2")
-    public String createPage2 () { return "/fo/member/createMember_2"; };
-
-    @PostMapping("/create_2")
-    public String createPage2 (@RequestBody BidMemberVO vo, HttpSession session, Model model) {
-        session.setAttribute("terms",vo);
-//        model.addAttribute("terms",vo);
-        log.info("세션 정보 : {}",session.getAttribute("terms"));
+    public String createPage2 (BidMemberVO vo, Model model){
+        model.addAttribute("terms",vo);
+        log.info("model 정보 : {}",vo);
         return "/fo/member/createMember_2";
     };
 
@@ -50,8 +46,7 @@ public class BidMemberController {
     /** 회원 가입 */
     @PostMapping("/creMember")
     public ResponseEntity<?> creMember(@RequestPart("BidMemberVO") String jsonMemberVO,
-                                       @RequestPart(value = "docFiles", required = false)List<MultipartFile> fileList,
-                                       HttpSession session){
+                                       @RequestPart(value = "docFiles", required = false)List<MultipartFile> fileList){
 
         BidMemberVO vo = null;
         BidMemberVO terms = null;
@@ -59,25 +54,7 @@ public class BidMemberController {
 
         try {
             vo = objectMapper.readValue(jsonMemberVO, BidMemberVO.class);
-            terms = (BidMemberVO) session.getAttribute("terms");
-            
-            // 약관동의 확인
-            if (terms != null) {
-
-                vo.setUseStplatAgreAt(terms.getUseStplatAgreAt());
-                vo.setIndvdlInfoThreemanProvdAgreAt(terms.getIndvdlInfoThreemanProvdAgreAt());
-                vo.setIndvdlInfoProcessPolcyAgreAt(terms.getIndvdlInfoProcessPolcyAgreAt());
-                vo.setMarktRecptnAgreAt(terms.getMarktRecptnAgreAt());
-                vo.setMberChrctrRecptnAgreAt(terms.getMberChrctrRecptnAgreAt());
-                vo.setMberEmailRecptnAgreAt(terms.getMberEmailRecptnAgreAt());
-                vo.setMberPushRecptnAgreAt(terms.getMberPushRecptnAgreAt());
-
-                resultMap = memberService.creMember(vo,fileList,session);
-            } else {
-                resultMap.put("success", false);
-                resultMap.put("message", "잘못된 접근입니다.");
-            }
-
+            resultMap = memberService.creMember(vo,fileList);
         } catch (IOException e) {
             e.printStackTrace();
         }

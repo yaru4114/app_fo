@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -107,7 +106,7 @@
 	                                <span class="limit-width">
 	                                    <span class="input-complex">
 	                                        <span class="input"><input type="tel" name="ipCoRegiNo" id="ipCoRegiNo" placeholder="사업자등록번호"></span>
-	                                        <span class="button"><button type="button" id="ipCoRegiNoCheckBtn" class="btn-blue-big narrow">확인</button></span>
+	                                        <span class="button"><button type="button" id="ipCoRegiNoCheckBtn" class="btn-blue-big narrow" onclick="testBtn()">확인</button></span>
 	                                    </span>
 	                                </span>
 	                                <span class="t-info t2" style="display: none">사업자등록번호를 다시 확인해 주세요.</span>
@@ -333,21 +332,19 @@ var fileList = [];
 
 $(document).ready(function(){
 
-    /*
+    // 약관동의 없이 넘어온경우
     var terms = "${terms}";
-    console.log(terms);
     if (terms === null || terms === "") {
         alert("잘못된 접근입니다.");
         location.href="/fo/member/create_1";
     }
-    */
 
     $('.t-info').hide();
 
 	$(".hidden-file").each(function(){
 		$(this).on('change',function(){
 			let fileName = $(this).val();
-			console.log(fileName);
+			// console.log(fileName);
 			$(this).parent().parents(".file-upload").find(".upload-name").val(fileName);
 			const a = $(this).parent().parents(".file-upload").find(".upload-name");
 		});
@@ -420,8 +417,6 @@ function chkInfo(form){
     var postNoFilter = /^\d{5,6}$/;
 
     // 아이디
-    console.log(form.bidMberId)
-
     if (form.bidMberId === null || form.bidMberId.length <= 0) {
         alert('아이디를 입력해주세요');
         $('#uid').focus();
@@ -609,6 +604,20 @@ $('#submitBtn').on('click',function(){
     form.vrscMoblphonNo = $('#vrsc_mobile1').val() + $('#vrsc_mobile2').val();
     form.vrscTlphonNo = $('#vrsc_telPhone1').val() + $('#vrsc_telPhone2').val();
 
+    // 약관 정보
+    // 필수약관
+    form.useStplatAgreAt = "${terms.useStplatAgreAt}";
+    form.indvdlInfoThreemanProvdAgreAt = "${terms.indvdlInfoThreemanProvdAgreAt}";
+    form.indvdlInfoProcessPolcyAgreAt = "${terms.indvdlInfoProcessPolcyAgreAt}";
+
+    // 선택약관
+    form.marktRecptnAgreAt = "${terms.marktRecptnAgreAt}";
+    form.mberChrctrRecptnAgreAt = "${terms.mberChrctrRecptnAgreAt}";
+    form.mberEmailRecptnAgreAt = "${terms.mberEmailRecptnAgreAt}";
+    form.mberPushRecptnAgreAt = "${terms.mberPushRecptnAgreAt}";
+
+    console.log(form);
+
     // 필수 조건 검증
 
     if (!chkInfo(form)) {
@@ -639,7 +648,6 @@ $('#submitBtn').on('click',function(){
             console.log(error);
         }
     });
-
 });
 </script>
 

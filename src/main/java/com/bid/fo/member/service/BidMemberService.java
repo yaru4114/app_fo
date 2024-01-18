@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,12 +23,9 @@ public class BidMemberService {
     BidMemberDAO memberDAO;
 
     @Autowired
-    CommonDAO commonDAO;
-
-    @Autowired
     FileUtil fileUtil;
 
-    public Map<String,Object> creMember(BidMemberVO vo, List<MultipartFile> fileList, HttpSession session) {
+    public Map<String,Object> creMember(BidMemberVO vo, List<MultipartFile> fileList) {
 
         Map<String,Object> resultMap = new HashMap<>();
         // 아이디 중복 체크
@@ -47,7 +43,6 @@ public class BidMemberService {
         // 사업자등록증 입력
         fileUpload(fileList,vo);
 
-        session.removeAttribute("terms");
         resultMap.put("success", true);
         resultMap.put("message", "가입 요청이 완료되었습니다. 가입 승인 후 이용 가능합니다.");
 

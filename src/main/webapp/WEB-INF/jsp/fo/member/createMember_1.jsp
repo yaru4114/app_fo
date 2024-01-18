@@ -246,7 +246,6 @@
         }
     });
 
-
     // 확인버튼
     $(document).on('click','#submitBtn', function() {
         if(!$('#agreeAll').prop('checked')){
@@ -267,36 +266,16 @@
         form.mberEmailRecptnAgreAt = $('#agreeEmail').prop('checked') ? 'Y' : 'N';
         form.mberPushRecptnAgreAt = $('#agreePush').prop('checked') ? 'Y' : 'N' ;
 
-        console.log(form);
+        location.href="/fo/member/create_2?"
+            +"useStplatAgreAt="+form.useStplatAgreAt
+            +"&indvdlInfoThreemanProvdAgreAt="+form.indvdlInfoThreemanProvdAgreAt
+            +"&indvdlInfoProcessPolcyAgreAt="+form.indvdlInfoProcessPolcyAgreAt
 
-        /*
-        const formData = new FormData();
-        formData.append("form",JSON.stringify(form));
+            +"&marktRecptnAgreAt="+form.mberChrctrRecptnAgreAt
+            +"&mberChrctrRecptnAgreAt="+form.mberChrctrRecptnAgreAt
+            +"&mberEmailRecptnAgreAt="+form.mberEmailRecptnAgreAt
+            +"&mberPushRecptnAgreAt="+form.mberPushRecptnAgreAt;
 
-        var voForm = document.createElement('form');
-        voForm.action = "/fo/member/create_2";
-        voForm.method = "POST";
-        voForm.innerHTML = '<input name="q" value="formData">';
-        voForm.contentType = 'application/json';
-        document.body.append(voForm);
-
-        voForm.submit();
-        */
-
-
-        $.ajax({
-            url : "/fo/member/create_2",
-            contentType: 'application/json',
-            data : JSON.stringify(form),
-            method : "POST",
-            async: false,
-            success : function(res){
-                location.href="/fo/member/create_2";
-            },
-            error : function (error) {
-                console.log(error);
-            }
-        });
     });
 
 /*

@@ -48,7 +48,7 @@
 	                </div>
 	              </div>
 	              <div class="btn-wrap singup-btn-wrap">
-	                <a href="/guide/html/bid/SOREC-SC-BID-001.html" class="btn-blue-big full">메인으로 이동하기</a>
+	                <a href="/fo/bid" class="btn-blue-big full">메인으로 이동하기</a>
 	              </div>
 	            </div>
 	        </div>
