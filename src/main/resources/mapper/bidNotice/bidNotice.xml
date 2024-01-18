@@ -59,7 +59,7 @@
          , BDDPR_END_DT                                              -- AS 투찰종료일시
          , '' as ACTIVE_AT                                           -- AS 활성여부
          , FRST_REGISTER_ID                                          -- AS 최초등록자아이디
-         , FRST_REGIST_DT                                            -- AS 최초등록날짜
+         , CONVERT(VARCHAR , FRST_REGIST_DT , 120) AS FRST_REGIST_DT -- AS 최초등록날짜
          , dbo.fn_getCodeNm('BID_STAT_001' , BID_STTUS_CODE) AS bidStatNm -- AS 상태
          , '' as STEP_NM                                              -- AS 단계
          , ISNULL((SELECT COUNT(BID_ENTRPS_NO)
@@ -82,7 +82,9 @@
       <if test='bidSttusCode != null and bidSttusCode != ""'>
        AND BID_STTUS_CODE = #{bidSttusCode}
       </if>
+      <if test='bidPblancId != null and bidPblancId !=""'>
+       AND BID_PBLANC_ID = #{bidPblancId}
+      </if>
      ORDER BY FRST_REGIST_DT DESC
   </select>
-
 </mapper>
