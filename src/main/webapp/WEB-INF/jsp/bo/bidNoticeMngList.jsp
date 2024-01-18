@@ -589,7 +589,7 @@
     ajaxBidNoticeMngList(jsonData);
 
       $('#bid_noticeAdd').click(function () {
-          $('#myModalContainer').load("modal", function () {
+          $('#myModalContainer').load("bidModal.jsp", function () {
               $('#exampleModal').show();
 
               $('.close').click(function () {
