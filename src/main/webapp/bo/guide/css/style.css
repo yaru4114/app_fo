@@ -6183,6 +6183,7 @@ table tr:first-child td {
   background: #fff;
   border: 1px solid #ddd;
   padding: 0.3125rem 2.5rem;
+  margin-top: 1.5rem;
 }
 
 .search-control .search-btn {
