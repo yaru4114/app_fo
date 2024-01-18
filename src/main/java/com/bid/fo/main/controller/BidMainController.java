@@ -20,6 +20,8 @@ import com.bid.fo.main.service.BidMainService;
 
 import lombok.extern.slf4j.Slf4j;
 
+import javax.servlet.http.HttpSession;
+
 @Slf4j
 @Controller
 @RequestMapping("/fo")
@@ -32,11 +34,12 @@ public class BidMainController {
 	private CommonService commonService;
 	
 	@RequestMapping("/bid")
-	public String start(Model model, MainVO mainVO) {
+	public String start(Model model, MainVO mainVO, HttpSession session) {
 		List<CoCmmnCdVO> brandGroupList = commonService.selectCommList("BRAND_GROUP_CODE");
 		List<CoCmmnCdVO> dstrctLclsfList = commonService.selectCommList("DSTRCT_LCLSF_CODE");
-		
-		model.addAttribute("loginYn","N");
+		if (session.getAttribute("loginYn") == null) {
+			session.setAttribute("loginYn","N");
+		}
 		model.addAttribute("brandGroupList",brandGroupList);
 		model.addAttribute("dstrctLclsfList",dstrctLclsfList);
 		return "fo/main";

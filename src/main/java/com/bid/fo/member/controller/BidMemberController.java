@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -36,9 +37,9 @@ public class BidMemberController {
     public String createPage2 () { return "/fo/member/createMember_2"; };
 
     @PostMapping("/create_2")
-    public String createPage2 (@RequestBody BidMemberVO vo, HttpSession session) {
-        log.info("약관 정보 : {}",vo);
+    public String createPage2 (@RequestBody BidMemberVO vo, HttpSession session, Model model) {
         session.setAttribute("terms",vo);
+//        model.addAttribute("terms",vo);
         log.info("세션 정보 : {}",session.getAttribute("terms"));
         return "/fo/member/createMember_2";
     };
@@ -93,15 +94,17 @@ public class BidMemberController {
         Map<String,Object> resultMap = memberService.login(vo);
         if ((boolean)resultMap.get("success")) {
             session.setAttribute("loginUser",resultMap.get("loginUser"));
+            session.setAttribute("loginYn","Y");
             session.setMaxInactiveInterval(60*60);
         }
         return ResponseEntity.ok(resultMap);
     }
 
     /** 로그아웃 */
-    @PostMapping("/logout")
-    public ResponseEntity<?> logout(HttpSession session) {
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
         session.removeAttribute("loginUser");
-        return ResponseEntity.ok(null);
+        session.setAttribute("loginYn","N");
+        return "redirect:/fo/bid";
     }
 }

@@ -242,7 +242,7 @@
     // 취소버튼
     $(document).on('click','#cancelBtn',function(){
         if(confirm("가입을 취소하시겠습니까?")){
-            window.history.back();
+            location.href="/fo/bid";
         }
     });
 
@@ -268,11 +268,28 @@
         form.mberPushRecptnAgreAt = $('#agreePush').prop('checked') ? 'Y' : 'N' ;
 
         console.log(form);
+
+        /*
+        const formData = new FormData();
+        formData.append("form",JSON.stringify(form));
+
+        var voForm = document.createElement('form');
+        voForm.action = "/fo/member/create_2";
+        voForm.method = "POST";
+        voForm.innerHTML = '<input name="q" value="formData">';
+        voForm.contentType = 'application/json';
+        document.body.append(voForm);
+
+        voForm.submit();
+        */
+
+
         $.ajax({
             url : "/fo/member/create_2",
             contentType: 'application/json',
             data : JSON.stringify(form),
             method : "POST",
+            async: false,
             success : function(res){
                 location.href="/fo/member/create_2";
             },

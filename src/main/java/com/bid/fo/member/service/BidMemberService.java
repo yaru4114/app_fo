@@ -1,5 +1,6 @@
 package com.bid.fo.member.service;
 
+import com.bid.common.dao.CommonDAO;
 import com.bid.common.model.BidMemberVO;
 
 import com.bid.common.model.DocVO;
@@ -21,6 +22,9 @@ public class BidMemberService {
 
     @Autowired
     BidMemberDAO memberDAO;
+
+    @Autowired
+    CommonDAO commonDAO;
 
     @Autowired
     FileUtil fileUtil;
@@ -56,6 +60,19 @@ public class BidMemberService {
 
         BidMemberVO result = memberDAO.login(vo);
 
+        // 계정 불일치
+        if(result==null){
+            resultMap.put("success",false);
+            resultMap.put("message","계정 정보를 확인해주세요.");
+            return resultMap;
+        }
+
+        // 투찰 취소 3회 초과 => 차단처리
+//        int cancelCount = commonDAO.getBddtrCancelCnt(result);
+//        if (cancelCount > 3) {
+//            result.setBidMberSttusCode("02");
+//        }
+
         // 회원 가입 승인 상태 판별 (요청 / 거절 / 정상)
         switch (result.getBidConfmSttusCode()) {
             case "01" :
@@ -84,6 +101,7 @@ public class BidMemberService {
 
                         resultMap.put("success", true);
                         resultMap.put("loginUser",loginUser);
+                        resultMap.put("message","정상 로그인 되었습니다.");
                         break;
                     case "02" :
                         resultMap.put("success", false);

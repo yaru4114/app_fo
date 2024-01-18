@@ -48,9 +48,9 @@
 		                	<c:when test="${loginYn eq 'N'}">
 		                		<div class="login_container">
 				                   <p>서린닷컴에 오신것을 환영합니다.</p>
-				                   <input type="text" placeholder="아이디 입력">
-				                   <input type="password" placeholder="패스워드 입력">
-				                   <a href="#" class="btn primary_bg">로그인 하기</a>
+				                   <input id="inputLoginId" type="text" placeholder="아이디 입력">
+				                   <input id="inputLoginPwd" type="password" placeholder="패스워드 입력">
+				                   <a id="loginSubmitBtn" class="btn primary_bg">로그인 하기</a>
 				                   <div class="sub_area">
 				                       <div class="checkbox-container">
 				                           <label class="checkbox-label" for="save_id">
@@ -60,12 +60,12 @@
 				                           <div class="input-title">아이디 저장</div>
 				                       </div>
 				                       <div>
-				                           <a href="#">아이디찾기</a>
+				                           <a href="#" onclick="testBtn()">아이디찾기</a>
 				                           <a href="#">비밀번호 찾기</a>
 				                       </div>
 				                   </div>
 	<!-- 			                   <hr> -->
-				                   <a href="/guide/html/SOREC-SC-BID-011.html" class="btn text ico">
+				                   <a href="/fo/member/create_1" class="btn text ico">
 				                       <span class="material-symbols-outlined">
 				                       person
 				                       </span>
@@ -404,7 +404,8 @@ $(function(){
 	
 	// =============== 목록 조회 ==================
 	function selectBdList(bidSttusCode){
-		let loginYn = 'N';
+		//let loginYn = 'N';
+		let loginYn = '${loginYn}';
 		if(bidSttusCode == -1){
 			bidSttusCode = $("li[class='item on']").attr('data-value');
 		}
@@ -590,6 +591,29 @@ $(function(){
 	    yearSuffix: '년',
 	    orientation: 'top'
 	}); */
+
+	$('#loginSubmitBtn').on('click',function (){
+	    var loginForm = {
+	        userId: $('#inputLoginId').val(),
+	        userPwd: $('#inputLoginPwd').val()
+	    };
+
+	    $.ajax({
+	        url: '/fo/member/login',
+	        data: JSON.stringify(loginForm),
+	        type: 'POST',
+	        contentType: 'application/json',
+	        success: function(response){
+	            alert(response.message);
+                if(response.success){
+                    location.href="/fo/bid";
+                }
+	        },
+	        error: function(error){
+                console.log(error);
+	        }
+	    });
+	});
 </script>
 </body>
 </html>

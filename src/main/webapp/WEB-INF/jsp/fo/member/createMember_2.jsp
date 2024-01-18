@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -75,23 +76,23 @@
 	                            <div class="tr">
 	                                <label for="uid">아이디</label>
 	                                <span class="limit-width">
-	                                    <input type="text" name="uid" id="uid" placeholder="아이디 (12자 이내의 영문 또는 영문+숫자 조합 )">
+	                                    <input type="text" name="uid" id="uid" placeholder="아이디 (4~12자 이내의 영문 또는 영문+숫자 조합 )">
 	                                </span>
-	                                <span class="t-info">아이디는 12자 이내여야 합니다.</span>
+	                                <span class="t-info id">아이디는 12자 이내여야 합니다.</span>
 	                            </div>
 	                            <div class="tr">
 	                                <label for="upw">비밀번호</label>
 	                                <span class="limit-width">
 	                                    <input type="password" name="upw" id="upw" placeholder="비밀번호(영문 숫자 특수기호 조합 8~12자로 입력)">
 	                                </span>
-	                                <span class="t-info">영문자, 숫자, 특수문자 조합을 입력해야 합니다.</span>
+	                                <span class="t-info pwd">영문자, 숫자, 특수문자 조합을 입력해야 합니다.</span>
 	                            </div>
 	                            <div class="tr">
 	                                <label for="upw2">비밀번호 확인</label>
 	                                <span class="limit-width">
 	                                    <input type="password" name="upw2" id="upw2" placeholder="비밀번호 확인">
 	                                </span>
-	                                <span class="t-info">암호를 다시 확인해주세요.</span>
+	                                <span class="t-info pwdCheck">암호를 다시 확인해주세요.</span>
 	                            </div>
 	                            <div class="tr">
 	                                <label for="cname">회사 이름</label>
@@ -113,7 +114,7 @@
 	                            </div>
 	                            <div class="tr">
 	                                <div class="file-upload">
-	                                    <input type="text" class="upload-name" value="" placeholder="사업자등록증 첨부" disabled="disabled">
+	                                    <input type="text" class="upload-name" id="updFileName1" placeholder="사업자등록증 첨부" disabled="disabled">
 	                                    <span class="file-cancel"><img src="/guide/images/us/icon_file_cancel.png"></span>
 										<span class="btn-up-file">
 											<label for="updFile1" class="">파일첨부</label>
@@ -331,6 +332,16 @@
 var fileList = [];
 
 $(document).ready(function(){
+
+    /*
+    var terms = "${terms}";
+    console.log(terms);
+    if (terms === null || terms === "") {
+        alert("잘못된 접근입니다.");
+        location.href="/fo/member/create_1";
+    }
+    */
+
     $('.t-info').hide();
 
 	$(".hidden-file").each(function(){
@@ -343,17 +354,32 @@ $(document).ready(function(){
 	});
 });
 
-// 외국업체 체크 => 회사 사업자등록번호 : disabled
+// 외국업체 체크
 $('#foreign').on('click',function () {
     if ($('#foreign').prop('checked')) {
+        // 회사 사업자등록번호 : disabled
         $('#ipCoRegiNo').val('');
         $('#ipCoRegiNo').addClass('etr');
         $('#ipCoRegiNo').attr("disabled", true);
         $('#ipCoRegiNoCheckBtn').attr("disabled", true);
+
+        // 파일첨부 : disabled
+        $('#updFileName1').val('');
+        $('#updFileName1').addClass('etr');
+        // $('#updFile1').addClass('btn-blue-big');
+        $('#updFile1')[0].files = null;
+        $('#updFile1').attr("disabled",true);
+
     } else {
+        // 사업자등록번호
         $('#ipCoRegiNo').removeClass('etr');
         $('#ipCoRegiNo').attr("disabled", false);
         $('#ipCoRegiNoCheckBtn').attr("disabled", false);
+
+        // 파일첨부
+        $('#updFileName1').removeClass('etr');
+        // $('#updFile1').removeClass('btn-blue-big');
+        $('#updFile1').attr("disabled",false);
     }
 });
 
@@ -382,24 +408,30 @@ $('#prevBtn').on('click', function(){
 });
 
 // 회원가입 조건처리
+
 function chkInfo(form){
 
     // 정규표현식 필터
-    var idFilter = /^[a-zA-Z](?=.*[a-zA-Z])(?=.*[0-9]).{4,12}$/g;
+    var idFilter1 = /^[a-zA-Z](?=.*[a-zA-Z])(?=.*[0-9]).{4,12}$/g;
+    var idFilter2 = /^[a-zA-Z]{4,12}$/g;
     var pwdFilter = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,12}$/;
     var mobileFilter = /^\d{10,11}$/;
     var telPhoneFilter = /^\d{9,11}$/;
+    var postNoFilter = /^\d{5,6}$/;
 
     // 아이디
+    console.log(form.bidMberId)
+
     if (form.bidMberId === null || form.bidMberId.length <= 0) {
         alert('아이디를 입력해주세요');
         $('#uid').focus();
         return false;
-    } else if (!idFilter.test(form.bidMberId)) {
-        alert('아이디는 4-12자 이내의 문자+숫자만 사용 가능합니다');
+    } else if (!(idFilter1.test(form.bidMberId) || idFilter2.test(form.bidMberId))) {
+        alert('아이디는 4-12자 이내의 문자 또는 문자+숫자만 사용 가능합니다');
         $('#uid').focus();
         return false;
     }
+    //
 
     // 비밀번호
     if (form.bidMberSecretNo === null || form.bidMberSecretNo.length <= 0) {
@@ -436,6 +468,10 @@ function chkInfo(form){
     // 우편번호
     if(form.postNo === null || form.postNo.length <= 0){
         alert('우편번호를 입력해주세요.');
+        $('#foreignerZinCode').focus();
+        return false;
+    } else if (!postNoFilter.test(form.postNo)) {
+        alert('우편번호는 5~6자리의 숫자만 입력 가능합니다.');
         $('#foreignerZinCode').focus();
         return false;
     }
@@ -578,7 +614,6 @@ $('#submitBtn').on('click',function(){
     if (!chkInfo(form)) {
         return;
     }
-
 
     const formData = new FormData();
     // 고객정보
