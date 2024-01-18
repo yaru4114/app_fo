@@ -31,7 +31,7 @@ public class BidNoticeController {
     * @author  xyzp1539
     **/
     @RequestMapping("/noticeMngForm")
-    public String NoticeMngForm( ModelMap map ) {
+    public String bidNoticeMngForm( ModelMap map ) {
         // 입찰공고상태
         List<CoCmmnCdVO> bidStatCodeList = bidNoticeService.getBidStatCodeList();
 
@@ -75,5 +75,33 @@ public class BidNoticeController {
 
         return resultList;
     }
+
+    @ResponseBody
+    @RequestMapping(value="/noticeMngForm/bidInfo")
+    public BidNoticeVO getBidNoticeMngInfo(@RequestBody BidNoticeVO paramVo) {
+        log.info("test getBidNoticeMngInfo : {}" ,paramVo.toString());
+        BidNoticeVO resultVo = new BidNoticeVO();
+
+        List<BidNoticeVO> list = bidNoticeService.getBidNoticeMngBidList(paramVo);
+        resultVo = list.get(0);
+
+        return resultVo;
+    }
+
+    /*@RequestMapping(value="/noticeDtlForm")
+    public String bidNoticeMngDtlForm(@RequestParam String bidPblancId , ModelMap map){
+        log.info("test bidNoticeMngDtlForm : {}" , bidPblancId);
+
+        BidNoticeVO paramVo = new BidNoticeVO();
+        paramVo.setBidPblancId(bidPblancId);
+
+        List<BidNoticeVO> resultVo = bidNoticeService.getBidNoticeMngBidList(paramVo);
+
+        log.info("test bidNoticeMngDtlForm resultVo : {}" , resultVo.get(0).toString());
+
+        map.addAttribute("bidNoticeMngVo",resultVo.get(0));
+
+        return "/bo/bidNoticeMngDtlForm";
+    }*/
 
 }

@@ -645,7 +645,12 @@
                 contentType: 'application/json',
                 data: JSON.stringify(param),
                 success: function (response) {
-                    console.log('chgStatusMember response ! : ', response);
+                    // console.log('chgStatusMember response ! : ', response);
+                    if (!response.success) {
+                        alert(response.message);
+                        return;
+                    }
+                    buttonByStatus('차단');
                 },
                 error: function (error) {
                     console.error(error);
@@ -655,7 +660,6 @@
 
         $('#blockButton').on('click', function () {
             chgStatusMember(bidEntrpsNo, bidMberSttusCode);
-            buttonByStatus('차단');
         });
 
         $('#releaseButton').on('click', function () {
@@ -687,7 +691,7 @@
                 contentType: 'application/json',
                 data: JSON.stringify(param),
                 success: function (response) {
-                    console.log('isBlockMemoView response : ', response);
+                    // console.log('isBlockMemoView response : ', response);
                     if (response.result) {
                         $('#blockMemo').show();
                     } else {

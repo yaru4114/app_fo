@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>입찰공고관리</title>
 
     <link rel="stylesheet" type="text/css" href="/bo/guide/js/vakata-jstree-4a77e59/dist/themes/default/style.min.css">
     <!-- Folder tree -->
@@ -35,7 +35,7 @@
     <script type="text/javascript" src="/bo/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
     <script type="text/javascript" src="/bo/guide/js/common.js"></script><!-- 퍼블 작성 -->
     <link rel="stylesheet" type="text/css" href="/bo/guide/css/common.css" />
-
+    <script src="bidModal.jsp"></script>
 </head>
 
 <body>
@@ -54,9 +54,12 @@
                 <div class="sub-title mt-0">
                     <h3 class="">입찰 공고 관리</h3>
                     <div class="btn-box">
-                        <button type="button" id="bid_noticeAdd" class="btn btn-green">입찰 공고 등록
-                        </button>
+                        <button type="button" id="bid_noticeAdd" class="btn"
+                                data-toggle="modal" data-target="#exampleModal">입찰 공고 등록</button>
                     </div>
+                </div>
+                <div id="myModalContainer">
+                    <jsp:include page="bidModal.jsp"/>
                 </div>
                 <div class="dashboard2-wrap tracking">
                     <div class="section-top-wrap flex-afs-jsb">
@@ -160,27 +163,26 @@
                             <col width="120px" />
                         </colgroup>
                         <thead>
-                        <tr>
-                            <th rowspan="2" scope="col">입찰공고<br>번호</th>
-                            <th rowspan="2"scope="col">메탈</th>
-                            <th rowspan="2"scope="col">아이템<br>상품명</th>
-                            <th colspan="2">브랜드</th>
-                            <th rowspan="2"scope="col">권역</th>
-                            <th rowspan="2"scope="col">수량</th>
-                            <th rowspan="2"scope="col">중량</th>
-                            <th rowspan="2"scope="col">시작-마감</th>
-                            <th rowspan="2"scope="col">활성<br>여부</th>
-                            <th rowspan="2"scope="col">등록일<br>(등록자)</th>
-                            <th rowspan="2"scope="col">상태</th>
-                            <th rowspan="2"scope="col">단계</th>
-                            <th rowspan="2"scope="col">투찰<br>기업</th>
-                            <th rowspan="2"scope="col">최저<br>프리미엄가</th>
-                        </tr>
-                        <tr>
-                            <th>구분</th>
-                            <th>그룹</th>
-                        </tr>
-                        </thead>
+                            <tr>
+                                <th rowspan="2" scope="col">입찰공고<br>번호</th>
+                                <th rowspan="2"scope="col">메탈</th>
+                                <th rowspan="2"scope="col">아이템<br>상품명</th>
+                                <th colspan="2">브랜드</th>
+                                <th rowspan="2"scope="col">권역</th>
+                                <th rowspan="2"scope="col">수량</th>
+                                <th rowspan="2"scope="col">중량</th>
+                                <th rowspan="2"scope="col">시작-마감</th>
+                                <th rowspan="2"scope="col">활성<br>여부</th>
+                                <th rowspan="2"scope="col">등록일<br>(등록자)</th>
+                                <th rowspan="2"scope="col">상태</th>
+                                <th rowspan="2"scope="col">단계</th>
+                                <th rowspan="2"scope="col">투찰<br>기업</th>
+                                <th rowspan="2"scope="col">최저<br>프리미엄가</th>
+                            </tr>
+                            <tr>
+                                <th>구분</th>
+                                <th>그룹</th>
+                            </tr>
                         </thead>
                     </table>
                     <!-- //바디부 -->
@@ -207,8 +209,359 @@
                             <%--동적 테이블 생성 예정--%>
                             </tbody>
                         </table>
+                    </div>
                 </div>
-                </table>
+
+                <!-- 모달 부분-->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-full" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">
+
+                                </h5>
+
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="table table-view">
+                                    <table>
+                                        <colgroup>
+                                            <col class="col-sm" />
+                                            <col width="15%" />
+                                            <col class="col-sm" />
+                                            <col width="*" />
+                                            <col class="col-sm" />
+                                            <col width="10%" />
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <th>상태</th>
+                                            <td id="bidStatNm"></td>
+                                            <th>시작~마감</th>
+                                            <td id="bddprDate"></td>
+                                            <th>활성여부</th>
+                                            <td id="activeAt"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                                <div class="sub-title mt-12">
+                                    <h3 class="">공고 정보(*필수)</h3>
+                                </div>
+                                <div class="table table-view">
+                                    <table>
+                                        <colgroup>
+                                            <col class="col-md" />
+                                            <col width="*" />
+                                            <col class="col-md" />
+                                            <col width="*" />
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <th scope="row">메탈 구분<i class="icon icon-required"></i></th>
+                                            <td>
+                                                AL
+                                            </td>
+                                            <th scope="row">브랜드<i class="icon icon-required"></i></th>
+                                            <td>
+                                                알루미늄(서구산) / 브랜드 무관
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">아이템 상품명<i class="icon icon-required"></i></th>
+                                            <td>
+                                                PRIMARY AL INGOT P1020
+                                            </td>
+                                            <th scope="row">권역</th>
+                                            <td>
+                                                인천
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">수량 (톤)<i class="icon icon-required"></i></th>
+                                            <td>
+                                                2000
+                                            </td>
+                                            <th scope="row">중량허용공차(±)<i class="icon icon-required"></i></th>
+                                            <td>
+                                                10 %
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">프리미엄 가격(USD/MT)<i class="icon icon-required"></i></th>
+                                            <td colspan="3">
+                                                <div class="table table-inner">
+                                                    <table>
+                                                        <colgroup>
+                                                            <col width="6%" />
+                                                            <col width="*" />
+                                                            <col width="40%" />
+                                                        </colgroup>
+                                                        <thead>
+                                                        <tr>
+                                                            <th scope="row" ></th>
+                                                            <th scope="row">인도조건</th>
+                                                            <th scope="row">프리미엄 가격 설정</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="text-center"><b>1</b></td>
+                                                            <td>서린상사 지정 보세창고 도착도(FCA 서린상사 지정 보세창고)</td>
+                                                            <td>
+                                                                <input type="text" value="0" class="input" style="width:50%; background-color:#fafafa;" readonly="readonly">
+                                                                &nbsp;&nbsp;
+                                                                <span class="color-red">+USD 15.0</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center"><b>2</b></td>
+                                                            <td>기타 부산/인천 보세창고 상차도(FCA BUSAN/INCHEON)</td>
+                                                            <td>
+                                                                <input type="text" value="100" class="input" style="width:50%; background-color:#fafafa;" readonly="readonly">
+                                                                &nbsp;&nbsp;
+                                                                <span class="color-red">+USD 15.0</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center"><b>3</b></td>
+                                                            <td>CIF INCHEON / CIF BUSAN</td>
+                                                            <td>
+                                                                <input type="text" value="200" class="input" style="width:50%; background-color:#fafafa;" readonly="readonly">
+                                                                &nbsp;&nbsp;
+                                                                <span class="color-red">+USD 15.0</span>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">인도조건 비고<i class="icon icon-required"></i></th>
+                                            <td colspan="3">
+                                                <ul class="color-red">
+                                                    <li>기타) 부산/인천 보세창고 상차도 조건일 경우 인천지역(+USD8/MT),부산지역(+USD10/MT)을 조정하여 <u>환산 프리미엄으로 입찰 가격 적용</u></li>
+                                                    <li>기타) 부산/인천 보세창고 낙찰될 경우 해당 운송에 대해서는 서린상사 지정 운송업체를 통해 운송시 서린상사가 해당 금액을 포함한 <u>환산 프리미엄 가격으로 낙찰자에게 지불함</u></li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" rowspan="2">인도기한<i class="icon icon-required"></i></th>
+                                            <td colspan="3">
+                                                2022.08.01 ~ 2022.08.10
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">
+                                                <b>ⓘ</b> 인도조건에서 제출한 인도지에 화물이 최종 입고된 기준으로 적용함
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="table table-view">
+                                    <table>
+                                        <colgroup>
+                                            <col class="col-md" />
+                                            <col width="*" />
+                                            <col class="col-md" />
+                                            <col width="*" />
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <th scope="row">가격지정기간<i class="icon icon-required"></i></th>
+                                            <td>
+                                                2022.02.02 ~ 2022.03.01
+                                            </td>
+                                            <th scope="row">가격지정방법<i class="icon icon-required"></i></th>
+                                            <td>
+                                                Monthly Avg+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">결제 조건<i class="icon icon-required"></i></th>
+                                            <td colspan="3">
+                                                USD T/T AGAINST CONDITIONAL RELEASE ISSUED BY WAREHOUSE
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">기타 코멘트</th>
+                                            <td colspan="3">
+                                                LME Warrant 제품 납품 불가
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="sub-title">
+                                    <h3 class="">투찰 기간 설정</h3>
+                                </div>
+                                <div class="table table-view">
+                                    <table>
+                                        <colgroup>
+                                            <col class="col-md" />
+                                            <col width="*" />
+                                            <col class="col-md" />
+                                            <col width="*" />
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <th scope="row">투찰 시작일<i class="icon icon-required"></i></th>
+                                            <td>
+                                                2022.08.01. 10:10:10
+                                            </td>
+                                            <th scope="row">투찰 마감일<i class="icon icon-required"></i></th>
+                                            <td>
+                                                2022.08.05. 10:10:10
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                투찰 취소기한<i class="icon icon-required"></i>
+                                                <div class="icon icon-title-tooltip tooltip" style="margin-left:1px;">
+							                                <span class="tooltiptext">
+							                                    회원사가 투찰 후, 취소를 할때<br/>
+																설정 된 취소 기한에 따릅니다.
+							                                </span>
+                                                </div>
+                                            </th>
+                                            <td colspan="3">
+                                                2022.08.04. 10:10:10
+                                                <!-- 투찰취소불가 -->
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="sub-title">
+                                    <h3 class="">활성여부</h3>
+                                </div>
+                                <div class="table table-view">
+                                    <table>
+                                        <colgroup>
+                                            <col class="col-md" />
+                                            <col width="*" />
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <th scope="row">활성여부</th>
+                                            <td>
+                                                활성
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="sub-title">
+                                    <h3 class="">공고 수정 이력</h3>
+                                </div>
+                                <div class="table table-view">
+                                    <table>
+                                        <colgroup>
+                                            <col width="20%" />
+                                            <col width="*" />
+                                            <col width="40%" />
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <th scope="row">수정일시</th>
+                                            <th scope="row">수정 내용</th>
+                                            <th scope="row">수정 사유</th>
+                                        </tr>
+                                        <tr>
+                                            <td>2022.01.03.10:10:10</td>
+                                            <td>수정 내용1</td>
+                                            <td>수정 사유1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2022.01.04.10:10:00</td>
+                                            <td>수정 내용2</td>
+                                            <td>수정 사유2</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="btn-box mt-12">
+                                    <button type="button" class="btn">공고 수정</button>
+                                    <button type="button" class="btn">공고 취소</button>
+                                </div>
+
+                                <div class="sub-title">
+                                    <h3 class="">투찰 기업 목록</h3>
+                                </div>
+                                <div class="table table-view">
+                                    <table>
+                                        <colgroup>
+                                            <col width="10%" />
+                                            <col width="15%" />
+                                            <col width="15%" />
+                                            <col width="*" />
+                                            <col width="10%" />
+                                            <col width="10%" />
+                                            <col width="10%" />
+                                        </colgroup>
+                                        <tbody>
+                                        <tr>
+                                            <th scope="row" class="text-center">순위</th>
+                                            <th scope="row" class="text-center">기업명</th>
+                                            <th scope="row" class="text-center">투찰 일시</th>
+                                            <th scope="row" class="text-center">인도조건</th>
+                                            <th scope="row" class="text-center">투찰 가격(USD)</th>
+                                            <th scope="row" class="text-center">상태</th>
+                                            <th scope="row" class="text-center">처리단계</th>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center"><b>1</b></td>
+                                            <td><a href="#" class="rg-link-renderer">엠투엠글로벌</a></td>
+                                            <td>2022.01.02. 10:10:10</td>
+                                            <td>서린상사 지정 보세창고 도착도(FCA서린상사 지정보세창고)</td>
+                                            <td class="text-center">11</td>
+                                            <td class="text-center">투찰 중</td>
+                                            <td class="text-center">-</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center"><b>2</b></td>
+                                            <td><a href="#" class="rg-link-renderer">반진메탈</a></td>
+                                            <td>2022.01.02. 10:11:25</td>
+                                            <td>기타 부산/인천 보세창고 상차도(FCA BUSAN/INCHEON)</td>
+                                            <td class="text-center">111</td>
+                                            <td class="text-center">투찰 중</td>
+                                            <td class="text-center">-</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center"><b>3</b></td>
+                                            <td><a href="#" class="rg-link-renderer">기업명칭</a></td>
+                                            <td>2022.01.03. 11:11:20</td>
+                                            <td>CIF INCHEON / CIF BUSAN</td>
+                                            <td class="text-center">112</td>
+                                            <td class="text-center">투찰 중</td>
+                                            <td class="text-center">-</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <!-- <div class="btn-box">
+                                    <button type="button" class="btn">입찰 공고 등록</button>
+                                    <button type="button" class="btn" data-dismiss="modal">취소</button>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 모달 엔드 -->
             </div>
         </div>
     </section>
@@ -234,6 +587,16 @@
 
     ajaxBidNoticeMngStatCntList(jsonData);
     ajaxBidNoticeMngList(jsonData);
+
+      $('#bid_noticeAdd').click(function () {
+          $('#myModalContainer').load("bidModal.jsp", function () {
+              $('#exampleModal').show();
+
+              $('.close').click(function () {
+                  $('#exampleModal').hide();
+              });
+          });
+      });
 
   });
 
@@ -351,7 +714,9 @@
 
         $.each(data , function(index , item) {
           $("#dynamicTbody").append('<tr>');
-          $("#dynamicTbody").append('<td>  ' + item.bidPblancId + '</td>');
+          //$("#dynamicTbody").append('<td style="color:red;"> <a href="/bo/bid/noticeDtlForm?bidPblancId='+item.bidPblancId+'"</a>' + item.bidPblancId + '</td>');
+          $("#dynamicTbody").append('<td class="appendClass" id="'+ item.bidPblancId + '"data-toggle="modal" data-target="#exampleModal">' + item.bidPblancId + '</td>' );
+          //$("#dynamicTbody").append('<td class="appendClass" id="'+ item.bidPblancId + '">' + item.bidPblancId + '</td>' );
           $("#dynamicTbody").append('<td>' + item.metalCode + '</td>');
           $("#dynamicTbody").append('<td>' + item.itmPrdlstKorean + '</td>');
           $("#dynamicTbody").append('<td>' + item.brandCode + '</td>');
@@ -369,6 +734,13 @@
           $("#dynamicTbody").append('</tr>');
         });
 
+        $(".appendClass").click(function(){
+          var bidPblancId = $(this).attr('id');
+          console.log("appendClass Click : " + bidPblancId);
+
+          ajaxBidNoticeMngInfo(bidPblancId);
+        });
+
       },
       error: function (xhr, status, error) {
         // 에러 처리 코드
@@ -376,6 +748,29 @@
       }
     });
   }
+
+  // 정보조회
+  function ajaxBidNoticeMngInfo(bidPblancId) {
+    $.ajax({
+      url: "/bo/bid/noticeMngForm/bidInfo",
+      type: "POST",
+      contentType: "application/json; charset=utf-8",
+      data: JSON.stringify({bidPblancId:bidPblancId}),
+      dataType: "json",
+      success: function (data) {
+        console.log("서버 응답:", data);
+        $("#exampleModalLabel").empty();
+
+        $("#exampleModalLabel").append("입찰 공고 상세 > " + data.itmPrdlstKorean + '<span style="margin-left:20px;background-color: black; color: white; font-weight:normal;">' + "&nbsp;&nbsp;입찰공고번호 " + data.bidPblancId + '&nbsp;&nbsp;</span>');
+
+      },
+      error: function (xhr, status, error) {
+        // 에러 처리 코드
+        console.error("에러 발생:", error);
+      }
+    });
+  }
+
 
   function getDatePickerButtonId() {
     // 클릭된 버튼의 아이디 가져오기
@@ -402,6 +797,7 @@
     $("#" + buttonId).addClass('active');
   }
 
+  // jsonData 생성
   function getCreateJsonData(bidSttusCode){
     var jsonData = {
       startDate: $("#datepicker1").datepicker({dateformat: 'yyyy-mm-dd'}).val(),
@@ -411,6 +807,8 @@
 
     return jsonData;
   }
+
+
 
 </script>
 </html>
