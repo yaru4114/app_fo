@@ -1,91 +1,178 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bid.fo.main.dao.BidMainDAO">
-	<select id="selectBidList" parameterType="com.bid.fo.main.model.MainVO" resultType="com.bid.fo.main.model.MainVO">
-		SELECT BID_PBLANC_ID			/* 입찰 공고 아이디 */
-			 , METAL_CODE				/* 금속 코드 */	
-			 , ISNULL((SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'BRAND_GROUP_CODE' AND SUB_CODE = BBB.BRAND_GROUP_CODE),'브랜드 무관') AS BRAND_GROUP_CODE_NM
-			 , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'DSTRCT_LCLSF_CODE' AND SUB_CODE = BBB.DSTRCT_LCLSF_CODE) AS DSTRCT_LCLSF_CODE_NM
-			 , BRAND_CODE				/* 브랜드 코드 */
-			 , (SELECT ITM_PRDLST_ENG FROM IT_ITM_INFO_BAS WHERE ITM_SN = BBB.ITM_SN) AS DSPY_GOODS_NM
-			 , BID_WT					/* 입찰 중량 */
-			 , BDDPR_BEGIN_DT 			/* 투찰 시작 일시 */
-			 , BDDPR_END_DT 				/* 투찰 종료 일시 */
-			 , BID_STTUS_CODE			/* 입찰 상태 코드 */
-			 , ISNULL(PARTCPTN_ENTRPS_QY,0)	AS PARTCPTN_ENTRPS_QY	/* 참여 업체 수량 */
-			 , ISNULL(INTRST_ENTRPS_QY,0)	AS INTRST_ENTRPS_QY			/* 관심 업체 수량 */
-			 , DSPY_AT					/* 전시 여부 */
-		  FROM dbo.BD_BID_BAS BBB			/* 입찰_입찰 기본 */
-		  WHERE 1=1
-		  	AND DSPY_AT = 'Y'
-		    <if test="filter == '01'">
-				<if test="startDate != null and startDate != ''" >
-					AND BDDPR_BEGIN_DT > #{startDate} + '000000'
-				</if>
-				<if test="endDate != null and endDate != ''" >
-					AND BDDPR_BEGIN_DT  <![CDATA[<]]> #{endDate} + '235959' 
-				</if> 
-			</if>
-			<if test="filter == '02'">
-				<if test="startDate != null and startDate != ''" >
-					AND BDDPR_END_DT > #{startDate} + '000000'
-				</if>
-				<if test="endDate != null and endDate != ''" >
-					AND BDDPR_END_DT  <![CDATA[<]]> #{endDate} + '235959' 
-				</if>
-			</if>
-			<if test="bidSttusCode != null and bidSttusCode != ''">
-				<if test="bidSttusCode =='12' or bidSttusCode =='13'">
-					AND BID_STTUS_CODE = #{bidSttusCode}
-				</if>
-				<if test="bidSttusCode =='30'">
-					AND BID_STTUS_CODE IN ('31','32')
-				</if>
-			</if>
-			<if test="brandGroupCode != null and brandGroupCode != ''">
-				AND BRAND_GROUP_CODE = #{brandGroupCode}
-			</if>
-			<if test="dstrctLclsfCode != null and dstrctLclsfCode != ''">
-				AND DSTRCT_LCLSF_CODE = #{dstrctLclsfCode}
-			</if>
-	</select>
-	<select id="selectBidListCnt" parameterType="com.bid.fo.main.model.MainVO" resultType="com.bid.fo.main.model.MainVO">
-		SELECT BID_STTUS_CODE
-			 , COUNT(BID_PBLANC_ID)	AS BID_STTUS_CNT   /* 입찰상태코드별 개수 */
-		  FROM dbo.BD_BID_BAS			/* 입찰_입찰 기본 */
-		  WHERE 1=1
-		    AND DSPY_AT = 'Y'
-		    <if test="filter == '01'">
-				<if test="startDate != null and startDate != ''" >
-					AND BDDPR_BEGIN_DT > #{startDate} + '000000'
-				</if>
-				<if test="endDate != null and endDate != ''" >
-					AND BDDPR_BEGIN_DT  <![CDATA[<]]> #{endDate} + '235959' 
-				</if> 
-			</if>
-			<if test="filter == '02'">
-				<if test="startDate != null and startDate != ''" >
-					AND BDDPR_END_DT > #{startDate} + '000000' 
-				</if>
-				<if test="endDate != null and endDate != ''" >
-					AND BDDPR_END_DT  <![CDATA[<]]> #{endDate} + '235959' 
-				</if>
-			</if>
-			<if test="brandGroupCode != null and brandGroupCode != ''">
-				AND BRAND_GROUP_CODE = #{brandGroupCode}
-			</if>
-			<if test="dstrctLclsfCode != null and dstrctLclsfCode != ''">
-				AND DSTRCT_LCLSF_CODE = #{dstrctLclsfCode}
-			</if>
-			GROUP BY BID_STTUS_CODE
-	</select>
-	<select id="selectBidTabCnt" parameterType="com.bid.fo.main.model.MainVO" resultType="com.bid.fo.main.model.MainVO">
-		SELECT SUM(BBB.EXCEPT_CNT) AS EXCEPT_CNT
-	 		 , SUM(BBB.BDDPR_CNT) AS BDDPR_CNT
-		 	 , SUM(BBB.END_CNT) AS END_CNT
-		  FROM (SELECT CASE WHEN BID_STTUS_CODE = '12' THEN 1 ELSE 0 END AS EXCEPT_CNT
-				 	 ,CASE WHEN BID_STTUS_CODE = '13' THEN 1 ELSE 0 END AS BDDPR_CNT
-				 	 ,CASE WHEN BID_STTUS_CODE = '30' THEN 1 ELSE 0 END AS END_CNT
-				  FROM dbo.BD_BID_BAS) AS BBB
-	</select>
+   <select id="selectBidList" parameterType="com.bid.fo.main.model.MainVO" resultType="com.bid.fo.main.model.MainVO">
+      SELECT BBB.BID_PBLANC_ID         /* 입찰 공고 아이디 */
+          , BBB.METAL_CODE            /* 금속 코드 */   
+          , ISNULL((SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'BRAND_GROUP_CODE' AND SUB_CODE = BBB.BRAND_GROUP_CODE),'브랜드 무관') AS BRAND_GROUP_CODE_NM
+          , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'DSTRCT_LCLSF_CODE' AND SUB_CODE = BBB.DSTRCT_LCLSF_CODE) AS DSTRCT_LCLSF_CODE_NM
+          , BBB.BRAND_CODE            /* 브랜드 코드 */
+          , (SELECT ITM_PRDLST_ENG FROM IT_ITM_INFO_BAS WHERE ITM_SN = BBB.ITM_SN) AS DSPY_GOODS_NM
+          , ISNULL(BBB.BID_WT, 0) AS BID_WT                /* 입찰 중량 */
+          , BBB.BDDPR_BEGIN_DT          /* 투찰 시작 일시 */
+          , BBB.BDDPR_END_DT             /* 투찰 종료 일시 */
+          , BBB.BID_STTUS_CODE         /* 입찰 상태 코드 */
+          , ISNULL(BBB.PARTCPTN_ENTRPS_QY, 0)   AS PARTCPTN_ENTRPS_QY   /* 참여 업체 수량 */
+          , ISNULL(BBB.INTRST_ENTRPS_QY, 0)   AS INTRST_ENTRPS_QY         /* 관심 업체 수량 */
+          , BBB.DSPY_AT               /* 전시 여부 */
+          <if test="loginYn eq 'Y'.toString()">
+             , BID.DELETE_AT AS INTRST_AT   /* 관심 여부 */ 
+             , IIF(BBD.BID_PBLANC_ID IS NULL,'N','Y') AS BDDPR_AT /* 공고 입찰 여부 */ 
+          </if>        
+        FROM dbo.BD_BID_BAS BBB            /* 입찰_입찰 기본 */
+        <if test="loginYn eq 'Y'.toString()">
+             LEFT JOIN (SELECT BID_PBLANC_ID 
+                         , DELETE_AT
+                       FROM BD_INTRST_DTL  
+                      WHERE BID_ENTRPS_NO = #{bidEntrpsNo}) AS BID
+                 ON BID.BID_PBLANC_ID = BBB.BID_PBLANC_ID
+                LEFT JOIN (SELECT BID_PBLANC_ID
+                        FROM BD_BDDPR_DTL 
+                       WHERE BID_PBLANC_ID = #{bidPblancId}
+                        AND BID_ENTRPS_NO = #{bidEntrpsNo}
+                        AND CANCL_AT = 'N'
+                        AND DELETE_AT = 'N') AS BBD
+                ON BBD.BID_PBLANC_ID = BBB.BID_PBLANC_ID
+        </if>
+        WHERE 1=1
+          AND BBB.DSPY_AT = 'Y'
+          AND ISNULL(BBB.PBLANC_CANCL_AT, 'N') = 'N' 
+          AND ISNULL(BBB.DELETE_AT, 'N') = 'N' 
+          <if test="filter == '01'">
+            <if test="startDate != null and startDate != ''" >
+               AND BBB.BDDPR_BEGIN_DT > #{startDate} + '000000'
+            </if>
+            <if test="endDate != null and endDate != ''" >
+               AND BBB.BDDPR_BEGIN_DT  <![CDATA[<]]> #{endDate} + '235959' 
+            </if> 
+         </if>
+         <if test="filter == '02'">
+            <if test="startDate != null and startDate != ''" >
+               AND BBB.BDDPR_END_DT > #{startDate} + '000000'
+            </if>
+            <if test="endDate != null and endDate != ''" >
+               AND BBB.BDDPR_END_DT  <![CDATA[<]]> #{endDate} + '235959' 
+            </if>
+         </if>
+         <if test="bidSttusCode != null and bidSttusCode != ''">
+            <if test="bidSttusCode =='12' or bidSttusCode =='13'">
+               AND BBB.BID_STTUS_CODE = #{bidSttusCode}
+            </if>
+            <if test="bidSttusCode =='30'">
+               AND BBB.BID_STTUS_CODE IN ('31','32')
+            </if>
+         </if>
+         <if test="brandGroupCode != null and brandGroupCode != ''">
+            AND BBB.BRAND_GROUP_CODE = #{brandGroupCode}
+         </if>
+         <if test="dstrctLclsfCode != null and dstrctLclsfCode != ''">
+            AND BBB.DSTRCT_LCLSF_CODE = #{dstrctLclsfCode}
+         </if>
+   </select>
+   <select id="selectBidListCnt" parameterType="com.bid.fo.main.model.MainVO" resultType="com.bid.fo.main.model.MainVO">
+      SELECT BID_STTUS_CODE
+          , COUNT(BID_PBLANC_ID)   AS BID_STTUS_CNT   /* 입찰상태코드별 개수 */
+        FROM dbo.BD_BID_BAS         /* 입찰_입찰 기본 */
+        WHERE 1=1
+          AND DSPY_AT = 'Y'
+           AND ISNULL(PBLANC_CANCL_AT, 'N') = 'N' 
+          AND ISNULL(DELETE_AT, 'N') = 'N' 
+          <if test="filter == '01'">
+            <if test="startDate != null and startDate != ''" >
+               AND BDDPR_BEGIN_DT > #{startDate} + '000000'
+            </if>
+            <if test="endDate != null and endDate != ''" >
+               AND BDDPR_BEGIN_DT  <![CDATA[<]]> #{endDate} + '235959' 
+            </if> 
+         </if>
+         <if test="filter == '02'">
+            <if test="startDate != null and startDate != ''" >
+               AND BDDPR_END_DT > #{startDate} + '000000' 
+            </if>
+            <if test="endDate != null and endDate != ''" >
+               AND BDDPR_END_DT  <![CDATA[<]]> #{endDate} + '235959' 
+            </if>
+         </if>
+         <if test="brandGroupCode != null and brandGroupCode != ''">
+            AND BRAND_GROUP_CODE = #{brandGroupCode}
+         </if>
+         <if test="dstrctLclsfCode != null and dstrctLclsfCode != ''">
+            AND DSTRCT_LCLSF_CODE = #{dstrctLclsfCode}
+         </if>
+         GROUP BY BID_STTUS_CODE
+   </select>
+   <select id="selectBidDashBoard" parameterType="com.bid.fo.main.model.MainVO" resultType="com.bid.fo.main.model.MainVO">
+      SELECT ISNULL(SUM(BBD.BDDPR_CNT), 0) AS BDDPR_TOT_CNT
+          , ISNULL(SUM(BBD.SCSBID_CNT), 0) AS SCSBID_TOT_CNT
+           , ISNULL(SUM(BBD.DEFEAT_CNT), 0) AS DEFEAT_TOT_CNT 
+           , ISNULL(SUM(BBD.DEFEAT_CNT), 0) AS FAIL_TOT_CNT 
+        FROM (SELECT CASE WHEN BBB.BID_STTUS_CODE = '13'  THEN 1 ELSE 0 END AS BDDPR_CNT
+                 , CASE WHEN BID_STTUS_CODE = '31' AND SCSBID_AT = 'Y' AND ISNULL(BBD.CANCL_AT,'N') = 'N'  THEN 1 ELSE 0 END AS SCSBID_CNT
+                 , CASE WHEN BID_STTUS_CODE = '31' AND SCSBID_AT = 'N' THEN 1 ELSE 0 END AS DEFEAT_CNT
+                 , CASE WHEN BID_STTUS_CODE = '31' AND BBB.PBLANC_CANCL_AT = 'N' THEN 1 ELSE 0 END AS FAIL_CNT
+              FROM dbo.BD_BDDPR_DTL AS BBD
+              LEFT JOIN BD_BID_BAS AS BBB
+               ON BBD.BID_PBLANC_ID = BBB.BID_PBLANC_ID
+              WHERE 1=1
+               AND ISNULL(BBD.CANCL_AT,'N') = 'N' 
+               AND ISNULL(BBB.DELETE_AT,'N')='N' 
+               AND BBD.BID_ENTRPS_NO = #{bidEntrpsNo}) AS BBD
+   </select>
+<select id="selectBidIntrstCnt" parameterType="com.bid.fo.main.model.MainVO" resultType="Integer"> 
+	SELECT ISNULL(COUNT(BID.BID_ENTRPS_NO), 0) 
+	 FROM BD_INTRST_DTL BID 
+	   LEFT JOIN BD_BID_BAS BBB 
+	    ON BID.BID_PBLANC_ID = BBB.BID_PBLANC_ID 
+	WHERE 1=1 
+	   AND BID.DELETE_AT = 'N' 
+	   AND BID.BID_ENTRPS_NO = #{bidEntrpsNo} 
+	   AND BBB.DSPY_AT = 'Y' 
+</select>
+   <insert id="insertIntrstPblanc" parameterType="com.bid.fo.main.model.MainVO">
+   IF NOT EXISTS(SELECT BID_ENTRPS_NO FROM BD_INTRST_DTL WHERE BID_ENTRPS_NO = #{bidEntrpsNo} AND BID_PBLANC_ID = #{bidPblancId})
+	BEGIN
+		INSERT INTO dbo.BD_INTRST_DTL (
+	         BID_ENTRPS_NO,
+	         BID_PBLANC_ID,
+	         DELETE_AT,
+	         DELETE_DT,
+	         FRST_REGISTER_ID,
+	         FRST_REGIST_DT,
+	         LAST_CHANGER_ID,
+	         LAST_CHANGE_DT
+	      )
+	      VALUES (
+	       	 #{bidEntrpsNo},
+	         #{bidPblancId},
+	         'N',
+	         NULL,
+	         #{frstRegisterId},
+	         GETDATE(), 
+	         #{lastChangerId}, 
+	         GETDATE()
+	      )
+	END
+	ELSE
+	BEGIN
+	             UPDATE dbo.BD_INTRST_DTL 
+				   	  SET 
+				   	   DELETE_AT = 'N', 
+				       DELETE_DT = GETDATE(), 
+				       LAST_CHANGER_ID = #{lastChangerId}, 
+				       LAST_CHANGE_DT = GETDATE()
+				    WHERE BID_ENTRPS_NO = #{bidEntrpsNo}
+				      AND BID_PBLANC_ID = #{bidPblancId}
+	 END
+	
+   </insert>
+   <update id="deleteIntrstPblanc" parameterType="com.bid.fo.main.model.MainVO">
+   UPDATE dbo.BD_INTRST_DTL 
+   	  SET 
+   	   DELETE_AT = 'Y', 
+       DELETE_DT = GETDATE(), 
+       LAST_CHANGER_ID = #{lastChangerId}, 
+       LAST_CHANGE_DT = GETDATE()
+    WHERE BID_ENTRPS_NO = #{bidEntrpsNo}
+      AND BID_PBLANC_ID = #{bidPblancId}
+   </update>
 </mapper>

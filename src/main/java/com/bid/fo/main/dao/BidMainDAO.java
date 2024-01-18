@@ -13,5 +13,11 @@ public interface BidMainDAO {
 
 	List<MainVO> selectBidListCnt(MainVO mainVO);
 	
-	List<MainVO> selectBidTabCnt(MainVO mainVO);
+	MainVO selectBidDashBoard(MainVO mainVO);
+	
+	int selectBidIntrstCnt(MainVO mainVO);
+	
+	int insertIntrstPblanc(MainVO mainVO);
+	
+	int deleteIntrstPblanc(MainVO mainVO);
 }

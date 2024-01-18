@@ -18,4 +18,13 @@
         </div>
     </div>
 </header>
+<script>
+	if(loginYn == 'N'){
+		$(".fc-lgray").text("로그인");
+		$(".fc-lgray").attr("href","/fo/bid");
+	}else{
+		$(".fc-lgray").text("로그아웃");
+		$(".fc-lgray").attr("href","/fo/member/logout");
+	}
+</script>
 <!-- header :: END -->

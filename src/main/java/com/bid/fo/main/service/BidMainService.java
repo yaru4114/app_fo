@@ -24,8 +24,26 @@ public class BidMainService {
 		return bidListCnt;
 	}
 	
-	public List<MainVO> selectBidTabCnt(MainVO mainVO){
-		List<MainVO> tabCntList = bidMainDAO.selectBidTabCnt(mainVO);
-		return tabCntList;
+	public MainVO selectBidDashBoard(MainVO mainVO){
+		MainVO dashboardList = bidMainDAO.selectBidDashBoard(mainVO);
+		return dashboardList;
+	}
+	
+	public int selectBidIntrstCnt(MainVO mainVO){
+		int bidIntrstCnt = bidMainDAO.selectBidIntrstCnt(mainVO);
+		return bidIntrstCnt;
+	}
+	
+	public int insertIntrstPblanc(MainVO mainVO){
+		mainVO.setFrstRegisterId("test");
+		mainVO.setLastChangerId("test");
+		int result = bidMainDAO.insertIntrstPblanc(mainVO);
+		return result;
+	}
+	
+	public int deleteIntrstPblanc(MainVO mainVO){
+		mainVO.setLastChangerId("test");
+		int result = bidMainDAO.deleteIntrstPblanc(mainVO);
+		return result;
 	}
 }

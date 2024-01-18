@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bid.fo.mypage.dao.BidMypageDAO">
+   <select id="selectBidBddprList" parameterType="com.bid.fo.main.model.MainVO" resultType="com.bid.fo.main.model.MainVO">
+      SELECT BBB.BID_PBLANC_ID         /* 입찰 공고 아이디 */
+          , BBB.METAL_CODE            /* 금속 코드 */   
+          , ISNULL((SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'BRAND_GROUP_CODE' AND SUB_CODE = BBB.BRAND_GROUP_CODE),'브랜드 무관') AS BRAND_GROUP_CODE_NM
+          , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'DSTRCT_LCLSF_CODE' AND SUB_CODE = BBB.DSTRCT_LCLSF_CODE) AS DSTRCT_LCLSF_CODE_NM
+          , BBB.BRAND_CODE            /* 브랜드 코드 */
+          , (SELECT ITM_PRDLST_ENG FROM IT_ITM_INFO_BAS WHERE ITM_SN = BBB.ITM_SN) AS DSPY_GOODS_NM
+          , ISNULL(BBB.BID_WT, 0) AS BID_WT             /* 입찰 중량 */
+          , BBB.BDDPR_BEGIN_DT          /* 투찰 시작 일시 */
+          , BBB.BDDPR_END_DT             /* 투찰 종료 일시 */
+          , BBB.BID_STTUS_CODE         /* 입찰 상태 코드 */
+          , ISNULL(BBB.PARTCPTN_ENTRPS_QY, 0)   AS PARTCPTN_ENTRPS_QY   /* 참여 업체 수량 */
+          , ISNULL(BBB.INTRST_ENTRPS_QY, 0)   AS INTRST_ENTRPS_QY         /* 관심 업체 수량 */
+          , BBB.DSPY_AT               /* 전시 여부 */
+          , IIF(BBD.BID_PBLANC_ID IS NULL,'N','Y') AS BDDPR_AT /* 공고 입찰 여부 */
+          , BBD.SCSBID_AT     
+          , ISNULL(BBD.CANCL_AT,'N') AS CANCL_AT
+          , ISNULL(BBB.PBLANC_CANCL_AT,'N') AS PBLANC_CANCL_AT
+          , ISNULL(BDDPR_WT, 0) AS BDDPR_WT
+        FROM dbo.BD_BID_BAS BBB            /* 입찰_입찰 기본 */
+        INNER JOIN BD_BDDPR_DTL AS BBD
+                ON BBD.BID_PBLANC_ID = BBB.BID_PBLANC_ID
+        WHERE 1=1
+          AND BBB.DSPY_AT = 'Y'
+          AND BBD.BID_ENTRPS_NO = #{bidEntrpsNo}
+          AND ISNULL(BBB.PBLANC_CANCL_AT, 'N') = 'N'
+          AND ISNULL(BBD.CANCL_AT, 'N') = 'N' 
+          AND ISNULL(BBB.DELETE_AT, 'N') = 'N' 
+          AND ISNULL(BBD.DELETE_AT, 'N') = 'N'
+          <if test="filter == '01'">
+            <if test="startDate != null and startDate != ''" >
+               AND BBB.BDDPR_BEGIN_DT > #{startDate} + '000000'
+            </if>
+            <if test="endDate != null and endDate != ''" >
+               AND BBB.BDDPR_BEGIN_DT  <![CDATA[<]]> #{endDate} + '235959' 
+            </if> 
+         </if>
+         <if test="filter == '02'">
+            <if test="startDate != null and startDate != ''" >
+               AND BBB.BDDPR_END_DT > #{startDate} + '000000'
+            </if>
+            <if test="endDate != null and endDate != ''" >
+               AND BBB.BDDPR_END_DT  <![CDATA[<]]> #{endDate} + '235959' 
+            </if>
+         </if>
+         <if test="tabCode == '01'">
+            AND BBB.BID_STTUS_CODE = '13'
+         </if>
+         <if test="tabCode == '02'">
+            AND BBB.BID_STTUS_CODE = '31' AND BBD.SCSBID_AT = 'Y' AND ISNULL(BBD.CANCL_AT,'N') = 'N'
+         </if>
+         <if test="tabCode == '03'">
+            AND BBB.BID_STTUS_CODE = '31' AND BBD.SCSBID_AT = 'N'
+         </if>
+         <if test="tabCode == '04'">
+            AND BBB.BID_STTUS_CODE = '31' AND BBB.PBLANC_CANCL_AT = 'N'
+         </if>
+   </select>
+   <select id="selectBidBddprCntList" parameterType="com.bid.fo.main.model.MainVO" resultType="com.bid.fo.main.model.MainVO">
+      SELECT ISNULL(SUM(BBD.BDDPR_CNT), 0) AS BDDPR_TOT_CNT
+          , ISNULL(SUM(BBD.SCSBID_CNT), 0) AS SCSBID_TOT_CNT
+           , ISNULL(SUM(BBD.DEFEAT_CNT), 0) AS DEFEAT_TOT_CNT 
+           , ISNULL(SUM(BBD.DEFEAT_CNT), 0) AS FAIL_TOT_CNT 
+        FROM (SELECT CASE WHEN BBB.BID_STTUS_CODE = '13'  THEN 1 ELSE 0 END AS BDDPR_CNT
+                 , CASE WHEN BID_STTUS_CODE = '31' AND SCSBID_AT = 'Y' AND ISNULL(BBD.CANCL_AT,'N') = 'N'  THEN 1 ELSE 0 END AS SCSBID_CNT
+                 , CASE WHEN BID_STTUS_CODE = '31' AND SCSBID_AT = 'N' THEN 1 ELSE 0 END AS DEFEAT_CNT
+                 , CASE WHEN BID_STTUS_CODE = '31' AND BBB.PBLANC_CANCL_AT = 'N' THEN 1 ELSE 0 END AS FAIL_CNT
+              FROM dbo.BD_BDDPR_DTL AS BBD
+              LEFT JOIN BD_BID_BAS AS BBB
+               ON BBD.BID_PBLANC_ID = BBB.BID_PBLANC_ID
+              WHERE 1=1
+               AND ISNULL(BBD.CANCL_AT,'N') = 'N' 
+               AND ISNULL(BBB.DELETE_AT,'N')='N' 
+               AND BBD.BID_ENTRPS_NO = #{bidEntrpsNo}) AS BBD
+   </select>
+
+</mapper>

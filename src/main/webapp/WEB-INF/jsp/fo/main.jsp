@@ -65,7 +65,7 @@
 				                       </div>
 				                   </div>
 	<!-- 			                   <hr> -->
-				                   <a href="/fo/member/create_1" class="btn text ico">
+				                   <a href="/guide/html/SOREC-SC-BID-011.html" class="btn text ico">
 				                       <span class="material-symbols-outlined">
 				                       person
 				                       </span>
@@ -78,27 +78,27 @@
 				                   <a href="/guide/html/bid/SOREC-SC-BID-020.html" class="btn_nav"><span class="bold">서린상사</span>님 입찰현황</a>
 								   <div class="dashboard">
 								   	 <div class="item">
-								   	 	<a href="#">
+								   	 	<a href="javascript:;">
 									   	 	<h4>투찰건</h4>
-									   	 	<p class="bid">02</p>							   	 	
+									   	 	<p class="bid">${bidDashBoardList.bddprTotCnt}</p>							   	 	
 								   	 	</a>
 								   	 </div>
 								   	 <div class="item">
-								   	 	<a href="#">							   	 
+								   	 	<a href="javascript:;">							   	 
 									   	 	<h4>낙찰건</h4>
-									   	 	<p class="win">01</p>
+									   	 	<p class="win">${bidDashBoardList.scsbidTotCnt}</p>
 									   	</a> 	
 								   	 </div>		
 								   	 <div class="item">
-								   	 	<a href="#">							   	 
+								   	 	<a href="javascript:;">							   	 
 									   	 	<h4>패찰건</h4>
-									   	 	<p class="lose">00</p>
+									   	 	<p class="lose">${bidDashBoardList.defeatTotCnt}</p>
 									   	</a> 								   	 	
 								   	 </div>		
 								   	 <div class="item">
-								   	 	<a href="#">							   	 
+								   	 	<a href="javascript:;">							   	 
 									   	 	<h4>관심건</h4>
-									   	 	<p class="keep">06</p>
+									   	 	<p class="keep">${bidIntrstCnt }</p>
 									   	</a> 								   	 	
 								   	 </div>							   	 						   	 					   	 
 								   </div>
@@ -279,6 +279,7 @@
 <!-- script custom :: END -->
 <script>
 var loginYn = "${loginYn}";
+var bidEntrpsNo = "${bidEntrpsNo}";
 
 $(function(){
 	
@@ -316,12 +317,12 @@ $(function(){
 
 	// =============== TAB ==================
 	$('.tab_btn_group li').click(function(e){
-	    var tabData = $(this).attr('data-value');
+	    var tabSttus = $(this).attr('data-value');
 	    $('.tab_btn_group li').removeClass('on');
 	    $(this).addClass('on');
 	    
 	  	//리스트 조회
-	    selectBdList(tabData);
+	    selectBdList(tabSttus);
 	})
 
 	// =============== BTN.LIKE ==================
@@ -330,8 +331,44 @@ $(function(){
 			alert("로그인이 필요한 화면입니다.");
 			return;
 		}
-	 
-	    $(this).toggleClass('active');
+		
+		var bidPblancId = $(this).attr('data-bid-id');
+		var params = {
+				"bidPblancId" : bidPblancId,
+				"bidEntrpsNo" : bidEntrpsNo
+		};
+		var like = $(this);
+	 	if(!$(this).hasClass('active')){
+	 		 $.ajax({
+	 			type : 'post',
+	 			url : '/fo/insertIntrstPblanc',
+	 			dataType : 'json',
+	 			data : JSON.stringify(params),
+	 			contentType : 'application/json',
+	 			success : function(res) {
+	 				like.toggleClass('active');
+	 			},
+	 			error : function(request, status, error) {
+	 				console.log("error")
+	 			} 
+	 		});
+	 	}else{
+	 		 $.ajax({
+	 			type : 'post',
+	 			url : '/fo/deleteIntrstPblanc',
+	 			dataType : 'json',
+	 			data : JSON.stringify(params),
+	 			contentType : 'application/json',
+	 			success : function(res) {
+	 				like.removeClass('active');
+	 			},
+	 			error : function(request, status, error) {
+	 				console.log("error")
+	 			} 
+	 		});
+	 	}
+	  
+	    
 	})
 
 	
@@ -404,8 +441,7 @@ $(function(){
 	
 	// =============== 목록 조회 ==================
 	function selectBdList(bidSttusCode){
-		//let loginYn = 'N';
-		let loginYn = '${loginYn}';
+	
 		if(bidSttusCode == -1){
 			bidSttusCode = $("li[class='item on']").attr('data-value');
 		}
@@ -417,24 +453,26 @@ $(function(){
 			"endDate" : $("#endDate").val(),
 			"brandGroupCode" : $("#brand").val(),
 			"dstrctLclsfCode" : $("#area").val(),
-			//"entrpsNo" : 
+			"bidEntrpsNo" : bidEntrpsNo,
+			"loginYn" : loginYn
 		}
 		console.log(params)
+		
+		
 		
 		$.ajax({
 			type : 'post',
 			url : '/fo/selectBidList',
-			data : JSON.stringify(params),
 			dataType : 'json',
+			data : JSON.stringify(params),
 			contentType : 'application/json',
 			success : function(res) {
-				res.loginYn = loginYn;
 				console.log(res)
 				selectBdListGrid(res);
 			},
-			/* error : function(request, status, error) {
-				errorException(request);
-			} */
+			error : function(request, status, error) {
+				console.log("error")
+			} 
 		});
 		
 		
@@ -446,7 +484,7 @@ $(function(){
 		$("#exceptCnt").text(res.exceptCnt);
 		$("#bddprCnt").text(res.bddprCnt);
 		$("#endCnt").text(res.endCnt);
-	
+		
 		$("#bdDiv").empty();
 		var html = '';
 		for(let i=0; i<res.bidList.length;i++){
@@ -481,20 +519,20 @@ $(function(){
 			html += '                                   <span>'+res.bidList[i].intrstEntrpsQy+'</span>';
 			html += '                               </li>';
 			html += '                           </ul>';
-			if(res.bidList[i].bidSttusCode == '12' || res.bidList[i].bidSttusCode == '13'){
-				if(res.loginYn == 'Y'){
-	
-				}else if(res.loginYn == 'N'){
-					html += '                           <a href="javascript:;" class="ico like">';
-					html += '                               <span class="material-symbols-outlined">favorite</span>';
-					html += '                               <span>관심추가</span>';
-					html += '                           </a>';	
+			if(loginYn == 'Y'){
+				if(res.bidList[i].intrstAt == 'N'){
+					html += '                           <a href="javascript:;" class="ico like active" data-bid-id="'+res.bidList[i].bidPblancId+'">'
+				}else{
+					html += '                           <a href="javascript:;" class="ico like" data-bid-id="'+res.bidList[i].bidPblancId+'">'	
 				}
-				/* html += '                           <a href="javascript:;" class="ico like active">';
 				html += '                               <span class="material-symbols-outlined">favorite</span>';
 				html += '                               <span>관심추가</span>';
-				html += '                           </a>';	 */
-				
+				html += '                           </a>';	
+			}else{
+				html += '                           <a href="javascript:;" class="ico like">'
+				html += '                               <span class="material-symbols-outlined">favorite</span>';
+				html += '                               <span>관심추가</span>';
+				html += '                           </a>';	
 			}
 			html += '                       </div>';
 			html += '                   </div>';
@@ -505,7 +543,8 @@ $(function(){
 			html += '                   </div>';
 			html += '                   <div class="pd-period">';
 			html += '                   	<span class="qty">수량 <span class="highlight">'+res.bidList[i].bidWt+'MT</span></span>';	
-			html += '                       <span class="date">투찰기간 <span class="highlight">'+ res.bidList[i].bddrpBeginDt +' ~ '+ res.bidList[i].bddrpBeginDt+'</span></span>'; 
+			html += '                       <span class="date">투찰기간 <span class="highlight">24.01.15 11:00:00 ~ 24.01.17 18:00:00</span></span>'; 
+			/* html += '                       <span class="date">투찰기간 <span class="highlight">'+ res.bidList[i].bddrpBeginDt +' ~ '+ res.bidList[i].bddrpBeginDt+'</span></span>'; */ 
 			if(res.bidList[i].bidSttusCode == '12' || res.bidList[i].bidSttusCode == '13'){
 				html += '                       <span class="t-info">개찰결과 : 투찰 기한 마감과 동시에 발표함</span>';
 			}
@@ -514,21 +553,21 @@ $(function(){
 			html += '           </div>';
 			if(res.bidList[i].bidSttusCode == '12' ){
 				html += '           <div class="btns">';
-				html += '               <a href="javascript:;" class="btn-bid-stroke" onclick="moveToDetail()">입찰예정</a>';
+				html += '               <a href="javascript:;" class="btn-bid-stroke" name="bidDetail" data-bid-id="'+res.bidList[i].bidPblancId+'">입찰예정</a>';
 				html += '           </div>';
 				html += '           <span class="bid-d-day abs-info">';
 				html += '       		투찰 시작까지 <span class="time">- 3일 3시간 20분 36초</span>';
 				html += '       	</span>';
 			}else if(res.bidList[i].bidSttusCode == '13' ){
 				html += '           <div class="btns">';
-				html += '               <a href="javascript:;" class="btn-bid-blue" onclick="moveToDetail()">투찰중</a>';
+				html += '               <a href="javascript:;" class="btn-bid-blue" name="bidDetail" data-bid-id="'+res.bidList[i].bidPblancId+'">투찰중</a>';
 				html += '           </div>';
 				html += '           <span class="bid-d-day abs-info">';
 				html += '       		투찰 마감까지 <span class="time">- 3일 3시간 20분 36초</span>';
 				html += '       	</span>';
 			}else if(res.bidList[i].bidSttusCode == '30' || res.bidList[i].bidSttusCode == '31' || res.bidList[i].bidSttusCode == '32' ){
 				html += '           <div class="btns">';
-				html += '               <a href="javascript:;" class="btn-bid-black" onclick="moveToDetail()">마감</a>';
+				html += '               <a href="javascript:;" class="btn-bid-black" name="bidDetail" data-bid-id="'+res.bidList[i].bidPblancId+'">마감</a>';
 				html += '           </div>';
 				if(res.bidList[i].bidSttusCode == '30' ){
 					html += '           <span class="t-info abs-info">기한마감</span>';
@@ -553,45 +592,42 @@ $(function(){
 		
 	}
 	
+
 	
-	function moveToDetail(){
+	
+	$(document).on('click', "a[name='bidDetail']", function(e) {
 		if(loginYn == 'N'){
 			alert("로그인이 필요한 화면입니다.");
 			return;
-			
 		}
 		
-	}
+		var bidPblancId = $(this).attr('data-bid-id');
+		var params = {"bidPblancId" : bidPblancId};
+		
+		location.href="/fo/mypage?bidPblancId="+bidPblancId;
+		
+/* 		$.ajax({
+			type : 'post',
+			url : '/fo/mypage',
+			dataType : 'json',
+			data : JSON.stringify(params),
+			contentType : 'application/json',
+			success : function(res) {
+				console.log(res)
+				 location.href="/fo/selectMypage";
+			},
+			error : function(request, status, error) {
+				console.log("error")
+			} 
+		}); */
+	    
+	})
 	
-	
-/* 	// =============== DATEPICKER ==================
-	$('.datepicker.from, .datepicker.to').datepicker({
-	    showOn: "both", // 버튼과 텍스트 필드 모두 캘린더를 보여줌
-	    buttonImage: "/images/calendar.png", // 버튼 이미지
-	    buttonImageOnly: true, // 버튼에 있는 이미지만 표시
-	    changeMonth: false, // 월을 바꿀수 있는 셀렉트 박스를 표시
-	    changeYear: false, // 년을 바꿀 수 있는 셀렉트 박스를 표시
-	    //minDate: '-100y', // 현재날짜로부터 100년이전까지 년을 표시
-	    minDate: 0,
-	    nextText: '다음 달', // next 아이콘의 툴팁
-	    prevText: '이전 달', // prev 아이콘의 툴팁
-	    numberOfMonths: [1,1], // 한번에 얼마나 많은 월을 표시할것인가. [2,3] 일 경우, 2(행) x 3(열) = 6개의 월을 표시
-	    stepMonths: 1, // next, prev 버튼을 클릭했을때 얼마나 많은 월을 이동하여 표시하는가
-	    yearRange: 'c-100:c+10', // 년도 선택 셀렉트박스를 현재 년도에서 이전, 이후로 얼마의 범위를 표시할것인가
-	    showButtonPanel: false, // 캘린더 하단에 버튼 패널을 표시
-	    // currentText: '오늘 날짜' , // 오늘 날짜로 이동하는 버튼 패널
-	    // closeText: '닫기', // 닫기 버튼 패널
-	    dateFormat: "yy-mm-dd", // 텍스트 필드에 입력되는 날짜 형식
-	    showAnim: "slideDown", //애니메이션을 적용
-	    showMonthAfterYear: true , // 월, 년순의 셀렉트 박스를 년,월 순으로 변경
-	    dayNamesMin: ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'], // 요일의 한글 형식
-	    monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-	    monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'], // 월의 한글 형식. yearRange: "2010:2013" //연도 범위
-	    weekHeader: "주",
-	    yearSuffix: '년',
-	    orientation: 'top'
-	}); */
+	$(".dashboard .item").click(function(){
+		location.href="/fo/mypage?bidEntrpsNo="+bidEntrpsNo;
+	})
 
+	
 	$('#loginSubmitBtn').on('click',function (){
 	    var loginForm = {
 	        userId: $('#inputLoginId').val(),
@@ -614,6 +650,9 @@ $(function(){
 	        }
 	    });
 	});
+	
+	
+	
 </script>
 </body>
 </html>
