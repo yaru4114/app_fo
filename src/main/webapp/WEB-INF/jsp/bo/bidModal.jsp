@@ -73,11 +73,9 @@
                                     <div class="form-set">
                                         <select class="form-select" id="brandGrp">
                                             <option value="브랜드그룹">브랜드그룹</option>
-                                            <option value="선택">선택</option>
                                         </select>
                                         <select class="form-select" id="brand">
                                             <option value="브랜드">브랜드</option>
-                                            <option value="선택">선택</option>
                                         </select>
                                     </div>
                                 </td>
@@ -87,13 +85,11 @@
                                 <td>
                                     <select class="form-select select-sm" id="item">
                                         <option value="선택">선택</option>
-                                        <option value="선택">선택</option>
                                     </select>
                                 </td>
-                                <th scope="row">권역</th>
+                                <th scope="row">권역<i class="icon icon-required"></i></th>
                                 <td>
                                     <select class="form-select select-sm" id="dstrct">
-                                        <option value="선택">선택</option>
                                         <option value="선택">선택</option>
                                     </select>
                                 </td>
@@ -265,8 +261,7 @@
                                 </td>
                                 <th scope="row">가격지정방법<i class="icon icon-required"></i></th>
                                 <td>
-                                    <select class="form-select select-sm">
-                                        <option value="선택">선택</option>
+                                    <select class="form-select select-sm" id="priceSpmtc">
                                         <option value="선택">선택</option>
                                     </select>
                                 </td>
@@ -288,7 +283,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">기타 코멘트</th>
+                                <th scope="row">기타 코멘트<i class="icon icon-required"></i></th>
                                 <td colspan="3">
                                     <input type="text" class="input" value="" placeholder="코멘트를 입력해주세요.">
                                 </td>
@@ -377,11 +372,33 @@
                             </tbody>
                         </table>
                     </div>
+
+                    <div class="sub-title">
+                        <h3 class="">해당 공고 전시 여부</h3>
+                    </div>
+                    <div class="table table-view">
+                        <table>
+                            <colgroup>
+                                <col class="col-md"/>
+                                <col width="*"/>
+                                <col class="col-md"/>
+                                <col width="*"/>
+                            </colgroup>
+                            <tbody>
+                            <tr>
+                                <th scope="row">상태 설정<i class="icon icon-required"></i></th>
+                                <td colspan="3">
+                                    <input type="radio" name="radio" id="radio-basic" value="'N'" />비활성(비전시)
+                                    <input type="radio" name="radio" id="radio-advanced" value="'Y'" />활성(전시)
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <div class="btn-box">
                         <button type="button" class="btn">입찰 공고 등록</button>
-                        <button type="button" class="btn" data-dismiss="modal">취소</button>
                     </div>
                 </div>
             </div>
@@ -402,9 +419,10 @@
                 permWtRate.append(option);
             }
 
-            getOptions('metal', 'metal', 'codeDctwo', 'subCode');
-            getOptions('dstrct', 'dstrct', 'codeNm', 'subCode');
-            getOptions('currency', 'currency', 'subCode', 'subCode');
+            getOptions('metal', 'metal', 'codeDctwo', 'subCode', 'METAL_CODE');
+            getOptions('dstrct', 'dstrct', 'codeNm', 'subCode', 'DSTRCT_LCLSF_CODE');
+            getOptions('currency', 'currency', 'subCode', 'subCode', 'CURRENCY');
+            getOptions('priceSpmtc', 'priceSpmtc', 'codeNm', 'subCode', 'PRICE_SPMTC_CODE');
         });
 
         // 옵션 조회 공통 함수
