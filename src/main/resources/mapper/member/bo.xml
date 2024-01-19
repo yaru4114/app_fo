@@ -170,7 +170,11 @@
             BSNM_REGIST_NO,
             BID_MBER_EMAIL,
             MOBLPHON_NO2,
-            FRNTN_ENTRPS_AT,
+            (CASE
+                WHEN FRNTN_ENTRPS_AT = 'Y' THEN 'O'
+                WHEN FRNTN_ENTRPS_AT = 'N' THEN '-'
+                ELSE ''
+            END) AS FRNTN_ENTRPS_AT,
             ETR_CONFM_REQUST_DT,
             (
             CASE
@@ -202,6 +206,7 @@
         <if test="startDate != null and startDate != '' and endDate != null and endDate != ''">
             AND ETR_CONFM_REQUST_DT BETWEEN #{startDate} AND #{endDate}
         </if>
+        ORDER BY BID_ENTRPS_NO DESC, rowNo ASC
     </select>
     
     <select id="searchById" parameterType="string" resultType="com.bid.common.model.BidMemberVO">
