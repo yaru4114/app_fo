@@ -51,6 +51,8 @@
 				                   <input id="inputLoginId" type="text" placeholder="아이디 입력">
 				                   <input id="inputLoginPwd" type="password" placeholder="패스워드 입력">
 				                   <a id="loginSubmitBtn" class="btn primary_bg">로그인 하기</a>
+
+				                   <!-- 미구현 (아이디 저장, 아이디찾기, 비밀번호찾기)
 				                   <div class="sub_area">
 				                       <div class="checkbox-container">
 				                           <label class="checkbox-label" for="save_id">
@@ -64,6 +66,7 @@
 				                           <a href="#">비밀번호 찾기</a>
 				                       </div>
 				                   </div>
+				                   -->
 	<!-- 			                   <hr> -->
 				                   <a href="/fo/member/create_1" class="btn text ico">
 				                       <span class="material-symbols-outlined">
