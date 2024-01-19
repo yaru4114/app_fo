@@ -47,4 +47,115 @@
         CMN.SUB_CODE in (#{subCode})
         ORDER BY CODE_NM
     </select>
+
+    <!--  ================================== 입찰 공고 등록 관련 쿼리 ================================== -->
+    <select id="getMetalCodeNm" parameterType="com.bid.common.model.CoCmmnCdVO"
+            resultType="string">
+        SELECT
+            CODE_NM
+        FROM CO_CMMN_CD
+        WHERE
+            SUB_CODE = #{subCode}
+        AND
+            MAIN_CODE = 'METAL_CODE'
+    </select>
+
+    <insert id="creBidNotice" parameterType="com.bid.bo.bid.vo.BidNoticeVO">
+        DECLARE @NewId INT
+
+        SET @NewId = NEXT VALUE FOR dbo.BID_PBLANC_ID_SEQ
+
+        INSERT INTO BD_BID_BAS (
+            BID_PBLANC_ID ,
+            METAL_CODE ,
+            BRAND_GROUP_CODE ,
+            BRAND_CODE ,
+            ITM_SN ,
+            DSTRCT_LCLSF_CODE ,
+            BID_WT ,
+            PERM_WT_RATE ,
+            DELY_CND_01_APPLC_AT ,
+            DELY_CND_01_STDR_PC ,
+            DELY_CND_01_PREMIUM_PC ,
+            DELY_CND_02_APPLC_AT ,
+            DELY_CND_02_STDR_PC ,
+            DELY_CND_02_PREMIUM_PC ,
+            DELY_CND_03_APPLC_AT ,
+            DELY_CND_03_STDR_PC ,
+            DELY_CND_03_PREMIUM_PC ,
+            DELY_BEGIN_DE ,
+            DELY_END_DE ,
+            DELY_PD_CN ,
+            PC_APPN_BEGIN_DE ,
+            PC_APPN_END_DE ,
+            PC_APPN_MTH_CODE ,
+            SETLE_CRNCY_CODE ,
+            SETLE_MTH_CODE ,
+            SETLE_PD_CODE ,
+            ETC_CN ,
+            BDDPR_BEGIN_DT ,
+            BDDPR_END_DT ,
+            BDDPR_CANCL_POSS_AT ,
+            BDDPR_CANCL_LMTT_DE ,
+            DSPY_AT, -- 전시 여부
+<!--            FRST_REGISTER_ID ,-->
+            FRST_REGIST_DT -- 최초 등록 일시
+        )
+        VALUES (
+            <choose>
+                <when test="codeNm == 'ZN'">
+                    'ZN' + FORMAT(GETDATE(), 'yyyyMMdd') + RIGHT('000' + CAST(@NewId AS NVARCHAR(3)), 3)
+                </when>
+                <when test="codeNm == 'PB'">
+                    'PB' + FORMAT(GETDATE(), 'yyyyMMdd') + RIGHT('000' + CAST(@NewId AS NVARCHAR(3)), 3)
+                </when>
+                <when test="codeNm == 'CU'">
+                    'CU' + FORMAT(GETDATE(), 'yyyyMMdd') + RIGHT('000' + CAST(@NewId AS NVARCHAR(3)), 3)
+                </when>
+                <when test="codeNm == 'AL'">
+                    'AL' + FORMAT(GETDATE(), 'yyyyMMdd') + RIGHT('000' + CAST(@NewId AS NVARCHAR(3)), 3)
+                </when>
+                <when test="codeNm == 'NI'">
+                    'NI' + FORMAT(GETDATE(), 'yyyyMMdd') + RIGHT('000' + CAST(@NewId AS NVARCHAR(3)), 3)
+                </when>
+                <when test="codeNm == 'SN'">
+                    'SN' + FORMAT(GETDATE(), 'yyyyMMdd') + RIGHT('000' + CAST(@NewId AS NVARCHAR(3)), 3)
+                </when>
+            </choose>,
+            #{metalCode},
+            #{brandGroupCode},
+            #{brandCode},
+            #{itmSn},
+            #{dstrctLclsfCode},
+            #{bidWt},
+            #{permWtRate},
+            #{delyCnd01ApplcAt},
+            #{delyCnd01StdrPc},
+            #{delyCnd01PremiumPc},
+            #{delyCnd02ApplcAt},
+            #{delyCnd02StdrPc},
+            #{delyCnd02PremiumPc},
+            #{delyCnd03ApplcAt},
+            #{delyCnd03StdrPc},
+            #{delyCnd03PremiumPc},
+            #{delyBeginDe},
+            #{delyEndDe},
+            #{delyPdCn},
+            #{pcAppnBeginDe},
+            #{pcAppnEndDe},
+            #{pcAppnMthCode},
+            #{setleCrncyCode},
+            #{setleMthCode},
+            #{setlePdCode},
+            #{etcCn},
+            #{bddprBeginDt},
+            #{bddprEndDt},
+            #{bddprCanclPossAt},
+            #{bddprCanclLmttDe},
+            #{dspyAt},
+<!--            #{frstRegisterId},-->
+            GETDATE()
+        )
+    </insert>
+    <!--  ================================== 입찰 공고 등록 관련 쿼리 ================================== -->
 </mapper>
