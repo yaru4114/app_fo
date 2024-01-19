@@ -1,63 +1,63 @@
 
 <header class="header">
-    <ul class="alarm-list">
-        <!-- [D] 에러 상태일 경우 .status-error 추가 -->
-        <!-- [D] 경고 상태일 경우 .status-warning 추가 -->
-        <!-- [D] 정상 상태일 경우 .status-normal 추가 -->
-        <li class="alarm-set status-normal">
-            <i class="icon icon-traffic"></i>
-            <span class="desc">LME</span>
-        </li>
-        <li class="alarm-set status-warning">
-            <i class="icon icon-traffic"></i>
-            <span class="desc">환율</span>
-        </li>
-        <li class="alarm-set status-error">
-            <i class="icon icon-traffic"></i>
-            <span class="desc">FS</span>
-        </li>
-        <li class="alarm-set status-warning">
-            <i class="icon icon-traffic"></i>
-            <span class="desc">FX</span>
-        </li>
-        <li class="alarm-set status-normal">
-            <i class="icon icon-traffic"></i>
-            <span class="desc">E-Wallet</span>
-        </li>
-        <li class="alarm-set has-new tooltip">
-            <i class="icon icon-comment"></i>
-            <span class="badge">12</span>
-            <div class="tooltip-wrap">
-                <div class="tooltiptext list-tooltip">
-                    <span class="title">상담문의 조회</span>
-                    <ul>
-                        <li>
-                            <span class="label">문의 건수</span>
-                            <a href="/cs/SOREC-SC-CSB-001.html" class="count">20</a>
-                        </li>
-                        <li>
-                            <span class="label">해결 건수</span>
-                            <a href="/cs/SOREC-SC-CSB-001.html" class="count resolved">8</a>
-                        </li>
-                        <li>
-                            <span class="label">미해결 건수</span>
-                            <a href="/cs/SOREC-SC-CSB-001.html" class="count unresolved">12</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </li>
-        <li class="alarm-set tooltip">
-            <i class="icon icon-user"></i>
-            <div class="tooltip-wrap">
-                <div class="tooltiptext user-tooltip">
-                    <span class="title">박지민 과장</span>
-                    <span class="date">2021-03-31 18:36:04</span>
-                    <button type="button" class="btn btn-logout">로그아웃</button>
-                </div>
-            </div>
-        </li>
-    </ul>
+<!--    <ul class="alarm-list">-->
+<!--        &lt;!&ndash; [D] 에러 상태일 경우 .status-error 추가 &ndash;&gt;-->
+<!--        &lt;!&ndash; [D] 경고 상태일 경우 .status-warning 추가 &ndash;&gt;-->
+<!--        &lt;!&ndash; [D] 정상 상태일 경우 .status-normal 추가 &ndash;&gt;-->
+<!--        <li class="alarm-set status-normal">-->
+<!--            <i class="icon icon-traffic"></i>-->
+<!--            <span class="desc">LME</span>-->
+<!--        </li>-->
+<!--        <li class="alarm-set status-warning">-->
+<!--            <i class="icon icon-traffic"></i>-->
+<!--            <span class="desc">환율</span>-->
+<!--        </li>-->
+<!--        <li class="alarm-set status-error">-->
+<!--            <i class="icon icon-traffic"></i>-->
+<!--            <span class="desc">FS</span>-->
+<!--        </li>-->
+<!--        <li class="alarm-set status-warning">-->
+<!--            <i class="icon icon-traffic"></i>-->
+<!--            <span class="desc">FX</span>-->
+<!--        </li>-->
+<!--        <li class="alarm-set status-normal">-->
+<!--            <i class="icon icon-traffic"></i>-->
+<!--            <span class="desc">E-Wallet</span>-->
+<!--        </li>-->
+<!--        <li class="alarm-set has-new tooltip">-->
+<!--            <i class="icon icon-comment"></i>-->
+<!--            <span class="badge">12</span>-->
+<!--            <div class="tooltip-wrap">-->
+<!--                <div class="tooltiptext list-tooltip">-->
+<!--                    <span class="title">상담문의 조회</span>-->
+<!--                    <ul>-->
+<!--                        <li>-->
+<!--                            <span class="label">문의 건수</span>-->
+<!--                            <a href="/cs/SOREC-SC-CSB-001.html" class="count">20</a>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <span class="label">해결 건수</span>-->
+<!--                            <a href="/cs/SOREC-SC-CSB-001.html" class="count resolved">8</a>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <span class="label">미해결 건수</span>-->
+<!--                            <a href="/cs/SOREC-SC-CSB-001.html" class="count unresolved">12</a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </li>-->
+<!--        <li class="alarm-set tooltip">-->
+<!--            <i class="icon icon-user"></i>-->
+<!--            <div class="tooltip-wrap">-->
+<!--                <div class="tooltiptext user-tooltip">-->
+<!--                    <span class="title">박지민 과장</span>-->
+<!--                    <span class="date">2021-03-31 18:36:04</span>-->
+<!--                    <button type="button" class="btn btn-logout">로그아웃</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </li>-->
+<!--    </ul>-->
 </header>
 <div class="header-tab-group">
     <div class="header-tab-set">
@@ -70,13 +70,17 @@
                 <a href="/bo/member/approvalList" class="link-to-page">가입승인대기</a>
                 <button class="icon icon-tab-close"></button>
             </span>
+            <span class="header-tab">
+                <a href="/bo/bid/noticeMngForm" class="link-to-page">입찰공고관리</a>
+                <button class="icon icon-tab-close"></button>
+            </span>
         </div>
     </div>
-    <div class="header-btn-set">
-        <button type="button" class="tab-prev" title="이전텝"></button>
-        <button type="button" class="tab-next" title="다음텝"></button>
-        <button type="button" class="tab-close" title="전체텝닫기"></button>
-    </div>
+<!--    <div class="header-btn-set">-->
+<!--        <button type="button" class="tab-prev" title="이전텝"></button>-->
+<!--        <button type="button" class="tab-next" title="다음텝"></button>-->
+<!--        <button type="button" class="tab-close" title="전체텝닫기"></button>-->
+<!--    </div>-->
 </div>
 <script>
 const dynamicMenuWidth = function(){
