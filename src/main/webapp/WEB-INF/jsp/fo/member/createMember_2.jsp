@@ -106,7 +106,7 @@
 	                                <span class="limit-width">
 	                                    <span class="input-complex">
 	                                        <span class="input"><input type="tel" name="ipCoRegiNo" id="ipCoRegiNo" placeholder="사업자등록번호"></span>
-	                                        <span class="button"><button type="button" id="ipCoRegiNoCheckBtn" class="btn-blue-big narrow" onclick="testBtn()">확인</button></span>
+	                                        <span class="button"><button type="button" id="ipCoRegiNoCheckBtn" class="btn-blue-big narrow" onclick="coRegiNoChk($('#ipCoRegiNo').val())">확인</button></span>
 	                                    </span>
 	                                </span>
 	                                <span class="t-info t2" style="display: none">사업자등록번호를 다시 확인해 주세요.</span>
@@ -238,7 +238,7 @@
 	                                <span class="limit-width">
 	                                    <span class="input-complex">
 	                                        <span class="input"><input type="tel" name="vrsc_ipCoRegiNo" id="vrsc_ipCoRegiNo" placeholder="사업자등록번호"></span>
-	                                        <span class="button"><button type="button" class="btn-blue-big narrow">확인</button></span>
+	                                        <span class="button"><button type="button" class="btn-blue-big narrow" onclick="coRegiNoChk($('#vrsc_ipCoRegiNo').val())">확인</button></span>
 	                                    </span>
 	                                </span>
 	                                <span class="t-info t2">사업자등록번호를 다시 확인해 주세요.</span>
@@ -403,6 +403,13 @@ $('#prevBtn').on('click', function(){
         // location.href = "/fo/member/create_1";
    }
 });
+
+// 사업자등록번호 체크
+function coRegiNoChk(value){
+
+    alert("사업자가 확인되었습니다.");
+}
+
 
 // 회원가입 조건처리
 

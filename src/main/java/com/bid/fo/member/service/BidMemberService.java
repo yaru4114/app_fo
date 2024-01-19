@@ -38,7 +38,7 @@ public class BidMemberService {
 
         // 회원정보 입력
         memberDAO.creMember(vo);
-        vo.setBsnmRegistDocNo2(vo.getBsnmRegistDocNo1() + 1);
+//        vo.setBsnmRegistDocNo2(vo.getBsnmRegistDocNo1() + 1);
 
         // 사업자등록증 입력
         fileUpload(fileList,vo);

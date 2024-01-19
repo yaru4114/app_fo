@@ -60,12 +60,12 @@
 				                           <div class="input-title">아이디 저장</div>
 				                       </div>
 				                       <div>
-				                           <a href="#" onclick="testBtn()">아이디찾기</a>
+				                           <a href="#">아이디찾기</a>
 				                           <a href="#">비밀번호 찾기</a>
 				                       </div>
 				                   </div>
 	<!-- 			                   <hr> -->
-				                   <a href="/guide/html/SOREC-SC-BID-011.html" class="btn text ico">
+				                   <a href="/fo/member/create_1" class="btn text ico">
 				                       <span class="material-symbols-outlined">
 				                       person
 				                       </span>
