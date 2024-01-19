@@ -12,6 +12,5 @@ public interface BidModalDAO {
     public List<CoCmmnCdVO> getBrandGroupOpt(CoCmmnCdVO vo);
     public List<CoCmmnCdVO> getBrandOpt(CoCmmnCdVO vo);
     public List<CoCmmnCdVO> getItemOpt(CoCmmnCdVO vo);
-    public String getMetalCodeNm(CoCmmnCdVO vo);
     public void creBidNotice(BidNoticeVO vo);
 }

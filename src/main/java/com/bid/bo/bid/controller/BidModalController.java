@@ -75,7 +75,7 @@ public class BidModalController {
 
     // 입찰 공고 등록
     @PostMapping("/creBid")
-    public ResponseEntity<?> creBidNotice(@RequestBody CoCmmnCdVO vo1, @RequestBody BidNoticeVO vo2) {
-        return ResponseEntity.ok(bidModalService.creBidNotice(vo1, vo2));
+    public ResponseEntity<?> creBidNotice(@RequestBody BidNoticeVO vo) {
+        return ResponseEntity.ok(bidModalService.creBidNotice(vo));
     }
 }

@@ -48,11 +48,9 @@ public class BidModalService {
         return resultMap;
     }
 
-    public Map<String, Object> creBidNotice(CoCmmnCdVO vo1, BidNoticeVO vo2) {
+    public Map<String, Object> creBidNotice(BidNoticeVO vo) {
         Map<String, Object> resultMap = new HashMap<>();
-
-        vo2.setCodeNm(bidModalDAO.getMetalCodeNm(vo1));
-        bidModalDAO.creBidNotice(vo2);
+        bidModalDAO.creBidNotice(vo);
 
         resultMap.put("success", true);
         return resultMap;

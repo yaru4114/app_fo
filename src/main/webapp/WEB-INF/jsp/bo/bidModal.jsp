@@ -138,7 +138,7 @@
                                                         <select class="form-select select-sm" id="delyCnd01PremiumPc">
                                                             <option value="1000">1000</option>
                                                             <option value="2000">2000</option>
-                                                            <option value="2000">3000</option>
+                                                            <option value="3000">3000</option>
                                                         </select>
                                                     </div>
                                                 </td>
@@ -155,7 +155,7 @@
                                                         <select class="form-select select-sm" id="delyCnd02PremiumPc">
                                                             <option value="1000">1000</option>
                                                             <option value="2000">2000</option>
-                                                            <option value="2000">3000</option>
+                                                            <option value="3000">3000</option>
                                                         </select>
                                                     </div>
                                                 </td>
@@ -172,7 +172,7 @@
                                                         <select class="form-select select-sm" id="delyCnd03PremiumPc">
                                                             <option value="1000">1000</option>
                                                             <option value="2000">2000</option>
-                                                            <option value="2000">3000</option>
+                                                            <option value="3000">3000</option>
                                                         </select>
                                                     </div>
                                                 </td>
@@ -200,17 +200,17 @@
                                         <div class="form-period-box">
                                             <!-- [D] 월 선택 경우 .form-month 추가 -->
                                             <!-- [D] 날짜 선택 경우 .form-date 추가 -->
-                                            <div class="input-group date form-date" id="delyBeginDe">
-                                                <input type="text" class="input" id="datepicker1"/>
-                                                <label for="datepicker1" class="btn has-icon"><i
+                                            <div class="input-group date form-date">
+                                                <input type="text" class="input" id="delyBeginDe" />
+                                                <label for="delyBeginDe" class="btn has-icon"><i
                                                         class="icon icon-calendar">달력</i></label>
                                             </div>
                                             <span>~</span>
                                             <!-- [D] 월 선택 경우 .form-month 추가 -->
                                             <!-- [D] 날짜 선택 경우 .form-date 추가 -->
-                                            <div class="input-group date form-date" id="delyEndDe">
-                                                <input type="text" class="input" id="datepicker2"/>
-                                                <label for="datepicker2" class="btn has-icon"><i
+                                            <div class="input-group date form-date">
+                                                <input type="text" class="input" id="delyEndDe" />
+                                                <label for="delyEndDe" class="btn has-icon"><i
                                                         class="icon icon-calendar">달력</i></label>
                                             </div>
                                         </div>
@@ -243,17 +243,17 @@
                                         <div class="form-period-box">
                                             <!-- [D] 월 선택 경우 .form-month 추가 -->
                                             <!-- [D] 날짜 선택 경우 .form-date 추가 -->
-                                            <div class="input-group date form-date" id="pcAppnBeginDe">
-                                                <input type="text" class="input" id="datepicker3"/>
-                                                <label for="datepicker3" class="btn has-icon"><i
+                                            <div class="input-group date form-date">
+                                                <input type="text" class="input" id="pcAppnBeginDe" />
+                                                <label for="pcAppnBeginDe" class="btn has-icon"><i
                                                         class="icon icon-calendar">달력</i></label>
                                             </div>
                                             <span>~</span>
                                             <!-- [D] 월 선택 경우 .form-month 추가 -->
                                             <!-- [D] 날짜 선택 경우 .form-date 추가 -->
-                                            <div class="input-group date form-date" id="pcAppnEndDe">
-                                                <input type="text" class="input" id="datepicker4"/>
-                                                <label for="datepicker4" class="btn has-icon"><i
+                                            <div class="input-group date form-date">
+                                                <input type="text" class="input" id="pcAppnEndDe"/>
+                                                <label for="pcAppnEndDe" class="btn has-icon"><i
                                                         class="icon icon-calendar">달력</i></label>
                                             </div>
                                         </div>
@@ -308,55 +308,55 @@
                                 <th scope="row">투찰 시작일<i class="icon icon-required"></i></th>
                                 <td>
                                     <div class="form-set">
-                                        <div class="input-group date form-date" id="bddprBeginDt">
-                                            <input type="text" class="input" id="datepicker5"/>
-                                            <label for="datepicker5" class="btn has-icon"><i
+                                        <div class="input-group date form-date">
+                                            <input type="text" class="input" id="bddprBeginDt"/>
+                                            <label for="bddprBeginDt" class="btn has-icon"><i
                                                     class="icon icon-calendar">달력</i></label>
                                         </div>
-                                        <select class="form-select" style="width:80px;">
+                                        <select class="form-select" style="width:80px;" id="bddprBeginDt_ampm">
                                             <option value="am">am</option>
                                             <option value="pm">pm</option>
                                         </select>
-                                        <input type="text" class="input" value="" style="width:50px;">&nbsp;시
-                                        <input type="text" class="input" value="" style="width:50px;">&nbsp;분
-                                        <input type="text" class="input" value="" style="width:50px;">&nbsp;초
+                                        <input type="text" class="input" value="" style="width:50px;" id="bddprBeginDt_hour">&nbsp;시
+                                        <input type="text" class="input" value="" style="width:50px;" id="bddprBeginDt_min">&nbsp;분
+                                        <input type="text" class="input" value="" style="width:50px;" id="bddprBeginDt_sec">&nbsp;초
                                     </div>
                                 </td>
                                 <th scope="row">투찰 마감일<i class="icon icon-required"></i></th>
                                 <td>
                                     <div class="form-set">
-                                        <div class="input-group date form-date" id="bddprEndDt">
-                                            <input type="text" class="input" id="datepicker6"/>
-                                            <label for="datepicker6" class="btn has-icon"><i
+                                        <div class="input-group date form-date">
+                                            <input type="text" class="input" id="bddprEndDt"/>
+                                            <label for="bddprEndDt" class="btn has-icon"><i
                                                     class="icon icon-calendar">달력</i></label>
                                         </div>
-                                        <select class="form-select" style="width:80px;">
+                                        <select class="form-select" style="width:80px;" id="bddprEndDt_ampm">
                                             <option value="am">am</option>
                                             <option value="pm">pm</option>
                                         </select>
-                                        <input type="text" class="input" value="" style="width:50px;">&nbsp;시
-                                        <input type="text" class="input" value="" style="width:50px;">&nbsp;분
-                                        <input type="text" class="input" value="" style="width:50px;">&nbsp;초
+                                        <input type="text" class="input" id="bddprEndDt_hour" value="" style="width:50px;">&nbsp;시
+                                        <input type="text" class="input" id="bddprEndDt_min" value="" style="width:50px;">&nbsp;분
+                                        <input type="text" class="input" id="bddprEndDt_sec" value="" style="width:50px;">&nbsp;초
                                     </div>
                             </tr>
                             <tr>
                                 <th scope="row">투찰 취소기한<i class="icon icon-required"></i></th>
                                 <td colspan="3">
                                     <span style="font-weight: 500; font-size: 0.80rem;">투찰 취소 불가</span> <input
-                                        type="checkbox" class="" name="" value="N" id="bddprCanclPossAt"/>
-                                    <div class="form-set" style="margin-top:5px;" id="bddprCnlPeriod">
+                                        type="checkbox" class="" name="" value="" id="bddprCanclPossAt"/>
+                                    <div class="form-set" style="margin-top:5px;">
                                         <div class="input-group date form-date">
-                                            <input type="text" class="input" id="datepicker7"/>
-                                            <label for="datepicker7" class="btn has-icon"><i
+                                            <input type="text" class="input" id="bddprCanclLmttDe" />
+                                            <label for="bddprCanclLmttDe" class="btn has-icon"><i
                                                     class="icon icon-calendar">달력</i></label>
                                         </div>
-                                        <select class="form-select" style="width:80px;">
+                                        <select class="form-select" style="width:80px;" id="bddprCanclLmttDe_ampm">
                                             <option value="am">am</option>
                                             <option value="pm">pm</option>
                                         </select>
-                                        <input type="text" class="input" value="" style="width:50px;">&nbsp;시
-                                        <input type="text" class="input" value="" style="width:50px;">&nbsp;분
-                                        <input type="text" class="input" value="" style="width:50px;">&nbsp;초
+                                        <input type="text" class="input" id="bddprCanclLmttDe_hour" value="" style="width:50px;">&nbsp;시
+                                        <input type="text" class="input" id="bddprCanclLmttDe_min" value="" style="width:50px;">&nbsp;분
+                                        <input type="text" class="input" id="bddprCanclLmttDe_sec" value="" style="width:50px;">&nbsp;초
                                         까지 투찰 취소 가능함.
                                     </div>
                                 </td>
@@ -380,8 +380,8 @@
                             <tr>
                                 <th scope="row">상태 설정<i class="icon icon-required"></i></th>
                                 <td colspan="3">
-                                    <input type="radio" name="radio" id="dspyAt" value="'N'" />비활성(비전시)
-                                    <input type="radio" name="radio" id="dspyAt" value="'Y'" />활성(전시)
+                                    <input type="radio" name="dspyAt" value="N" />비활성(비전시)
+                                    <input type="radio" name="dspyAt" value="Y" />활성(전시)
                                 </td>
                             </tr>
                             </tbody>
@@ -390,7 +390,7 @@
                 </div>
                 <div class="modal-footer">
                     <div class="btn-box">
-                        <button type="button" class="btn">입찰 공고 등록</button>
+                        <button type="button" class="btn" id="submitBid">입찰 공고 등록</button>
                     </div>
                 </div>
             </div>
@@ -457,10 +457,73 @@
 
         // 입찰 공고 등록
         function creBidNotice() {
+            var metalCode = $('#metalCode').val();
+            var brandGroupCode = $('#brandGroupCode').val();
+            var brandCode = $('#brandCode').val();
+            var itmSn = $('#itmSn').val();
+            var dstrctLclsfCode = $('#dstrctLclsfCode').val();
+            var bidWt = $('#bidWt').val();
+            var permWtRate = $('#permWtRate').val();
+            var delyCnd01ApplcAt = $('#delyCnd01ApplcAt').val();
+            var delyCnd01StdrPc = $('#delyCnd01StdrPc').val();
+            var delyCnd01PremiumPc = $('#delyCnd01PremiumPc').val();
+            var delyCnd02ApplcAt = $('#delyCnd02ApplcAt').val();
+            var delyCnd02StdrPc = $('#delyCnd02StdrPc').val();
+            var delyCnd02PremiumPc = $('#delyCnd02PremiumPc').val();
+            var delyCnd03ApplcAt = $('#delyCnd03ApplcAt').val();
+            var delyCnd03StdrPc = $('#delyCnd03StdrPc').val();
+            var delyCnd03PremiumPc = $('#delyCnd03PremiumPc').val();
+            var delyPdCn = $('#delyPdCn').val();
+            var pcAppnMthCode = $('#pcAppnMthCode').val();
+            var setleCrncyCode = $('#setleCrncyCode').val();
+            var setleMthCode = $('#setleMthCode').val();
+            var setlePdCode = $('#setlePdCode').val();
+            var etcCn = $('#etcCn').val();
+            var bddprCanclPossAt = $('#bddprCanclPossAt').val();
+            var dspyAt = $('input[name="dspyAt"]:checked').val();
+
+            // ❗날짜 관련
+                // YYYY-MM-DD => YYYYMMDD
+            var delyBeginDe = $('#delyBeginDe').val(); // 인도기한 시작
+            delyBeginDe = delyBeginDe.replace(/-/g, '');
+
+            var delyEndDe = $('#delyEndDe').val(); // 인도기한 종료
+            delyEndDe = delyEndDe.replace(/-/g, '');
+
+            var pcAppnBeginDe = $('#pcAppnBeginDe').val(); // 가격지정기간 시작
+            pcAppnBeginDe = pcAppnBeginDe.replace(/-/g, '');
+
+            var pcAppnEndDe = $('#pcAppnEndDe').val(); // 가격지정기간 종료
+            pcAppnEndDe = pcAppnEndDe.replace(/-/g, '');
+
+            // YYYY-MM-DD => YYYYmmDDHHMMSS
+                // 투찰 시작일
+            var bddprBeginDt = $('#bddprBeginDt').val();
+            var bddprBeginDt_ampm = $('#bddprBeginDt_ampm').val();
+            var bddprBeginDt_hour = $('#bddprBeginDt_hour').val();
+            var bddprBeginDt_min = $('#bddprBeginDt_min').val();
+            var bddprBeginDt_sec = $('#bddprBeginDt_sec').val();
+
+                // 투찰 마감일
+            var bddprEndDt = $('#bddprEndDt').val();
+            var bddprEndDt_ampm = $('#bddprEndDt_ampm').val();
+            var bddprEndDt_hour = $('#bddprEndDt_hour').val();
+            var bddprEndDt_min = $('#bddprEndDt_min').val();
+            var bddprEndDt_sec = $('#bddprEndDt_sec').val();
+
+                // 투찰 취소기한
+            var bddprCanclLmttDe = $('#bddprCanclLmttDe').val();
+            var bddprCanclLmttDe_ampm = $('#bddprCanclLmttDe_ampm').val();
+            var bddprCanclLmttDe_hour = $('#bddprCanclLmttDe_hour').val();
+            var bddprCanclLmttDe_min = $('#bddprCanclLmttDe_min').val();
+            var bddprCanclLmttDe_sec = $('#bddprCanclLmttDe_sec').val();
+
+            bddprBeginDt = formatDate(bddprBeginDt, bddprBeginDt_ampm, bddprBeginDt_hour, bddprBeginDt_min, bddprBeginDt_sec);
+            bddprEndDt = formatDate(bddprEndDt, bddprEndDt_ampm, bddprEndDt_hour, bddprEndDt_min, bddprEndDt_sec);
+            bddprCanclLmttDe = formatDate(bddprCanclLmttDe, bddprCanclLmttDe_ampm, bddprCanclLmttDe_hour, bddprCanclLmttDe_min, bddprCanclLmttDe_sec);
+
             var param = {
-                // CoCmmnCdVO
-                subCode: subCode,
-                // BidNoticeVO
+                subCode: metalCode,
                 metalCode: metalCode,
                 brandGroupCode: brandGroupCode,
                 brandCode: brandCode,
@@ -508,6 +571,17 @@
             });
         }
 
+        function formatDate(date, ampm, hour, min, sec) {
+            if (ampm === 'pm') {
+                hour = ('0' + (parseInt(hour) + 12)).slice(-2);
+            }
+
+            date = date.replace(/-/g, '');
+            date = date + ('0' + hour).slice(-2) + ('0' + min).slice(-2) + ('0' + sec).slice(-2);
+
+            return date;
+        }
+
         $('#metalCode').change(function () {
             var selected = $(this).val();
             getOptions('brandGrp', 'brandGroupCode', 'codeNm', 'subCode', selected);
@@ -526,6 +600,14 @@
                 $('#bddprCnlPeriod input, #cancelPeriod select').prop('disabled', false);
             }
         });
+
+        $('#bddprCanclPossAt').change(function () {
+            var value = $(this).prop('checked') ? 'Y' : 'N';
+        });
+
+        $('#submitBid').on('click', function () {
+            creBidNotice();
+        })
     </script>
 </div>
 </body>

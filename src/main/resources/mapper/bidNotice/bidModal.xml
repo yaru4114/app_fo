@@ -49,24 +49,11 @@
     </select>
 
     <!--  ================================== 입찰 공고 등록 관련 쿼리 ================================== -->
-    <select id="getMetalCodeNm" parameterType="com.bid.common.model.CoCmmnCdVO"
-            resultType="string">
-        SELECT
-            CODE_NM
-        FROM CO_CMMN_CD
-        WHERE
-            SUB_CODE = #{subCode}
-        AND
-            MAIN_CODE = 'METAL_CODE'
-    </select>
 
     <insert id="creBidNotice" parameterType="com.bid.bo.bid.vo.BidNoticeVO">
-        DECLARE @NewId INT
-
-        SET @NewId = NEXT VALUE FOR dbo.BID_PBLANC_ID_SEQ
-
-        INSERT INTO BD_BID_BAS (
-            BID_PBLANC_ID ,
+        INSERT INTO BD_BID_BAS
+        (
+            BID_PBLANC_ID,
             METAL_CODE ,
             BRAND_GROUP_CODE ,
             BRAND_CODE ,
@@ -97,31 +84,17 @@
             BDDPR_END_DT ,
             BDDPR_CANCL_POSS_AT ,
             BDDPR_CANCL_LMTT_DE ,
-            DSPY_AT, -- 전시 여부
-<!--            FRST_REGISTER_ID ,-->
-            FRST_REGIST_DT -- 최초 등록 일시
-        )
-        VALUES (
-            <choose>
-                <when test="codeNm == 'ZN'">
-                    'ZN' + FORMAT(GETDATE(), 'yyyyMMdd') + RIGHT('000' + CAST(@NewId AS NVARCHAR(3)), 3)
-                </when>
-                <when test="codeNm == 'PB'">
-                    'PB' + FORMAT(GETDATE(), 'yyyyMMdd') + RIGHT('000' + CAST(@NewId AS NVARCHAR(3)), 3)
-                </when>
-                <when test="codeNm == 'CU'">
-                    'CU' + FORMAT(GETDATE(), 'yyyyMMdd') + RIGHT('000' + CAST(@NewId AS NVARCHAR(3)), 3)
-                </when>
-                <when test="codeNm == 'AL'">
-                    'AL' + FORMAT(GETDATE(), 'yyyyMMdd') + RIGHT('000' + CAST(@NewId AS NVARCHAR(3)), 3)
-                </when>
-                <when test="codeNm == 'NI'">
-                    'NI' + FORMAT(GETDATE(), 'yyyyMMdd') + RIGHT('000' + CAST(@NewId AS NVARCHAR(3)), 3)
-                </when>
-                <when test="codeNm == 'SN'">
-                    'SN' + FORMAT(GETDATE(), 'yyyyMMdd') + RIGHT('000' + CAST(@NewId AS NVARCHAR(3)), 3)
-                </when>
-            </choose>,
+            DSPY_AT ,
+            FRST_REGIST_DT
+        ) VALUES (
+            (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE='METAL_CODE' AND SUB_CODE= #{subCode}) + FORMAT(GETDATE(), 'yyyyMMdd') +
+                RIGHT('000' + CAST(
+                    (
+                        SELECT TOP 1 CAST(RIGHT(BID_PBLANC_ID, 3) AS int) + 1 AS CNT
+                        FROM BD_BID_BAS
+                        WHERE BID_PBLANC_ID LIKE CONCAT('%', FORMAT(GETDATE(), 'yyyyMMdd'), '%')
+                        ORDER BY BID_PBLANC_ID DESC
+                    ) AS NVARCHAR(3)), 3),
             #{metalCode},
             #{brandGroupCode},
             #{brandCode},
@@ -153,7 +126,6 @@
             #{bddprCanclPossAt},
             #{bddprCanclLmttDe},
             #{dspyAt},
-<!--            #{frstRegisterId},-->
             GETDATE()
         )
     </insert>
