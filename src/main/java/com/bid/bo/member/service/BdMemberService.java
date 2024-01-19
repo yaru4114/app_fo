@@ -47,10 +47,12 @@ public class BdMemberService {
 
     public Map<String, Object> chgMemberBlock(BidMemberVO vo) {
         Map<String, Object> resultMap = new HashMap<>();
+
         if (vo.getBidMberSttusCode().equals("정상")) {
             int bddtrCnt = bdMemberDAO.getMemberBddtrCnt(vo);
             if (bddtrCnt == 0) {
                 bdMemberDAO.chgMemberBlock(vo);
+                resultMap.put("status", "block");
                 resultMap.put("success", true);
             } else {
                 resultMap.put("success", false);
@@ -58,6 +60,7 @@ public class BdMemberService {
             }
         } else {
             bdMemberDAO.chgMemberBlock(vo);
+            resultMap.put("status", "release");
             resultMap.put("success", true);
         }
 

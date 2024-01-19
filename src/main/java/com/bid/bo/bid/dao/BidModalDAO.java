@@ -8,11 +8,7 @@ import java.util.List;
 @Mapper
 public interface BidModalDAO {
     public List<CoCmmnCdVO> getSelectOpt(CoCmmnCdVO vo);
-    public List<CoCmmnCdVO> getMetalOpt();
-    public List<CoCmmnCdVO> getdstrctOpt();
     public List<CoCmmnCdVO> getBrandGroupOpt(CoCmmnCdVO vo);
     public List<CoCmmnCdVO> getBrandOpt(CoCmmnCdVO vo);
     public List<CoCmmnCdVO> getItemOpt(CoCmmnCdVO vo);
-    public List<CoCmmnCdVO> getCurrencyOpt();
-    public List<CoCmmnCdVO> getPriceSpmtcOpt();
 }

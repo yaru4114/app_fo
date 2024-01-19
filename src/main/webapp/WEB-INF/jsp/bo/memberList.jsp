@@ -650,7 +650,12 @@
                         alert(response.message);
                         return;
                     }
-                    buttonByStatus('차단');
+
+                    if (response.status === 'block') {
+                        buttonByStatus('차단');
+                    } else if (response.status === 'release') {
+                        buttonByStatus('정상');
+                    }
                 },
                 error: function (error) {
                     console.error(error);
@@ -664,7 +669,6 @@
 
         $('#releaseButton').on('click', function () {
             chgStatusMember(bidEntrpsNo, bidMberSttusCode);
-            buttonByStatus('정상');
         });
 
             // 회원 상태별 버튼 상태 관리
@@ -673,7 +677,7 @@
             if (status === '차단') {
                 $('#blockButton').hide();
                 $('#releaseButton').show();
-            } else {
+            } else if (status === '정상') {
                 $('#blockButton').show();
                 $('#releaseButton').hide();
             }
