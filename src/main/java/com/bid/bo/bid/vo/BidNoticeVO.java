@@ -61,6 +61,8 @@ public class BidNoticeVO {
     private String stepNm;
     private String bdngCmpny;
     private String lwstPrprc;
+    private String bddprBeginDtInfo;
+    private String bddprEndDtInfo;
 
 
     // 입찰상태별 공고수
