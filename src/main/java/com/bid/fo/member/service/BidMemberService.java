@@ -1,6 +1,5 @@
 package com.bid.fo.member.service;
 
-import com.bid.common.dao.CommonDAO;
 import com.bid.common.model.BidMemberVO;
 
 import com.bid.common.model.DocVO;
@@ -8,14 +7,18 @@ import com.bid.common.model.FileVO;
 import com.bid.common.util.FileUtil;
 import com.bid.fo.member.dao.BidMemberDAO;
 import com.bid.fo.member.model.LoginVO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @Service
 public class BidMemberService {
 
@@ -25,6 +28,7 @@ public class BidMemberService {
     @Autowired
     FileUtil fileUtil;
 
+    @Transactional(rollbackFor = RuntimeException.class)
     public Map<String,Object> creMember(BidMemberVO vo, List<MultipartFile> fileList) {
 
         Map<String,Object> resultMap = new HashMap<>();
@@ -36,15 +40,36 @@ public class BidMemberService {
             return resultMap;
         }
 
-        // 회원정보 입력
-        memberDAO.creMember(vo);
-//        vo.setBsnmRegistDocNo2(vo.getBsnmRegistDocNo1() + 1);
+        int maxDocNo = memberDAO.maxDocNo();
 
-        // 사업자등록증 입력
-        fileUpload(fileList,vo);
+        if (fileList.size() == 1) {
+            vo.setBsnmRegistDocNo1(0);
+            vo.setBsnmRegistDocNo2(maxDocNo+1);
+        } else {
+            vo.setBsnmRegistDocNo1(maxDocNo+1);
+            vo.setBsnmRegistDocNo2(maxDocNo+2);
+        }
+        log.info("docNo1 : {}", vo.getBsnmRegistDocNo1());
 
-        resultMap.put("success", true);
-        resultMap.put("message", "가입 요청이 완료되었습니다. 가입 승인 후 이용 가능합니다.");
+        try {
+            // 회원정보 입력
+            memberDAO.creMember(vo);
+
+            // 사업자등록증 입력
+            fileUpload(fileList,vo);
+            
+            resultMap.put("success", true);
+            resultMap.put("message", "가입 요청이 완료되었습니다. 가입 승인 후 이용 가능합니다.");
+        } catch (RuntimeException e) {
+            log.error("트랜젝션 오류");
+            log.error("{}",e);
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+
+            resultMap.put("success", false);
+            resultMap.put("message", "서버 오류. 관리자에게 문의하세요.");
+        }
+
+
 
         return resultMap;
     }
@@ -61,12 +86,6 @@ public class BidMemberService {
             resultMap.put("message","계정 정보를 확인해주세요.");
             return resultMap;
         }
-
-        // 투찰 취소 3회 초과 => 차단처리
-//        int cancelCount = commonDAO.getBddtrCancelCnt(result);
-//        if (cancelCount > 3) {
-//            result.setBidMberSttusCode("02");
-//        }
 
         // 회원 가입 승인 상태 판별 (요청 / 거절 / 정상)
         switch (result.getBidConfmSttusCode()) {
@@ -119,7 +138,14 @@ public class BidMemberService {
 
     private void fileUpload(List<MultipartFile> fileList, BidMemberVO vo){
         if (fileList != null) {
+            int docNum = 0;
             int count = 0;
+            if (vo.getBsnmRegistDocNo1() == 0) {
+                docNum = vo.getBsnmRegistDocNo2();
+            } else {
+                docNum = vo.getBsnmRegistDocNo1();
+            }
+
             for (MultipartFile file : fileList) {
                 String uldFileName = fileUtil.setTimestampedFileName(file);
                 String folder = "/member/bsnmRegist/";
@@ -127,7 +153,7 @@ public class BidMemberService {
                 FileVO fileVO = fileUtil.upload(file, folder, uldFileName);
 
                 DocVO docVO = DocVO.builder()
-                        .docNo(vo.getBsnmRegistDocNo1() + count)
+                        .docNo(docNum+count)
                         .jobSeCode("MB")
                         .docFileMg(fileVO.getFILE_SIZE())
                         .docFileNm(fileVO.getORI_FILE_NAME())

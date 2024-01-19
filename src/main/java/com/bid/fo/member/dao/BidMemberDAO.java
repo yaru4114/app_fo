@@ -14,4 +14,6 @@ public interface BidMemberDAO {
     BidMemberVO login(LoginVO vo);
 
     void creBsnmResistDoc(DocVO doc);
+
+    int maxDocNo();
 }

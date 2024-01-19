@@ -34,14 +34,14 @@
             BSNM_REGIST_NO,
             BID_MBER_EMAIL,
             MOBLPHON_NO2,
-            ENTRPS_TLPHON_NO,
             FRNTN_ENTRPS_AT,
-            POST_NO,
-            ADRES,
-            DETAIL_ADRES,
-            RN_ADRES,
-            RN_DETAIL_ADRES,
+        <if test="bsnmRegistDocNo1 neq 0">
             BSNM_REGIST_DOC_NO1,
+            BSNM_REGIST_DOC_NO2,
+        </if>
+        <if test="bsnmRegistDocNo1 eq 0">
+            BSNM_REGIST_DOC_NO2,
+        </if>
             -- 상태
             BID_MBER_STTUS_CODE,
             BID_CONFM_STTUS_CODE,
@@ -51,8 +51,6 @@
             VRSC_BSNM_REGIST_NO,
             VRSC_BID_MBER_EMAIL,
             VRSC_MOBLPHON_NO,
-            VRSC_TLPHON_NO,
-            BSNM_REGIST_DOC_NO2,
             -- 약관
             USE_STPLAT_AGRE_AT,
             INDVDL_INFO_THREEMAN_PROVD_AGRE_AT,
@@ -87,20 +85,16 @@
             #{bsnmRegistNo},
             #{bidMberEmail},
             #{moblphonNo2},
-            #{entrpsTlphonNo},
             #{frntnEntrpsAt},
-            #{postNo},
-            #{adres},
-            #{detailAdres},
-            #{rnAdres},
-            #{rnDetailAdres},
+        <if test="bsnmRegistDocNo1 neq 0">
             -- 사업자 등록증 파일번호 (업체)
-            (
-            SELECT
-                ISNULL((MAX(DOC_NO)+1),1)
-            FROM
-                CO_DOC_BAS
-            ),
+            #{bsnmRegistDocNo1},
+            -- 사업자 등록증 파일번호 (대행)
+            #{bsnmRegistDocNo2},
+        </if>
+        <if test="bsnmRegistDocNo1 eq 0">
+            #{bsnmRegistDocNo2},
+        </if>
             --	상태
             FORMAT(3,'00'), -- bidMberSttusCode : 승인대기
             FORMAT(1,'00'), -- bidConfmSttusCode : 승인 요청
@@ -110,14 +104,6 @@
             #{vrscBsnmRegistNo},
             #{vrscBidMberEmail},
             #{vrscMoblphonNo},
-            #{vrscTlphonNo},
-            -- 사업자 등록증 파일번호 (대행)
-            (
-            SELECT
-                ISNULL((MAX(DOC_NO)+2),2)
-            FROM
-                CO_DOC_BAS
-            ),
             --	약관
             #{useStplatAgreAt},
             #{indvdlInfoThreemanProvdAgreAt},
@@ -138,20 +124,6 @@
             getDate(),
             getDate()
         )
-        <selectKey keyColumn="BSNM_REGIST_DOC_NO1" keyProperty="bsnmRegistDocNo1" order="AFTER" resultType="com.bid.common.model.BidMemberVO">
-            SELECT
-                BSNM_REGIST_DOC_NO1,
-                BSNM_REGIST_DOC_NO2
-            FROM
-                BD_ENTRPS_INFO_BAS
-            WHERE
-                BID_ENTRPS_NO = CONCAT('B',(
-                    SELECT
-                        MAX(RIGHT(BID_ENTRPS_NO,4))
-                    FROM
-                        BD_ENTRPS_INFO_BAS
-                ))
-        </selectKey>
     </insert>
 <!--    사업자등록증 문서 입력-->
     <insert id="creBsnmResistDoc" parameterType="com.bid.common.model.DocVO">
@@ -178,4 +150,11 @@
             getDate()
         )
     </insert>
+
+    <select id="maxDocNo" resultType="int">
+        SELECT
+            ISNULL(MAX(DOC_NO),1)
+        FROM
+            CO_DOC_BAS
+    </select>
 </mapper>

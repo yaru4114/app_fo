@@ -121,31 +121,8 @@
 										</span>
 	                                </div>
 	                            </div>
-	                            <!--} // 23.10.12 | [참고] -->
 
-	                            <!--
-	                             <div class="tr">
-	                                <label for="ipCoAddress">회사주소</label>
-	                                <span class="limit-width">
-	                                    <span class="input-complex">
-	                                        <span class="input">
-	                                            <input type="text" name="ipCoAddress" id="ipCoAddress" placeholder="회사주소는 ‘주소찾기’ 버튼을 눌러주세요." readonly>
-	                                        </span>
-	                                        <span class="button">
-	                                            <button type="button" class="btn-stroke-big narrow blue">주소찾기</button>
-	                                        </span>
-	                                    </span>
-	                                </span>
-	                            </div>
-	                            <div class="tr">
-	                                <label for="ipCoAddressDetail">상세주소</label>
-	                                <span class="limit-width">
-	                                    <input type="text" name="ipCoAddressDetail" id="ipCoAddressDetail" placeholder="나머지 상세 주소       도로명 주소 기준으로 지번주소가 보여집니다.">
-	                                </span>
-	                            </div>
-	                            -->
-
-	                            <!-- 23.11.13 | 영문ver > 주소 정보 입력 영역(모두 직접 입력으로 변경) 시작 {-->
+	                            <!-- 주소 제거
 	                            <div class="tr tr-foreigner-add1">
 	                                <label for="foreignerZinCode">외국 업체 주소 직접 입력</label>
 	                                <span class="input-complex">
@@ -157,14 +134,13 @@
 		                                </span>
 	                                </span>
 	                            </div>
-	                            <!-- // 23.11.13 | 영문ver > 주소 정보 입력 영역(모두 직접 입력으로 변경): 종료 {-->
-
 	                            <div class="tr tr-foreigner-add2">
 	                                <label for="foreigneradd2">외국 업체 주소 직접 입력</label>
 	                                <span class="limit-width">
 	                                    <input type="text" name="foreigneradd2" id="foreigneradd2" placeholder="주소2">
 	                                </span>
 	                            </div>
+	                            /주소제거 -->
 
 	                            <div class="tr tr-bid-email">
 	                                <label for="ipUserEmail">이메일</label>
@@ -175,11 +151,14 @@
 	                                    <span class="email-at">@</span>
 	                                    <span class="limit-width e-domain">
 	                                        <span class="input-complex">
-	                                            <span class="email-input-domain"><input type="text" name="ipUserEmailDomain" id="ipUserEmailDomain" title="이메일 도메인 입력"></span>
+	                                            <span class="email-input-domain"><input type="text" class="emailDomain" name="ipUserEmailDomain" id="ipUserEmailDomain" title="이메일 도메인 입력"></span>
 	                                            <span class="email-select-domain">
-	                                                <select name="selUserEmailDomain" id="selUserEmailDomain" class="dropdown" title="이메일 도메인 선택">
-	                                                    <option selected>직접입력</option>
-	                                                    <option>gmail</option>
+	                                                <select name="selUserEmailDomain" id="ipUserEmailDomain_select" class="dropdown" title="이메일 도메인 선택">
+	                                                    <option value="">직접입력</option>
+                                                        <option value="gmail.com">gmail</option>
+                                                        <option value="naver.com">naver</option>
+                                                        <option value="kakao.com">kakao</option>
+                                                        <option value="hanmail.net">hanmail</option>
 	                                                </select>
 	                                            </span>
 	                                        </span>
@@ -190,28 +169,33 @@
 	                                <label for="">휴대폰 번호</label>
 	                               	<div class="input-complex">
 		                                <select class="dropdown" name="mobile1" id="mobile1">
-									        <option value="1" data-style="ff0000">+82</option>
-										    <option value="2">옵션</option>
-										    <option value="3">옵션</option>
+									        <option value="+82">+82(대한민국)</option>
+                                            <option value="+1">+1(미국&캐나다)</option>
+                                            <option value="+81">+81(일본)</option>
+                                            <option value="+84">+84(베트남)</option>
 									    </select>
 									    <span class="input">
 		                                    <input type="tel" name="mobile2" id="mobile2" placeholder="휴대폰 번호">
 		                                </span>
 	                                </div>
 	                            </div>
+
+	                            <!-- 전화번호 제거
 	                            <div class="tr tr-bid-tel">
 	                                <label for="">회사 전화 번호</label>
 	                               	<div class="input-complex">
 		                                <select class="dropdown" name="telPhone1" id="telPhone1">
-									        <option value="1">+82</option>
-										    <option value="2">옵션</option>
-										    <option value="3">옵션</option>
+									        <option value="+82">+82(대한민국)</option>
+                                            <option value="+1">+1(미국&캐나다)</option>
+                                            <option value="+81">+81(일본)</option>
+                                            <option value="+84">+84(베트남)</option>
 									    </select>
 									    <span class="input">
 		                                    <input type="tel" name="telPhone2" id="telPhone2" placeholder="회사 전화 번호">
 		                                </span>
 	                                </div>
 	                            </div>
+	                            /전화번호 제거 -->
 	                        </div>
 	                    </div>
 	                </div>
@@ -262,11 +246,14 @@
 	                                    <span class="email-at">@</span>
 	                                    <span class="limit-width e-domain">
 	                                        <span class="input-complex">
-	                                            <span class="email-input-domain"><input type="text" name="vrsc_ipUserEmailDomain2" id="vrsc_ipUserEmailDomain2" title="이메일 도메인 입력"></span>
+	                                            <span class="email-input-domain"><input type="text" class="emailDomain" name="vrsc_ipUserEmailDomain2" id="vrsc_ipUserEmailDomain2" title="이메일 도메인 입력"></span>
 	                                            <span class="email-select-domain">
-	                                                <select name="selUserEmailDomain" id="vrsc_ipUserEmailDomain2" class="dropdown" title="이메일 도메인 선택">
-	                                                    <option>직접입력</option>
-	                                                    <option>gmail</option>
+	                                                <select name="selUserEmailDomain" id="vrsc_ipUserEmailDomain2_select" class="dropdown" title="이메일 도메인 선택">
+	                                                    <option value="">직접입력</option>
+	                                                    <option value="gmail.com">gmail</option>
+	                                                    <option value="naver.com">naver</option>
+	                                                    <option value="kakao.com">kakao</option>
+	                                                    <option value="hanmail.net">hanmail</option>
 	                                                </select>
 	                                            </span>
 	                                        </span>
@@ -277,28 +264,32 @@
 	                                <label for="">휴대폰 번호</label>
 	                               	<div class="input-complex">
 		                                <select class="dropdown" name="vrsc_mobile1" id="vrsc_mobile1">
-									        <option value="1">+82</option>
-										    <option value="2">옵션</option>
-										    <option value="3">옵션</option>
+									        <option value="+82">+82(대한민국)</option>
+									        <option value="+1">+1(미국&캐나다)</option>
+										    <option value="+81">+81(일본)</option>
+										    <option value="+84">+84(베트남)</option>
 									    </select>
 									    <span class="input">
 		                                    <input type="tel" name="vrsc_mobile2" id="vrsc_mobile2" placeholder="휴대폰 번호">
 		                                </span>
 	                                </div>
 	                            </div>
+	                            <!-- 회사 전화번호 제거
 	                            <div class="tr tr-bid-tel">
 	                                <label for="">회사 전화 번호</label>
 	                               	<div class="input-complex">
 		                                <select class="dropdown" name="vrsc_telPhone1" id="vrsc_telPhone1">
-									        <option value="1">+82</option>
-										    <option value="2">옵션</option>
-										    <option value="3">옵션</option>
+									        <option value="+82">+82(대한민국)</option>
+                                            <option value="+1">+1(미국&캐나다)</option>
+                                            <option value="+81">+81(일본)</option>
+                                            <option value="+84">+84(베트남)</option>
 									    </select>
 									    <span class="input">
 		                                    <input type="tel" name="vrsc_telPhone2" id="vrsc_telPhone2" placeholder="회사 전화 번호">
 		                                </span>
 	                                </div>
 	                            </div>
+	                            -->
 	                        </div>
 	                    </div>
 	                </div>
@@ -391,16 +382,17 @@ $('#agreeAll2').on('click',function () {
 
         $('#vrsc_mobile1').val($('#mobile1').val());
         $('#vrsc_mobile2').val($('#mobile2').val());
-        $('#vrsc_telPhone1').val($('#telPhone1').val());
-        $('#vrsc_telPhone2').val($('#telPhone2').val());
+
+        // 전화번호 제거
+        // $('#vrsc_telPhone1').val($('#telPhone1').val());
+        // $('#vrsc_telPhone2').val($('#telPhone2').val());
     }
 });
 
 // 이전 페이지 버튼
 $('#prevBtn').on('click', function(){
    if (confirm("이전 페이지로 이동하시겠습니까? 작성된 정보는 삭제됩니다.")) {
-        window.history.back()
-        // location.href = "/fo/member/create_1";
+        window.history.back();
    }
 });
 
@@ -409,6 +401,14 @@ function coRegiNoChk(value){
 
     alert("사업자가 확인되었습니다.");
 }
+
+// 이메일 선택
+$('#ipUserEmailDomain_select').on('change',function(){
+    $('#ipUserEmailDomain').val($('#ipUserEmailDomain_select').val());
+});
+$('#vrsc_ipUserEmailDomain2_select').on('change',function(){
+    $('#vrsc_ipUserEmailDomain2').val($('#vrsc_ipUserEmailDomain2_select').val());
+});
 
 
 // 회원가입 조건처리
@@ -420,8 +420,6 @@ function chkInfo(form){
     var idFilter2 = /^[a-zA-Z]{4,12}$/g;
     var pwdFilter = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,12}$/;
     var mobileFilter = /^\d{10,11}$/;
-    var telPhoneFilter = /^\d{9,11}$/;
-    var postNoFilter = /^\d{5,6}$/;
 
     // 아이디
     if (form.bidMberId === null || form.bidMberId.length <= 0) {
@@ -467,28 +465,10 @@ function chkInfo(form){
         return false;
     }
 
-    // 우편번호
-    if(form.postNo === null || form.postNo.length <= 0){
-        alert('우편번호를 입력해주세요.');
-        $('#foreignerZinCode').focus();
-        return false;
-    } else if (!postNoFilter.test(form.postNo)) {
-        alert('우편번호는 5~6자리의 숫자만 입력 가능합니다.');
-        $('#foreignerZinCode').focus();
-        return false;
-    }
-
-    // 주소
-    if(form.adres === null || form.adres.length <= 0) {
-        alert('주소를 입력해주세요.');
-        $('#foreigneradd1').focus();
-        return false;
-    }
-
-    // 상세주소
-    if (form.detailAdres === null || form.detailAdres.length <= 0) {
-        alert('상세주소를 입력해주세요.');
-        $('#foreigneradd2').focus();
+    // 사업자등록증
+    if (form.frntnEntrpsAt === 'N' && $('#updFile1')[0].files[0] == null) {
+        alert('사업자등록증을 첨부해주세요.');
+        $('#updFile1').click();
         return false;
     }
 
@@ -510,17 +490,6 @@ function chkInfo(form){
         return false;
     }
 
-    // 회사 전화 번호
-    if (($('#telPhone1').val() === null || $('#telPhone1').val() <= 0) || ($('#telPhone2').val() === null || $('#telPhone2').val().length <= 0)) {
-        alert('회사 전화 번호를 입력해주세요.');
-        $('#telPhone2').focus();
-        return false;
-    } else if (!telPhoneFilter.test($('#telPhone2').val())) {
-        alert('회사 전화 번호는 - 없이 9~11자리 숫자를 입력해야합니다.');
-        $('#telPhone2').focus();
-        return false;
-    }
-
     // ** 대행업체
     // 업체명
     if (form.vrscEntrpsNm === null || form.vrscEntrpsNm.length <= 0) {
@@ -533,6 +502,13 @@ function chkInfo(form){
     if (form.vrscBsnmRegistNo === null || form.vrscBsnmRegistNo.length <= 0) {
         alert('대행 사업자번호를 입력해주세요.');
         $('#vrsc_ipCoRegiNo').focus();
+        return false;
+    }
+
+    // 사업자 등록증
+    if ($('#updFile2')[0].files[0] == null) {
+        alert('대행 사업자등록증을 첨부해주세요.');
+        $('#updFile2').click();
         return false;
     }
 
@@ -554,29 +530,6 @@ function chkInfo(form){
         return false;
     }
 
-    // 회사 전화 번호
-    if (($('#vrsc_telPhone1').val() === null || $('#vrsc_telPhone1').val().length <= 0) || ($('#vrsc_telPhone2').val() === null || $('#vrsc_telPhone2').val().length <= 0)) {
-        alert('대행 업체 전화 번호를  입력해주세요.');
-        $('#vrsc_telPhone2').focus();
-        return false;
-    } else if (!telPhoneFilter.test($('#vrsc_telPhone2').val())) {
-        alert('회사 전화 번호는 - 없이 9~11자리 숫자를 입력해야합니다.');
-        $('#vrsc_telPhone2').focus();
-        return false;
-    }
-
-    // 사업자등록증
-    if ($('#updFile1')[0].files[0] == null) {
-        alert('사업자등록증을 첨부해주세요.');
-        $('#updFile1').click();
-        return false;
-    }
-    if ($('#updFile2')[0].files[0] == null) {
-        alert('대행 사업자등록증을 첨부해주세요.');
-        $('#updFile2').click();
-        return false;
-    }
-
     return true;
 }
 
@@ -594,22 +547,17 @@ $('#submitBtn').on('click',function(){
 
     form.frntnEntrpsAt = $('#foreign').prop('checked') ? 'Y' : 'N' // 외부업체 여부
 
-    form.postNo = $('#foreignerZinCode').val(); // 우편번호
-    form.adres = $('#foreigneradd1').val(); // 주소1
-    form.detailAdres = $('#foreigneradd2').val(); // 주소2
-
     form.bidMberEmail = $('#ipUserEmail').val() + "@" + $('#ipUserEmailDomain').val(); // 이메일
 
-    form.moblphoneNo2 = $('#mobile1').val() + $('#mobile2').val(); // 휴대폰 번호
-    form.entrpsTlphonNo = $('#telPhone1').val() + $('#telPhone2').val(); // 회사 전화 번호
+    form.moblphoneNo2 = $('#mobile1').val() + " " + $('#mobile2').val(); // 휴대폰 번호
+
 
     // 입찰 대리 정보
 
     form.vrscEntrpsNm = $('#vrsc_cname').val(); // 대행 업체명
     form.vrscBsnmRegistNo = $('#vrsc_ipCoRegiNo').val(); // 대행 사업자번호
     form.vrscBidMberEmail = $('#vrsc_ipUserEmail').val() + "@" + $('#vrsc_ipUserEmailDomain2').val();
-    form.vrscMoblphonNo = $('#vrsc_mobile1').val() + $('#vrsc_mobile2').val();
-    form.vrscTlphonNo = $('#vrsc_telPhone1').val() + $('#vrsc_telPhone2').val();
+    form.vrscMoblphonNo = $('#vrsc_mobile1').val() + " " + $('#vrsc_mobile2').val();
 
     // 약관 정보
     // 필수약관
@@ -636,7 +584,9 @@ $('#submitBtn').on('click',function(){
     formData.append('BidMemberVO',JSON.stringify(form));
 
     // 사업자등록증 회사/대행
-    formData.append('docFiles',$('#updFile1')[0].files[0]);
+    if ($('#updFile1')[0].files[0] != null) {
+        formData.append('docFiles',$('#updFile1')[0].files[0]);
+    }
     formData.append('docFiles',$('#updFile2')[0].files[0]);
 
     $.ajax({
