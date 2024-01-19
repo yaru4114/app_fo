@@ -99,13 +99,11 @@
 	                                    <input type="text" name="cname" id="cname" placeholder="회사 이름 입력">
 	                                </span>
 	                            </div>
-
-	                            <!-- 23.10.12 | [참고] 상단 '외국 업체입니다.' 체크시: '회사 기본 정보입력 > 사업자등록번호 관련 영역' display: none 처리 {-->
 	                            <div class="tr">
 	                                <label for="ipCoRegiNo">사업자등록번호</label>
 	                                <span class="limit-width">
 	                                    <span class="input-complex">
-	                                        <span class="input"><input type="tel" name="ipCoRegiNo" id="ipCoRegiNo" placeholder="사업자등록번호"></span>
+	                                        <span class="input"><input type="text" name="ipCoRegiNo" id="ipCoRegiNo" placeholder="사업자등록번호" oninput="autoRegiNoCheck(this)" maxlength="12"></span>
 	                                        <span class="button"><button type="button" id="ipCoRegiNoCheckBtn" class="btn-blue-big narrow" onclick="coRegiNoChk($('#ipCoRegiNo').val())">확인</button></span>
 	                                    </span>
 	                                </span>
@@ -121,26 +119,6 @@
 										</span>
 	                                </div>
 	                            </div>
-
-	                            <!-- 주소 제거
-	                            <div class="tr tr-foreigner-add1">
-	                                <label for="foreignerZinCode">외국 업체 주소 직접 입력</label>
-	                                <span class="input-complex">
-		                                <span class="zip-code">
-		                                    <input type="tel" name="foreignerZinCode" id="foreignerZinCode" placeholder="우편번호">
-		                                </span>
-		                                <span class="input">
-		                                    <input type="text" name="foreigneradd1" id="foreigneradd1" placeholder="주소1">
-		                                </span>
-	                                </span>
-	                            </div>
-	                            <div class="tr tr-foreigner-add2">
-	                                <label for="foreigneradd2">외국 업체 주소 직접 입력</label>
-	                                <span class="limit-width">
-	                                    <input type="text" name="foreigneradd2" id="foreigneradd2" placeholder="주소2">
-	                                </span>
-	                            </div>
-	                            /주소제거 -->
 
 	                            <div class="tr tr-bid-email">
 	                                <label for="ipUserEmail">이메일</label>
@@ -175,27 +153,10 @@
                                             <option value="+84">+84(베트남)</option>
 									    </select>
 									    <span class="input">
-		                                    <input type="tel" name="mobile2" id="mobile2" placeholder="휴대폰 번호">
+		                                    <input type="text" name="mobile2" id="mobile2" placeholder="휴대폰 번호" oninput="autoPhoneCheck(this)" maxlength="13">
 		                                </span>
 	                                </div>
 	                            </div>
-
-	                            <!-- 전화번호 제거
-	                            <div class="tr tr-bid-tel">
-	                                <label for="">회사 전화 번호</label>
-	                               	<div class="input-complex">
-		                                <select class="dropdown" name="telPhone1" id="telPhone1">
-									        <option value="+82">+82(대한민국)</option>
-                                            <option value="+1">+1(미국&캐나다)</option>
-                                            <option value="+81">+81(일본)</option>
-                                            <option value="+84">+84(베트남)</option>
-									    </select>
-									    <span class="input">
-		                                    <input type="tel" name="telPhone2" id="telPhone2" placeholder="회사 전화 번호">
-		                                </span>
-	                                </div>
-	                            </div>
-	                            /전화번호 제거 -->
 	                        </div>
 	                    </div>
 	                </div>
@@ -221,7 +182,7 @@
 	                                <label for="vrsc_ipCoRegiNo">사업자등록번호</label>
 	                                <span class="limit-width">
 	                                    <span class="input-complex">
-	                                        <span class="input"><input type="tel" name="vrsc_ipCoRegiNo" id="vrsc_ipCoRegiNo" placeholder="사업자등록번호"></span>
+	                                        <span class="input"><input type="text" name="vrsc_ipCoRegiNo" id="vrsc_ipCoRegiNo" placeholder="사업자등록번호" oninput="autoRegiNoCheck(this)" maxlength="12"></span>
 	                                        <span class="button"><button type="button" class="btn-blue-big narrow" onclick="coRegiNoChk($('#vrsc_ipCoRegiNo').val())">확인</button></span>
 	                                    </span>
 	                                </span>
@@ -270,26 +231,10 @@
 										    <option value="+84">+84(베트남)</option>
 									    </select>
 									    <span class="input">
-		                                    <input type="tel" name="vrsc_mobile2" id="vrsc_mobile2" placeholder="휴대폰 번호">
+		                                    <input type="text" name="vrsc_mobile2" id="vrsc_mobile2" placeholder="휴대폰 번호" oninput="autoPhoneCheck(this)" maxlength="13">
 		                                </span>
 	                                </div>
 	                            </div>
-	                            <!-- 회사 전화번호 제거
-	                            <div class="tr tr-bid-tel">
-	                                <label for="">회사 전화 번호</label>
-	                               	<div class="input-complex">
-		                                <select class="dropdown" name="vrsc_telPhone1" id="vrsc_telPhone1">
-									        <option value="+82">+82(대한민국)</option>
-                                            <option value="+1">+1(미국&캐나다)</option>
-                                            <option value="+81">+81(일본)</option>
-                                            <option value="+84">+84(베트남)</option>
-									    </select>
-									    <span class="input">
-		                                    <input type="tel" name="vrsc_telPhone2" id="vrsc_telPhone2" placeholder="회사 전화 번호">
-		                                </span>
-	                                </div>
-	                            </div>
-	                            -->
 	                        </div>
 	                    </div>
 	                </div>
@@ -342,6 +287,22 @@ $(document).ready(function(){
 	});
 });
 
+// 자동 하이픈 체크
+function autoPhoneCheck(target){
+    target.value = target.value
+        .replace(/[^0-9]/g, '')
+        .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")
+        .replace(/(\-{1,2})$/g, "");
+}
+
+function autoRegiNoCheck(target){
+target.value = target.value
+        .replace(/[^0-9]/g, '')
+        .replace(/^(\d{0,3})(\d{0,2})(\d{0,5})$/g, "$1-$2-$3")
+        .replace(/(\-{1,2})$/g, "");
+}
+
+
 // 외국업체 체크
 $('#foreign').on('click',function () {
     if ($('#foreign').prop('checked')) {
@@ -382,10 +343,6 @@ $('#agreeAll2').on('click',function () {
 
         $('#vrsc_mobile1').val($('#mobile1').val());
         $('#vrsc_mobile2').val($('#mobile2').val());
-
-        // 전화번호 제거
-        // $('#vrsc_telPhone1').val($('#telPhone1').val());
-        // $('#vrsc_telPhone2').val($('#telPhone2').val());
     }
 });
 
@@ -416,7 +373,7 @@ $('#vrsc_ipUserEmailDomain2_select').on('change',function(){
 function chkInfo(form){
 
     // 정규표현식 필터
-    var idFilter1 = /^[a-zA-Z](?=.*[a-zA-Z])(?=.*[0-9]).{4,12}$/g;
+    var idFilter1 = /^[a-zA-Z0-9](?=.*[a-zA-Z])(?=.*[0-9]).{3,12}$/g;
     var idFilter2 = /^[a-zA-Z]{4,12}$/g;
     var pwdFilter = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,12}$/;
     var mobileFilter = /^\d{10,11}$/;
@@ -431,7 +388,6 @@ function chkInfo(form){
         $('#uid').focus();
         return false;
     }
-    //
 
     // 비밀번호
     if (form.bidMberSecretNo === null || form.bidMberSecretNo.length <= 0) {
