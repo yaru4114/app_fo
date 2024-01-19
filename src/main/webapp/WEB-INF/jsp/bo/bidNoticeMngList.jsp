@@ -157,7 +157,6 @@
                             <col width="100px" />
                             <col width="80px" />
                             <col width="80px" />
-                            <col width="80px" />
                             <col width="120px" />
                         </colgroup>
                         <thead>
@@ -173,7 +172,6 @@
                                 <th rowspan="2"scope="col">활성<br>여부</th>
                                 <th rowspan="2"scope="col">등록일<br>(등록자)</th>
                                 <th rowspan="2"scope="col">상태</th>
-                                <th rowspan="2"scope="col">단계</th>
                                 <th rowspan="2"scope="col">투찰<br>기업</th>
                                 <th rowspan="2"scope="col">최저<br>프리미엄가</th>
                             </tr>
@@ -198,7 +196,6 @@
                                 <col width="150px" />
                                 <col width="80px" />
                                 <col width="100px" />
-                                <col width="80px" />
                                 <col width="80px" />
                                 <col width="80px" />
                                 <col width="120px" />
@@ -418,9 +415,7 @@
                                         <tbody>
                                         <tr>
                                             <th scope="row">활성여부</th>
-                                            <td>
-                                                활성
-                                            </td>
+                                            <td id="modalActiveAt2"></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -458,7 +453,7 @@
                                             <col width="*" />
                                             <col width="10%" />
                                             <col width="10%" />
-                                            <col width="10%" />
+                                            <%--<col width="10%" />--%>
                                         </colgroup>
                                         <tbody id="modalBddprInfo">
                                         </tbody>
@@ -643,7 +638,6 @@
           $("#dynamicTbody").append('<td>' + item.activeAt + '</td>');
           $("#dynamicTbody").append('<td>' + item.frstRegistDt + '<br>' + '(' + item.frstRegisterId + ')' + '</td>');
           $("#dynamicTbody").append('<td>' + item.bidStatNm + '</td>');
-          $("#dynamicTbody").append('<td>' + item.stepNm + '</td>');
           $("#dynamicTbody").append('<td>' + item.bdngCmpny + '</td>');
           $("#dynamicTbody").append('<td>' + item.lwstPrprc + '</td>');
           $("#dynamicTbody").append('</tr>');
@@ -679,7 +673,7 @@
         $("#modalTitle").append("입찰 공고 상세 > " + data.itmPrdlstKorean + '<span style="margin-left:20px;background-color: black; color: white; font-weight:normal;">' + "&nbsp;&nbsp;입찰공고번호 " + data.bidPblancId + '&nbsp;&nbsp;</span>');
         $("#modalBidStatNm").text(data.bidStatNm);
         $("#modalBddprDate").text(data.bddprBeginDt + " ~ " + data.bddprEndDt );
-        $("#modalActiveAt").text(""); // 모달 활성여부
+        $("#modalActiveAt").text(data.activeAt); // 모달 활성여부
         $("#modalMetalCode").text(data.metalCode);
         $("#modalBrand").text(data.brandGroupCode + " / 브랜드 " + data.brandCode);
         $("#modalItmPrdlstKorean").text(data.itmPrdlstKorean);
@@ -696,11 +690,13 @@
         $("#modalPcAppnMthCode").text(data.pcAppnMthCode);
         $("#modalSetleCond").text(data.setleCrncyCode + " " + data.setleMthCode + " " + data.setlePdCode);
         $("#modalEtcCn").text(data.etcCn);
-        $("#modalBddprBeginDt").text(data.bddprBeginDt);
-        $("#modalBddprEndDt").text(data.bddprEndDt);
+        $("#modalBddprBeginDt").text(data.bddprBeginDtInfo);
+        $("#modalBddprEndDt").text(data.bddprEndDtInfo);
         $("#modalBddprCanclLmttDe").text(data.bddprCanclLmttDe);
+        $("#modalActiveAt2").text(data.activeAt);
 
         // 공고수정이력
+        $("#modalUpdtHst").empty();
         $("#modalUpdtHst").append('<tr><th scope="row">수정일시</th><th scope="row">수정 내용</th><th scope="row">수정 사유</th></tr>');
         $.each(data.bidNoticeUpdtVoList , function(index , item) {
           $("#modalUpdtHst").append('<tr>');
@@ -711,7 +707,8 @@
         });
 
         // 투찰기업목록
-        $("#modalBddprInfo").append('<tr><th scope="row" class="text-center">순위</th><th scope="row" class="text-center">기업명</th><th scope="row" class="text-center">투찰 일시</th><th scope="row" class="text-center">인도조건</th> <th scope="row" class="text-center">투찰 가격(USD)</th><th scope="row" class="text-center">상태</th><th scope="row" class="text-center">처리단계</th></tr>');
+        $("#modalBddprInfo").empty();
+        $("#modalBddprInfo").append('<tr><th scope="row" class="text-center">순위</th><th scope="row" class="text-center">기업명</th><th scope="row" class="text-center">투찰 일시</th><th scope="row" class="text-center">인도조건</th> <th scope="row" class="text-center">투찰 가격(USD)</th><th scope="row" class="text-center">상태</th></tr>');
         $.each(data.bidBddprDtlVoList , function(index,item){
           $("#modalBddprInfo").append('<tr>');
           $("#modalBddprInfo").append('<td class="text-center"><b>' + item.rownum + '</b></td>');
@@ -720,9 +717,9 @@
           $("#modalBddprInfo").append('<td>' + item.delyCndCodeNm + '</td>');
           $("#modalBddprInfo").append('<td class="text-center">' + item.bddprPremiumPc + '</td>');
           $("#modalBddprInfo").append('<td class="text-center">' + item.bidStatNm + '</td>');
-          $("#modalBddprInfo").append('<td class="text-center">' + item.procStep + '</td>');
           $("#modalBddprInfo").append('</tr>');
         });
+
 
       },
       error: function (xhr, status, error) {
