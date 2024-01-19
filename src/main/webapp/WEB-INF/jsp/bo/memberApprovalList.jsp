@@ -474,7 +474,7 @@
             gridView.editOptions.appendable = true;
 
             // 페이징 설정
-            gridView.setPaging(true, 10);
+            gridView.setPaging(true, 30);
 
             // 페이지 변경 이벤트 핸들러 등록
             gridView.onPageChanged = function (grid, page) {
