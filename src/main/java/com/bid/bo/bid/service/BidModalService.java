@@ -16,17 +16,9 @@ public class BidModalService {
     @Autowired
     private BidModalDAO bidModalDAO;
 
-    public Map<String, Object> getMetalOpt() {
+    public Map<String, Object> getSelectOpt(CoCmmnCdVO vo) {
         Map<String, Object> resultMap = new HashMap<>();
-        List<CoCmmnCdVO> resultList = bidModalDAO.getMetalOpt();
-
-        resultMap.put("result", resultList);
-        return resultMap;
-    }
-
-    public Map<String, Object> getdstrctOpt() {
-        Map<String, Object> resultMap = new HashMap<>();
-        List<CoCmmnCdVO> resultList = bidModalDAO.getdstrctOpt();
+        List<CoCmmnCdVO> resultList = bidModalDAO.getSelectOpt(vo);
 
         resultMap.put("result", resultList);
         return resultMap;
@@ -50,14 +42,6 @@ public class BidModalService {
     public Map<String, Object> getItemOpt(CoCmmnCdVO vo) {
         Map<String, Object> resultMap = new HashMap<>();
         List<CoCmmnCdVO> resultList = bidModalDAO.getItemOpt(vo);
-
-        resultMap.put("result", resultList);
-        return resultMap;
-    }
-
-    public Map<String, Object> getCurrencyOpt() {
-        Map<String, Object> resultMap = new HashMap<>();
-        List<CoCmmnCdVO> resultList = bidModalDAO.getCurrencyOpt();
 
         resultMap.put("result", resultList);
         return resultMap;

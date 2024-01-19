@@ -18,21 +18,16 @@ public class BidModalController {
     @Autowired
     private BidModalService bidModalService;
 
-    @GetMapping("/open")
-    public String modal() {
-        return "bo/bidModal";
-    }
-
     // 메탈 구분 조회
     @PostMapping("/metal")
-    public ResponseEntity<?> getMetalOpt() {
-        return ResponseEntity.ok(bidModalService.getMetalOpt());
+    public ResponseEntity<?> getMetalOpt(@RequestBody CoCmmnCdVO vo) {
+        return ResponseEntity.ok(bidModalService.getSelectOpt(vo));
     }
 
     // 권역 조회
     @PostMapping("/dstrct")
-    public ResponseEntity<?> getdstrctOpt() {
-        return ResponseEntity.ok(bidModalService.getdstrctOpt());
+    public ResponseEntity<?> getdstrctOpt(@RequestBody CoCmmnCdVO vo) {
+        return ResponseEntity.ok(bidModalService.getSelectOpt(vo));
     }
 
     // 브랜드 그룹 조회
@@ -55,7 +50,13 @@ public class BidModalController {
 
     // 통화 조회
     @PostMapping("/currency")
-    public ResponseEntity<?> getCurrencyOpt() {
-        return ResponseEntity.ok(bidModalService.getCurrencyOpt());
+    public ResponseEntity<?> getCurrencyOpt(@RequestBody CoCmmnCdVO vo) {
+        return ResponseEntity.ok(bidModalService.getSelectOpt(vo));
+    }
+
+    // 가격지정방법 조회
+    @PostMapping("/priceSpmtc")
+    public ResponseEntity<?> getPriceSpmtcOpt(@RequestBody CoCmmnCdVO vo) {
+        return ResponseEntity.ok(bidModalService.getSelectOpt(vo));
     }
 }

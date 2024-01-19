@@ -3,19 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bid.bo.bid.dao.BidModalDAO" >
-    <select id="getMetalOpt" resultType="com.bid.common.model.CoCmmnCdVO">
+    <select id="getSelectOpt" parameterType="com.bid.common.model.CoCmmnCdVO"
+            resultType="com.bid.common.model.CoCmmnCdVO">
         SELECT *
         FROM CO_CMMN_CD
         WHERE
-            MAIN_CODE = 'METAL_CODE'
-        ORDER BY CODE_ORDR
-    </select>
-
-    <select id="getdstrctOpt" resultType="com.bid.common.model.CoCmmnCdVO">
-        SELECT *
-        FROM CO_CMMN_CD
-        WHERE
-            MAIN_CODE = 'DSTRCT_LCLSF_CODE'
+            MAIN_CODE = #{subCode}
         ORDER BY CODE_ORDR
     </select>
 
@@ -23,9 +16,9 @@
             resultType="com.bid.common.model.CoCmmnCdVO">
         SELECT * FROM CO_CMMN_CD
         WHERE
-            MAIN_CODE = 'BRAND_GROUP_CODE'
+        MAIN_CODE = 'BRAND_GROUP_CODE'
         AND
-            CODE_REFRNONE = #{subCode}
+        CODE_REFRNONE = #{subCode}
         ORDER BY CODE_ORDR
     </select>
 
@@ -35,10 +28,11 @@
         FROM IT_BRAND_INFO_BAS AS BRD
         INNER JOIN CO_CMMN_CD AS CMN
         ON
-            BRD.BRAND_GROUP_CODE = CMN.SUB_CODE
+        BRD.BRAND_GROUP_CODE = CMN.SUB_CODE
         AND
-            CMN.MAIN_CODE='BRAND_GROUP_CODE'
-        WHERE CMN.SUB_CODE in (#{subCode})
+        CMN.MAIN_CODE='BRAND_GROUP_CODE'
+        WHERE
+        CMN.SUB_CODE in (#{subCode})
         ORDER BY BRAND_NM
     </select>
 
@@ -48,16 +42,9 @@
         FROM IT_ITM_INFO_BAS AS ITM
         INNER JOIN CO_CMMN_CD AS CMN
         ON
-            ITM.METAL_CODE = CMN.SUB_CODE AND CMN.MAIN_CODE='METAL_CODE'
-        WHERE CMN.SUB_CODE in (#{subCode})
-        ORDER BY CODE_NM
-    </select>
-
-    <select id="getCurrencyOpt" resultType="com.bid.common.model.CoCmmnCdVO">
-        SELECT *
-        FROM CO_CMMN_CD
+        ITM.METAL_CODE = CMN.SUB_CODE AND CMN.MAIN_CODE='METAL_CODE'
         WHERE
-        MAIN_CODE = 'CURRENCY'
-        ORDER BY CODE_ORDR
+        CMN.SUB_CODE in (#{subCode})
+        ORDER BY CODE_NM
     </select>
 </mapper>
