@@ -41,13 +41,11 @@
 <body>
 <div class="web-wrapper">
     <aside class="web-sidebar"></aside>
-    <script type="text/javascript"> $(".web-sidebar").load(
-        "/bo/guide/html/include/sidebar.html");</script>
+    <script type="text/javascript"> $(".web-sidebar").load("/bo/guide/html/include/sidebar.html");</script>
 
     <section class="web-container">
         <header class="web-header"></header>
-        <script type="text/javascript"> $(".web-header").load(
-            "/bo/guide/html/include/header.html");</script>
+        <script type="text/javascript"> $(".web-header").load("/bo/guide/html/include/header.html");</script>
 
         <div class="main-content">
             <div class="inner">
@@ -107,14 +105,14 @@
                         <div class="form-period-set">
                             <div class="form-period-box">
                                 <div class="input-group date form-date">
-                                    <input type="text" class="input" id="datepicker1">
-                                    <label for="datepicker1" class="btn has-icon"><i
+                                    <input type="text" class="input" id="startDatepicker">
+                                    <label for="startDatepicker" class="btn has-icon"><i
                                             class="icon icon-calendar">달력</i></label>
                                 </div>
                                 <span>~</span>
                                 <div class="input-group date form-date">
-                                    <input type="text" class="input" id="datepicker2">
-                                    <label for="datepicker2" class="btn has-icon"><i
+                                    <input type="text" class="input" id="endDatepiker">
+                                    <label for="endDatepiker" class="btn has-icon"><i
                                             class="icon icon-calendar">달력</i></label>
                                 </div>
                             </div>
@@ -213,7 +211,7 @@
                 </div>
 
                 <!-- 모달 부분-->
-                <div class="modal fade" id="modalBidDtl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="modalBidDtl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel123" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-full" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -438,22 +436,7 @@
                                             <col width="*" />
                                             <col width="40%" />
                                         </colgroup>
-                                        <tbody>
-                                        <tr>
-                                            <th scope="row">수정일시</th>
-                                            <th scope="row">수정 내용</th>
-                                            <th scope="row">수정 사유</th>
-                                        </tr>
-                                        <tr>
-                                            <td>2022.01.03.10:10:10</td>
-                                            <td>수정 내용1</td>
-                                            <td>수정 사유1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2022.01.04.10:10:00</td>
-                                            <td>수정 내용2</td>
-                                            <td>수정 사유2</td>
-                                        </tr>
+                                        <tbody id="modalUpdtHst" >
                                         </tbody>
                                     </table>
                                 </div>
@@ -477,43 +460,7 @@
                                             <col width="10%" />
                                             <col width="10%" />
                                         </colgroup>
-                                        <tbody>
-                                        <tr>
-                                            <th scope="row" class="text-center">순위</th>
-                                            <th scope="row" class="text-center">기업명</th>
-                                            <th scope="row" class="text-center">투찰 일시</th>
-                                            <th scope="row" class="text-center">인도조건</th>
-                                            <th scope="row" class="text-center">투찰 가격(USD)</th>
-                                            <th scope="row" class="text-center">상태</th>
-                                            <th scope="row" class="text-center">처리단계</th>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center"><b>1</b></td>
-                                            <td><a href="#" class="rg-link-renderer">엠투엠글로벌</a></td>
-                                            <td>2022.01.02. 10:10:10</td>
-                                            <td>서린상사 지정 보세창고 도착도(FCA서린상사 지정보세창고)</td>
-                                            <td class="text-center">11</td>
-                                            <td class="text-center">투찰 중</td>
-                                            <td class="text-center">-</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center"><b>2</b></td>
-                                            <td><a href="#" class="rg-link-renderer">반진메탈</a></td>
-                                            <td>2022.01.02. 10:11:25</td>
-                                            <td>기타 부산/인천 보세창고 상차도(FCA BUSAN/INCHEON)</td>
-                                            <td class="text-center">111</td>
-                                            <td class="text-center">투찰 중</td>
-                                            <td class="text-center">-</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center"><b>3</b></td>
-                                            <td><a href="#" class="rg-link-renderer">기업명칭</a></td>
-                                            <td>2022.01.03. 11:11:20</td>
-                                            <td>CIF INCHEON / CIF BUSAN</td>
-                                            <td class="text-center">112</td>
-                                            <td class="text-center">투찰 중</td>
-                                            <td class="text-center">-</td>
-                                        </tr>
+                                        <tbody id="modalBddprInfo">
                                         </tbody>
                                     </table>
                                 </div>
@@ -538,10 +485,10 @@
     // 오늘 날짜 가져오기
     var today = new Date();
     // Datepicker 초기화 및 오늘 날짜로 설정
-    $("#datepicker1").datepicker({
+    $("#startDatepicker").datepicker({
       format: 'yyyy-mm-dd'
     });
-    $("#datepicker2").datepicker({
+    $("#endDatepiker").datepicker({
       format: 'yyyy-mm-dd'
     });
 
@@ -753,7 +700,29 @@
         $("#modalBddprEndDt").text(data.bddprEndDt);
         $("#modalBddprCanclLmttDe").text(data.bddprCanclLmttDe);
 
+        // 공고수정이력
+        $("#modalUpdtHst").append('<tr><th scope="row">수정일시</th><th scope="row">수정 내용</th><th scope="row">수정 사유</th></tr>');
+        $.each(data.bidNoticeUpdtVoList , function(index , item) {
+          $("#modalUpdtHst").append('<tr>');
+          $("#modalUpdtHst").append('<td>'+ item.frstRegistDt + '</td>');
+          $("#modalUpdtHst").append('<td>'+ item.bidUpdtCn + '</td>');
+          $("#modalUpdtHst").append('<td>'+ item.bidUpdtResn + '</td>');
+          $("#modalUpdtHst").append('</tr>');
+        });
 
+        // 투찰기업목록
+        $("#modalBddprInfo").append('<tr><th scope="row" class="text-center">순위</th><th scope="row" class="text-center">기업명</th><th scope="row" class="text-center">투찰 일시</th><th scope="row" class="text-center">인도조건</th> <th scope="row" class="text-center">투찰 가격(USD)</th><th scope="row" class="text-center">상태</th><th scope="row" class="text-center">처리단계</th></tr>');
+        $.each(data.bidBddprDtlVoList , function(index,item){
+          $("#modalBddprInfo").append('<tr>');
+          $("#modalBddprInfo").append('<td class="text-center"><b>' + item.rownum + '</b></td>');
+          $("#modalBddprInfo").append('<td><a href="#" class="rg-link-renderer">' + item.entrpsNm + '</a></td>');
+          $("#modalBddprInfo").append('<td>' + item.frstRegistDt + '</td>');
+          $("#modalBddprInfo").append('<td>' + item.delyCndCodeNm + '</td>');
+          $("#modalBddprInfo").append('<td class="text-center">' + item.bddprPremiumPc + '</td>');
+          $("#modalBddprInfo").append('<td class="text-center">' + item.bidStatNm + '</td>');
+          $("#modalBddprInfo").append('<td class="text-center">' + item.procStep + '</td>');
+          $("#modalBddprInfo").append('</tr>');
+        });
 
       },
       error: function (xhr, status, error) {
@@ -767,23 +736,24 @@
   function getDatePickerButtonId() {
     // 클릭된 버튼의 아이디 가져오기
     var buttonId = $(this).attr('id');
+    console.log("")
 
     //시작날짜는 오늘로 고정
-    $("#datepicker1").datepicker('setDate', 'today');
+    $("#startDatepicker").datepicker('setDate', 'today');
     $(".btn-box.btn-period .btn").removeClass('active');
 
     if (buttonId == "btn_today") {
-      $("#datepicker2").datepicker('setDate', 'today');
+      $("#endDatepiker").datepicker('setDate', 'today');
     } else if (buttonId == "btn_afterWeek") {
-      $("#datepicker2").datepicker('setDate', '+7D');
+      $("#endDatepiker").datepicker('setDate', '+7D');
     } else if (buttonId == "btn_afterMonth") {
-      $("#datepicker2").datepicker('setDate', '+1M');
+      $("#endDatepiker").datepicker('setDate', '+1M');
     } else if (buttonId == "btn_after6Month") {
-      $("#datepicker2").datepicker('setDate', '+6M');
+      $("#endDatepiker").datepicker('setDate', '+6M');
     } else if (buttonId == "btn_afterYear") {
-      $("#datepicker2").datepicker('setDate', '+1Y');
+      $("#endDatepiker").datepicker('setDate', '+1Y');
     } else if (buttonId == "btn_after2Year") {
-      $("#datepicker2").datepicker('setDate', '+2Y');
+      $("#endDatepiker").datepicker('setDate', '+2Y');
     }
 
     $("#" + buttonId).addClass('active');
@@ -792,8 +762,8 @@
   // jsonData 생성
   function getCreateJsonData(bidSttusCode){
     var jsonData = {
-      startDate: $("#datepicker1").datepicker({dateformat: 'yyyy-mm-dd'}).val(),
-      endDate: $("#datepicker2").datepicker({dateformat: 'yyyy-mm-dd'}).val(),
+      startDate: $("#startDatepicker").datepicker({dateformat: 'yyyy-mm-dd'}).val(),
+      endDate: $("#endDatepiker").datepicker({dateformat: 'yyyy-mm-dd'}).val(),
       bidSttusCode: bidSttusCode
     };
 
