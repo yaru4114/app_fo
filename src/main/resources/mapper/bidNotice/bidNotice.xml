@@ -67,10 +67,10 @@
                     WHERE B.BID_PBLANC_ID = A.BID_PBLANC_ID
                       AND ISNULL(B.DELETE_AT , 'N') = 'N')
                   ,0) AS BDNG_CMPNY                                 -- AS 투찰기업
-         , ISNULL((SELECT MIN(BDDPR_PREMIUM_PC)
+         , FLOOR(ISNULL((SELECT MIN(BDDPR_PREMIUM_PC)
                      FROM BD_BDDPR_DTL B
                     WHERE A.BID_PBLANC_ID = B.BID_PBLANC_ID
-                      AND ISNULL(B.DELETE_AT , 'N') = 'N'), 0) as LWST_PRPRC -- AS 최저프리미엄
+                      AND ISNULL(B.DELETE_AT , 'N') = 'N'), 0)) as LWST_PRPRC -- AS 최저프리미엄
          , FLOOR(DELY_CND_01_STDR_PC)     AS DELY_CND_01_STDR_PC      -- AS 인도조건1 기준가격
          , FLOOR(DELY_CND_01_PREMIUM_PC)  AS DELY_CND_01_PREMIUM_PC    -- AS 인도조건1 프리미엄가격
          , FLOOR(DELY_CND_02_STDR_PC) AS   DELY_CND_02_STDR_PC       -- AS 인도조건2 기준가격
@@ -127,10 +127,12 @@
                       FROM BD_ENTRPS_INFO_BAS B
                      WHERE B.BID_ENTRPS_NO = A.BID_ENTRPS_NO) AS ENTRPS_NM
                  , CONVERT(VARCHAR , A.FRST_REGIST_DT , 120) AS FRST_REGIST_DT
-                 , BDDPR_PREMIUM_PC
+                 , FLOOR(BDDPR_PREMIUM_PC) AS BDDPR_PREMIUM_PC
                  , '' AS STAT_NM
                  , '' AS PROC_STEP
-                 , ROW_NUMBER() OVER (ORDER BY A.BDDPR_PREMIUM_PC) ROWNUM
+                 , ROW_NUMBER() OVER (ORDER BY A.BDDPR_PREMIUM_PC , A.FRST_REGIST_DT) ROWNUM
+                 , DELY_CND_CODE
+                 , dbo.fn_getCodeNm('DLVRY_CN_CODE',DELY_CND_CODE) AS DELY_CND_CODE_NM
               FROM BD_BDDPR_DTL A
              WHERE 1=1
             <if test='bidPblancId != null and bidPblancId !=""'>
