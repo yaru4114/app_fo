@@ -350,7 +350,7 @@
             $('.list-total .label').each(function (index, element) {
                 statusParam.statusCode.push($(element).text().trim());
             });
-            console.log(statusParam);
+
             getCountByStatus(statusParam);
 
             // datepicker 초기화
@@ -423,7 +423,6 @@
                 contentType: 'application/json',
                 data: JSON.stringify(param),
                 success: function (response) {
-                    console.log('결과 : ', response);
                     drawRealGrid(response.result);
                 },
                 error: function (error) {

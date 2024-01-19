@@ -8,7 +8,7 @@
    		</a>
  	</h1>
  	<!-- logo :: END -->
-    <div class="util utility bid">
+    <div id="header_loginY" class="util utility bid" style="display:none;">
         <div class="util-list">
             <ul>
                 <li><a href="javascript:;">서린상사님</a></li>
@@ -17,14 +17,19 @@
             </ul>
         </div>
     </div>
+<!--    <div id="header_loginN" class="util utility bid" style="display:none;">-->
+<!--        <div class="util-list">-->
+<!--            <ul>-->
+<!--                <li><a class="fc-lgray" href="/fo/bid">로그인</a></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
 </header>
 <script>
 	if(loginYn == 'N'){
-		$(".fc-lgray").text("로그인");
-		$(".fc-lgray").attr("href","/fo/bid");
+		document.getElementById("header_loginY").style.display = "none";
 	}else{
-		$(".fc-lgray").text("로그아웃");
-		$(".fc-lgray").attr("href","/fo/member/logout");
+		document.getElementById("header_loginY").style.display = "block";
 	}
 </script>
 <!-- header :: END -->
