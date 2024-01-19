@@ -102,10 +102,12 @@
 	                            <div class="tr">
 	                                <label for="ipCoRegiNo">사업자등록번호</label>
 	                                <span class="limit-width">
-	                                    <span class="input-complex">
-	                                        <span class="input"><input type="text" name="ipCoRegiNo" id="ipCoRegiNo" placeholder="사업자등록번호" oninput="autoRegiNoCheck(this)" maxlength="12"></span>
-	                                        <span class="button"><button type="button" id="ipCoRegiNoCheckBtn" class="btn-blue-big narrow" onclick="coRegiNoChk($('#ipCoRegiNo').val())">확인</button></span>
-	                                    </span>
+                                        <span class="input"><input type="text" name="ipCoRegiNo" id="ipCoRegiNo" placeholder="사업자등록번호" oninput="autoRegiNoCheck(this)" maxlength="12"></span>
+                                        <!--
+                                        <span class="input-complex">
+                                        <span class="button"><button type="button" id="ipCoRegiNoCheckBtn" class="btn-blue-big narrow" onclick="coRegiNoChk($('#ipCoRegiNo').val())">확인</button></span>
+                                        </span>
+                                        -->
 	                                </span>
 	                                <span class="t-info t2" style="display: none">사업자등록번호를 다시 확인해 주세요.</span>
 	                            </div>
@@ -181,10 +183,12 @@
 								<div class="tr">
 	                                <label for="vrsc_ipCoRegiNo">사업자등록번호</label>
 	                                <span class="limit-width">
-	                                    <span class="input-complex">
-	                                        <span class="input"><input type="text" name="vrsc_ipCoRegiNo" id="vrsc_ipCoRegiNo" placeholder="사업자등록번호" oninput="autoRegiNoCheck(this)" maxlength="12"></span>
-	                                        <span class="button"><button type="button" class="btn-blue-big narrow" onclick="coRegiNoChk($('#vrsc_ipCoRegiNo').val())">확인</button></span>
-	                                    </span>
+                                        <span class="input"><input type="text" name="vrsc_ipCoRegiNo" id="vrsc_ipCoRegiNo" placeholder="사업자등록번호" oninput="autoRegiNoCheck(this)" maxlength="12"></span>
+                                        <!--
+                                        <span class="input-complex">
+                                        <span class="button"><button type="button" class="btn-blue-big narrow" onclick="coRegiNoChk($('#vrsc_ipCoRegiNo').val())">확인</button></span>
+                                        </span>
+                                        -->
 	                                </span>
 	                                <span class="t-info t2">사업자등록번호를 다시 확인해 주세요.</span>
 	                            </div>
@@ -310,7 +314,7 @@ $('#foreign').on('click',function () {
         $('#ipCoRegiNo').val('');
         $('#ipCoRegiNo').addClass('etr');
         $('#ipCoRegiNo').attr("disabled", true);
-        $('#ipCoRegiNoCheckBtn').attr("disabled", true);
+        // $('#ipCoRegiNoCheckBtn').attr("disabled", true);
 
         // 파일첨부 : disabled
         $('#updFileName1').val('');
@@ -323,7 +327,7 @@ $('#foreign').on('click',function () {
         // 사업자등록번호
         $('#ipCoRegiNo').removeClass('etr');
         $('#ipCoRegiNo').attr("disabled", false);
-        $('#ipCoRegiNoCheckBtn').attr("disabled", false);
+        // $('#ipCoRegiNoCheckBtn').attr("disabled", false);
 
         // 파일첨부
         $('#updFileName1').removeClass('etr');
@@ -376,7 +380,8 @@ function chkInfo(form){
     var idFilter1 = /^[a-zA-Z0-9](?=.*[a-zA-Z])(?=.*[0-9]).{3,12}$/g;
     var idFilter2 = /^[a-zA-Z]{4,12}$/g;
     var pwdFilter = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,12}$/;
-    var mobileFilter = /^\d{10,11}$/;
+    // var mobileFilter = /^\d{10,11}$/;
+    var mobileFilter = /^\d{3}-\d{3,4}-\d{4}$/;
 
     // 아이디
     if (form.bidMberId === null || form.bidMberId.length <= 0) {
@@ -534,6 +539,13 @@ $('#submitBtn').on('click',function(){
     if (!chkInfo(form)) {
         return;
     }
+
+    // 하이픈 제거
+
+    form.moblphoneNo2 = form.moblphoneNo2.replace(/-/g,"");
+    form.bsnmRegistNo = form.bsnmRegistNo.replace(/-/g,"");
+    form.vrscMoblphonNo = form.vrscMoblphonNo.replace(/-/g,"");
+    form.vrscBsnmRegistNo = form.vrscBsnmRegistNo.replace(/-/g,"");
 
     const formData = new FormData();
     // 고객정보
