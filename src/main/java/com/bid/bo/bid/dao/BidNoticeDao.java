@@ -1,5 +1,7 @@
 package com.bid.bo.bid.dao;
 
+import com.bid.bo.bid.vo.BidBddprDtlVO;
+import com.bid.bo.bid.vo.BidNoticeUpdtVO;
 import com.bid.bo.bid.vo.BidNoticeVO;
 import com.bid.common.model.CoCmmnCdVO;
 import java.util.List;
@@ -28,4 +30,18 @@ public interface BidNoticeDao {
     * @author  xyzp1539
     **/
     List<BidNoticeVO> getBidNoticeMngBidList(BidNoticeVO paramVo);
+
+    /**
+     입찰 공고 수정 이력 리스트 조회
+    * @date : 2024-01-18
+    * @author  xyzp1539
+    **/
+    List<BidNoticeUpdtVO> getBidNoticeMngBidUpdtList(BidNoticeVO paramVo);
+
+    /**
+     입찰 공고 투찰 기업 리스트 조회
+    * @date : 2024-01-18
+    * @author  xyzp1539
+    **/
+    List<BidBddprDtlVO> getBidNoticeMngBidBddprDtlList(BidNoticeVO paramVo);
 }

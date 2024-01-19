@@ -1,5 +1,6 @@
 package com.bid.bo.bid.vo;
 
+import java.util.List;
 import lombok.Data;
 
 @Data
@@ -61,6 +62,7 @@ public class BidNoticeVO {
     private String bdngCmpny;
     private String lwstPrprc;
 
+
     // 입찰상태별 공고수
     private int bdngAllCnt;       // 전체
     private int bdngSchdlCnt;     // 입찰예정
@@ -73,6 +75,9 @@ public class BidNoticeVO {
 
     private String startDate;
     private String endDate;
+
+    private List<BidNoticeUpdtVO> bidNoticeUpdtVoList;
+    private List<BidBddprDtlVO> bidBddprDtlVoList;
 
 
 }
