@@ -1,6 +1,7 @@
 package com.bid.bo.bid.controller;
 
 import com.bid.bo.bid.service.BidNoticeService;
+import com.bid.bo.bid.vo.BidNoticeUpdtVO;
 import com.bid.bo.bid.vo.BidNoticeVO;
 import com.bid.common.model.CoCmmnCdVO;
 import java.util.ArrayList;
@@ -80,28 +81,12 @@ public class BidNoticeController {
     @RequestMapping(value="/noticeMngForm/bidInfo")
     public BidNoticeVO getBidNoticeMngInfo(@RequestBody BidNoticeVO paramVo) {
         log.info("test getBidNoticeMngInfo : {}" ,paramVo.toString());
-        BidNoticeVO resultVo = new BidNoticeVO();
 
-        List<BidNoticeVO> list = bidNoticeService.getBidNoticeMngBidList(paramVo);
-        resultVo = list.get(0);
+        BidNoticeVO resultVo = bidNoticeService.getBidNoticeMngInfo(paramVo);
+
+        log.info("test getBidNoticeMngInfo resultVo : {} " , resultVo.toString());
 
         return resultVo;
     }
-
-    /*@RequestMapping(value="/noticeDtlForm")
-    public String bidNoticeMngDtlForm(@RequestParam String bidPblancId , ModelMap map){
-        log.info("test bidNoticeMngDtlForm : {}" , bidPblancId);
-
-        BidNoticeVO paramVo = new BidNoticeVO();
-        paramVo.setBidPblancId(bidPblancId);
-
-        List<BidNoticeVO> resultVo = bidNoticeService.getBidNoticeMngBidList(paramVo);
-
-        log.info("test bidNoticeMngDtlForm resultVo : {}" , resultVo.get(0).toString());
-
-        map.addAttribute("bidNoticeMngVo",resultVo.get(0));
-
-        return "/bo/bidNoticeMngDtlForm";
-    }*/
 
 }

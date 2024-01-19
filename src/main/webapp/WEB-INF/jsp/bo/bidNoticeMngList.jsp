@@ -119,7 +119,7 @@
                                 </div>
                             </div>
                             <div class="btn-box btn-period">
-                                <button id="btn_today" type="button" class="btn active">오늘</button>
+                                <button id="btn_today" type="button" class="btn">오늘</button>
                                 <button id="btn_afterWeek" type="button" class="btn">일주일</button>
                                 <button id="btn_afterMonth" type="button" class="btn">1개월</button>
                                 <button id="btn_after6Month" type="button" class="btn">6개월</button>
@@ -213,14 +213,11 @@
                 </div>
 
                 <!-- 모달 부분-->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="modalBidDtl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-full" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">
-
-                                </h5>
-
+                                <h5 class="modal-title" id="modalTitle"></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -239,17 +236,15 @@
                                         <tbody>
                                         <tr>
                                             <th>상태</th>
-                                            <td id="bidStatNm"></td>
+                                            <td id="modalBidStatNm"></td>
                                             <th>시작~마감</th>
-                                            <td id="bddprDate"></td>
+                                            <td id="modalBddprDate"></td>
                                             <th>활성여부</th>
-                                            <td id="activeAt"></td>
+                                            <td id="modalActiveAt"></td>
                                         </tr>
                                         </tbody>
                                     </table>
                                 </div>
-
-
                                 <div class="sub-title mt-12">
                                     <h3 class="">공고 정보(*필수)</h3>
                                 </div>
@@ -264,33 +259,21 @@
                                         <tbody>
                                         <tr>
                                             <th scope="row">메탈 구분<i class="icon icon-required"></i></th>
-                                            <td>
-                                                AL
-                                            </td>
+                                            <td id="modalMetalCode"></td>
                                             <th scope="row">브랜드<i class="icon icon-required"></i></th>
-                                            <td>
-                                                알루미늄(서구산) / 브랜드 무관
-                                            </td>
+                                            <td id="modalBrand"></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">아이템 상품명<i class="icon icon-required"></i></th>
-                                            <td>
-                                                PRIMARY AL INGOT P1020
-                                            </td>
+                                            <td id="modalItmPrdlstKorean"></td>
                                             <th scope="row">권역</th>
-                                            <td>
-                                                인천
-                                            </td>
+                                            <td id="modalDstrctLclsfCode"></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">수량 (톤)<i class="icon icon-required"></i></th>
-                                            <td>
-                                                2000
-                                            </td>
+                                            <td id="modalBidWt"></td>
                                             <th scope="row">중량허용공차(±)<i class="icon icon-required"></i></th>
-                                            <td>
-                                                10 %
-                                            </td>
+                                            <td>10 %</td>
                                         </tr>
                                         <tr>
                                             <th scope="row">프리미엄 가격(USD/MT)<i class="icon icon-required"></i></th>
@@ -314,27 +297,27 @@
                                                             <td class="text-center"><b>1</b></td>
                                                             <td>서린상사 지정 보세창고 도착도(FCA 서린상사 지정 보세창고)</td>
                                                             <td>
-                                                                <input type="text" value="0" class="input" style="width:50%; background-color:#fafafa;" readonly="readonly">
+                                                                <input type="text" id="modalDelyCnd01StdrPc" class="input" style="width:50%; background-color:#fafafa;" readonly="readonly">
                                                                 &nbsp;&nbsp;
-                                                                <span class="color-red">+USD 15.0</span>
+                                                                <span class="color-red" id="modalDelyCnd01PremiumPc"></span>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td class="text-center"><b>2</b></td>
                                                             <td>기타 부산/인천 보세창고 상차도(FCA BUSAN/INCHEON)</td>
                                                             <td>
-                                                                <input type="text" value="100" class="input" style="width:50%; background-color:#fafafa;" readonly="readonly">
+                                                                <input type="text" id="modalDelyCnd02StdrPc" class="input" style="width:50%; background-color:#fafafa;" readonly="readonly">
                                                                 &nbsp;&nbsp;
-                                                                <span class="color-red">+USD 15.0</span>
+                                                                <span class="color-red" id="modalDelyCnd02PremiumPc"></span>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td class="text-center"><b>3</b></td>
                                                             <td>CIF INCHEON / CIF BUSAN</td>
                                                             <td>
-                                                                <input type="text" value="200" class="input" style="width:50%; background-color:#fafafa;" readonly="readonly">
+                                                                <input type="text" id="modalDelyCnd03StdrPc" class="input" style="width:50%; background-color:#fafafa;" readonly="readonly">
                                                                 &nbsp;&nbsp;
-                                                                <span class="color-red">+USD 15.0</span>
+                                                                <span class="color-red" id="modalDelyCnd03PremiumPc"></span>
                                                             </td>
                                                         </tr>
                                                         </tbody>
@@ -353,9 +336,7 @@
                                         </tr>
                                         <tr>
                                             <th scope="row" rowspan="2">인도기한<i class="icon icon-required"></i></th>
-                                            <td colspan="3">
-                                                2022.08.01 ~ 2022.08.10
-                                            </td>
+                                            <td colspan="3" id="modalDelyDate"></td>
                                         </tr>
                                         <tr>
                                             <td colspan="3">
@@ -378,25 +359,17 @@
                                         <tbody>
                                         <tr>
                                             <th scope="row">가격지정기간<i class="icon icon-required"></i></th>
-                                            <td>
-                                                2022.02.02 ~ 2022.03.01
-                                            </td>
+                                            <td id="modalPcAppnDate"></td>
                                             <th scope="row">가격지정방법<i class="icon icon-required"></i></th>
-                                            <td>
-                                                Monthly Avg+
-                                            </td>
+                                            <td id="modalPcAppnMthCode"></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">결제 조건<i class="icon icon-required"></i></th>
-                                            <td colspan="3">
-                                                USD T/T AGAINST CONDITIONAL RELEASE ISSUED BY WAREHOUSE
-                                            </td>
+                                            <td colspan="3" id="modalSetleCond"></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">기타 코멘트</th>
-                                            <td colspan="3">
-                                                LME Warrant 제품 납품 불가
-                                            </td>
+                                            <td colspan="3" id="modalEtcCn"></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -415,13 +388,9 @@
                                         <tbody>
                                         <tr>
                                             <th scope="row">투찰 시작일<i class="icon icon-required"></i></th>
-                                            <td>
-                                                2022.08.01. 10:10:10
-                                            </td>
+                                            <td id="modalBddprBeginDt"></td>
                                             <th scope="row">투찰 마감일<i class="icon icon-required"></i></th>
-                                            <td>
-                                                2022.08.05. 10:10:10
-                                            </td>
+                                            <td id="modalBddprEndDt"></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">
@@ -433,10 +402,7 @@
 							                                </span>
                                                 </div>
                                             </th>
-                                            <td colspan="3">
-                                                2022.08.04. 10:10:10
-                                                <!-- 투찰취소불가 -->
-                                            </td>
+                                            <td colspan="3" id="modalBddprCanclLmttDe"></td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -585,7 +551,7 @@
     $(".tab-button .btn").on("click" , getBidStatList);
 
 
-    ajaxBidNoticeMngStatCntList(jsonData);
+    ajaxBidNoticeMngStatCntList(jsonData , "Y");
     ajaxBidNoticeMngList(jsonData);
 
       $('#bid_noticeAdd').click(function () {
@@ -661,13 +627,13 @@
     console.log("getSearchBtn buttonId :" + buttonId + " bidStat : " + bidStat);
     $("#"+buttonId).addClass('active');
 
-    ajaxBidNoticeMngStatCntList(jsonData);
+    ajaxBidNoticeMngStatCntList(jsonData , 'N');
     ajaxBidNoticeMngList(jsonData);
 
   }
 
   // 입찰상태코드별 공고 카운트 조회
-  function ajaxBidNoticeMngStatCntList(jsonData) {
+  function ajaxBidNoticeMngStatCntList(jsonData , dashYn) {
     $.ajax({
       url: "/bo/bid/noticeMngForm/cntList",
       type: "POST",
@@ -686,10 +652,12 @@
         $("#btn_bdngSucsCnt").text("낙찰(" + data.bdngSucsCnt + ")");
         $("#btn_bdngPstpnCnt").text("유찰(" + data.bdngPstpnCnt + ")");
 
-        $("#dash_bdngAllCnt").text(data.bdngAllCnt);
-        $("#dash_bdngPrgrsCnt").text(data.bdngPrgrsCnt);
-        $("#dash_bdngDdlnCnt").text(data.bdngDdlnCnt);
-        $("#dash_bdngSchdlCnt").text(data.bdngSchdlCnt);
+        if(dashYn == "Y") {
+            $("#dash_bdngAllCnt").text(data.bdngAllCnt);
+            $("#dash_bdngPrgrsCnt").text(data.bdngPrgrsCnt);
+            $("#dash_bdngDdlnCnt").text(data.bdngDdlnCnt);
+            $("#dash_bdngSchdlCnt").text(data.bdngSchdlCnt);
+        }
 
       },
       error: function (xhr, status, error) {
@@ -715,7 +683,7 @@
         $.each(data , function(index , item) {
           $("#dynamicTbody").append('<tr>');
           //$("#dynamicTbody").append('<td style="color:red;"> <a href="/bo/bid/noticeDtlForm?bidPblancId='+item.bidPblancId+'"</a>' + item.bidPblancId + '</td>');
-          $("#dynamicTbody").append('<td class="appendClass" id="'+ item.bidPblancId + '"data-toggle="modal" data-target="#exampleModal">' + item.bidPblancId + '</td>' );
+          $("#dynamicTbody").append('<td class="appendClass" id="'+ item.bidPblancId + '"data-toggle="modal" data-target="#modalBidDtl">' + item.bidPblancId + '</td>' );
           //$("#dynamicTbody").append('<td class="appendClass" id="'+ item.bidPblancId + '">' + item.bidPblancId + '</td>' );
           $("#dynamicTbody").append('<td>' + item.metalCode + '</td>');
           $("#dynamicTbody").append('<td>' + item.itmPrdlstKorean + '</td>');
@@ -759,9 +727,33 @@
       dataType: "json",
       success: function (data) {
         console.log("서버 응답:", data);
-        $("#exampleModalLabel").empty();
+        $("#modalTitle").empty();
 
-        $("#exampleModalLabel").append("입찰 공고 상세 > " + data.itmPrdlstKorean + '<span style="margin-left:20px;background-color: black; color: white; font-weight:normal;">' + "&nbsp;&nbsp;입찰공고번호 " + data.bidPblancId + '&nbsp;&nbsp;</span>');
+        $("#modalTitle").append("입찰 공고 상세 > " + data.itmPrdlstKorean + '<span style="margin-left:20px;background-color: black; color: white; font-weight:normal;">' + "&nbsp;&nbsp;입찰공고번호 " + data.bidPblancId + '&nbsp;&nbsp;</span>');
+        $("#modalBidStatNm").text(data.bidStatNm);
+        $("#modalBddprDate").text(data.bddprBeginDt + " ~ " + data.bddprEndDt );
+        $("#modalActiveAt").text(""); // 모달 활성여부
+        $("#modalMetalCode").text(data.metalCode);
+        $("#modalBrand").text(data.brandGroupCode + " / 브랜드 " + data.brandCode);
+        $("#modalItmPrdlstKorean").text(data.itmPrdlstKorean);
+        $("#modalDstrctLclsfCode").text(data.dstrctLclsfCode);
+        $("#modalBidWt").text(data.bidWt);
+        $("#modalDelyCnd01StdrPc").val(data.delyCnd01StdrPc);
+        $("#modalDelyCnd01PremiumPc").text(data.delyCnd01PremiumPc);
+        $("#modalDelyCnd02StdrPc").val(data.delyCnd02StdrPc);
+        $("#modalDelyCnd02PremiumPc").text(data.delyCnd02PremiumPc);
+        $("#modalDelyCnd03StdrPc").val(data.delyCnd03StdrPc);
+        $("#modalDelyCnd03PremiumPc").text(data.delyCnd03PremiumPc);
+        $("#modalDelyDate").text(data.delyBeginDe + " ~ " + data.delyEndDe);
+        $("#modalPcAppnDate").text(data.pcAppnBeginDe + " ~ " + data.pcAppnEndDe);
+        $("#modalPcAppnMthCode").text(data.pcAppnMthCode);
+        $("#modalSetleCond").text(data.setleCrncyCode + " " + data.setleMthCode + " " + data.setlePdCode);
+        $("#modalEtcCn").text(data.etcCn);
+        $("#modalBddprBeginDt").text(data.bddprBeginDt);
+        $("#modalBddprEndDt").text(data.bddprEndDt);
+        $("#modalBddprCanclLmttDe").text(data.bddprCanclLmttDe);
+
+
 
       },
       error: function (xhr, status, error) {
@@ -807,6 +799,8 @@
 
     return jsonData;
   }
+
+  // real그리드
 
 
 

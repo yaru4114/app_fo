@@ -10,7 +10,7 @@
     SELECT SUB_CODE
          , CODE_NM
       FROM CO_CMMN_CD
-     WHERE MAIN_CODE = 'BID_STAT_001'
+     WHERE MAIN_CODE = 'BID_STAT_CODE'
      ORDER BY CODE_ORDR
   </select>
 
@@ -55,12 +55,12 @@
          , dbo.fn_getCodeNm('DSTRCT_LCLSF_CODE' , DSTRCT_LCLSF_CODE) AS DSTRCT_LCLSF_CODE --AS 권역
          , BID_WT                                                    -- AS 수량
          , '5' AS ITM_QTY                                            -- AS 중량
-         , BDDPR_BEGIN_DT                                            -- AS 투찰시작일시
-         , BDDPR_END_DT                                              -- AS 투찰종료일시
+         , CONVERT(VARCHAR , BDDPR_BEGIN_DT, 120) AS BDDPR_BEGIN_DT -- AS 투찰시작일시
+         , CONVERT(VARCHAR , BDDPR_END_DT, 120) AS BDDPR_END_DT      -- AS 투찰종료일시
          , '' as ACTIVE_AT                                           -- AS 활성여부
          , FRST_REGISTER_ID                                          -- AS 최초등록자아이디
          , CONVERT(VARCHAR , FRST_REGIST_DT , 120) AS FRST_REGIST_DT -- AS 최초등록날짜
-         , dbo.fn_getCodeNm('BID_STAT_001' , BID_STTUS_CODE) AS bidStatNm -- AS 상태
+         , dbo.fn_getCodeNm('BID_STAT_CODE' , BID_STTUS_CODE) AS bidStatNm -- AS 상태
          , '' as STEP_NM                                              -- AS 단계
          , ISNULL((SELECT COUNT(BID_ENTRPS_NO)
                      FROM BD_BDDPR_DTL B
@@ -71,6 +71,22 @@
                      FROM BD_BDDPR_DTL B
                     WHERE A.BID_PBLANC_ID = B.BID_PBLANC_ID
                       AND ISNULL(B.DELETE_AT , 'N') = 'N'), 0) as LWST_PRPRC -- AS 최저프리미엄
+         , FLOOR(DELY_CND_01_STDR_PC)     AS DELY_CND_01_STDR_PC      -- AS 인도조건1 기준가격
+         , FLOOR(DELY_CND_01_PREMIUM_PC)  AS DELY_CND_01_PREMIUM_PC    -- AS 인도조건1 프리미엄가격
+         , FLOOR(DELY_CND_02_STDR_PC) AS   DELY_CND_02_STDR_PC       -- AS 인도조건2 기준가격
+         , FLOOR(DELY_CND_02_PREMIUM_PC) AS DELY_CND_02_PREMIUM_PC   -- AS 인도조건2 프리미엄가격
+         , FLOOR(DELY_CND_03_STDR_PC) AS DELY_CND_03_STDR_PC         -- AS 인도조건3 기준가격
+         , FLOOR(DELY_CND_03_PREMIUM_PC) AS DELY_CND_03_PREMIUM_PC  -- AS 인도조건3 프리미엄가격
+         , CONVERT(DATE, CONVERT(VARCHAR(8), DELY_BEGIN_DE)) AS DELY_BEGIN_DE  -- AS 인도시작일자
+         , CONVERT(DATE, CONVERT(VARCHAR(8), DELY_END_DE)) AS DELY_END_DE   -- AS 인도종료일자
+         , CONVERT(DATE, CONVERT(VARCHAR(8), PC_APPN_BEGIN_DE)) AS PC_APPN_BEGIN_DE  -- AS 가격지정시작일자
+         , CONVERT(DATE, CONVERT(VARCHAR(10), PC_APPN_END_DE)) AS PC_APPN_END_DE -- AS 가격지정종료일자
+         , dbo.fn_getCodeNm('PRICE_SPMTC_CODE' , PC_APPN_MTH_CODE ) AS PC_APPN_MTH_CODE -- AS 가격지정방법코드
+         , SETLE_CRNCY_CODE                                               -- AS 결제통화코드
+         , dbo.fn_getCodeNm('PYMNT_MT_CODE' , SETLE_MTH_CODE ) AS SETLE_MTH_CODE -- AS 결제방법코드
+         , dbo.fn_getCodeNm('PYMNT_PR_CODE' , SETLE_PD_CODE ) AS SETLE_PD_CODE -- AS 결제기간코드
+         , ETC_CN                                                               -- AS 기타내용
+         , BDDPR_CANCL_LMTT_DE -- AS 투찰취소제한일자
       FROM BD_BID_BAS A
      WHERE 1=1
       <if test='startDate != null and startDate != ""'>
@@ -86,5 +102,41 @@
        AND BID_PBLANC_ID = #{bidPblancId}
       </if>
      ORDER BY FRST_REGIST_DT DESC
+  </select>
+
+  <!-- 입찰 공고 수정 이력 리스트 조회-->
+  <select id="getBidNoticeMngBidUpdtList" parameterType="com.bid.bo.bid.vo.BidNoticeVO" resultType="com.bid.bo.bid.vo.BidNoticeUpdtVO">
+    /* bidNotice.getBidNoticeMngBidUpdtList */
+    SELECT BID_UPDT_CN                                   -- AS 입찰수정내용
+         , BID_UPDT_RESN                                 -- AS 입찰수정사유
+         , CONVERT(VARCHAR , FRST_REGIST_DT , 120) AS FRST_REGIST_DT -- AS 최초등록일시
+      FROM BD_BID_UPDT_HST
+     WHERE 1=1
+    <if test='bidPblancId != null and bidPblancId !=""'>
+       AND BID_PBLANC_ID = #{bidPblancId}
+    </if>
+     ORDER BY BID_UPDT_HST_SN
+  </select>
+
+  <!-- 입찰 공고 투찰 기업 리스트 조회 -->
+  <select id="getBidNoticeMngBidBddprDtlList" parameterType="com.bid.bo.bid.vo.BidNoticeVO" resultType="com.bid.bo.bid.vo.BidBddprDtlVO" >
+    /* bidNotice.getBidNoticeMngBidBddprDtlList */
+    SELECT *
+      FROM (
+            SELECT (SELECT ENTRPS_NM
+                      FROM BD_ENTRPS_INFO_BAS B
+                     WHERE B.BID_ENTRPS_NO = A.BID_ENTRPS_NO) AS ENTRPS_NM
+                 , CONVERT(VARCHAR , A.FRST_REGIST_DT , 120) AS FRST_REGIST_DT
+                 , BDDPR_PREMIUM_PC
+                 , '' AS STAT_NM
+                 , '' AS PROC_STEP
+                 , ROW_NUMBER() OVER (ORDER BY A.BDDPR_PREMIUM_PC) ROWNUM
+              FROM BD_BDDPR_DTL A
+             WHERE 1=1
+            <if test='bidPblancId != null and bidPblancId !=""'>
+               AND BID_PBLANC_ID = #{bidPblancId}
+            </if>
+                )T
+    ORDER BY T.ROWNUM
   </select>
 </mapper>
