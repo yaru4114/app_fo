@@ -1,6 +1,7 @@
 package com.bid.bo.bid.service;
 
 import com.bid.bo.bid.dao.BidModalDAO;
+import com.bid.bo.bid.vo.BidNoticeVO;
 import com.bid.common.model.CoCmmnCdVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,16 @@ public class BidModalService {
         List<CoCmmnCdVO> resultList = bidModalDAO.getItemOpt(vo);
 
         resultMap.put("result", resultList);
+        return resultMap;
+    }
+
+    public Map<String, Object> creBidNotice(CoCmmnCdVO vo1, BidNoticeVO vo2) {
+        Map<String, Object> resultMap = new HashMap<>();
+
+        vo2.setCodeNm(bidModalDAO.getMetalCodeNm(vo1));
+        bidModalDAO.creBidNotice(vo2);
+
+        resultMap.put("success", true);
         return resultMap;
     }
 }

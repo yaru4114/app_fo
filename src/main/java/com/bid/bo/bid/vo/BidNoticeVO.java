@@ -79,5 +79,5 @@ public class BidNoticeVO {
     private List<BidNoticeUpdtVO> bidNoticeUpdtVoList;
     private List<BidBddprDtlVO> bidBddprDtlVoList;
 
-
+    private String codeNm;        // 금속 이름
 }
