@@ -80,7 +80,7 @@ public class BidMemberController {
     /** 로그아웃 */
     @GetMapping("/logout")
     public String logout(HttpSession session) {
-        session.removeAttribute("loginUser");
+        session.invalidate();
         session.setAttribute("loginYn","N");
         return "redirect:/fo/bid";
     }

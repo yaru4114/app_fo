@@ -50,7 +50,7 @@ public class BidMemberService {
             vo.setBsnmRegistDocNo1(maxDocNo+1);
             vo.setBsnmRegistDocNo2(maxDocNo+2);
         }
-        log.info("docNo1 : {}", vo.getBsnmRegistDocNo1());
+//        log.info("docNo1 : {}", vo.getBsnmRegistDocNo1());
 
         try {
             // 암호화

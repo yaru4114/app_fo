@@ -153,7 +153,6 @@
 
     $.each(side_menus,function(index,val){
         if (val.href == side_url) {
-            console.log($(val).parent());
             $(val).parent().css("overflow","visable");
             $(val).parent().parent().addClass("active");
         }
