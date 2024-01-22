@@ -437,12 +437,9 @@
                                 </div>
 
                                 <div class="btn-box mt-12">
-                                    <button type="button" class="btn" id="bid_noticeChg" data-toggle="modal"
-                                            data-target="#chgBidModal">공고 수정</button>
+                                    <button type="button" id="bid_noticeChg" class="btn"
+                                            data-toggle="modal" data-target="#exampleModal">공고 수정</button>
                                     <button type="button" class="btn">공고 취소</button>
-                                </div>
-                                <div id="bidChgModalContainer">
-                                    <jsp:include page="bidChgModal.jsp"/>
                                 </div>
                                 <div class="sub-title">
                                     <h3 class="">투찰 기업 목록</h3>
@@ -510,11 +507,12 @@
       });
 
       $('#bid_noticeChg').click(function () {
-          $('#bidChgModalContainer').load("bidChgModal.jsp", function () {
-              $('#bidChgModal').show();
+          $('#myModalContainer').load("bidModal.jsp", function () {
+              $('#modalBidDtl').hide();
+              $('#exampleModal').show();
 
               $('.close').click(function () {
-                  $('#bidChgModal').hide();
+                  $('#modalBidDtl').show();
               });
           });
       });
@@ -595,7 +593,7 @@
       data: JSON.stringify(jsonData),
       dataType: "json",
       success: function (data) {
-        console.log("서버 응답:", data);
+        // console.log("서버 응답:", data);
 
         $("#btn_bdngAllCnt").text("전체(" + data.bdngAllCnt + ")");
         $("#btn_bdngSchdlCnt").text("입찰예정(" + data.bdngSchdlCnt + ")");
@@ -621,6 +619,7 @@
     });
   }
 
+  var chgPblancId;
   // 입찰상태코드별 공고 리스트 조회
   function ajaxBidNoticeMngList(jsonData) {
     $.ajax({
@@ -630,7 +629,7 @@
       data: JSON.stringify(jsonData),
       dataType: "json",
       success: function (data) {
-        console.log("서버 응답:", data);
+        // console.log("서버 응답:", data);
 
         $("#dynamicTbody").empty();
 
@@ -658,6 +657,7 @@
         $(".appendClass").click(function(){
           var bidPblancId = $(this).attr('id');
           console.log("appendClass Click : " + bidPblancId);
+          chgPblancId = bidPblancId;
 
           ajaxBidNoticeMngInfo(bidPblancId);
         });
@@ -679,7 +679,7 @@
       data: JSON.stringify({bidPblancId:bidPblancId}),
       dataType: "json",
       success: function (data) {
-        console.log("서버 응답:", data);
+        // console.log("서버 응답:", data);
         $("#modalTitle").empty();
 
         $("#modalTitle").append("입찰 공고 상세 > " + data.itmPrdlstKorean + '<span style="margin-left:20px;background-color: black; color: white; font-weight:normal;">' + "&nbsp;&nbsp;입찰공고번호 " + data.bidPblancId + '&nbsp;&nbsp;</span>');

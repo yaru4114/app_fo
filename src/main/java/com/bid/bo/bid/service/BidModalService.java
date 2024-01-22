@@ -58,6 +58,11 @@ public class BidModalService {
         decimalValue = decimalValue.setScale(1, RoundingMode.HALF_UP);
         vo.setPermWtRate(decimalValue);
 
+        if (vo.getDspyAt().equals('Y')) {
+            vo.setBidSttusCode("12");
+        } else {
+            vo.setBidSttusCode("11");
+        }
         bidModalDAO.creBidNotice(vo);
 
         resultMap.put("success", true);
