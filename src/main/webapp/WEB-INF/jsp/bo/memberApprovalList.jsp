@@ -487,7 +487,13 @@
             };
 
             gridView.onCellClicked = function (grid, clickData) {
-                showDetailPopup(dataProvider.getRows()[clickData.dataRow]);
+                const rowIndex = clickData.itemIndex;
+                const rowData = grid.getDataSource().getJsonRow(rowIndex);
+                const temp = JSON.stringify(rowData);
+                const param = JSON.parse(temp);
+                const bidMberId = param.bidMberId;
+
+                showDetailPopup(bidMberId);
             }
         }
 
@@ -536,14 +542,16 @@
         /** /GRID CONTROL */
 
         /** MODAL CONTROL */
+        /*
         $('#modalBtn').on('click', function () {
             showDetailPopup()
         })
+        */
 
         // Grid.Row 클릭시
-        function showDetailPopup(row){
+        function showDetailPopup(bidMberId){
             var BidMemberVO = {
-                bidMberId: row[2] // ID
+                bidMberId: bidMberId // ID
             }
             // ID 참조 데이터 검색
             $.ajax({
