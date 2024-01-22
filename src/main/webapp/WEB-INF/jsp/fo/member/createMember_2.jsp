@@ -518,7 +518,7 @@ $('#submitBtn').on('click',function(){
 
     form.bidMberEmail = $('#ipUserEmail').val() + "@" + $('#ipUserEmailDomain').val(); // 이메일
 
-    form.moblphoneNo2 = $('#mobile1').val() + " " + $('#mobile2').val(); // 휴대폰 번호
+    form.moblphonNo2 = $('#mobile1').val() + " " + $('#mobile2').val(); // 휴대폰 번호
 
 
     // 입찰 대리 정보
@@ -540,6 +540,13 @@ $('#submitBtn').on('click',function(){
     form.mberEmailRecptnAgreAt = "${terms.mberEmailRecptnAgreAt}";
     form.mberPushRecptnAgreAt = "${terms.mberPushRecptnAgreAt}";
 
+
+    // 하이픈 제거
+
+    form.moblphonNo2 = form.moblphonNo2.replace(/-/g,"");
+    form.bsnmRegistNo = form.bsnmRegistNo.replace(/-/g,"");
+    form.vrscMoblphonNo = form.vrscMoblphonNo.replace(/-/g,"");
+    form.vrscBsnmRegistNo = form.vrscBsnmRegistNo.replace(/-/g,"");
     console.log(form);
 
     // 필수 조건 검증
@@ -548,12 +555,7 @@ $('#submitBtn').on('click',function(){
         return;
     }
 
-    // 하이픈 제거
 
-    form.moblphoneNo2 = form.moblphoneNo2.replace(/-/g,"");
-    form.bsnmRegistNo = form.bsnmRegistNo.replace(/-/g,"");
-    form.vrscMoblphonNo = form.vrscMoblphonNo.replace(/-/g,"");
-    form.vrscBsnmRegistNo = form.vrscBsnmRegistNo.replace(/-/g,"");
 
     const formData = new FormData();
     // 고객정보
