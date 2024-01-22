@@ -78,6 +78,11 @@ public class BidMainController {
       int endCnt = 0;
       
       for(MainVO vo : bidListCnt) {
+         // null 값 예외처리
+         if (vo.getBidSttusCode() == null) {
+            continue;
+         }
+         
          if(vo.getBidSttusCode().equals("12")) {
             exceptCnt += vo.getBidSttusCnt();
          }else if(vo.getBidSttusCode().equals("13")) {
