@@ -50,5 +50,26 @@ public interface BidNoticeDao {
     * @date : 2024-01-22
     * @author  xyzp1539
     **/
-    int bidNoticeCanlcel(BidNoticeVO paramVo);
+    int bidBidNoticeCanlcel(BidNoticeVO paramVo);
+
+    /**
+     입찰 공고 투찰 기업 카운팅
+    * @date : 2024-01-22
+    * @author  xyzp1539
+    **/
+    int getBidBddprDtlCnt(BidNoticeVO realParamVo);
+
+    /**
+     입찰 공고 투찰 기업 유찰 처리
+    * @date : 2024-01-22
+    * @author  xyzp1539
+    **/
+    void updateBidPassingProc(BidNoticeVO realParamVo);
+
+    /**
+     입찰 공고 삭제 처리
+    * @date : 2024-01-22
+    * @author  xyzp1539
+    **/
+    void updateDelBidNotice(BidNoticeVO realParamVo);
 }

@@ -407,7 +407,7 @@
                                 <div class="btn-box mt-12">
                                     <button type="button" class="btn" id="bid_noticeChg" data-toggle="modal"
                                             data-target="#chgBidModal">공고 수정</button>
-                                    <button type="button" class="btn">공고 취소</button>
+                                    <button type="button" class="btn" id="btn_bidCancel"></button>
                                 </div>
                                 <div class="sub-title">
                                     <h3 class="">투찰 기업 목록</h3>
@@ -679,8 +679,17 @@
         $("#modalBddprEndDt").text(data.bddprEndDtInfo);
         $("#modalBddprCanclLmttDe").text(data.bddprCanclLmttDe);
         $("#modalActiveAt2").text(data.activeAt);
-        $("#modalBidStatCodehidden").val(data.bidSttusCode);
+        $("#modalBidStatCodeHidden").val(data.bidSttusCode);
         $("#modalBidPblancIdHidden").val(data.bidPblancId);
+
+        if(data.bidSttusCode == "11") {
+          $("#btn_bidCancel").text("공고 삭제");
+        } else if(data.bidSttusCode == "13" && data.bidBddprDtlVoList.length > 0 ) {
+          $("#btn_bidCancel").text("유찰하기");
+        }
+        else {
+          $("#btn_bidCancel").text("공고 취소");
+        }
 
         // 공고수정이력
         $("#modalUpdtHst").empty();
@@ -735,54 +744,75 @@
 
   // 공고취소 버튼 클릭시
   function fnbidCancel(){
-    var bidSttusCode = $("#modalBidStatCode").val();
+    var btnText = $("#btn_bidCancel").text();
+    var bidSttusCode = $("#modalBidStatCodeHidden").val();
     var confirmTxt = "";
     var afterText = "";
-    console.log("fnbidCancel bidSttusCode : " + bidSttusCode);
+    var passingYn = "N";
+    console.log("fnbidCancel bidSttusCode : " + bidSttusCode + " btnText : " + btnText);
 
     if(bidSttusCode == 12) {
       confirmTxt = "해당 공고 건은 입찰 예정건 입니다. 공고 취소 시 노출되지 않습니다. 취소하시겠습니까?";
       afterText = "공고 건이 삭제 되었습니다.";
-    } else if (bidSttusCode == 13) {
+    } else if (bidSttusCode == 13 && btnText == "공고 취소") {
       confirmTxt = "해당 공고 건은 투찰 진행중 입니다. 공고 취소 시, 비활성 상태로 전환되며 회원의 공고 목록에서 삭제 처리됩니다. 공고 취소 하시겠습니까?"
       afterText = "공고 가 취소 되었습니다.";
+    } else if (bidSttusCode == 13 && btnText == "유찰하기") {
+      confirmTxt = "유찰할 경우, 유찰 사유 입력 후 유찰처리하기 클릭 시 모든과정이 무효처리됩니다. 정말로 유찰 처리 하시겠습니까?";
+      passingYn = "Y";
     }
 
-    if(confirm(confirmTxt)) {
-      var jsonData = {
-        bidPblancId : $("#modalBidPblancIdHidden").val(),
-        bidSttusCode : $("#modalBidStatCodeHidden").val()
-      };
+    // 공고 취소 인 우
+    if(passingYn == "N") {
+      if (confirm(confirmTxt)) {
+        var jsonData = {
+          bidPblancId: $("#modalBidPblancIdHidden").val(),
+          bidSttusCode: $("#modalBidStatCodeHidden").val()
+        };
 
-      $.ajax({
-        url: "/bo/bid/noticeMngForm/bidCancel",
-        type: "POST",
-        contentType: "application/json; charset=utf-8",
-        data: JSON.stringify(jsonData),
-        dataType: "json",
-        success: function (data) {
-          console.log("서버 응답:", data);
+        $.ajax({
+          url: "/bo/bid/noticeMngForm/bidCancel",
+          type: "POST",
+          contentType: "application/json; charset=utf-8",
+          data: JSON.stringify(jsonData),
+          dataType: "json",
+          success: function (data) {
+            console.log("서버 응답:", data);
 
+            if(data > 0) {
+                var jsonData = getCreateJsonData("");
+                ajaxBidNoticeMngStatCntList(jsonData , 'Y');
+                ajaxBidNoticeMngList(jsonData);
 
-        },
-        error: function (xhr, status, error) {
-          // 에러 처리 코드
-          console.error("에러 발생:", error);
-        }
-      });
+                $("#modalBidDtl").hide();
 
-      var jsonData = getCreateJsonData("");
-      ajaxBidNoticeMngStatCntList(jsonData , 'N');
-      ajaxBidNoticeMngList(jsonData);
+                $("#toastText").text(afterText);
+                $('.pop-toast').fadeIn(300);
 
-      $("#modalBidDtl").hide();
+                setTimeout(function(){
+                  $('.pop-toast').fadeOut(300);
+                },2000);
+            }
 
-      $("#toastText").text(afterText);
-      $('.pop-toast').fadeIn(300);
+          },
+          error: function (xhr, status, error) {
+            // 에러 처리 코드
+            console.error("에러 발생:", error);
+            alert("실패 하였습니다.");
 
-      setTimeout(function(){
-        $('.pop-toast').fadeOut(300);
-      },2000);
+            $("#modalBidDtl").hide();
+
+            $("#toastText").text(afterText);
+            $('.pop-toast').fadeIn(300);
+
+            setTimeout(function(){
+              $('.pop-toast').fadeOut(300);
+            },2000);
+          }
+        });
+      }
+    } else {
+        var result = prompt("유찰 사유를 입력해주세요.(15자이내");
     }
   }
 
@@ -859,7 +889,8 @@
         { fieldName: "itmQty" },
         { fieldName: "bddprDate" },
         { fieldName: "activeAt" },
-        { fieldName: "frstRegist" },
+        { fieldName: "frstRegistDt" },
+        { fieldName: "frstRegisterId" },
         { fieldName: "bidStatNm" },
         { fieldName: "stepNm" },
         { fieldName: "bdngCmpny" },
@@ -878,9 +909,9 @@
         { name: "itmQty", fieldName: "itmQty", type: "text", width: "80", styles: { textAlignment: "near" } ,header:{text:"중량"}},
         { name: "bddprDate", fieldName: "bddprDate", type: "text", width: "250", styles: { textAlignment: "near" } ,header:{text:"시작 ~ 마감"}},
         { name: "activeAt", fieldName: "activeAt", type: "text", width: "100", styles: { textAlignment: "near" } ,header:{text:"활성여부"}} ,
-        { name: "frstRegist", fieldName: "frstRegist", editor: {type:"multiline" , altEnterNewLine:true , height:0} , styleName: ".multi-line-editor", width: "170", styles: { textAlignment: "near" },header:{text:"등록일\n(등록자)" , styleName:"multi-line-css"}},
-        { name: "frstRegistDt", fieldName: "frstRegistDt", type: "text", width: "0", styles: { textAlignment: "near"} ,header:{text:"등록일"} },
-        { name: "frstRegisterId", fieldName: "frstRegisterId", type: "text", width: "0", styles: { textAlignment: "near" } ,header:{text:"등록자"} },
+        // { name: "frstRegist", fieldName: "frstRegist", editor: {type:"multiline" , altEnterNewLine:true , height:0} , styleName: ".multi-line-editor", width: "170", styles: { textAlignment: "near" },header:{text:"등록일\n(등록자)" , styleName:"multi-line-css"}},
+        { name: "frstRegistDt", fieldName: "frstRegistDt", type: "text", width: "120", styles: { textAlignment: "near"} ,header:{text:"등록일"} },
+        { name: "frstRegisterId", fieldName: "frstRegisterId", type: "text", width: "80", styles: { textAlignment: "near" } ,header:{text:"등록자"} },
         { name: "bidStatNm", fieldName: "bidStatNm", type: "text", width: "80", styles: { textAlignment: "near" } ,header:{text:"상태"} },
         { name: "bdngCmpny", fieldName: "bdngCmpny", type: "text", width: "70", styles: { textAlignment: "near" },header:{text:"투찰기업"}},
         { name: "lwstPrprc", fieldName: "lwstPrprc", type: "text", width: "100", styles: { textAlignment: "near" },header:{text:"최저프리미엄가"}}
@@ -896,7 +927,8 @@
           "itmQty",
           "bddprDate",
           "activeAt",
-          "frstRegist",
+          "frstRegistDt",
+          "frstRegisterId",
           "bidStatNm",
           "bdngCmpny",
           "lwstPrprc"

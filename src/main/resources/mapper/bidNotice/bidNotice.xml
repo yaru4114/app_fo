@@ -160,10 +160,40 @@
   </select>
 
   <!-- 입찰 상태코드 변경 -->
-  <update id="bidNoticeCanlcel" parameterType="com.bid.bo.bid.vo.BidNoticeVO">
-    /* bidNotice.bidNoticeCanlcel */
+  <update id="bidBidNoticeCanlcel" parameterType="com.bid.bo.bid.vo.BidNoticeVO">
+    /* bidNotice.bidBidNoticeCanlcel */
     UPDATE BD_BID_BAS
        SET BID_STTUS_CODE = #{bidSttusCode}
+         , LAST_CHANGE_DT = SYSDATETIME()
+     WHERE BID_PBLANC_ID = #{bidPblancId}
+  </update>
+
+  <!-- 입찰 공고 투찰 기업 카운팅 -->
+  <select id="getBidBddprDtlCnt" parameterType="com.bid.bo.bid.vo.BidNoticeVO" resultType="java.lang.Integer">
+    /* bidNotice.getBidBddprDtlCnt */
+    SELECT COUNT(*) AS CNT
+      FROM BD_BDDPR_DTL
+     WHERE BID_PBLANC_ID = #{bidPblancId}
+       AND ISNULL(DELETE_AT , 'N') = 'N'
+  </select>
+
+  <!-- 입찰 공고 투찰 기업 유찰 처리-->
+  <update id="updateBidPassingProc" parameterType="com.bid.bo.bid.vo.BidNoticeVO">
+    /* bidNotice.updateBidPassingProc */
+    UPDATE BD_BDDPR_DTL
+       SET CANCL_AT = 'Y'
+         , CANCL_DT = SYSDATETIME()
+         , CANCL_RESN = #{canclResn}
+         , LAST_CHANGE_DT = SYSDATETIME()
+     WHERE BID_PBLANC_ID = #{bidPblancId}
+  </update>
+
+  <!-- 입찰 공고 삭제 처리-->
+  <update id="updateDelBidNotice" parameterType="com.bid.bo.bid.vo.BidNoticeVO">
+    /* bidNotice.updateDelBidNotice */
+    UPDATE BD_BID_BAS
+       SET DELETE_AT = 'Y'
+         , DELETE_DT = SYSDATETIME()
          , LAST_CHANGE_DT = SYSDATETIME()
      WHERE BID_PBLANC_ID = #{bidPblancId}
   </update>

@@ -84,13 +84,25 @@ public class BidNoticeService{
             if(paramVo.getBidSttusCode().equals("12")) {
                 realParamVo.setBidSttusCode("33");
             }
-            // CASE 2. 투찰중(13) 에서 취소시 -> 투찰업체가 없으면 취소처리(33)
-            //                                -> 투찰업체가 있으면 유찰처리(32)
+            // CASE 2. 투찰중(13) 에서 취소시 -> 투찰업체가 있으면 유찰처리(32)
+            //                                -> 투찰업체가 없으면 취소처리(33)
             else if(paramVo.getBidSttusCode().equals("13")) {
+                int bddprCompCnt = bidNoticeDao.getBidBddprDtlCnt(realParamVo);
 
+                if(bddprCompCnt > 0 ) {
+                    realParamVo.setBidSttusCode("32");
+                    realParamVo.setCanclResn("투찰중에서 유찰");
+                    bidNoticeDao.updateBidPassingProc(realParamVo);
+                } else {
+                    realParamVo.setBidSttusCode("33");
+                }
+            }
+            // CASE 3. 공고대기(11) 에서 취소시 -> 공고 삭제처리
+            else if(paramVo.getBidSttusCode().equals("11")) {
+                bidNoticeDao.updateDelBidNotice(realParamVo);
             }
         }
 
-        return bidNoticeDao.bidNoticeCanlcel(realParamVo);
+        return bidNoticeDao.bidBidNoticeCanlcel(realParamVo);
     }
 }

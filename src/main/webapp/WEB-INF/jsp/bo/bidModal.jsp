@@ -37,14 +37,14 @@
 </head>
 
 <body>
-<div class="web-wrapper">
+<div class="web-wrapper1">
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-full" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">입찰 공고 등록</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn123">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -419,6 +419,10 @@
                 permWtRate.append(option);
             }
 
+          $("#btnClosebtn123").on("click" , fnclose123);
+
+
+
             getOptions('metal', 'metalCode', 'codeDctwo', 'subCode', 'METAL_CODE');
             getOptions('dstrct', 'dstrctLclsfCode', 'codeNm', 'subCode', 'DSTRCT_LCLSF_CODE');
             getOptions('currency', 'setleCrncyCode', 'subCode', 'subCode', 'CURRENCY');
@@ -426,6 +430,11 @@
             getOptions('pymntMt', 'setleMthCode', 'codeNm', 'subCode', 'PYMNT_MT_CODE');
             getOptions('pymntPr', 'setlePdCode', 'codeNm', 'subCode', 'PYMNT_PR_CODE');
         });
+
+        function fnclose123(){
+          //$("#exampleModal").hide();
+          window.close();
+        };
 
         // 옵션 조회 공통 함수
         function getOptions(endPoint, elementId, textParam, valueParam, code) {

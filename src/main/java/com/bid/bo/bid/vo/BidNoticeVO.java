@@ -67,6 +67,7 @@ public class BidNoticeVO {
     private String bddprEndDtInfo;
     private String bddprDate;
     private String frstRegist;
+    private String canclResn;
 
 
     // 입찰상태별 공고수

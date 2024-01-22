@@ -89,11 +89,12 @@ public class BidNoticeController {
         return resultVo;
     }
 
+    @ResponseBody
+    @RequestMapping(value="/noticeMngForm/bidCancel")
     public Integer bidNoticeCanlcel(@RequestBody BidNoticeVO paramVo) {
         log.info("test bidNoticeCanlcel : {}" , paramVo.toString() );
 
          int resultCnt  = bidNoticeService.bidNoticeCanlcel(paramVo);
-
 
          return resultCnt;
     }
