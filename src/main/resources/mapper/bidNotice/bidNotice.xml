@@ -38,75 +38,81 @@
   <!-- 입찰상태코드별 공고 리스트 조회 -->
   <select id="getBidNoticeMngBidList" parameterType="com.bid.bo.bid.vo.BidNoticeVO" resultType="com.bid.bo.bid.vo.BidNoticeVO">
     /* bidNotice.getBidNoticeMngBidList */
-    SELECT BID_PBLANC_ID                                            -- AS 입찰공고번호
-         , (SELECT CODE_CHRCTR_REFRNTHREE
-              FROM CO_CMMN_CD D
-             WHERE A.BRAND_GROUP_CODE = D.SUB_CODE
-               AND D.MAIN_CODE = 'BRAND_GROUP_CODE'
-               AND D.CODE_REFRNONE = A.METAL_CODE
-            ) AS METAL_CODE                                         -- AS 메탈코드
-         , BRAND_CODE                                               -- AS 브랜드_구분
-         , (SELECT C.ITM_PRDLST_KOREAN
-              FROM IT_ITM_INFO_BAS C
-             WHERE A.METAL_CODE = C.METAL_CODE
-               AND A.ITM_SN = C.ITM_SN
-           ) AS ITM_PRDLST_KOREAN                                    -- AS 상품명
-         , dbo.fn_getCodeNm('BRAND_GROUP_CODE' , BRAND_GROUP_CODE )  AS BRAND_GROUP_CODE -- AS 브랜드_그룹
-         , dbo.fn_getCodeNm('DSTRCT_LCLSF_CODE' , DSTRCT_LCLSF_CODE) AS DSTRCT_LCLSF_CODE --AS 권역
-         , BID_WT                                                    -- AS 수량
-         , '5' AS ITM_QTY                                            -- AS 중량
-         , CASE WHEN A.BID_STTUS_CODE IN ('12' , '13') THEN dbo.fn_convertDate( BDDPR_BEGIN_DT , 'bo')
-                ELSE SUBSTRING(BDDPR_BEGIN_DT , 0 , 5) + '-' + SUBSTRING(BDDPR_BEGIN_DT , 5 , 2) + '-' + SUBSTRING(BDDPR_BEGIN_DT , 7,  2)
-                 END AS BDDPR_BEGIN_DT -- AS 투찰시작일시
-         , CASE WHEN A.BID_STTUS_CODE IN ('12' , '13' ) THEN dbo.fn_convertDate( BDDPR_END_DT , 'bo')
-                ELSE SUBSTRING(BDDPR_END_DT , 0 , 5) + '-' + SUBSTRING(BDDPR_END_DT , 5 , 2) + '-' + SUBSTRING(BDDPR_END_DT , 7,  2)
-                 END AS BDDPR_END_DT      -- AS 투찰종료일시
-         , CASE WHEN DSPY_AT = 'Y' THEN '활성' ELSE '비활성' END AS ACTIVE_AT  -- AS 활성여부
-         , FRST_REGISTER_ID                                          -- AS 최초등록자아이디
-         , CONVERT(VARCHAR , FRST_REGIST_DT , 120) AS FRST_REGIST_DT -- AS 최초등록날짜
-         , dbo.fn_getCodeNm('BID_STAT_CODE' , BID_STTUS_CODE) AS bidStatNm -- AS 상태
-         , ISNULL((SELECT COUNT(BID_ENTRPS_NO)
-                     FROM BD_BDDPR_DTL B
-                    WHERE B.BID_PBLANC_ID = A.BID_PBLANC_ID
-                      AND ISNULL(B.DELETE_AT , 'N') = 'N')
-                  ,0) AS BDNG_CMPNY                                 -- AS 투찰기업
-         , FLOOR(ISNULL((SELECT MIN(BDDPR_PREMIUM_PC)
-                     FROM BD_BDDPR_DTL B
-                    WHERE A.BID_PBLANC_ID = B.BID_PBLANC_ID
-                      AND ISNULL(B.DELETE_AT , 'N') = 'N'), 0)) as LWST_PRPRC -- AS 최저프리미엄
-         , FLOOR(DELY_CND_01_STDR_PC)     AS DELY_CND_01_STDR_PC      -- AS 인도조건1 기준가격
-         , FLOOR(DELY_CND_01_PREMIUM_PC)  AS DELY_CND_01_PREMIUM_PC    -- AS 인도조건1 프리미엄가격
-         , FLOOR(DELY_CND_02_STDR_PC) AS   DELY_CND_02_STDR_PC       -- AS 인도조건2 기준가격
-         , FLOOR(DELY_CND_02_PREMIUM_PC) AS DELY_CND_02_PREMIUM_PC   -- AS 인도조건2 프리미엄가격
-         , FLOOR(DELY_CND_03_STDR_PC) AS DELY_CND_03_STDR_PC         -- AS 인도조건3 기준가격
-         , FLOOR(DELY_CND_03_PREMIUM_PC) AS DELY_CND_03_PREMIUM_PC  -- AS 인도조건3 프리미엄가격
-         , CONVERT(DATE, CONVERT(VARCHAR(8), DELY_BEGIN_DE)) AS DELY_BEGIN_DE  -- AS 인도시작일자
-         , CONVERT(DATE, CONVERT(VARCHAR(8), DELY_END_DE)) AS DELY_END_DE   -- AS 인도종료일자
-         , CONVERT(DATE, CONVERT(VARCHAR(8), PC_APPN_BEGIN_DE)) AS PC_APPN_BEGIN_DE  -- AS 가격지정시작일자
-         , CONVERT(DATE, CONVERT(VARCHAR(10), PC_APPN_END_DE)) AS PC_APPN_END_DE -- AS 가격지정종료일자
-         , dbo.fn_getCodeNm('PRICE_SPMTC_CODE' , PC_APPN_MTH_CODE ) AS PC_APPN_MTH_CODE -- AS 가격지정방법코드
-         , SETLE_CRNCY_CODE                                               -- AS 결제통화코드
-         , dbo.fn_getCodeNm('PYMNT_MT_CODE' , SETLE_MTH_CODE ) AS SETLE_MTH_CODE -- AS 결제방법코드
-         , dbo.fn_getCodeNm('PYMNT_PR_CODE' , SETLE_PD_CODE ) AS SETLE_PD_CODE -- AS 결제기간코드
-         , ETC_CN                                                               -- AS 기타내용
-         , dbo.fn_convertDate(BDDPR_CANCL_LMTT_DE , 'bo') AS BDDPR_CANCL_LMTT_DE -- AS 투찰취소제한일자
-         , dbo.fn_convertDate(BDDPR_BEGIN_DT , 'bo') AS BDDPR_BEGIN_DT_INFO
-         , dbo.fn_convertDate(BDDPR_END_DT , 'bo') AS BDDPR_END_DT_INFO
-      FROM BD_BID_BAS A
-     WHERE 1=1
-      <if test='startDate != null and startDate != ""'>
-       AND FRST_REGIST_DT >= CONVERT( DATE , #{startDate})
-      </if>
-      <if test='endDate != null and endDate != ""'>
-       AND FRST_REGIST_DT <![CDATA[ <= ]]> DATEADD( DAY , 1 , CONVERT(DATE , #{endDate}))
-      </if>
-      <if test='bidSttusCode != null and bidSttusCode != ""'>
-       AND BID_STTUS_CODE = #{bidSttusCode}
-      </if>
-      <if test='bidPblancId != null and bidPblancId !=""'>
-       AND BID_PBLANC_ID = #{bidPblancId}
-      </if>
-     ORDER BY FRST_REGIST_DT DESC
+    SELECT *
+         , T.BDDPR_BEGIN_DT + ' ~ ' + T.BDDPR_END_DT AS BDDPR_DATE
+         , T.FRST_REGIST_DT + CHAR(10) + '( ' + T.FRST_REGISTER_ID + ' )' AS FRST_REGIST
+      FROM (
+            SELECT BID_PBLANC_ID                                            -- AS 입찰공고번호
+                 , (SELECT CODE_CHRCTR_REFRNTHREE
+                      FROM CO_CMMN_CD D
+                     WHERE A.BRAND_GROUP_CODE = D.SUB_CODE
+                       AND D.MAIN_CODE = 'BRAND_GROUP_CODE'
+                       AND D.CODE_REFRNONE = A.METAL_CODE
+                    ) AS METAL_CODE                                         -- AS 메탈코드
+                 , BRAND_CODE                                               -- AS 브랜드_구분
+                 , (SELECT C.ITM_PRDLST_KOREAN
+                      FROM IT_ITM_INFO_BAS C
+                     WHERE A.METAL_CODE = C.METAL_CODE
+                       AND A.ITM_SN = C.ITM_SN
+                   ) AS ITM_PRDLST_KOREAN                                    -- AS 상품명
+                 , dbo.fn_getCodeNm('BRAND_GROUP_CODE' , BRAND_GROUP_CODE )  AS BRAND_GROUP_CODE -- AS 브랜드_그룹
+                 , dbo.fn_getCodeNm('DSTRCT_LCLSF_CODE' , DSTRCT_LCLSF_CODE) AS DSTRCT_LCLSF_CODE --AS 권역
+                 , BID_WT                                                    -- AS 수량
+                 , '5' AS ITM_QTY                                            -- AS 중량
+                 , CASE WHEN A.BID_STTUS_CODE IN ('12' , '13') THEN dbo.fn_convertDate( BDDPR_BEGIN_DT , 'bo')
+                        ELSE SUBSTRING(BDDPR_BEGIN_DT , 0 , 5) + '-' + SUBSTRING(BDDPR_BEGIN_DT , 5 , 2) + '-' + SUBSTRING(BDDPR_BEGIN_DT , 7,  2)
+                         END AS BDDPR_BEGIN_DT -- AS 투찰시작일시
+                 , CASE WHEN A.BID_STTUS_CODE IN ('12' , '13' ) THEN dbo.fn_convertDate( BDDPR_END_DT , 'bo')
+                        ELSE SUBSTRING(BDDPR_END_DT , 0 , 5) + '-' + SUBSTRING(BDDPR_END_DT , 5 , 2) + '-' + SUBSTRING(BDDPR_END_DT , 7,  2)
+                         END AS BDDPR_END_DT      -- AS 투찰종료일시
+                 , CASE WHEN DSPY_AT = 'Y' THEN '활성' ELSE '비활성' END AS ACTIVE_AT  -- AS 활성여부
+                 , FRST_REGISTER_ID                                          -- AS 최초등록자아이디
+                 , CONVERT(VARCHAR , FRST_REGIST_DT , 120) AS FRST_REGIST_DT -- AS 최초등록날짜
+                 , dbo.fn_getCodeNm('BID_STAT_CODE' , BID_STTUS_CODE) AS BID_STAT_NM -- AS 상태
+                 , BID_STTUS_CODE
+                 , ISNULL((SELECT COUNT(BID_ENTRPS_NO)
+                             FROM BD_BDDPR_DTL B
+                            WHERE B.BID_PBLANC_ID = A.BID_PBLANC_ID
+                              AND ISNULL(B.DELETE_AT , 'N') = 'N')
+                          ,0) AS BDNG_CMPNY                                 -- AS 투찰기업
+                 , FLOOR(ISNULL((SELECT MIN(BDDPR_PREMIUM_PC)
+                             FROM BD_BDDPR_DTL B
+                            WHERE A.BID_PBLANC_ID = B.BID_PBLANC_ID
+                              AND ISNULL(B.DELETE_AT , 'N') = 'N'), 0)) as LWST_PRPRC -- AS 최저프리미엄
+                 , FLOOR(DELY_CND_01_STDR_PC)     AS DELY_CND_01_STDR_PC      -- AS 인도조건1 기준가격
+                 , FLOOR(DELY_CND_01_PREMIUM_PC)  AS DELY_CND_01_PREMIUM_PC    -- AS 인도조건1 프리미엄가격
+                 , FLOOR(DELY_CND_02_STDR_PC) AS   DELY_CND_02_STDR_PC       -- AS 인도조건2 기준가격
+                 , FLOOR(DELY_CND_02_PREMIUM_PC) AS DELY_CND_02_PREMIUM_PC   -- AS 인도조건2 프리미엄가격
+                 , FLOOR(DELY_CND_03_STDR_PC) AS DELY_CND_03_STDR_PC         -- AS 인도조건3 기준가격
+                 , FLOOR(DELY_CND_03_PREMIUM_PC) AS DELY_CND_03_PREMIUM_PC  -- AS 인도조건3 프리미엄가격
+                 , CONVERT(DATE, CONVERT(VARCHAR(8), DELY_BEGIN_DE)) AS DELY_BEGIN_DE  -- AS 인도시작일자
+                 , CONVERT(DATE, CONVERT(VARCHAR(8), DELY_END_DE)) AS DELY_END_DE   -- AS 인도종료일자
+                 , CONVERT(DATE, CONVERT(VARCHAR(8), PC_APPN_BEGIN_DE)) AS PC_APPN_BEGIN_DE  -- AS 가격지정시작일자
+                 , CONVERT(DATE, CONVERT(VARCHAR(10), PC_APPN_END_DE)) AS PC_APPN_END_DE -- AS 가격지정종료일자
+                 , dbo.fn_getCodeNm('PRICE_SPMTC_CODE' , PC_APPN_MTH_CODE ) AS PC_APPN_MTH_CODE -- AS 가격지정방법코드
+                 , SETLE_CRNCY_CODE                                               -- AS 결제통화코드
+                 , dbo.fn_getCodeNm('PYMNT_MT_CODE' , SETLE_MTH_CODE ) AS SETLE_MTH_CODE -- AS 결제방법코드
+                 , dbo.fn_getCodeNm('PYMNT_PR_CODE' , SETLE_PD_CODE ) AS SETLE_PD_CODE -- AS 결제기간코드
+                 , ETC_CN                                                               -- AS 기타내용
+                 , ISNULL(dbo.fn_convertDate(BDDPR_CANCL_LMTT_DE , 'bo'),'') AS BDDPR_CANCL_LMTT_DE -- AS 투찰취소제한일자
+                 , ISNULL(dbo.fn_convertDate(BDDPR_BEGIN_DT , 'bo'),'') AS BDDPR_BEGIN_DT_INFO
+                 , ISNULL(dbo.fn_convertDate(BDDPR_END_DT , 'bo'), '') AS BDDPR_END_DT_INFO
+              FROM BD_BID_BAS A
+             WHERE 1=1
+              <if test='startDate != null and startDate != ""'>
+               AND FRST_REGIST_DT >= CONVERT( DATE , #{startDate})
+              </if>
+              <if test='endDate != null and endDate != ""'>
+               AND FRST_REGIST_DT <![CDATA[ <= ]]> DATEADD( DAY , 1 , CONVERT(DATE , #{endDate}))
+              </if>
+              <if test='bidSttusCode != null and bidSttusCode != ""'>
+               AND BID_STTUS_CODE = #{bidSttusCode}
+              </if>
+              <if test='bidPblancId != null and bidPblancId !=""'>
+               AND BID_PBLANC_ID = #{bidPblancId}
+              </if>
+          ) T
+     ORDER BY T.FRST_REGIST_DT DESC
   </select>
 
   <!-- 입찰 공고 수정 이력 리스트 조회-->
@@ -129,7 +135,7 @@
     SELECT T.*
          , CASE WHEN T.BID_STTUS_CODE IN ('30','31') AND T.SCSBID_AT = 'Y' THEN '낙찰'
                 WHEN T.BID_STTUS_CODE IN ('30','31') AND T.SCSBID_AT = 'N' THEN '패찰'
-                ELSE dbo.fn_getCodeNm('BID_STAT_CODE' , BID_STTUS_CODE)
+                ELSE dbo.fn_getCodeNm('BID_STAT_CODE' , T.BID_STTUS_CODE)
                  END AS BID_STAT_NM
       FROM (
             SELECT (SELECT ENTRPS_NM
@@ -152,4 +158,13 @@
                 )T
     ORDER BY T.ROWNUM
   </select>
+
+  <!-- 입찰 상태코드 변경 -->
+  <update id="bidNoticeCanlcel" parameterType="com.bid.bo.bid.vo.BidNoticeVO">
+    /* bidNotice.bidNoticeCanlcel */
+    UPDATE BD_BID_BAS
+       SET BID_STTUS_CODE = #{bidSttusCode}
+         , LAST_CHANGE_DT = SYSDATETIME()
+     WHERE BID_PBLANC_ID = #{bidPblancId}
+  </update>
 </mapper>

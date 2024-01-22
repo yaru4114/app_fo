@@ -89,4 +89,13 @@ public class BidNoticeController {
         return resultVo;
     }
 
+    public Integer bidNoticeCanlcel(@RequestBody BidNoticeVO paramVo) {
+        log.info("test bidNoticeCanlcel : {}" , paramVo.toString() );
+
+         int resultCnt  = bidNoticeService.bidNoticeCanlcel(paramVo);
+
+
+         return resultCnt;
+    }
+
 }

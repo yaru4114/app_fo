@@ -44,4 +44,11 @@ public interface BidNoticeDao {
     * @author  xyzp1539
     **/
     List<BidBddprDtlVO> getBidNoticeMngBidBddprDtlList(BidNoticeVO paramVo);
+
+    /**
+     입찰 상태코드 변경
+    * @date : 2024-01-22
+    * @author  xyzp1539
+    **/
+    int bidNoticeCanlcel(BidNoticeVO paramVo);
 }

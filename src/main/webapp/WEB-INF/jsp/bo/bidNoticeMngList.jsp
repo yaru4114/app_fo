@@ -37,6 +37,14 @@
     <link rel="stylesheet" type="text/css" href="/bo/guide/css/common.css" />
     <script src="bidModal.jsp"></script>
 </head>
+<style>
+  .multi-line-css {
+    white-space:pre;
+  }
+  .multi-line-editor {
+    white-space:pre-line;
+  }
+</style>
 
 <body>
 <div class="web-wrapper">
@@ -140,306 +148,269 @@
                     <a href="#;" id="btn_bdngSucsCnt" class="btn"></a>
                     <a href="#;" id="btn_bdngPstpnCnt" class="btn"></a>
                 </div>
-                <div class="table table-view table-fixed-head text-center"
-                     style="overflow: auto; height: 100%">
-                    <table class="table-head border-none">
-                        <colgroup>
-                            <col width="100px" />
-                            <col width="80px" />
-                            <col width="100px" />
-                            <col width="80px" />
-                            <col width="100px" />
-                            <col width="50px" />
-                            <col width="50px" />
-                            <col width="70px" />
-                            <col width="150px" />
-                            <col width="80px" />
-                            <col width="100px" />
-                            <col width="80px" />
-                            <col width="80px" />
-                            <col width="120px" />
-                        </colgroup>
-                        <thead>
-                            <tr>
-                                <th rowspan="2" scope="col">입찰공고<br>번호</th>
-                                <th rowspan="2"scope="col">메탈</th>
-                                <th rowspan="2"scope="col">아이템<br>상품명</th>
-                                <th colspan="2">브랜드</th>
-                                <th rowspan="2"scope="col">권역</th>
-                                <th rowspan="2"scope="col">수량</th>
-                                <th rowspan="2"scope="col">중량</th>
-                                <th rowspan="2"scope="col">시작-마감</th>
-                                <th rowspan="2"scope="col">활성<br>여부</th>
-                                <th rowspan="2"scope="col">등록일<br>(등록자)</th>
-                                <th rowspan="2"scope="col">상태</th>
-                                <th rowspan="2"scope="col">투찰<br>기업</th>
-                                <th rowspan="2"scope="col">최저<br>프리미엄가</th>
-                            </tr>
-                            <tr>
-                                <th>구분</th>
-                                <th>그룹</th>
-                            </tr>
-                        </thead>
-                    </table>
-                    <!-- //바디부 -->
-                    <div class="table-body body-sm" style="overflow: visible">
-                        <table>
-                            <colgroup>
-                                <col width="100px" />
-                                <col width="80px" />
-                                <col width="100px" />
-                                <col width="80px" />
-                                <col width="100px" />
-                                <col width="50px" />
-                                <col width="50px" />
-                                <col width="70px" />
-                                <col width="150px" />
-                                <col width="80px" />
-                                <col width="100px" />
-                                <col width="80px" />
-                                <col width="80px" />
-                                <col width="120px" />
-                            </colgroup>
-                            <tbody id="dynamicTbody">
-                            <%--동적 테이블 생성 예정--%>
-                            </tbody>
-                        </table>
+                <!-- realGrid -->
+                <div id="realgrid" class="realgrid-wrap" style="margin-top: 0px"></div>
+                <!-- paging -->
+                <div class="paging-row">
+                    <div class="paging wrapper">
+                        <button type="button" class="btn btn-bid-black" onclick="setPrevPage()">
+                            <
+                        </button>
+                        <span id="current-page-view"></span>
+                        /
+                        <span id="total-page-view"></span>
+                        <button type="button" class="btn btn-bid-black" onclick="setNextPage()">
+                            >
+                        </button>
                     </div>
                 </div>
-
-                <!-- 모달 부분-->
-                <div class="modal fade" id="modalBidDtl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel123" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-full" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalTitle"></h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="table table-view">
+            </div>
+        </div>
+    </section>
+    <div class="pop-modal pop-toast">
+        <div class="pop-inner">
+            <p id="toastText"></p>
+        </div>
+    </div>
+</div>
+<!-- 모달 부분-->
+<div class="modal fade" id="modalBidDtl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-full" role="document">
+        <input type="hidden" id="modalBidStatCodeHidden">
+        <input type="hidden" id="modalBidPblancIdHidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btnClose">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="table table-view">
+                    <table>
+                        <colgroup>
+                            <col class="col-sm" />
+                            <col width="15%" />
+                            <col class="col-sm" />
+                            <col width="*" />
+                            <col class="col-sm" />
+                            <col width="10%" />
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th>상태</th>
+                            <td id="modalBidStatNm"></td>
+                            <th>시작~마감</th>
+                            <td id="modalBddprDate"></td>
+                            <th>활성여부</th>
+                            <td id="modalActiveAt"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="sub-title mt-12">
+                    <h3 class="">공고 정보(*필수)</h3>
+                </div>
+                <div class="table table-view">
+                    <table>
+                        <colgroup>
+                            <col class="col-md" />
+                            <col width="*" />
+                            <col class="col-md" />
+                            <col width="*" />
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th scope="row">메탈 구분<i class="icon icon-required"></i></th>
+                            <td id="modalMetalCode"></td>
+                            <th scope="row">브랜드<i class="icon icon-required"></i></th>
+                            <td id="modalBrand"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">아이템 상품명<i class="icon icon-required"></i></th>
+                            <td id="modalItmPrdlstKorean"></td>
+                            <th scope="row">권역</th>
+                            <td id="modalDstrctLclsfCode"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">수량 (톤)<i class="icon icon-required"></i></th>
+                            <td id="modalBidWt"></td>
+                            <th scope="row">중량허용공차(±)<i class="icon icon-required"></i></th>
+                            <td>10 %</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">프리미엄 가격(USD/MT)<i class="icon icon-required"></i></th>
+                            <td colspan="3">
+                                <div class="table table-inner">
                                     <table>
                                         <colgroup>
-                                            <col class="col-sm" />
-                                            <col width="15%" />
-                                            <col class="col-sm" />
+                                            <col width="6%" />
                                             <col width="*" />
-                                            <col class="col-sm" />
-                                            <col width="10%" />
+                                            <col width="40%" />
                                         </colgroup>
+                                        <thead>
+                                        <tr>
+                                            <th scope="row" ></th>
+                                            <th scope="row">인도조건</th>
+                                            <th scope="row">프리미엄 가격 설정</th>
+                                        </tr>
+                                        </thead>
                                         <tbody>
                                         <tr>
-                                            <th>상태</th>
-                                            <td id="modalBidStatNm"></td>
-                                            <th>시작~마감</th>
-                                            <td id="modalBddprDate"></td>
-                                            <th>활성여부</th>
-                                            <td id="modalActiveAt"></td>
+                                            <td class="text-center"><b>1</b></td>
+                                            <td>서린상사 지정 보세창고 도착도(FCA 서린상사 지정 보세창고)</td>
+                                            <td>
+                                                <input type="text" id="modalDelyCnd01StdrPc" class="input" style="width:50%; background-color:#fafafa;" readonly="readonly">
+                                                &nbsp;&nbsp;
+                                                <span class="color-red" id="modalDelyCnd01PremiumPc"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center"><b>2</b></td>
+                                            <td>기타 부산/인천 보세창고 상차도(FCA BUSAN/INCHEON)</td>
+                                            <td>
+                                                <input type="text" id="modalDelyCnd02StdrPc" class="input" style="width:50%; background-color:#fafafa;" readonly="readonly">
+                                                &nbsp;&nbsp;
+                                                <span class="color-red" id="modalDelyCnd02PremiumPc"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center"><b>3</b></td>
+                                            <td>CIF INCHEON / CIF BUSAN</td>
+                                            <td>
+                                                <input type="text" id="modalDelyCnd03StdrPc" class="input" style="width:50%; background-color:#fafafa;" readonly="readonly">
+                                                &nbsp;&nbsp;
+                                                <span class="color-red" id="modalDelyCnd03PremiumPc"></span>
+                                            </td>
                                         </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="sub-title mt-12">
-                                    <h3 class="">공고 정보(*필수)</h3>
-                                </div>
-                                <div class="table table-view">
-                                    <table>
-                                        <colgroup>
-                                            <col class="col-md" />
-                                            <col width="*" />
-                                            <col class="col-md" />
-                                            <col width="*" />
-                                        </colgroup>
-                                        <tbody>
-                                        <tr>
-                                            <th scope="row">메탈 구분<i class="icon icon-required"></i></th>
-                                            <td id="modalMetalCode"></td>
-                                            <th scope="row">브랜드<i class="icon icon-required"></i></th>
-                                            <td id="modalBrand"></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">아이템 상품명<i class="icon icon-required"></i></th>
-                                            <td id="modalItmPrdlstKorean"></td>
-                                            <th scope="row">권역</th>
-                                            <td id="modalDstrctLclsfCode"></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">수량 (톤)<i class="icon icon-required"></i></th>
-                                            <td id="modalBidWt"></td>
-                                            <th scope="row">중량허용공차(±)<i class="icon icon-required"></i></th>
-                                            <td>10 %</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">프리미엄 가격(USD/MT)<i class="icon icon-required"></i></th>
-                                            <td colspan="3">
-                                                <div class="table table-inner">
-                                                    <table>
-                                                        <colgroup>
-                                                            <col width="6%" />
-                                                            <col width="*" />
-                                                            <col width="40%" />
-                                                        </colgroup>
-                                                        <thead>
-                                                        <tr>
-                                                            <th scope="row" ></th>
-                                                            <th scope="row">인도조건</th>
-                                                            <th scope="row">프리미엄 가격 설정</th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        <tr>
-                                                            <td class="text-center"><b>1</b></td>
-                                                            <td>서린상사 지정 보세창고 도착도(FCA 서린상사 지정 보세창고)</td>
-                                                            <td>
-                                                                <input type="text" id="modalDelyCnd01StdrPc" class="input" style="width:50%; background-color:#fafafa;" readonly="readonly">
-                                                                &nbsp;&nbsp;
-                                                                <span class="color-red" id="modalDelyCnd01PremiumPc"></span>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-center"><b>2</b></td>
-                                                            <td>기타 부산/인천 보세창고 상차도(FCA BUSAN/INCHEON)</td>
-                                                            <td>
-                                                                <input type="text" id="modalDelyCnd02StdrPc" class="input" style="width:50%; background-color:#fafafa;" readonly="readonly">
-                                                                &nbsp;&nbsp;
-                                                                <span class="color-red" id="modalDelyCnd02PremiumPc"></span>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-center"><b>3</b></td>
-                                                            <td>CIF INCHEON / CIF BUSAN</td>
-                                                            <td>
-                                                                <input type="text" id="modalDelyCnd03StdrPc" class="input" style="width:50%; background-color:#fafafa;" readonly="readonly">
-                                                                &nbsp;&nbsp;
-                                                                <span class="color-red" id="modalDelyCnd03PremiumPc"></span>
-                                                            </td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">인도조건 비고<i class="icon icon-required"></i></th>
-                                            <td colspan="3">
-                                                <ul class="color-red">
-                                                    <li>기타) 부산/인천 보세창고 상차도 조건일 경우 인천지역(+USD8/MT),부산지역(+USD10/MT)을 조정하여 <u>환산 프리미엄으로 입찰 가격 적용</u></li>
-                                                    <li>기타) 부산/인천 보세창고 낙찰될 경우 해당 운송에 대해서는 서린상사 지정 운송업체를 통해 운송시 서린상사가 해당 금액을 포함한 <u>환산 프리미엄 가격으로 낙찰자에게 지불함</u></li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" rowspan="2">인도기한<i class="icon icon-required"></i></th>
-                                            <td colspan="3" id="modalDelyDate"></td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3">
-                                                <b>ⓘ</b> 인도조건에서 제출한 인도지에 화물이 최종 입고된 기준으로 적용함
-                                            </td>
-                                        </tr>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">인도조건 비고<i class="icon icon-required"></i></th>
+                            <td colspan="3">
+                                <ul class="color-red">
+                                    <li>기타) 부산/인천 보세창고 상차도 조건일 경우 인천지역(+USD8/MT),부산지역(+USD10/MT)을 조정하여 <u>환산 프리미엄으로 입찰 가격 적용</u></li>
+                                    <li>기타) 부산/인천 보세창고 낙찰될 경우 해당 운송에 대해서는 서린상사 지정 운송업체를 통해 운송시 서린상사가 해당 금액을 포함한 <u>환산 프리미엄 가격으로 낙찰자에게 지불함</u></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="2">인도기한<i class="icon icon-required"></i></th>
+                            <td colspan="3" id="modalDelyDate"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <b>ⓘ</b> 인도조건에서 제출한 인도지에 화물이 최종 입고된 기준으로 적용함
+                            </td>
+                        </tr>
 
-                                        </tbody>
-                                    </table>
-                                </div>
+                        </tbody>
+                    </table>
+                </div>
 
-                                <div class="table table-view">
-                                    <table>
-                                        <colgroup>
-                                            <col class="col-md" />
-                                            <col width="*" />
-                                            <col class="col-md" />
-                                            <col width="*" />
-                                        </colgroup>
-                                        <tbody>
-                                        <tr>
-                                            <th scope="row">가격지정기간<i class="icon icon-required"></i></th>
-                                            <td id="modalPcAppnDate"></td>
-                                            <th scope="row">가격지정방법<i class="icon icon-required"></i></th>
-                                            <td id="modalPcAppnMthCode"></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">결제 조건<i class="icon icon-required"></i></th>
-                                            <td colspan="3" id="modalSetleCond"></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">기타 코멘트</th>
-                                            <td colspan="3" id="modalEtcCn"></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="sub-title">
-                                    <h3 class="">투찰 기간 설정</h3>
-                                </div>
-                                <div class="table table-view">
-                                    <table>
-                                        <colgroup>
-                                            <col class="col-md" />
-                                            <col width="*" />
-                                            <col class="col-md" />
-                                            <col width="*" />
-                                        </colgroup>
-                                        <tbody>
-                                        <tr>
-                                            <th scope="row">투찰 시작일<i class="icon icon-required"></i></th>
-                                            <td id="modalBddprBeginDt"></td>
-                                            <th scope="row">투찰 마감일<i class="icon icon-required"></i></th>
-                                            <td id="modalBddprEndDt"></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                투찰 취소기한<i class="icon icon-required"></i>
-                                                <div class="icon icon-title-tooltip tooltip" style="margin-left:1px;">
+                <div class="table table-view">
+                    <table>
+                        <colgroup>
+                            <col class="col-md" />
+                            <col width="*" />
+                            <col class="col-md" />
+                            <col width="*" />
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th scope="row">가격지정기간<i class="icon icon-required"></i></th>
+                            <td id="modalPcAppnDate"></td>
+                            <th scope="row">가격지정방법<i class="icon icon-required"></i></th>
+                            <td id="modalPcAppnMthCode"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">결제 조건<i class="icon icon-required"></i></th>
+                            <td colspan="3" id="modalSetleCond"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">기타 코멘트</th>
+                            <td colspan="3" id="modalEtcCn"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="sub-title">
+                    <h3 class="">투찰 기간 설정</h3>
+                </div>
+                <div class="table table-view">
+                    <table>
+                        <colgroup>
+                            <col class="col-md" />
+                            <col width="*" />
+                            <col class="col-md" />
+                            <col width="*" />
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th scope="row">투찰 시작일<i class="icon icon-required"></i></th>
+                            <td id="modalBddprBeginDt"></td>
+                            <th scope="row">투찰 마감일<i class="icon icon-required"></i></th>
+                            <td id="modalBddprEndDt"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                투찰 취소기한<i class="icon icon-required"></i>
+                                <div class="icon icon-title-tooltip tooltip" style="margin-left:1px;">
 							                                <span class="tooltiptext">
 							                                    회원사가 투찰 후, 취소를 할때<br/>
 																설정 된 취소 기한에 따릅니다.
 							                                </span>
-                                                </div>
-                                            </th>
-                                            <td colspan="3" id="modalBddprCanclLmttDe"></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
                                 </div>
+                            </th>
+                            <td colspan="3" id="modalBddprCanclLmttDe"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                                <div class="sub-title">
-                                    <h3 class="">활성여부</h3>
-                                </div>
-                                <div class="table table-view">
-                                    <table>
-                                        <colgroup>
-                                            <col class="col-md" />
-                                            <col width="*" />
-                                        </colgroup>
-                                        <tbody>
-                                        <tr>
-                                            <th scope="row">활성여부</th>
-                                            <td id="modalActiveAt2"></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                <div class="sub-title">
+                    <h3 class="">활성여부</h3>
+                </div>
+                <div class="table table-view">
+                    <table>
+                        <colgroup>
+                            <col class="col-md" />
+                            <col width="*" />
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <th scope="row">활성여부</th>
+                            <td id="modalActiveAt2"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                                <div class="sub-title">
-                                    <h3 class="">공고 수정 이력</h3>
-                                </div>
-                                <div class="table table-view">
-                                    <table>
-                                        <colgroup>
-                                            <col width="20%" />
-                                            <col width="*" />
-                                            <col width="40%" />
-                                        </colgroup>
-                                        <tbody id="modalUpdtHst" >
-                                        </tbody>
-                                    </table>
-                                </div>
+                <div class="sub-title">
+                    <h3 class="">공고 수정 이력</h3>
+                </div>
+                <div class="table table-view">
+                    <table>
+                        <colgroup>
+                            <col width="20%" />
+                            <col width="*" />
+                            <col width="40%" />
+                        </colgroup>
+                        <tbody id="modalUpdtHst" >
+                        </tbody>
+                    </table>
+                </div>
 
                                 <div class="btn-box mt-12">
-                                    <button type="button" id="bid_noticeChg" class="btn"
-                                            data-toggle="modal" data-target="#exampleModal">공고 수정</button>
+                                    <button type="button" class="btn" id="bid_noticeChg" data-toggle="modal"
+                                            data-target="#chgBidModal">공고 수정</button>
                                     <button type="button" class="btn">공고 취소</button>
+                                </div>
+                                <div id="bidChgModalContainer">
+                                    <jsp:include page="bidChgModal.jsp"/>
                                 </div>
                                 <div class="sub-title">
                                     <h3 class="">투찰 기업 목록</h3>
@@ -476,6 +447,9 @@
 </div>
 </body>
 <script type="text/javascript">
+  var provider;
+  var girdView;
+
   $(document).ready(function () {
     // 오늘 날짜 가져오기
     var today = new Date();
@@ -488,10 +462,13 @@
     });
 
     var jsonData = getCreateJsonData("");
-    $(".btn-box .btn").on("click", getDatePickerButtonId);
+    $(".form-period-set .btn-box .btn").on("click", getDatePickerButtonId);
     $('#btn_search').on("click", getSearchBtn);
     $(".tab-button .btn").on("click" , getBidStatList);
+    $("#btn_bidCancel").on("click" , fnbidCancel);
+    $("#btnClose").on("click" , fnClose);
 
+    realgridCredate();
 
     ajaxBidNoticeMngStatCntList(jsonData , "Y");
     ajaxBidNoticeMngList(jsonData);
@@ -507,12 +484,11 @@
       });
 
       $('#bid_noticeChg').click(function () {
-          $('#myModalContainer').load("bidModal.jsp", function () {
-              $('#modalBidDtl').hide();
-              $('#exampleModal').show();
+          $('#bidChgModalContainer').load("bidChgModal.jsp", function () {
+              $('#bidChgModal').show();
 
               $('.close').click(function () {
-                  $('#modalBidDtl').show();
+                  $('#bidChgModal').hide();
               });
           });
       });
@@ -593,7 +569,7 @@
       data: JSON.stringify(jsonData),
       dataType: "json",
       success: function (data) {
-        // console.log("서버 응답:", data);
+        console.log("서버 응답:", data);
 
         $("#btn_bdngAllCnt").text("전체(" + data.bdngAllCnt + ")");
         $("#btn_bdngSchdlCnt").text("입찰예정(" + data.bdngSchdlCnt + ")");
@@ -619,7 +595,6 @@
     });
   }
 
-  var chgPblancId;
   // 입찰상태코드별 공고 리스트 조회
   function ajaxBidNoticeMngList(jsonData) {
     $.ajax({
@@ -629,39 +604,38 @@
       data: JSON.stringify(jsonData),
       dataType: "json",
       success: function (data) {
-        // console.log("서버 응답:", data);
+        console.log("서버 응답:", data);
 
-        $("#dynamicTbody").empty();
+        if (!provider) {
+          provider = new RealGrid.LocalDataProvider();
+          provider.setFields(fields);
+        } else {
+          provider.clearRows();
+        }
 
-        $.each(data , function(index , item) {
-          $("#dynamicTbody").append('<tr>');
-          //$("#dynamicTbody").append('<td style="color:red;"> <a href="/bo/bid/noticeDtlForm?bidPblancId='+item.bidPblancId+'"</a>' + item.bidPblancId + '</td>');
-          $("#dynamicTbody").append('<td class="appendClass" id="'+ item.bidPblancId + '"data-toggle="modal" data-target="#modalBidDtl">' + item.bidPblancId + '</td>' );
-          //$("#dynamicTbody").append('<td class="appendClass" id="'+ item.bidPblancId + '">' + item.bidPblancId + '</td>' );
-          $("#dynamicTbody").append('<td>' + item.metalCode + '</td>');
-          $("#dynamicTbody").append('<td>' + item.itmPrdlstKorean + '</td>');
-          $("#dynamicTbody").append('<td>' + item.brandCode + '</td>');
-          $("#dynamicTbody").append('<td>' + item.brandGroupCode + '</td>');
-          $("#dynamicTbody").append('<td>' + item.dstrctLclsfCode + '</td>');
-          $("#dynamicTbody").append('<td>' + item.bidWt + '</td>');
-          $("#dynamicTbody").append('<td>' + item.itmQty + '</td>');
-          $("#dynamicTbody").append('<td>' + item.bddprBeginDt + ' ~ ' + item.bddprEndDt + '</td>');
-          $("#dynamicTbody").append('<td>' + item.activeAt + '</td>');
-          $("#dynamicTbody").append('<td>' + item.frstRegistDt + '<br>' + '(' + item.frstRegisterId + ')' + '</td>');
-          $("#dynamicTbody").append('<td>' + item.bidStatNm + '</td>');
-          $("#dynamicTbody").append('<td>' + item.bdngCmpny + '</td>');
-          $("#dynamicTbody").append('<td>' + item.lwstPrprc + '</td>');
-          $("#dynamicTbody").append('</tr>');
-        });
+        if (!gridView) {
+          gridView = new RealGrid.GridView("realgrid");
+        } else {
+          gridView.refresh();
+        }
 
-        $(".appendClass").click(function(){
-          var bidPblancId = $(this).attr('id');
-          console.log("appendClass Click : " + bidPblancId);
-          chgPblancId = bidPblancId;
+        provider.setRows(data);
 
-          ajaxBidNoticeMngInfo(bidPblancId);
-        });
+        var page = gridView.getPage();
+        var pageCount = gridView.getPageCount()
+        if(pageCount == 0) pageCount = 1;
+        $('#current-page-view').text(page + 1);
+        $('#total-page-view').text(pageCount);
 
+        gridView.onCellClicked = function (grid , clickData) {
+          var rowIndex = clickData.itemIndex;
+          var colIndex = clickData.column;
+          var bidPblancId = grid.getValue(rowIndex , colIndex);
+
+          if(colIndex == "bidPblancId") {
+            ajaxBidNoticeMngInfo(bidPblancId);
+          }
+        }
       },
       error: function (xhr, status, error) {
         // 에러 처리 코드
@@ -679,7 +653,7 @@
       data: JSON.stringify({bidPblancId:bidPblancId}),
       dataType: "json",
       success: function (data) {
-        // console.log("서버 응답:", data);
+        console.log("서버 응답:", data);
         $("#modalTitle").empty();
 
         $("#modalTitle").append("입찰 공고 상세 > " + data.itmPrdlstKorean + '<span style="margin-left:20px;background-color: black; color: white; font-weight:normal;">' + "&nbsp;&nbsp;입찰공고번호 " + data.bidPblancId + '&nbsp;&nbsp;</span>');
@@ -706,31 +680,46 @@
         $("#modalBddprEndDt").text(data.bddprEndDtInfo);
         $("#modalBddprCanclLmttDe").text(data.bddprCanclLmttDe);
         $("#modalActiveAt2").text(data.activeAt);
+        $("#modalBidStatCodehidden").val(data.bidSttusCode);
+        $("#modalBidPblancIdHidden").val(data.bidPblancId);
 
         // 공고수정이력
         $("#modalUpdtHst").empty();
-        $("#modalUpdtHst").append('<tr><th scope="row">수정일시</th><th scope="row">수정 내용</th><th scope="row">수정 사유</th></tr>');
-        $.each(data.bidNoticeUpdtVoList , function(index , item) {
+        $("#modalUpdtHst").append('<tr><th scope="row" class="text-center">수정일시</th><th scope="row" class="text-center" >수정 내용</th><th scope="row" class="text-center">수정 사유</th></tr>');
+        if(data.bidNoticeUpdtVoList.length == 0 ) {
           $("#modalUpdtHst").append('<tr>');
-          $("#modalUpdtHst").append('<td>'+ item.frstRegistDt + '</td>');
-          $("#modalUpdtHst").append('<td>'+ item.bidUpdtCn + '</td>');
-          $("#modalUpdtHst").append('<td>'+ item.bidUpdtResn + '</td>');
+          $("#modalUpdtHst").append('<td colspan="3"></td>');
           $("#modalUpdtHst").append('</tr>');
-        });
+        } else {
+            $.each(data.bidNoticeUpdtVoList , function(index , item) {
+              $("#modalUpdtHst").append('<tr>');
+              $("#modalUpdtHst").append('<td>'+ item.frstRegistDt + '</td>');
+              $("#modalUpdtHst").append('<td>'+ item.bidUpdtCn + '</td>');
+              $("#modalUpdtHst").append('<td>'+ item.bidUpdtResn + '</td>');
+              $("#modalUpdtHst").append('</tr>');
+            });
+        }
 
         // 투찰기업목록
         $("#modalBddprInfo").empty();
         $("#modalBddprInfo").append('<tr><th scope="row" class="text-center">순위</th><th scope="row" class="text-center">기업명</th><th scope="row" class="text-center">투찰 일시</th><th scope="row" class="text-center">인도조건</th> <th scope="row" class="text-center">투찰 가격(USD)</th><th scope="row" class="text-center">상태</th></tr>');
-        $.each(data.bidBddprDtlVoList , function(index,item){
+        if(data.bidBddprDtlVoList.length == 0 ) {
           $("#modalBddprInfo").append('<tr>');
-          $("#modalBddprInfo").append('<td class="text-center"><b>' + item.rownum + '</b></td>');
-          $("#modalBddprInfo").append('<td><a href="#" class="rg-link-renderer">' + item.entrpsNm + '</a></td>');
-          $("#modalBddprInfo").append('<td>' + item.frstRegistDt + '</td>');
-          $("#modalBddprInfo").append('<td>' + item.delyCndCodeNm + '</td>');
-          $("#modalBddprInfo").append('<td class="text-center">' + item.bddprPremiumPc + '</td>');
-          $("#modalBddprInfo").append('<td class="text-center">' + item.bidStatNm + '</td>');
+          $("#modalBddprInfo").append('<td colspan="6"> </td>');
           $("#modalBddprInfo").append('</tr>');
-        });
+        } else {
+            $.each(data.bidBddprDtlVoList , function(index,item){
+              $("#modalBddprInfo").append('<tr>');
+              $("#modalBddprInfo").append('<td class="text-center"><b>' + item.rownum + '</b></td>');
+              $("#modalBddprInfo").append('<td><a href="#" class="rg-link-renderer">' + item.entrpsNm + '</a></td>');
+              $("#modalBddprInfo").append('<td>' + item.frstRegistDt + '</td>');
+              $("#modalBddprInfo").append('<td>' + item.delyCndCodeNm + '</td>');
+              $("#modalBddprInfo").append('<td class="text-center">' + item.bddprPremiumPc + '</td>');
+              $("#modalBddprInfo").append('<td class="text-center">' + item.bidStatNm + '</td>');
+              $("#modalBddprInfo").append('</tr>');
+            });
+        }
+
 
 
       },
@@ -739,13 +728,71 @@
         console.error("에러 발생:", error);
       }
     });
+
+    $("#modalBidDtl").show();
+    $("#modalBidDtl").addClass('show');
   }
 
 
+  // 공고취소 버튼 클릭시
+  function fnbidCancel(){
+    var bidSttusCode = $("#modalBidStatCode").val();
+    var confirmTxt = "";
+    var afterText = "";
+    console.log("fnbidCancel bidSttusCode : " + bidSttusCode);
+
+    if(bidSttusCode == 12) {
+      confirmTxt = "해당 공고 건은 입찰 예정건 입니다. 공고 취소 시 노출되지 않습니다. 취소하시겠습니까?";
+      afterText = "공고 건이 삭제 되었습니다.";
+    } else if (bidSttusCode == 13) {
+      confirmTxt = "해당 공고 건은 투찰 진행중 입니다. 공고 취소 시, 비활성 상태로 전환되며 회원의 공고 목록에서 삭제 처리됩니다. 공고 취소 하시겠습니까?"
+      afterText = "공고 가 취소 되었습니다.";
+    }
+
+    if(confirm(confirmTxt)) {
+      var jsonData = {
+        bidPblancId : $("#modalBidPblancIdHidden").val(),
+        bidSttusCode : $("#modalBidStatCodeHidden").val()
+      };
+
+      $.ajax({
+        url: "/bo/bid/noticeMngForm/bidCancel",
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(jsonData),
+        dataType: "json",
+        success: function (data) {
+          console.log("서버 응답:", data);
+
+
+        },
+        error: function (xhr, status, error) {
+          // 에러 처리 코드
+          console.error("에러 발생:", error);
+        }
+      });
+
+      var jsonData = getCreateJsonData("");
+      ajaxBidNoticeMngStatCntList(jsonData , 'N');
+      ajaxBidNoticeMngList(jsonData);
+
+      $("#modalBidDtl").hide();
+
+      $("#toastText").text(afterText);
+      $('.pop-toast').fadeIn(300);
+
+      setTimeout(function(){
+        $('.pop-toast').fadeOut(300);
+      },2000);
+    }
+  }
+
+
+  // 데이트 피커 버튼 클릭 함수
   function getDatePickerButtonId() {
     // 클릭된 버튼의 아이디 가져오기
     var buttonId = $(this).attr('id');
-    console.log("")
+    console.log("getDatePickerButtonId : " + buttonId);
 
     //시작날짜는 오늘로 고정
     $("#startDatepicker").datepicker('setDate', 'today');
@@ -779,8 +826,98 @@
     return jsonData;
   }
 
-  // real그리드
+  function fnClose(){
+    $("#modalBidDtl").hide();
+  }
 
+  // real그리드
+  function realgridCredate(){
+      provider = new RealGrid.LocalDataProvider();
+      gridView = new RealGrid.GridView("realgrid");
+
+      gridView.header.height = 80;
+      gridView.displayOptions.rowHeight = 36;
+      gridView.stateBar.width = 16;
+
+      gridView.setFooters({
+        visible: false
+      });
+      gridView.setCheckBar({
+        visible: false
+      });
+      gridView.setRowIndicator({
+        visible: false
+      });
+
+      var fields = [
+        { fieldName: "bidPblancId" },
+        { fieldName: "metalCode" },
+        { fieldName: "itmPrdlstKorean" },
+        { fieldName: "brandCode" },
+        { fieldName: "brandGroupCode" },
+        { fieldName: "dstrctLclsfCode" },
+        { fieldName: "bidWt" },
+        { fieldName: "itmQty" },
+        { fieldName: "bddprDate" },
+        { fieldName: "activeAt" },
+        { fieldName: "frstRegist" },
+        { fieldName: "bidStatNm" },
+        { fieldName: "stepNm" },
+        { fieldName: "bdngCmpny" },
+        { fieldName: "lwstPrprc" }
+      ];
+      provider.setFields(fields);
+
+      var columns = [
+        { name: "bidPblancId", fieldName: "bidPblancId", type: "text", width: "110", styles: { textAlignment: "near" } ,header:{text:"입찰공고번호"}},
+        { name: "metalCode", fieldName: "metalCode", type: "text", width: "80", styles: { textAlignment: "near" } ,header:{text:"메탈"} },
+        { name: "itmPrdlstKorean", fieldName: "itmPrdlstKorean", type: "text", width: "230", styles: { textAlignment: "near" } ,header:{text:"상품명"}},
+        { name: "brandCode", fieldName: "brandCode", type: "text", width: "100", styles: { textAlignment: "near" } ,header:{text:"구분"}},
+        { name: "brandGroupCode", fieldName: "brandGroupCode", type: "text", width: "120", styles: { textAlignment: "near" } ,header:{text:"그룹"} },
+        { name: "dstrctLclsfCode", fieldName: "dstrctLclsfCode", type: "text", width: "80", styles: { textAlignment: "near" } ,header:{text:"권역"}},
+        { name: "bidWt", fieldName: "bidWt", type: "text", width: "80", styles: { textAlignment: "near" } ,header:{text:"수량"}},
+        { name: "itmQty", fieldName: "itmQty", type: "text", width: "80", styles: { textAlignment: "near" } ,header:{text:"중량"}},
+        { name: "bddprDate", fieldName: "bddprDate", type: "text", width: "250", styles: { textAlignment: "near" } ,header:{text:"시작 ~ 마감"}},
+        { name: "activeAt", fieldName: "activeAt", type: "text", width: "100", styles: { textAlignment: "near" } ,header:{text:"활성여부"}} ,
+        { name: "frstRegist", fieldName: "frstRegist", editor: {type:"multiline" , altEnterNewLine:true , height:0} , styleName: ".multi-line-editor", width: "170", styles: { textAlignment: "near" },header:{text:"등록일\n(등록자)" , styleName:"multi-line-css"}},
+        { name: "frstRegistDt", fieldName: "frstRegistDt", type: "text", width: "0", styles: { textAlignment: "near"} ,header:{text:"등록일"} },
+        { name: "frstRegisterId", fieldName: "frstRegisterId", type: "text", width: "0", styles: { textAlignment: "near" } ,header:{text:"등록자"} },
+        { name: "bidStatNm", fieldName: "bidStatNm", type: "text", width: "80", styles: { textAlignment: "near" } ,header:{text:"상태"} },
+        { name: "bdngCmpny", fieldName: "bdngCmpny", type: "text", width: "70", styles: { textAlignment: "near" },header:{text:"투찰기업"}},
+        { name: "lwstPrprc", fieldName: "lwstPrprc", type: "text", width: "100", styles: { textAlignment: "near" },header:{text:"최저프리미엄가"}}
+      ];
+
+      var layout = [
+          "bidPblancId",
+          "metalCode",
+          "itmPrdlstKorean",
+        {name:"brandGroup" , direction:"horizontal" , items:["brandCode" , "brandGroupCode"] , header:{text:"브랜드"}},
+          "dstrctLclsfCode",
+          "bidWt",
+          "itmQty",
+          "bddprDate",
+          "activeAt",
+          "frstRegist",
+          "bidStatNm",
+          "bdngCmpny",
+          "lwstPrprc"
+      ];
+
+      gridView.setColumnLayout(layout);
+      gridView.setDataSource(provider);
+      gridView.setColumns(columns);
+
+      gridView.setPaging(true, 30);
+
+      gridView.onPageChanged = function (grid, page) {
+        $('#current-page-view').text(page + 1);
+      };
+
+      gridView.onPageCountChanged = function (grid, pageCount) {
+        $('#total-page-view').text(pageCount);
+      };
+
+  }
 
 
 </script>

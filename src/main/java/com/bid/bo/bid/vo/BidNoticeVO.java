@@ -65,6 +65,8 @@ public class BidNoticeVO {
     private String lwstPrprc;
     private String bddprBeginDtInfo;
     private String bddprEndDtInfo;
+    private String bddprDate;
+    private String frstRegist;
 
 
     // 입찰상태별 공고수
