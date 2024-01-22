@@ -486,6 +486,7 @@
               $('#exampleModal').show();
 
               $('.close').click(function () {
+                  $('#exampleModal').hide();
                   $('#modalBidDtl').show();
               });
           });
