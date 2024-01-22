@@ -128,15 +128,15 @@
         <li class="has-submenu">
             <a class="sidebar-1depth" aria-label="">입찰 회원 관리</a>
             <div class="sidebar-2depth has-submenu">
-                <a class="sidemenu-memberlist" href="/bo/member/list">입찰 회원 목록</a>
-                <a class="sidemenu-approval" href="/bo/member/approvalList">가입 승인 대기</a>
+                <a class="sidemenu" href="/bo/member/list">입찰 회원 목록</a>
+                <a class="sidemenu" href="/bo/member/approvalList">가입 승인 대기</a>
             </div>
         </li>
         <li class="has-submenu">
             <a class="sidebar-1depth" aria-label="">입찰 관리</a>
             <div class="sidebar-2depth has-submenu">
 <!--                <a href="/bo/member/list">입찰 회원 관리</a>-->
-                <a class="sidemenu-notice" href="/bo/bid/noticeMngForm">입찰 공고 관리</a>
+                <a class="sidemenu" href="/bo/bid/noticeMngForm">입찰 공고 관리</a>
             </div>
         </li>
     </ul>
@@ -146,5 +146,18 @@
 <div class="sidebar-foot">
 </div>
 
+<script>
+    // 사이드 메뉴 하이라이트
+    var side_url = document.location.href;
+    var side_menus = $(".sidemenu");
+
+    $.each(side_menus,function(index,val){
+        if (val.href == side_url) {
+            console.log($(val).parent());
+            $(val).parent().css("overflow","visable");
+            $(val).parent().parent().addClass("active");
+        }
+    })
+</script>
 
     

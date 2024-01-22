@@ -1,4 +1,3 @@
-
 <header class="header">
 <!--    <ul class="alarm-list">-->
 <!--        &lt;!&ndash; [D] 에러 상태일 경우 .status-error 추가 &ndash;&gt;-->
@@ -100,5 +99,17 @@ const dynamicMenuWidth = function(){
 dynamicMenuWidth();
 $(window).on('resize', function(){
     dynamicMenuWidth();
+})
+
+
+// 헤더 메뉴 하이라이트
+var header_url = document.location.href;
+var header_menus = $(".link-to-page");
+
+$.each(header_menus,function(index,val){
+    if (val.href == header_url) {
+        $(val).parent().css("backgroundColor","gray");
+        $(val).parent().css("color","white");
+    }
 })
 </script>
