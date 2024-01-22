@@ -342,8 +342,8 @@
                             <tr>
                                 <th scope="row">투찰 취소기한<i class="icon icon-required"></i></th>
                                 <td colspan="3">
-                                    <span style="font-weight: 500; font-size: 0.80rem;">투찰 취소 불가</span> <input
-                                        type="checkbox" class="" name="" value="Y" id="bddprCanclPossAt"/>
+                                    <span style="font-weight: 500; font-size: 0.80rem;">투찰 취소 가능 여부</span> <input
+                                        type="checkbox" class="" name="" value="N" id="bddprCanclPossAt"/>
                                     <div class="form-set" style="margin-top:5px;">
                                         <div class="input-group date form-date">
                                             <input type="text" class="input" id="bddprCanclLmttDe" />
@@ -698,7 +698,7 @@
             var isValid = true;
             var canclPossAt = $('#bddprCanclPossAt').val();
 
-            if (canclPossAt === 'Y') {
+            if (canclPossAt === 'N') {
                 requiredElementDate.forEach(function(field) {
                     isValid = isValid && validateField(field);
                 });
@@ -710,6 +710,8 @@
 
             return isValid;
         }
+
+        // 투찰 기간에 따른 취소 기한일시 제한(수정 필요)
         function test(beginDt, endDt) {
             var datesEnabled = [];
             var startDate = new Date(beginDt);
@@ -760,24 +762,24 @@
 
         $('#bddprCanclPossAt').change(function () {
             if ($(this).is(':checked')) {
-                $('#bddprCanclLmttDe, #bddprCanclLmttDe_ampm, #bddprCanclLmttDe_hour, #bddprCanclLmttDe_min, #bddprCanclLmttDe_sec').prop('disabled', true);
-            } else {
                 $('#bddprCanclLmttDe, #bddprCanclLmttDe_ampm, #bddprCanclLmttDe_hour, #bddprCanclLmttDe_min, #bddprCanclLmttDe_sec').prop('disabled', false);
+            } else {
+                $('#bddprCanclLmttDe, #bddprCanclLmttDe_ampm, #bddprCanclLmttDe_hour, #bddprCanclLmttDe_min, #bddprCanclLmttDe_sec').prop('disabled', true);
             }
         });
 
         $('#bddprCanclPossAt').change(function () {
-            var value = $(this).prop('checked') ? 'N' : 'Y';
+            var value = $(this).prop('checked') ? 'Y' : 'N';
             $('#bddprCanclPossAt').val(value);
         });
 
-        $('#bddprBeginDt').on('change', function () {
-            updateCanclLmttDeRange();
-        });
-
-        $('#bddprEndDt').on('change', function () {
-            updateCanclLmttDeRange();
-        });
+        // $('#bddprBeginDt').on('change', function () {
+        //     updateCanclLmttDeRange();
+        // });
+        //
+        // $('#bddprEndDt').on('change', function () {
+        //     updateCanclLmttDeRange();
+        // });
 
         $('#submitBid').on('click', function () {
             if (validateSubmitForm()) {
