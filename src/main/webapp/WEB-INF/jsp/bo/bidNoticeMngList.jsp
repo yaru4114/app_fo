@@ -446,6 +446,7 @@
 <script type="text/javascript">
   var provider;
   var girdView;
+  var chgPblancId;
 
   $(document).ready(function () {
     // 오늘 날짜 가져오기
@@ -469,28 +470,6 @@
 
     ajaxBidNoticeMngStatCntList(jsonData , "Y");
     ajaxBidNoticeMngList(jsonData);
-
-      $('#bid_noticeAdd').click(function () {
-          $('#myModalContainer').load("bidModal.jsp", function () {
-              $('#exampleModal').show();
-
-              $('.close').click(function () {
-                  $('#exampleModal').hide();
-              });
-          });
-      });
-
-      $('#bid_noticeChg').click(function () {
-          $('#myModalContainer').load("bidModal.jsp", function () {
-              $('#modalBidDtl').hide();
-              $('#exampleModal').show();
-
-              $('.close').click(function () {
-                  $('#exampleModal').hide();
-                  $('#modalBidDtl').show();
-              });
-          });
-      });
   });
 
   // 입찰상태 버튼들 클릭시 리스트 조회
@@ -630,9 +609,11 @@
           var rowIndex = clickData.itemIndex;
           var colIndex = clickData.column;
           var bidPblancId = grid.getValue(rowIndex , colIndex);
+          chgPblancId = bidPblancId;
 
           if(colIndex == "bidPblancId") {
             ajaxBidNoticeMngInfo(bidPblancId);
+            chgModalOpen();
           }
         }
       },
@@ -915,8 +896,53 @@
       gridView.onPageCountChanged = function (grid, pageCount) {
         $('#total-page-view').text(pageCount);
       };
-
   }
+
+  function start() {
+      // 오늘 날짜 가져오기
+      var today = new Date();
+      // Datepicker 초기화 및 오늘 날짜로 설정
+      $("#startDatepicker").datepicker({
+          format: 'yyyy-mm-dd'
+      });
+      $("#endDatepiker").datepicker({
+          format: 'yyyy-mm-dd'
+      });
+
+      var jsonData = getCreateJsonData("");
+      $(".form-period-set .btn-box .btn").on("click", getDatePickerButtonId);
+      $('#btn_search').on("click", getSearchBtn);
+      $(".tab-button .btn").on("click" , getBidStatList);
+      $("#btn_bidCancel").on("click" , fnbidCancel);
+      $("#btnClose").on("click" , fnClose);
+
+      realgridCredate();
+
+      ajaxBidNoticeMngStatCntList(jsonData , "Y");
+      ajaxBidNoticeMngList(jsonData);
+  }
+
+  $('#bid_noticeAdd').click(function () {
+      $('#myModalContainer').load("bidModal.jsp", function () {
+          $('#exampleModal').show();
+
+          $('.close').click(function () {
+              $('#exampleModal').hide();
+          });
+      });
+  });
+
+  $('#bid_noticeChg').click(function () {
+      $('#myModalContainer').load("bidModal.jsp", function () {
+          $('#modalBidDtl').hide();
+          $('#exampleModal').show();
+
+          $('.close').click(function () {
+              $('#exampleModal').hide();
+              start();
+          });
+      });
+  });
 
 
 </script>
