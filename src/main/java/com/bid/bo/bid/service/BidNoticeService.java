@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class BidNoticeService{
@@ -65,5 +66,31 @@ public class BidNoticeService{
         resultVo.setBidBddprDtlVoList(bidBddprDtlVoList);
 
         return resultVo;
+    }
+
+    /**
+     입찰 상태코드 변경
+    * @date : 2024-01-22
+    * @author  xyzp1539
+    **/
+    @Transactional
+    public int bidNoticeCanlcel(BidNoticeVO paramVo) {
+        BidNoticeVO realParamVo = new BidNoticeVO();
+
+        if( paramVo.getBidPblancId() != null && !paramVo.getBidPblancId().equals("")) {
+            realParamVo.setBidPblancId(paramVo.getBidPblancId());
+
+            // CASE 1. 입찰예정(12) 에서 취소시 -> 공고취소(33) 으로 변경
+            if(paramVo.getBidSttusCode().equals("12")) {
+                realParamVo.setBidSttusCode("33");
+            }
+            // CASE 2. 투찰중(13) 에서 취소시 -> 투찰업체가 없으면 취소처리(33)
+            //                                -> 투찰업체가 있으면 유찰처리(32)
+            else if(paramVo.getBidSttusCode().equals("13")) {
+
+            }
+        }
+
+        return bidNoticeDao.bidNoticeCanlcel(realParamVo);
     }
 }
