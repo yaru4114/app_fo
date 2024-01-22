@@ -3,6 +3,7 @@ package com.bid.bo.member.service;
 import com.bid.bo.member.dao.BdMemberDAO;
 import com.bid.common.model.BidMemberVO;
 import com.bid.common.model.SearchVO;
+import com.bid.common.util.AesUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,15 @@ public class BdMemberService {
     public Map<String, Object> getMemberInfo(BidMemberVO vo) {
         Map<String, Object> resultMap = new HashMap<>();
         List<BidMemberVO> voList = bdMemberDAO.getMemberInfo(vo);
+
+        for (BidMemberVO result :voList) {
+            try {
+                String decryptPw = AesUtil.decrypt(result.getBidMberSecretNo());
+                result.setBidMberSecretNo(decryptPw);
+            } catch (Exception e) {
+                e.getStackTrace();
+            }
+        }
 
         resultMap.put("result", voList);
         return resultMap;
@@ -81,11 +91,20 @@ public class BdMemberService {
         return resultMap;
     }
 
-    public Map<String, Object> searchById(String bidMberId) {
+    public Map<String, Object> searchById(String bidMberId){
         Map<String, Object> resultMap = new HashMap<>();
+        BidMemberVO result = bdMemberDAO.searchById(bidMberId);
 
-        resultMap.put("result",bdMemberDAO.searchById(bidMberId));
-        resultMap.put("success",true);
+        try {
+            result.setBidMberSecretNo(AesUtil.decrypt(result.getBidMberSecretNo()));
+            resultMap.put("result",result);
+            resultMap.put("success",true);
+
+        } catch (Exception e) {
+            e.getStackTrace();
+            resultMap.put("success",false);
+            resultMap.put("message","복호화 에러");
+        }
 
         return resultMap;
     }

@@ -4,6 +4,7 @@ import com.bid.common.model.BidMemberVO;
 
 import com.bid.common.model.DocVO;
 import com.bid.common.model.FileVO;
+import com.bid.common.util.AesUtil;
 import com.bid.common.util.FileUtil;
 import com.bid.fo.member.dao.BidMemberDAO;
 import com.bid.fo.member.model.LoginVO;
@@ -52,6 +53,12 @@ public class BidMemberService {
         log.info("docNo1 : {}", vo.getBsnmRegistDocNo1());
 
         try {
+            // 암호화
+            if (!vo.getBidMberSecretNo().isEmpty()) {
+                String encryptPw = AesUtil.encrypt(vo.getBidMberSecretNo());
+                vo.setBidMberSecretNo(encryptPw);
+            }
+
             // 회원정보 입력
             memberDAO.creMember(vo);
 
@@ -60,7 +67,7 @@ public class BidMemberService {
             
             resultMap.put("success", true);
             resultMap.put("message", "가입 요청이 완료되었습니다. 가입 승인 후 이용 가능합니다.");
-        } catch (RuntimeException e) {
+        } catch (Exception e) {
             log.error("트랜젝션 오류");
             log.error("{}",e);
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
@@ -77,7 +84,11 @@ public class BidMemberService {
     public Map<String,Object> login(LoginVO vo) {
 
         Map<String,Object> resultMap = new HashMap<>();
-
+        // 암호화
+        if (!vo.getUserPwd().isEmpty()) {
+            String encryptPw = AesUtil.encrypt(vo.getUserPwd());
+            vo.setUserPwd(encryptPw);
+        }
         BidMemberVO result = memberDAO.login(vo);
 
         // 계정 불일치
