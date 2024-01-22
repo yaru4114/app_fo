@@ -191,6 +191,11 @@
 <!-- embedded -->
 <script>
 
+    if (loginYn == 'Y') {
+        alert("잘못된 접근입니다.");
+        location.href="/fo/bid";
+    }
+
 	//전체 선택 체크박스 확인
 	agreeChkUnit();
 	function agreeChkUnit() {

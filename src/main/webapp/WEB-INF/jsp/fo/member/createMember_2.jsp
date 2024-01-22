@@ -273,6 +273,11 @@
 <script>
 var fileList = [];
 
+if (loginYn == 'Y') {
+    alert("잘못된 접근입니다.");
+    location.href="/fo/bid";
+}
+
 $(document).ready(function(){
 
     // 약관동의 없이 넘어온경우

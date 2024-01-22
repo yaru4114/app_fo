@@ -72,6 +72,12 @@
 <script src="/guide/js/sorin.js"></script>
 <!-- embedded -->
 <script>
+if (loginYn == 'Y') {
+    alert("잘못된 접근입니다.");
+    location.href="/fo/bid";
+}
+
+
 $(document).ready(function() {
     // 동의 자세히 보기
     $(document).on('click', '.info-more', function() {

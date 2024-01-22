@@ -21,7 +21,7 @@
             </ul>
         </div>
     </div>
-    <!-- 비로그인시 : 일시 제거
+
     <div id="header_loginN" class="util utility bid" style="display:none;">
         <div class="util-list">
             <ul>
@@ -29,7 +29,7 @@
             </ul>
         </div>
     </div>
-    -->
+
 </header>
 <script>
     // 로그인 세션 헤더에 등록
@@ -42,10 +42,10 @@
     // 로그인 / 비로그인 메뉴
 	if(loginYn == 'N'){
 		document.getElementById("header_loginY").style.display = "none";
-		// document.getElementById("header_loginN").style.display = "block";
+		document.getElementById("header_loginN").style.display = "block";
 	} else {
 		document.getElementById("header_loginY").style.display = "block";
-		// document.getElementById("header_loginN").style.display = "none";
+		document.getElementById("header_loginN").style.display = "none";
 	}
 
 	function header_toMyPage(){

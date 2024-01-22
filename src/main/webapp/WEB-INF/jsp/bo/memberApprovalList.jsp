@@ -433,6 +433,7 @@
 
         // 🛠️ 검색 버튼 클릭 이벤트 처리
         $('#searchBtn').on('click', function () {
+            gridView.setPage(0);
             getMemberApprovalList();
         });
 
