@@ -67,7 +67,7 @@
                 <div id="myModalContainer">
                     <jsp:include page="bidModal.jsp"/>
                 </div>
-                <div class="dashboard2-wrap tracking">
+                <div class="dashboard2-wrap tracking" style="overflow: visible;">
                     <div class="section-top-wrap flex-afs-jsb">
                         <section class="dashboard2 dashboard2-card-report month" style="width: 100%">
                             <h2 class="dashboard2-title"> * 등록 입찰 공고 현황</h2>
