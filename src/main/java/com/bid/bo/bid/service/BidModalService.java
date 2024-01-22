@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,6 +52,12 @@ public class BidModalService {
 
     public Map<String, Object> creBidNotice(BidNoticeVO vo) {
         Map<String, Object> resultMap = new HashMap<>();
+
+        String permWtRage = vo.getPermWtRate1();
+        BigDecimal decimalValue = new BigDecimal(permWtRage);
+        decimalValue = decimalValue.setScale(1, RoundingMode.HALF_UP);
+        vo.setPermWtRate(decimalValue);
+
         bidModalDAO.creBidNotice(vo);
 
         resultMap.put("success", true);

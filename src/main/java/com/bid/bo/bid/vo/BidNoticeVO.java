@@ -1,5 +1,6 @@
 package com.bid.bo.bid.vo;
 
+import java.math.BigDecimal;
 import java.util.List;
 import lombok.Data;
 
@@ -12,7 +13,8 @@ public class BidNoticeVO {
     private String itmSn;
     private String dstrctLclsfCode;
     private String bidWt;
-    private String permWtRate;
+    private String permWtRate1;
+    private BigDecimal permWtRate;
     private String delyCnd01ApplcAt;
     private String delyCnd01StdrPc;
     private String delyCnd01PremiumPc;

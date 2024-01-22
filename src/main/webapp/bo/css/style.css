@@ -435,6 +435,10 @@
   cursor: default;
 }
 
+td.day.disabled {
+  opacity: 0.2;
+}
+
 .datepicker table tr td.highlighted {
   color: #fff;
   background-color: #17a2b8;

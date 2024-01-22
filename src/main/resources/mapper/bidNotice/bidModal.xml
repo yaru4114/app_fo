@@ -44,7 +44,7 @@
         ON
         ITM.METAL_CODE = CMN.SUB_CODE AND CMN.MAIN_CODE='METAL_CODE'
         WHERE
-        CMN.SUB_CODE in (#{subCode})
+            CMN.SUB_CODE in (#{subCode})
         ORDER BY CODE_NM
     </select>
 

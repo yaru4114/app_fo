@@ -11,6 +11,7 @@ import lombok.Data;
 public class CoCmmnCdVO {
     private String mainCode;                    // 메인코드
     private String subCode;                     // 서브코드
+    private int itmSn;                          // 아이템 상품 코드
     private String brandNm;                     // 브랜드명
     private String brandCode;                   // 브랜드코드
     private String itmCode;                     // 아이템 상품 코드

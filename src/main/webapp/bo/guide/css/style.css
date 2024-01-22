@@ -9182,7 +9182,7 @@ td.tbl-bg-green {background:#d4ffec}
 .w450px{width: 450px !important;}
 .w700px{width: 700px !important;}
 .w1000px{width: 1000px !important;}
-.pop-modal {background-color: rgba(0,0,0,0.4);}
+.pop-modal {background-color: rgba(0,0,0,0);}
 .pop-modal .pop-inner {padding: 35px 40px;background-color: #fff;}
 .pop-modal .pop-title {margin-bottom: 15px;display: flex;align-items: center;justify-content: flex-start; gap: 0.5em}
 .pop-modal.pop-center .pop-title {justify-content: center;}
