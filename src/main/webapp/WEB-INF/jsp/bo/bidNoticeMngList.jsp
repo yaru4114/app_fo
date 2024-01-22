@@ -409,9 +409,6 @@
                                             data-target="#chgBidModal">공고 수정</button>
                                     <button type="button" class="btn">공고 취소</button>
                                 </div>
-                                <div id="bidChgModalContainer">
-                                    <jsp:include page="bidChgModal.jsp"/>
-                                </div>
                                 <div class="sub-title">
                                     <h3 class="">투찰 기업 목록</h3>
                                 </div>
@@ -484,11 +481,12 @@
       });
 
       $('#bid_noticeChg').click(function () {
-          $('#bidChgModalContainer').load("bidChgModal.jsp", function () {
-              $('#bidChgModal').show();
+          $('#myModalContainer').load("bidModal.jsp", function () {
+              $('#modalBidDtl').hide();
+              $('#exampleModal').show();
 
               $('.close').click(function () {
-                  $('#bidChgModal').hide();
+                  $('#modalBidDtl').show();
               });
           });
       });
