@@ -128,7 +128,7 @@
                                             <tbody>
                                             <tr>
                                                 <td class="text-center"><input type="checkbox" class=""
-                                                                               name="" value="Y" id="delyCnd01ApplcAt"
+                                                                               name="" value="" id="delyCnd01ApplcAt"
                                                                                checked/></td>
                                                 <td>서린상사 지정 보세창고 도착도(FCA 서린상사 지정 보세창고)</td>
                                                 <td>
@@ -145,7 +145,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="text-center"><input type="checkbox" class=""
-                                                                               name="" value="Y" id="delyCnd02ApplcAt"
+                                                                               name="" value="" id="delyCnd02ApplcAt"
                                                                                checked/></td>
                                                 <td>기타 부산/인천 보세창고 상차도(FCA BUSAN/INCHEON)</td>
                                                 <td>
@@ -162,7 +162,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="text-center"><input type="checkbox" class=""
-                                                                               name="" value="Y" id="delyCnd03ApplcAt"
+                                                                               name="" value="" id="delyCnd03ApplcAt"
                                                                                checked/></td>
                                                 <td>CIF INCHEON / CIF BUSAN</td>
                                                 <td>
@@ -343,20 +343,20 @@
                                 <th scope="row">투찰 취소기한<i class="icon icon-required"></i></th>
                                 <td colspan="3">
                                     <span style="font-weight: 500; font-size: 0.80rem;">투찰 취소 가능 여부</span> <input
-                                        type="checkbox" class="" name="bddprCanclPossAt" value="N" id="bddprCanclPossAt"/>
+                                        type="checkbox" class="" name="bddprCanclPossAt" value="" id="bddprCanclPossAt"/>
                                     <div class="form-set" style="margin-top:5px;">
                                         <div class="input-group date form-date">
-                                            <input type="text" class="input" id="bddprCanclLmttDe" />
+                                            <input type="text" class="input" id="bddprCanclLmttDe" disabled />
                                             <label for="bddprCanclLmttDe" class="btn has-icon"><i
                                                     class="icon icon-calendar">달력</i></label>
                                         </div>
-                                        <select class="form-select" style="width:80px;" id="bddprCanclLmttDe_ampm">
+                                        <select class="form-select" style="width:80px;" id="bddprCanclLmttDe_ampm" disabled>
                                             <option value="am">am</option>
                                             <option value="pm">pm</option>
                                         </select>
-                                        <input type="text" class="input" id="bddprCanclLmttDe_hour" value="" style="width:50px;">&nbsp;시
-                                        <input type="text" class="input" id="bddprCanclLmttDe_min" value="" style="width:50px;">&nbsp;분
-                                        <input type="text" class="input" id="bddprCanclLmttDe_sec" value="" style="width:50px;">&nbsp;초
+                                        <input type="text" class="input" id="bddprCanclLmttDe_hour" value="" style="width:50px;" disabled>&nbsp;시
+                                        <input type="text" class="input" id="bddprCanclLmttDe_min" value="" style="width:50px;" disabled>&nbsp;분
+                                        <input type="text" class="input" id="bddprCanclLmttDe_sec" value="" style="width:50px;" disabled>&nbsp;초
                                         까지 투찰 취소 가능함.
                                     </div>
                                 </td>
@@ -406,6 +406,12 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
+            startBidModal();
+        });
+
+        /* ================================== ❗공통 함수❗ ================================== */
+        function startBidModal() {
+            console.log('첫 시작');
             var bidWt = $('#bidWt');
             var permWtRate = $('#permWtRate');
 
@@ -425,42 +431,45 @@
             getOptions('priceSpmtc', 'pcAppnMthCode', 'codeNm', 'subCode', 'PRICE_SPMTC_CODE');
             getOptions('pymntMt', 'setleMthCode', 'codeNm', 'subCode', 'PYMNT_MT_CODE');
             getOptions('pymntPr', 'setlePdCode', 'codeNm', 'subCode', 'PYMNT_PR_CODE');
-        });
-
-        /* ================================== ❗공통 함수❗ ================================== */
+        }
         // 옵션 조회 공통 함수
         function getOptions(endPoint, elementId, textParam, valueParam, code) {
-            var param = {};
+            return new Promise(function (resolve, reject) {
+                var param = {};
 
-            if (code) {
-                param.subCode = code;
-            }
-
-            $.ajax({
-                type: 'POST',
-                url: '/bo/bid/modal/' + endPoint,
-                contentType: 'application/json',
-                data: JSON.stringify(param),
-                success: function (response) {
-                    console.log('response : ', response);
-                    var selectElement = $('#' + elementId);
-
-                    selectElement.empty();
-
-                    selectElement.append($('<option>').text('선택').val('선택'));
-
-                    if (response.result.length > 0) {
-                        response.result.forEach(function (data) {
-                            var text = data[textParam];
-                            var value = data[valueParam];
-
-                            selectElement.append($('<option>').text(text).val(value));
-                        });
-                    }
-                },
-                error: function (error) {
-                    console.error(error);
+                if (code) {
+                    param.subCode = code;
                 }
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/bo/bid/modal/' + endPoint,
+                    contentType: 'application/json',
+                    data: JSON.stringify(param),
+                    success: function (response) {
+                        console.log('response : ', response);
+                        var selectElement = $('#' + elementId);
+
+                        selectElement.empty();
+
+                        selectElement.append($('<option>').text('선택').val('선택'));
+
+                        if (response.result.length > 0) {
+                            response.result.forEach(function (data) {
+                                var text = data[textParam];
+                                var value = data[valueParam];
+
+                                selectElement.append($('<option>').text(text).val(value));
+                            });
+                        }
+
+                        resolve();
+                    },
+                    error: function (error) {
+                        console.error(error);
+                        reject(error);
+                    }
+                });
             });
         }
 
@@ -472,15 +481,144 @@
                 $('#creBidSuccess').fadeOut(300);
             },2000);
         }
+
+        function appendOpt(elementId) {
+            var selectElement = $('#' + elementId);
+            selectElement.val('').append($('<option>').text('선택').val('선택'));
+        }
+
+        function resetForm() {
+            startBidModal();
+            appendOpt('bidWt');
+            appendOpt('permWtRate');
+            appendOpt('itmSn');
+            appendOpt('brandGroupCode');
+            appendOpt('brandCode');
+            $('#delyCnd01PremiumPc').val('1000');
+            $('#delyCnd02PremiumPc').val('1000');
+            $('#delyCnd03PremiumPc').val('1000');
+            $('#delyBeginDe').val('');
+            $('#delyEndDe').val('');
+            $('#delyPdCn').val('');
+            $('#pcAppnBeginDe').val('');
+            $('#pcAppnEndDe').val('');
+            $('#pcAppnMthCode').val('');
+            $('#setleCrncyCode').val('');
+            $('#setleMthCode').val('');
+            $('#setlePdCode').val('');
+            $('#etcCn').val('');
+            $('#bddprBeginDt').val('');
+            $('#bddprEndDt').val('');
+            $('#bddprCanclLmttDe').val('');
+            $('#bddprCanclPossAt').prop('checked', false);
+            $('input[name="dspyAt"]').prop('checked', false);
+
+            $('#bddprBeginDt_hour').val('');
+            $('#bddprBeginDt_min').val('');
+            $('#bddprBeginDt_sec').val('');
+            $('#bddprEndDt_hour').val('');
+            $('#bddprEndDt_min').val('');
+            $('#bddprEndDt_sec').val('');
+            $('#bddprCanclLmttDe_hour').val('');
+            $('#bddprCanclLmttDe_min').val('');
+            $('#bddprCanclLmttDe_sec').val('');
+        }
+
+        function udtCheckboxValue (elementId) {
+            $('#' + elementId).change(function() {
+                var value = $(this).prop('checked') ? 'Y' : 'N';
+                $('#' + elementId).val(value);
+            });
+        }
+
+        // 필수 입력 검증 함수
+        var requiredElement = [
+            { id: 'metalCode', label: '메탈 구분' },
+            { id: 'brandGroupCode', label: '브랜드 그룹' },
+            { id: 'brandCode', label: '브랜드' },
+            { id: 'itmSn', label: '아이템 상품명' },
+            { id: 'dstrctLclsfCode', label: '권역' },
+            { id: 'bidWt', label: '수량 (톤)' },
+            { id: 'permWtRate', label: '중량허용공차' },
+            { id: 'delyBeginDe', label: '인도 시작 일자' },
+            { id: 'delyEndDe', label: '인도 종료 일자' },
+            { id: 'pcAppnBeginDe', label: '가격 지정 시작 일자' },
+            { id: 'pcAppnEndDe', label: '가격 지정 종료 일자' },
+            { id: 'pcAppnMthCode', label: '가격 지정 방법' },
+            { id: 'setleCrncyCode', label: '결제 통화 코드' },
+            { id: 'setleMthCode', label: '결제 방법 코드' },
+            { id: 'setlePdCode', label: '결제 기간 코드' },
+            { id: 'bddprBeginDt', label: '투찰 시작 일시' },
+            { id: 'bddprBeginDt_hour', label: '투찰 시작 일시 [시]'},
+            { id: 'bddprBeginDt_min', label: '투찰 시작 일시 [분]'},
+            { id: 'bddprBeginDt_sec', label: '투찰 시작 일시 [초]'},
+            { id: 'bddprEndDt', label: '투찰 종료 일시' },
+            { id: 'bddprEndDt_hour', label: '투찰 종료 일시 [시]'},
+            { id: 'bddprEndDt_min', label: '투찰 시작 일시 [분]'},
+            { id: 'bddprEndDt_sec', label: '투찰 시작 일시 [초]'},
+            { id: 'dspyAt', label: '전시 여부' }
+        ];
+
+        var requiredElementDate = [
+            { id: 'bddprCanclLmttDe', label: '투찰 취소 제한일' },
+            { id: 'bddprCanclLmttDe_hour', label: '투찰 취소 제한 [시]' },
+            { id: 'bddprCanclLmttDe_min', label: '투찰 취소 제한 [분]' },
+            { id: 'bddprCanclLmttDe_sec', label: '투찰 취소 제한 [초]' },
+        ]
+
+        function validateField(field) {
+            var value = $('#' + field.id).val();
+            if (value === '' || value === '선택') {
+                alert(field.label + '을(를) 입력 하세요.');
+                return false;
+            } else if (field.id === 'bddprCanclLmttDe') {
+                return true;
+            }
+            return true;
+        }
+
+        function validateSubmitForm() {
+            var isValid = true;
+            var canclPossAt = $('#bddprCanclPossAt').val();
+
+            if (canclPossAt === 'Y') {
+                requiredElementDate.forEach(function(field) {
+                    isValid = isValid && validateField(field);
+                });
+            } else {
+                requiredElement.forEach(function(field) {
+                    isValid = isValid && validateField(field);
+                });
+            }
+
+            return isValid;
+        }
+
+        function setDateTimeFields(dateTime, dateField, ampmField, hourField, minField, secField) {
+            var dateValue = dateTime.substr(0, 8);
+            var hourValue = dateTime.substr(8, 2);
+            var minValue = dateTime.substr(10, 2);
+            var secValue = dateTime.substr(12, 2);
+
+            $('#' + dateField).val(dateValue);
+
+            if (hourValue < 12) {
+                $('#' + ampmField).val('am');
+                $('#' + hourField).val(hourValue);
+            } else {
+                $('#' + ampmField).val('pm');
+                $('#' + hourField).val(hourValue - 12);
+            }
+
+            $('#' + minField).val(minValue);
+            $('#' + secField).val(secValue);
+        }
         /* ================================== ❗공통 함수❗ ================================== */
 
 
         /* ================================== ❗수정 관련❗ ================================== */
-        // 모달 상태 변수
-        var isChgBid = false;
         function chgModalOpen() {
             if (chgPblancId) {
-                isChgBid = true;
                 getBidNoticeByPblancId(chgPblancId);
             }
         }
@@ -499,62 +637,82 @@
                 success: function (response) {
                     if (response.result) {
                         var data = response.result;
-                        console.log('DATA : ', JSON.stringify(data, null, 2));
-                        console.log('response!!! : ', response);
-                        $('#metalCode').val(data.metalCode);
-                        $('#brandGroupCode').val(data.brandGroupCode);
-                        $('#brandCode').val(data.brandCode);
-                        $('#itmSn').val(data.itmSn);
-                        $('#dstrctLclsfCode').val(data.dstrctLclsfCode);
-                        $('#bidWt').val(data.bidWt);
-                        $('#permWtRate').val(data.permWtRate);
-                        $('#delyCnd01ApplcAt').val(data.delyCnd01ApplcAt);
-                        $('#delyCnd02ApplcAt').val(data.delyCnd02ApplcAt);
-                        $('#delyCnd02StdrPc').val(data.delyCnd02StdrPc);
-                        $('#delyCnd03ApplcAt').val(data.delyCnd03ApplcAt);
-                        $('#delyCnd03StdrPc').val(data.delyCnd03StdrPc);
-                        $('#delyBeginDe').val(data.delyBeginDe);
-                        $('#delyEndDe').val(data.delyEndDe);
-                        $('#delyPdCn').val(data.delyPdCn);
-                        $('#pcAppnBeginDe').val(data.pcAppnBeginDe);
-                        $('#pcAppnEndDe').val(data.pcAppnEndDe);
-                        $('#pcAppnMthCode').val(data.pcAppnMthCode);
-                        $('#setleCrncyCode').val(data.setleCrncyCode);
-                        $('#setleMthCode').val(data.setleMthCode);
-                        $('#setlePdCode').val(data.setlePdCode);
-                        $('#etcCn').val(data.etcCn);
-                        $('input[name="bddprCanclPossAt"][value="' + data.bddprCanclPossAt + '"]').prop('checked', data.bddprCanclPossAt === 'Y');
-                        $('input[name="dspyAt"][value="' + data.dspyAt + '"]').prop('checked', true);
+                        console.log('수정할 공고 정보 data : ', data);
 
-                        // 날짜(시,분,초)
-                        // 투찰 시작일 (bddprBeginDt)
-                        // 투찰 종료일 (bddprEndDt)
-                        // 투찰 취소 마감일 (bddprCanclLmttDe)
+                        getOptions('brandGrp', 'brandGroupCode', 'codeNm', 'subCode', data.metalCode)
+                            .then(function() {
+                                return getOptions('item', 'itmSn', 'itmPrdlstKorean', 'itmSn', data.metalCode);
+                            })
+                            .then(function() {
+                                return getOptions('brand', 'brandCode', 'brandNm', 'brandCode', data.brandGroupCode);
+                            })
+                            .then(function () {
+                                $('#metalCode').val(data.metalCode);
+                                $('#brandGroupCode').val(data.brandGroupCode);
+                                $('#brandCode').val(data.brandCode);
+                                $('#itmSn').val(data.itmSn);
+                                $('#dstrctLclsfCode').val(data.dstrctLclsfCode);
+                                $('#bidWt').val(data.bidWt);
+                                $('#permWtRate').val(data.permWtRate);
+                                $('#delyCnd01ApplcAt').val(data.delyCnd01ApplcAt);
+                                $('#delyCnd02ApplcAt').val(data.delyCnd02ApplcAt);
+                                $('#delyCnd02StdrPc').val(data.delyCnd02StdrPc);
+                                $('#delyCnd03ApplcAt').val(data.delyCnd03ApplcAt);
+                                $('#delyCnd03StdrPc').val(data.delyCnd03StdrPc);
+                                $('#delyBeginDe').val(data.delyBeginDe);
+                                $('#delyEndDe').val(data.delyEndDe);
+                                $('#delyPdCn').val(data.delyPdCn);
+                                $('#pcAppnBeginDe').val(data.pcAppnBeginDe);
+                                $('#pcAppnEndDe').val(data.pcAppnEndDe);
+                                $('#pcAppnMthCode').val(data.pcAppnMthCode);
+                                $('#setleCrncyCode').val(data.setleCrncyCode);
+                                $('#setleMthCode').val(data.setleMthCode);
+                                $('#setlePdCode').val(data.setlePdCode);
+                                $('#etcCn').val(data.etcCn);
 
-                        // 단위 변환
-                        var stdrPc01 = data.delyCnd01StdrPc;
-                        stdrPc01 = parseInt(stdrPc01, 10);
-                        $('#delyCnd01StdrPc').val(stdrPc01);
+                                $('#bddprCanclPossAt').prop('checked', data.bddprCanclPossAt === 'Y');
+                                if (data.bddprCanclPossAt === 'Y') {
+                                    $('#bddprCanclLmttDe, #bddprCanclLmttDe_ampm, #bddprCanclLmttDe_hour, #bddprCanclLmttDe_min, #bddprCanclLmttDe_sec').prop('disabled', false);
+                                } else {
+                                    $('#bddprCanclLmttDe, #bddprCanclLmttDe_ampm, #bddprCanclLmttDe_hour, #bddprCanclLmttDe_min, #bddprCanclLmttDe_sec').prop('disabled', true);
+                                }
 
-                        var stdrPc02 = data.delyCnd02StdrPc;
-                        stdrPc02 = parseInt(stdrPc02, 10);
-                        $('#delyCnd02StdrPc').val(stdrPc02);
+                                $('input[name="dspyAt"][value="' + data.dspyAt + '"]').prop('checked', true);
 
-                        var stdrPc03 = data.delyCnd03StdrPc;
-                        stdrPc03 = parseInt(stdrPc03, 10);
-                        $('#delyCnd03StdrPc').val(stdrPc03);
+                                /* ========================== 날짜(시,분,초) ========================== */
+                                setDateTimeFields(data.bddprBeginDt, 'bddprBeginDt', 'bddprBeginDt_ampm', 'bddprBeginDt_hour', 'bddprBeginDt_min', 'bddprBeginDt_sec');
+                                setDateTimeFields(data.bddprEndDt, 'bddprEndDt', 'bddprEndDt_ampm', 'bddprEndDt_hour', 'bddprEndDt_min', 'bddprEndDt_sec');
+                                setDateTimeFields(data.bddprCanclLmttDe, 'bddprCanclLmttDe', 'bddprCanclLmttDe_ampm', 'bddprCanclLmttDe_hour', 'bddprCanclLmttDe_min', 'bddprCanclLmttDe_sec');
+                                /* ========================== 날짜(시,분,초) ========================== */
 
-                        var prePc01 = data.delyCnd01PremiumPc;
-                        prePc01 = parseInt(prePc01, 10);
-                        $('#delyCnd01PremiumPc').val(prePc01);
+                                // 단위 변환
+                                var stdrPc01 = data.delyCnd01StdrPc;
+                                stdrPc01 = parseInt(stdrPc01, 10);
+                                $('#delyCnd01StdrPc').val(stdrPc01);
 
-                        var prePc02 = data.delyCnd02PremiumPc;
-                        prePc02 = parseInt(prePc02, 10);
-                        $('#delyCnd02PremiumPc').val(prePc02);
+                                var stdrPc02 = data.delyCnd02StdrPc;
+                                stdrPc02 = parseInt(stdrPc02, 10);
+                                $('#delyCnd02StdrPc').val(stdrPc02);
 
-                        var prePc03 = data.delyCnd03PremiumPc;
-                        prePc03 = parseInt(prePc03, 10);
-                        $('#delyCnd03PremiumPc').val(prePc03);
+                                var stdrPc03 = data.delyCnd03StdrPc;
+                                stdrPc03 = parseInt(stdrPc03, 10);
+                                $('#delyCnd03StdrPc').val(stdrPc03);
+
+                                var prePc01 = data.delyCnd01PremiumPc;
+                                prePc01 = parseInt(prePc01, 10);
+                                $('#delyCnd01PremiumPc').val(prePc01);
+
+                                var prePc02 = data.delyCnd02PremiumPc;
+                                prePc02 = parseInt(prePc02, 10);
+                                $('#delyCnd02PremiumPc').val(prePc02);
+
+                                var prePc03 = data.delyCnd03PremiumPc;
+                                prePc03 = parseInt(prePc03, 10);
+                                $('#delyCnd03PremiumPc').val(prePc03);
+                            })
+                            .catch(function (error) {
+                                console.error(error);
+                            });
                     }
                 },
                 error: function (error) {
@@ -693,6 +851,7 @@
             });
         }
 
+        // Request
         function formatDate(date, ampm, hour, min, sec) {
             if (ampm === 'pm') {
                 hour = ('0' + (parseInt(hour) + 12)).slice(-2);
@@ -704,144 +863,47 @@
             return date;
         }
 
-        function formatDate2(date) {
-            return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-        }
-
-        function resetForm() {
-            $('#metalCode').val('');
-            $('#brandGroupCode').val('');
-            $('#brandCode').val('');
-            $('#itmSn').val('');
-            $('#dstrctLclsfCode').val('');
-            $('#bidWt').val('');
-            $('#permWtRate').val('');
-            $('#delyCnd01ApplcAt').val('');
-            $('#delyCnd01StdrPc').val('');
-            $('#delyCnd01PremiumPc').val('');
-            $('#delyCnd02ApplcAt').val('');
-            $('#delyCnd02StdrPc').val('');
-            $('#delyCnd02PremiumPc').val('');
-            $('#delyCnd03ApplcAt').val('');
-            $('#delyCnd03StdrPc').val('');
-            $('#delyCnd03PremiumPc').val('');
-            $('#delyBeginDe').val('');
-            $('#delyEndDe').val('');
-            $('#delyPdCn').val('');
-            $('#pcAppnBeginDe').val('');
-            $('#pcAppnEndDe').val('');
-            $('#pcAppnMthCode').val('');
-            $('#setleCrncyCode').val('');
-            $('#setleMthCode').val('');
-            $('#setlePdCode').val('');
-            $('#etcCn').val('');
-            $('#bddprBeginDt').val('');
-            $('#bddprEndDt').val('');
-            $('#bddprCanclPossAt').val('');
-            $('#bddprCanclLmttDe').val('');
-            $('#dspyAt').val('');
-        }
-
-        // 필수 입력 검증 함수
-        var requiredElement = [
-            { id: 'metalCode', label: '메탈 구분' },
-            { id: 'brandGroupCode', label: '브랜드 그룹' },
-            { id: 'brandCode', label: '브랜드' },
-            { id: 'itmSn', label: '아이템 상품명' },
-            { id: 'dstrctLclsfCode', label: '권역' },
-            { id: 'bidWt', label: '수량 (톤)' },
-            { id: 'permWtRate', label: '중량허용공차' },
-            { id: 'delyBeginDe', label: '인도 시작 일자' },
-            { id: 'delyEndDe', label: '인도 종료 일자' },
-            { id: 'pcAppnBeginDe', label: '가격 지정 시작 일자' },
-            { id: 'pcAppnEndDe', label: '가격 지정 종료 일자' },
-            { id: 'pcAppnMthCode', label: '가격 지정 방법' },
-            { id: 'setleCrncyCode', label: '결제 통화 코드' },
-            { id: 'setleMthCode', label: '결제 방법 코드' },
-            { id: 'setlePdCode', label: '결제 기간 코드' },
-            { id: 'bddprBeginDt', label: '투찰 시작 일시' },
-            { id: 'bddprBeginDt_hour', label: '투찰 시작 일시 [시]'},
-            { id: 'bddprBeginDt_min', label: '투찰 시작 일시 [분]'},
-            { id: 'bddprBeginDt_sec', label: '투찰 시작 일시 [초]'},
-            { id: 'bddprEndDt', label: '투찰 종료 일시' },
-            { id: 'bddprEndDt_hour', label: '투찰 종료 일시 [시]'},
-            { id: 'bddprEndDt_min', label: '투찰 시작 일시 [분]'},
-            { id: 'bddprEndDt_sec', label: '투찰 시작 일시 [초]'},
-            { id: 'dspyAt', label: '전시 여부' }
-        ];
-
-        var requiredElementDate = [
-            { id: 'bddprCanclLmttDe', label: '투찰 취소 제한일' },
-            { id: 'bddprCanclLmttDe_hour', label: '투찰 취소 제한 [시]' },
-            { id: 'bddprCanclLmttDe_min', label: '투찰 취소 제한 [분]' },
-            { id: 'bddprCanclLmttDe_sec', label: '투찰 취소 제한 [초]' },
-        ]
-
-        function validateField(field) {
-            var value = $('#' + field.id).val();
-            if (value === '' || value === '선택') {
-                alert(field.label + '을(를) 입력 하세요.');
-                return false;
-            } else if (field.id === 'bddprCanclLmttDe') {
-                return true;
-            }
-            return true;
-        }
-
-        function validateSubmitForm() {
-            var isValid = true;
-            var canclPossAt = $('#bddprCanclPossAt').val();
-
-            if (canclPossAt === 'Y') {
-                requiredElementDate.forEach(function(field) {
-                    isValid = isValid && validateField(field);
-                });
-            } else {
-                requiredElement.forEach(function(field) {
-                    isValid = isValid && validateField(field);
-                });
-            }
-
-            return isValid;
-        }
-
-        // 투찰 기간에 따른 취소 기한일시 제한(수정 필요)
-        function test(beginDt, endDt) {
-            var datesEnabled = [];
-            var startDate = new Date(beginDt);
-            var endDate = new Date(endDt);
-
-            while (startDate <= endDate) {
-                var formattedDate = formatDate2(startDate);
-                datesEnabled.push(formattedDate);
-                startDate.setDate(startDate.getDate() + 1);
-            }
-            return datesEnabled;
-        }
-        function updateCanclLmttDeRange() {
-            var beginDt = $('#bddprBeginDt').val();
-            var endDt = $('#bddprEndDt').val();
-            var datesE1 = ['2024-1-22', '2024-1-23', '2024-1-24'];
-            var datesE = test(beginDt, endDt);
-            console.log('datesE ; ', typeof(datesE[0]));
-            console.log('datesE1 ; ', typeof(datesE1[0]));
-
-            $('#bddprCanclLmttDe').datepicker({
-                format: 'yyyy-mm-dd',
-                beforeShowDay: function(date) {
-                    var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-                    // console.log('allDates : ', allDates);
-
-                    if(datesE.indexOf(allDates) != -1) {
-                        console.log('true 래요');
-                        return true;
-                    } else {
-                        console.log('false 래요');
-                        return false;
-                    }
-                }
-            });
-        }
+        // function formatDate2(date) {
+        //     return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+        // }
+        //
+        // // 투찰 기간에 따른 취소 기한일시 제한(수정 필요)
+        // function test(beginDt, endDt) {
+        //     var datesEnabled = [];
+        //     var startDate = new Date(beginDt);
+        //     var endDate = new Date(endDt);
+        //
+        //     while (startDate <= endDate) {
+        //         var formattedDate = formatDate2(startDate);
+        //         datesEnabled.push(formattedDate);
+        //         startDate.setDate(startDate.getDate() + 1);
+        //     }
+        //     return datesEnabled;
+        // }
+        // function updateCanclLmttDeRange() {
+        //     var beginDt = $('#bddprBeginDt').val();
+        //     var endDt = $('#bddprEndDt').val();
+        //     var datesE1 = ['2024-1-22', '2024-1-23', '2024-1-24'];
+        //     var datesE = test(beginDt, endDt);
+        //     console.log('datesE ; ', typeof(datesE[0]));
+        //     console.log('datesE1 ; ', typeof(datesE1[0]));
+        //
+        //     $('#bddprCanclLmttDe').datepicker({
+        //         format: 'yyyy-mm-dd',
+        //         beforeShowDay: function(date) {
+        //             var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+        //             // console.log('allDates : ', allDates);
+        //
+        //             if(datesE.indexOf(allDates) != -1) {
+        //                 console.log('true 래요');
+        //                 return true;
+        //             } else {
+        //                 console.log('false 래요');
+        //                 return false;
+        //             }
+        //         }
+        //     });
+        // }
 
         $('#metalCode').change(function () {
             var selected = $(this).val();
@@ -851,7 +913,6 @@
 
         $('#brandGroupCode').change(function () {
             var selected = $(this).val();
-            getOptions('brand', 'brandCode', 'brandNm', 'brandCode', selected);
         });
 
         $('#bddprCanclPossAt').change(function () {
@@ -862,10 +923,10 @@
             }
         });
 
-        $('#bddprCanclPossAt').change(function () {
-            var value = $(this).prop('checked') ? 'Y' : 'N';
-            $('#bddprCanclPossAt').val(value);
-        });
+        udtCheckboxValue('bddprCanclPossAt');
+        udtCheckboxValue('delyCnd01ApplcAt');
+        udtCheckboxValue('delyCnd02ApplcAt');
+        udtCheckboxValue('delyCnd03ApplcAt');
 
         // $('#bddprBeginDt').on('change', function () {
         //     updateCanclLmttDeRange();
