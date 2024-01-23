@@ -81,7 +81,6 @@ public class BidMemberController {
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        session.setAttribute("loginYn","N");
         return "redirect:/fo/bid";
     }
 }
