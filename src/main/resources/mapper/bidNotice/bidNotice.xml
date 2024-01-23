@@ -11,6 +11,7 @@
          , CODE_NM
       FROM CO_CMMN_CD
      WHERE MAIN_CODE = 'BID_STAT_CODE'
+       AND CODE_REFRNONE = 'Y'
      ORDER BY CODE_ORDR
   </select>
 
@@ -98,6 +99,9 @@
                  , ISNULL(dbo.fn_convertDate(BDDPR_CANCL_LMTT_DE , 'bo'),'') AS BDDPR_CANCL_LMTT_DE -- AS 투찰취소제한일자
                  , ISNULL(dbo.fn_convertDate(BDDPR_BEGIN_DT , 'bo'),'') AS BDDPR_BEGIN_DT_INFO
                  , ISNULL(dbo.fn_convertDate(BDDPR_END_DT , 'bo'), '') AS BDDPR_END_DT_INFO
+                 , ISNULL(FAIL_BID_RESN , '') AS FAIL_BID_RESN                                        -- 유찰사유
+                 , ISNULL(dbo.fn_convertDate(FAIL_BID_DT , 'bo'), '') AS FAIL_BID_DT                  -- 유찰일시
+                 , ISNULL(dbo.fn_convertDate(PBLANC_CANCL_DT , 'bo') , '') AS PBLANC_CANCL_DT               -- 취소일시
               FROM BD_BID_BAS A
              WHERE 1=1
                AND ISNULL(DELETE_AT , 'N') = 'N'
@@ -167,6 +171,13 @@
     UPDATE BD_BID_BAS
        SET BID_STTUS_CODE = #{bidSttusCode}
          , LAST_CHANGE_DT = SYSDATETIME()
+    <if test='failBidResn != null and failBidResn != ""'>
+         , FAIL_BID_RESN = #{failBidResn}
+         , FAIL_BID_DT = FORMAT(cast(getdate() as datetime), 'yyyyMMddHHmmss')
+    </if>
+    <if test='bidSttusCode != null and bidSttusCode != "" and bidSttusCode == "33"'>
+         , PBLANC_CANCL_DT = FORMAT(cast(getdate() as datetime), 'yyyyMMddHHmmss')
+    </if>
      WHERE BID_PBLANC_ID = #{bidPblancId}
   </update>
 
@@ -178,17 +189,6 @@
      WHERE BID_PBLANC_ID = #{bidPblancId}
        AND ISNULL(DELETE_AT , 'N') = 'N'
   </select>
-
-  <!-- 입찰 공고 투찰 기업 유찰 처리-->
-  <update id="updateBidPassingProc" parameterType="com.bid.bo.bid.vo.BidNoticeVO">
-    /* bidNotice.updateBidPassingProc */
-    UPDATE BD_BDDPR_DTL
-       SET CANCL_AT = 'Y'
-         , CANCL_DT = FORMAT(cast(getdate() as datetime), 'yyyyMMddHHmmss')
-         , CANCL_RESN = #{canclResn}
-         , LAST_CHANGE_DT = SYSDATETIME()
-     WHERE BID_PBLANC_ID = #{bidPblancId}
-  </update>
 
   <!-- 입찰 공고 삭제 처리-->
   <update id="updateDelBidNotice" parameterType="com.bid.bo.bid.vo.BidNoticeVO">

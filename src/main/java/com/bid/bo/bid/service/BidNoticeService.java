@@ -58,7 +58,7 @@ public class BidNoticeService{
     public BidNoticeVO getBidNoticeMngInfo(BidNoticeVO paramVo) {
         List<BidNoticeVO> bidNoticeVoList = this.getBidNoticeMngBidList(paramVo);   // 입찰공고정보조회
         List<BidNoticeUpdtVO> updtVoList = bidNoticeDao.getBidNoticeMngBidUpdtList(paramVo);    // 입찰공고수정이력조회
-        List<BidBddprDtlVO> bidBddprDtlVoList = bidNoticeDao.getBidNoticeMngBidBddprDtlList(paramVo);   // 입찰공고투찰기업목록조회
+        List<BidBddprDtlVO> bidBddprDtlVoList = bidNoticeDao.getBidNoticeMngBidBddprDtlList(paramVo);                          // 입찰공고투찰기업목록조회
 
         BidNoticeVO resultVo = bidNoticeVoList.get(0);
 
@@ -91,8 +91,7 @@ public class BidNoticeService{
 
                 if(bddprCompCnt > 0 ) {
                     realParamVo.setBidSttusCode("32");
-                    realParamVo.setCanclResn(paramVo.getCanclResn());
-                    bidNoticeDao.updateBidPassingProc(realParamVo);
+                    realParamVo.setFailBidResn(paramVo.getFailBidResn());
                 } else {
                     realParamVo.setBidSttusCode("33");
                 }

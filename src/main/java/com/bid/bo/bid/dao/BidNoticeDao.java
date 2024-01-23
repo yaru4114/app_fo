@@ -60,13 +60,6 @@ public interface BidNoticeDao {
     int getBidBddprDtlCnt(BidNoticeVO realParamVo);
 
     /**
-     입찰 공고 투찰 기업 유찰 처리
-    * @date : 2024-01-22
-    * @author  xyzp1539
-    **/
-    void updateBidPassingProc(BidNoticeVO realParamVo);
-
-    /**
      입찰 공고 삭제 처리
     * @date : 2024-01-22
     * @author  xyzp1539
