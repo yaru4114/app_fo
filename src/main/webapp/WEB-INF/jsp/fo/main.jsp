@@ -22,7 +22,10 @@
     <div class="wrapper pt0">
         <!-- 23.10.16 | header include -->
         <div class="header bid"></div>
-        <script type="text/javascript"> $(".header.bid").load("/guide/html/bid/include/header.html");</script>
+                <!--
+                <script type="text/javascript"> $(".header.bid").load("/guide/html/bid/include/header.html");</script>
+                -->
+                <script type="text/javascript"> $(".header.bid").load("/fo/header");</script>
         <!-- // 23.10.16 | header include -->
         
 		<!-- body-main :: START -->
