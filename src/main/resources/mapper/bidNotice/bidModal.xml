@@ -89,15 +89,19 @@
             FRST_REGIST_DT
         ) VALUES (
             (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE='METAL_CODE' AND SUB_CODE= #{subCode}) + FORMAT(GETDATE(), 'yyyyMMdd') +
-                RIGHT('000' + CAST(
-                    (
+                RIGHT('000' + CAST
                         (
-                            SELECT TOP 1 COALESCE(CAST(RIGHT(BID_PBLANC_ID, 3) AS int) + 1, 1) AS CNT
-                            FROM BD_BID_BAS
-                            WHERE BID_PBLANC_ID LIKE CONCAT('%', FORMAT(GETDATE(), 'yyyyMMdd'), '%')
-                            ORDER BY BID_PBLANC_ID DESC
+                            (
+                                (
+                                    SELECT ISNULL((SELECT TOP 1 CAST(RIGHT(BID_PBLANC_ID, 3) AS int) + 1
+                                    FROM BD_BID_BAS
+                                    WHERE BID_PBLANC_ID LIKE CONCAT('%', FORMAT(GETDATE(), 'yyyyMMdd'), '%')
+                                    ORDER BY BID_PBLANC_ID DESC
+                                ), 1
+                            ) AS CNT
                         )
-                    ) AS NVARCHAR(3)), 3),
+                ) AS NVARCHAR(3)), 3
+            ),
             #{metalCode},
             #{brandGroupCode},
             #{brandCode},
