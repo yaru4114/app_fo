@@ -89,5 +89,8 @@ public class BidNoticeVO {
     private List<BidNoticeUpdtVO> bidNoticeUpdtVoList;
     private List<BidBddprDtlVO> bidBddprDtlVoList;
 
+    private String bidUpdtCn;
+    private String bidUpdtResn;
+
     private String subCode;
 }

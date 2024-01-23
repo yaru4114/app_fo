@@ -33,7 +33,6 @@
     <script type="text/javascript" src="/bo/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script>
     <!-- Full calendar(한글) -->
     <script type="text/javascript" src="/bo/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
-    <script type="text/javascript" src="/bo/guide/js/common.js"></script><!-- 퍼블 작성 -->
 </head>
 
 <body>
@@ -366,7 +365,7 @@
                     </div>
 
                     <div class="sub-title">
-                        <h3 class="">해당 공고 전시 여부</h3>
+                        <h3 class="">FO 전시 여부</h3>
                     </div>
                     <div class="table table-view">
                         <table>
@@ -382,6 +381,34 @@
                                 <td colspan="3">
                                     <input type="radio" name="dspyAt" value="N" />비활성(비전시)
                                     <input type="radio" name="dspyAt" value="Y" />활성(전시)
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="sub-title" id="udtBidTitle">
+                        <h3 class="">공고 수정</h3>
+                    </div>
+                    <div class="table table-view" id="udtBidContent">
+                        <table>
+                            <colgroup>
+                                <col class="col-md"/>
+                                <col width="*"/>
+                                <col class="col-md"/>
+                                <col width="*"/>
+                            </colgroup>
+                            <tbody>
+                            <tr>
+                                <th scope="row">수정내용</th>
+                                <td colspan="3">
+                                    <input type="text" class="input" id="bidUpdtCn" value="" placeholder="수정내용" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">수정사유</th>
+                                <td colspan="3">
+                                    <input type="text" class="input" id="bidUpdtResn" value="" placeholder="수정사유" />
                                 </td>
                             </tr>
                             </tbody>
@@ -437,9 +464,13 @@
             if (isEditMode) { // 수정
                 $('#exampleModal h5.modal-title').text(text);
                 $('#bidNoticeModal button.btn').text(text);
+                $('#udtBidTitle').show();
+                $('#udtBidContent').show();
             } else { // 등록
                 $('#exampleModal h5.modal-title').text(text);
                 $('#bidNoticeModal button.btn').text(text);
+                $('#udtBidTitle').hide();
+                $('#udtBidContent').hide();
             }
         }
 
@@ -875,6 +906,43 @@
 
             return date;
         }
+        /* ================================== ❗등록 관련❗ ================================== */
+
+        /* ==================================== ❗기타❗ ==================================== */
+        $('#metalCode').change(function () {
+            var selected = $(this).val();
+            getOptions('brandGrp', 'brandGroupCode', 'codeNm', 'subCode', selected);
+            getOptions('item', 'itmSn', 'itmPrdlstKorean', 'itmSn', selected);
+        });
+
+        $('#brandGroupCode').change(function () {
+            var selected = $(this).val();
+        });
+
+        $('#bddprCanclPossAt').change(function () {
+            if ($(this).is(':checked')) {
+                $('#bddprCanclLmttDe, #bddprCanclLmttDe_ampm, #bddprCanclLmttDe_hour, #bddprCanclLmttDe_min, #bddprCanclLmttDe_sec').prop('disabled', false);
+            } else {
+                $('#bddprCanclLmttDe, #bddprCanclLmttDe_ampm, #bddprCanclLmttDe_hour, #bddprCanclLmttDe_min, #bddprCanclLmttDe_sec').prop('disabled', true);
+            }
+        });
+
+        udtCheckboxValue('bddprCanclPossAt');
+        udtCheckboxValue('delyCnd01ApplcAt');
+        udtCheckboxValue('delyCnd02ApplcAt');
+        udtCheckboxValue('delyCnd03ApplcAt');
+
+        $('#submitBid').on('click', function () {
+            var btnText = $('#submitBid').text();
+
+            if (btnText === '입찰 공고 등록') {
+                if (validateSubmitForm()) {
+                    creBidNotice();
+                }
+            } else {
+                // 수정 ajax
+            }
+        });
 
         // function formatDate2(date) {
         //     return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
@@ -918,29 +986,6 @@
         //     });
         // }
 
-        $('#metalCode').change(function () {
-            var selected = $(this).val();
-            getOptions('brandGrp', 'brandGroupCode', 'codeNm', 'subCode', selected);
-            getOptions('item', 'itmSn', 'itmPrdlstKorean', 'itmSn', selected);
-        });
-
-        $('#brandGroupCode').change(function () {
-            var selected = $(this).val();
-        });
-
-        $('#bddprCanclPossAt').change(function () {
-            if ($(this).is(':checked')) {
-                $('#bddprCanclLmttDe, #bddprCanclLmttDe_ampm, #bddprCanclLmttDe_hour, #bddprCanclLmttDe_min, #bddprCanclLmttDe_sec').prop('disabled', false);
-            } else {
-                $('#bddprCanclLmttDe, #bddprCanclLmttDe_ampm, #bddprCanclLmttDe_hour, #bddprCanclLmttDe_min, #bddprCanclLmttDe_sec').prop('disabled', true);
-            }
-        });
-
-        udtCheckboxValue('bddprCanclPossAt');
-        udtCheckboxValue('delyCnd01ApplcAt');
-        udtCheckboxValue('delyCnd02ApplcAt');
-        udtCheckboxValue('delyCnd03ApplcAt');
-
         // $('#bddprBeginDt').on('change', function () {
         //     updateCanclLmttDeRange();
         // });
@@ -948,13 +993,7 @@
         // $('#bddprEndDt').on('change', function () {
         //     updateCanclLmttDeRange();
         // });
-
-        $('#submitBid').on('click', function () {
-            if (validateSubmitForm()) {
-                creBidNotice();
-            }
-        })
-        /* ================================== ❗등록 관련❗ ================================== */
+        /* ==================================== ❗기타❗ ==================================== */
     </script>
 </div>
 </body>
