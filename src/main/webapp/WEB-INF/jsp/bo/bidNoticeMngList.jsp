@@ -1033,6 +1033,7 @@
 
           $('.close').click(function () {
               $('#exampleModal').hide();
+              resetForm();
               start();
           });
       });

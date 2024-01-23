@@ -128,7 +128,7 @@
                                             <tbody>
                                             <tr>
                                                 <td class="text-center"><input type="checkbox" class=""
-                                                                               name="" value="Y" id="delyCnd01ApplcAt"
+                                                                               name="" value="" id="delyCnd01ApplcAt"
                                                                                checked/></td>
                                                 <td>서린상사 지정 보세창고 도착도(FCA 서린상사 지정 보세창고)</td>
                                                 <td>
@@ -145,7 +145,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="text-center"><input type="checkbox" class=""
-                                                                               name="" value="Y" id="delyCnd02ApplcAt"
+                                                                               name="" value="" id="delyCnd02ApplcAt"
                                                                                checked/></td>
                                                 <td>기타 부산/인천 보세창고 상차도(FCA BUSAN/INCHEON)</td>
                                                 <td>
@@ -162,7 +162,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="text-center"><input type="checkbox" class=""
-                                                                               name="" value="Y" id="delyCnd03ApplcAt"
+                                                                               name="" value="" id="delyCnd03ApplcAt"
                                                                                checked/></td>
                                                 <td>CIF INCHEON / CIF BUSAN</td>
                                                 <td>
@@ -346,17 +346,17 @@
                                         type="checkbox" class="" name="bddprCanclPossAt" value="N" id="bddprCanclPossAt"/>
                                     <div class="form-set" style="margin-top:5px;">
                                         <div class="input-group date form-date">
-                                            <input type="text" class="input" id="bddprCanclLmttDe" />
+                                            <input type="text" class="input" id="bddprCanclLmttDe" disabled />
                                             <label for="bddprCanclLmttDe" class="btn has-icon"><i
                                                     class="icon icon-calendar">달력</i></label>
                                         </div>
-                                        <select class="form-select" style="width:80px;" id="bddprCanclLmttDe_ampm">
+                                        <select class="form-select" style="width:80px;" id="bddprCanclLmttDe_ampm" disabled>
                                             <option value="am">am</option>
                                             <option value="pm">pm</option>
                                         </select>
-                                        <input type="text" class="input" id="bddprCanclLmttDe_hour" value="" style="width:50px;">&nbsp;시
-                                        <input type="text" class="input" id="bddprCanclLmttDe_min" value="" style="width:50px;">&nbsp;분
-                                        <input type="text" class="input" id="bddprCanclLmttDe_sec" value="" style="width:50px;">&nbsp;초
+                                        <input type="text" class="input" id="bddprCanclLmttDe_hour" value="" style="width:50px;" disabled>&nbsp;시
+                                        <input type="text" class="input" id="bddprCanclLmttDe_min" value="" style="width:50px;" disabled>&nbsp;분
+                                        <input type="text" class="input" id="bddprCanclLmttDe_sec" value="" style="width:50px;" disabled>&nbsp;초
                                         까지 투찰 취소 가능함.
                                     </div>
                                 </td>
@@ -406,6 +406,11 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
+            startBidModal();
+        });
+
+        /* ================================== ❗공통 함수❗ ================================== */
+        function startBidModal() {
             var bidWt = $('#bidWt');
             var permWtRate = $('#permWtRate');
 
@@ -425,9 +430,7 @@
             getOptions('priceSpmtc', 'pcAppnMthCode', 'codeNm', 'subCode', 'PRICE_SPMTC_CODE');
             getOptions('pymntMt', 'setleMthCode', 'codeNm', 'subCode', 'PYMNT_MT_CODE');
             getOptions('pymntPr', 'setlePdCode', 'codeNm', 'subCode', 'PYMNT_PR_CODE');
-        });
-
-        /* ================================== ❗공통 함수❗ ================================== */
+        }
         // 옵션 조회 공통 함수
         function getOptions(endPoint, elementId, textParam, valueParam, code) {
             var param = {};
@@ -471,6 +474,105 @@
             setTimeout(function(){
                 $('#creBidSuccess').fadeOut(300);
             },2000);
+        }
+
+        function appendOpt(elementId) {
+            var selectElement = $('#' + elementId);
+            selectElement.val('').append($('<option>').text('선택').val('선택'));
+        }
+
+        function resetForm() {
+            startBidModal();
+            appendOpt('bidWt');
+            appendOpt('permWtRate');
+            $('#delyCnd01PremiumPc').val('1000');
+            $('#delyCnd02PremiumPc').val('1000');
+            $('#delyCnd03PremiumPc').val('1000');
+            $('#delyBeginDe').val('');
+            $('#delyEndDe').val('');
+            $('#delyPdCn').val('');
+            $('#pcAppnBeginDe').val('');
+            $('#pcAppnEndDe').val('');
+            $('#pcAppnMthCode').val('');
+            $('#setleCrncyCode').val('');
+            $('#setleMthCode').val('');
+            $('#setlePdCode').val('');
+            $('#etcCn').val('');
+            $('#bddprBeginDt').val('');
+            $('#bddprEndDt').val('');
+            $('#bddprCanclLmttDe').val('');
+            $('#bddprCanclPossAt').prop('checked', false);
+            $('input[name="dspyAt"]').prop('checked', false);
+        }
+
+        function udtCheckboxValue (elementId) {
+            $('#' + elementId).change(function() {
+                var value = $(this).prop('checked') ? 'Y' : 'N';
+                $('#' + elementId).val(value);
+            });
+        }
+
+        // 필수 입력 검증 함수
+        var requiredElement = [
+            { id: 'metalCode', label: '메탈 구분' },
+            { id: 'brandGroupCode', label: '브랜드 그룹' },
+            { id: 'brandCode', label: '브랜드' },
+            { id: 'itmSn', label: '아이템 상품명' },
+            { id: 'dstrctLclsfCode', label: '권역' },
+            { id: 'bidWt', label: '수량 (톤)' },
+            { id: 'permWtRate', label: '중량허용공차' },
+            { id: 'delyBeginDe', label: '인도 시작 일자' },
+            { id: 'delyEndDe', label: '인도 종료 일자' },
+            { id: 'pcAppnBeginDe', label: '가격 지정 시작 일자' },
+            { id: 'pcAppnEndDe', label: '가격 지정 종료 일자' },
+            { id: 'pcAppnMthCode', label: '가격 지정 방법' },
+            { id: 'setleCrncyCode', label: '결제 통화 코드' },
+            { id: 'setleMthCode', label: '결제 방법 코드' },
+            { id: 'setlePdCode', label: '결제 기간 코드' },
+            { id: 'bddprBeginDt', label: '투찰 시작 일시' },
+            { id: 'bddprBeginDt_hour', label: '투찰 시작 일시 [시]'},
+            { id: 'bddprBeginDt_min', label: '투찰 시작 일시 [분]'},
+            { id: 'bddprBeginDt_sec', label: '투찰 시작 일시 [초]'},
+            { id: 'bddprEndDt', label: '투찰 종료 일시' },
+            { id: 'bddprEndDt_hour', label: '투찰 종료 일시 [시]'},
+            { id: 'bddprEndDt_min', label: '투찰 시작 일시 [분]'},
+            { id: 'bddprEndDt_sec', label: '투찰 시작 일시 [초]'},
+            { id: 'dspyAt', label: '전시 여부' }
+        ];
+
+        var requiredElementDate = [
+            { id: 'bddprCanclLmttDe', label: '투찰 취소 제한일' },
+            { id: 'bddprCanclLmttDe_hour', label: '투찰 취소 제한 [시]' },
+            { id: 'bddprCanclLmttDe_min', label: '투찰 취소 제한 [분]' },
+            { id: 'bddprCanclLmttDe_sec', label: '투찰 취소 제한 [초]' },
+        ]
+
+        function validateField(field) {
+            var value = $('#' + field.id).val();
+            if (value === '' || value === '선택') {
+                alert(field.label + '을(를) 입력 하세요.');
+                return false;
+            } else if (field.id === 'bddprCanclLmttDe') {
+                return true;
+            }
+            return true;
+        }
+
+        function validateSubmitForm() {
+            var isValid = true;
+            var canclPossAt = $('#bddprCanclPossAt').val();
+
+            if (canclPossAt === 'Y') {
+                requiredElementDate.forEach(function(field) {
+                    isValid = isValid && validateField(field);
+                });
+            } else {
+                requiredElement.forEach(function(field) {
+                    isValid = isValid && validateField(field);
+                });
+            }
+
+            return isValid;
         }
         /* ================================== ❗공통 함수❗ ================================== */
 
@@ -708,103 +810,6 @@
             return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
         }
 
-        function resetForm() {
-            $('#metalCode').val('');
-            $('#brandGroupCode').val('');
-            $('#brandCode').val('');
-            $('#itmSn').val('');
-            $('#dstrctLclsfCode').val('');
-            $('#bidWt').val('');
-            $('#permWtRate').val('');
-            $('#delyCnd01ApplcAt').val('');
-            $('#delyCnd01StdrPc').val('');
-            $('#delyCnd01PremiumPc').val('');
-            $('#delyCnd02ApplcAt').val('');
-            $('#delyCnd02StdrPc').val('');
-            $('#delyCnd02PremiumPc').val('');
-            $('#delyCnd03ApplcAt').val('');
-            $('#delyCnd03StdrPc').val('');
-            $('#delyCnd03PremiumPc').val('');
-            $('#delyBeginDe').val('');
-            $('#delyEndDe').val('');
-            $('#delyPdCn').val('');
-            $('#pcAppnBeginDe').val('');
-            $('#pcAppnEndDe').val('');
-            $('#pcAppnMthCode').val('');
-            $('#setleCrncyCode').val('');
-            $('#setleMthCode').val('');
-            $('#setlePdCode').val('');
-            $('#etcCn').val('');
-            $('#bddprBeginDt').val('');
-            $('#bddprEndDt').val('');
-            $('#bddprCanclPossAt').val('');
-            $('#bddprCanclLmttDe').val('');
-            $('#dspyAt').val('');
-        }
-
-        // 필수 입력 검증 함수
-        var requiredElement = [
-            { id: 'metalCode', label: '메탈 구분' },
-            { id: 'brandGroupCode', label: '브랜드 그룹' },
-            { id: 'brandCode', label: '브랜드' },
-            { id: 'itmSn', label: '아이템 상품명' },
-            { id: 'dstrctLclsfCode', label: '권역' },
-            { id: 'bidWt', label: '수량 (톤)' },
-            { id: 'permWtRate', label: '중량허용공차' },
-            { id: 'delyBeginDe', label: '인도 시작 일자' },
-            { id: 'delyEndDe', label: '인도 종료 일자' },
-            { id: 'pcAppnBeginDe', label: '가격 지정 시작 일자' },
-            { id: 'pcAppnEndDe', label: '가격 지정 종료 일자' },
-            { id: 'pcAppnMthCode', label: '가격 지정 방법' },
-            { id: 'setleCrncyCode', label: '결제 통화 코드' },
-            { id: 'setleMthCode', label: '결제 방법 코드' },
-            { id: 'setlePdCode', label: '결제 기간 코드' },
-            { id: 'bddprBeginDt', label: '투찰 시작 일시' },
-            { id: 'bddprBeginDt_hour', label: '투찰 시작 일시 [시]'},
-            { id: 'bddprBeginDt_min', label: '투찰 시작 일시 [분]'},
-            { id: 'bddprBeginDt_sec', label: '투찰 시작 일시 [초]'},
-            { id: 'bddprEndDt', label: '투찰 종료 일시' },
-            { id: 'bddprEndDt_hour', label: '투찰 종료 일시 [시]'},
-            { id: 'bddprEndDt_min', label: '투찰 시작 일시 [분]'},
-            { id: 'bddprEndDt_sec', label: '투찰 시작 일시 [초]'},
-            { id: 'dspyAt', label: '전시 여부' }
-        ];
-
-        var requiredElementDate = [
-            { id: 'bddprCanclLmttDe', label: '투찰 취소 제한일' },
-            { id: 'bddprCanclLmttDe_hour', label: '투찰 취소 제한 [시]' },
-            { id: 'bddprCanclLmttDe_min', label: '투찰 취소 제한 [분]' },
-            { id: 'bddprCanclLmttDe_sec', label: '투찰 취소 제한 [초]' },
-        ]
-
-        function validateField(field) {
-            var value = $('#' + field.id).val();
-            if (value === '' || value === '선택') {
-                alert(field.label + '을(를) 입력 하세요.');
-                return false;
-            } else if (field.id === 'bddprCanclLmttDe') {
-                return true;
-            }
-            return true;
-        }
-
-        function validateSubmitForm() {
-            var isValid = true;
-            var canclPossAt = $('#bddprCanclPossAt').val();
-
-            if (canclPossAt === 'Y') {
-                requiredElementDate.forEach(function(field) {
-                    isValid = isValid && validateField(field);
-                });
-            } else {
-                requiredElement.forEach(function(field) {
-                    isValid = isValid && validateField(field);
-                });
-            }
-
-            return isValid;
-        }
-
         // 투찰 기간에 따른 취소 기한일시 제한(수정 필요)
         function test(beginDt, endDt) {
             var datesEnabled = [];
@@ -862,10 +867,10 @@
             }
         });
 
-        $('#bddprCanclPossAt').change(function () {
-            var value = $(this).prop('checked') ? 'Y' : 'N';
-            $('#bddprCanclPossAt').val(value);
-        });
+        udtCheckboxValue('bddprCanclPossAt');
+        udtCheckboxValue('delyCnd01ApplcAt');
+        udtCheckboxValue('delyCnd02ApplcAt');
+        udtCheckboxValue('delyCnd03ApplcAt');
 
         // $('#bddprBeginDt').on('change', function () {
         //     updateCanclLmttDeRange();
