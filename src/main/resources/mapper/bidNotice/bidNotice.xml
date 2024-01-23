@@ -27,6 +27,7 @@
            , ISNULL(COUNT(BID_PBLANC_ID) , 0) AS BDNG_ALL_CNT
        FROM BD_BID_BAS
       WHERE 1=1
+        AND ISNULL(DELETE_AT , 'N') = 'N'
       <if test='startDate != null and startDate != ""'>
         AND FRST_REGIST_DT >= CONVERT( DATE , #{startDate})
       </if>
@@ -99,6 +100,7 @@
                  , ISNULL(dbo.fn_convertDate(BDDPR_END_DT , 'bo'), '') AS BDDPR_END_DT_INFO
               FROM BD_BID_BAS A
              WHERE 1=1
+               AND ISNULL(DELETE_AT , 'N') = 'N'
               <if test='startDate != null and startDate != ""'>
                AND FRST_REGIST_DT >= CONVERT( DATE , #{startDate})
               </if>
@@ -182,7 +184,7 @@
     /* bidNotice.updateBidPassingProc */
     UPDATE BD_BDDPR_DTL
        SET CANCL_AT = 'Y'
-         , CANCL_DT = SYSDATETIME()
+         , CANCL_DT = FORMAT(cast(getdate() as datetime), 'yyyyMMddHHmmss')
          , CANCL_RESN = #{canclResn}
          , LAST_CHANGE_DT = SYSDATETIME()
      WHERE BID_PBLANC_ID = #{bidPblancId}

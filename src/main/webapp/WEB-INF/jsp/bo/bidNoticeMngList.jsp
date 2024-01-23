@@ -727,6 +727,7 @@
   function fnbidCancel(){
     var btnText = $("#btn_bidCancel").text();
     var bidSttusCode = $("#modalBidStatCodeHidden").val();
+    var canclResn = "";
     var confirmTxt = "";
     var afterText = "";
     var passingYn = "N";
@@ -740,6 +741,7 @@
       afterText = "공고 가 취소 되었습니다.";
     } else if (bidSttusCode == 13 && btnText == "유찰하기") {
       confirmTxt = "유찰할 경우, 유찰 사유 입력 후 유찰처리하기 클릭 시 모든과정이 무효처리됩니다. 정말로 유찰 처리 하시겠습니까?";
+      afterText = "유찰 처리 되었습니다.";
       passingYn = "Y";
     }
 
@@ -793,7 +795,67 @@
         });
       }
     } else {
-        var result = prompt("유찰 사유를 입력해주세요.(15자이내");
+        var result = prompt(confirmTxt,"유찰 사유를 입력해주세요.(15자이내)");
+        console.log("prompt : " + result);
+
+        if(result == "") {
+
+          //$("#modalBidDtl").hide();
+          $("#toastText").text("유찰 사유를 입력해주세요.");
+          $('.pop-toast').fadeIn(300);
+
+          setTimeout(function(){
+            $('.pop-toast').fadeOut(300);
+          },2000);
+
+        } else {
+          var jsonData = {
+            bidPblancId: $("#modalBidPblancIdHidden").val(),
+            bidSttusCode: $("#modalBidStatCodeHidden").val(),
+            canclResn : result
+          };
+
+          $.ajax({
+            url: "/bo/bid/noticeMngForm/bidCancel",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(jsonData),
+            dataType: "json",
+            success: function (data) {
+              console.log("서버 응답:", data);
+
+              if(data > 0) {
+                var jsonData = getCreateJsonData("");
+                ajaxBidNoticeMngStatCntList(jsonData , 'Y');
+                ajaxBidNoticeMngList(jsonData);
+
+                $("#modalBidDtl").hide();
+
+                $("#toastText").text(afterText);
+                $('.pop-toast').fadeIn(300);
+
+                setTimeout(function(){
+                  $('.pop-toast').fadeOut(300);
+                },2000);
+              }
+
+            },
+            error: function (xhr, status, error) {
+              // 에러 처리 코드
+              console.error("에러 발생:", error);
+              alert("실패 하였습니다.");
+
+              $("#modalBidDtl").hide();
+
+              $("#toastText").text(afterText);
+              $('.pop-toast').fadeIn(300);
+
+              setTimeout(function(){
+                $('.pop-toast').fadeOut(300);
+              },2000);
+            }
+          });
+        }
     }
   }
 

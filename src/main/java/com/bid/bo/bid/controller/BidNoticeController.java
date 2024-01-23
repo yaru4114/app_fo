@@ -77,6 +77,11 @@ public class BidNoticeController {
         return resultList;
     }
 
+    /**
+     입찰 공고 정보 조회
+    * @date : 2024-01-23
+    * @author  xyzp1539
+    **/
     @ResponseBody
     @RequestMapping(value="/noticeMngForm/bidInfo")
     public BidNoticeVO getBidNoticeMngInfo(@RequestBody BidNoticeVO paramVo) {
@@ -89,6 +94,11 @@ public class BidNoticeController {
         return resultVo;
     }
 
+    /**
+     입찰 공고 삭제 처리
+    * @date : 2024-01-23
+    * @author  xyzp1539
+    **/
     @ResponseBody
     @RequestMapping(value="/noticeMngForm/bidCancel")
     public Integer bidNoticeCanlcel(@RequestBody BidNoticeVO paramVo) {

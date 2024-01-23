@@ -91,7 +91,7 @@ public class BidNoticeService{
 
                 if(bddprCompCnt > 0 ) {
                     realParamVo.setBidSttusCode("32");
-                    realParamVo.setCanclResn("투찰중에서 유찰");
+                    realParamVo.setCanclResn(paramVo.getCanclResn());
                     bidNoticeDao.updateBidPassingProc(realParamVo);
                 } else {
                     realParamVo.setBidSttusCode("33");
@@ -99,6 +99,7 @@ public class BidNoticeService{
             }
             // CASE 3. 공고대기(11) 에서 취소시 -> 공고 삭제처리
             else if(paramVo.getBidSttusCode().equals("11")) {
+                realParamVo.setBidSttusCode(paramVo.getBidSttusCode());
                 bidNoticeDao.updateDelBidNotice(realParamVo);
             }
         }
