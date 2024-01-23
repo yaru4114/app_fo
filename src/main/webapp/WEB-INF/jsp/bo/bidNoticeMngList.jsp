@@ -103,10 +103,8 @@
                         </select>
                     </div>
                     <div class="form-set">
-                        <span class="label">검색구분</span>
-                        <select class="form-select">
-                            <option value="">전체</option>
-                        </select>
+                        <span class="label">입찰공고번호</span>
+                        <input type="text" class="input input-md" id="in_pBidNo"/>
                     </div>
                     <div class="form-set form-expand">
                         <span class="label">일시</span>
@@ -236,7 +234,7 @@
                             <th scope="row">수량 (톤)<i class="icon icon-required"></i></th>
                             <td id="modalBidWt"></td>
                             <th scope="row">중량허용공차(±)<i class="icon icon-required"></i></th>
-                            <td>10 %</td>
+                            <td id="modalPermWtRateP"></td>
                         </tr>
                         <tr>
                             <th scope="row">프리미엄 가격(USD/MT)<i class="icon icon-required"></i></th>
@@ -675,6 +673,7 @@
         $("#modalActiveAt2").text(data.activeAt);
         $("#modalBidStatCodeHidden").val(data.bidSttusCode);
         $("#modalBidPblancIdHidden").val(data.bidPblancId);
+        $("#modalPermWtRateP").text(data.permWtRateP + "%");
 
         // 공고취소 및 유찰하기 버튼
         if(data.bidSttusCode == "11") {
@@ -941,6 +940,7 @@
     var jsonData = {
       startDate: $("#startDatepicker").datepicker({dateformat: 'yyyy-mm-dd'}).val(),
       endDate: $("#endDatepiker").datepicker({dateformat: 'yyyy-mm-dd'}).val(),
+      bidPblancId: $("#in_pBidNo").val(),
       bidSttusCode: bidSttusCode
     };
 
@@ -949,6 +949,7 @@
 
   function fnClose(){
     $("#modalBidDtl").hide();
+    $("#modalBidDtl").removeClass('show');
     // $("#modalBidDtl").empty();
   }
 

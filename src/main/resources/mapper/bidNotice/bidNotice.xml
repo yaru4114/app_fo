@@ -29,6 +29,9 @@
        FROM BD_BID_BAS
       WHERE 1=1
         AND ISNULL(DELETE_AT , 'N') = 'N'
+      <if test='bidPblancId != null and bidPblancId !=""'>
+        AND BID_PBLANC_ID = #{bidPblancId}
+      </if>
       <if test='startDate != null and startDate != ""'>
         AND FRST_REGIST_DT >= CONVERT( DATE , #{startDate})
       </if>
@@ -102,6 +105,7 @@
                  , ISNULL(FAIL_BID_RESN , '') AS FAIL_BID_RESN                                        -- 유찰사유
                  , ISNULL(dbo.fn_convertDate(FAIL_BID_DT , 'bo'), '') AS FAIL_BID_DT                  -- 유찰일시
                  , ISNULL(dbo.fn_convertDate(PBLANC_CANCL_DT , 'bo') , '') AS PBLANC_CANCL_DT               -- 취소일시
+                 , ISNULL(FLOOR(PERM_WT_RATE) , 0) AS PERM_WT_RATE_P                     -- AS 허용중량용차
               FROM BD_BID_BAS A
              WHERE 1=1
                AND ISNULL(DELETE_AT , 'N') = 'N'

@@ -15,6 +15,7 @@ public class BidNoticeVO {
     private String bidWt;
     private String permWtRate1;
     private BigDecimal permWtRate;
+    private String permWtRateP;
     private String delyCnd01ApplcAt;
     private String delyCnd01StdrPc;
     private String delyCnd01PremiumPc;
