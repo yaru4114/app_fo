@@ -237,18 +237,15 @@
                                     <input type="text" name="modalMobile" id="modalMobile" class="w300px" required readonly>
                                 </td>
                             </tr>
-
-                            <!--
-                            <tr>
+                            <tr class="hiddenTr">
                                 <th scope="row">
                                     <label for="">사업자등록증</label>
                                 </th>
                                 <td>
-                                    <input type="text" name="modalDoc1" id="modalDoc1" class="w300px" required
-                                           readonly>
+                                    <button type="text" id="modalDoc1" class="w300px" onclick="downloadFile(1)"/>
                                 </td>
                             </tr>
-                            -->
+
                             </tbody>
                         </table>
                     </section>
@@ -296,17 +293,19 @@
                                 </td>
                             </tr>
 
-                            <!--
+
                             <tr>
                                 <th scope="row">
                                     <label for="">사업자등록증</label>
                                 </th>
                                 <td>
-                                    <input type="text" name="modalDoc2" id="modalDoc2" class="w300px" required
-                                           readonly>
+                                   <!--
+                                   <input type="text" name="modalDoc2" id="modalDoc2" class="w300px" required readonly>
+                                   -->
+                                   <button type="text" id="modalDoc2" class="w300px" onclick="downloadFile(2)"/>
                                 </td>
                             </tr>
-                            -->
+
 
                             </tbody>
                         </table>
@@ -364,6 +363,8 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            // 모달 - 사업자등록증 숨기기
+            $(".hiddenTr").hide();
 
             start();
             getMemberApprovalList();
@@ -567,11 +568,6 @@
         /** /GRID CONTROL */
 
         /** MODAL CONTROL */
-        /*
-        $('#modalBtn').on('click', function () {
-            showDetailPopup()
-        })
-        */
 
         // Grid.Row 클릭시
         function showDetailPopup(bidMberId){
@@ -587,7 +583,8 @@
                 success: function (response) {
                     if(response.success){
                         setModalTable(response.result);
-                        // setDocData(response);
+                        // 사업자등록증 다운로드 안하려면 아래코드 주석
+                        setDocData(response);
                         $("#blockModal").show();
                     }
                 },
@@ -631,36 +628,61 @@
             }
         }
 
-        // var doc1;
-        // var doc2;
+        var doc1;
+        var doc2;
 
         // 사업자등록증 바인딩
         function setDocData(response) {
 
+            $(".hiddenTr").hide();
+
             if (response.doc1 != null) {
                 doc1 = response.doc1;
-                $("#modalDoc1").val(doc1.docFileNm);
+                $("#modalDoc1").text(doc1.docFileNm);
+                $("#modalDoc1").parent().parent().show();
             }
 
             if (response.doc2 != null) {
                 doc2 = response.doc2;
-                $("#modalDoc2").val(doc2.docFileNm);
+                $("#modalDoc2").text(doc2.docFileNm);
+                $("#modalDoc2").parent().parent().show();
             }
         }
 
-/*      // 다운로드
-        function downloadFile(name,path){
+        // 사업자등록증 다운로드
+        function downloadFile(num){
+            var name = "";
+            var path = "";
+            if (num === 1) {
+                name = doc1.docFileNm;
+                path = doc1.docFileCours;
+
+                console.log(doc1);
+            } else if (num === 2) {
+                name = doc2.docFileNm;
+                path = doc2.docFileCours;
+
+            } else {
+                return
+            }
+
+            var param = {
+                filePath: path
+            }
+
             $.ajax({
-                url: "/common/download",
-                data: {
-                    filePath: path
+                url: "/common/downloadFile",
+                data : JSON.stringify(param),
+                contentType: "application/json",
+                type:"POST",
+                xhrFields: {
+                    responseType: "blob",
                 },
-                responseType: "blob",
                 success: function (response) {
-                    const url = window.URL.createObjectURL(response.data);
+                    const url = window.URL.createObjectURL(response);
                     const link = document.createElement('a');
-                    link.href = url
-                    link.setAttribute('download', name.split('\').reverse()[0]);
+                    link.href = url;
+                    link.setAttribute('download', name);
                     link.click();
                 },
                 error: function(error) {
@@ -668,7 +690,7 @@
                 }
             });
         }
-*/
+
 
         // 승인 & 거절 버튼
         $("#allowBtn").on('click',function(){

@@ -58,9 +58,8 @@ public class FileUtil {
     public String setTimestampedFileName (MultipartFile file) {
 
         String orgFileName = file.getOriginalFilename();
-        String uldFileName = "\"" + orgFileName.substring(0, orgFileName.lastIndexOf(".")) + "_" + System.currentTimeMillis();
 
-        return uldFileName;
+        return "\"" + orgFileName.substring(0, orgFileName.lastIndexOf(".")) + "_" + System.currentTimeMillis();
     }
 
     public void download(Map<String, String> requestData, HttpServletResponse response) throws  IOException {
