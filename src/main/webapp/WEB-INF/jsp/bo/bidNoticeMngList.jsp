@@ -1019,6 +1019,7 @@
   $('#bid_noticeAdd').click(function () {
       $('#myModalContainer').load("bidModal.jsp", function () {
           $('#exampleModal').show();
+          openBidModal('입찰 공고 등록', false);
 
           $('.close').click(function () {
               $('#exampleModal').hide();
@@ -1030,6 +1031,7 @@
       $('#myModalContainer').load("bidModal.jsp", function () {
           $('#modalBidDtl').hide();
           $('#exampleModal').show();
+          openBidModal('입찰 공고 수정', true);
 
           $('.close').click(function () {
               $('#exampleModal').hide();
