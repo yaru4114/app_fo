@@ -2,6 +2,7 @@ package com.bid.bo.member.service;
 
 import com.bid.bo.member.dao.BdMemberDAO;
 import com.bid.common.model.BidMemberVO;
+import com.bid.common.model.DocVO;
 import com.bid.common.model.SearchVO;
 import com.bid.common.util.AesUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -97,16 +98,16 @@ public class BdMemberService {
 
 
         // 사업자 등록증 정보
-//        if (result.getBsnmRegistDocNo1() != -1) {
-//            DocVO doc1 = bdMemberDAO.getDocInfo(result.getBsnmRegistDocNo1());
-//            log.info("doc1 : {}", doc1);
-//            resultMap.put("doc1",doc1);
-//        }
-//        if (result.getBsnmRegistDocNo2() != -1) {
-//            DocVO doc2 = bdMemberDAO.getDocInfo(result.getBsnmRegistDocNo2());
-//            log.info("doc2 : {}", doc2);
-//            resultMap.put("doc2",doc2);
-//        }
+        if (result.getBsnmRegistDocNo1() != -1) {
+            DocVO doc1 = bdMemberDAO.getDocInfo(result.getBsnmRegistDocNo1());
+            log.info("doc1 : {}", doc1);
+            resultMap.put("doc1",doc1);
+        }
+        if (result.getBsnmRegistDocNo2() != -1) {
+            DocVO doc2 = bdMemberDAO.getDocInfo(result.getBsnmRegistDocNo2());
+            log.info("doc2 : {}", doc2);
+            resultMap.put("doc2",doc2);
+        }
 
         try {
             // 비밀번호 복호화

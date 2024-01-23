@@ -156,7 +156,7 @@ public class BidMemberService {
             for (MultipartFile file : fileList) {
                 String uldFileName = fileUtil.setTimestampedFileName(file);
 //                String folder = "/member/bsnmRegist";
-                String folder = "\"member\"bsnmRegist";
+                String folder = "\\member\\bsnmRegist";
                 FileVO fileVO = fileUtil.upload(file, folder, uldFileName);
 
                 DocVO docVO = DocVO.builder()

@@ -20,8 +20,8 @@ public class CommonService {
 	@Autowired
     private CommonDAO commonDAO;
 	
-	public List<CoCmmnCdVO> selectCommList(String mainCode){
-		List<CoCmmnCdVO> commList = commonDAO.selectCommList(mainCode);
+	public List<CoCmmnCdVO> selectCommList(CoCmmnCdVO coCmmnCdVO){
+		List<CoCmmnCdVO> commList = commonDAO.selectCommList(coCmmnCdVO);
 		return commList;
 	}
 

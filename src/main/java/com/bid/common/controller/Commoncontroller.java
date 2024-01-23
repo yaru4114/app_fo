@@ -30,10 +30,11 @@ public class Commoncontroller {
     public ResponseEntity<?> getBddtrCnlCnt(@RequestBody BidMemberVO vo) {
         return ResponseEntity.ok(commonService.isBddtrCancelOver(vo));
     }
-
-    @RequestMapping("downloadFile")
-    public void download(Map<String,String> requestData, HttpServletResponse response) throws IOException {
-
+    
+    // 파일 다운로드
+    @RequestMapping("/downloadFile")
+    public void download(@RequestBody Map<String,String> requestData, HttpServletResponse response) throws IOException {
+        log.info("requestData : {}", requestData);
         fileUtil.download(requestData, response);
     }
 }
