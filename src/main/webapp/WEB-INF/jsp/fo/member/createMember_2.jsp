@@ -94,13 +94,14 @@
 	                                <span class="limit-width">
 	                                    <input type="password" name="upw2" id="upw2" placeholder="비밀번호 확인" oninput="inputChk('pwdChk',$(this))">
 	                                </span>
-	                                <span class="t-info">비밀번호가 일치하지 않습니다..</span>
+	                                <span class="t-info">비밀번호가 일치하지 않습니다.</span>
 	                            </div>
 	                            <div class="tr">
 	                                <label for="cname">회사 이름</label>
 	                                <span class="limit-width">
-	                                    <input type="text" name="cname" id="cname" placeholder="회사 이름 입력">
+	                                    <input type="text" name="cname" id="cname" placeholder="회사 이름 입력" oninput="inputChk('cname',$(this))">
 	                                </span>
+	                                <span class="t-info">회사 이름을 입력해주세요.</span>
 	                            </div>
 	                            <div class="tr">
 	                                <label for="ipCoRegiNo">사업자등록번호</label>
@@ -408,6 +409,16 @@ function inputChk(formType, target){
                 target.parent().siblings(".t-info").hide();
             }
             break;
+        /*
+        case "cname":
+            if (target.val() === "") {
+                target.parent().siblings(".t-info").show();
+            } else {
+                target.parent().siblings(".t-info").hide();
+            }
+            break;
+        */
+        default: break;
     }
 }
 
