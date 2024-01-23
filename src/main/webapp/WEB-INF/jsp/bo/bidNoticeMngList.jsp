@@ -613,7 +613,7 @@
 
           if(colIndex == "bidPblancId") {
             ajaxBidNoticeMngInfo(bidPblancId);
-            //chgModalOpen();
+            chgModalOpen();
           }
         }
       },
