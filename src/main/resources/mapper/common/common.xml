@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bid.common.dao.CommonDAO" >
-  <select id="selectCommList" parameterType="String" resultType="com.bid.common.model.CoCmmnCdVO">
+  <select id="selectCommList" parameterType="com.bid.common.model.CoCmmnCdVO" resultType="com.bid.common.model.CoCmmnCdVO">
     /* common.selectCommList */
     SELECT SUB_CODE
          , CODE_NM
@@ -14,6 +14,9 @@
       FROM dbo.CO_CMMN_CD
      WHERE 1=1
 	   AND MAIN_CODE = #{mainCode}
+	   <if test="codeRefrnone != null and codeRefrnone != ''">
+	   	AND CODE_REFRNONE = #{codeRefrnone}
+	   </if>
 	   AND USE_AT = 'Y'
 	   AND DELETE_AT = 'N'
      ORDER BY CODE_ORDR

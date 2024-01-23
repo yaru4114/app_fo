@@ -10,6 +10,6 @@ import com.bid.common.model.CoCmmnCdVO;
 @Mapper
 public interface CommonDAO {
 
-	List<CoCmmnCdVO> selectCommList(String mainCode);
+	List<CoCmmnCdVO> selectCommList(CoCmmnCdVO coCmmnCdVO);
 	public int getBddtrCancelCnt(BidMemberVO vo);
 }
