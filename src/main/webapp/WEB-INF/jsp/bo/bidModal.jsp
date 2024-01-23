@@ -343,7 +343,7 @@
                                 <th scope="row">투찰 취소기한<i class="icon icon-required"></i></th>
                                 <td colspan="3">
                                     <span style="font-weight: 500; font-size: 0.80rem;">투찰 취소 가능 여부</span> <input
-                                        type="checkbox" class="" name="bddprCanclPossAt" value="N" id="bddprCanclPossAt"/>
+                                        type="checkbox" class="" name="bddprCanclPossAt" value="" id="bddprCanclPossAt"/>
                                     <div class="form-set" style="margin-top:5px;">
                                         <div class="input-group date form-date">
                                             <input type="text" class="input" id="bddprCanclLmttDe" disabled />
@@ -411,6 +411,7 @@
 
         /* ================================== ❗공통 함수❗ ================================== */
         function startBidModal() {
+            console.log('첫 시작');
             var bidWt = $('#bidWt');
             var permWtRate = $('#permWtRate');
 
@@ -433,37 +434,42 @@
         }
         // 옵션 조회 공통 함수
         function getOptions(endPoint, elementId, textParam, valueParam, code) {
-            var param = {};
+            return new Promise(function (resolve, reject) {
+                var param = {};
 
-            if (code) {
-                param.subCode = code;
-            }
-
-            $.ajax({
-                type: 'POST',
-                url: '/bo/bid/modal/' + endPoint,
-                contentType: 'application/json',
-                data: JSON.stringify(param),
-                success: function (response) {
-                    console.log('response : ', response);
-                    var selectElement = $('#' + elementId);
-
-                    selectElement.empty();
-
-                    selectElement.append($('<option>').text('선택').val('선택'));
-
-                    if (response.result.length > 0) {
-                        response.result.forEach(function (data) {
-                            var text = data[textParam];
-                            var value = data[valueParam];
-
-                            selectElement.append($('<option>').text(text).val(value));
-                        });
-                    }
-                },
-                error: function (error) {
-                    console.error(error);
+                if (code) {
+                    param.subCode = code;
                 }
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/bo/bid/modal/' + endPoint,
+                    contentType: 'application/json',
+                    data: JSON.stringify(param),
+                    success: function (response) {
+                        console.log('response : ', response);
+                        var selectElement = $('#' + elementId);
+
+                        selectElement.empty();
+
+                        selectElement.append($('<option>').text('선택').val('선택'));
+
+                        if (response.result.length > 0) {
+                            response.result.forEach(function (data) {
+                                var text = data[textParam];
+                                var value = data[valueParam];
+
+                                selectElement.append($('<option>').text(text).val(value));
+                            });
+                        }
+
+                        resolve();
+                    },
+                    error: function (error) {
+                        console.error(error);
+                        reject(error);
+                    }
+                });
             });
         }
 
@@ -485,6 +491,9 @@
             startBidModal();
             appendOpt('bidWt');
             appendOpt('permWtRate');
+            appendOpt('itmSn');
+            appendOpt('brandGroupCode');
+            appendOpt('brandCode');
             $('#delyCnd01PremiumPc').val('1000');
             $('#delyCnd02PremiumPc').val('1000');
             $('#delyCnd03PremiumPc').val('1000');
@@ -503,6 +512,16 @@
             $('#bddprCanclLmttDe').val('');
             $('#bddprCanclPossAt').prop('checked', false);
             $('input[name="dspyAt"]').prop('checked', false);
+
+            $('#bddprBeginDt_hour').val('');
+            $('#bddprBeginDt_min').val('');
+            $('#bddprBeginDt_sec').val('');
+            $('#bddprEndDt_hour').val('');
+            $('#bddprEndDt_min').val('');
+            $('#bddprEndDt_sec').val('');
+            $('#bddprCanclLmttDe_hour').val('');
+            $('#bddprCanclLmttDe_min').val('');
+            $('#bddprCanclLmttDe_sec').val('');
         }
 
         function udtCheckboxValue (elementId) {
@@ -574,15 +593,32 @@
 
             return isValid;
         }
+
+        function setDateTimeFields(dateTime, dateField, ampmField, hourField, minField, secField) {
+            var dateValue = dateTime.substr(0, 8);
+            var hourValue = dateTime.substr(8, 2);
+            var minValue = dateTime.substr(10, 2);
+            var secValue = dateTime.substr(12, 2);
+
+            $('#' + dateField).val(dateValue);
+
+            if (hourValue < 12) {
+                $('#' + ampmField).val('am');
+                $('#' + hourField).val(hourValue);
+            } else {
+                $('#' + ampmField).val('pm');
+                $('#' + hourField).val(hourValue - 12);
+            }
+
+            $('#' + minField).val(minValue);
+            $('#' + secField).val(secValue);
+        }
         /* ================================== ❗공통 함수❗ ================================== */
 
 
         /* ================================== ❗수정 관련❗ ================================== */
-        // 모달 상태 변수
-        var isChgBid = false;
         function chgModalOpen() {
             if (chgPblancId) {
-                isChgBid = true;
                 getBidNoticeByPblancId(chgPblancId);
             }
         }
@@ -601,62 +637,82 @@
                 success: function (response) {
                     if (response.result) {
                         var data = response.result;
-                        console.log('DATA : ', JSON.stringify(data, null, 2));
-                        console.log('response!!! : ', response);
-                        $('#metalCode').val(data.metalCode);
-                        $('#brandGroupCode').val(data.brandGroupCode);
-                        $('#brandCode').val(data.brandCode);
-                        $('#itmSn').val(data.itmSn);
-                        $('#dstrctLclsfCode').val(data.dstrctLclsfCode);
-                        $('#bidWt').val(data.bidWt);
-                        $('#permWtRate').val(data.permWtRate);
-                        $('#delyCnd01ApplcAt').val(data.delyCnd01ApplcAt);
-                        $('#delyCnd02ApplcAt').val(data.delyCnd02ApplcAt);
-                        $('#delyCnd02StdrPc').val(data.delyCnd02StdrPc);
-                        $('#delyCnd03ApplcAt').val(data.delyCnd03ApplcAt);
-                        $('#delyCnd03StdrPc').val(data.delyCnd03StdrPc);
-                        $('#delyBeginDe').val(data.delyBeginDe);
-                        $('#delyEndDe').val(data.delyEndDe);
-                        $('#delyPdCn').val(data.delyPdCn);
-                        $('#pcAppnBeginDe').val(data.pcAppnBeginDe);
-                        $('#pcAppnEndDe').val(data.pcAppnEndDe);
-                        $('#pcAppnMthCode').val(data.pcAppnMthCode);
-                        $('#setleCrncyCode').val(data.setleCrncyCode);
-                        $('#setleMthCode').val(data.setleMthCode);
-                        $('#setlePdCode').val(data.setlePdCode);
-                        $('#etcCn').val(data.etcCn);
-                        $('input[name="bddprCanclPossAt"][value="' + data.bddprCanclPossAt + '"]').prop('checked', data.bddprCanclPossAt === 'Y');
-                        $('input[name="dspyAt"][value="' + data.dspyAt + '"]').prop('checked', true);
+                        console.log('수정할 공고 정보 data : ', data);
 
-                        // 날짜(시,분,초)
-                        // 투찰 시작일 (bddprBeginDt)
-                        // 투찰 종료일 (bddprEndDt)
-                        // 투찰 취소 마감일 (bddprCanclLmttDe)
+                        getOptions('brandGrp', 'brandGroupCode', 'codeNm', 'subCode', data.metalCode)
+                            .then(function() {
+                                return getOptions('item', 'itmSn', 'itmPrdlstKorean', 'itmSn', data.metalCode);
+                            })
+                            .then(function() {
+                                return getOptions('brand', 'brandCode', 'brandNm', 'brandCode', data.brandGroupCode);
+                            })
+                            .then(function () {
+                                $('#metalCode').val(data.metalCode);
+                                $('#brandGroupCode').val(data.brandGroupCode);
+                                $('#brandCode').val(data.brandCode);
+                                $('#itmSn').val(data.itmSn);
+                                $('#dstrctLclsfCode').val(data.dstrctLclsfCode);
+                                $('#bidWt').val(data.bidWt);
+                                $('#permWtRate').val(data.permWtRate);
+                                $('#delyCnd01ApplcAt').val(data.delyCnd01ApplcAt);
+                                $('#delyCnd02ApplcAt').val(data.delyCnd02ApplcAt);
+                                $('#delyCnd02StdrPc').val(data.delyCnd02StdrPc);
+                                $('#delyCnd03ApplcAt').val(data.delyCnd03ApplcAt);
+                                $('#delyCnd03StdrPc').val(data.delyCnd03StdrPc);
+                                $('#delyBeginDe').val(data.delyBeginDe);
+                                $('#delyEndDe').val(data.delyEndDe);
+                                $('#delyPdCn').val(data.delyPdCn);
+                                $('#pcAppnBeginDe').val(data.pcAppnBeginDe);
+                                $('#pcAppnEndDe').val(data.pcAppnEndDe);
+                                $('#pcAppnMthCode').val(data.pcAppnMthCode);
+                                $('#setleCrncyCode').val(data.setleCrncyCode);
+                                $('#setleMthCode').val(data.setleMthCode);
+                                $('#setlePdCode').val(data.setlePdCode);
+                                $('#etcCn').val(data.etcCn);
 
-                        // 단위 변환
-                        var stdrPc01 = data.delyCnd01StdrPc;
-                        stdrPc01 = parseInt(stdrPc01, 10);
-                        $('#delyCnd01StdrPc').val(stdrPc01);
+                                $('#bddprCanclPossAt').prop('checked', data.bddprCanclPossAt === 'Y');
+                                if (data.bddprCanclPossAt === 'Y') {
+                                    $('#bddprCanclLmttDe, #bddprCanclLmttDe_ampm, #bddprCanclLmttDe_hour, #bddprCanclLmttDe_min, #bddprCanclLmttDe_sec').prop('disabled', false);
+                                } else {
+                                    $('#bddprCanclLmttDe, #bddprCanclLmttDe_ampm, #bddprCanclLmttDe_hour, #bddprCanclLmttDe_min, #bddprCanclLmttDe_sec').prop('disabled', true);
+                                }
 
-                        var stdrPc02 = data.delyCnd02StdrPc;
-                        stdrPc02 = parseInt(stdrPc02, 10);
-                        $('#delyCnd02StdrPc').val(stdrPc02);
+                                $('input[name="dspyAt"][value="' + data.dspyAt + '"]').prop('checked', true);
 
-                        var stdrPc03 = data.delyCnd03StdrPc;
-                        stdrPc03 = parseInt(stdrPc03, 10);
-                        $('#delyCnd03StdrPc').val(stdrPc03);
+                                /* ========================== 날짜(시,분,초) ========================== */
+                                setDateTimeFields(data.bddprBeginDt, 'bddprBeginDt', 'bddprBeginDt_ampm', 'bddprBeginDt_hour', 'bddprBeginDt_min', 'bddprBeginDt_sec');
+                                setDateTimeFields(data.bddprEndDt, 'bddprEndDt', 'bddprEndDt_ampm', 'bddprEndDt_hour', 'bddprEndDt_min', 'bddprEndDt_sec');
+                                setDateTimeFields(data.bddprCanclLmttDe, 'bddprCanclLmttDe', 'bddprCanclLmttDe_ampm', 'bddprCanclLmttDe_hour', 'bddprCanclLmttDe_min', 'bddprCanclLmttDe_sec');
+                                /* ========================== 날짜(시,분,초) ========================== */
 
-                        var prePc01 = data.delyCnd01PremiumPc;
-                        prePc01 = parseInt(prePc01, 10);
-                        $('#delyCnd01PremiumPc').val(prePc01);
+                                // 단위 변환
+                                var stdrPc01 = data.delyCnd01StdrPc;
+                                stdrPc01 = parseInt(stdrPc01, 10);
+                                $('#delyCnd01StdrPc').val(stdrPc01);
 
-                        var prePc02 = data.delyCnd02PremiumPc;
-                        prePc02 = parseInt(prePc02, 10);
-                        $('#delyCnd02PremiumPc').val(prePc02);
+                                var stdrPc02 = data.delyCnd02StdrPc;
+                                stdrPc02 = parseInt(stdrPc02, 10);
+                                $('#delyCnd02StdrPc').val(stdrPc02);
 
-                        var prePc03 = data.delyCnd03PremiumPc;
-                        prePc03 = parseInt(prePc03, 10);
-                        $('#delyCnd03PremiumPc').val(prePc03);
+                                var stdrPc03 = data.delyCnd03StdrPc;
+                                stdrPc03 = parseInt(stdrPc03, 10);
+                                $('#delyCnd03StdrPc').val(stdrPc03);
+
+                                var prePc01 = data.delyCnd01PremiumPc;
+                                prePc01 = parseInt(prePc01, 10);
+                                $('#delyCnd01PremiumPc').val(prePc01);
+
+                                var prePc02 = data.delyCnd02PremiumPc;
+                                prePc02 = parseInt(prePc02, 10);
+                                $('#delyCnd02PremiumPc').val(prePc02);
+
+                                var prePc03 = data.delyCnd03PremiumPc;
+                                prePc03 = parseInt(prePc03, 10);
+                                $('#delyCnd03PremiumPc').val(prePc03);
+                            })
+                            .catch(function (error) {
+                                console.error(error);
+                            });
                     }
                 },
                 error: function (error) {
@@ -795,6 +851,7 @@
             });
         }
 
+        // Request
         function formatDate(date, ampm, hour, min, sec) {
             if (ampm === 'pm') {
                 hour = ('0' + (parseInt(hour) + 12)).slice(-2);
@@ -806,47 +863,47 @@
             return date;
         }
 
-        function formatDate2(date) {
-            return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-        }
-
-        // 투찰 기간에 따른 취소 기한일시 제한(수정 필요)
-        function test(beginDt, endDt) {
-            var datesEnabled = [];
-            var startDate = new Date(beginDt);
-            var endDate = new Date(endDt);
-
-            while (startDate <= endDate) {
-                var formattedDate = formatDate2(startDate);
-                datesEnabled.push(formattedDate);
-                startDate.setDate(startDate.getDate() + 1);
-            }
-            return datesEnabled;
-        }
-        function updateCanclLmttDeRange() {
-            var beginDt = $('#bddprBeginDt').val();
-            var endDt = $('#bddprEndDt').val();
-            var datesE1 = ['2024-1-22', '2024-1-23', '2024-1-24'];
-            var datesE = test(beginDt, endDt);
-            console.log('datesE ; ', typeof(datesE[0]));
-            console.log('datesE1 ; ', typeof(datesE1[0]));
-
-            $('#bddprCanclLmttDe').datepicker({
-                format: 'yyyy-mm-dd',
-                beforeShowDay: function(date) {
-                    var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-                    // console.log('allDates : ', allDates);
-
-                    if(datesE.indexOf(allDates) != -1) {
-                        console.log('true 래요');
-                        return true;
-                    } else {
-                        console.log('false 래요');
-                        return false;
-                    }
-                }
-            });
-        }
+        // function formatDate2(date) {
+        //     return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+        // }
+        //
+        // // 투찰 기간에 따른 취소 기한일시 제한(수정 필요)
+        // function test(beginDt, endDt) {
+        //     var datesEnabled = [];
+        //     var startDate = new Date(beginDt);
+        //     var endDate = new Date(endDt);
+        //
+        //     while (startDate <= endDate) {
+        //         var formattedDate = formatDate2(startDate);
+        //         datesEnabled.push(formattedDate);
+        //         startDate.setDate(startDate.getDate() + 1);
+        //     }
+        //     return datesEnabled;
+        // }
+        // function updateCanclLmttDeRange() {
+        //     var beginDt = $('#bddprBeginDt').val();
+        //     var endDt = $('#bddprEndDt').val();
+        //     var datesE1 = ['2024-1-22', '2024-1-23', '2024-1-24'];
+        //     var datesE = test(beginDt, endDt);
+        //     console.log('datesE ; ', typeof(datesE[0]));
+        //     console.log('datesE1 ; ', typeof(datesE1[0]));
+        //
+        //     $('#bddprCanclLmttDe').datepicker({
+        //         format: 'yyyy-mm-dd',
+        //         beforeShowDay: function(date) {
+        //             var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+        //             // console.log('allDates : ', allDates);
+        //
+        //             if(datesE.indexOf(allDates) != -1) {
+        //                 console.log('true 래요');
+        //                 return true;
+        //             } else {
+        //                 console.log('false 래요');
+        //                 return false;
+        //             }
+        //         }
+        //     });
+        // }
 
         $('#metalCode').change(function () {
             var selected = $(this).val();
@@ -856,7 +913,6 @@
 
         $('#brandGroupCode').change(function () {
             var selected = $(this).val();
-            getOptions('brand', 'brandCode', 'brandNm', 'brandCode', selected);
         });
 
         $('#bddprCanclPossAt').change(function () {
