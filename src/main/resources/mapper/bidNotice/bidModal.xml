@@ -215,5 +215,14 @@
             GETDATE()
         )
     </insert>
+    
+    <update id="udtBidSttusCode" parameterType="com.bid.bo.bid.vo.BidNoticeVO">
+        UPDATE
+            BD_BID_BAS
+        SET
+            BID_STTUS_CODE = #{bidSttusCode}
+        WHERE
+            BID_PBLANC_ID = #{bidPblancId}
+    </update>
     <!--  ================================== 입찰 공고 수정 관련 쿼리 ================================== -->
 </mapper>

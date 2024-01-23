@@ -96,21 +96,38 @@ public class BidModalService {
 
         /* bddprBeginDt < 현재 날짜 < bddprEndDt && '활성' => 입찰 상태 코드 [13]
         *   '시작일이 당일이며, 상태가 활성입니다. 해당 정보로 수정 저장 시, 입찰 시작됩니다. 진행 하시겠습니까?'
-        *   message : 수정되었습니다.
         *   location : 투찰중
         * */
-
         /* 현재 날짜 < bddprBeginDt ~ bddprEndDt && '활성' => 입찰 상태 코드 [12]
          *   '시작일이 미래이며, 상태가 활성입니다. 해당 정보로 수정 저장 시, 입찰예정으로 노출됩니다. 진행 하시겠습니까?'
-         *   message : 수정되었습니다.
          *   location : 입찰예정
          * */
 
         /* (bddprBeginDt < 현재 날짜 < bddprEndD ||  현재 날짜 < bddprBeginDt ~ bddprEndDt) && '비활성' => 입찰 상태 코드 [11]
-         *   '시작일이 당일이며, 상태가 활성입니다. 해당 정보로 수정 저장 시, 입찰 시작됩니다. 진행하시겠습니까?'
-         *   message : 수정되었습니다.
          *   location : 공고대기
          * */
+        if (vo.getUdtCase() == 1) {
+            resultMap.put("location", "투찰중");
+            vo.setBidSttusCode("13");
+            bidModalDAO.udtBidSttusCode(vo);
+
+            resultMap.put("success", true);
+            return resultMap;
+        } else if (vo.getUdtCase() == 2) {
+            resultMap.put("location", "입찰예정");
+            vo.setBidSttusCode("12");
+            bidModalDAO.udtBidSttusCode(vo);
+
+            resultMap.put("success", true);
+            return resultMap;
+        } else if (vo.getUdtCase() == 3) {
+            resultMap.put("location", "공고대기");
+            vo.setBidSttusCode("11");
+            bidModalDAO.udtBidSttusCode(vo);
+
+            resultMap.put("success", true);
+            return resultMap;
+        }
         resultMap.put("success", true);
         return resultMap;
     }

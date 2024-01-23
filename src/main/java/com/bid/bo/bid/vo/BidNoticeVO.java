@@ -93,5 +93,7 @@ public class BidNoticeVO {
     private String bidUpdtCn;
     private String bidUpdtResn;
 
+    private int udtCase;
+
     private String subCode;
 }

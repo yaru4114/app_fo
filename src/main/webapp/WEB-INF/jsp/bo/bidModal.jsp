@@ -430,6 +430,35 @@
                 </p>
             </div>
         </div>
+        <div class="pop-modal pop-toast" id="udtBidSuccess">
+            <div class="pop-inner">
+                <p>
+                    수정되었습니다.
+                </p>
+            </div>
+        </div>
+        <div class="pop-modal pop-toast" id="udtConfirm1">
+            <div class="pop-inner">
+                <p>시작일이 당일이며, 상태가 활성입니다. <br>
+                    해당 정보로 수정 저장 시, 입찰 시작됩니다. <br>
+                    진행 하시겠습니까?</p>
+                <div class="buttonConfirm">
+                    <button type="button" class="btn btn-purple" id="udtCancelConfrim">취소</button>
+                    <button type="button" class="btn" id="udtSubmitConfirm1">수정</button>
+                </div>
+            </div>
+        </div>
+        <div class="pop-modal pop-toast" id="udtConfirm2">
+            <div class="pop-inner">
+                <p>시작일이 미래이며, 상태가 활성입니다. <br>
+                    해당 정보로 수정 저장 시, 입찰예정으로 노출됩니다. <br>
+                    진행 하시겠습니까?</p>
+                <div class="buttonConfirm">
+                    <button type="button" class="btn btn-purple" id="udtCancelConfrim">취소</button>
+                    <button type="button" class="btn" id="udtSubmitConfirm2">수정</button>
+                </div>
+            </div>
+        </div>
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -515,12 +544,12 @@
             });
         }
 
-        function showToastPopup() {
+        function showToastPopup(id) {
             //토스트팝업
-            $('#creBidSuccess').fadeIn(300);
+            $('#' + id).fadeIn(300);
 
             setTimeout(function () {
-                $('#creBidSuccess').fadeOut(300);
+                $('#' + id).fadeOut(300);
             }, 2000);
         }
 
@@ -635,7 +664,6 @@
 
             return isValid;
         }
-
         /* ================================== ❗공통 함수❗ ================================== */
 
 
@@ -659,7 +687,7 @@
                 data: JSON.stringify(param),
                 success: function (response) {
                     if (response.result) {
-                        var data = response.result;
+                        var data = response.result[0];
                         console.log('수정할 공고 정보 data : ', data);
 
                         getOptions('brandGrp', 'brandGroupCode', 'codeNm', 'subCode', data.metalCode)
@@ -746,9 +774,9 @@
 
         function setDateTimeFields(dateTime, dateField, ampmField, hourField, minField, secField) {
             var dateValue = dateTime.substr(0, 8);
-            var hourValue = dateTime.substr(8, 2);
-            var minValue = dateTime.substr(10, 2);
-            var secValue = dateTime.substr(12, 2);
+            var hourValue = dateTime.substr(8, 2).replace(/^0/, '');
+            var minValue = dateTime.substr(10, 2).replace(/^0/, '');
+            var secValue = dateTime.substr(12, 2).replace(/^0/, '');
 
             $('#' + dateField).val(dateValue);
 
@@ -764,6 +792,142 @@
             $('#' + secField).val(secValue);
         }
 
+        function udtBidNotice(udtCase) {
+            var metalCode = $('#metalCode').val();
+            var brandGroupCode = $('#brandGroupCode').val();
+            var brandCode = $('#brandCode').val();
+            var itmSn = $('#itmSn').val();
+            var dstrctLclsfCode = $('#dstrctLclsfCode').val();
+            var bidWt = $('#bidWt').val();
+            var permWtRate = $('#permWtRate').val();
+            var delyCnd01ApplcAt = $('#delyCnd01ApplcAt').val();
+            var delyCnd01StdrPc = $('#delyCnd01StdrPc').val();
+            var delyCnd01PremiumPc = $('#delyCnd01PremiumPc').val();
+            var delyCnd02ApplcAt = $('#delyCnd02ApplcAt').val();
+            var delyCnd02StdrPc = $('#delyCnd02StdrPc').val();
+            var delyCnd02PremiumPc = $('#delyCnd02PremiumPc').val();
+            var delyCnd03ApplcAt = $('#delyCnd03ApplcAt').val();
+            var delyCnd03StdrPc = $('#delyCnd03StdrPc').val();
+            var delyCnd03PremiumPc = $('#delyCnd03PremiumPc').val();
+            var delyPdCn = $('#delyPdCn').val();
+            var pcAppnMthCode = $('#pcAppnMthCode').val();
+            var setleCrncyCode = $('#setleCrncyCode').val();
+            var setleMthCode = $('#setleMthCode').val();
+            var setlePdCode = $('#setlePdCode').val();
+            var etcCn = $('#etcCn').val();
+            var bddprCanclPossAt = $('#bddprCanclPossAt').val();
+            var dspyAt = $('input[name="dspyAt"]:checked').val();
+
+            // 📆날짜 관련
+            // YYYY-MM-DD => YYYYMMDD
+            var delyBeginDe = $('#delyBeginDe').val(); // 인도기한 시작
+            delyBeginDe = delyBeginDe.replace(/-/g, '');
+
+            var delyEndDe = $('#delyEndDe').val(); // 인도기한 종료
+            delyEndDe = delyEndDe.replace(/-/g, '');
+
+            var pcAppnBeginDe = $('#pcAppnBeginDe').val(); // 가격지정기간 시작
+            pcAppnBeginDe = pcAppnBeginDe.replace(/-/g, '');
+
+            var pcAppnEndDe = $('#pcAppnEndDe').val(); // 가격지정기간 종료
+            pcAppnEndDe = pcAppnEndDe.replace(/-/g, '');
+
+            // YYYY-MM-DD => YYYYmmDDHHMMSS
+            // 투찰 시작일
+            var bddprBeginDt = $('#bddprBeginDt').val();
+            var bddprBeginDt_ampm = $('#bddprBeginDt_ampm').val();
+            var bddprBeginDt_hour = $('#bddprBeginDt_hour').val();
+            var bddprBeginDt_min = $('#bddprBeginDt_min').val();
+            var bddprBeginDt_sec = $('#bddprBeginDt_sec').val();
+
+            // 투찰 마감일
+            var bddprEndDt = $('#bddprEndDt').val();
+            var bddprEndDt_ampm = $('#bddprEndDt_ampm').val();
+            var bddprEndDt_hour = $('#bddprEndDt_hour').val();
+            var bddprEndDt_min = $('#bddprEndDt_min').val();
+            var bddprEndDt_sec = $('#bddprEndDt_sec').val();
+
+            // 투찰 취소기한
+            var bddprCanclLmttDe = $('#bddprCanclLmttDe').val();
+            var bddprCanclLmttDe_ampm = $('#bddprCanclLmttDe_ampm').val();
+            var bddprCanclLmttDe_hour = $('#bddprCanclLmttDe_hour').val();
+            var bddprCanclLmttDe_min = $('#bddprCanclLmttDe_min').val();
+            var bddprCanclLmttDe_sec = $('#bddprCanclLmttDe_sec').val();
+
+            bddprBeginDt = formatDate(bddprBeginDt, bddprBeginDt_ampm, bddprBeginDt_hour, bddprBeginDt_min, bddprBeginDt_sec);
+            bddprEndDt = formatDate(bddprEndDt, bddprEndDt_ampm, bddprEndDt_hour, bddprEndDt_min, bddprEndDt_sec);
+            bddprCanclLmttDe = formatDate(bddprCanclLmttDe, bddprCanclLmttDe_ampm, bddprCanclLmttDe_hour, bddprCanclLmttDe_min, bddprCanclLmttDe_sec);
+
+            var bidUpdtCn = $('#bidUpdtCn').val();
+            var bidUpdtResn = $('#bidUpdtCn').val();
+
+            var param = {
+                subCode: metalCode,
+                metalCode: metalCode,
+                brandGroupCode: brandGroupCode,
+                brandCode: brandCode,
+                itmSn: itmSn,
+                dstrctLclsfCode: dstrctLclsfCode,
+                bidWt: bidWt,
+                permWtRate1: permWtRate,
+                delyCnd01ApplcAt: delyCnd01ApplcAt,
+                delyCnd01StdrPc: delyCnd01StdrPc,
+                delyCnd01PremiumPc: delyCnd01PremiumPc,
+                delyCnd02ApplcAt: delyCnd02ApplcAt,
+                delyCnd02StdrPc: delyCnd02StdrPc,
+                delyCnd02PremiumPc: delyCnd02PremiumPc,
+                delyCnd03ApplcAt: delyCnd03ApplcAt,
+                delyCnd03StdrPc: delyCnd03StdrPc,
+                delyCnd03PremiumPc: delyCnd03PremiumPc,
+                delyBeginDe: delyBeginDe,
+                delyEndDe: delyEndDe,
+                delyPdCn: delyPdCn,
+                pcAppnBeginDe: pcAppnBeginDe,
+                pcAppnEndDe: pcAppnEndDe,
+                pcAppnMthCode: pcAppnMthCode,
+                setleCrncyCode: setleCrncyCode,
+                setleMthCode: setleMthCode,
+                setlePdCode: setlePdCode,
+                etcCn: etcCn,
+                bddprBeginDt: bddprBeginDt,
+                bddprEndDt: bddprEndDt,
+                bddprCanclPossAt: bddprCanclPossAt,
+                bddprCanclLmttDe: bddprCanclLmttDe,
+                dspyAt: dspyAt,
+                bidUpdtCn: bidUpdtCn,
+                bidUpdtResn: bidUpdtResn,
+                bidPblancId: chgPblancId,
+                udtCase: udtCase
+            };
+
+            console.log('수정 param : ', param);
+
+            $.ajax({
+                type: 'POST',
+                url: '/bo/bid/modal/chgBid',
+                contentType: 'application/json',
+                data: JSON.stringify(param),
+                success: function (response) {
+                    if (response.success) {
+                        console.log('result ', response);
+                        showToastPopup('udtBidSuccess');
+
+                        setTimeout(function () {
+                            $('#creBidSuccess').fadeOut(300, function () {
+                                $('#exampleModal').hide();
+                                resetForm();
+                                $('#udtConfirm1').hide();
+                                $('#udtConfirm2').hide();
+                                location.href = "/bo/bid/noticeMngForm";
+                            });
+                        }, 2000);
+                    }
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        }
         /* ================================== ❗수정 관련❗ ================================== */
 
 
@@ -878,7 +1042,7 @@
                 data: JSON.stringify(param),
                 success: function (response) {
                     if (response.success) {
-                        showToastPopup();
+                        showToastPopup('creBidSuccess');
 
                         setTimeout(function () {
                             $('#creBidSuccess').fadeOut(300, function () {
@@ -932,6 +1096,23 @@
         udtCheckboxValue('delyCnd02ApplcAt');
         udtCheckboxValue('delyCnd03ApplcAt');
 
+        $('#udtCancelConfrim').on('click', function () {
+           $('#udtConfirm1').hide();
+           $('#udtConfirm2').hide();
+        });
+
+        $('#udtSubmitConfirm1').on('click', function () {
+            if (validateSubmitForm()) {
+                udtBidNotice(1);
+            }
+        });
+
+        $('#udtSubmitConfirm2').on('click', function () {
+            if (validateSubmitForm()) {
+                udtBidNotice(2);
+            }
+        });
+
         $('#submitBid').on('click', function () {
             var btnText = $('#submitBid').text();
 
@@ -939,10 +1120,46 @@
                 if (validateSubmitForm()) {
                     creBidNotice();
                 }
-            } else {
-                // 수정 ajax
+            } else { // 입찰 수정 등록
+                // 케이스 별 처리
+                var todayDate = new Date();
+                todayDate = formatYyyymmdd(todayDate);
+
+                var bddprBeginDt = $('#bddprBeginDt').val();
+                var bddprEndDt = $('#bddprEndDt').val();
+                var dspyAt = $('input[name="dspyAt"]:checked').val();
+
+                if (todayDate >= bddprBeginDt && todayDate <= bddprEndDt && dspyAt === 'Y') {
+                    // bddprBeginDt < 현재 날짜 < bddprEndDt && '활성'
+                    $('#udtConfirm1').show();
+                } else if (todayDate < bddprBeginDt && dspyAt === 'Y') {
+                    // 현재 날짜 < bddprBeginDt ~ bddprEndDt && '활성'
+                    $('#udtConfirm2').show();
+                } else if ((todayDate >= bddprBeginDt && todayDate <= bddprEndDt) || todayDate < bddprBeginDt) {
+                    if (dspyAt === 'N') {
+                        // (bddprBeginDt < 현재 날짜 < bddprEndD ||  현재 날짜 < bddprBeginDt ~ bddprEndDt) && '비활성'
+                        if (validateSubmitForm()) {
+                            udtBidNotice(3);
+                        }
+                    } else {
+                        if (validateSubmitForm()) {
+                            udtBidNotice(0);
+                        }
+                    }
+                } else {
+                    if (validateSubmitForm()) {
+                        udtBidNotice(0);
+                    }
+                }
             }
         });
+
+        function formatYyyymmdd(date) {
+            var year = date.getFullYear();
+            var month = ('0' + (date.getMonth() + 1)).slice(-2);
+            var day = ('0' + date.getDate()).slice(-2);
+            return year + month + day;
+        }
 
         // function formatDate2(date) {
         //     return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();

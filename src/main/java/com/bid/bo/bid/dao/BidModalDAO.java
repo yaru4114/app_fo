@@ -17,4 +17,5 @@ public interface BidModalDAO {
     public void creBidUpdt(BidNoticeVO vo);
     public List<BidNoticeVO> getBidDetail(BidNoticeVO vo);
     public BidNoticeVO getBidDetailNoUpdt(BidNoticeVO vo);
+    public void udtBidSttusCode(BidNoticeVO vo);
 }
