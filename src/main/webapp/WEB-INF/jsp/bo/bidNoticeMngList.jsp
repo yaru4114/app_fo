@@ -406,8 +406,8 @@
 
                                 <div class="btn-box mt-12">
                                     <button type="button" class="btn" id="bid_noticeChg" data-toggle="modal"
-                                            data-target="#chgBidModal">공고 수정</button>
-                                    <button type="button" class="btn" id="btn_bidCancel"></button>
+                                            data-target="#exampleModal">공고 수정</button>
+                                    <button type="button" class="btn">공고 취소</button>
                                 </div>
                                 <div class="sub-title">
                                     <h3 class="">투찰 기업 목록</h3>
