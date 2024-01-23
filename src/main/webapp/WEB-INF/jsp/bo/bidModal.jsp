@@ -388,7 +388,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" id="bidNoticeModal">
                     <div class="btn-box">
                         <button type="button" class="btn" id="submitBid">입찰 공고 등록</button>
                     </div>
@@ -411,7 +411,6 @@
 
         /* ================================== ❗공통 함수❗ ================================== */
         function startBidModal() {
-            console.log('첫 시작');
             var bidWt = $('#bidWt');
             var permWtRate = $('#permWtRate');
 
@@ -432,6 +431,18 @@
             getOptions('pymntMt', 'setleMthCode', 'codeNm', 'subCode', 'PYMNT_MT_CODE');
             getOptions('pymntPr', 'setlePdCode', 'codeNm', 'subCode', 'PYMNT_PR_CODE');
         }
+
+        // 공고 모달 등록 / 수정
+        function openBidModal(text, isEditMode) {
+            if (isEditMode) { // 수정
+                $('#exampleModal h5.modal-title').text(text);
+                $('#bidNoticeModal button.btn').text(text);
+            } else { // 등록
+                $('#exampleModal h5.modal-title').text(text);
+                $('#bidNoticeModal button.btn').text(text);
+            }
+        }
+
         // 옵션 조회 공통 함수
         function getOptions(endPoint, elementId, textParam, valueParam, code) {
             return new Promise(function (resolve, reject) {
@@ -477,9 +488,9 @@
             //토스트팝업
             $('#creBidSuccess').fadeIn(300);
 
-            setTimeout(function(){
+            setTimeout(function () {
                 $('#creBidSuccess').fadeOut(300);
-            },2000);
+            }, 2000);
         }
 
         function appendOpt(elementId) {
@@ -524,8 +535,8 @@
             $('#bddprCanclLmttDe_sec').val('');
         }
 
-        function udtCheckboxValue (elementId) {
-            $('#' + elementId).change(function() {
+        function udtCheckboxValue(elementId) {
+            $('#' + elementId).change(function () {
                 var value = $(this).prop('checked') ? 'Y' : 'N';
                 $('#' + elementId).val(value);
             });
@@ -533,37 +544,37 @@
 
         // 필수 입력 검증 함수
         var requiredElement = [
-            { id: 'metalCode', label: '메탈 구분' },
-            { id: 'brandGroupCode', label: '브랜드 그룹' },
-            { id: 'brandCode', label: '브랜드' },
-            { id: 'itmSn', label: '아이템 상품명' },
-            { id: 'dstrctLclsfCode', label: '권역' },
-            { id: 'bidWt', label: '수량 (톤)' },
-            { id: 'permWtRate', label: '중량허용공차' },
-            { id: 'delyBeginDe', label: '인도 시작 일자' },
-            { id: 'delyEndDe', label: '인도 종료 일자' },
-            { id: 'pcAppnBeginDe', label: '가격 지정 시작 일자' },
-            { id: 'pcAppnEndDe', label: '가격 지정 종료 일자' },
-            { id: 'pcAppnMthCode', label: '가격 지정 방법' },
-            { id: 'setleCrncyCode', label: '결제 통화 코드' },
-            { id: 'setleMthCode', label: '결제 방법 코드' },
-            { id: 'setlePdCode', label: '결제 기간 코드' },
-            { id: 'bddprBeginDt', label: '투찰 시작 일시' },
-            { id: 'bddprBeginDt_hour', label: '투찰 시작 일시 [시]'},
-            { id: 'bddprBeginDt_min', label: '투찰 시작 일시 [분]'},
-            { id: 'bddprBeginDt_sec', label: '투찰 시작 일시 [초]'},
-            { id: 'bddprEndDt', label: '투찰 종료 일시' },
-            { id: 'bddprEndDt_hour', label: '투찰 종료 일시 [시]'},
-            { id: 'bddprEndDt_min', label: '투찰 시작 일시 [분]'},
-            { id: 'bddprEndDt_sec', label: '투찰 시작 일시 [초]'},
-            { id: 'dspyAt', label: '전시 여부' }
+            {id: 'metalCode', label: '메탈 구분'},
+            {id: 'brandGroupCode', label: '브랜드 그룹'},
+            {id: 'brandCode', label: '브랜드'},
+            {id: 'itmSn', label: '아이템 상품명'},
+            {id: 'dstrctLclsfCode', label: '권역'},
+            {id: 'bidWt', label: '수량 (톤)'},
+            {id: 'permWtRate', label: '중량허용공차'},
+            {id: 'delyBeginDe', label: '인도 시작 일자'},
+            {id: 'delyEndDe', label: '인도 종료 일자'},
+            {id: 'pcAppnBeginDe', label: '가격 지정 시작 일자'},
+            {id: 'pcAppnEndDe', label: '가격 지정 종료 일자'},
+            {id: 'pcAppnMthCode', label: '가격 지정 방법'},
+            {id: 'setleCrncyCode', label: '결제 통화 코드'},
+            {id: 'setleMthCode', label: '결제 방법 코드'},
+            {id: 'setlePdCode', label: '결제 기간 코드'},
+            {id: 'bddprBeginDt', label: '투찰 시작 일시'},
+            {id: 'bddprBeginDt_hour', label: '투찰 시작 일시 [시]'},
+            {id: 'bddprBeginDt_min', label: '투찰 시작 일시 [분]'},
+            {id: 'bddprBeginDt_sec', label: '투찰 시작 일시 [초]'},
+            {id: 'bddprEndDt', label: '투찰 종료 일시'},
+            {id: 'bddprEndDt_hour', label: '투찰 종료 일시 [시]'},
+            {id: 'bddprEndDt_min', label: '투찰 시작 일시 [분]'},
+            {id: 'bddprEndDt_sec', label: '투찰 시작 일시 [초]'},
+            {id: 'dspyAt', label: '전시 여부'}
         ];
 
         var requiredElementDate = [
-            { id: 'bddprCanclLmttDe', label: '투찰 취소 제한일' },
-            { id: 'bddprCanclLmttDe_hour', label: '투찰 취소 제한 [시]' },
-            { id: 'bddprCanclLmttDe_min', label: '투찰 취소 제한 [분]' },
-            { id: 'bddprCanclLmttDe_sec', label: '투찰 취소 제한 [초]' },
+            {id: 'bddprCanclLmttDe', label: '투찰 취소 제한일'},
+            {id: 'bddprCanclLmttDe_hour', label: '투찰 취소 제한 [시]'},
+            {id: 'bddprCanclLmttDe_min', label: '투찰 취소 제한 [분]'},
+            {id: 'bddprCanclLmttDe_sec', label: '투찰 취소 제한 [초]'},
         ]
 
         function validateField(field) {
@@ -582,11 +593,11 @@
             var canclPossAt = $('#bddprCanclPossAt').val();
 
             if (canclPossAt === 'Y') {
-                requiredElementDate.forEach(function(field) {
+                requiredElementDate.forEach(function (field) {
                     isValid = isValid && validateField(field);
                 });
             } else {
-                requiredElement.forEach(function(field) {
+                requiredElement.forEach(function (field) {
                     isValid = isValid && validateField(field);
                 });
             }
@@ -594,25 +605,6 @@
             return isValid;
         }
 
-        function setDateTimeFields(dateTime, dateField, ampmField, hourField, minField, secField) {
-            var dateValue = dateTime.substr(0, 8);
-            var hourValue = dateTime.substr(8, 2);
-            var minValue = dateTime.substr(10, 2);
-            var secValue = dateTime.substr(12, 2);
-
-            $('#' + dateField).val(dateValue);
-
-            if (hourValue < 12) {
-                $('#' + ampmField).val('am');
-                $('#' + hourField).val(hourValue);
-            } else {
-                $('#' + ampmField).val('pm');
-                $('#' + hourField).val(hourValue - 12);
-            }
-
-            $('#' + minField).val(minValue);
-            $('#' + secField).val(secValue);
-        }
         /* ================================== ❗공통 함수❗ ================================== */
 
 
@@ -640,10 +632,10 @@
                         console.log('수정할 공고 정보 data : ', data);
 
                         getOptions('brandGrp', 'brandGroupCode', 'codeNm', 'subCode', data.metalCode)
-                            .then(function() {
+                            .then(function () {
                                 return getOptions('item', 'itmSn', 'itmPrdlstKorean', 'itmSn', data.metalCode);
                             })
-                            .then(function() {
+                            .then(function () {
                                 return getOptions('brand', 'brandCode', 'brandNm', 'brandCode', data.brandGroupCode);
                             })
                             .then(function () {
@@ -720,6 +712,27 @@
                 }
             });
         }
+
+        function setDateTimeFields(dateTime, dateField, ampmField, hourField, minField, secField) {
+            var dateValue = dateTime.substr(0, 8);
+            var hourValue = dateTime.substr(8, 2);
+            var minValue = dateTime.substr(10, 2);
+            var secValue = dateTime.substr(12, 2);
+
+            $('#' + dateField).val(dateValue);
+
+            if (hourValue < 12) {
+                $('#' + ampmField).val('am');
+                $('#' + hourField).val(hourValue);
+            } else {
+                $('#' + ampmField).val('pm');
+                $('#' + hourField).val(hourValue - 12);
+            }
+
+            $('#' + minField).val(minValue);
+            $('#' + secField).val(secValue);
+        }
+
         /* ================================== ❗수정 관련❗ ================================== */
 
 
@@ -840,7 +853,7 @@
                             $('#creBidSuccess').fadeOut(300, function () {
                                 $('#exampleModal').hide();
                                 resetForm();
-                                location.href="/bo/bid/noticeMngForm";
+                                location.href = "/bo/bid/noticeMngForm";
                             });
                         }, 2000);
                     }
