@@ -78,23 +78,23 @@
 	                            <div class="tr">
 	                                <label for="uid">아이디</label>
 	                                <span class="limit-width">
-	                                    <input type="text" name="uid" id="uid" placeholder="아이디 (4~12자 이내의 영문 또는 영문+숫자 조합 )">
+	                                    <input type="text" name="uid" id="uid" placeholder="아이디 (4~12자 이내의 영문 또는 영문+숫자 조합 )" oninput="inputChk('id',$(this))">
 	                                </span>
-	                                <span class="t-info id">아이디는 12자 이내여야 합니다.</span>
+	                                <span class="t-info">4-12자 이내의 문자 또는 문자+숫자만 사용 가능</span>
 	                            </div>
 	                            <div class="tr">
 	                                <label for="upw">비밀번호</label>
 	                                <span class="limit-width">
-	                                    <input type="password" name="upw" id="upw" placeholder="비밀번호(영문 숫자 특수기호 조합 8~12자로 입력)">
+	                                    <input type="password" name="upw" id="upw" placeholder="비밀번호(영문 숫자 특수기호 조합 8~12자로 입력)" oninput="inputChk('pwd', $(this))">
 	                                </span>
-	                                <span class="t-info pwd">영문자, 숫자, 특수문자 조합을 입력해야 합니다.</span>
+	                                <span class="t-info">8~12자 이내의 영문+숫자+특수문자만 사용 가능</span>
 	                            </div>
 	                            <div class="tr">
 	                                <label for="upw2">비밀번호 확인</label>
 	                                <span class="limit-width">
-	                                    <input type="password" name="upw2" id="upw2" placeholder="비밀번호 확인">
+	                                    <input type="password" name="upw2" id="upw2" placeholder="비밀번호 확인" oninput="inputChk('pwdChk',$(this))">
 	                                </span>
-	                                <span class="t-info pwdCheck">암호를 다시 확인해주세요.</span>
+	                                <span class="t-info">비밀번호가 일치하지 않습니다..</span>
 	                            </div>
 	                            <div class="tr">
 	                                <label for="cname">회사 이름</label>
@@ -112,7 +112,7 @@
                                         </span>
                                         -->
 	                                </span>
-	                                <span class="t-info t2" style="display: none">사업자등록번호를 다시 확인해 주세요.</span>
+	                                <span class="t-info" style="display: none">사업자등록번호를 다시 확인해 주세요.</span>
 	                            </div>
 	                            <div class="tr">
 	                                <div class="file-upload">
@@ -380,6 +380,37 @@ $('#vrsc_ipUserEmailDomain2_select').on('change',function(){
 });
 
 
+// oninput 경고처리
+function inputChk(formType, target){
+    var idFilter1 = /^[a-zA-Z0-9](?=.*[a-zA-Z])(?=.*[0-9]).{3,12}$/g;
+    var idFilter2 = /^[a-zA-Z]{4,12}$/g;
+    var pwdFilter = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,12}$/;
+
+    switch(formType){
+        case "id":
+            if (!(idFilter1.test(target.val()) || idFilter2.test(target.val()))) {
+                target.parent().siblings(".t-info").show();
+            } else {
+                target.parent().siblings(".t-info").hide();
+            }
+            break;
+        case "pwd":
+            if (!(pwdFilter.test(target.val()))) {
+                target.parent().siblings(".t-info").show();
+            } else {
+                target.parent().siblings(".t-info").hide();
+            }
+            break;
+        case "pwdChk":
+            if (target.val() !== $('#upw').val()) {
+                target.parent().siblings(".t-info").show();
+            } else {
+                target.parent().siblings(".t-info").hide();
+            }
+            break;
+    }
+}
+
 // 회원가입 조건처리
 
 function chkInfo(form){
@@ -554,8 +585,6 @@ $('#submitBtn').on('click',function(){
     if (!chkInfo(form)) {
         return;
     }
-
-
 
     const formData = new FormData();
     // 고객정보
