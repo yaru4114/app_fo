@@ -50,7 +50,6 @@ public class BidMemberService {
             vo.setBsnmRegistDocNo1(maxDocNo+1);
             vo.setBsnmRegistDocNo2(maxDocNo+2);
         }
-//        log.info("docNo1 : {}", vo.getBsnmRegistDocNo1());
 
         try {
             // 암호화
@@ -75,9 +74,6 @@ public class BidMemberService {
             resultMap.put("success", false);
             resultMap.put("message", "서버 오류. 관리자에게 문의하세요.");
         }
-
-
-
         return resultMap;
     }
 
@@ -159,8 +155,8 @@ public class BidMemberService {
 
             for (MultipartFile file : fileList) {
                 String uldFileName = fileUtil.setTimestampedFileName(file);
-                String folder = "/member/bsnmRegist/";
-
+//                String folder = "/member/bsnmRegist";
+                String folder = "\"member\"bsnmRegist";
                 FileVO fileVO = fileUtil.upload(file, folder, uldFileName);
 
                 DocVO docVO = DocVO.builder()
@@ -178,7 +174,6 @@ public class BidMemberService {
 
                 count++;
             }
-
         }
     }
 }

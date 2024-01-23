@@ -234,7 +234,9 @@
             WHEN BID_CONFM_STTUS_CODE = '02' THEN '승인거절'
             WHEN BID_CONFM_STTUS_CODE = '03' THEN '승인정상'
         END
-        ) AS BID_CONFM_STTUS_CODE
+        ) AS BID_CONFM_STTUS_CODE,
+        ISNULL(BSNM_REGIST_DOC_NO1,-1) AS BSNM_REGIST_DOC_NO1,
+        ISNULL(BSNM_REGIST_DOC_NO2,-1) AS BSNM_REGIST_DOC_NO2
         FROM
             BD_ENTRPS_INFO_BAS
         WHERE
@@ -256,5 +258,14 @@
             BID_MBER_ID = #{bidMberId}
             AND DELETE_AT = 'N'
     </update>
+
+    <select id="getDocInfo" parameterType="_int" resultType="com.bid.common.model.DocVO">
+        SELECT
+            *
+        FROM
+            CO_DOC_BAS
+        WHERE
+            DOC_NO = #{docNo}
+    </select>
 
 </mapper>

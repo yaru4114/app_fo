@@ -237,6 +237,18 @@
                                     <input type="text" name="modalMobile" id="modalMobile" class="w300px" required readonly>
                                 </td>
                             </tr>
+
+                            <!--
+                            <tr>
+                                <th scope="row">
+                                    <label for="">사업자등록증</label>
+                                </th>
+                                <td>
+                                    <input type="text" name="modalDoc1" id="modalDoc1" class="w300px" required
+                                           readonly>
+                                </td>
+                            </tr>
+                            -->
                             </tbody>
                         </table>
                     </section>
@@ -283,6 +295,19 @@
                                     <input type="text" name="modalVrscMobile" id="modalVrscMobile" class="w300px" required readonly>
                                 </td>
                             </tr>
+
+                            <!--
+                            <tr>
+                                <th scope="row">
+                                    <label for="">사업자등록증</label>
+                                </th>
+                                <td>
+                                    <input type="text" name="modalDoc2" id="modalDoc2" class="w300px" required
+                                           readonly>
+                                </td>
+                            </tr>
+                            -->
+
                             </tbody>
                         </table>
                     </section>
@@ -562,6 +587,7 @@
                 success: function (response) {
                     if(response.success){
                         setModalTable(response.result);
+                        // setDocData(response);
                         $("#blockModal").show();
                     }
                 },
@@ -603,8 +629,46 @@
             } else {
                 $("#closeBtn").hide();
             }
-
         }
+
+        // var doc1;
+        // var doc2;
+
+        // 사업자등록증 바인딩
+        function setDocData(response) {
+
+            if (response.doc1 != null) {
+                doc1 = response.doc1;
+                $("#modalDoc1").val(doc1.docFileNm);
+            }
+
+            if (response.doc2 != null) {
+                doc2 = response.doc2;
+                $("#modalDoc2").val(doc2.docFileNm);
+            }
+        }
+
+/*      // 다운로드
+        function downloadFile(name,path){
+            $.ajax({
+                url: "/common/download",
+                data: {
+                    filePath: path
+                },
+                responseType: "blob",
+                success: function (response) {
+                    const url = window.URL.createObjectURL(response.data);
+                    const link = document.createElement('a');
+                    link.href = url
+                    link.setAttribute('download', name.split('\').reverse()[0]);
+                    link.click();
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        }
+*/
 
         // 승인 & 거절 버튼
         $("#allowBtn").on('click',function(){

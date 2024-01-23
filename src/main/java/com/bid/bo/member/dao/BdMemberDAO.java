@@ -1,6 +1,7 @@
 package com.bid.bo.member.dao;
 
 import com.bid.common.model.BidMemberVO;
+import com.bid.common.model.DocVO;
 import com.bid.common.model.SearchVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -17,4 +18,5 @@ public interface BdMemberDAO {
     public List<BidMemberVO> getApprovalList(SearchVO vo);
     public BidMemberVO searchById(String bidMberId);
     public void udtApproval(BidMemberVO vo);
+    public DocVO getDocInfo(int docNo);
 }
