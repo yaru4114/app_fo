@@ -92,7 +92,7 @@
                         </section>
                     </div>
                 </div>
-                <div class="search-control">
+                <div class="search-control" style="margin-top: 0px">
                     <div class="form-set">
                         <span class="label">상태</span>
                         <select class="form-select" name="" id="bidSttusCodeSelectBox">
@@ -200,7 +200,7 @@
                         <tr>
                             <th>상태</th>
                             <td id="modalBidStatNm"></td>
-                            <th>시작~마감</th>
+                            <th id="modalBddprDateText"></th>
                             <td id="modalBddprDate"></td>
                             <th>활성여부</th>
                             <td id="modalActiveAt"></td>
@@ -359,10 +359,10 @@
                             <th scope="row">
                                 투찰 취소기한<i class="icon icon-required"></i>
                                 <div class="icon icon-title-tooltip tooltip" style="margin-left:1px;">
-							                                <span class="tooltiptext">
-							                                    회원사가 투찰 후, 취소를 할때<br/>
-																설정 된 취소 기한에 따릅니다.
-							                                </span>
+                                    <span class="tooltiptext">
+                                        회원사가 투찰 후, 취소를 할때<br/>
+                                        설정 된 취소 기한에 따릅니다.
+                                    </span>
                                 </div>
                             </th>
                             <td colspan="3" id="modalBddprCanclLmttDe"></td>
@@ -403,46 +403,54 @@
                         </tbody>
                     </table>
                 </div>
-
-                                <div class="btn-box mt-12">
-                                    <button type="button" class="btn" id="bid_noticeChg" data-toggle="modal"
-                                            data-target="#exampleModal">공고 수정</button>
-                                    <button type="button" class="btn" id="btn_bidCancel">공고 취소</button>
-                                </div>
-                                <div class="sub-title">
-                                    <h3 class="">투찰 기업 목록</h3>
-                                </div>
-                                <div class="table table-view">
-                                    <table>
-                                        <colgroup>
-                                            <col width="10%" />
-                                            <col width="15%" />
-                                            <col width="15%" />
-                                            <col width="*" />
-                                            <col width="10%" />
-                                            <col width="10%" />
-                                            <%--<col width="10%" />--%>
-                                        </colgroup>
-                                        <tbody id="modalBddprInfo">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <!-- <div class="btn-box">
-                                    <button type="button" class="btn">입찰 공고 등록</button>
-                                    <button type="button" class="btn" data-dismiss="modal">취소</button>
-                                </div> -->
-                            </div>
-                        </div>
-                    </div>
+                <div class="sub-title" id="bidFailTitle" style="display: none">
+                    <h3 class="">유찰 사유</h3>
                 </div>
-                <!-- 모달 엔드 -->
+                <div class="table table-view" id="bidFailTable" style="display: none">
+                    <table>
+                        <colgroup>
+                            <col width="30%" />
+                            <col width="*" />
+                        </colgroup>
+                        <tbody id="modalFailHstBody" >
+                        </tbody>
+                    </table>
+                </div>
+                <div class="btn-box mt-12">
+                    <button type="button" class="btn" id="bid_noticeChg" data-toggle="modal"
+                            data-target="#exampleModal">공고 수정</button>
+                    <button type="button" class="btn" id="btn_bidCancel">공고 취소</button>
+                </div>
+                <div class="sub-title">
+                    <h3 class="">투찰 기업 목록</h3>
+                </div>
+                <div class="table table-view">
+                    <table>
+                        <colgroup>
+                            <col width="10%" />
+                            <col width="15%" />
+                            <col width="15%" />
+                            <col width="*" />
+                            <col width="10%" />
+                            <col width="10%" />
+                            <%--<col width="10%" />--%>
+                        </colgroup>
+                        <tbody id="modalBddprInfo">
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+    <div class="pop-modal pop-toast" id="modalToast">
+        <div class="pop-inner">
+            <p id="modalToastText"></p>
+        </div>
+    </div>
 </div>
+<!-- 모달 엔드 -->
 </body>
+
 <script type="text/javascript">
   var provider;
   var girdView;
@@ -477,7 +485,12 @@
     var buttonId = $(this).attr('id');
     var bidStat = "";
 
+    if(buttonId === undefined) {
+      buttonId = "btn_bdngAllCnt";
+    }
+
     $(".tab-button .btn").removeClass('active');
+
 
     if(buttonId == "btn_bdngAllCnt") {
       bidStat = "";
@@ -612,6 +625,7 @@
           chgPblancId = bidPblancId;
 
           if(colIndex == "bidPblancId") {
+
             ajaxBidNoticeMngInfo(bidPblancId);
             chgModalOpen();
           }
@@ -638,7 +652,6 @@
 
         $("#modalTitle").append("입찰 공고 상세 > " + data.itmPrdlstKorean + '<span style="margin-left:20px;background-color: black; color: white; font-weight:normal;">' + "&nbsp;&nbsp;입찰공고번호 " + data.bidPblancId + '&nbsp;&nbsp;</span>');
         $("#modalBidStatNm").text(data.bidStatNm);
-        $("#modalBddprDate").text(data.bddprBeginDt + " ~ " + data.bddprEndDt );
         $("#modalActiveAt").text(data.activeAt); // 모달 활성여부
         $("#modalMetalCode").text(data.metalCode);
         $("#modalBrand").text(data.brandGroupCode + " / 브랜드 " + data.brandCode);
@@ -663,13 +676,25 @@
         $("#modalBidStatCodeHidden").val(data.bidSttusCode);
         $("#modalBidPblancIdHidden").val(data.bidPblancId);
 
+        // 공고취소 및 유찰하기 버튼
         if(data.bidSttusCode == "11") {
           $("#btn_bidCancel").text("공고 삭제");
         } else if(data.bidSttusCode == "13" && data.bidBddprDtlVoList.length > 0 ) {
           $("#btn_bidCancel").text("유찰하기");
-        }
-        else {
+        } else {
           $("#btn_bidCancel").text("공고 취소");
+        }
+
+        // 일자
+        if(data.bidSttusCode == "33") {
+          $("#modalBddprDateText").text("취소일시");
+          $("#modalBddprDate").text(data.pblancCanclDt);
+        } else if(data.bidSttusCode == "32"){
+          $("#modalBddprDateText").text("유찰일시");
+          $("#modalBddprDate").text(data.failBidDt);
+        } else {
+          $("#modalBddprDateText").text("시작 ~ 마감");
+          $("#modalBddprDate").text(data.bddprDate);
         }
 
         // 공고수정이력
@@ -693,9 +718,15 @@
         $("#modalBddprInfo").empty();
         $("#modalBddprInfo").append('<tr><th scope="row" class="text-center">순위</th><th scope="row" class="text-center">기업명</th><th scope="row" class="text-center">투찰 일시</th><th scope="row" class="text-center">인도조건</th> <th scope="row" class="text-center">투찰 가격(USD)</th><th scope="row" class="text-center">상태</th></tr>');
         if(data.bidBddprDtlVoList.length == 0 ) {
-          $("#modalBddprInfo").append('<tr>');
-          $("#modalBddprInfo").append('<td colspan="6"> </td>');
-          $("#modalBddprInfo").append('</tr>');
+          if(data.bidSttusCode == "12") {
+            $("#modalBddprInfo").append('<tr>');
+            $("#modalBddprInfo").append('<td style="text-align: center" colspan="6">투찰 시작 전입니다.</td>');
+            $("#modalBddprInfo").append('</tr>');
+          } else {
+            $("#modalBddprInfo").append('<tr>');
+            $("#modalBddprInfo").append('<td colspan="6"> </td>');
+            $("#modalBddprInfo").append('</tr>');
+          }
         } else {
             $.each(data.bidBddprDtlVoList , function(index,item){
               $("#modalBddprInfo").append('<tr>');
@@ -709,7 +740,20 @@
             });
         }
 
-
+        // 유찰사유
+        if(data.bidSttusCode == "32") {
+          $("#bidFailTitle").css('display' , 'block');
+          $("#bidFailTable").css('display' , 'block');
+          $("#modalFailHstBody").empty();
+          $("#modalFailHstBody").append('<tr><th scope="row" class="text-center">유찰일시</th><th scope="row" class="text-center">유찰 사유</th></tr>');
+          $("#modalFailHstBody").append('<tr>');
+          $("#modalFailHstBody").append('<td>' + data.failBidDt);
+          $("#modalFailHstBody").append('<td>' + data.failBidResn);
+          $("#modalFailHstBody").append('<tr>');
+        } else {
+          $("#bidFailTitle").css('display' , 'none');
+          $("#bidFailTable").css('display' , 'none');
+        }
 
       },
       error: function (xhr, status, error) {
@@ -719,6 +763,7 @@
     });
 
     $("#modalBidDtl").show();
+    $(".modal-body").scrollTop(0);
     $("#modalBidDtl").addClass('show');
   }
 
@@ -743,9 +788,12 @@
       confirmTxt = "유찰할 경우, 유찰 사유 입력 후 유찰처리하기 클릭 시 모든과정이 무효처리됩니다. 정말로 유찰 처리 하시겠습니까?";
       afterText = "유찰 처리 되었습니다.";
       passingYn = "Y";
+    } else if( bidSttusCode == 11 && btnText == "공고 삭제") {
+      confirmTxt = "해당 공고 건을 삭제하시겠습니까?";
+      afterText = "공고 가 삭제 되었습니다.";
     }
 
-    // 공고 취소 인 우
+    // 공고 취소 인 경우
     if(passingYn == "N") {
       if (confirm(confirmTxt)) {
         var jsonData = {
@@ -765,7 +813,7 @@
             if(data > 0) {
                 var jsonData = getCreateJsonData("");
                 ajaxBidNoticeMngStatCntList(jsonData , 'Y');
-                ajaxBidNoticeMngList(jsonData);
+                getBidStatList();
 
                 $("#modalBidDtl").hide();
 
@@ -781,11 +829,10 @@
           error: function (xhr, status, error) {
             // 에러 처리 코드
             console.error("에러 발생:", error);
-            alert("실패 하였습니다.");
 
             $("#modalBidDtl").hide();
 
-            $("#toastText").text(afterText);
+            $("#toastText").text("실패하였습니다.");
             $('.pop-toast').fadeIn(300);
 
             setTimeout(function(){
@@ -798,21 +845,22 @@
         var result = prompt(confirmTxt,"유찰 사유를 입력해주세요.(15자이내)");
         console.log("prompt : " + result);
 
-        if(result == "") {
-
+        if(result == null) {
+        } else if (result == "") {
           //$("#modalBidDtl").hide();
-          $("#toastText").text("유찰 사유를 입력해주세요.");
-          $('.pop-toast').fadeIn(300);
+          $("#modalToastText").text("유찰 사유를 입력해주세요.");
+          $('#modalToast').fadeIn(300);
 
           setTimeout(function(){
-            $('.pop-toast').fadeOut(300);
+            $('#modalToast').fadeOut(300);
           },2000);
 
         } else {
+
           var jsonData = {
             bidPblancId: $("#modalBidPblancIdHidden").val(),
             bidSttusCode: $("#modalBidStatCodeHidden").val(),
-            canclResn : result
+            failBidResn : result
           };
 
           $.ajax({
@@ -825,9 +873,11 @@
               console.log("서버 응답:", data);
 
               if(data > 0) {
+
                 var jsonData = getCreateJsonData("");
+
                 ajaxBidNoticeMngStatCntList(jsonData , 'Y');
-                ajaxBidNoticeMngList(jsonData);
+                getBidStatList();
 
                 $("#modalBidDtl").hide();
 
@@ -843,11 +893,10 @@
             error: function (xhr, status, error) {
               // 에러 처리 코드
               console.error("에러 발생:", error);
-              alert("실패 하였습니다.");
 
               $("#modalBidDtl").hide();
 
-              $("#toastText").text(afterText);
+              $("#toastText").text("실패하였습니다.");
               $('.pop-toast').fadeIn(300);
 
               setTimeout(function(){
@@ -900,6 +949,7 @@
 
   function fnClose(){
     $("#modalBidDtl").hide();
+    // $("#modalBidDtl").empty();
   }
 
   // real그리드
@@ -981,7 +1031,7 @@
       gridView.setDataSource(provider);
       gridView.setColumns(columns);
 
-      gridView.setPaging(true, 30);
+      gridView.setPaging(true, 10);
 
       gridView.onPageChanged = function (grid, page) {
         $('#current-page-view').text(page + 1);
@@ -1016,9 +1066,22 @@
       ajaxBidNoticeMngList(jsonData);
   }
 
+  // 이전 페이지로 이동
+  function setPrevPage() {
+    var currentPage = gridView.getPage();
+    gridView.setPage(currentPage - 1);
+  }
+
+  // 다음 페이지로 이동
+  function setNextPage() {
+    var currentPage = gridView.getPage();
+    gridView.setPage(currentPage + 1);
+  }
+
   $('#bid_noticeAdd').click(function () {
       $('#myModalContainer').load("bidModal.jsp", function () {
           $('#exampleModal').show();
+          openBidModal('입찰 공고 등록', false);
 
           $('.close').click(function () {
               $('#exampleModal').hide();
@@ -1030,6 +1093,7 @@
       $('#myModalContainer').load("bidModal.jsp", function () {
           $('#modalBidDtl').hide();
           $('#exampleModal').show();
+          openBidModal('입찰 공고 수정', true);
 
           $('.close').click(function () {
               $('#exampleModal').hide();

@@ -15,7 +15,6 @@ public interface BidModalDAO {
     public void creBidNotice(BidNoticeVO vo);
     public void chgBidNotice(BidNoticeVO vo);
     public void creBidUpdt(BidNoticeVO vo);
-    public int isSelectBidUpdt(BidNoticeVO vo);
     public List<BidNoticeVO> getBidDetail(BidNoticeVO vo);
     public BidNoticeVO getBidDetailNoUpdt(BidNoticeVO vo);
 }

@@ -36,8 +36,13 @@ public class BidMainController {
    
    @RequestMapping("/bid")
    public String start(Model model, MainVO mainVO, HttpSession session) {
-      List<CoCmmnCdVO> brandGroupList = commonService.selectCommList("BRAND_GROUP_CODE");
-      List<CoCmmnCdVO> dstrctLclsfList = commonService.selectCommList("DSTRCT_LCLSF_CODE");
+	  CoCmmnCdVO coCmmnCdVO = new CoCmmnCdVO();
+	  coCmmnCdVO.setMainCode("DSTRCT_LCLSF_CODE");
+      List<CoCmmnCdVO> dstrctLclsfList = commonService.selectCommList(coCmmnCdVO);
+
+	  coCmmnCdVO.setMainCode("BRAND_GROUP_CODE");
+	  coCmmnCdVO.setCodeRefrnone("7");
+      List<CoCmmnCdVO> brandGroupList = commonService.selectCommList(coCmmnCdVO);
       
       String loginYn = (String)session.getAttribute("loginYn");
       LoginVO loginVO = (LoginVO) session.getAttribute("loginUser");
@@ -45,7 +50,6 @@ public class BidMainController {
       log.info("loginVO : {}",loginVO);
       
       if("Y".equals(loginYn) && loginVO != null) {
-    	//mainVO.setBidEntrpsNo("M0001");
     	mainVO.setBidEntrpsNo(loginVO.getUserNo());
         MainVO bidDashBoardList = bidMainService.selectBidDashBoard(mainVO);
         int bidIntrstCnt = bidMainService.selectBidIntrstCnt(mainVO);
@@ -54,7 +58,7 @@ public class BidMainController {
     	model.addAttribute("bidEntrpsNo",loginVO.getUserNo());
         model.addAttribute("bidIntrstCnt",bidIntrstCnt); //관심 개수
         model.addAttribute("bidDashBoardList",bidDashBoardList);
-        log.info("bidDashBoardList : {}",bidDashBoardList);
+        
       }else{
     	  session.setAttribute("loginYn","N");
     	  model.addAttribute("loginYn","N");

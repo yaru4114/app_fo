@@ -68,6 +68,9 @@ public class BidNoticeVO {
     private String bddprDate;
     private String frstRegist;
     private String canclResn;
+    private String failBidResn;
+    private String failBidDt;
+    private String pblancCanclDt;
 
 
     // 입찰상태별 공고수
@@ -85,6 +88,9 @@ public class BidNoticeVO {
 
     private List<BidNoticeUpdtVO> bidNoticeUpdtVoList;
     private List<BidBddprDtlVO> bidBddprDtlVoList;
+
+    private String bidUpdtCn;
+    private String bidUpdtResn;
 
     private String subCode;
 }
