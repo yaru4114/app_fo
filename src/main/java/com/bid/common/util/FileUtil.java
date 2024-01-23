@@ -59,7 +59,7 @@ public class FileUtil {
 
         String orgFileName = file.getOriginalFilename();
 
-        return "\"" + orgFileName.substring(0, orgFileName.lastIndexOf(".")) + "_" + System.currentTimeMillis();
+        return "\\" + orgFileName.substring(0, orgFileName.lastIndexOf(".")) + "_" + System.currentTimeMillis();
     }
 
     public void download(Map<String, String> requestData, HttpServletResponse response) throws  IOException {
