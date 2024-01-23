@@ -13,4 +13,9 @@ public interface BidModalDAO {
     public List<CoCmmnCdVO> getBrandOpt(CoCmmnCdVO vo);
     public List<CoCmmnCdVO> getItemOpt(CoCmmnCdVO vo);
     public void creBidNotice(BidNoticeVO vo);
+    public void chgBidNotice(BidNoticeVO vo);
+    public void creBidUpdt(BidNoticeVO vo);
+    public int isSelectBidUpdt(BidNoticeVO vo);
+    public List<BidNoticeVO> getBidDetail(BidNoticeVO vo);
+    public BidNoticeVO getBidDetailNoUpdt(BidNoticeVO vo);
 }

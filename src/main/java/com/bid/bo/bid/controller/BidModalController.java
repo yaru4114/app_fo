@@ -78,4 +78,15 @@ public class BidModalController {
     public ResponseEntity<?> creBidNotice(@RequestBody BidNoticeVO vo) {
         return ResponseEntity.ok(bidModalService.creBidNotice(vo));
     }
+
+    @PostMapping("/bidDetail")
+    public ResponseEntity<?> getBidDetail(@RequestBody BidNoticeVO vo) {
+        return ResponseEntity.ok(bidModalService.getBidNoticeDetail(vo));
+    }
+
+    // 입찰 공고 수정
+    @PostMapping("/chgBid")
+    public ResponseEntity<?> chgBidNotice(@RequestBody BidNoticeVO vo) {
+        return ResponseEntity.ok(bidModalService.chgBidNotice(vo));
+    }
 }

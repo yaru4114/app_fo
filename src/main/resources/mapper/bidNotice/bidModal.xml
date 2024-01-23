@@ -84,16 +84,19 @@
             BDDPR_END_DT ,
             BDDPR_CANCL_POSS_AT ,
             BDDPR_CANCL_LMTT_DE ,
+            BID_STTUS_CODE,
             DSPY_AT ,
             FRST_REGIST_DT
         ) VALUES (
             (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE='METAL_CODE' AND SUB_CODE= #{subCode}) + FORMAT(GETDATE(), 'yyyyMMdd') +
                 RIGHT('000' + CAST(
                     (
-                        SELECT TOP 1 CAST(RIGHT(BID_PBLANC_ID, 3) AS int) + 1 AS CNT
-                        FROM BD_BID_BAS
-                        WHERE BID_PBLANC_ID LIKE CONCAT('%', FORMAT(GETDATE(), 'yyyyMMdd'), '%')
-                        ORDER BY BID_PBLANC_ID DESC
+                        (
+                            SELECT TOP 1 COALESCE(CAST(RIGHT(BID_PBLANC_ID, 3) AS int) + 1, 1) AS CNT
+                            FROM BD_BID_BAS
+                            WHERE BID_PBLANC_ID LIKE CONCAT('%', FORMAT(GETDATE(), 'yyyyMMdd'), '%')
+                            ORDER BY BID_PBLANC_ID DESC
+                        )
                     ) AS NVARCHAR(3)), 3),
             #{metalCode},
             #{brandGroupCode},
@@ -125,9 +128,101 @@
             #{bddprEndDt},
             #{bddprCanclPossAt},
             #{bddprCanclLmttDe},
+            #{bidSttusCode},
             #{dspyAt},
             GETDATE()
         )
     </insert>
+
+    <update id="chgBidNotice" parameterType="com.bid.bo.bid.vo.BidNoticeVO">
+        UPDATE B
+        SET
+            B.METAL_CODE = #{metalCode},
+            B.BRAND_GROUP_CODE = #{brandGroupCode},
+            B.BRAND_CODE = #{brandCode},
+            B.ITM_SN = #{itmSn},
+            B.DSTRCT_LCLSF_CODE = #{dstrctLclsfCode},
+            B.BID_WT = #{bidWt},
+            B.PERM_WT_RATE = #{permWtRate},
+            B.DELY_CND_01_APPLC_AT = #{delyCnd01ApplcAt},
+            B.DELY_CND_01_STDR_PC = #{delyCnd01StdrPc},
+            B.DELY_CND_01_PREMIUM_PC = #{delyCnd01PremiumPc},
+            B.DELY_CND_02_APPLC_AT = #{delyCnd02ApplcAt},
+            B.DELY_CND_02_STDR_PC = #{delyCnd02StdrPc},
+            B.DELY_CND_02_PREMIUM_PC = #{delyCnd02PremiumPc},
+            B.DELY_CND_03_APPLC_AT = #{delyCnd03ApplcAt},
+            B.DELY_CND_03_STDR_PC = #{delyCnd03StdrPc},
+            B.DELY_CND_03_PREMIUM_PC = #{delyCnd03PremiumPc},
+            B.DELY_BEGIN_DE = #{delyBeginDe},
+            B.DELY_END_DE = #{delyEndDe},
+            B.DELY_PD_CN = #{delyPdCn},
+            B.PC_APPN_BEGIN_DE = #{pcAppnBeginDe},
+            B.PC_APPN_END_DE = #{pcAppnEndDe},
+            B.PC_APPN_MTH_CODE = #{pcAppnMthCode},
+            B.SETLE_CRNCY_CODE = #{setleCrncyCode},
+            B.SETLE_MTH_CODE = #{setleMthCode},
+            B.SETLE_PD_CODE = #{setlePdCode},
+            B.ETC_CN = #{etcCn},
+            B.BDDPR_BEGIN_DT = #{bddprBeginDt},
+            B.BDDPR_END_DT = #{bddprEndDt},
+            B.BDDPR_CANCL_POSS_AT = #{bddprCanclPossAt},
+            B.BDDPR_CANCL_LMTT_DE = #{bddprCanclLmttDe},
+            B.BID_STTUS_CODE = #{bidSttusCode},
+            B.DSPY_AT = #{dspyAt},
+            B.LAST_CHANGE_DT = GETDATE(),
+            U.BID_UPDT_CN = #{bidUpdtCn}
+        FROM BD_BID_BAS B
+        JOIN
+            BD_BID_UPDT_HST U
+        ON
+            B.BID_PBLANC_ID = U.BID_PBLANC_ID
+        WHERE
+            B.BID_PBLANC_ID = #{bidPblancId};
+    </update>
+
+    <!-- 입찰 수정 이력 순번 규칙 문의해야 함. -->
+    <insert id="creBidUpdt" parameterType="com.bid.bo.bid.vo.BidNoticeVO">
+        INSERT INTO BD_BID_UPDT_HST
+        (
+            BID_UPDT_HST_SN,
+            BID_PBLANC_ID,
+            BID_UPDT_CN,
+            BID_UPDT_RESN,
+            FRST_REGIST_DT
+        ) VALUES (
+            #{bidPblancId},
+            #{bidUpdtCn},
+            #{bidUpdtResn},
+            GETDATE()
+        )
+    </insert>
+
+    <select id="isSelectBidUpdt" parameterType="com.bid.bo.bid.vo.BidNoticeVO" resultType="int">
+        SELECT *
+        FROM
+            BD_BID_BAS_HST
+        WHERE
+            BID_PBLANC_ID = #{bidPblancId}
+    </select>
+
+    <select id="getBidDetailNoUpdt" parameterType="com.bid.bo.bid.vo.BidNoticeVO" resultType="com.bid.bo.bid.vo.BidNoticeVO">
+        SELECT * FROM BD_BID_BAS
+        WHERE BID_PBLANC_ID = #{bidPblancId}
+    </select>
+
+    <select id="getBidDetail" parameterType="com.bid.bo.bid.vo.BidNoticeVO" resultType="com.bid.bo.bid.vo.BidNoticeVO">
+        SELECT
+            B.*,
+            H.BID_UPDT_CN,
+            H.BID_UPDT_RESN
+        FROM
+            BD_BID_BAS B
+        INNER JOIN
+            BD_BID_UPDT_HST H
+        ON
+            B.BID_PBLANC_ID = H.BID_PBLANC_ID
+        WHERE
+            B.BID_PBLANC_ID = #{bidPblancId}
+    </select>
     <!--  ================================== 입찰 공고 등록 관련 쿼리 ================================== -->
 </mapper>

@@ -37,14 +37,14 @@
 </head>
 
 <body>
-<div class="web-wrapper1">
+<div class="web-wrapper">
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-full" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">입찰 공고 등록</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn123">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -343,7 +343,7 @@
                                 <th scope="row">투찰 취소기한<i class="icon icon-required"></i></th>
                                 <td colspan="3">
                                     <span style="font-weight: 500; font-size: 0.80rem;">투찰 취소 가능 여부</span> <input
-                                        type="checkbox" class="" name="" value="N" id="bddprCanclPossAt"/>
+                                        type="checkbox" class="" name="bddprCanclPossAt" value="N" id="bddprCanclPossAt"/>
                                     <div class="form-set" style="margin-top:5px;">
                                         <div class="input-group date form-date">
                                             <input type="text" class="input" id="bddprCanclLmttDe" />
@@ -419,10 +419,6 @@
                 permWtRate.append(option);
             }
 
-          $("#btnClosebtn123").on("click" , fnclose123);
-
-
-
             getOptions('metal', 'metalCode', 'codeDctwo', 'subCode', 'METAL_CODE');
             getOptions('dstrct', 'dstrctLclsfCode', 'codeNm', 'subCode', 'DSTRCT_LCLSF_CODE');
             getOptions('currency', 'setleCrncyCode', 'subCode', 'subCode', 'CURRENCY');
@@ -431,11 +427,7 @@
             getOptions('pymntPr', 'setlePdCode', 'codeNm', 'subCode', 'PYMNT_PR_CODE');
         });
 
-        function fnclose123(){
-          //$("#exampleModal").hide();
-          window.close();
-        };
-
+        /* ================================== ❗공통 함수❗ ================================== */
         // 옵션 조회 공통 함수
         function getOptions(endPoint, elementId, textParam, valueParam, code) {
             var param = {};
@@ -472,6 +464,108 @@
             });
         }
 
+        function showToastPopup() {
+            //토스트팝업
+            $('#creBidSuccess').fadeIn(300);
+
+            setTimeout(function(){
+                $('#creBidSuccess').fadeOut(300);
+            },2000);
+        }
+        /* ================================== ❗공통 함수❗ ================================== */
+
+
+        /* ================================== ❗수정 관련❗ ================================== */
+        // 모달 상태 변수
+        var isChgBid = false;
+        function chgModalOpen() {
+            if (chgPblancId) {
+                isChgBid = true;
+                getBidNoticeByPblancId(chgPblancId);
+            }
+        }
+
+        // 상세 정보 조회
+        function getBidNoticeByPblancId(bidPblancId) {
+            var param = {
+                bidPblancId: bidPblancId
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/bo/bid/modal/bidDetail',
+                contentType: 'application/json',
+                data: JSON.stringify(param),
+                success: function (response) {
+                    if (response.result) {
+                        var data = response.result;
+                        console.log('DATA : ', JSON.stringify(data, null, 2));
+                        console.log('response!!! : ', response);
+                        $('#metalCode').val(data.metalCode);
+                        $('#brandGroupCode').val(data.brandGroupCode);
+                        $('#brandCode').val(data.brandCode);
+                        $('#itmSn').val(data.itmSn);
+                        $('#dstrctLclsfCode').val(data.dstrctLclsfCode);
+                        $('#bidWt').val(data.bidWt);
+                        $('#permWtRate').val(data.permWtRate);
+                        $('#delyCnd01ApplcAt').val(data.delyCnd01ApplcAt);
+                        $('#delyCnd02ApplcAt').val(data.delyCnd02ApplcAt);
+                        $('#delyCnd02StdrPc').val(data.delyCnd02StdrPc);
+                        $('#delyCnd03ApplcAt').val(data.delyCnd03ApplcAt);
+                        $('#delyCnd03StdrPc').val(data.delyCnd03StdrPc);
+                        $('#delyBeginDe').val(data.delyBeginDe);
+                        $('#delyEndDe').val(data.delyEndDe);
+                        $('#delyPdCn').val(data.delyPdCn);
+                        $('#pcAppnBeginDe').val(data.pcAppnBeginDe);
+                        $('#pcAppnEndDe').val(data.pcAppnEndDe);
+                        $('#pcAppnMthCode').val(data.pcAppnMthCode);
+                        $('#setleCrncyCode').val(data.setleCrncyCode);
+                        $('#setleMthCode').val(data.setleMthCode);
+                        $('#setlePdCode').val(data.setlePdCode);
+                        $('#etcCn').val(data.etcCn);
+                        $('input[name="bddprCanclPossAt"][value="' + data.bddprCanclPossAt + '"]').prop('checked', data.bddprCanclPossAt === 'Y');
+                        $('input[name="dspyAt"][value="' + data.dspyAt + '"]').prop('checked', true);
+
+                        // 날짜(시,분,초)
+                        // 투찰 시작일 (bddprBeginDt)
+                        // 투찰 종료일 (bddprEndDt)
+                        // 투찰 취소 마감일 (bddprCanclLmttDe)
+
+                        // 단위 변환
+                        var stdrPc01 = data.delyCnd01StdrPc;
+                        stdrPc01 = parseInt(stdrPc01, 10);
+                        $('#delyCnd01StdrPc').val(stdrPc01);
+
+                        var stdrPc02 = data.delyCnd02StdrPc;
+                        stdrPc02 = parseInt(stdrPc02, 10);
+                        $('#delyCnd02StdrPc').val(stdrPc02);
+
+                        var stdrPc03 = data.delyCnd03StdrPc;
+                        stdrPc03 = parseInt(stdrPc03, 10);
+                        $('#delyCnd03StdrPc').val(stdrPc03);
+
+                        var prePc01 = data.delyCnd01PremiumPc;
+                        prePc01 = parseInt(prePc01, 10);
+                        $('#delyCnd01PremiumPc').val(prePc01);
+
+                        var prePc02 = data.delyCnd02PremiumPc;
+                        prePc02 = parseInt(prePc02, 10);
+                        $('#delyCnd02PremiumPc').val(prePc02);
+
+                        var prePc03 = data.delyCnd03PremiumPc;
+                        prePc03 = parseInt(prePc03, 10);
+                        $('#delyCnd03PremiumPc').val(prePc03);
+                    }
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        }
+        /* ================================== ❗수정 관련❗ ================================== */
+
+
+        /* ================================== ❗등록 관련❗ ================================== */
         // 입찰 공고 등록
         function creBidNotice() {
             var metalCode = $('#metalCode').val();
@@ -499,8 +593,8 @@
             var bddprCanclPossAt = $('#bddprCanclPossAt').val();
             var dspyAt = $('input[name="dspyAt"]:checked').val();
 
-            // ❗날짜 관련
-                // YYYY-MM-DD => YYYYMMDD
+            // 📆날짜 관련
+            // YYYY-MM-DD => YYYYMMDD
             var delyBeginDe = $('#delyBeginDe').val(); // 인도기한 시작
             delyBeginDe = delyBeginDe.replace(/-/g, '');
 
@@ -514,21 +608,21 @@
             pcAppnEndDe = pcAppnEndDe.replace(/-/g, '');
 
             // YYYY-MM-DD => YYYYmmDDHHMMSS
-                // 투찰 시작일
+            // 투찰 시작일
             var bddprBeginDt = $('#bddprBeginDt').val();
             var bddprBeginDt_ampm = $('#bddprBeginDt_ampm').val();
             var bddprBeginDt_hour = $('#bddprBeginDt_hour').val();
             var bddprBeginDt_min = $('#bddprBeginDt_min').val();
             var bddprBeginDt_sec = $('#bddprBeginDt_sec').val();
 
-                // 투찰 마감일
+            // 투찰 마감일
             var bddprEndDt = $('#bddprEndDt').val();
             var bddprEndDt_ampm = $('#bddprEndDt_ampm').val();
             var bddprEndDt_hour = $('#bddprEndDt_hour').val();
             var bddprEndDt_min = $('#bddprEndDt_min').val();
             var bddprEndDt_sec = $('#bddprEndDt_sec').val();
 
-                // 투찰 취소기한
+            // 투찰 취소기한
             var bddprCanclLmttDe = $('#bddprCanclLmttDe').val();
             var bddprCanclLmttDe_ampm = $('#bddprCanclLmttDe_ampm').val();
             var bddprCanclLmttDe_hour = $('#bddprCanclLmttDe_hour').val();
@@ -648,15 +742,6 @@
             $('#dspyAt').val('');
         }
 
-        function showToastPopup() {
-            //토스트팝업
-            $('#creBidSuccess').fadeIn(300);
-
-            setTimeout(function(){
-                $('#creBidSuccess').fadeOut(300);
-            },2000);
-        }
-
         // 필수 입력 검증 함수
         var requiredElement = [
             { id: 'metalCode', label: '메탈 구분' },
@@ -707,7 +792,7 @@
             var isValid = true;
             var canclPossAt = $('#bddprCanclPossAt').val();
 
-            if (canclPossAt === 'N') {
+            if (canclPossAt === 'Y') {
                 requiredElementDate.forEach(function(field) {
                     isValid = isValid && validateField(field);
                 });
@@ -758,7 +843,7 @@
             });
         }
 
-            $('#metalCode').change(function () {
+        $('#metalCode').change(function () {
             var selected = $(this).val();
             getOptions('brandGrp', 'brandGroupCode', 'codeNm', 'subCode', selected);
             getOptions('item', 'itmSn', 'itmPrdlstKorean', 'itmSn', selected);
@@ -795,6 +880,7 @@
                 creBidNotice();
             }
         })
+        /* ================================== ❗등록 관련❗ ================================== */
     </script>
 </div>
 </body>
