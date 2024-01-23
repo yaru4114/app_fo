@@ -406,7 +406,7 @@
 
                                 <div class="btn-box mt-12">
                                     <button type="button" class="btn" id="bid_noticeChg" data-toggle="modal"
-                                            data-target="#chgBidModal">공고 수정</button>
+                                            data-target="#exampleModal">공고 수정</button>
                                     <button type="button" class="btn">공고 취소</button>
                                 </div>
                                 <div class="sub-title">
