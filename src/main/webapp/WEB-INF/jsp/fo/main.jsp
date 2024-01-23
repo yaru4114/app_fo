@@ -51,8 +51,8 @@
 		                	<c:when test="${loginYn eq 'N'}">
 		                		<div class="login_container">
 				                   <p>서린닷컴에 오신것을 환영합니다.</p>
-				                   <input id="inputLoginId" type="text" placeholder="아이디 입력">
-				                   <input id="inputLoginPwd" type="password" placeholder="패스워드 입력">
+				                   <input id="inputLoginId" type="text" placeholder="아이디 입력" maxlength="13">
+				                   <input id="inputLoginPwd" type="password" placeholder="패스워드 입력" maxlength="13">
 				                   <a id="loginSubmitBtn" class="btn primary_bg">로그인 하기</a>
 
 				                   <!-- 미구현 (아이디 저장, 아이디찾기, 비밀번호찾기)
@@ -633,7 +633,12 @@ $(function(){
 		location.href="/fo/mypage?bidEntrpsNo="+bidEntrpsNo;
 	})
 
-	
+	$("#inputLoginId, #inputLoginPwd").on('keydown',function(e){
+	    if(e.code == 'Enter'){
+	        $("#loginSubmitBtn").click();
+	    }
+	});
+
 	$('#loginSubmitBtn').on('click',function (){
 	    var loginForm = {
 	        userId: $('#inputLoginId').val(),
