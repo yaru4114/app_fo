@@ -78,7 +78,7 @@ public class BidModalService {
             BidNoticeVO result = bidModalDAO.getBidDetailNoUpdt(vo);
             resultMap.put("result", result);
         } else {
-            resultMap.put("result", resultList);
+            resultMap.put("result", resultList.get(0));
         }
         return resultMap;
     }
@@ -107,21 +107,21 @@ public class BidModalService {
          *   location : 공고대기
          * */
         if (vo.getUdtCase() == 1) {
-            resultMap.put("location", "투찰중");
+            resultMap.put("location", "13");
             vo.setBidSttusCode("13");
             bidModalDAO.udtBidSttusCode(vo);
 
             resultMap.put("success", true);
             return resultMap;
         } else if (vo.getUdtCase() == 2) {
-            resultMap.put("location", "입찰예정");
+            resultMap.put("location", "31");
             vo.setBidSttusCode("12");
             bidModalDAO.udtBidSttusCode(vo);
 
             resultMap.put("success", true);
             return resultMap;
         } else if (vo.getUdtCase() == 3) {
-            resultMap.put("location", "공고대기");
+            resultMap.put("location", "11");
             vo.setBidSttusCode("11");
             bidModalDAO.udtBidSttusCode(vo);
 

@@ -687,7 +687,7 @@
                 data: JSON.stringify(param),
                 success: function (response) {
                     if (response.result) {
-                        var data = response.result[0];
+                        var data = response.result;
                         console.log('수정할 공고 정보 data : ', data);
 
                         getOptions('brandGrp', 'brandGroupCode', 'codeNm', 'subCode', data.metalCode)
@@ -913,12 +913,11 @@
                         showToastPopup('udtBidSuccess');
 
                         setTimeout(function () {
-                            $('#creBidSuccess').fadeOut(300, function () {
+                            $('#udtBidSuccess').fadeOut(300, function () {
                                 $('#exampleModal').hide();
+                                $('.modal-backdrop').hide();
                                 resetForm();
-                                $('#udtConfirm1').hide();
-                                $('#udtConfirm2').hide();
-                                location.href = "/bo/bid/noticeMngForm";
+                                getSearchBtn(response.location);
                             });
                         }, 2000);
                     }
@@ -1081,6 +1080,7 @@
 
         $('#brandGroupCode').change(function () {
             var selected = $(this).val();
+            getOptions('brand', 'brandCode', 'brandNm', 'brandCode', selected);
         });
 
         $('#bddprCanclPossAt').change(function () {
@@ -1102,12 +1102,14 @@
         });
 
         $('#udtSubmitConfirm1').on('click', function () {
+            $('#udtConfirm1').hide();
             if (validateSubmitForm()) {
                 udtBidNotice(1);
             }
         });
 
         $('#udtSubmitConfirm2').on('click', function () {
+            $('#udtConfirm2').hide();
             if (validateSubmitForm()) {
                 udtBidNotice(2);
             }

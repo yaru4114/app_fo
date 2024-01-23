@@ -480,8 +480,8 @@
 
   // 입찰상태 버튼들 클릭시 리스트 조회
   function getBidStatList() {
-    var buttonId = $(this).attr('id');
-    var bidStat = "";
+      var buttonId = $(this).attr('id');
+      var bidStat = "";
 
     if(buttonId === undefined) {
       buttonId = "btn_bdngAllCnt";
@@ -516,9 +516,12 @@
     ajaxBidNoticeMngList(jsonData);
 }
   // 검색버튼 클릭시
-  function getSearchBtn() {
+  function getSearchBtn(btnId) {
     var bidStat = $("#bidSttusCodeSelectBox option:selected").val();
     var buttonId = "";
+      if (btnId) {
+          bidStat = btnId;
+      }
     var jsonData = getCreateJsonData(bidStat);
 
     $(".tab-button .btn").removeClass('active');
