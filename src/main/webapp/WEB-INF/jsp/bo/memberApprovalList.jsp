@@ -720,6 +720,7 @@
                 success: function (response) {
                     if (response.success) {
                         modalClose();
+                        getMemberApprovalList();
                         $('.pop-toast > .pop-inner > #toastText').text(response.message);
                         $('.pop-toast').fadeIn(300);
                         setTimeout(function(){
@@ -740,8 +741,6 @@
         // 모달 닫기
         function modalClose(){
             $("#blockModal").hide();
-
-            getMemberApprovalList();
 
             var statusParam = {
                 statusCode: []

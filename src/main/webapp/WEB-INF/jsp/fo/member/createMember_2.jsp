@@ -242,7 +242,7 @@
 	                            <div class="tr tr-bid-tel">
 	                                <label for="">휴대폰 번호</label>
 	                               	<div class="input-complex">
-		                                <select class="dropdown" name="vrsc_mobile1" id="vrsc_mobile1" readonly>
+		                                <select class="dropdown" name="vrsc_mobile1" id="vrsc_mobile1">
 									        <option value="+82">+82(대한민국)</option>
 									    </select>
 									    <span class="input">
