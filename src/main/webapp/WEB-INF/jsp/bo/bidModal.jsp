@@ -437,24 +437,24 @@
                 </p>
             </div>
         </div>
-        <div class="pop-modal pop-toast" id="udtConfirm1">
+        <div class="pop-modal pop-toast2" id="udtConfirm1">
             <div class="pop-inner">
                 <p>시작일이 당일이며, 상태가 활성입니다. <br>
                     해당 정보로 수정 저장 시, 입찰 시작됩니다. <br>
                     진행 하시겠습니까?</p>
                 <div class="buttonConfirm">
-                    <button type="button" class="btn btn-purple" id="udtCancelConfrim">취소</button>
+                    <button type="button" class="btn btn-gray" id="udtCancelConfrim1">취소</button>
                     <button type="button" class="btn" id="udtSubmitConfirm1">수정</button>
                 </div>
             </div>
         </div>
-        <div class="pop-modal pop-toast" id="udtConfirm2">
+        <div class="pop-modal pop-toast2" id="udtConfirm2">
             <div class="pop-inner">
                 <p>시작일이 미래이며, 상태가 활성입니다. <br>
                     해당 정보로 수정 저장 시, 입찰예정으로 노출됩니다. <br>
                     진행 하시겠습니까?</p>
                 <div class="buttonConfirm">
-                    <button type="button" class="btn btn-purple" id="udtCancelConfrim">취소</button>
+                    <button type="button" class="btn btn-gray" id="udtCancelConfrim2">취소</button>
                     <button type="button" class="btn" id="udtSubmitConfirm2">수정</button>
                 </div>
             </div>
@@ -771,12 +771,18 @@
         }
 
         function setDateTimeFields(dateTime, dateField, ampmField, hourField, minField, secField) {
-            var dateValue = dateTime.substr(0, 8);
+            var dateValue = dateTime.substr(0, 8); // yyyymmdd
+            var yyyymmdd = dateValue;
+            var year = yyyymmdd.substr(0, 4);
+            var mon = yyyymmdd.substr(4, 2);
+            var day = yyyymmdd.substr(6, 2);
+            var yyyymmdd = year + '-' + mon + '-' + day;
+
             var hourValue = dateTime.substr(8, 2).replace(/^0/, '');
             var minValue = dateTime.substr(10, 2).replace(/^0/, '');
             var secValue = dateTime.substr(12, 2).replace(/^0/, '');
 
-            $('#' + dateField).val(dateValue);
+            $('#' + dateField).val(yyyymmdd);
 
             if (hourValue < 12) {
                 $('#' + ampmField).val('am');
@@ -950,7 +956,7 @@
             var setleMthCode = $('#setleMthCode').val();
             var setlePdCode = $('#setlePdCode').val();
             var etcCn = $('#etcCn').val();
-            var bddprCanclPossAt = $('#bddprCanclPossAt').val();
+            var bddprCanclPossAt = $('#bddprCanclPossAt').prop('checked') ? 'Y' : 'N';
             var dspyAt = $('input[name="dspyAt"]:checked').val();
 
             // 📆날짜 관련
@@ -1091,9 +1097,12 @@
         udtCheckboxValue('delyCnd02ApplcAt');
         udtCheckboxValue('delyCnd03ApplcAt');
 
-        $('#udtCancelConfrim').on('click', function () {
+        $('#udtCancelConfrim1').on('click', function () {
            $('#udtConfirm1').hide();
-           $('#udtConfirm2').hide();
+        });
+
+        $('#udtCancelConfrim2').on('click', function () {
+            $('#udtConfirm2').hide();
         });
 
         $('#udtSubmitConfirm1').on('click', function () {
@@ -1155,7 +1164,7 @@
             var year = date.getFullYear();
             var month = ('0' + (date.getMonth() + 1)).slice(-2);
             var day = ('0' + date.getDate()).slice(-2);
-            return year + month + day;
+            return year + '-' + month + '-' + day;
         }
 
         // function formatDate2(date) {

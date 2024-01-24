@@ -9160,6 +9160,12 @@ td.tbl-bg-green {background:#d4ffec}
 .pop-modal .btn-box2 {margin-bottom: 0.5rem;display: flex;justify-content: flex-end;}
 .main-content-kyc .btm-btns{margin-top: 2rem;margin-bottom:0;}
 
+.pop-modal.pop-toast2 .pop-inner {border:2px solid black;display:flex;flex-direction:column;width:500px;padding: 25px 0;background-color: #fff;text-align: center;}
+.pop-modal.pop-toast2 .pop-inner p {font-size: 16px;line-height: 1.57;font-weight: 200;color: #000;font-weight: bold;}
+
+.buttonConfirm {display: flex;justify-content: space-between;margin-top: 1rem;padding: 0 25px;gap: 30px;}
+.buttonConfirm button {flex: 1;}
+
 .bo-tbl-kyc .file-name {max-width: calc(100% - 250px);text-align: left;text-overflow: ellipsis; white-space: nowrap;overflow: hidden;}
 
 /*.fill-border-gray {background: #efefef;border: 1px solid #ddd;}*/
