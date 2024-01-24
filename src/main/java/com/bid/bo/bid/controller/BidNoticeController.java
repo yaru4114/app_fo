@@ -49,13 +49,7 @@ public class BidNoticeController {
     @ResponseBody
     @RequestMapping(value="/noticeMngForm/cntList")
     public BidNoticeVO getBidNoticeMngStatCnt(@RequestBody BidNoticeVO paramVo ) {
-        log.info("test getBidNoticeMngStatCnt param : {} ", paramVo.toString());
-
-        BidNoticeVO resultVo = bidNoticeService.getBidNoticeMngStatCnt(paramVo);
-
-        log.info("test resultVo : {} ", resultVo.toString());
-
-        return resultVo;
+        return bidNoticeService.getBidNoticeMngStatCnt(paramVo);
     }
 
     /**
@@ -66,15 +60,7 @@ public class BidNoticeController {
     @ResponseBody
     @RequestMapping(value="noticeMngForm/bidList")
     public List<BidNoticeVO> getBidNoticeMngBidList(@RequestBody BidNoticeVO paramVo) {
-        log.info("test getBidNoticeMngBidList param : {} ", paramVo.toString());
-
-        List<BidNoticeVO> resultList = bidNoticeService.getBidNoticeMngBidList(paramVo);
-
-        for(BidNoticeVO vo : resultList ) {
-            log.info("test getBidNoticeMngBidList {} " ,vo.toString());
-        }
-
-        return resultList;
+        return bidNoticeService.getBidNoticeMngBidList(paramVo);
     }
 
     /**
@@ -85,13 +71,7 @@ public class BidNoticeController {
     @ResponseBody
     @RequestMapping(value="/noticeMngForm/bidInfo")
     public BidNoticeVO getBidNoticeMngInfo(@RequestBody BidNoticeVO paramVo) {
-        log.info("test getBidNoticeMngInfo : {}" ,paramVo.toString());
-
-        BidNoticeVO resultVo = bidNoticeService.getBidNoticeMngInfo(paramVo);
-
-        log.info("test getBidNoticeMngInfo resultVo : {} " , resultVo.toString());
-
-        return resultVo;
+        return bidNoticeService.getBidNoticeMngInfo(paramVo);
     }
 
     /**
@@ -102,11 +82,7 @@ public class BidNoticeController {
     @ResponseBody
     @RequestMapping(value="/noticeMngForm/bidCancel")
     public Integer bidNoticeCanlcel(@RequestBody BidNoticeVO paramVo) {
-        log.info("test bidNoticeCanlcel : {}" , paramVo.toString() );
-
-         int resultCnt  = bidNoticeService.bidNoticeCanlcel(paramVo);
-
-         return resultCnt;
+         return bidNoticeService.bidNoticeCanlcel(paramVo);
     }
 
 }
