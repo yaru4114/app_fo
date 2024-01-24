@@ -86,7 +86,8 @@
             BID_STTUS_CODE,
             DSPY_AT ,
             FRST_REGIST_DT,
-            FRST_REGISTER_ID
+            FRST_REGISTER_ID,
+            DELETE_AT
         ) VALUES (
             (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE='METAL_CODE' AND SUB_CODE= #{subCode}) + FORMAT(GETDATE(), 'yyyyMMdd') +
                 RIGHT('000' + CAST
@@ -95,7 +96,7 @@
                                 (
                                     SELECT ISNULL((SELECT TOP 1 CAST(RIGHT(BID_PBLANC_ID, 3) AS int) + 1
                                     FROM BD_BID_BAS
-                                    WHERE BID_PBLANC_ID LIKE CONCAT('%', FORMAT(GETDATE(), 'yyyyMMdd'), '%')
+                                    WHERE BID_PBLANC_ID LIKE CONCAT('%', FORMAT(GETDATE(), 'yyyyMMdd'), '%') AND METAL_CODE = #{metalCode} AND FORMAT(GETDATE(), 'yyyyMMdd') = FORMAT(GETDATE(), 'yyyyMMdd')
                                     ORDER BY BID_PBLANC_ID DESC
                                 ), 1
                             ) AS CNT
@@ -135,7 +136,8 @@
             #{bidSttusCode},
             #{dspyAt},
             GETDATE(),
-            #{frstRegisterId}
+            #{frstRegisterId},
+            'N'
         )
     </insert>
     <!--  ================================== 입찰 공고 등록 관련 쿼리 ================================== -->
