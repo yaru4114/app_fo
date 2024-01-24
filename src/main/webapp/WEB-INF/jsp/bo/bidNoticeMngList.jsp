@@ -38,11 +38,15 @@
     <script src="bidModal.jsp"></script>
 </head>
 <style>
-  .multi-line-css {
-    white-space:pre;
-  }
-  .multi-line-editor {
-    white-space:pre-line;
+  #overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 배경의 불투명도 조절을 위한 rgba 값 */
+    z-index:10;
   }
 </style>
 
@@ -172,6 +176,7 @@
     </div>
 </div>
 <!-- 모달 부분-->
+<div id="overlay"></div>
 <div class="modal fade" id="modalBidDtl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-full" role="document">
         <input type="hidden" id="modalBidStatCodeHidden">
@@ -633,8 +638,7 @@
           var bidPblancId = grid.getValue(rowIndex , colIndex);
           chgPblancId = bidPblancId;
 
-          if(colIndex == "bidPblancId") {
-
+          if(colIndex == "bidPblancId" || colIndex == "itmPrdlstKorean") {
             ajaxBidNoticeMngInfo(bidPblancId);
             chgModalOpen();
           }
@@ -741,7 +745,7 @@
             $.each(data.bidBddprDtlVoList , function(index,item){
               $("#modalBddprInfo").append('<tr>');
               $("#modalBddprInfo").append('<td class="text-center"><b>' + item.rownum + '</b></td>');
-              $("#modalBddprInfo").append('<td><a href="#" class="rg-link-renderer">' + item.entrpsNm + '</a></td>');
+              $("#modalBddprInfo").append('<td>' + item.entrpsNm + '</td>');
               $("#modalBddprInfo").append('<td>' + item.frstRegistDt + '</td>');
               $("#modalBddprInfo").append('<td>' + item.delyCndCodeNm + '</td>');
               $("#modalBddprInfo").append('<td class="text-center">' + item.bddprPremiumPc + '</td>');
@@ -775,6 +779,7 @@
     $("#modalBidDtl").show();
     $(".modal-body").scrollTop(0);
     $("#modalBidDtl").addClass('show');
+    $("#overlay").show();
   }
 
 
@@ -826,6 +831,7 @@
                 getBidStatList();
 
                 $("#modalBidDtl").hide();
+                $("#overlay").hide();
 
                 $("#toastText").text(afterText);
                 $('.pop-toast').fadeIn(300);
@@ -841,6 +847,7 @@
             console.error("에러 발생:", error);
 
             $("#modalBidDtl").hide();
+            $("#overlay").hide();
 
             $("#toastText").text("실패하였습니다.");
             $('.pop-toast').fadeIn(300);
@@ -857,7 +864,6 @@
 
         if(result == null) {
         } else if (result == "") {
-          //$("#modalBidDtl").hide();
           $("#modalToastText").text("유찰 사유를 입력해주세요.");
           $('#modalToast').fadeIn(300);
 
@@ -890,6 +896,7 @@
                 getBidStatList();
 
                 $("#modalBidDtl").hide();
+                $("#overlay").hide();
 
                 $("#toastText").text(afterText);
                 $('.pop-toast').fadeIn(300);
@@ -905,6 +912,7 @@
               console.error("에러 발생:", error);
 
               $("#modalBidDtl").hide();
+              $("#overlay").hide();
 
               $("#toastText").text("실패하였습니다.");
               $('.pop-toast').fadeIn(300);
@@ -961,7 +969,7 @@
   function fnClose(){
     $("#modalBidDtl").hide();
     $("#modalBidDtl").removeClass('show');
-    // $("#modalBidDtl").empty();
+    $("#overlay").hide();
   }
 
   // real그리드

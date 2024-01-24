@@ -33,10 +33,10 @@
         AND BID_PBLANC_ID = #{bidPblancId}
       </if>
       <if test='startDate != null and startDate != ""'>
-        AND FRST_REGIST_DT >= CONVERT( DATE , #{startDate})
+        AND CONVERT(DATETIME , dbo.fn_convertDate(BDDPR_BEGIN_DT , 'bo')) >= CONVERT( DATE , #{startDate})
       </if>
       <if test='endDate != null and endDate != ""'>
-        AND FRST_REGIST_DT <![CDATA[ <= ]]> DATEADD( DAY , 1 , CONVERT(DATE , #{endDate}))
+        AND CONVERT(DATETIME , dbo.fn_convertDate(BDDPR_END_DT , 'bo')) <![CDATA[ <= ]]> DATEADD( DAY , 1 , CONVERT(DATE , #{endDate}))
       </if>
   </select>
 
@@ -110,10 +110,10 @@
              WHERE 1=1
                AND ISNULL(DELETE_AT , 'N') = 'N'
               <if test='startDate != null and startDate != ""'>
-               AND FRST_REGIST_DT >= CONVERT( DATE , #{startDate})
+                AND CONVERT(DATETIME , dbo.fn_convertDate(BDDPR_BEGIN_DT , 'bo')) >= CONVERT( DATE , #{startDate})
               </if>
               <if test='endDate != null and endDate != ""'>
-               AND FRST_REGIST_DT <![CDATA[ <= ]]> DATEADD( DAY , 1 , CONVERT(DATE , #{endDate}))
+                AND CONVERT(DATETIME , dbo.fn_convertDate(BDDPR_END_DT , 'bo')) <![CDATA[ <= ]]> DATEADD( DAY , 1 , CONVERT(DATE , #{endDate}))
               </if>
               <if test='bidSttusCode != null and bidSttusCode != ""'>
                AND BID_STTUS_CODE = #{bidSttusCode}
