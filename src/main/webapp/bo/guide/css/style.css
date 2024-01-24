@@ -5074,6 +5074,7 @@ body {
 
 .modal-content {
   border: 0;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .modal-body {
@@ -9168,7 +9169,7 @@ td.tbl-bg-green {background:#d4ffec}
 .pop-modal .btn-box2 {margin-bottom: 0.5rem;display: flex;justify-content: flex-end;}
 .main-content-kyc .btm-btns{margin-top: 2rem;margin-bottom:0;}
 
-.pop-modal.pop-toast2 .pop-inner {position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);border:2px solid black;display:flex;flex-direction:column;width:500px;padding: 25px 0;background-color: #fff;text-align: center;}
+.pop-modal.pop-toast2 .pop-inner {box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);border:2px solid black;display:flex;flex-direction:column;width:500px;padding: 25px 0;background-color: #fff;text-align: center;}
 .pop-modal.pop-toast2 .pop-inner p {font-size: 16px;line-height: 1.57;font-weight: 200;color: #000;font-weight: bold;}
 
 .buttonConfirm {display: flex;justify-content: space-between;margin-top: 1rem;padding: 0 25px;gap: 30px;}
@@ -9195,9 +9196,9 @@ td.tbl-bg-green {background:#d4ffec}
 .w350px{width: 350px !important;}
 .w450px{width: 450px !important;}
 .w700px{width: 700px !important;}
-.w1000px{width: 1000px !important;}
+.w1000px{width: 1000px !important; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
 .pop-modal {background-color: rgba(0,0,0,0);}
-.pop-modal .pop-inner {padding: 35px 40px;background-color: #fff;}
+.pop-modal .pop-inner {padding: 35px 40px;background-color: #fff;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
 .pop-modal .pop-title {margin-bottom: 15px;display: flex;align-items: center;justify-content: flex-start; gap: 0.5em}
 .pop-modal.pop-center .pop-title {justify-content: center;}
 .pop-modal .pop-title .title {font-size: 14px;font-weight: 900;line-height: 1.35;}
