@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bid.fo.bid.dao.BidDtlDAO" >
+    <select id="getBidBasInfo" parameterType="com.bid.fo.bid.vo.BidBasVO" resultType="com.bid.fo.bid.vo.BidBasVO">
+		DECLARE @bidTimer int
+		
+		SET @bidTimer = (
+			  SELECT CASE WHEN BBB.BID_STTUS_CODE = '12' /* 입찰예정 */
+			  			  THEN DATEDIFF(SECOND, GETDATE(), CONVERT(DATETIME, STUFF(STUFF(STUFF(BBB.BDDPR_BEGIN_DT,13,0,':'),11,0,':'),9,0,' ')))
+			  		 WHEN BBB.BID_STTUS_CODE = '13' /* 투찰중 */
+			  			  THEN DATEDIFF(SECOND, CONVERT(DATETIME, STUFF(STUFF(STUFF(BBB.BDDPR_END_DT,13,0,':'),11,0,':'),9,0,' ')), GETDATE())
+			  		 END AS BID_TIMER
+			 FROM BD_BID_BAS BBB
+			 WHERE BBB.BID_PBLANC_ID = #{bidPblancId})
+			 
+		SELECT BBB.BID_PBLANC_ID         																																	/* 입찰 공고 아이디 */
+			  , FORMAT(CONVERT(DATETIME, dbo.fn_convertDate(BBB.BDDPR_BEGIN_DT, 'FO')), 'yy.MM.dd HH:mm:ss') AS BDDPR_BEGIN_DT												/* 투찰 시작 일시 */
+			  , FORMAT(CONVERT(DATETIME, dbo.fn_convertDate(BBB.BDDPR_END_DT, 'FO')), 'yy.MM.dd HH:mm:ss') AS BDDPR_END_DT													/* 투찰 종료 일시 */
+			  , BBB.METAL_CODE            																																	/* 금속 코드 */ 
+			  , BBB.BRAND_CODE            																																	/* 브랜드 코드 */  
+			  , ISNULL((SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'BRAND_GROUP_CODE' AND SUB_CODE = BBB.BRAND_GROUP_CODE),'브랜드 무관') AS BRAND_GROUP_CODE_NM			/* 브랜드 코드명 */
+			  , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'DSTRCT_LCLSF_CODE' AND SUB_CODE = BBB.DSTRCT_LCLSF_CODE) AS DSTRCT_LCLSF_CODE_NM							/* 권역 코드명 */
+			  , (SELECT ITM_PRDLST_ENG FROM IT_ITM_INFO_BAS WHERE ITM_SN = BBB.ITM_SN) AS DSPY_GOODS_NM																		/* 전시 아이템명 */
+			  , ISNULL(BBB.BID_WT, 0) AS BID_WT                																												/* 입찰 중량 */
+			  , BBB.BID_STTUS_CODE         																																	/* 입찰 상태 코드 */
+			  , ISNULL(BBB.PARTCPTN_ENTRPS_QY, 0)   AS PARTCPTN_ENTRPS_QY   																								/* 참여 업체 수량 */
+			  , ISNULL(BBB.INTRST_ENTRPS_QY, 0)   AS INTRST_ENTRPS_QY         																								/* 관심 업체 수량 */
+			  , BBB.DSPY_AT               																																	/* 전시 여부 */
+			  , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'METAL_CODE' AND SUB_CODE = BBB.METAL_CODE) AS METAL_CODE_SHORT											/* 메탈명 영문 약어 */
+			  , (SELECT DELETE_AT FROM BD_INTRST_DTL WHERE BID_ENTRPS_NO = #{bidEntrpsNo} AND BID_PBLANC_ID = #{bidPblancId}) AS INTRST_AT   								/* 관심 여부 */ 
+		      , CONCAT(@bidTimer / (60 * 60 * 24), '일 '
+				 	 , @bidTimer / 3600 % 24, '시간 '
+				 	 , @bidTimer % 3600 / 60, '분 '
+				 	 , @bidTimer % 60, '초') AS BID_TIMER
+		FROM BD_BID_BAS BBB
+		LEFT JOIN (SELECT BID_PBLANC_ID
+		        FROM BD_BDDPR_DTL 
+		       WHERE BID_PBLANC_ID = #{bidPblancId}
+		        AND BID_ENTRPS_NO = #{bidEntrpsNo}
+		        AND CANCL_AT = 'N'
+		        AND DELETE_AT = 'N') AS BBD
+		ON BBD.BID_PBLANC_ID = BBB.BID_PBLANC_ID
+		WHERE 1=1
+			AND BBB.BID_PBLANC_ID = #{bidPblancId}
+    </select>
+    
+    <select id="getBidDtlInfo" parameterType="com.bid.fo.bid.vo.BidBasVO" resultType="com.bid.fo.bid.vo.BidBddprDtlVO">
+    	SELECT BBB.BID_PBLANC_ID         																																	/* 입찰 공고 아이디 */
+			  , BBB.METAL_CODE            																																	/* 금속 코드 */ 
+			  , BBB.BRAND_CODE            																																	/* 브랜드 코드 */  
+			  , ISNULL((SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'BRAND_GROUP_CODE' AND SUB_CODE = BBB.BRAND_GROUP_CODE),'브랜드 무관') AS BRAND_GROUP_CODE_NM			/* 브랜드 코드명 */
+			  , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'DSTRCT_LCLSF_CODE' AND SUB_CODE = BBB.DSTRCT_LCLSF_CODE) AS DSTRCT_LCLSF_CODE_NM							/* 권역 코드명 */
+			  , (SELECT ITM_PRDLST_ENG FROM IT_ITM_INFO_BAS WHERE ITM_SN = BBB.ITM_SN) AS DSPY_GOODS_NM																		/* 전시 아이템명 */
+			  , ISNULL(BBB.BID_WT, 0) AS BID_WT                																												/* 입찰 중량 */
+			  , BBB.BID_STTUS_CODE         																																	/* 입찰 상태 코드 */
+			  , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'METAL_CODE' AND SUB_CODE = BBB.METAL_CODE) AS METAL_CODE_SHORT											/* 메탈명 영문 약어 */
+		      , IIF(BBD.BID_PBLANC_ID IS NULL,'N','Y') AS BDDPR_AT 																											/* 공고 입찰 여부 */
+		      , ISNULL(BBD.CANCL_AT, 'N') AS CANCL_AT 																														/* 공고 입찰 취소 여부 */
+		      , FORMAT(CONVERT(DATETIME, dbo.fn_convertDate(BBB.DELY_BEGIN_DE + '000000', 'fo')), 'yyyy.MM.dd') AS DELY_BEGIN_DE											/* 인도 시작 일자 */
+		      , FORMAT(CONVERT(DATETIME, dbo.fn_convertDate(BBB.DELY_END_DE + '000000', 'fo')), 'yyyy.MM.dd') AS DELY_END_DE												/* 인도 종료 일자 */
+		      , FORMAT(CONVERT(DATETIME, dbo.fn_convertDate(BBB.PC_APPN_BEGIN_DE + '000000', 'fo')), 'yyyy.MM.dd') AS PC_APPN_BEGIN_DE										/* 가격 지정 시작 일자 */
+		      , FORMAT(CONVERT(DATETIME, dbo.fn_convertDate(BBB.PC_APPN_END_DE + '000000', 'fo')), 'yyyy.MM.dd') AS PC_APPN_END_DE											/* 가격 지정 종료 일자 */
+		      , ISNULL(BBB.PERM_WT_RATE, 0) AS PERM_WT_RATE																													/* 허용 중량 비율 */
+		      , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE='PC_APPN_MTH_CODE' AND SUB_CODE = BBB.PC_APPN_MTH_CODE) AS PC_APPN_MTH_CODE_NM								/* 가격 지정 방법 */
+		      , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE='PC_APPN_MTH_CODE' AND SUB_CODE = BBB.SETLE_CRNCY_CODE) AS SETLE_CRNCY_CODE_NM							    /* 결제 통화 */
+		      , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE='PC_APPN_MTH_CODE' AND SUB_CODE = BBB.SETLE_MTH_CODE) AS SETLE_MTH_CODE_NM								    /* 결제 방법 */
+		      , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE='PC_APPN_MTH_CODE' AND SUB_CODE = BBB.SETLE_PD_CODE) AS SETLE_PD_CODE_NM									/* 결제 기간 */
+		      , BBB.ETC_CN																																					/* 기타 내용 */
+		      , BBB.DELY_CND_01_APPLC_AT																																	/* 인도 조건 01 적용 여부 */
+		      , BBB.DELY_CND_01_STDR_PC																																		/* 인도 조건 01 기준 가격 */
+		      , BBB.DELY_CND_01_PREMIUM_PC																																	/* 인도 조건 01 프리미엄 가격 */
+		      , BBB.DELY_CND_02_APPLC_AT																																	/* 인도 조건 02 적용 여부 */
+		      , BBB.DELY_CND_02_STDR_PC																																		/* 인도 조건 02 기준 가격 */
+		      , BBB.DELY_CND_02_PREMIUM_PC																																	/* 인도 조건 02 프리미엄 가격 */
+		      , BBB.DELY_CND_03_APPLC_AT																																	/* 인도 조건 03 적용 여부 */
+		      , BBB.DELY_CND_03_STDR_PC																																		/* 인도 조건 03 기준 가격 */
+		      , BBB.DELY_CND_03_PREMIUM_PC																																	/* 인도 조건 03 프리미엄 가격 */
+		      , ISNULL(BBD.DELY_CND_CODE, '01')	AS DELY_CND_CODE																											/* 인도 조건 코드 */
+		      , ISNULL(BBD.DELY_CND_STDR_PC, BBB.DELY_CND_01_STDR_PC) AS DELY_CND_STDR_PC																					/* 인도 조건 기준 가격 */
+		      , ISNULL(BBD.CNVRS_PREMIUM_AMOUNT, BBB.DELY_CND_01_PREMIUM_PC) AS CNVRS_PREMIUM_AMOUNT																		/* 전환 프리미엄 가격 */
+		      , ISNULL(BBD.BDDPR_PREMIUM_PC, 0) AS BDDPR_PREMIUM_PC																											/* 투찰 프리미엄 가격 */
+		      , ISNULL(BBD.BDDPR_WT * (BBD.DELY_CND_STDR_PC + BBD.CNVRS_PREMIUM_AMOUNT + BBD.BDDPR_PREMIUM_PC), 0) AS BDDPR_FINAL_AMOUNT									/* 투찰 최종 가격 */
+		      , CASE WHEN BBB.BID_STTUS_CODE = '12'
+		      			THEN '시작 전입니다.'
+	      			WHEN BBB.BID_STTUS_CODE = '21'
+		      			THEN '개찰 된 공고입니다. (결과는 마이페이지에서 확인)'
+		      		WHEN BBB.BID_STTUS_CODE = '30'
+		      			THEN '마감 된 공고입니다.'
+		      		WHEN BBB.BID_STTUS_CODE = '31'
+		      			THEN '낙찰 된 공고입니다. (결과는 마이페이지에서 확인)'
+	      			WHEN BBB.BID_STTUS_CODE = '32'
+		      			THEN '유찰 된 공고입니다. (결과는 마이페이지에서 확인)'
+		      		ELSE '' END AS BID_STTUS_NOTICE																															/* 공고 상태 안내 메시지 */
+		FROM BD_BID_BAS BBB
+		LEFT JOIN BD_BDDPR_DTL BBD
+	        ON BBD.BID_PBLANC_ID = #{bidPblancId}
+	        AND BBD.BID_ENTRPS_NO = #{bidEntrpsNo}
+	        AND BBD.DELETE_AT = 'N'
+		WHERE 1=1
+			AND BBB.BID_PBLANC_ID = #{bidPblancId}
+    </select>
+    
+    <insert id="doBddpr" parameterType="com.bid.fo.bid.vo.BidBddprDtlVO">
+    	INSERT INTO BD_BDDPR_DTL (
+	    	  BID_ENTRPS_NO
+			, BID_PBLANC_ID
+			, DELY_CND_CODE
+			, DELY_CND_STDR_PC
+			, CNVRS_PREMIUM_AMOUNT
+			, BDDPR_PREMIUM_PC
+			, BDDPR_WT
+			, PARTCPTN_AGRE_AT
+			, BDDPR_DT
+			, DELETE_AT
+			, CANCL_AT
+			, FRST_REGISTER_ID
+			, FRST_REGIST_DT
+			, LAST_CHANGER_ID
+			, LAST_CHANGE_DT
+    	)
+		SELECT #{bidEntrpsNo} AS BID_ENTRPS_NO
+			 , BBB.BID_PBLANC_ID
+			 , #{delyCndCd} AS DELY_CND_CD
+			 , #{delyCndStdrPc} AS DELY_CND_STDR_PC /* 사용자 선택한 인도조건에 따라 */
+			 , #{cnvrsPremiumAmount} AS CNVRS_PREMIUM_AMOUNT /* 사용자 선택한 인도조건에 따라 */
+			 , #{bddprPremiumPc} AS BDDPR_PREMIUM_PC /* 사용자 입력한 프리미엄 값에 따라 */
+			 , BBB.BID_WT AS BDDPR_WT
+			 , 'Y' AS PARTCPTN_AGRE_AT /* 동의 여부 */
+			 , FORMAT(GETDATE(), 'yyyy-MM-dd') AS BDDPR_DT
+			 , 'N' AS DELETE_AT
+			 , 'N' AS CANCL_AT
+			 , #{bidMberId} AS FRST_REGISTER_ID
+			 , GETDATE() AS FRST_REGIST_DT 
+			 , #{bidMberId} AS LAST_CHANGER_ID 
+			 , GETDATE() AS LAST_CHANGE_DT
+		FROM BD_BID_BAS bbb
+		WHERE BBB.BID_PBLANC_ID = #{bidPblancId}
+    </insert> 
+
+</mapper>

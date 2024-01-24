@@ -1035,6 +1035,9 @@ a[class^=btn-] > span {height:100%; display:flex; align-items:center; justify-co
 [class^=btn-blue] {background-color:#1d5fd0; color:#fff; text-align:center; border-radius:.3rem;}
 [class^=btn-blue]:hover {background-color:#0241ac;}
 [class^=btn-blue]:disabled {background-color:#ddd; color:#fff;}
+[class^=btn-black] {background-color:#000000; color:#fff; text-align:center; border-radius:.3rem;}
+[class^=btn-black]:hover {background-color:#3f3f3f;}
+[class^=btn-black]:disabled {background-color:#ddd; color:#fff;}
 [class^=btn-red] {background-color: #FA2424; border:1px solid #B30707; color:#fff;}
 [class^=btn-gray] {background-color:#999; color:#fff; text-align:center; border-radius:.3rem;}
 [class^=btn-gray]:hover {background-color:#666;}
@@ -1054,7 +1057,7 @@ a[class^=btn-] > span {height:100%; display:flex; align-items:center; justify-co
 [class^=btn-stroke].lgray {background-color:#f1f1f1; color:#666;}
 [class^=btn-stroke].lgray:hover {background-color:#f1f1f1;}
 [class^=btn-stroke].lgray:disabled {background-color:#f1f1f1; font-family:inherit;}
-.btn-blue-big, .btn-gray-big, .btn-yellow-big, .btn-stroke-big {padding:0 1.3rem; width:20rem; height: 5rem; font-size:1.6rem;}
+.btn-blue-big, .btn-gray-big, .btn-yellow-big, .btn-stroke-big, .btn-black-big {padding:0 1.3rem; width:20rem; height: 5rem; font-size:1.6rem;}
 .btn-blue, .btn-gray, .btn-yellow, .btn-stroke {width:12rem; height:3rem; font-size:1.2rem;}
 .btn-blue-md, .btn-gray-md, .btn-lgray-md, .btn-yellow-md, .btn-stroke-md, .btn-gray-md {width:auto; min-width:9rem; height:3.6rem; padding:0 .8rem; font-size:1.2rem;}
 .btn-blue-sm, .btn-gray-sm, .btn-lgray-sm, .btn-yellow-sm, .btn-stroke-sm {width:6rem; height:2rem; padding:0 0.5rem; font-size:1.1rem;}
