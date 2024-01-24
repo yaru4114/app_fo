@@ -242,7 +242,7 @@
                                     <label for="">사업자등록증</label>
                                 </th>
                                 <td>
-                                    <button type="text" id="modalDoc1" class="w300px" onclick="downloadFile(1)"/>
+                                    <button type="text" id="modalDoc1" class="l-margin15px" onclick="downloadFile(1)"/>
                                 </td>
                             </tr>
 
@@ -302,7 +302,7 @@
                                    <!--
                                    <input type="text" name="modalDoc2" id="modalDoc2" class="w300px" required readonly>
                                    -->
-                                   <button type="text" id="modalDoc2" class="w300px" onclick="downloadFile(2)"/>
+                                   <button type="text" id="modalDoc2" class="l-margin15px" onclick="downloadFile(2)"/>
                                 </td>
                             </tr>
 
@@ -337,7 +337,7 @@
                                     <label for="">가입승인일</label>
                                 </th>
                                 <td>
-                                    <input type="text" name="modalConfmProcessDt" id="modalConfmProcessDt" class="w300px" readonly>
+                                    <input type="text" name="modalConfmProcessDt" id="modalConfmProcessDt" value="-" class="w300px" readonly>
                                 </td>
                                 <th scope="row">
                                     <label for="">상태</label>
@@ -621,7 +621,7 @@
             $('#modalVrscMobile').val(data.vrscMoblphonNo);
 
             $('#modalConfmRequestDt').val(data.etrConfmRequstDt);
-            $('#modalConfmProcessDt').val(data.etrConfmProcessDt);
+            // $('#modalConfmProcessDt').val(data.etrConfmProcessDt);
             $('#modalConfmSttus').val(data.bidConfmSttusCode);
 
             if (data.bidConfmSttusCode === '승인거절') {
