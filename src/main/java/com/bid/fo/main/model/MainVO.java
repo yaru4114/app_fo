@@ -19,8 +19,8 @@ public class MainVO {
 	 private String bidWt; 			  /** 입찰 중량 */
 	 private String bddprWt;
 	 private String permWtRate;       /** 허용 중량 비율 */
-	 private String bddrpBeginDt;     /** 투찰 시작 일시 */
-	 private String bddrpEndDt; 	  /** 투찰 종료 일시 */
+	 private String bddprBeginDt;     /** 투찰 시작 일시 */
+	 private String bddprEndDt; 	  /** 투찰 종료 일시 */
 	 private String bidSttusCode; 	  /** 입찰 상태 코드 */
 	 private String partcptnEntrpsQy; /** 참여 업체 수량 */
 	 private String intrstEntrpsQy;   /** 관심 업체 수량 */
@@ -30,6 +30,7 @@ public class MainVO {
 	 private String bddprAt; 	  /** 투찰 여부 */
      private String scsbidAt;        /** 낙찰 여부 */
 	 private String canclAt;        /** 취소 여부 */
+	 private String deleteAt;
 	 private String loginYn;        /** 로그인 여부 */
 	 private int bidSttusCnt;    /** 입찰 상태코드별 공고 총 개수 */
 	 private String bddprTotCnt; 	  /** 투찰 총 개수 */
@@ -38,11 +39,14 @@ public class MainVO {
 	 private String failTotCnt; 	  /** 유찰 총 개수 */
 	 private String frstRegisterId;
 	 private String lastChangerId;
+	 private String pcImageOneCours;
+	 private String nationUrl;
+	 
 	 
 	 private String filter; 	  /** 01:공고일, 02:마감일 */
 	 private String startDate; 	  /** 시작날짜 */
 	 private String endDate; 	  /** 끝날짜 */
-	 private String tabCode; 	  /** 01:투찰, 02:낙찰, 03:패찰, 04:유찰 */
+	 private String tabCode; 	  /** 01:투찰, 02:낙찰, 03:패찰, 04:관심 */
 	 
 	 
 	 

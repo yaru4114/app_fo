@@ -28,9 +28,11 @@ public class BidMypageController {
 	   private BidMypageService bidMypageService; 
 	
 	   @RequestMapping("/mypage")
-	   public String mypage(@RequestParam(value="bidEntrpsNo", required=false) String bidEntrpsNo, Model model) {
+	   public String mypage(@RequestParam(value="bidEntrpsNo") String bidEntrpsNo, @RequestParam(value="tabCode", required=false) String tabCode, Model model) {
 		   log.info("bidEntrpsNo : {}",bidEntrpsNo);
+		   log.info("tabCode : {}",tabCode);
 		   model.addAttribute("bidEntrpsNo",bidEntrpsNo);
+		   model.addAttribute("tabCode",tabCode);
 	      return "fo/mypage/bddprList";
 	   }
 
@@ -48,4 +50,20 @@ public class BidMypageController {
 	      map.put("bidBddprCntList", bidBddprCntList);
 	      return ResponseEntity.ok(map);
 	   }
+	   
+	   @RequestMapping("/intrstList")
+	   public String intrstList(@RequestParam(value="bidEntrpsNo") String bidEntrpsNo, Model model) {
+		   log.info("bidEntrpsNo : {}",bidEntrpsNo);
+		   List<MainVO> bidIntrstList = bidMypageService.selectBidIntrstList(bidEntrpsNo);
+		   int bidIntrstCntList = bidMypageService.selectBidIntrstCntList(bidEntrpsNo);
+		   model.addAttribute("bidEntrpsNo",bidEntrpsNo);
+		   model.addAttribute("bidIntrstList",bidIntrstList);
+		   model.addAttribute("bidIntrstCntList",bidIntrstCntList);
+		   
+		   log.info("bidBddprList : {}",bidIntrstList);
+		   log.info("bidBddprListCnt : {}",bidIntrstCntList);
+		      
+	      return "fo/mypage/intrstList";
+	   }
+	   
 }

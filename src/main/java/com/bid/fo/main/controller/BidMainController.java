@@ -110,7 +110,7 @@ public class BidMainController {
    
    @PostMapping("/insertIntrstPblanc")
    @ResponseBody
-   public ResponseEntity<?> insertIntrstPblanc(@RequestBody MainVO mainVO) {
+   public ResponseEntity<?> insertIntrstPblanc(@RequestBody MainVO mainVO, HttpSession session) {
       Map<String,Object> map = new HashMap<>();
       log.info("insert : {}",mainVO);
       int result = bidMainService.insertIntrstPblanc(mainVO);
@@ -127,7 +127,7 @@ public class BidMainController {
    
    @PostMapping("/deleteIntrstPblanc")
    @ResponseBody
-   public ResponseEntity<?> deleteIntrstPblanc(@RequestBody MainVO mainVO) {
+   public ResponseEntity<?> deleteIntrstPblanc(@RequestBody MainVO mainVO, HttpSession session) {
       Map<String,Object> map = new HashMap<>();
       log.info("delete : {}",mainVO);
       int result = bidMainService.deleteIntrstPblanc(mainVO);

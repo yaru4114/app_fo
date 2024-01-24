@@ -26,4 +26,13 @@ public class BidMypageService {
 		return bidBddprCntList;
 	}
 	
+	public List<MainVO> selectBidIntrstList(String bidEntrpsNo){
+		List<MainVO> bidIntrstList = bidMypageDAO.selectBidIntrstList(bidEntrpsNo);
+		return bidIntrstList;
+	}
+	
+	public int selectBidIntrstCntList(String bidEntrpsNo){
+		int bidIntrstCntList = bidMypageDAO.selectBidIntrstCntList(bidEntrpsNo);
+		return bidIntrstCntList;
+	}
 }

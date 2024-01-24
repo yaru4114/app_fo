@@ -37,9 +37,8 @@
 			        	<!-- LEFT WING :: START -->
 			        	<div class="left-wing">
 			        		<ul>
-			        			<li class="item active" data-tab="nav-1"><a href="#">투찰 목록</a></li>
-			        			<li class="item" data-tab="nav-2"><a href="#">관심 공고</a></li>
-			        			<li class="item" data-tab="nav-3"><a href="#">내정보관리</a></li>
+			        			<li class="item active" data-tab="nav-1"><a href="javascript:;">투찰 목록</a></li>
+			        			<li class="item" data-tab="nav-2"><a href="javascript:;">관심 공고</a></li>
 			        		</ul>
 			        	</div>
 			        	<!-- LEFT WING :: END -->
@@ -75,20 +74,20 @@
 				                    <label class="radio-btn" id="periodBtn"><input type="radio" value="3" name="periodBtn"><span>3개월</span></label>
 				                    <label class="radio-btn" id="periodBtn"><input type="radio" value="6" name="periodBtn"><span>6개월</span></label>
 				                </div>
-				                <button class="btn-blue">조회</button>
+				                <button class="btn-blue" onclick="selectBdMyList(-1)">조회</button>
 				            </div>
 							<!-- TAB BUTTON :: START -->
                             <ul class="tab_btn_group">
-                                <li class="item on" data-value="01">
+                                <li class="item on" id="tab-01" data-value="01">
                                     <a href="#">투찰 건(<span id="bddprTotCnt"></span>)</a>
                                 </li>
-                                <li class="item" data-value="02">
+                                <li class="item" id="tab-02" data-value="02">
                                     <a href="#">낙찰 건(<span id="scsbidTotCnt"></span>)</a>
                                 </li>
-                                <li class="item" data-value="03">
+                                <li class="item" id="tab-03" data-value="03">
                                     <a href="#">패찰 건(<span id="defeatTotCnt"></span>)</a>
                                 </li>
-                                <li class="item" data-value="04">
+                                <li class="item" id="tab-04" data-value="04">
                                     <a href="#">유찰 건(<span id="failTotCnt"></span>)</a>
                                 </li>
                             </ul>
@@ -101,42 +100,7 @@
                         </div>
                         <!-- // 1. 투찰 목록(#NAV-1) :: END -->
                         
-			        	<!-- 2. 관심 공고(#NAV-2) :: START -->
-                        <div id="nav-2" class="right">
-			                <div class="hgroup">
-			                    <div>
-			                        <h2 class="h2">관심 공고</h2>
-			                    </div>
-			                </div>
-				            <v>
-
-                        </div>
-                        <!-- // 2. 관심 공고(#NAV-2) :: END -->
-                        
-                        <!-- 3. 내 정보 관리(NAV-3) :: START -->
-						<div id="nav-3" class="right">
-			                <div class="hgroup">
-			                    <div>
-			                        <h2 class="h2">내 정보 관리</h2>
-			                    </div>
-			                </div>
-			                <div class="cont-sub-tit type2">
-								비밀번호 확인
-				            </div>
-				            <div class="confirm-info-wrap">
-				            	<div class="flex-center">
-				            		<input type="password" placeholder="비밀번호를 입력해 주세요." />
-				            		<button type="button" class="btn-blue">확인</button>
-				            	</div>
-				            	<div class="text-center mt20">
-				     				<span class="icon-info-txt display-inline-block">회원님의 정보를 안전하게 보호하기 위해 비밀번호를 확인합니다.</span>
-				            	</div>
-				            </div>
-							<div class="btn-wrap">
-		                        <button type="button" class="btn-gray-big btn-list" onclick="location.href='/guide/html/bid/SOREC-SB-BID-001-2.html'">목록가기</button>
-		                    </div>
-						</div>
-						<!-- // 3. 내 정보 관리(NAV-3) :: END -->
+			        
  					</div>
  				</div>
  			</div>
@@ -161,8 +125,11 @@
 	var bidEntrpsNo = "${bidEntrpsNo}";
 
 	$(function(){
+		var tabCode = "${tabCode}";
+		if(tabCode){
+			$("#tab-"+tabCode).trigger("click");
+		}
 		
-
 		// =============== SELECT BOX ==================
 		$('.brand').select2({
 		    width: 'element',
@@ -188,8 +155,6 @@
 		    selectOnClose: true
 		});
 		
-		
-		//리스트 조회
 		selectBdMyList(-1);
 	})
 		
@@ -215,9 +180,14 @@
 	    e.preventDefault();
 	    let tab_id = $(this).attr('data-tab');
 	    $('.left-wing ul li').removeClass('active');
-	    $('.inwrap.bi .right').removeClass('on');
 	    $(this).addClass('active');
-	    $("#"+tab_id).addClass('on');
+
+	    if(tab_id == 'nav-1'){
+	    	location.href="/fo/mypage?bidEntrpsNo="+bidEntrpsNo;
+	    }else{
+	    	location.href="/fo/intrstList?bidEntrpsNo="+bidEntrpsNo
+	    }
+	    
 	})
 
 		
@@ -298,8 +268,8 @@
 			var params = {
 				//"bidSttusCode" : bidSttusCode,
 				"filter" : $("#filter").val(), 
-				"startDate" : $("#startDate").val(),
-				"endDate" : $("#endDate").val(),
+				"startDate" : $("#startDate").val().replaceAll("-", ""),
+				"endDate" : $("#endDate").val().replaceAll("-", ""),
 				"tabCode" : tabCode,
 				"bidEntrpsNo" : bidEntrpsNo,
 			}
@@ -349,13 +319,13 @@
 				html +=	'	    </div>';
 				html +=	'	<ul class="list t2">';
 				html +=	'	<li>';
-				if(res.bidBddprList[i].bidSttusCode == '31' || res.bidBddprList[i].bidSttusCode == '32'){
+				if(res.bidBddprList[i].bidSttusCode == '30' || res.bidBddprList[i].bidSttusCode == '31' || res.bidBddprList[i].bidSttusCode == '32'){
 					html += '       <div class="cart-item-wrap type3 finish">';
 				}else{
 					html += '       <div class="cart-item-wrap type3">';	
 				}
 				html += '           <figure class="figure figure1">';
-				html += '               <img src="/images/my/al_sum.jpg" alt="알루미늄" class="w">';
+				html += '               <img src="'+res.bidBddprList[i].pcImageOneCours+'" alt="알루미늄" class="w">';
 				html += '           </figure>';
 				html += '           <div class="figure-con">';
 				html += '               <div class="pd-brand-info">';
@@ -364,9 +334,9 @@
 				html += '                       <div class="pd-brand">';
 				html += '                           <div class="pd-label">AL</div>';
 				html += '                           <div class="brand-nation">';
-				html += '                               <img src="https://sorincorp.blob.core.windows.net/secs-t/odflag/flag_mcht_australia.png">';
+				html += '                               <img src="'+res.bidBddprList[i].nationUrl+'">';
 				html += '                           </div>';
-				html += '                           TOMAGO';
+				html += '                           '+res.bidBddprList[i].brandCode;
 				html += '                       </div>';
 				html += '                   </div>';
 				html += '                   <div class="pd-name">';
@@ -380,7 +350,7 @@
 				html += '                   </p>';
 				html += '                   <div class="pd-period">';
 				html += '                   	<span class="qty">수량 <span class="highlight">'+res.bidBddprList[i].bidWt+'MT</span></span>';	
-				html += '                       <span class="date">투찰기간 <span class="highlight">'+ res.bidBddprList[i].bddrpBeginDt +' ~ '+ res.bidBddprList[i].bddrpBeginDt+'</span></span>'; 
+				html += '                       <span class="date">투찰기간 <span class="highlight">'+ viewDateFmt(res.bidBddprList[i].bddprBeginDt) +' ~ '+viewDateFmt(res.bidBddprList[i].bddprBeginDt)+'</span></span>'; 
 				if(res.bidBddprList[i].bidSttusCode == '13'){
 					html += '                       <span class="t-info">개찰결과 : 투찰 기한 마감과 동시에 발표함</span>';
 				}
@@ -427,6 +397,10 @@
 			}
 			
 			
+		}
+		
+		function viewDateFmt(date){
+			return date.substring(2,4)+"."+date.substring(4,6)+"."+date.substring(6,8)+" "+date.substring(8,10)+":"+date.substring(10,12)+":"+date.substring(12,14);
 		}
 		
 		function moveToMain(){

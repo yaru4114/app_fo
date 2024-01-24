@@ -12,4 +12,8 @@ public interface BidMypageDAO {
 	List<MainVO> selectBidBddprList(MainVO mainVO);
 
 	MainVO selectBidBddprCntList(MainVO mainVO);
+	
+	List<MainVO> selectBidIntrstList(String bidEntrpsNo);
+	
+	int selectBidIntrstCntList(String bidEntrpsNo);
 }

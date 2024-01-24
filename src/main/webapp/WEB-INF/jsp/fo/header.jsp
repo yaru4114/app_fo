@@ -16,7 +16,7 @@
         <div class="util-list">
             <ul>
                 <li><a href="javascript:;">${loginUser.userNm}님</a></li>
-                <li><a href="javascript:;">마이페이지</a></li>
+                <li><a href="javascript:;" onclick="moveToMypage()">마이페이지</a></li>
                 <li><a class="fc-lgray" href="/fo/member/logout">로그아웃</a></li>
             </ul>
         </div>
@@ -49,6 +49,9 @@
 	function header_toMyPage(){
         //
 	}
-
+	
+	function moveToMypage(){
+		location.href="/fo/mypage?bidEntrpsNo="+bidEntrpsNo
+	}
 </script>
 <!-- header :: END -->

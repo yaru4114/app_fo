@@ -22,10 +22,8 @@
     <div class="wrapper pt0">
         <!-- 23.10.16 | header include -->
         <div class="header bid"></div>
-                <!--
-                <script type="text/javascript"> $(".header.bid").load("/guide/html/bid/include/header.html");</script>
-                -->
-                <script type="text/javascript"> $(".header.bid").load("/fo/header");</script>
+        <!-- <script type="text/javascript"> $(".header.bid").load("/guide/html/bid/include/header.html");</script> -->
+        <script type="text/javascript"> $(".header.bid").load("/fo/header");</script>
         <!-- // 23.10.16 | header include -->
         
 		<!-- body-main :: START -->
@@ -81,30 +79,30 @@
 		                	</c:when>
 		                	<c:otherwise>
 			                	<div class="login_container log_on">
-				                   <a href="/guide/html/bid/SOREC-SC-BID-020.html" class="btn_nav"><span class="bold">서린상사</span>님 입찰현황</a>
+				                   <a href="javascript:;" class="btn_nav"><span class="bold">${loginUser.userNm}</span>님 입찰현황</a>
 								   <div class="dashboard">
-								   	 <div class="item">
+								   	 <div class="item" data-tab="01">
 								   	 	<a href="javascript:;">
 									   	 	<h4>투찰건</h4>
 									   	 	<p class="bid">${bidDashBoardList.bddprTotCnt}</p>							   	 	
 								   	 	</a>
 								   	 </div>
-								   	 <div class="item">
+								   	 <div class="item" data-tab="02">
 								   	 	<a href="javascript:;">							   	 
 									   	 	<h4>낙찰건</h4>
 									   	 	<p class="win">${bidDashBoardList.scsbidTotCnt}</p>
 									   	</a> 	
 								   	 </div>		
-								   	 <div class="item">
+								   	 <div class="item" data-tab="03">
 								   	 	<a href="javascript:;">							   	 
 									   	 	<h4>패찰건</h4>
 									   	 	<p class="lose">${bidDashBoardList.defeatTotCnt}</p>
 									   	</a> 								   	 	
 								   	 </div>		
-								   	 <div class="item">
+								   	 <div class="item" data-tab="04">
 								   	 	<a href="javascript:;">							   	 
 									   	 	<h4>관심건</h4>
-									   	 	<p class="keep">${bidIntrstCnt }</p>
+									   	 	<p id="intrstCnt">${bidIntrstCnt }</p>
 									   	</a> 								   	 	
 								   	 </div>							   	 						   	 					   	 
 								   </div>
@@ -170,8 +168,8 @@
 			                    <h2 class="h3-new" id="tab-value"></h2>
 			                    <div class="opt_group">
 			                        <div class="opt_item">
-			                            <label for="">브랜드</label>
-			                            <select name="" id="" class="brand">
+			                            <label for="brand">브랜드</label>
+			                            <select name="" id="brand" class="brand">
 			                                <option value="">브랜드(전체)</option>
 			                                <c:forEach var="list" items="${brandGroupList}">
 			                                	<option value="${list.subCode }">${list.codeDcone }</option>
@@ -180,7 +178,7 @@
 			                        </div>
 			                        <div class="opt_item">
 			                            <label for="">권역</label>
-			                            <select name="" id="" class="area">
+			                            <select name="" id="area" class="area">
 			                                <option value="">권역(전체)</option>
 			                                <c:forEach var="list" items="${dstrctLclsfList}">
 			                                	<option value="${list.subCode }">${list.codeNm }</option>
@@ -294,7 +292,7 @@ $(function(){
 	$('.brand').select2({
 	    width: 'element',
 	    minimumResultsForSearch: Infinity,
-	    placeholder: '브랜드',
+	    placeholder: '브랜드(전체)',
 	    selectOnClose: true
 	});
 	$('.area').select2({
@@ -315,7 +313,7 @@ $(function(){
 	selectBdList(-1);
 })
 	
-	$("#filter").change(function(){
+	$("#filter, #brand, #area").change(function(){
 		//리스트 조회
 		selectBdList(-1);
 	})
@@ -343,7 +341,8 @@ $(function(){
 				"bidPblancId" : bidPblancId,
 				"bidEntrpsNo" : bidEntrpsNo
 		};
-		var like = $(this);
+		var likeBtn = $(this);
+		
 	 	if(!$(this).hasClass('active')){
 	 		 $.ajax({
 	 			type : 'post',
@@ -352,7 +351,9 @@ $(function(){
 	 			data : JSON.stringify(params),
 	 			contentType : 'application/json',
 	 			success : function(res) {
-	 				like.toggleClass('active');
+	 				likeBtn.toggleClass('active');
+	 				$("#intrstCnt").text(parseInt($("#intrstCnt").text()) + 1);
+	 				
 	 			},
 	 			error : function(request, status, error) {
 	 				console.log("error")
@@ -366,7 +367,8 @@ $(function(){
 	 			data : JSON.stringify(params),
 	 			contentType : 'application/json',
 	 			success : function(res) {
-	 				like.removeClass('active');
+	 				likeBtn.removeClass('active');
+	 				$("#intrstCnt").text(parseInt($("#intrstCnt").text()) - 1);
 	 			},
 	 			error : function(request, status, error) {
 	 				console.log("error")
@@ -455,16 +457,14 @@ $(function(){
 		var params = {
 			"bidSttusCode" : bidSttusCode,
 			"filter" : $("#filter").val(), 
-			"startDate" : $("#startDate").val(),
-			"endDate" : $("#endDate").val(),
+			"startDate" : $("#startDate").val().replaceAll("-", ""),
+			"endDate" : $("#endDate").val().replaceAll("-", ""),
 			"brandGroupCode" : $("#brand").val(),
 			"dstrctLclsfCode" : $("#area").val(),
 			"bidEntrpsNo" : bidEntrpsNo,
 			"loginYn" : loginYn
 		}
 		console.log(params)
-		
-		
 		
 		$.ajax({
 			type : 'post',
@@ -495,13 +495,13 @@ $(function(){
 		var html = '';
 		for(let i=0; i<res.bidList.length;i++){
 			html +=	'	<li>';
-			if(res.bidList[i].bidSttusCode == '31' || res.bidList[i].bidSttusCode == '32'){
+			if(res.bidList[i].bidSttusCode == '30' || res.bidList[i].bidSttusCode == '31' || res.bidList[i].bidSttusCode == '32'){
 				html += '       <div class="cart-item-wrap type4 finish">';
 			}else{
 				html += '       <div class="cart-item-wrap type4">';	
 			}
 			html += '           <figure class="figure figure1">';
-			html += '               <img src="/images/my/al_sum.jpg" alt="알루미늄" class="w">';
+			html += '               <img src="'+res.bidList[i].pcImageOneCours+'" alt="알루미늄" class="w">';
 			html += '           </figure>';
 			html += '           <div class="figure-con">';
 			html += '               <div class="pd-brand-info">';
@@ -510,9 +510,9 @@ $(function(){
 			html += '                       <div class="pd-brand">';
 			html += '                           <div class="pd-label">AL</div>';
 			html += '                           <div class="brand-nation">';
-			html += '                               <img src="https://sorincorp.blob.core.windows.net/secs-t/odflag/flag_mcht_australia.png">';
+			html += '                               <img src="'+res.bidList[i].nationUrl+'">';
 			html += '                           </div>';
-			html += '                           TOMAGO';
+			html += '                           '+res.bidList[i].brandCode;
 			html += '                       </div>';
 			html += '                       <div class="pd-like">';
 			html += '                           <ul class="company">';
@@ -549,8 +549,8 @@ $(function(){
 			html += '                   </div>';
 			html += '                   <div class="pd-period">';
 			html += '                   	<span class="qty">수량 <span class="highlight">'+res.bidList[i].bidWt+'MT</span></span>';	
-			html += '                       <span class="date">투찰기간 <span class="highlight">24.01.15 11:00:00 ~ 24.01.17 18:00:00</span></span>'; 
-			/* html += '                       <span class="date">투찰기간 <span class="highlight">'+ res.bidList[i].bddrpBeginDt +' ~ '+ res.bidList[i].bddrpBeginDt+'</span></span>'; */ 
+			html += '                       <span class="date">투찰기간 <span class="highlight">'+ res.bidList[i].bddprBeginDt +' ~ '+ res.bidList[i].bddprBeginDt+'</span></span>';
+			//html += '                       <span class="date">투찰기간 <span class="highlight">'+ viewDateFmt(res.bidList[i].bddprBeginDt) +' ~ '+ viewDateFmt(res.bidList[i].bddprBeginDt)+'</span></span>'; 
 			if(res.bidList[i].bidSttusCode == '12' || res.bidList[i].bidSttusCode == '13'){
 				html += '                       <span class="t-info">개찰결과 : 투찰 기한 마감과 동시에 발표함</span>';
 			}
@@ -562,7 +562,7 @@ $(function(){
 				html += '               <a href="javascript:;" class="btn-bid-stroke" name="bidDetail" data-bid-id="'+res.bidList[i].bidPblancId+'">입찰예정</a>';
 				html += '           </div>';
 				html += '           <span class="bid-d-day abs-info">';
-				html += '       		투찰 시작까지 <span class="time">- 3일 3시간 20분 36초</span>';
+				html += '       		투찰 시작까지 <span class="time"></span>';
 				html += '       	</span>';
 			}else if(res.bidList[i].bidSttusCode == '13' ){
 				html += '           <div class="btns">';
@@ -602,16 +602,16 @@ $(function(){
 	
 	
 	$(document).on('click', "a[name='bidDetail']", function(e) {
-		if(loginYn == 'N'){
+ 		if(loginYn == 'N'){
 			alert("로그인이 필요한 화면입니다.");
 			return;
 		}
 		
 		var bidPblancId = $(this).attr('data-bid-id');
 		var params = {"bidPblancId" : bidPblancId};
-		
+		/*		
 		location.href="/fo/mypage?bidPblancId="+bidPblancId;
-		
+ */ 		
 /* 		$.ajax({
 			type : 'post',
 			url : '/fo/mypage',
@@ -629,8 +629,18 @@ $(function(){
 	    
 	})
 	
-	$(".dashboard .item").click(function(){
-		location.href="/fo/mypage?bidEntrpsNo="+bidEntrpsNo;
+	function viewDateFmt(date){
+		return date.substring(2,4)+"."+date.substring(4,6)+"."+date.substring(6,8)+" "+date.substring(8,10)+":"+date.substring(10,12)+":"+date.substring(12,14);
+	}
+	
+	//대쉬보드 클릭 시 마이페이지 공고 및 관심목록 이동
+	$(".dashboard .item, .btn_nav").click(function(){
+		var tabCode = $(this).attr("data-tab");
+		if(tabCode == '04'){
+			location.href="/fo/intrstList?bidEntrpsNo="+bidEntrpsNo;
+		}else{
+			location.href="/fo/mypage?bidEntrpsNo="+bidEntrpsNo+"&tabCode="+tabCode;	
+		}
 	})
 
 	$("#inputLoginId, #inputLoginPwd").on('keydown',function(e){

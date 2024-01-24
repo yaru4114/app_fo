@@ -4,11 +4,18 @@
    <select id="selectBidBddprList" parameterType="com.bid.fo.main.model.MainVO" resultType="com.bid.fo.main.model.MainVO">
       SELECT BBB.BID_PBLANC_ID         /* 입찰 공고 아이디 */
           , BBB.METAL_CODE            /* 금속 코드 */   
-          , ISNULL((SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'BRAND_GROUP_CODE' AND SUB_CODE = BBB.BRAND_GROUP_CODE),'브랜드 무관') AS BRAND_GROUP_CODE_NM
+          , ISNULL((SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'BRAND_GROUP_CODE' AND SUB_CODE = BBB.BRAND_GROUP_CODE),'ANY BRAND') AS BRAND_GROUP_CODE_NM
           , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'DSTRCT_LCLSF_CODE' AND SUB_CODE = BBB.DSTRCT_LCLSF_CODE) AS DSTRCT_LCLSF_CODE_NM
-          , BBB.BRAND_CODE            /* 브랜드 코드 */
-          , (SELECT ITM_PRDLST_ENG FROM IT_ITM_INFO_BAS WHERE ITM_SN = BBB.ITM_SN) AS DSPY_GOODS_NM
+          , ISNULL(BBB.BRAND_CODE, 'ANY BRAND') AS BRAND_CODE          /* 브랜드 코드 */
+          , ISNULL((SELECT CCC.CODE_REFRNONE FROM CO_CMMN_CD CCC
+			   LEFT JOIN IT_BRAND_INFO_BAS IBIB
+			     ON IBIB.NATION_CODE = CCC.SUB_CODE
+			    AND CCC.MAIN_CODE = 'NATION_CODE'
+			    AND CCC.DELETE_AT = 'N'
+			  WHERE IBIB.BRAND_CODE = BBB.BRAND_CODE), 'https://sorincorp.blob.core.windows.net/secs/odflag/flag_mcht_default.png') AS NATION_URL
+          , IIIB.ITM_PRDLST_ENG AS DSPY_GOODS_NM
           , ISNULL(BBB.BID_WT, 0) AS BID_WT             /* 입찰 중량 */
+          , (SELECT DOC_FILE_COURS FROM CO_DOC_BAS CDB WHERE DOC_NO = IIIB.PC_IMAGE_ONE_SN) AS PC_IMAGE_ONE_COURS
           , BBB.BDDPR_BEGIN_DT          /* 투찰 시작 일시 */
           , BBB.BDDPR_END_DT             /* 투찰 종료 일시 */
           , BBB.BID_STTUS_CODE         /* 입찰 상태 코드 */
@@ -23,6 +30,9 @@
         FROM dbo.BD_BID_BAS BBB            /* 입찰_입찰 기본 */
         INNER JOIN BD_BDDPR_DTL AS BBD
                 ON BBD.BID_PBLANC_ID = BBB.BID_PBLANC_ID
+        LEFT JOIN IT_ITM_INFO_BAS IIIB
+		  ON BBB.ITM_SN = IIIB.ITM_SN
+		 AND ISNULL(IIIB.DELETE_AT, 'N') = 'N' 
         WHERE 1=1
           AND BBB.DSPY_AT = 'Y'
           AND BBD.BID_ENTRPS_NO = #{bidEntrpsNo}
@@ -63,7 +73,7 @@
       SELECT ISNULL(SUM(BBD.BDDPR_CNT), 0) AS BDDPR_TOT_CNT
           , ISNULL(SUM(BBD.SCSBID_CNT), 0) AS SCSBID_TOT_CNT
            , ISNULL(SUM(BBD.DEFEAT_CNT), 0) AS DEFEAT_TOT_CNT 
-           , ISNULL(SUM(BBD.DEFEAT_CNT), 0) AS FAIL_TOT_CNT 
+           , ISNULL(SUM(BBD.FAIL_CNT), 0) AS FAIL_TOT_CNT 
         FROM (SELECT CASE WHEN BBB.BID_STTUS_CODE = '13'  THEN 1 ELSE 0 END AS BDDPR_CNT
                  , CASE WHEN BID_STTUS_CODE = '31' AND SCSBID_AT = 'Y' AND ISNULL(BBD.CANCL_AT,'N') = 'N'  THEN 1 ELSE 0 END AS SCSBID_CNT
                  , CASE WHEN BID_STTUS_CODE = '31' AND SCSBID_AT = 'N' THEN 1 ELSE 0 END AS DEFEAT_CNT
@@ -75,6 +85,74 @@
                AND ISNULL(BBD.CANCL_AT,'N') = 'N' 
                AND ISNULL(BBB.DELETE_AT,'N')='N' 
                AND BBD.BID_ENTRPS_NO = #{bidEntrpsNo}) AS BBD
+   </select>
+   <select id="selectBidIntrstList" parameterType="String" resultType="com.bid.fo.main.model.MainVO">
+   SELECT * 
+   	 FROM BD_INTRST_DTL AS BID
+	 LEFT JOIN (SELECT BBB.BID_PBLANC_ID         /* 입찰 공고 아이디 */
+			         , BBB.METAL_CODE            /* 금속 코드 */   
+			         , ISNULL((SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'BRAND_GROUP_CODE' AND SUB_CODE = BBB.BRAND_GROUP_CODE),'브랜드 무관') AS BRAND_GROUP_CODE_NM
+			         , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'DSTRCT_LCLSF_CODE' AND SUB_CODE = BBB.DSTRCT_LCLSF_CODE) AS DSTRCT_LCLSF_CODE_NM
+			         , ISNULL(BBB.BRAND_CODE, 'ANY BRAND') AS BRAND_CODE            /* 브랜드 코드 */
+			         , ISNULL((SELECT CCC.CODE_REFRNONE FROM CO_CMMN_CD CCC
+						   LEFT JOIN IT_BRAND_INFO_BAS IBIB
+						     ON IBIB.NATION_CODE = CCC.SUB_CODE
+						    AND CCC.MAIN_CODE = 'NATION_CODE'
+						    AND CCC.DELETE_AT = 'N'
+						  WHERE IBIB.BRAND_CODE = BBB.BRAND_CODE), 'https://sorincorp.blob.core.windows.net/secs/odflag/flag_mcht_default.png') AS NATION_URL
+			         , IIIB.ITM_PRDLST_ENG AS DSPY_GOODS_NM
+			         , ISNULL(BBB.BID_WT, 0) AS BID_WT                /* 입찰 중량 */
+			         , (SELECT DOC_FILE_COURS FROM CO_DOC_BAS CDB WHERE DOC_NO = IIIB.PC_IMAGE_ONE_SN) AS PC_IMAGE_ONE_COURS
+			         , dbo.fn_convertDate(BBB.BDDPR_BEGIN_DT, 'FO') AS BDDPR_BEGIN_DT      /* 투찰 시작 일시 */
+			         , dbo.fn_convertDate(BBB.BDDPR_END_DT, 'FO') AS BDDPR_END_DT             /* 투찰 종료 일시 */
+			         , BBB.BID_STTUS_CODE         /* 입찰 상태 코드 */
+			         , ISNULL(BBB.PARTCPTN_ENTRPS_QY, 0)   AS PARTCPTN_ENTRPS_QY   /* 참여 업체 수량 */
+			         , ISNULL(BBB.INTRST_ENTRPS_QY, 0)   AS INTRST_ENTRPS_QY         /* 관심 업체 수량 */
+			         , BBB.DSPY_AT               /* 전시 여부 */
+			      FROM dbo.BD_BID_BAS BBB            /* 입찰_입찰 기본 */
+			      LEFT JOIN IT_ITM_INFO_BAS IIIB
+					ON BBB.ITM_SN = IIIB.ITM_SN
+				   AND ISNULL(IIIB.DELETE_AT, 'N') = 'N' 
+				 WHERE 1=1
+				   AND BBB.DSPY_AT = 'Y' ) AS BBB
+	ON BID.BID_PBLANC_ID = BBB.BID_PBLANC_ID
+	WHERE 1=1
+	AND BID.BID_ENTRPS_NO = #{bidEntrpsNo}
+	AND ISNULL(BID.DELETE_AT, 'N') = 'N'
+   </select>
+   <select id="selectBidIntrstCntList" parameterType="String" resultType="Integer">
+   SELECT COUNT(*) 
+   	 FROM BD_INTRST_DTL AS BID
+	 LEFT JOIN (SELECT BBB.BID_PBLANC_ID         /* 입찰 공고 아이디 */
+			         , BBB.METAL_CODE            /* 금속 코드 */   
+			         , ISNULL((SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'BRAND_GROUP_CODE' AND SUB_CODE = BBB.BRAND_GROUP_CODE),'브랜드 무관') AS BRAND_GROUP_CODE_NM
+			         , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'DSTRCT_LCLSF_CODE' AND SUB_CODE = BBB.DSTRCT_LCLSF_CODE) AS DSTRCT_LCLSF_CODE_NM
+			         , ISNULL(BBB.BRAND_CODE, 'ANY BRAND') AS BRAND_CODE            /* 브랜드 코드 */
+			         , ISNULL((SELECT CCC.CODE_REFRNONE FROM CO_CMMN_CD CCC
+						   LEFT JOIN IT_BRAND_INFO_BAS IBIB
+						     ON IBIB.NATION_CODE = CCC.SUB_CODE
+						    AND CCC.MAIN_CODE = 'NATION_CODE'
+						    AND CCC.DELETE_AT = 'N'
+						  WHERE IBIB.BRAND_CODE = BBB.BRAND_CODE), 'https://sorincorp.blob.core.windows.net/secs/odflag/flag_mcht_default.png') AS NATION_URL
+			         , IIIB.ITM_PRDLST_ENG AS DSPY_GOODS_NM
+			         , ISNULL(BBB.BID_WT, 0) AS BID_WT                /* 입찰 중량 */
+			         , (SELECT DOC_FILE_COURS FROM CO_DOC_BAS CDB WHERE DOC_NO = IIIB.PC_IMAGE_ONE_SN) AS PC_IMAGE_ONE_COURS
+			         , BDDPR_BEGIN_DT     /* 투찰 시작 일시 */
+			         , BDDPR_END_DT             /* 투찰 종료 일시 */
+			         , BBB.BID_STTUS_CODE         /* 입찰 상태 코드 */
+			         , ISNULL(BBB.PARTCPTN_ENTRPS_QY, 0)   AS PARTCPTN_ENTRPS_QY   /* 참여 업체 수량 */
+			         , ISNULL(BBB.INTRST_ENTRPS_QY, 0)   AS INTRST_ENTRPS_QY         /* 관심 업체 수량 */
+			         , BBB.DSPY_AT               /* 전시 여부 */
+			      FROM dbo.BD_BID_BAS BBB            /* 입찰_입찰 기본 */
+			      LEFT JOIN IT_ITM_INFO_BAS IIIB
+					ON BBB.ITM_SN = IIIB.ITM_SN
+				   AND ISNULL(IIIB.DELETE_AT, 'N') = 'N' 
+				 WHERE 1=1
+				   AND BBB.DSPY_AT = 'Y' ) AS BBB
+	ON BID.BID_PBLANC_ID = BBB.BID_PBLANC_ID
+	WHERE 1=1
+	AND BID.BID_ENTRPS_NO = #{bidEntrpsNo}
+	AND ISNULL(BID.DELETE_AT, 'N') = 'N'
    </select>
 
 </mapper>
