@@ -609,9 +609,9 @@ $(function(){
 		
 		var bidPblancId = $(this).attr('data-bid-id');
 		var params = {"bidPblancId" : bidPblancId};
-		/*		
-		location.href="/fo/mypage?bidPblancId="+bidPblancId;
- */ 		
+		
+		location.href="/fo/bid/detail/"+bidPblancId;
+			
 /* 		$.ajax({
 			type : 'post',
 			url : '/fo/mypage',
