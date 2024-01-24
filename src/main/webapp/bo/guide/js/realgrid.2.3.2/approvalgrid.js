@@ -71,7 +71,8 @@ var columns = [
         width: "160",
         header: {
             text: "사업자번호"
-        }
+        },
+        sortable: false
     },
     {
         name: "bidMberEmail",
@@ -79,7 +80,8 @@ var columns = [
         width: "150",
         header: {
             text: "이메일"
-        }
+        },
+        sortable: false
     },
     {
         name: "moblphonNo2",
@@ -87,7 +89,8 @@ var columns = [
         width: "100",
         header: {
             text: "폰 번호"
-        }
+        },
+        sortable: false
     },
     {
         name: "frntnEntrpsAt",

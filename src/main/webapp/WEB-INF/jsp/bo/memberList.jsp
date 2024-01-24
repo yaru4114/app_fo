@@ -503,8 +503,13 @@
             $('#total-page-view').text(pageCount);
 
             gridView.onCellClicked = function (grid, clickData) {
+                // 헤더 제외
+                if (clickData.cellType === 'header') {
+                    return;
+                }
                 const rowIndex = clickData.itemIndex;
-                const rowData = grid.getDataSource().getJsonRow(rowIndex);
+                // const rowData = grid.getDataSource().getJsonRow(rowIndex);
+                const rowData = grid.getDisplayValues(rowIndex);
                 const temp = JSON.stringify(rowData);
                 const param = JSON.parse(temp);
                 bidEntrpsNo = param.bidEntrpsNo;
@@ -577,10 +582,6 @@
 
         // 회원 상세 정보 조회
         function getMemberInfo(data) {
-            if (data === "" || (typeof data) === "undefined" ) {
-                return
-            }
-
             var param = {
                 bidEntrpsNo: data
             };

@@ -513,8 +513,12 @@
             };
 
             gridView.onCellClicked = function (grid, clickData) {
+                // 헤더 제외
+                if (clickData.cellType === 'header') {
+                    return;
+                }
                 const rowIndex = clickData.itemIndex;
-                const rowData = grid.getDataSource().getJsonRow(rowIndex);
+                const rowData = grid.getDisplayValues(rowIndex);
                 const temp = JSON.stringify(rowData);
                 const param = JSON.parse(temp);
                 const bidMberId = param.bidMberId;
@@ -571,10 +575,6 @@
 
         // Grid.Row 클릭시
         function showDetailPopup(bidMberId){
-            // 헤더 클릭시 파라메터 없는것 조건처리
-            if (bidMberId === "" || (typeof bidMberId) === "undefined" ) {
-                return
-            }
             var BidMemberVO = {
                 bidMberId: bidMberId // ID
             }

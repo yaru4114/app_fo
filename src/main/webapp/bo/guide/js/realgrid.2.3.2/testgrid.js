@@ -3,7 +3,7 @@
 var fields = [
     {
         fieldName: "rowNo",
-        dataType: "text"
+        dataType: "int"
     },
     {
         fieldName: "bidEntrpsNo",
