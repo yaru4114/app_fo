@@ -379,8 +379,8 @@
                             <tr>
                                 <th scope="row">상태 설정<i class="icon icon-required"></i></th>
                                 <td colspan="3">
-                                    <input type="radio" name="dspyAt" value="N" />비활성(비전시)
-                                    <input type="radio" name="dspyAt" value="Y" />활성(전시)
+                                    <input type="radio" name="dspyAt" value="Y" />전시
+                                    <input type="radio" name="dspyAt" value="N" />비전시
                                 </td>
                             </tr>
                             </tbody>

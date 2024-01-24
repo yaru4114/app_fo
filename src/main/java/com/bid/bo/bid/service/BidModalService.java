@@ -137,7 +137,7 @@ public class BidModalService {
             resultMap.put("success", true);
             return resultMap;
         } else if (vo.getUdtCase() == 2) {
-            resultMap.put("location", "31");
+            resultMap.put("location", "12");
             vo.setBidSttusCode("12");
             bidModalDAO.udtBidSttusCode(vo);
 
