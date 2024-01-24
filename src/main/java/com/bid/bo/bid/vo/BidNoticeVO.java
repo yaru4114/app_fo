@@ -86,6 +86,7 @@ public class BidNoticeVO {
 
     private String startDate;
     private String endDate;
+    private String gubun;
 
     private List<BidNoticeUpdtVO> bidNoticeUpdtVoList;
     private List<BidBddprDtlVO> bidBddprDtlVoList;
