@@ -526,7 +526,7 @@
     var bidStat = $("#bidSttusCodeSelectBox option:selected").val();
     var buttonId = "";
 
-    if (btnId.data !== undefined) {
+    if (typeof btnId === "string") {
           bidStat = btnId;
       }
 

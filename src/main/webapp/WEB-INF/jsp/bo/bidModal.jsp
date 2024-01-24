@@ -470,6 +470,9 @@
             var bidWt = $('#bidWt');
             var permWtRate = $('#permWtRate');
 
+            bidWt.empty();
+            permWtRate.empty();
+
             for (var i = 100; i <= 2000; i += 100) {
                 var option = $("<option>").val(i).text(i);
                 bidWt.append(option);
@@ -784,6 +787,12 @@
 
         function setDateTimeFields(dateTime, dateField, ampmField, hourField, minField, secField) {
             var dateValue = dateTime.substr(0, 8); // yyyymmdd
+
+            if (dateValue === '') {
+                $('#' + dateField).val(yyyymmdd);
+                return;
+            }
+
             var yyyymmdd = dateValue;
             var year = yyyymmdd.substr(0, 4);
             var mon = yyyymmdd.substr(4, 2);
