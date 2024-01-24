@@ -30,10 +30,10 @@
       WHERE 1=1
         AND ISNULL(DELETE_AT , 'N') = 'N'
       <if test='bidPblancId != null and bidPblancId !=""'>
-        AND BID_PBLANC_ID = #{bidPblancId}
+        AND BID_PBLANC_ID like '%' + #{bidPblancId} + '%'
       </if>
       <if test='startDate != null and startDate != ""'>
-        AND CONVERT(DATETIME , dbo.fn_convertDate(BDDPR_BEGIN_DT , 'bo')) >= CONVERT( DATE , #{startDate})
+        AND CONVERT(DATETIME , dbo.fn_convertDate(BDDPR_END_DT , 'bo')) >= CONVERT( DATE , #{startDate})
       </if>
       <if test='endDate != null and endDate != ""'>
         AND CONVERT(DATETIME , dbo.fn_convertDate(BDDPR_END_DT , 'bo')) <![CDATA[ <= ]]> DATEADD( DAY , 1 , CONVERT(DATE , #{endDate}))
@@ -110,7 +110,7 @@
              WHERE 1=1
                AND ISNULL(DELETE_AT , 'N') = 'N'
               <if test='startDate != null and startDate != ""'>
-                AND CONVERT(DATETIME , dbo.fn_convertDate(BDDPR_BEGIN_DT , 'bo')) >= CONVERT( DATE , #{startDate})
+                AND CONVERT(DATETIME , dbo.fn_convertDate(BDDPR_END_DT , 'bo')) >= CONVERT( DATE , #{startDate})
               </if>
               <if test='endDate != null and endDate != ""'>
                 AND CONVERT(DATETIME , dbo.fn_convertDate(BDDPR_END_DT , 'bo')) <![CDATA[ <= ]]> DATEADD( DAY , 1 , CONVERT(DATE , #{endDate}))
@@ -119,7 +119,7 @@
                AND BID_STTUS_CODE = #{bidSttusCode}
               </if>
               <if test='bidPblancId != null and bidPblancId !=""'>
-               AND BID_PBLANC_ID = #{bidPblancId}
+               AND BID_PBLANC_ID like '%' + #{bidPblancId} + '%'
               </if>
           ) T
      ORDER BY T.FRST_REGIST_DT DESC

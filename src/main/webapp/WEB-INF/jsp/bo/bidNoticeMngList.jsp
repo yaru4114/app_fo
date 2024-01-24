@@ -464,10 +464,12 @@
     var today = new Date();
     // Datepicker 초기화 및 오늘 날짜로 설정
     $("#startDatepicker").datepicker({
-      format: 'yyyy-mm-dd'
+      format: 'yyyy-mm-dd' ,
+      autoclose: true
     });
     $("#endDatepiker").datepicker({
-      format: 'yyyy-mm-dd'
+      format: 'yyyy-mm-dd',
+      autoclose: true
     });
 
     var jsonData = getCreateJsonData("");
@@ -520,8 +522,6 @@
 
     $("#"+buttonId).addClass('active');
 
-    console.log("getBidStatList buttonId : " + buttonId + " bidStat : " + bidStat);
-
     var jsonData = getCreateJsonData(bidStat);
 
     ajaxBidNoticeMngList(jsonData);
@@ -557,7 +557,6 @@
       buttonId = "btn_bdngPstpnCnt";
     }
 
-    console.log("getSearchBtn buttonId :" + buttonId + " bidStat : " + bidStat);
     $("#"+buttonId).addClass('active');
 
     ajaxBidNoticeMngStatCntList(jsonData , 'N');
@@ -574,7 +573,6 @@
       data: JSON.stringify(jsonData),
       dataType: "json",
       success: function (data) {
-        console.log("서버 응답:", data);
 
         $("#btn_bdngAllCnt").text("전체(" + data.bdngAllCnt + ")");
         $("#btn_bdngSchdlCnt").text("입찰예정(" + data.bdngSchdlCnt + ")");
@@ -609,7 +607,6 @@
       data: JSON.stringify(jsonData),
       dataType: "json",
       success: function (data) {
-        console.log("서버 응답:", data);
 
         if (!provider) {
           provider = new RealGrid.LocalDataProvider();
@@ -660,7 +657,6 @@
       data: JSON.stringify({bidPblancId:bidPblancId}),
       dataType: "json",
       success: function (data) {
-        console.log("서버 응답:", data);
         $("#modalTitle").empty();
 
         $("#modalTitle").append("입찰 공고 상세 > " + data.itmPrdlstKorean + '<span style="margin-left:20px;background-color: black; color: white; font-weight:normal;">' + "&nbsp;&nbsp;입찰공고번호 " + data.bidPblancId + '&nbsp;&nbsp;</span>');
@@ -691,12 +687,17 @@
         $("#modalPermWtRateP").text(data.permWtRateP + "%");
 
         // 공고취소 및 유찰하기 버튼
-        if(data.bidSttusCode == "11") {
-          $("#btn_bidCancel").text("공고 삭제");
-        } else if(data.bidSttusCode == "13" && data.bidBddprDtlVoList.length > 0 ) {
-          $("#btn_bidCancel").text("유찰하기");
+        if(data.bidSttusCode == "31" || data.bidSttusCode == "32") {
+            $("#btn_bidCancel").css("display" , "none");
         } else {
-          $("#btn_bidCancel").text("공고 취소");
+            $("#btn_bidCancel").css("display" , "block");
+            if(data.bidSttusCode == "11") {
+              $("#btn_bidCancel").text("공고 삭제");
+            } else if(data.bidSttusCode == "13" && data.bidBddprDtlVoList.length > 0 ) {
+              $("#btn_bidCancel").text("유찰하기");
+            } else {
+              $("#btn_bidCancel").text("공고 취소");
+            }
         }
 
         // 일자
@@ -791,7 +792,6 @@
     var confirmTxt = "";
     var afterText = "";
     var passingYn = "N";
-    console.log("fnbidCancel bidSttusCode : " + bidSttusCode + " btnText : " + btnText);
 
     if(bidSttusCode == 12) {
       confirmTxt = "해당 공고 건은 입찰 예정건 입니다. 공고 취소 시 노출되지 않습니다. 취소하시겠습니까?";
@@ -823,7 +823,6 @@
           data: JSON.stringify(jsonData),
           dataType: "json",
           success: function (data) {
-            console.log("서버 응답:", data);
 
             if(data > 0) {
                 var jsonData = getCreateJsonData("");
@@ -860,7 +859,6 @@
       }
     } else {
         var result = prompt(confirmTxt,"유찰 사유를 입력해주세요.(15자이내)");
-        console.log("prompt : " + result);
 
         if(result == null) {
         } else if (result == "") {
@@ -886,7 +884,6 @@
             data: JSON.stringify(jsonData),
             dataType: "json",
             success: function (data) {
-              console.log("서버 응답:", data);
 
               if(data > 0) {
 
@@ -931,7 +928,6 @@
   function getDatePickerButtonId() {
     // 클릭된 버튼의 아이디 가져오기
     var buttonId = $(this).attr('id');
-    console.log("getDatePickerButtonId : " + buttonId);
 
     //시작날짜는 오늘로 고정
     $("#startDatepicker").datepicker('setDate', 'today');
@@ -1105,12 +1101,16 @@
 
           $('.close').click(function () {
               $('#exampleModal').hide();
+              // $("#overlay").hide();
               resetForm();
           });
       });
   });
 
   $('#bid_noticeChg').click(function () {
+      $("#overlay").hide();
+      $("#modalBidDtl").removeClass('show');
+
       $('#myModalContainer').load("bidModal.jsp", function () {
           $('#modalBidDtl').hide();
           $('#exampleModal').show();

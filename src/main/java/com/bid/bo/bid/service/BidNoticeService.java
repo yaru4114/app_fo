@@ -27,9 +27,7 @@ public class BidNoticeService{
     * @author  xyzp1539
     **/
     public List<CoCmmnCdVO> getBidStatCodeList() {
-        log.info("test : BidNoticeService.getBidStatCodeList");
         return bidNoticeDao.getBidStatCodeList();
-
     }
 
     /**
