@@ -72,19 +72,19 @@
                         <section class="dashboard2 dashboard2-card-report month" style="width: 100%">
                             <h2 class="dashboard2-title"> * 등록 입찰 공고 현황</h2>
                             <div class="dashboard2-cont flex-ac-jsb">
-                                <dl>
+                                <dl id="dash_bdngAllText" style="cursor: pointer">
                                     <dt>전체 등록 공고 건</dt>
                                     <dd id="dash_bdngAllCnt"></dd>
                                 </dl>
-                                <dl>
+                                <dl id="dash_bdngPrgrsText" style="cursor: pointer">
                                     <dt>입찰중</dt>
                                     <dd id="dash_bdngPrgrsCnt"></dd>
                                 </dl>
-                                <dl>
+                                <dl id="dash_bdngDdlnText" style="cursor: pointer">
                                     <dt>입찰마감</dt>
                                     <dd id="dash_bdngDdlnCnt"></dd>
                                 </dl>
-                                <dl>
+                                <dl id="dash_bdngSchdlText" style="cursor: pointer">
                                     <dt>입찰예정</dt>
                                     <dd id="dash_bdngSchdlCnt"></dd>
                                 </dl>
@@ -140,8 +140,8 @@
                     <a href="#;" id="btn_bdngAllCnt" class="btn active"></a>
                     <a href="#;" id="btn_bdngSchdlCnt" class="btn"></a>
                     <a href="#;" id="btn_bdngPrgrsCnt" class="btn"></a>
-                    <a href="#;" id="btn_bdngDdlnCnt" class="btn"></a>
                     <a href="#;" id="btn_bdngClcntCnt" class="btn"></a>
+                    <a href="#;" id="btn_bdngDdlnCnt" class="btn"></a>
                     <a href="#;" id="btn_bdngWtngCnt" class="btn"></a>
                     <a href="#;" id="btn_bdngSucsCnt" class="btn"></a>
                     <a href="#;" id="btn_bdngPstpnCnt" class="btn"></a>
@@ -471,6 +471,7 @@
     $(".tab-button .btn").on("click" , getBidStatList);
     $("#btn_bidCancel").on("click" , fnbidCancel);
     $("#btnClose").on("click" , fnClose);
+    $(".dashboard2-cont dl").on("click" , getBidStatList);
 
     realgridCredate();
 
@@ -490,16 +491,20 @@
     $(".tab-button .btn").removeClass('active');
 
 
-    if(buttonId == "btn_bdngAllCnt") {
+    if(buttonId == "btn_bdngAllCnt" || buttonId == "dash_bdngAllText") {
       bidStat = "";
-    } else if (buttonId == "btn_bdngSchdlCnt") {
+      buttonId = "btn_bdngAllCnt";
+    } else if (buttonId == "btn_bdngSchdlCnt" || buttonId == "dash_bdngSchdlText") {
       bidStat = "12";
-    } else if (buttonId == "btn_bdngPrgrsCnt") {
+      buttonId = "btn_bdngSchdlCnt";
+    } else if (buttonId == "btn_bdngPrgrsCnt" || buttonId == "dash_bdngPrgrsText") {
       bidStat = "13";
-    } else if (buttonId == "btn_bdngDdlnCnt") {
-      bidStat = "33";
-    }else if (buttonId == "btn_bdngClcntCnt") {
+      buttonId = "btn_bdngPrgrsCnt";
+    } else if (buttonId == "btn_bdngDdlnCnt" || buttonId == "dash_bdngDdlnText" ) {
       bidStat = "30";
+      buttonId = "btn_bdngDdlnCnt";
+    }else if (buttonId == "btn_bdngClcntCnt" ) {
+      bidStat = "33";
     }else if (buttonId == "btn_bdngWtngCnt") {
       bidStat = "11";
     }else if (buttonId == "btn_bdngSucsCnt") {
@@ -507,6 +512,7 @@
     }else if (buttonId == "btn_bdngPstpnCnt") {
       bidStat = "32";
     }
+
     $("#"+buttonId).addClass('active');
 
     console.log("getBidStatList buttonId : " + buttonId + " bidStat : " + bidStat);
@@ -568,8 +574,8 @@
         $("#btn_bdngAllCnt").text("전체(" + data.bdngAllCnt + ")");
         $("#btn_bdngSchdlCnt").text("입찰예정(" + data.bdngSchdlCnt + ")");
         $("#btn_bdngPrgrsCnt").text("투찰중(" + data.bdngPrgrsCnt + ")");
-        $("#btn_bdngDdlnCnt").text("공고취소(" + data.bdngClcntCnt + ")");
-        $("#btn_bdngClcntCnt").text("마감(" + data.bdngDdlnCnt + ")");
+        $("#btn_bdngClcntCnt").text("공고취소(" + data.bdngClcntCnt + ")");
+        $("#btn_bdngDdlnCnt").text("마감(" + data.bdngDdlnCnt + ")");
         $("#btn_bdngWtngCnt").text("공고대기(" + data.bdngWtngCnt + ")");
         $("#btn_bdngSucsCnt").text("낙찰(" + data.bdngSucsCnt + ")");
         $("#btn_bdngPstpnCnt").text("유찰(" + data.bdngPstpnCnt + ")");
