@@ -7546,6 +7546,11 @@ select::-ms-expand {
   min-width: 12.5rem;
 }
 
+.select-lg {
+  max-width: 22.5rem;
+  min-width: 22.5rem;
+}
+
 .modal .table .form-select, .realgrid-wrap .form-select {
   height: 1.875rem;
   padding-left: 0.625rem;
@@ -9157,12 +9162,13 @@ td.tbl-bg-green {background:#d4ffec}
 .pop-modal {display:none; position: fixed;left: 110px; top: 0; width: 100%;height: 100%;z-index: 9;}
 .pop-modal.active {display:block;}
 .pop-modal .pop-inner {position: relative;top: 50%;transform: translateY(-50%);margin: auto;border-radius: 15px;}
-.pop-modal.pop-toast .pop-inner {width:275px;padding: 25px 0;background-color: rgba(0,0,0,0.7);text-align: center;}
+.pop-modal.pop-toast .pop-inner {position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);width: 275px;padding: 25px 0;background-color: rgba(0, 0, 0, 0.7);text-align: center;
+}
 .pop-modal.pop-toast .pop-inner p {font-size: 14px;line-height: 1.57;font-weight: 200;color: #fff;}
 .pop-modal .btn-box2 {margin-bottom: 0.5rem;display: flex;justify-content: flex-end;}
 .main-content-kyc .btm-btns{margin-top: 2rem;margin-bottom:0;}
 
-.pop-modal.pop-toast2 .pop-inner {border:2px solid black;display:flex;flex-direction:column;width:500px;padding: 25px 0;background-color: #fff;text-align: center;}
+.pop-modal.pop-toast2 .pop-inner {position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);border:2px solid black;display:flex;flex-direction:column;width:500px;padding: 25px 0;background-color: #fff;text-align: center;}
 .pop-modal.pop-toast2 .pop-inner p {font-size: 16px;line-height: 1.57;font-weight: 200;color: #000;font-weight: bold;}
 
 .buttonConfirm {display: flex;justify-content: space-between;margin-top: 1rem;padding: 0 25px;gap: 30px;}
