@@ -519,9 +519,11 @@
   function getSearchBtn(btnId) {
     var bidStat = $("#bidSttusCodeSelectBox option:selected").val();
     var buttonId = "";
-      if (btnId) {
+
+    if (btnId.data !== undefined) {
           bidStat = btnId;
       }
+
     var jsonData = getCreateJsonData(bidStat);
 
     $(".tab-button .btn").removeClass('active');
