@@ -840,7 +840,10 @@
             var setleMthCode = $('#setleMthCode').val();
             var setlePdCode = $('#setlePdCode').val();
             var etcCn = $('#etcCn').val();
-            var bddprCanclPossAt = $('#bddprCanclPossAt').val();
+            var bddprCanclPossAt = $('#bddprCanclPossAt').prop('checked') ? 'Y' : 'N';
+            var delyCnd01ApplcAt = $('#delyCnd01ApplcAt').prop('checked') ? 'Y' : 'N';
+            var delyCnd02ApplcAt = $('#delyCnd02ApplcAt').prop('checked') ? 'Y' : 'N';
+            var delyCnd03ApplcAt = $('#delyCnd03ApplcAt').prop('checked') ? 'Y' : 'N';
             var dspyAt = $('input[name="dspyAt"]:checked').val();
 
             // 📆날짜 관련

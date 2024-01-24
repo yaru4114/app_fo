@@ -9168,7 +9168,7 @@ td.tbl-bg-green {background:#d4ffec}
 .pop-modal .btn-box2 {margin-bottom: 0.5rem;display: flex;justify-content: flex-end;}
 .main-content-kyc .btm-btns{margin-top: 2rem;margin-bottom:0;}
 
-.pop-modal.pop-toast2 .pop-inner {box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);border:2px solid black;display:flex;flex-direction:column;width:500px;padding: 25px 0;background-color: #fff;text-align: center;}
+.pop-modal.pop-toast2 .pop-inner {box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);display:flex;flex-direction:column;width:500px;padding: 25px 0;background-color: #fff;text-align: center;}
 .pop-modal.pop-toast2 .pop-inner p {font-size: 16px;line-height: 1.57;font-weight: 200;color: #000;font-weight: bold;}
 
 .buttonConfirm {display: flex;justify-content: space-between;margin-top: 1rem;padding: 0 25px;gap: 30px;}
