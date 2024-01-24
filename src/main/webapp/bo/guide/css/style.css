@@ -933,7 +933,7 @@
 
 /*
 * ------------------------------
-* timepicker 
+* timepicker
 * ------------------------------
 */
 .bootstrap-timepicker-widget table td .bootstrap-timepicker-hour:focus,
@@ -1308,7 +1308,7 @@
 
 /*
 * ------------------------------
-* jstree 
+* jstree
 * ------------------------------
 */
 .jstree {
@@ -1335,7 +1335,7 @@
 
 /*
 * ------------------------------
-* grid - realGrid 
+* grid - realGrid
 * ------------------------------
 */
 .rg-root .rg-table,
@@ -1345,6 +1345,7 @@
   margin: 0 !important;
   /* 0과 다르면 자동 행 계산 시 틀어진다! content div 전에서 설정할 것!*/
   padding: 0 !important;
+  font-size : 0.75rem;
   /* 0과 다르면 자동 행 계산 시 틀어진다! content div 전에서 설정할 것! */
   border-spacing: 0 !important;
   border-collapse: separate !important;
@@ -3477,7 +3478,7 @@
   background-color: #fafafa;
 }
 
-/* 에디터 색깔 변경 
+/* 에디터 색깔 변경
 .rg-editor-container > input,
 .rg-editor-container > textarea {
 
@@ -3563,7 +3564,7 @@
 .rg-header-group-cell {
   background: transparent;
 }
-/* 2021-08-23 s remove 
+/* 2021-08-23 s remove
 .rg-renderer {
   padding: 0.0625rem 1.25rem;
 } */
@@ -3805,7 +3806,7 @@
   background-image: url("/guide/images/multiselect.png");
 }
 
-.SumoSelect > .optWrapper.multiple > .options li.opt.selected span i, 
+.SumoSelect > .optWrapper.multiple > .options li.opt.selected span i,
 .SumoSelect .select-all.selected > span i{
   background-image: url("/guide/images/multiselect-active.png");
   background-color: transparent;
@@ -3854,7 +3855,7 @@
 }
 
 /* 리셋, 폰트, 트렌지션 */
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -4959,6 +4960,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .count-banner .list {
@@ -5071,7 +5073,7 @@ body {
 }
 
 .modal-content {
-  border: 2px solid #000;
+  border: 0;
 }
 
 .modal-body {
@@ -5126,7 +5128,7 @@ body {
 }
 
 
-.modal-small .input.input-sm { 
+.modal-small .input.input-sm {
   max-width: 100%;
   min-width: 100%;
 }
@@ -5144,14 +5146,14 @@ body {
 .form-date .input.input-sm + .has-icon {
   margin-left: 0.225rem;
 }
-  
+
 
 /* 23.01.13 자동완성기능 스타일 */
 .modal .table-view .input {border-radius: 4px;}
 .form-set-auto-complete {position: relative;}
 #autoMakerDiv {position: absolute; top: 29px;left: 0;right: 0;border: 1px solid #ededed;margin: 0;padding: 0;background: #fff;height: 10.1rem;overflow-y: scroll;cursor:pointer;}
 #autoMakerDiv > div{padding: 0.5rem 1rem;transition: 0.3s;}
-#autoMakerDiv > div:hover, #autoMakerDiv > div:focus {background : #eff3ff;}      
+#autoMakerDiv > div:hover, #autoMakerDiv > div:focus {background : #eff3ff;}
 
 /*
 * ------------------------------
@@ -5984,7 +5986,7 @@ table tr:first-child td {
 
 /*
 * ------------------------------
-* default table 
+* default table
 * ------------------------------
 */
 .table {
@@ -6174,7 +6176,7 @@ table tr:first-child td {
 
 /*
 * ------------------------------
-* search control 
+* search control
 * ------------------------------
 */
 .search-control {
@@ -6183,7 +6185,7 @@ table tr:first-child td {
   background: #fff;
   border: 1px solid #ddd;
   padding: 0.3125rem 2.5rem;
-  margin-top: 1.5rem;
+  margin-top: -1.5rem;
 }
 
 .search-control .search-btn {
@@ -6237,7 +6239,7 @@ table tr:first-child td {
   font-size: 0.75rem;
 }
 .search-control .search-btn .btn.btn-back {
-    margin-left:5px; 
+    margin-left:5px;
     background-color:#38466c;
     border: 1px solid #273457;
 }
@@ -6314,7 +6316,7 @@ table tr:first-child td {
           justify-content: space-between;
   margin-top: 1.5rem;
   margin-bottom: 0.625rem;
-  min-height: 1.875rem;          
+  min-height: 1.875rem;
 }
 
 .table-control .form-set,
@@ -6346,7 +6348,7 @@ table tr:first-child td {
 }
 
 .table-control.has-tab .tab-button {
-  margin-top: 0; 
+  margin-top: 0;
 }
 
 .table + .search-control {
@@ -6534,7 +6536,7 @@ table tr:first-child td {
 
 /*
 * ------------------------------
-* table header fixed 
+* table header fixed
 * ------------------------------
 */
 .table-fixed-head {
@@ -6587,7 +6589,7 @@ table tr:first-child td {
 
 /*
 * ------------------------------
-* table group  
+* table group
 * ------------------------------
 */
 .table-group {
@@ -7637,7 +7639,7 @@ select::-ms-expand {
 
 /*
 * ------------------------------
-* 
+*
 * ------------------------------
 */
 .radio-group {
@@ -8081,8 +8083,8 @@ select::-ms-expand {
   color: #444;
 }
 
-/* small size btn group 
-.table-inner {  
+/* small size btn group
+.table-inner {
 }*/
 
 .table-inner thead th {
@@ -8204,7 +8206,7 @@ select::-ms-expand {
 
 /*
  * ------------------------------
- * 페이지 버튼관련 
+ * 페이지 버튼관련
  * ------------------------------
  */
 /* 페이지 하단 버튼 */
@@ -8214,7 +8216,7 @@ select::-ms-expand {
 
 /*
  * ------------------------------
- * 테이블 버튼관련 
+ * 테이블 버튼관련
  * ------------------------------
  */
 .table .btn {
@@ -8542,7 +8544,7 @@ th.is-checked .icon-warning {
   background-image: url("/guide/images/md/tab-close-active.png");
 }
 
-/*  
+/*
 
 tree js, grid 100% 버전 추가
 
@@ -8710,11 +8712,11 @@ tree js, grid 100% 버전 추가
 .li:not(.thead) .list-stock > div:not(:first-of-type) {text-align:right;}
 .li:not(.thead) .list-stock .c-prod strong {color:#000; font-size:0.875rem;}
 .li:not(.thead) .list-stock .c-prod span {margin-left:.25rem; color:#666; font-size:0.875rem;}
-.li:not(.thead) .list-stock .c-price, 
+.li:not(.thead) .list-stock .c-price,
 .li:not(.thead) .list-stock .c-rate {font-size:1rem; color:#000;}
-.li.up:not(.thead) .list-stock .c-price, 
+.li.up:not(.thead) .list-stock .c-price,
 .li.up:not(.thead) .list-stock .c-rate {color:#fb1a31;}
-.li.down:not(.thead) .list-stock .c-price, 
+.li.down:not(.thead) .list-stock .c-price,
 .li.down:not(.thead) .list-stock .c-rate {color:#1e60d1;}
 .list-stock > div:not(:first-of-type) {color:#000;}
 /* .up .list-stock > div:not(:first-of-type) {color:#fb1a31;} */
@@ -8722,7 +8724,7 @@ tree js, grid 100% 버전 추가
 /* .down .list-stock > div:not(:first-of-type) {color:#1e60d1;} */
 .down .list-stock .c-rate::before {content:'-'; margin-right:.2rem;}
 .close .list-stock > div:not(:first-of-type) {color:#666;}
-  
+
 /*.rChart-table .list > .li {height:3.1rem; cursor:pointer;}*/
 .rChart-table .list > .li.active,
 .rChart-table .list > .li.active2 {height:auto; overflow:initial; position:relative; border:1px solid #fff;}
@@ -8742,14 +8744,14 @@ tree js, grid 100% 버전 추가
 .rChart-table .list .li.active2 .info > div {padding-right:1rem; padding-left:1rem;}
 /* .rChart-table .list .li, */
 /* .rChart-table .list .li .list-stock, */
-.rChart-table .info, 
+.rChart-table .info,
 .rChart-table .info .li,
 .rChart-table .info .li div,
 .rChart-table .info .li span {transition:all .5s ease-in-out;}
 
 .rChart-table .info {width:100%; height:0; overflow:hidden; opacity:0;}
 .rChart-table .info .li {display:flex; justify-content:space-between; align-items:stretch; padding:0.5rem;}
-.rChart-table .info .li div, 
+.rChart-table .info .li div,
 .rChart-table .info .li span {font-size:0.75rem;}
 .rChart-table .info .li .info-tit {font-weight:500; color:#000; line-height:1.67;}
 .rChart-table .info .li .info-desc {line-height:1.67;}
@@ -8849,7 +8851,7 @@ tree js, grid 100% 버전 추가
 .icon-dashboard {
   width: 1.25rem;
   height: 1.25rem;
-  
+
   background-image: url("/guide/images/dashboard-button.png");
 }
 .icon-dashboard ~ a {
@@ -8930,7 +8932,7 @@ tree js, grid 100% 버전 추가
 .charts-wrap.new .table-list-tbody .tb-list-section-head ul {display: flex; justify-content: space-between; background: #eee; border: 1px solid #ddd; border-bottom: 0;}
 .charts-wrap.new .table-list-tbody .tb-list-section-head ul li {height: 25px; line-height: 2.5; font-size: 11px;color: #666;padding: 0 20px;}
 .charts-wrap.new .table-list-tbody .tb-list-section-head ul li:last-of-type {padding: 0 28px;}
-.charts-wrap.new .table-list-tbody .l-inner.flex-ac-jsb.active {font-weight: 500;}    
+.charts-wrap.new .table-list-tbody .l-inner.flex-ac-jsb.active {font-weight: 500;}
 .charts-wrap.new .table-list-tbody .l-inner.flex-ac-jsb.active .c-metal-type {font-weight: 600; color: #1b2531;}
 .charts-wrap.new .table-list-tbody .l-inner.flex-ac-jsb .c-metal-type + .c-price {text-align: right;}
 .rcharts-wrap.nodata {text-align: center; padding: 6rem 0;}
@@ -9199,11 +9201,11 @@ td.tbl-bg-green {background:#d4ffec}
 
 
 /* 23.04.26 | 고도화 3차 | Dashbroard Renewal */
-.dashboard2-wrap {width: 100%; height: 100vh; padding: 20px; background: #F2F2F6; overflow: auto;}
+.dashboard2-wrap {width: 100%; height: 80vh; padding: 0px; background: #F2F2F6; overflow: auto;}
 .dashboard2-wrap * {color: #151F2B; line-height: 1; font-family: 'S-CoreDream','Noto Sans KR', '맑은 고딕', '돋움', dotum, sans-serif;}
 .dashboard2-wrap .dashboard2-inner {max-width: 1880px; max-height: 100%; margin: auto; min-width: 1250px; min-height: 690px; overflow: auto;/*overflow: auto; overflow-x: hidden !important; overflow-y: auto !important;*/}
 .dashboard2-wrap .dashboard2-column {width: 32.607%; height: calc(100% - 40px); overflow: hidden;}
-.dashboard2-wrap .dashboard2 {padding: 30px;background-color: #fff;}
+.dashboard2-wrap .dashboard2 {padding: 0px;background-color: #fff;}
 .dashboard2-cont {width: 100%; height: 100%;}
 .dashboard2-order-status .dashboard2-cont,
 .dashboard2-stock-status .dashboard2-cont {height: auto;}
@@ -9249,14 +9251,14 @@ td.tbl-bg-green {background:#d4ffec}
 .dashboard2-stock-status .card:nth-child(2) .card-title {color: #B79D5D; border-color: #F9EDD0;}
 .dashboard2-stock-status .card:nth-child(3) .card-title {color: #907469; border-color: #F8EBE6;}
 
-.dashboard2-stock-status .card .card-cont {height: calc(100% - 50px); padding:20px;} 
+.dashboard2-stock-status .card .card-cont {height: calc(100% - 50px); padding:20px;}
 .dashboard2-stock-status .card .card-cont dl {margin-bottom:12px;}
 .dashboard2-stock-status .card .card-cont dl:nth-child(4) {margin-bottom:0;}
-.dashboard2-stock-status .card .card-cont dl dt {font-size: 14px; color: #999AA9; font-weight: 200;} 
+.dashboard2-stock-status .card .card-cont dl dt {font-size: 14px; color: #999AA9; font-weight: 200;}
 .dashboard2-stock-status .card .card-cont dl dd {font-size: 14px; color: #666666; font-weight: 200;}
-.dashboard2-stock-status .card .card-cont dl.stock-status-total {position: absolute; bottom: 0; left: 0; right: 0; padding: 0 20px 20px 20px; margin-bottom:0;} 
-.dashboard2-stock-status .card .card-cont dl.stock-status-total dt {font-weight: 500;} 
-.dashboard2-stock-status .card .card-cont dl.stock-status-total dd {font-size: 24px; font-weight: 600;} 
+.dashboard2-stock-status .card .card-cont dl.stock-status-total {position: absolute; bottom: 0; left: 0; right: 0; padding: 0 20px 20px 20px; margin-bottom:0;}
+.dashboard2-stock-status .card .card-cont dl.stock-status-total dt {font-weight: 500;}
+.dashboard2-stock-status .card .card-cont dl.stock-status-total dd {font-size: 24px; font-weight: 600;}
 .dashboard2-stock-status .card:nth-child(1) .card-cont dl.stock-status-total dd {color: #4D7689;}
 .dashboard2-stock-status .card:nth-child(2) .card-cont dl.stock-status-total dd {color: #B79D5D;}
 .dashboard2-stock-status .card:nth-child(3) .card-cont dl.stock-status-total dd {color: #B79D5D;}
@@ -9281,7 +9283,7 @@ td.tbl-bg-green {background:#d4ffec}
 
 .dashboard2 .tbl-wrap .tbl-body {height: calc(100% - 81px); overflow: hidden; border-bottom: 1px solid #F1F1F1;}
 .dashboard2-wrap.tracking .dashboard2 .tbl-wrap .tbl-body .tbl-tr:last-child {border-bottom: 0;}
-.dashboard2 .tbl-wrap .tbl-tr.highlight {position: relative; transition: border 0.5s;} 
+.dashboard2 .tbl-wrap .tbl-tr.highlight {position: relative; transition: border 0.5s;}
 .dashboard2 .tbl-wrap .tbl-tr.highlight::after {content: "";position: absolute; top:0; left:0; right:0; bottom: 0; z-index: 9; border: 2px solid #E30505;}
 
 .dashboard2.dashboard2-asking-price .tbl-wrap .tbl-tr .tbl-th,
@@ -9301,7 +9303,7 @@ td.tbl-bg-green {background:#d4ffec}
 .dashboard2 .mCSB_inside > .mCSB_container {margin-right: 0;}
 .dashboard2 .mCSB_scrollTools .mCSB_draggerContainer,
 .dashboard2 .mCSB_scrollTools .mCSB_draggerRail {width: 4px;background-color:#efefef;}
-.dashboard2 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {background-color: #aaa !important;}    
+.dashboard2 .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {background-color: #aaa !important;}
 
 
 /* Dashbroard Renewal > 지정가 주문 접수목록 table */
@@ -9381,8 +9383,8 @@ td.tbl-bg-green {background:#d4ffec}
 .dashboard2-chart .chart-graph-area .rcharts-wrap #chartHolder {width: 100% ; height: 37.7rem; padding: 1.3rem 1.5rem 0;}
 .dashboard2-chart .chart-graph-area .rcharts-wrap .top {padding: 0 1.5rem;}
 */
-    
-    
+
+
 /* Dashbroard Renewal > TOTAL */
 .dashboard2.dashboard2-total {padding-top: 0 !important; height: calc(100vh - 525px); max-height: 556px;}
 .dashboard2-total .dashboard2-cont {height: calc(100% - 35px); overflow: hidden;}
@@ -9407,11 +9409,11 @@ td.tbl-bg-green {background:#d4ffec}
 .dashboard2-total .card .order-labels {margin-top: 13px;}
 .dashboard2-total .card .order-labels li {width: 78px; height: 20px; margin-right: 5px; display: flex; align-items: center; justify-content: center; border-radius: 2px;font-size: 11px; font-weight: 200; color: #fff;}
 .dashboard2-total .card .order-labels li:last-child {margin-right: 0;}
-.dashboard2-total .card .order-labels li.label-price-limit {background-color: #6A7889;} 
-.dashboard2-total .card .order-labels li.label-price-live {background-color: #EF7A7A;} 
-.dashboard2-total .card .order-labels li.label-payment {background-color: #999AA9;} 
-.dashboard2-total .card .order-labels li.label-delivery-self {background-color: #8CB9B1;} 
-.dashboard2-total .card .order-labels li.label-delivery-sorin {background-color: #83A4C9;} 
+.dashboard2-total .card .order-labels li.label-price-limit {background-color: #6A7889;}
+.dashboard2-total .card .order-labels li.label-price-live {background-color: #EF7A7A;}
+.dashboard2-total .card .order-labels li.label-payment {background-color: #999AA9;}
+.dashboard2-total .card .order-labels li.label-delivery-self {background-color: #8CB9B1;}
+.dashboard2-total .card .order-labels li.label-delivery-sorin {background-color: #83A4C9;}
 
 
 
@@ -9429,9 +9431,9 @@ td.tbl-bg-green {background:#d4ffec}
 .dashboard2-wrap.tracking .dashboard2-current-place .place .side-info {font-weight: 200;}
 .dashboard2-wrap.tracking .dashboard2-current-place .place .side-info .num {color: #151F2B; font-weight: 500;}
 
-.dashboard2-wrap.tracking .section-top-wrap {height: 210px; margin-bottom: 20px;}
+.dashboard2-wrap.tracking .section-top-wrap {height: 114px; margin-bottom: 20px;}
 .dashboard2-wrap.tracking .section-top-wrap .dashboard2-card-report {width: 49.343%; height: 100%;}
-.dashboard2-wrap.tracking .section-top-wrap .dashboard2-card-report .dashboard2-cont {height: 114px; background: #F75565; border-radius: 10px;}
+.dashboard2-wrap.tracking .section-top-wrap .dashboard2-card-report .dashboard2-cont {height: 85px; background: #F75565; border-radius: 10px;}
 .dashboard2-wrap.tracking .section-top-wrap .dashboard2-card-report.month .dashboard2-cont {background: #2782E4;}
 
 .dashboard2-wrap.tracking .section-top-wrap .dashboard2-card-report .dashboard2-cont dl {position: relative; width: 33.33%; text-align: center;}
@@ -9452,7 +9454,7 @@ td.tbl-bg-green {background:#d4ffec}
 .dashboard2-wrap.tracking .section-top-wrap .dashboard2-card-report .dashboard2-cont dl.access-num span.not-login {margin-right: 0.7vw; padding-left: 1.354vw; opacity: 0.6; background: url("/guide/images/dbd-icon-not-login.png") no-repeat left center;}
 .dashboard2-wrap.tracking .section-top-wrap .dashboard2-card-report .dashboard2-cont dl.access-num span.login {padding-right: 1.354vw; background: url("/guide/images/dbd-icon-login.png") no-repeat right center;}
 
-.dashboard2-wrap.tracking .section-bottom-wrap {height: calc(100vh - 270px); max-height: 810px; min-height: 450px;flex-wrap: wrap; background: transparent; padding: 0;} 
+.dashboard2-wrap.tracking .section-bottom-wrap {height: calc(100vh - 270px); max-height: 810px; min-height: 450px;flex-wrap: wrap; background: transparent; padding: 0;}
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl {width: 24.014%; height: calc(50% - 10px); padding: 28px 30px !important;}
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl:nth-child(-n+4) {margin-bottom: 20px;}
 
@@ -9460,61 +9462,61 @@ td.tbl-bg-green {background:#d4ffec}
 .dashboard2-wrap.tracking .section-bottom-wrap .chart-area {height: 100%;background-color: #ddd; overflow: hidden;}
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl .dashboard2-cont .tbl-wrap .tbl-body {height: calc(100% - 20px) !important;}
 
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl .tbl-tr .tbl-th, 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl .tbl-tr .tbl-th,
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl .tbl-tr .tbl-td {height: 2.775vh; line-height: 2.775vh; max-height: 27px; padding: 0 0.4vw;}
 
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl1 .tbl-tr .tbl-th:nth-child(1), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl1 .tbl-tr .tbl-th:nth-child(1),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl1 .tbl-tr .tbl-td:nth-child(1) {width: 17%;}
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl1 .tbl-tr .tbl-th:nth-child(2), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl1 .tbl-tr .tbl-th:nth-child(2),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl1 .tbl-tr .tbl-td:nth-child(2) {width: 41%;}
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl1 .tbl-tr .tbl-th:nth-child(3), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl1 .tbl-tr .tbl-th:nth-child(3),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl1 .tbl-tr .tbl-td:nth-child(3) {width: 21%;}
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl1 .tbl-tr .tbl-th:nth-child(4), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl1 .tbl-tr .tbl-th:nth-child(4),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl1 .tbl-tr .tbl-td:nth-child(4) {width: 21%;}
 
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl2 .tbl-tr .tbl-th:nth-child(1), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl2 .tbl-tr .tbl-th:nth-child(1),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl2 .tbl-tr .tbl-td:nth-child(1) {width: 17%;}
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl2 .tbl-tr .tbl-th:nth-child(2), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl2 .tbl-tr .tbl-th:nth-child(2),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl2 .tbl-tr .tbl-td:nth-child(2) {width: 34%;}
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl2 .tbl-tr .tbl-th:nth-child(3), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl2 .tbl-tr .tbl-th:nth-child(3),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl2 .tbl-tr .tbl-td:nth-child(3) {width: 19%;}
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl2 .tbl-tr .tbl-th:nth-child(4), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl2 .tbl-tr .tbl-th:nth-child(4),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl2 .tbl-tr .tbl-td:nth-child(4) {width: 30%;}
 
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl3 .tbl-tr .tbl-th:nth-child(1), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl3 .tbl-tr .tbl-th:nth-child(1),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl3 .tbl-tr .tbl-td:nth-child(1) {width: 26%;}
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl3 .tbl-tr .tbl-th:nth-child(2), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl3 .tbl-tr .tbl-th:nth-child(2),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl3 .tbl-tr .tbl-td:nth-child(2) {width: 24%;}
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl3 .tbl-tr .tbl-th:nth-child(3), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl3 .tbl-tr .tbl-th:nth-child(3),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl3 .tbl-tr .tbl-td:nth-child(3) {width: 24%;}
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl3 .tbl-tr .tbl-th:nth-child(4), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl3 .tbl-tr .tbl-th:nth-child(4),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl3 .tbl-tr .tbl-td:nth-child(4) {width: 26%;}
 
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl4 .tbl-tr .tbl-th:nth-child(1), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl4 .tbl-tr .tbl-th:nth-child(1),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl4 .tbl-tr .tbl-td:nth-child(1) {width: 26%;}
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl4 .tbl-tr .tbl-th:nth-child(2), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl4 .tbl-tr .tbl-th:nth-child(2),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl4 .tbl-tr .tbl-td:nth-child(2) {width: 16%;}
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl4 .tbl-tr .tbl-th:nth-child(3), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl4 .tbl-tr .tbl-th:nth-child(3),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl4 .tbl-tr .tbl-td:nth-child(3) {width: 16%;}
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl4 .tbl-tr .tbl-th:nth-child(4), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl4 .tbl-tr .tbl-th:nth-child(4),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl4 .tbl-tr .tbl-td:nth-child(4) {width: 16%;}
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl4 .tbl-tr .tbl-th:nth-child(5), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl4 .tbl-tr .tbl-th:nth-child(5),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl4 .tbl-tr .tbl-td:nth-child(5) {width: 26%;}
 
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl5 .tbl-tr .tbl-th:nth-child(1), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl5 .tbl-tr .tbl-th:nth-child(1),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl5 .tbl-tr .tbl-td:nth-child(1) {width: 26%;}
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl5 .tbl-tr .tbl-th:nth-child(2), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl5 .tbl-tr .tbl-th:nth-child(2),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl5 .tbl-tr .tbl-td:nth-child(2) {width: 16%;}
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl5 .tbl-tr .tbl-th:nth-child(3), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl5 .tbl-tr .tbl-th:nth-child(3),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl5 .tbl-tr .tbl-td:nth-child(3) {width: 16%;}
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl5 .tbl-tr .tbl-th:nth-child(4), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl5 .tbl-tr .tbl-th:nth-child(4),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl5 .tbl-tr .tbl-td:nth-child(4) {width: 16%;}
 
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl6 .tbl-tr .tbl-th:nth-child(1), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl6 .tbl-tr .tbl-th:nth-child(1),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl6 .tbl-tr .tbl-td:nth-child(1) {width: 30%;}
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl6 .tbl-tr .tbl-th:nth-child(2), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl6 .tbl-tr .tbl-th:nth-child(2),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl6 .tbl-tr .tbl-td:nth-child(2) {width: 40%;}
-.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl6 .tbl-tr .tbl-th:nth-child(3), 
+.dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl6 .tbl-tr .tbl-th:nth-child(3),
 .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl6 .tbl-tr .tbl-td:nth-child(3) {width: 30%;}
 
 .dashboard2-wrap.tracking .dashboard2-current-place {height: 100%; padding: 30px 25px 25px 30px}
@@ -9523,7 +9525,7 @@ td.tbl-bg-green {background:#d4ffec}
 .dashboard2-wrap.tracking .dashboard2-current-place .place {position: relative; flex: 1; min-height: 79px; overflow: hidden;padding: 9px 0px 9px 17px; border-bottom: 1px solid #F1F1F1;}
 .dashboard2-wrap.tracking .dashboard2-current-place .place:last-child {border-bottom: none;}
 
-.dashboard2-wrap.tracking .dashboard2-current-place .place3, 
+.dashboard2-wrap.tracking .dashboard2-current-place .place3,
 .dashboard2-wrap.tracking .dashboard2-current-place .place5 { /*flex: 2;max-height: 16.755vh;*/}
 .dashboard2-wrap.tracking .dashboard2-current-place .place4 {/*flex: 3; max-height: 25.186vh;*/}
 
@@ -9536,7 +9538,7 @@ td.tbl-bg-green {background:#d4ffec}
 .dashboard2-wrap.tracking .dashboard2-current-place .place6::after {background: #9C7D73;}
 .dashboard2-wrap.tracking .dashboard2-current-place .place7::after {background: #3CAF6F;}
 .dashboard2-wrap.tracking .dashboard2-current-place .place8::after {background: #999AA9;}
- 
+
 .dashboard2-wrap.tracking .dashboard2-current-place .place .place-title {position: relative;}
 .dashboard2-wrap.tracking .dashboard2-current-place .place .place-title {font-size: 12px; font-weight: 500;}
 .dashboard2-wrap.tracking .dashboard2-current-place .place1 .place-title h3,
@@ -9566,8 +9568,8 @@ td.tbl-bg-green {background:#d4ffec}
 .dashboard2-wrap.tracking .dashboard2-current-place .place .place-cont .label-login-user:nth-child(5n) {margin-right: 0;}
 .dashboard2-wrap.tracking .dashboard2-current-place .place .place-cont .label-login-user:nth-last-child(-n + 5) {margin-bottom: 0;}
 .dashboard2-wrap.tracking .dashboard2-current-place .place .place-cont .label-login-user.normal {color: #ffffff; background: #617190;}
- 
- 
+
+
 .dashboard2-chart .chart-top-info .rChart-summary .rChart-summary-list {justify-content: space-between;}
 .dashboard2-chart .chart-top-info .rChart-summary .rChart-summary-list li {margin-right: 0;}
 
@@ -9585,7 +9587,7 @@ td.tbl-bg-green {background:#d4ffec}
 .dashboard2.dashboard2-chart .rcharts-wrap .top_menu {height: 32px !important; border-bottom: 1px solid #F1F1F1;}
 .dashboard2.dashboard2-chart .rcharts-wrap .top_menu .top_data_dype {top: 5px; left: 9px; gap: 3px;}
 .dashboard2.dashboard2-chart .rcharts-wrap .top_menu .top_data_dype li {font-size: 11px; height: 22px; line-height: 20px;}
-.dashboard2.dashboard2-chart .rcharts-wrap .top_menu #chart_type ul li, 
+.dashboard2.dashboard2-chart .rcharts-wrap .top_menu #chart_type ul li,
 .dashboard2.dashboard2-chart .rcharts-wrap .top_menu #chart_type2 ul li {height: 22px; margin-right: 7px;}
 
 .dashboard2.dashboard2-chart #btnGroup {top: 4px; right: 10px;}
@@ -9609,7 +9611,7 @@ td.tbl-bg-green {background:#d4ffec}
 
 .dashboard2.dashboard2-chart .item_over {font-size: 10px; right: auto; left: 10px;}
 .dashboard2.dashboard2-chart .type_title {margin-top: 6px; margin-bottom: 5px; font-size: 11px;}
- 
+
 .dashboard2.dashboard2-chart #chartHolder {height:230px !important; min-height: 230px; border:none; padding-top:6px; padding-left: 3px;}
 .dashboard2.dashboard2-chart .btm-info,
 .dashboard2.dashboard2-chart .scopi-info {font-size: 11px;  position: absolute; bottom: 7px; left: 10px; right: 16px;}
@@ -9698,10 +9700,10 @@ td.tbl-bg-green {background:#d4ffec}
 .dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .tbl-wrap .tbl-body .tbl-tr:first-child .tbl-th.area {font-size: 14px;}
 .dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .tbl-wrap .tbl-body .tbl-tr:nth-last-child(2) .tbl-th {border-bottom: 1px solid #F1F1F1;}
 
-.dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .incheon-area .tbl-tr.total * {color: #9D8448; background-color: #FFF9EB;} 
-.dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .busan-area .tbl-tr.total * {color: #2270C5; background-color: #EEF6FF;} 
+.dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .incheon-area .tbl-tr.total * {color: #9D8448; background-color: #FFF9EB;}
+.dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .busan-area .tbl-tr.total * {color: #2270C5; background-color: #EEF6FF;}
 
-.dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .tbl-tr.total .tbl-th, 
+.dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .tbl-tr.total .tbl-th,
 .dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .tbl-tr.total .tbl-td {height: 46px; line-height: 46px; border-right: unset;}
 .dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .tbl-tr.total .tbl-td.bar {position: relative;}
 .dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .tbl-tr.total .tbl-td.bar::after {content: ""; position: absolute; top: 50%; right: 0; transform: translateY(-50%); width: 1px; height: 13px;}
@@ -9710,7 +9712,7 @@ td.tbl-bg-green {background:#d4ffec}
 .dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .tbl-total-box .tbl-tr.total .tbl-td.bar::after {background: #404F6A;}
 
 .dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .tbl-total-box .tbl-tr.total {background-color: #56595F; border-bottom: unset;}
-.dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .tbl-total-box .tbl-tr.total .tbl-th, 
+.dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .tbl-total-box .tbl-tr.total .tbl-th,
 .dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .tbl-total-box .tbl-tr.total .tbl-td {color: #fff; background-color: #56595F; border: unset;}
 
 
@@ -9719,133 +9721,133 @@ td.tbl-bg-green {background:#d4ffec}
 
 /* ::::: MEDIA QUERY START ::::: */
 @media (max-width: 1800px) {
-  
-  
+
+
   /* 주문 접수 현황 */
   .dashboard2 .card .card-title {font-size: 0.888vw;}
   .dashboard2-order-status .card .card-cont span:nth-child(1) {font-size: 2.375vw;}
   .dashboard2-order-status .card .card-cont span:nth-child(2) {font-size: 1.375vw;}
-  
+
   .dashboard2-stock-status .card .card-cont dl dt,
   .dashboard2-stock-status .card .card-cont dl dd {font-size: 0.722vw;}
-  
+
   .dashboard2-stock-status .card .card-cont dl.stock-status-total dd {font-size: 1.333vw;}
-  
-  
+
+
   /* rChart */
   .dashboard2-chart .chart-top-info .rChart-sum .rChart-current span {font-size: 0.722vw;}
-  
+
   .dashboard2-chart .chart-top-info .rChart-sum .rChart-current span.c-price {font-size: 1.875vw;}
-  	
+
   .dashboard2-chart .chart-top-info .scopi span,
   .dashboard2-chart .chart-top-info .rChart-sum .rChart-current span,
-  .dashboard2-chart .chart-top-info .rChart-sum .rChart-current .desc, 
+  .dashboard2-chart .chart-top-info .rChart-sum .rChart-current .desc,
   .dashboard2-chart .chart-top-info .rChart-sum .rChart-current .desc *,
-  .dashboard2-chart .chart-top-info .rChart-summary .rChart-summary-list li span {font-size: 0.72vw;} 
-  
+  .dashboard2-chart .chart-top-info .rChart-summary .rChart-summary-list li span {font-size: 0.72vw;}
+
   .dashboard2 .dashboard2-title,
   .dashboard2-chart .chart-top-info .prod span,
   .dashboard2-chart .chart-top-info .prod-ticker span {font-size: 0.888vw;}
-  
-  .dashboard2 .tbl-wrap .tbl-head .tbl-tr .tbl-th, 
+
+  .dashboard2 .tbl-wrap .tbl-head .tbl-tr .tbl-th,
   .dashboard2 .tbl-wrap .tbl-body .tbl-tr .tbl-th,
   .dashboard2 .tbl-wrap .tbl-body .tbl-tr .tbl-td {font-size: 0.666vw;}
-  
-  
+
+
   /* Total */
   .dashboard2-total .card .metal-label {font-size: 0.888vw;}
   .dashboard2-total .card ul li {font-size: 0.666vw; margin-right: 11px;}
   .dashboard2-total .card .orderer {margin-top: 0.666vw; font-size: 0.888vw;}
   .dashboard2-total .card .order-labels li {width: 70px; height: 1.111vw; font-size: 0.58vw;}
-  
-  
+
+
   /* 회원 트래킹 */
   .dashboard2-wrap.tracking .section-top-wrap .dashboard2-card-report .dashboard2-cont dl dt {font-size: 0.888vw;}
   .dashboard2-wrap.tracking .section-top-wrap .dashboard2-card-report .dashboard2-cont dl dd {font-size: 2.375vw;}
-  
+
   .dashboard2-wrap.tracking .dashboard2-current-place .place .place-cont .label-login-user,
   .dashboard2-wrap.tracking .dashboard2-current-place .place .place-title,
   .dashboard2-wrap.tracking .side-info {font-size: 0.666vw;}
-  
+
 }
 
 @media (max-width: 1600px) {
-  
+
   /* 공통 */
   .dashboard2-wrap {padding: 15px;}
   .dashboard2-wrap .dashboard2-column {width: 32.9%;}
-  
+
   .dashboard2-wrap .dashboard2,
   .section-bottom-wrap {padding: 20px;}
   .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl {height: calc(50% - 8px); padding: 20px !important;}
-  
+
   .dashboard2 .dashboard2-title {margin-bottom: 0.9375vw;}
   .dashboard2-wrap.tracking .dashboard2-card-report .dashboard2-title {margin-bottom: 17px;}
-  
-  
+
+
   /* 주문 접수 현황 */
   .dashboard2 .card {height: 5vw; padding: 0.9375vw;}
   .dashboard2-order-status .card {height: 102px;}
 
-  
+
   /* 재고현황 */
   .dashboard2-stock-status .card {height: 214px;}
   .dashboard2-stock-status .card .card-title {height: 42px;padding: 0 0.9375vw;}
   .dashboard2-stock-status .card .card-cont {height: calc(100% - 42px); padding: 0.9375vw;}
   .dashboard2-stock-status .card .card-cont dl {margin-bottom: 0.75vw;}
   .dashboard2-stock-status .card .card-cont dl.stock-status-total {padding: 0 0.9375vw 15px 0.9375vw;}
-  
-  
+
+
   /* table */
   .section-bottom-wrap {height: calc(100vh - 330px); max-height: 625px;}
-  .dashboard2-order-status, 
+  .dashboard2-order-status,
   .dashboard2-stock-status {height: 285px; margin-bottom: 10px;}
-  
+
   .section-bottom-wrap .dashboard2 {height: calc(50% - 13px);}
   .section-bottom-wrap .dashboard2:first-child {margin-bottom: 25px;}
   .dashboard2 .tbl-wrap .tbl-body {height: calc(100% - 60px);}
 
-  
+
   /* rChart */
   .dashboard2-chart .chart-top-info .scopi span {width: 4.75vw; height: 1.75vw;}
   .dashboard2-chart .chart-top-info .rChart-summary{margin: 0.9375vw 0 1.25vw;}
 
-  .dashboard2-chart .chart-graph-area {height: 250px;}  
-  
-  
+  .dashboard2-chart .chart-graph-area {height: 250px;}
+
+
   /* Total */
   .dashboard2-total .dashboard2-cont {height: calc(100% - 30px);}
   .dashboard2-total .card {margin-bottom: 0.625vw;}
   .dashboard2-total .card ul li {margin-right: 9px;}
   .dashboard2-total .card ul.info-list li::after {right: -5px;height: 9px;}
-  
+
   .dashboard2-total .card .order-labels {margin-top: 0.8125vw;}
-  
+
 
   /* 회원 트래킹 */
   .dashboard2-wrap.tracking .dashboard2-column1 {margin-right: 15px;}
   .dashboard2-wrap.tracking .dashboard2-column2 {height: calc(100vh - 30px); max-height: 1010px;}
-  
+
   /*
   .dashboard2-wrap.tracking .section-top-wrap,
   .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl:nth-child(-n+4) {margin-bottom: 2.1345vh;}*/
-  
+
   .dashboard2-wrap.tracking .section-top-wrap {height: 185px; margin-bottom: 15px;}
   .dashboard2-wrap.tracking .section-bottom-wrap {height: calc(100vh - 230px);}
-  
-  .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl .dashboard2-cont {height: calc(100% - 25px);} 
+
+  .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl .dashboard2-cont {height: calc(100% - 25px);}
 
   .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl:nth-child(-n+4) {margin-bottom: 15px;}
   /*
   .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl .dashboard2-cont .tbl-wrap .tbl-body {height: calc(100% - 17px);}*/
-  
+
   .dashboard2-wrap.tracking .dashboard2-current-place {padding: 20px 15px 20px 20px;}
   .dashboard2-wrap.tracking .dashboard2-current-place .place {padding: 9px 0px 9px 14px;}
   .dashboard2-wrap.tracking .dashboard2-current-place .place::after {width: 5px;}
-  
+
   .dashboard2-wrap.tracking .dashboard2-current-place .dashboard2-cont {height: calc(100% - 28px);}
-  
-  
+
+
   /* 23.11.20 | 서린닷컴 실질분석 */
   .dashboard2-wrap.transaction .dashboard2 {padding: 20px;}
   .dashboard2-wrap.transaction .dashboard2-column {height: calc(100vh - 30px);}
@@ -9854,84 +9856,84 @@ td.tbl-bg-green {background:#d4ffec}
   .dashboard2-wrap.transaction .dashboard2-column1 .dashboard2 .transaction-chart {top: 20px; right: 20px; height: calc(100% - 40px);}
   .dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday {height: calc(100% - 95px);}
 
-  .dashboard2-wrap.transaction .dashboard2-column .dashboard2 .tbl-wrap .tbl-head .tbl-tr .tbl-th, 
+  .dashboard2-wrap.transaction .dashboard2-column .dashboard2 .tbl-wrap .tbl-head .tbl-tr .tbl-th,
   .dashboard2-wrap.transaction .dashboard2-column .dashboard2 .tbl-wrap .tbl-body .tbl-tr .tbl-th,
   .dashboard2-wrap.transaction .dashboard2-column .dashboard2 .tbl-wrap .tbl-body .tbl-tr .tbl-td {font-size: 10px;}
-  .dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.total-summary .summary-boxes .box *, 
+  .dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.total-summary .summary-boxes .box *,
   .dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.total-summary .summary-boxes .cont *,
-  .dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .tbl-wrap .tbl-tr .tbl-th, 
+  .dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .tbl-wrap .tbl-tr .tbl-th,
   .dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .tbl-wrap .tbl-tr .tbl-td,
   .dashboard2-wrap.transaction .dashboard2-column2 .dashboard2.dashboard2-yesterday .tbl-wrap .tbl-body .tbl-tr:first-child .tbl-th.area {font-size: 12px;}
-  
+
  }
 
 
 @media (max-width: 1400px) {
-  
+
   /* 공통 */
   .dashboard2 .tbl-wrap .tbl-body {min-height: 100px;}
   .dashboard2 .tbl-wrap .tbl-body {height: calc(100% - 52px);}
-  
-  .dashboard2 .dashboard2-title, 
-  .dashboard2-chart .chart-top-info .prod span, 
+
+  .dashboard2 .dashboard2-title,
+  .dashboard2-chart .chart-top-info .prod span,
   .dashboard2-chart .chart-top-info .prod-ticker span,
   .dashboard2-total .card .orderer,
   .dashboard2-total .card .metal-label {font-size: 13px;}
-  
+
   .dashboard2-stock-status .card .card-title,
-  .dashboard2-stock-status .card .card-cont dl dt, 
+  .dashboard2-stock-status .card .card-cont dl dt,
   .dashboard2-stock-status .card .card-cont dl dd,
-  .dashboard2-chart .chart-top-info .scopi span, 
-  .dashboard2-chart .chart-top-info .rChart-sum .rChart-current span, 
-  .dashboard2-chart .chart-top-info .rChart-sum .rChart-current .desc, 
-  .dashboard2-chart .chart-top-info .rChart-sum .rChart-current .desc *, 
+  .dashboard2-chart .chart-top-info .scopi span,
+  .dashboard2-chart .chart-top-info .rChart-sum .rChart-current span,
+  .dashboard2-chart .chart-top-info .rChart-sum .rChart-current .desc,
+  .dashboard2-chart .chart-top-info .rChart-sum .rChart-current .desc *,
   .dashboard2-chart .chart-top-info .rChart-summary .rChart-summary-list li span,
   .dashboard2 .card .card-title {font-size: 11px;}
-  
+
   .dashboard2-total .card ul li {font-size: 10px;}
-  
+
   .section-bottom-wrap {height: calc(100vh - 285px);}
 
-  
+
   /* 주문 접수 현황 */
   .dashboard2-order-status, .dashboard2-stock-status {height: 245px;}
   .dashboard2-order-status .card {height: 6.375vw; min-height: 88px;}
   .dashboard2-order-status .card:nth-child(-n+2) {margin-bottom: 0.625vw}
-  
+
   .dashboard2-stock-status .card .card-title {padding: 0 12px;}
   .dashboard2-order-status .card,
   .dashboard2-stock-status .card .card-cont {padding: 12px;}
-  
+
   .dashboard2-order-status .card .card-cont span:nth-child(1) {font-size: 33px;}
   .dashboard2-order-status .card .card-cont span:nth-child(2) {font-size: 18px;}
-  
-  
+
+
   /* 재고 현황 */
   .dashboard2-stock-status .card {height: 13.375vw;min-height: 186px;}
   .dashboard2-stock-status .card .card-title {height: 35px;min-height: 35px;}
   .dashboard2-stock-status .card .card-cont dl {margin-bottom: 10px;}
   .dashboard2-stock-status .card .card-cont dl.stock-status-total dd {font-size: 20px;}
-  
-  
+
+
   /* 공구 주문 접수 목록 */
 
 
   /* rChart */
-  .dashboard2-chart .chart-graph-area {height: 210px;}  
+  .dashboard2-chart .chart-graph-area {height: 210px;}
   .dashboard2-total .dashboard2-cont {height: calc(100% - 25px);}
-  
+
 
   /* 회원 트래킹 */
   .dashboard2-wrap.tracking .side-info,
   .dashboard2-wrap.tracking .dashboard2-current-place .place .place-title,
   .dashboard2-wrap.tracking .section-top-wrap .dashboard2-card-report .dashboard2-cont dl dt {font-size: 11px;}
 
-  .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl .dashboard2-cont {height: calc(100% - 25px);} 
-  
+  .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl .dashboard2-cont {height: calc(100% - 25px);}
+
   .dashboard2-wrap.tracking .section-top-wrap .dashboard2-card-report .dashboard2-cont dl dd {font-size: 33px;}
   .dashboard2-wrap.tracking .section-top-wrap .dashboard2-card-report .dashboard2-cont dl.access-num span.not-login {padding-left: 17px; background-size: 13px;}
   .dashboard2-wrap.tracking .section-top-wrap .dashboard2-card-report .dashboard2-cont dl.access-num span.login {padding-right: 17px; background-size: 13px;}
-  
+
 }
 
 @media (max-width: 1320px) {
@@ -9940,29 +9942,29 @@ td.tbl-bg-green {background:#d4ffec}
   .dashboard2-wrap.tracking .section-top-wrap {height: 160px;}
   .dashboard2-wrap.tracking .section-bottom-wrap {height: calc(100vh - 205px);}
   .dashboard2-wrap.tracking .section-top-wrap .dashboard2-card-report .dashboard2-cont {height: 100px;}
-  
+
   .dashboard2-wrap.tracking .dashboard2-title {font-size: 12px;}
   .dashboard2-wrap.tracking .side-info,
   .dashboard2-wrap.tracking .dashboard2-current-place .place .place-title,
   .dashboard2-wrap.tracking .dashboard2-current-place .place .place-cont .label-login-user {font-size: 10px;}
-  
+
   .dashboard2-wrap.tracking .dashboard2,
   .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl {padding: 15px !important;}
   .dashboard2-wrap.tracking .dashboard2-current-place {padding: 15px 10px 15px 15px;}
-  
+
   .dashboard2-wrap.tracking .dashboard2-column2 {max-height: 985px;}
 
 }
 
 @media (max-height: 1079px){
-  
+
   /* 공통 */
   .dashboard2 .tbl-wrap .tbl-body {max-height: 221px;}
-  
-  
+
+
   /* 회원 트래킹 */
   .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl .dashboard2-cont .tbl-wrap .tbl-body {max-height: calc(100% - 21px);}
-  
+
 }
 
 @media (max-width: 1279px) {
@@ -9972,23 +9974,23 @@ td.tbl-bg-green {background:#d4ffec}
 	.dashboard2-chart .chart-top-info .rChart-summary .rChart-summary-list li {margin-right: 0;}
 }
 
-    
+
 @media (max-height: 779px){
-    
+
   /* 회원 트래킹 */
-  .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl .tbl-tr .tbl-th, 
+  .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl .tbl-tr .tbl-th,
   .dashboard2-wrap.tracking .section-bottom-wrap .dashboard2-tbl .tbl-tr .tbl-td {height: 22px; line-height: 22px;}
-  
+
 }
 
 @media (max-width: 1279px) and (max-height: 719px){
-  
+
   /* 공통 */
   .dashboard2 .tbl-wrap .tbl-body {height: calc(100% - 50px);}
   .dashboard2-total .dashboard2-cont {height: calc(100% - 25px);}
 
-  
+
 }
-    
+
 /* ::::: MEDIA QUERY FINISH ::::: */
-    
+
