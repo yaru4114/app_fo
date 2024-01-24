@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bid.bo.bid.dao.BidSchedulerDao" >
+
+  <!-- 투찰기간 공고들 조회 -->
+  <select id="getBidNoticeBddprList" parameterType="com.bid.bo.bid.vo.BidNoticeVO" resultType="com.bid.bo.bid.vo.BidNoticeVO">
+    /* bidScheduler.getBidNoticeBddprList */
+    SELECT BID_PBLANC_ID
+      FROM BD_BID_BAS
+     WHERE 1=1
+       AND ISNULL(DELETE_AT , 'N') = 'N'
+       AND ISNULL(PBLANC_CANCL_AT , 'N') = 'N'
+       AND BDDPR_BEGIN_DT IS NOT NULL
+       AND BDDPR_END_DT IS NOT NULL
+       <if test='gubun != null and gubun != "" and gubun == "start"'>
+       AND BID_STTUS_CODE = '12'
+       AND CONVERT(DATETIME , dbo.fn_convertDate(BDDPR_BEGIN_DT , 'bo')) <![CDATA[ <= ]]> getdate()
+       AND CONVERT(DATETIME , dbo.fn_convertDate(BDDPR_END_DT , 'bo')) >= getdate()
+       </if>
+       <if test='gubun != null and gubun != "" and gubun == "end"'>
+       AND BID_STTUS_CODE = '13'
+       AND CONVERT(DATETIME , dbo.fn_convertDate(BDDPR_BEGIN_DT , 'bo')) <![CDATA[ <= ]]> getdate()
+       AND CONVERT(DATETIME , dbo.fn_convertDate(BDDPR_END_DT , 'bo')) <![CDATA[ <= ]]> getdate()
+       </if>
+  </select>
+
+  <!-- 입찰 공고 투찰 시작 -->
+  <update id="updateBidBddprStrart" parameterType="com.bid.bo.bid.vo.BidNoticeVO">
+    /* bidScheduler.updateBidBddprStrart */
+    UPDATE BD_BID_BAS
+       SET BID_STTUS_CODE = '13'
+         , LAST_CHANGER_ID = 'Scheduler'
+         , LAST_CHANGE_DT = SYSDATETIME()
+     WHERE 1=1
+       AND ISNULL(DELETE_AT , 'N') = 'N'
+       AND ISNULL(PBLANC_CANCL_AT , 'N') = 'N'
+       AND BDDPR_BEGIN_DT IS NOT NULL
+       AND BDDPR_END_DT IS NOT NULL
+       AND BID_STTUS_CODE = '12'
+       AND BID_PBLANC_ID = #{bidPblancId}
+  </update>
+
+  <!-- 투찰 업체들 중 최저가 프리미엄가격 업체 조회 -->
+  <select id="getBidBddprMinPremPriceComp" parameterType="com.bid.bo.bid.vo.BidNoticeVO" resultType="com.bid.bo.bid.vo.BidBddprDtlVO">
+    /* bidScheduler.getBidBddprMinPremPriceComp */
+    SELECT TOP 1 BID_ENTRPS_NO
+               , BID_PBLANC_ID
+               , BDDPR_PREMIUM_PC
+            FROM BD_BDDPR_DTL
+           WHERE BID_PBLANC_ID = #{bidPblancId}
+             AND ISNULL(CANCL_AT , 'N') = 'N'
+             AND ISNULL(DELETE_AT , 'N') = 'N'
+             AND ISNULL(BDDPR_PREMIUM_PC , 0) > 0
+             AND ISNULL(BDDPR_NRMLT_AT , 'Y') = 'Y'
+           ORDER BY BDDPR_PREMIUM_PC , FRST_REGIST_DT
+  </select>
+
+  <!-- 낙찰처리 -->
+  <update id="bidBddprSuccessProc" parameterType="com.bid.bo.bid.vo.BidBddprDtlVO">
+    /* bidScheduler.bidBddprSuccessProc */
+    UPDATE BD_BDDPR_DTL
+       SET SCSBID_AT = 'Y'
+         , SCSBID_DT = FORMAT(cast(getdate() as datetime), 'yyyyMMddHHmmss')
+         , LAST_CHANGER_ID = 'Scheduler'
+         , LAST_CHANGE_DT = SYSDATETIME()
+     WHERE BID_ENTRPS_NO = #{bidEntrpsNo}
+       AND BID_PBLANC_ID = #{bidPblancId}
+       AND ISNULL(CANCL_AT,'N') = 'N'
+       AND ISNULL(DELETE_AT , 'N') = 'N'
+       AND ISNULL(BDDPR_NRMLT_AT , 'Y') = 'Y'
+  </update>
+
+  <!-- 입찰공고 낙찰 처리-->
+  <update id="bidBasSuccessProc" parameterType="com.bid.bo.bid.vo.BidNoticeVO">
+    /* bidScheduler.bidBasSuccessProc */
+    UPDATE BD_BID_BAS
+       SET BID_STTUS_CODE = #{bidSttusCode}
+         , LAST_CHANGER_ID = 'Scheduler'
+         , LAST_CHANGE_DT = SYSDATETIME()
+    <if test=' bidSttusCode != null and bidSttusCode != "" and bidSttusCode == "32" ' >
+         , FAIL_BID_DT = FORMAT(cast(getdate() as datetime), 'yyyyMMddHHmmss')
+         , FAIL_BID_RESN = '자동 유찰'
+    </if>
+     WHERE BID_PBLANC_ID = #{bidPblancId}
+       AND ISNULL(DELETE_AT , 'N') = 'N'
+       AND ISNULL(PBLANC_CANCL_AT , 'N') = 'N'
+       AND BID_STTUS_CODE = '13' -- 투찰중
+       AND CONVERT(DATETIME , dbo.fn_convertDate(BDDPR_BEGIN_DT , 'bo')) <![CDATA[ <= ]]> getdate()
+       AND CONVERT(DATETIME , dbo.fn_convertDate(BDDPR_END_DT , 'bo')) <![CDATA[ <= ]]> getdate()
+  </update>
+
+  <!-- 낙찰 등록 -->
+  <insert id="bidScsbidDtlSuccessProc" parameterType="com.bid.bo.bid.vo.BidBddprDtlVO">
+    /* bidScheduler.bidScsbidDtlSuccessProc */
+    INSERT INTO BD_SCSBID_DTL (
+        BID_PBLANC_ID
+      , BID_ENTRPS_NO
+      , FRST_REGISTER_ID
+      , FRST_REGIST_DT
+    ) VALUES (
+        #{bidPblancId}
+      , #{bidEntrpsNo}
+      , 'Scheduler'
+      , SYSDATETIME()
+    )
+  </insert>
+
+</mapper>

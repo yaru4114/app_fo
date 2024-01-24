@@ -15,5 +15,6 @@ public class BidBddprDtlVO {
     private String procStep;
     private int rownum;
     private String bddprDt;
+    private String bidPblancId;
 
 }

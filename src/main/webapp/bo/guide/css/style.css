@@ -9205,7 +9205,7 @@ td.tbl-bg-green {background:#d4ffec}
 .dashboard2-wrap * {color: #151F2B; line-height: 1; font-family: 'S-CoreDream','Noto Sans KR', '맑은 고딕', '돋움', dotum, sans-serif;}
 .dashboard2-wrap .dashboard2-inner {max-width: 1880px; max-height: 100%; margin: auto; min-width: 1250px; min-height: 690px; overflow: auto;/*overflow: auto; overflow-x: hidden !important; overflow-y: auto !important;*/}
 .dashboard2-wrap .dashboard2-column {width: 32.607%; height: calc(100% - 40px); overflow: hidden;}
-.dashboard2-wrap .dashboard2 {padding: 0px;background-color: #fff;}
+.dashboard2-wrap .dashboard2 {padding: 0px;background-color: #F5F5F5;}
 .dashboard2-cont {width: 100%; height: 100%;}
 .dashboard2-order-status .dashboard2-cont,
 .dashboard2-stock-status .dashboard2-cont {height: auto;}
