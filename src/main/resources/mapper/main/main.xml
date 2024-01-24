@@ -16,8 +16,8 @@
           , IIIB.ITM_PRDLST_ENG AS DSPY_GOODS_NM
           , ISNULL(BBB.BID_WT, 0) AS BID_WT                				/* 입찰 중량 */
           , (SELECT DOC_FILE_COURS FROM CO_DOC_BAS CDB WHERE DOC_NO = IIIB.PC_IMAGE_ONE_SN) AS PC_IMAGE_ONE_COURS
-          , dbo.fn_convertDate(BBB.BDDPR_BEGIN_DT, 'FO') AS BDDPR_BEGIN_DT      /* 투찰 시작 일시 */
-		  , dbo.fn_convertDate(BBB.BDDPR_END_DT, 'FO') AS BDDPR_END_DT             /* 투찰 종료 일시 */
+          , BDDPR_BEGIN_DT      	/* 투찰 시작 일시 */
+		  , BDDPR_END_DT             /* 투찰 종료 일시 */
           , BBB.BID_STTUS_CODE         										/* 입찰 상태 코드 */
           , ISNULL(BBB.PARTCPTN_ENTRPS_QY, 0)   AS PARTCPTN_ENTRPS_QY   /* 참여 업체 수량 */
           , ISNULL(BBB.INTRST_ENTRPS_QY, 0)   AS INTRST_ENTRPS_QY         /* 관심 업체 수량 */

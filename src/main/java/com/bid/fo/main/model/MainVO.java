@@ -47,6 +47,8 @@ public class MainVO {
 	 private String startDate; 	  /** 시작날짜 */
 	 private String endDate; 	  /** 끝날짜 */
 	 private String tabCode; 	  /** 01:투찰, 02:낙찰, 03:패찰, 04:관심 */
+	 private String pageCode;
+	 private String pageSubCode;
 	 
 	 
 	 

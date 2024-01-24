@@ -78,24 +78,36 @@
 				            </div>
 							<!-- TAB BUTTON :: START -->
                             <ul class="tab_btn_group">
-                                <li class="item on" id="tab-01" data-value="01">
+                                <li class="item on" id="tab-01" data-value="01" data-tab="01">
                                     <a href="#">투찰 건(<span id="bddprTotCnt"></span>)</a>
                                 </li>
-                                <li class="item" id="tab-02" data-value="02">
+                                <li class="item" id="tab-02" data-value="02" data-tab="02">
                                     <a href="#">낙찰 건(<span id="scsbidTotCnt"></span>)</a>
                                 </li>
-                                <li class="item" id="tab-03" data-value="03">
+                                <li class="item" id="tab-03" data-value="03" data-tab="03">
                                     <a href="#">패찰 건(<span id="defeatTotCnt"></span>)</a>
                                 </li>
-                                <li class="item" id="tab-04" data-value="04">
+                                <li class="item" id="tab-04" data-value="04" data-tab="04">
                                     <a href="#">유찰 건(<span id="failTotCnt"></span>)</a>
                                 </li>
                             </ul>
                             <!-- TAB BUTTON :: END -->
-                            <div id="bddprDiv" class="tab-content on">
-	                            <div class="btn-wrap">
+                            <div class="tab-content on">
+                            	<div class="tab-content-top flex-ac-jfs">
+						            <div class="all">
+										All <span class="fc-red">2</span>개
+						            </div>
+					                <div class="custom_radio">
+									  <input type="radio" id="featured-1" name="featuredGroup1" value="01" checked><label for="featured-1">전체</label>
+									  <input type="radio" id="featured-2" name="featuredGroup1" value="02" ><label for="featured-2">투찰 중건</label>
+									  <input type="radio" id="featured-3" name="featuredGroup1" value="03" ><label for="featured-3">투찰접수 취소건</label>
+					                </div>
+				                </div>
+				                <ul class="list t2" id="bddprDiv">
+				                </ul>
+	                            <!-- <div class="btn-wrap">
 		                        	<button type="button" class="btn-blue-big btn-list" onclick="location.href='/guide/html/bid/SOREC-SB-BID-001-2.html'">입찰 공고 화면 가기</button>
-		                    	</div>
+		                    	</div> -->
 		                    </div>
                         </div>
                         <!-- // 1. 투찰 목록(#NAV-1) :: END -->
@@ -125,24 +137,21 @@
 	var bidEntrpsNo = "${bidEntrpsNo}";
 
 	$(function(){
-		var tabCode = "${tabCode}";
-		if(tabCode){
-			$("#tab-"+tabCode).trigger("click");
+		var tabCode = "${tabCode}" == null ? '01': "${tabCode}";
+		
+		if(tabCode == '02'){
+			$("#tab-02").trigger("click");
+			$(".custom_radio").hide();
+		
+		}else if(tabCode == '03'){
+			$("#tab-03").trigger("click");
+			$(".custom_radio").hide();
+		
+		}else{
+			selectBdMyList(tabCode,'01');
 		}
 		
 		// =============== SELECT BOX ==================
-		$('.brand').select2({
-		    width: 'element',
-		    minimumResultsForSearch: Infinity,
-		    placeholder: '브랜드',
-		    selectOnClose: true
-		});
-		$('.area').select2({
-		    width: 'element',
-		    minimumResultsForSearch: Infinity,
-		    placeholder: '권역',
-		    selectOnClose: true
-		});
 		$('.filter').select2({
 		    width: 'element',
 		    placeholder: '공고일',
@@ -155,25 +164,33 @@
 		    selectOnClose: true
 		});
 		
-		selectBdMyList(-1);
 	})
 		
-		$("#filter").change(function(){
-			//리스트 조회
-			selectBdMyList(-1);
-		})
-		
+	$("#filter").change(function(){
+		//리스트 조회
+		selectBdMyList(-1);
+	})
+	
 
-		// =============== TAB ==================
-		$('.tab_btn_group li').click(function(e){
-		    var tabCode = $(this).attr('data-value');
-		    $('.tab_btn_group li').removeClass('on');
-		    $(this).addClass('on');
-		    
-		  	//리스트 조회
-		    selectBdMyList(tabCode);
-		})
-
+	// =============== TAB ==================
+	$('.tab_btn_group li').click(function(e){
+	    var pageCode = $(this).attr('data-tab');
+	    $('.tab_btn_group li').removeClass('on');
+	    $(this).addClass('on');
+	    
+	    if(pageCode == '01' ){
+	    	$(".custom_radio").show();
+	    }else if(pageCode == '02' ){
+	    	$(".custom_radio").hide();
+	    }else if(pageCode == '03' ){
+	    	$(".custom_radio").hide();
+	    }else if(pageCode == '04' ){
+	    	$(".custom_radio").hide();
+	    } 
+	    
+	  	//리스트 조회
+	    selectBdMyList(pageCode);
+	})
 		
 	// =============== LEFT WING NAV ==================
 	$('.left-wing li').click(function(e){
@@ -257,12 +274,20 @@
 			$('#endDate').val(d2);
 		}
 		
+
+		$("input[name='featuredGroup1']").on('change', function(){
+		    pageCode = "01";
+		    pageSubCode = this.value; // 선택한 라디오 버튼의 값을 사용
+		    selectBdMyList(pageCode, pageSubCode);
+		});
+		
+
 		
 		// =============== 목록 조회 ==================
-		function selectBdMyList(tabCode){
-		
-			if(tabCode == -1){
-				 tabCode = $("li[class='item on']").attr('data-value');
+		function selectBdMyList(pageCode,pageSubCode){
+			console.log(pageCode,pageSubCode)
+			if(pageCode == -1){
+				 pageCode = $("li[class='item on']").attr('data-tab');
 			}
 		
 			var params = {
@@ -270,7 +295,8 @@
 				"filter" : $("#filter").val(), 
 				"startDate" : $("#startDate").val().replaceAll("-", ""),
 				"endDate" : $("#endDate").val().replaceAll("-", ""),
-				"tabCode" : tabCode,
+				"pageCode" : pageCode,
+				"pageSubCode" : pageSubCode,
 				"bidEntrpsNo" : bidEntrpsNo,
 			}
 			console.log(params)
@@ -282,8 +308,7 @@
 				data : JSON.stringify(params),
 				contentType : 'application/json',
 				success : function(res) {
-					
-					selectBdMyListGrid(res, tabCode);
+					selectBdMyListGrid(res, pageCode);
 				},
 				error : function(request, status, error) {
 					console.log("error")
@@ -294,30 +319,30 @@
 		}
 		
 		
-		function selectBdMyListGrid(res, tabCode){
-			$("#bddprTotCnt").text(res.bidBddprCntList.bddprTotCnt);
+		function selectBdMyListGrid(res, pageCode){
+			var tabNm = '';
+ 			$("#bddprTotCnt").text(res.bidBddprCntList.bddprTotCnt);
 			$("#scsbidTotCnt").text(res.bidBddprCntList.scsbidTotCnt);
 			$("#defeatTotCnt").text(res.bidBddprCntList.defeatTotCnt);
 			$("#failTotCnt").text(res.bidBddprCntList.failTotCnt);
 			
+			if(pageCode == '01' ){
+				tabNm = "투찰"
+				$(".fc-red").text(res.bidBddprCntList.bddprTotCnt);
+		    }else if(pageCode == '02' ){
+		    	tabNm = "낙찰"
+		    	$(".fc-red").text(res.bidBddprCntList.scsbidTotCnt);
+		    }else if(pageCode == '03' ){
+		    	tabNm = "패찰"
+		    	$(".fc-red").text(res.bidBddprCntList.defeatTotCnt);	
+		    }else if(pageCode == '04' ){
+		    	tabNm = "유찰"
+		    	$(".fc-red").text(res.bidBddprCntList.failTotCnt);
+		    } 
 			
 			$("#bddprDiv").empty();
 			var html = '';
 			for(let i=0; i<res.bidBddprList.length;i++){
-				html +=	'	    <div class="tab-content-top flex-ac-jfs">';
-				html +=	'	        <div class="all">';	
-            	if(tabCode == '01' ){
-			    	html +=	'				All <span class="fc-red">'+res.bidBddprCntList.bddprTotCnt+'</span>개';	
-			    }else if(tabCode == '02' ){
-			    	html +=	'				All <span class="fc-red">'+res.bidBddprCntList.scsbidTotCnt+'</span>개';	
-			    }else if(tabCode == '03' ){
-			    	html +=	'				All <span class="fc-red">'+res.bidBddprCntList.defeatTotCnt+'</span>개';	
-			    }else if(tabCode == '04' ){
-			    	html +=	'				All <span class="fc-red">'+res.bidBddprCntList.failTotCnt+'</span>개';	
-			    } 
-				html +=	'	        </div>';
-				html +=	'	    </div>';
-				html +=	'	<ul class="list t2">';
 				html +=	'	<li>';
 				if(res.bidBddprList[i].bidSttusCode == '30' || res.bidBddprList[i].bidSttusCode == '31' || res.bidBddprList[i].bidSttusCode == '32'){
 					html += '       <div class="cart-item-wrap type3 finish">';
@@ -350,7 +375,7 @@
 				html += '                   </p>';
 				html += '                   <div class="pd-period">';
 				html += '                   	<span class="qty">수량 <span class="highlight">'+res.bidBddprList[i].bidWt+'MT</span></span>';	
-				html += '                       <span class="date">투찰기간 <span class="highlight">'+ viewDateFmt(res.bidBddprList[i].bddprBeginDt) +' ~ '+viewDateFmt(res.bidBddprList[i].bddprBeginDt)+'</span></span>'; 
+				html += '                       <span class="date">투찰기간 <span class="highlight">'+ viewDateFmt(res.bidBddprList[i].bddprBeginDt) +' ~ '+viewDateFmt(res.bidBddprList[i].bddprEndDt)+'</span></span>'; 
 				if(res.bidBddprList[i].bidSttusCode == '13'){
 					html += '                       <span class="t-info">개찰결과 : 투찰 기한 마감과 동시에 발표함</span>';
 				}
@@ -362,7 +387,7 @@
 					html += '               <a href="javascript:;" class="btn-bid-blue" name="bidDetail" data-bid-id="'+res.bidBddprList[i].bidPblancId+'">투찰중</a>';
 					html += '           </div>';
 					html += '           <span class="bid-d-day abs-info">';
-					html += '       		투찰 마감까지 <span class="time">- 3일 3시간 20분 36초</span>';
+					html += '       		투찰 마감까지 <span class="time" id="time'+res.bidBddprList[i].bidPblancId+'">'+setFmtDate(res.bidBddprList[i].bddprEndDt,"time"+res.bidBddprList[i].bidPblancId ,res.bidBddprList[i].bidSttusCode)+'</span>';
 					html += '       	</span>';
 				}else if(res.bidBddprList[i].bidSttusCode == '30' || res.bidBddprList[i].bidSttusCode == '31' || res.bidBddprList[i].bidSttusCode == '32' ){
 					html += '           <div class="btns">';
@@ -382,25 +407,41 @@
 			$("#bddprDiv").append(html)
 			
 	    
-			if(res.bidBddprList.length == 0){	
-				html +='<div class="tab-content-top flex-ac-jfs">';
-				html +='<div class="all">';
-				html +='	All <span class="fc-red">0</span>개';
-				html +='</div>';
-				html +='</div>';
-				html +='<div class="no-data empty-content">참여한 투찰 내역이 없습니다.</div>';
+		 	if(res.bidBddprList.length == 0){	
+		 		$(".fc-red").text(0);
+				html +='<div class="no-data empty-content" style="border-top:none;">참여한 '+tabNm+' 내역이 없습니다.</div>';
 				html +='<div class="btn-wrap">';
 				html +='	<button type="button" class="btn-blue-big btn-main" onclick="moveToMain()">입찰 공고 화면 가기</button>';
 				html +='</div>';
-				$("#bddprDiv").prepend(html);
+				$("#bddprDiv").append(html);
 				
-			}
+			} 
 			
 			
 		}
 		
 		function viewDateFmt(date){
 			return date.substring(2,4)+"."+date.substring(4,6)+"."+date.substring(6,8)+" "+date.substring(8,10)+":"+date.substring(10,12)+":"+date.substring(12,14);
+		}
+		
+		function viewDateFmt2(date){
+			return date.substring(0,4)+"/"+date.substring(4,6)+"/"+date.substring(6,8)+" "+date.substring(8,10)+":"+date.substring(10,12)+":"+date.substring(12,14);
+		}
+		
+		function setFmtDate(endDate, id, bidSttusCode){
+		
+			setInterval(function(){
+				var now = new Date();
+				var endFmtDate = new Date(viewDateFmt2(endDate));
+
+				if(bidSttusCode == "13" && endFmtDate >= now){
+					$("#"+id).html(" - " + Math.floor((endFmtDate-now) / (1000*60*60*24)) +"일 "+Math.floor(((endFmtDate-now) / (1000*60*60)) % 24) +"시간 "
+							+Math.floor(((endFmtDate-now) / (1000*60)) % 60) +"분 "+Math.floor((endFmtDate-now) / 1000 % 60) + "초");
+				}else{
+					$("#"+id).html("");    
+				}
+	        },1000); //1초마다 
+	        
 		}
 		
 		function moveToMain(){

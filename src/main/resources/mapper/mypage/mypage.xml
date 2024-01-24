@@ -56,16 +56,24 @@
                AND BBB.BDDPR_END_DT  <![CDATA[<]]> #{endDate} + '235959' 
             </if>
          </if>
-         <if test="tabCode == '01'">
-            AND BBB.BID_STTUS_CODE = '13'
+         <if test="pageCode == '01'">
+         	<if test="pageSubCode == '01'">
+	            AND BBB.BID_STTUS_CODE = '13'
+	        </if>
+	        <if test="pageSubCode == '02'">
+	            AND BBB.BID_STTUS_CODE = '13'
+	        </if>
+	        <if test="pageSubCode == '03'">
+	            AND BBB.BID_STTUS_CODE = '13' AND BBD.CANCL_AT = 'Y'
+	        </if>
          </if>
-         <if test="tabCode == '02'">
+         <if test="pageCode == '02'">
             AND BBB.BID_STTUS_CODE = '31' AND BBD.SCSBID_AT = 'Y' AND ISNULL(BBD.CANCL_AT,'N') = 'N'
          </if>
-         <if test="tabCode == '03'">
+         <if test="pageCode == '03'">
             AND BBB.BID_STTUS_CODE = '31' AND BBD.SCSBID_AT = 'N'
          </if>
-         <if test="tabCode == '04'">
+         <if test="pageCode == '04'">
             AND BBB.BID_STTUS_CODE = '31' AND BBB.PBLANC_CANCL_AT = 'N'
          </if>
    </select>

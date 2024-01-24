@@ -549,8 +549,8 @@ $(function(){
 			html += '                   </div>';
 			html += '                   <div class="pd-period">';
 			html += '                   	<span class="qty">수량 <span class="highlight">'+res.bidList[i].bidWt+'MT</span></span>';	
-			html += '                       <span class="date">투찰기간 <span class="highlight">'+ res.bidList[i].bddprBeginDt +' ~ '+ res.bidList[i].bddprBeginDt+'</span></span>';
-			//html += '                       <span class="date">투찰기간 <span class="highlight">'+ viewDateFmt(res.bidList[i].bddprBeginDt) +' ~ '+ viewDateFmt(res.bidList[i].bddprBeginDt)+'</span></span>'; 
+			//html += '                       <span class="date">투찰기간 <span class="highlight">'+ res.bidList[i].bddprBeginDt +' ~ '+ res.bidList[i].bddprBeginDt+'</span></span>';
+			html += '                       <span class="date">투찰기간 <span class="highlight">'+ viewDateFmt(res.bidList[i].bddprBeginDt) +' ~ '+ viewDateFmt(res.bidList[i].bddprEndDt)+'</span></span>'; 
 			if(res.bidList[i].bidSttusCode == '12' || res.bidList[i].bidSttusCode == '13'){
 				html += '                       <span class="t-info">개찰결과 : 투찰 기한 마감과 동시에 발표함</span>';
 			}
@@ -562,18 +562,18 @@ $(function(){
 				html += '               <a href="javascript:;" class="btn-bid-stroke" name="bidDetail" data-bid-id="'+res.bidList[i].bidPblancId+'">입찰예정</a>';
 				html += '           </div>';
 				html += '           <span class="bid-d-day abs-info">';
-				html += '       		투찰 시작까지 <span class="time"></span>';
+				html += '       		투찰 시작까지 <span class="time" id="time'+res.bidList[i].bidPblancId+'">'+setFmtDate(res.bidList[i].bddprBeginDt, res.bidList[i].bddprEndDt,"time"+res.bidList[i].bidPblancId ,res.bidList[i].bidSttusCode)+'</span>';
 				html += '       	</span>';
 			}else if(res.bidList[i].bidSttusCode == '13' ){
 				html += '           <div class="btns">';
 				html += '               <a href="javascript:;" class="btn-bid-blue" name="bidDetail" data-bid-id="'+res.bidList[i].bidPblancId+'">투찰중</a>';
 				html += '           </div>';
 				html += '           <span class="bid-d-day abs-info">';
-				html += '       		투찰 마감까지 <span class="time">- 3일 3시간 20분 36초</span>';
+				html += '       		투찰 마감까지 <span class="time" id="time'+res.bidList[i].bidPblancId+'">'+setFmtDate(res.bidList[i].bddprBeginDt, res.bidList[i].bddprEndDt,"time"+res.bidList[i].bidPblancId ,res.bidList[i].bidSttusCode)+'</span>';
 				html += '       	</span>';
 			}else if(res.bidList[i].bidSttusCode == '30' || res.bidList[i].bidSttusCode == '31' || res.bidList[i].bidSttusCode == '32' ){
 				html += '           <div class="btns">';
-				html += '               <a href="javascript:;" class="btn-bid-black" name="bidDetail" data-bid-id="'+res.bidList[i].bidPblancId+'">마감</a>';
+				html += '               <a href="javascript:;" class="btn-bid-black" name="bidDetail" data-bid-id="'+res.bidList[i].bidPblancId+'" data-bddprAt="'+res.bidList[i].bddprAt+'">마감</a>';
 				html += '           </div>';
 				if(res.bidList[i].bidSttusCode == '30' ){
 					html += '           <span class="t-info abs-info">기한마감</span>';
@@ -608,29 +608,43 @@ $(function(){
 		}
 		
 		var bidPblancId = $(this).attr('data-bid-id');
-		var params = {"bidPblancId" : bidPblancId};
+		var bddprAt = $(this).attr('data-bddprAt');
 		
-		location.href="/fo/bid/detail/"+bidPblancId;
-			
-/* 		$.ajax({
-			type : 'post',
-			url : '/fo/mypage',
-			dataType : 'json',
-			data : JSON.stringify(params),
-			contentType : 'application/json',
-			success : function(res) {
-				console.log(res)
-				 location.href="/fo/selectMypage";
-			},
-			error : function(request, status, error) {
-				console.log("error")
-			} 
-		}); */
+		if(bddprAt == 'Y'){
+			location.href="/fo/mypage?bidPblancId="+bidPblancId;
+		}else if(bddprAt == undefined){
+			location.href="/fo/bid/detail/"+bidPblancId;
+		}else{
+			alert("마감된 공고입니다")
+		}
 	    
 	})
 	
 	function viewDateFmt(date){
 		return date.substring(2,4)+"."+date.substring(4,6)+"."+date.substring(6,8)+" "+date.substring(8,10)+":"+date.substring(10,12)+":"+date.substring(12,14);
+	}
+	
+	function viewDateFmt2(date){
+		return date.substring(0,4)+"/"+date.substring(4,6)+"/"+date.substring(6,8)+" "+date.substring(8,10)+":"+date.substring(10,12)+":"+date.substring(12,14);
+	}
+
+	function setFmtDate(startDate, endDate, id, bidSttusCode){
+		setInterval(function(){
+			var now = new Date();
+			var startFmtDate = new Date(viewDateFmt2(startDate));
+			var endFmtDate = new Date(viewDateFmt2(endDate));
+
+			if(bidSttusCode == "12" && startFmtDate >= now){
+				$("#"+id).html(" - " + Math.floor((startFmtDate-now) / (1000*60*60*24)) +"일 "+Math.floor(((startFmtDate-now) / (1000*60*60)) % 24) +"시간 "
+						+Math.floor(((startFmtDate-now) / (1000*60)) % 60) +"분 "+Math.floor((startFmtDate-now) / 1000 % 60) + "초");
+			}else if(bidSttusCode == "13" && endFmtDate >= now){
+				$("#"+id).html(" - " + Math.floor((endFmtDate-now) / (1000*60*60*24)) +"일 "+Math.floor(((endFmtDate-now) / (1000*60*60)) % 24) +"시간 "
+						+Math.floor(((endFmtDate-now) / (1000*60)) % 60) +"분 "+Math.floor((endFmtDate-now) / 1000 % 60) + "초");
+			}else{
+				$("#"+id).html("");    
+			}
+        },1000); //1초마다 
+        
 	}
 	
 	//대쉬보드 클릭 시 마이페이지 공고 및 관심목록 이동
