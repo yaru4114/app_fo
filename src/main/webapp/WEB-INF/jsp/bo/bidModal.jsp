@@ -708,11 +708,7 @@
                                 $('#delyCnd02StdrPc').val(data.delyCnd02StdrPc);
                                 $('#delyCnd03ApplcAt').val(data.delyCnd03ApplcAt);
                                 $('#delyCnd03StdrPc').val(data.delyCnd03StdrPc);
-                                $('#delyBeginDe').val(data.delyBeginDe);
-                                $('#delyEndDe').val(data.delyEndDe);
                                 $('#delyPdCn').val(data.delyPdCn);
-                                $('#pcAppnBeginDe').val(data.pcAppnBeginDe);
-                                $('#pcAppnEndDe').val(data.pcAppnEndDe);
                                 $('#pcAppnMthCode').val(data.pcAppnMthCode);
                                 $('#setleCrncyCode').val(data.setleCrncyCode);
                                 $('#setleMthCode').val(data.setleMthCode);
@@ -733,6 +729,22 @@
                                 setDateTimeFields(data.bddprEndDt, 'bddprEndDt', 'bddprEndDt_ampm', 'bddprEndDt_hour', 'bddprEndDt_min', 'bddprEndDt_sec');
                                 setDateTimeFields(data.bddprCanclLmttDe, 'bddprCanclLmttDe', 'bddprCanclLmttDe_ampm', 'bddprCanclLmttDe_hour', 'bddprCanclLmttDe_min', 'bddprCanclLmttDe_sec');
                                 /* ========================== 날짜(시,분,초) ========================== */
+
+                                var delyBeginDe = data.delyBeginDe;
+                                delyBeginDe = formatYyyy_mm_dd(delyBeginDe);
+                                $('#delyBeginDe').val(delyBeginDe);
+
+                                var delyEndDe = data.delyEndDe;
+                                delyEndDe = formatYyyy_mm_dd(delyEndDe);
+                                $('#delyEndDe').val(delyEndDe);
+
+                                var pcAppnBeginDe = data.pcAppnBeginDe;
+                                pcAppnBeginDe = formatYyyy_mm_dd(pcAppnBeginDe);
+                                $('#pcAppnBeginDe').val(pcAppnBeginDe);
+
+                                var pcAppnEndDe = data.pcAppnEndDe;
+                                pcAppnEndDe = formatYyyy_mm_dd(pcAppnEndDe);
+                                $('#pcAppnEndDe').val(pcAppnEndDe);
 
                                 // 단위 변환
                                 var stdrPc01 = data.delyCnd01StdrPc;
@@ -999,6 +1011,9 @@
             bddprEndDt = formatDate(bddprEndDt, bddprEndDt_ampm, bddprEndDt_hour, bddprEndDt_min, bddprEndDt_sec);
             bddprCanclLmttDe = formatDate(bddprCanclLmttDe, bddprCanclLmttDe_ampm, bddprCanclLmttDe_hour, bddprCanclLmttDe_min, bddprCanclLmttDe_sec);
 
+            if (bddprCanclLmttDe === '000') {
+                bddprCanclLmttDe = '';
+            }
 
             var param = {
                 subCode: metalCode,
@@ -1167,6 +1182,14 @@
             return year + '-' + month + '-' + day;
         }
 
+        function formatYyyy_mm_dd(date) {
+            var year = date.substr(0, 4);
+            var mon = date.substr(4, 2);
+            var day = date.substr(6, 2);
+            return year + '-' + mon + '-' + day;
+        }
+
+        /* -=*/
         // function formatDate2(date) {
         //     return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
         // }
@@ -1184,29 +1207,33 @@
         //     }
         //     return datesEnabled;
         // }
+        //
         // function updateCanclLmttDeRange() {
-        //     var beginDt = $('#bddprBeginDt').val();
-        //     var endDt = $('#bddprEndDt').val();
-        //     var datesE1 = ['2024-1-22', '2024-1-23', '2024-1-24'];
-        //     var datesE = test(beginDt, endDt);
-        //     console.log('datesE ; ', typeof(datesE[0]));
-        //     console.log('datesE1 ; ', typeof(datesE1[0]));
+        //     var beginDtStr = $('#bddprBeginDt').val();
+        //     var endDtStr = $('#bddprEndDt').val();
         //
-        //     $('#bddprCanclLmttDe').datepicker({
-        //         format: 'yyyy-mm-dd',
-        //         beforeShowDay: function(date) {
-        //             var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-        //             // console.log('allDates : ', allDates);
-        //
-        //             if(datesE.indexOf(allDates) != -1) {
-        //                 console.log('true 래요');
-        //                 return true;
-        //             } else {
-        //                 console.log('false 래요');
-        //                 return false;
-        //             }
-        //         }
-        //     });
+        //     var beginDt = new Date(beginDtStr);
+        //     var endDt = new Date(endDtStr);
+            // var datesE1 = ['2024-1-22', '2024-1-23', '2024-1-24'];
+            // var datesE = test(beginDt, endDt); // ['2024-1-23', '2024-1-24', '2024-1-25']
+            // console.log('datesE ; ', datesE);
+            // console.log('datesE1 ; ', datesE1);
+            //
+            // $('#bddprCanclLmttDe').datepicker({
+            //     format: 'yyyy-mm-dd',
+            //     beforeShowDay: function(date) {
+            //         var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+            //
+            //         if(datesE.indexOf(allDates) !== -1) {
+            //             console.log('true 래요');
+            //             return true;
+            //         } else {
+            //             console.log('false 래요');
+            //             console.log(datesE.indexOf(allDates));
+            //             return false;
+            //         }
+            //     }
+            // });
         // }
 
         // $('#bddprBeginDt').on('change', function () {

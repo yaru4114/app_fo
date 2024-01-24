@@ -58,6 +58,7 @@ public class BidModalService {
         BigDecimal decimalValue = new BigDecimal(permWtRage);
         decimalValue = decimalValue.setScale(1, RoundingMode.HALF_UP);
         vo.setPermWtRate(decimalValue);
+        vo.setFrstRegisterId("admin");
 
         if (vo.getDspyAt().equals('Y')) {
             vo.setBidSttusCode("12");

@@ -85,7 +85,8 @@
             BDDPR_CANCL_LMTT_DE ,
             BID_STTUS_CODE,
             DSPY_AT ,
-            FRST_REGIST_DT
+            FRST_REGIST_DT,
+            FRST_REGISTER_ID
         ) VALUES (
             (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE='METAL_CODE' AND SUB_CODE= #{subCode}) + FORMAT(GETDATE(), 'yyyyMMdd') +
                 RIGHT('000' + CAST
@@ -133,7 +134,8 @@
             #{bddprCanclLmttDe},
             #{bidSttusCode},
             #{dspyAt},
-            GETDATE()
+            GETDATE(),
+            #{frstRegisterId}
         )
     </insert>
     <!--  ================================== 입찰 공고 등록 관련 쿼리 ================================== -->
