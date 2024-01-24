@@ -78,14 +78,14 @@
 	                            <div class="tr">
 	                                <label for="uid">아이디</label>
 	                                <span class="limit-width">
-	                                    <input type="text" name="uid" id="uid" placeholder="아이디 (4~12자 이내의 영문 또는 영문+숫자 조합 )" oninput="inputChk('id',$(this))">
+	                                    <input type="text" name="uid" id="uid" placeholder="아이디 (4~12자 이내의 영문 또는 영문+숫자 조합 )" oninput="inputChk('id',$(this))" maxlength="12">
 	                                </span>
 	                                <span class="t-info">4-12자 이내의 문자 또는 문자+숫자만 사용 가능</span>
 	                            </div>
 	                            <div class="tr">
 	                                <label for="upw">비밀번호</label>
 	                                <span class="limit-width">
-	                                    <input type="password" name="upw" id="upw" placeholder="비밀번호(영문 숫자 특수기호 조합 8~12자로 입력)" oninput="inputChk('pwd', $(this))">
+	                                    <input type="password" name="upw" id="upw" placeholder="비밀번호(영문 숫자 특수기호 조합 8~12자로 입력)" oninput="inputChk('pwd', $(this))" maxlength="12">
 	                                </span>
 	                                <span class="t-info">8~12자 이내의 영문+숫자+특수문자만 사용 가능</span>
 	                            </div>
@@ -336,7 +336,7 @@ $('#foreign').on('click',function () {
         $('#updFileName1').val('');
         $('#updFileName1').addClass('etr');
         // $('#updFile1').addClass('btn-blue-big');
-        $('#updFile1')[0].files = null;
+        $('#updFile1').val("");
         $('#updFile1').attr("disabled",true);
 
     } else {
@@ -361,7 +361,8 @@ $('#agreeAll2').on('click',function () {
         $('#vrsc_ipUserEmail').val($('#ipUserEmail').val());
         $('#vrsc_ipUserEmailDomain2').val($('#ipUserEmailDomain').val());
 
-        $('#vrsc_mobile1').val($('#mobile1').val());
+        // $('#vrsc_mobile1').val($('#mobile1').val());
+
         $('#vrsc_mobile2').val($('#mobile2').val());
     }
 });
@@ -596,7 +597,7 @@ $('#submitBtn').on('click',function(){
     form.bsnmRegistNo = form.bsnmRegistNo.replace(/-/g,"");
     form.vrscMoblphonNo = form.vrscMoblphonNo.replace(/-/g,"");
     form.vrscBsnmRegistNo = form.vrscBsnmRegistNo.replace(/-/g,"");
-    console.log(form);
+    // console.log(form);
 
     // 필수 조건 검증
 
