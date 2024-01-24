@@ -1118,6 +1118,7 @@
 
           $('.close').click(function () {
               $('#exampleModal').hide();
+              $("#overlay").hide();
               resetForm();
               start();
           });
