@@ -82,7 +82,7 @@
                             <tr>
                                 <th scope="row">아이템 상품명<i class="icon icon-required"></i></th>
                                 <td>
-                                    <select class="form-select select-sm" id="itmSn">
+                                    <select class="form-select select-lg" id="itmSn">
                                         <option value="선택">선택</option>
                                     </select>
                                 </td>

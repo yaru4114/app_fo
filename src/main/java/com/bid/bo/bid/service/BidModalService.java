@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -60,11 +62,35 @@ public class BidModalService {
         vo.setPermWtRate(decimalValue);
         vo.setFrstRegisterId("admin");
 
-        if (vo.getDspyAt().equals('Y')) {
-            vo.setBidSttusCode("12");
-        } else {
-            vo.setBidSttusCode("11");
+        String bDt = vo.getBddprBeginDt();
+        String eDt = vo.getBddprEndDt();
+
+        LocalDateTime todayDt = LocalDateTime.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+
+        LocalDateTime beginDt = LocalDateTime.parse(bDt, formatter);
+        LocalDateTime endDt = LocalDateTime.parse(eDt, formatter);
+
+        /*
+         * 공고대기 [11]
+         * 입찰예정 [12]
+         * 투찰중 [13]
+         * 마감 [30]
+         * */
+
+        if (todayDt.isBefore(beginDt)) {
+            if (vo.getDspyAt().equals("Y")) {
+                vo.setBidSttusCode("12");
+            } else {
+                vo.setBidSttusCode("11");
+            }
+        } else if (todayDt.isAfter(beginDt) && todayDt.isBefore(endDt)) {
+            vo.setBidSttusCode("13");
+        } else if (todayDt.isAfter(endDt)) {
+            vo.setBidSttusCode("30");
         }
+
         bidModalDAO.creBidNotice(vo);
 
         resultMap.put("success", true);
