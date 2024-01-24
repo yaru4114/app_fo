@@ -2,11 +2,14 @@ package com.bid.fo.main.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bid.fo.main.dao.BidMainDAO;
 import com.bid.fo.main.model.MainVO;
+import com.bid.fo.member.model.LoginVO;
 
 @Service
 public class BidMainService {
@@ -34,16 +37,33 @@ public class BidMainService {
 		return bidIntrstCnt;
 	}
 	
-	public int insertIntrstPblanc(MainVO mainVO){
-		mainVO.setFrstRegisterId("test");
-		mainVO.setLastChangerId("test");
+	public int insertIntrstPblanc(MainVO mainVO, LoginVO loginVO){
+		   
+	    String userNo = loginVO.getUserNo();
+	    String userId = loginVO.getUserId();
+		   
+	    mainVO.setBidEntrpsNo(userNo);
+		mainVO.setFrstRegisterId(userId);
+		mainVO.setLastChangerId(userId);
+		
 		int result = bidMainDAO.insertIntrstPblanc(mainVO);
+		if(result > 0) {
+			bidMainDAO.increIntrstEntrpsCnt(mainVO);
+		}
 		return result;
 	}
 	
-	public int deleteIntrstPblanc(MainVO mainVO){
-		mainVO.setLastChangerId("test");
+	public int deleteIntrstPblanc(MainVO mainVO, LoginVO loginVO){
+		   
+	    String userNo = loginVO.getUserNo();
+	    String userId = loginVO.getUserId();
+	    mainVO.setBidEntrpsNo(userNo);
+		mainVO.setLastChangerId(userId);
+		
 		int result = bidMainDAO.deleteIntrstPblanc(mainVO);
+		if(result > 0) {
+			bidMainDAO.decreIntrstEntrpsCnt(mainVO);
+		}
 		return result;
 	}
 }

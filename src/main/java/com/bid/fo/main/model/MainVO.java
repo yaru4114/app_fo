@@ -9,6 +9,7 @@ public class MainVO {
 	 private String bidPblancId; 	  /** 입찰 공고 아이디 */
 	 private String bidEntrpsNo; 	  /** 입찰 공고 아이디 */
 	 private String metalCode; 		  /** 금속 코드 */
+	 private String metalCodeNm; 		  /** 금속 코드 */
 	 private String brandGroupCode;   /** 브랜드 그룹 코드 */
 	 private String brandGroupCodeNm;   /** 브랜드 그룹 코드명 */
 	 private String brandCode; 		  /** 브랜드 코드 */

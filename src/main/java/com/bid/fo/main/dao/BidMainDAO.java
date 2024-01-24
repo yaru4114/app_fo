@@ -20,4 +20,9 @@ public interface BidMainDAO {
 	int insertIntrstPblanc(MainVO mainVO);
 	
 	int deleteIntrstPblanc(MainVO mainVO);
+	
+	int increIntrstEntrpsCnt(MainVO mainVO);
+	
+	int decreIntrstEntrpsCnt(MainVO mainVO);
+
 }

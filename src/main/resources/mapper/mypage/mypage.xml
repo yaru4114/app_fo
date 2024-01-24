@@ -4,6 +4,7 @@
    <select id="selectBidBddprList" parameterType="com.bid.fo.main.model.MainVO" resultType="com.bid.fo.main.model.MainVO">
       SELECT BBB.BID_PBLANC_ID         /* 입찰 공고 아이디 */
           , BBB.METAL_CODE            /* 금속 코드 */   
+          , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'METAL_CODE' AND SUB_CODE = BBB.METAL_CODE) AS METAL_CODE_NM
           , ISNULL((SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'BRAND_GROUP_CODE' AND SUB_CODE = BBB.BRAND_GROUP_CODE),'ANY BRAND') AS BRAND_GROUP_CODE_NM
           , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'DSTRCT_LCLSF_CODE' AND SUB_CODE = BBB.DSTRCT_LCLSF_CODE) AS DSTRCT_LCLSF_CODE_NM
           , ISNULL(BBB.BRAND_CODE, 'ANY BRAND') AS BRAND_CODE          /* 브랜드 코드 */
@@ -61,7 +62,7 @@
 	            AND BBB.BID_STTUS_CODE = '13'
 	        </if>
 	        <if test="pageSubCode == '02'">
-	            AND BBB.BID_STTUS_CODE = '13'
+	            AND BBB.BID_STTUS_CODE = '13' AND BBD.CANCL_AT != 'Y'
 	        </if>
 	        <if test="pageSubCode == '03'">
 	            AND BBB.BID_STTUS_CODE = '13' AND BBD.CANCL_AT = 'Y'
@@ -99,6 +100,7 @@
    	 FROM BD_INTRST_DTL AS BID
 	 LEFT JOIN (SELECT BBB.BID_PBLANC_ID         /* 입찰 공고 아이디 */
 			         , BBB.METAL_CODE            /* 금속 코드 */   
+			         , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'METAL_CODE' AND SUB_CODE = BBB.METAL_CODE) AS METAL_CODE_NM
 			         , ISNULL((SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'BRAND_GROUP_CODE' AND SUB_CODE = BBB.BRAND_GROUP_CODE),'브랜드 무관') AS BRAND_GROUP_CODE_NM
 			         , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'DSTRCT_LCLSF_CODE' AND SUB_CODE = BBB.DSTRCT_LCLSF_CODE) AS DSTRCT_LCLSF_CODE_NM
 			         , ISNULL(BBB.BRAND_CODE, 'ANY BRAND') AS BRAND_CODE            /* 브랜드 코드 */

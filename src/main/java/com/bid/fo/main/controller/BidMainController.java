@@ -47,7 +47,6 @@ public class BidMainController {
       String loginYn = (String)session.getAttribute("loginYn");
       LoginVO loginVO = (LoginVO) session.getAttribute("loginUser");
       log.info("loginYn : {}",loginYn);
-      log.info("loginVO : {}",loginVO);
       
       if("Y".equals(loginYn) && loginVO != null) {
     	mainVO.setBidEntrpsNo(loginVO.getUserNo());
@@ -55,7 +54,7 @@ public class BidMainController {
         int bidIntrstCnt = bidMainService.selectBidIntrstCnt(mainVO);
         
         model.addAttribute("loginYn","Y");
-    	model.addAttribute("bidEntrpsNo",loginVO.getUserNo());
+        model.addAttribute("bidEntrpsNo",loginVO.getUserNo());
         model.addAttribute("bidIntrstCnt",bidIntrstCnt); //관심 개수
         model.addAttribute("bidDashBoardList",bidDashBoardList);
         
@@ -112,8 +111,14 @@ public class BidMainController {
    @ResponseBody
    public ResponseEntity<?> insertIntrstPblanc(@RequestBody MainVO mainVO, HttpSession session) {
       Map<String,Object> map = new HashMap<>();
-      log.info("insert : {}",mainVO);
-      int result = bidMainService.insertIntrstPblanc(mainVO);
+      
+      LoginVO loginVO = (LoginVO) session.getAttribute("loginUser");
+
+//      if(loginVO == null) {
+//    	  return ResponseEntity.ok(map);
+//      }
+      
+      int result = bidMainService.insertIntrstPblanc(mainVO, loginVO);
 
       if (result > 0) {
          map.put("result", 'S');
@@ -129,8 +134,9 @@ public class BidMainController {
    @ResponseBody
    public ResponseEntity<?> deleteIntrstPblanc(@RequestBody MainVO mainVO, HttpSession session) {
       Map<String,Object> map = new HashMap<>();
-      log.info("delete : {}",mainVO);
-      int result = bidMainService.deleteIntrstPblanc(mainVO);
+      LoginVO loginVO = (LoginVO) session.getAttribute("loginUser");
+      
+      int result = bidMainService.deleteIntrstPblanc(mainVO, loginVO);
       if (result > 0) {
          map.put("result", 'S');
          map.put("errorMsg", "");

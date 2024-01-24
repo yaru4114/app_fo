@@ -134,11 +134,11 @@
 	<!-- script custom :: END -->
 	<script>
 	var loginYn = "Y";
-	var bidEntrpsNo = "${bidEntrpsNo}";
-
+	var bidEntrpsNo = "${bidEntrpsNo}"; 
+	
 	$(function(){
-		var tabCode = "${tabCode}" == null ? '01': "${tabCode}";
-		
+		var tabCode = "${tabCode}"
+
 		if(tabCode == '02'){
 			$("#tab-02").trigger("click");
 			$(".custom_radio").hide();
@@ -148,7 +148,7 @@
 			$(".custom_radio").hide();
 		
 		}else{
-			selectBdMyList(tabCode,'01');
+			selectBdMyList('01','01');
 		}
 		
 		// =============== SELECT BOX ==================
@@ -175,10 +175,12 @@
 	// =============== TAB ==================
 	$('.tab_btn_group li').click(function(e){
 	    var pageCode = $(this).attr('data-tab');
+	    var pageSubCode = pageCode == '01' ? '01' : '';
 	    $('.tab_btn_group li').removeClass('on');
 	    $(this).addClass('on');
 	    
 	    if(pageCode == '01' ){
+	    	$("#featured-1").prop("checked",true);
 	    	$(".custom_radio").show();
 	    }else if(pageCode == '02' ){
 	    	$(".custom_radio").hide();
@@ -189,7 +191,7 @@
 	    } 
 	    
 	  	//리스트 조회
-	    selectBdMyList(pageCode);
+	    selectBdMyList(pageCode,pageSubCode);
 	})
 		
 	// =============== LEFT WING NAV ==================
@@ -277,7 +279,7 @@
 
 		$("input[name='featuredGroup1']").on('change', function(){
 		    pageCode = "01";
-		    pageSubCode = this.value; // 선택한 라디오 버튼의 값을 사용
+		    pageSubCode = this.value; 
 		    selectBdMyList(pageCode, pageSubCode);
 		});
 		
@@ -285,7 +287,7 @@
 		
 		// =============== 목록 조회 ==================
 		function selectBdMyList(pageCode,pageSubCode){
-			console.log(pageCode,pageSubCode)
+
 			if(pageCode == -1){
 				 pageCode = $("li[class='item on']").attr('data-tab');
 			}
@@ -308,7 +310,7 @@
 				data : JSON.stringify(params),
 				contentType : 'application/json',
 				success : function(res) {
-					selectBdMyListGrid(res, pageCode);
+					selectBdMyListGrid(res, pageCode, pageSubCode);
 				},
 				error : function(request, status, error) {
 					console.log("error")
@@ -319,15 +321,21 @@
 		}
 		
 		
-		function selectBdMyListGrid(res, pageCode){
+		function selectBdMyListGrid(res, pageCode, pageSubCode){
 			var tabNm = '';
  			$("#bddprTotCnt").text(res.bidBddprCntList.bddprTotCnt);
 			$("#scsbidTotCnt").text(res.bidBddprCntList.scsbidTotCnt);
 			$("#defeatTotCnt").text(res.bidBddprCntList.defeatTotCnt);
 			$("#failTotCnt").text(res.bidBddprCntList.failTotCnt);
-			
+			console.log("pageSubCode : "+pageSubCode)
 			if(pageCode == '01' ){
-				tabNm = "투찰"
+				if(pageSubCode == '02'){
+					tabNm = "투찰 중"
+				}else if(pageSubCode == '03'){
+					tabNm = "투찰접수 취소"
+				}else{
+					tabNm = "투찰"
+				}
 				$(".fc-red").text(res.bidBddprCntList.bddprTotCnt);
 		    }else if(pageCode == '02' ){
 		    	tabNm = "낙찰"
@@ -350,14 +358,14 @@
 					html += '       <div class="cart-item-wrap type3">';	
 				}
 				html += '           <figure class="figure figure1">';
-				html += '               <img src="'+res.bidBddprList[i].pcImageOneCours+'" alt="알루미늄" class="w">';
+				html += '               <img src="'+res.bidBddprList[i].pcImageOneCours+'" alt="" class="w">';
 				html += '           </figure>';
 				html += '           <div class="figure-con">';
 				html += '               <div class="pd-brand-info">';
 				html += '               	<h3 class="pd-bid-no">'+res.bidBddprList[i].bidPblancId+'</h3>';
 				html += '                   <div class="pd-wrap">';
 				html += '                       <div class="pd-brand">';
-				html += '                           <div class="pd-label">AL</div>';
+				html += '                           <div class="pd-label">'+res.bidBddprList[i].metalCodeNm+'</div>';
 				html += '                           <div class="brand-nation">';
 				html += '                               <img src="'+res.bidBddprList[i].nationUrl+'">';
 				html += '                           </div>';
@@ -384,14 +392,14 @@
 				html += '           </div>';
 				if(res.bidBddprList[i].bidSttusCode == '13' ){
 					html += '           <div class="btns">';
-					html += '               <a href="javascript:;" class="btn-bid-blue" name="bidDetail" data-bid-id="'+res.bidBddprList[i].bidPblancId+'">투찰중</a>';
+					html += '               <a href="javascript:;" class="btn-bid-blue" name="bidDetail" data-bid-id="'+res.bidBddprList[i].bidPblancId+'">상세보기</a>';
 					html += '           </div>';
 					html += '           <span class="bid-d-day abs-info">';
 					html += '       		투찰 마감까지 <span class="time" id="time'+res.bidBddprList[i].bidPblancId+'">'+setFmtDate(res.bidBddprList[i].bddprEndDt,"time"+res.bidBddprList[i].bidPblancId ,res.bidBddprList[i].bidSttusCode)+'</span>';
 					html += '       	</span>';
 				}else if(res.bidBddprList[i].bidSttusCode == '30' || res.bidBddprList[i].bidSttusCode == '31' || res.bidBddprList[i].bidSttusCode == '32' ){
 					html += '           <div class="btns">';
-					html += '               <a href="javascript:;" class="btn-bid-black" name="bidDetail" data-bid-id="'+res.bidBddprList[i].bidPblancId+'">마감</a>';
+					html += '               <a href="javascript:;" class="btn-bid-blue" name="bidDetail" data-bid-id="'+res.bidBddprList[i].bidPblancId+'">상세보기</a>';
 					html += '           </div>';
 					if(res.bidBddprList[i].bidSttusCode == '30' ){
 						html += '           <span class="t-info abs-info">기한마감</span>';

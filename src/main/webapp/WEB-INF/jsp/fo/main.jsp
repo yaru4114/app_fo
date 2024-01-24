@@ -117,7 +117,7 @@
 				<div class="section prod-list-wrap bid">
 					<div class="inwrap">
 			            <!-- ITEM TITLE :: START  -->
-			            <h2 class="h2-new">알루미늄</h2>
+			            <h2 class="h2-new">공고 목록</h2>
 			            <!-- ITEM TITLE :: END  -->
 			            <!-- FILTER AREA :: START -->
 			            <div class="filter_area">
@@ -170,6 +170,7 @@
 			                        <div class="opt_item">
 			                            <label for="brand">브랜드</label>
 			                            <select name="" id="brand" class="brand">
+			                             <option></option>
 			                                <option value="">브랜드(전체)</option>
 			                                <c:forEach var="list" items="${brandGroupList}">
 			                                	<option value="${list.subCode }">${list.codeDcone }</option>
@@ -286,7 +287,6 @@ var loginYn = "${loginYn}";
 var bidEntrpsNo = "${bidEntrpsNo}";
 
 $(function(){
-	
 
 	// =============== SELECT BOX ==================
 	$('.brand').select2({
@@ -353,10 +353,12 @@ $(function(){
 	 			success : function(res) {
 	 				likeBtn.toggleClass('active');
 	 				$("#intrstCnt").text(parseInt($("#intrstCnt").text()) + 1);
-	 				
+	 				var intrstEntrpsCnt = likeBtn.siblings().find(".intrstEntrpsCnt");
+	 				intrstEntrpsCnt.text(parseInt(intrstEntrpsCnt.text())+1);
 	 			},
 	 			error : function(request, status, error) {
-	 				console.log("error")
+	 				alert("오류가 발생했습니다")
+	 				location.href="/fo/bid";
 	 			} 
 	 		});
 	 	}else{
@@ -369,9 +371,12 @@ $(function(){
 	 			success : function(res) {
 	 				likeBtn.removeClass('active');
 	 				$("#intrstCnt").text(parseInt($("#intrstCnt").text()) - 1);
+	 				var intrstEntrpsCnt = likeBtn.siblings().find(".intrstEntrpsCnt");
+	 				intrstEntrpsCnt.text(parseInt(intrstEntrpsCnt.text())-1);
 	 			},
 	 			error : function(request, status, error) {
-	 				console.log("error")
+	 				alert("오류가 발생했습니다")
+	 				location.href="/fo/bid";
 	 			} 
 	 		});
 	 	}
@@ -446,6 +451,25 @@ $(function(){
 		$('#endDate').val(d2);
 	}
 	
+	function setFmtDate(startDate, endDate, id, bidSttusCode){
+		setInterval(function(){
+			var now = new Date();
+			var startFmtDate = new Date(viewDateFmt2(startDate));
+			var endFmtDate = new Date(viewDateFmt2(endDate));
+			$("#"+id).html("");
+			if(bidSttusCode == "12" && startFmtDate >= now){
+				$("#"+id).html(" - " + Math.floor((startFmtDate-now) / (1000*60*60*24)) +"일 "+Math.floor(((startFmtDate-now) / (1000*60*60)) % 24) +"시간 "
+						+Math.floor(((startFmtDate-now) / (1000*60)) % 60) +"분 "+Math.floor((startFmtDate-now) / 1000 % 60) + "초");
+			}else if(bidSttusCode == "13" && endFmtDate >= now){
+				$("#"+id).html(" - " + Math.floor((endFmtDate-now) / (1000*60*60*24)) +"일 "+Math.floor(((endFmtDate-now) / (1000*60*60)) % 24) +"시간 "
+						+Math.floor(((endFmtDate-now) / (1000*60)) % 60) +"분 "+Math.floor((endFmtDate-now) / 1000 % 60) + "초");
+			}else{
+				$("#"+id).html("");    
+			}
+        },1000); //1초마다 
+        
+	}
+	
 	
 	// =============== 목록 조회 ==================
 	function selectBdList(bidSttusCode){
@@ -501,14 +525,14 @@ $(function(){
 				html += '       <div class="cart-item-wrap type4">';	
 			}
 			html += '           <figure class="figure figure1">';
-			html += '               <img src="'+res.bidList[i].pcImageOneCours+'" alt="알루미늄" class="w">';
+			html += '               <img src="'+res.bidList[i].pcImageOneCours+'" alt="" class="w">';
 			html += '           </figure>';
 			html += '           <div class="figure-con">';
 			html += '               <div class="pd-brand-info">';
 			html += '               	<h3 class="pd-bid-no">'+res.bidList[i].bidPblancId+'</h3>';
 			html += '                   <div class="pd-wrap">';
 			html += '                       <div class="pd-brand">';
-			html += '                           <div class="pd-label">AL</div>';
+			html += '                           <div class="pd-label">'+res.bidList[i].metalCodeNm+'</div>';
 			html += '                           <div class="brand-nation">';
 			html += '                               <img src="'+res.bidList[i].nationUrl+'">';
 			html += '                           </div>';
@@ -522,7 +546,7 @@ $(function(){
 			html += '                               </li>';
 			html += '                               <li>';
 			html += '                                   <span>관심기업</span>';
-			html += '                                   <span>'+res.bidList[i].intrstEntrpsQy+'</span>';
+			html += '                                   <span class="intrstEntrpsCnt">'+res.bidList[i].intrstEntrpsQy+'</span>';
 			html += '                               </li>';
 			html += '                           </ul>';
 			if(loginYn == 'Y'){
@@ -589,7 +613,7 @@ $(function(){
 		
     
 		if(res.bidList.length == 0){	
-			$("#bdDiv").append("<div class='no-data empty-content'>데이터가 존재하지 않습니다.</div>")
+			$("#bdDiv").append("<div class='no-data empty-content' style='border-top:none;'>데이터가 존재하지 않습니다.</div>")
 		}
 		
 
@@ -628,24 +652,7 @@ $(function(){
 		return date.substring(0,4)+"/"+date.substring(4,6)+"/"+date.substring(6,8)+" "+date.substring(8,10)+":"+date.substring(10,12)+":"+date.substring(12,14);
 	}
 
-	function setFmtDate(startDate, endDate, id, bidSttusCode){
-		setInterval(function(){
-			var now = new Date();
-			var startFmtDate = new Date(viewDateFmt2(startDate));
-			var endFmtDate = new Date(viewDateFmt2(endDate));
-
-			if(bidSttusCode == "12" && startFmtDate >= now){
-				$("#"+id).html(" - " + Math.floor((startFmtDate-now) / (1000*60*60*24)) +"일 "+Math.floor(((startFmtDate-now) / (1000*60*60)) % 24) +"시간 "
-						+Math.floor(((startFmtDate-now) / (1000*60)) % 60) +"분 "+Math.floor((startFmtDate-now) / 1000 % 60) + "초");
-			}else if(bidSttusCode == "13" && endFmtDate >= now){
-				$("#"+id).html(" - " + Math.floor((endFmtDate-now) / (1000*60*60*24)) +"일 "+Math.floor(((endFmtDate-now) / (1000*60*60)) % 24) +"시간 "
-						+Math.floor(((endFmtDate-now) / (1000*60)) % 60) +"분 "+Math.floor((endFmtDate-now) / 1000 % 60) + "초");
-			}else{
-				$("#"+id).html("");    
-			}
-        },1000); //1초마다 
-        
-	}
+	
 	
 	//대쉬보드 클릭 시 마이페이지 공고 및 관심목록 이동
 	$(".dashboard .item, .btn_nav").click(function(){
