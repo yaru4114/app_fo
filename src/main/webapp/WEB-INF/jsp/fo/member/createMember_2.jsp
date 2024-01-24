@@ -374,12 +374,6 @@ $('#prevBtn').on('click', function(){
    }
 });
 
-// 사업자등록번호 체크
-function coRegiNoChk(value){
-
-    alert("사업자가 확인되었습니다.");
-}
-
 // 이메일 선택
 $('#ipUserEmailDomain_select').on('change',function(){
     $('#ipUserEmailDomain').val($('#ipUserEmailDomain_select').val());
