@@ -999,18 +999,18 @@
 
       var columns = [
         { name: "bidPblancId", fieldName: "bidPblancId", type: "text", width: "110", styles: { textAlignment: "near" } ,header:{text:"입찰공고번호"}},
-        { name: "metalCode", fieldName: "metalCode", type: "text", width: "80", styles: { textAlignment: "near" } ,header:{text:"메탈"} },
+        { name: "metalCode", fieldName: "metalCode", type: "text", width: "60", styles: { textAlignment: "near" } ,header:{text:"메탈"} },
         { name: "itmPrdlstKorean", fieldName: "itmPrdlstKorean", type: "text", width: "230", styles: { textAlignment: "near" } ,header:{text:"상품명"}},
         { name: "brandCode", fieldName: "brandCode", type: "text", width: "100", styles: { textAlignment: "near" } ,header:{text:"구분"}},
         { name: "brandGroupCode", fieldName: "brandGroupCode", type: "text", width: "120", styles: { textAlignment: "near" } ,header:{text:"그룹"} },
-        { name: "dstrctLclsfCode", fieldName: "dstrctLclsfCode", type: "text", width: "80", styles: { textAlignment: "near" } ,header:{text:"권역"}},
-        { name: "bidWt", fieldName: "bidWt", type: "text", width: "80", styles: { textAlignment: "near" } ,header:{text:"수량"}},
+        { name: "dstrctLclsfCode", fieldName: "dstrctLclsfCode", type: "text", width: "60", styles: { textAlignment: "near" } ,header:{text:"권역"}},
+        { name: "bidWt", fieldName: "bidWt", type: "text", width: "60", styles: { textAlignment: "near" } ,header:{text:"수량"}},
         { name: "itmQty", fieldName: "itmQty", type: "text", width: "80", styles: { textAlignment: "near" } ,header:{text:"중량"}},
         { name: "bddprDate", fieldName: "bddprDate", type: "text", width: "250", styles: { textAlignment: "near" } ,header:{text:"시작 ~ 마감"}},
-        { name: "activeAt", fieldName: "activeAt", type: "text", width: "100", styles: { textAlignment: "near" } ,header:{text:"활성여부"}} ,
+        { name: "activeAt", fieldName: "activeAt", type: "text", width: "80", styles: { textAlignment: "near" } ,header:{text:"활성여부"}} ,
         // { name: "frstRegist", fieldName: "frstRegist", editor: {type:"multiline" , altEnterNewLine:true , height:0} , styleName: ".multi-line-editor", width: "170", styles: { textAlignment: "near" },header:{text:"등록일\n(등록자)" , styleName:"multi-line-css"}},
         { name: "frstRegistDt", fieldName: "frstRegistDt", type: "text", width: "120", styles: { textAlignment: "near"} ,header:{text:"등록일"} },
-        { name: "frstRegisterId", fieldName: "frstRegisterId", type: "text", width: "80", styles: { textAlignment: "near" } ,header:{text:"등록자"} },
+        { name: "frstRegisterId", fieldName: "frstRegisterId", type: "text", width: "70", styles: { textAlignment: "near" } ,header:{text:"등록자"} },
         { name: "bidStatNm", fieldName: "bidStatNm", type: "text", width: "80", styles: { textAlignment: "near" } ,header:{text:"상태"} },
         { name: "bdngCmpny", fieldName: "bdngCmpny", type: "text", width: "70", styles: { textAlignment: "near" },header:{text:"투찰기업"}},
         { name: "lwstPrprc", fieldName: "lwstPrprc", type: "text", width: "100", styles: { textAlignment: "near" },header:{text:"최저프리미엄가"}}
