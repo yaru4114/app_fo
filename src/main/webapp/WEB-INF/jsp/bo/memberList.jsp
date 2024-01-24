@@ -512,9 +512,6 @@
 
                 // 입찰 회원 정보 조회 호출
                 getMemberInfo(bidEntrpsNo);
-
-                // 모달 생성
-                $('#detailModal').show();
             };
         }
 
@@ -580,6 +577,10 @@
 
         // 회원 상세 정보 조회
         function getMemberInfo(data) {
+            if (data === "" || (typeof data) === "undefined" ) {
+                return
+            }
+
             var param = {
                 bidEntrpsNo: data
             };
@@ -591,6 +592,9 @@
                 data: JSON.stringify(param),
                 success: function (response) {
                     var memberInfo = response.result[0];
+
+                    // 모달 생성
+                    $('#detailModal').show();
 
                     // 회사 기본 정보
                     $('#bidMberId').val(memberInfo.bidMberId);

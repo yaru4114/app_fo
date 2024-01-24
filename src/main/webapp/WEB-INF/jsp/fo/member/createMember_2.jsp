@@ -155,8 +155,18 @@
 		                                <select class="dropdown" name="mobile1" id="mobile1">
 									        <option value="+82">+82(대한민국)</option>
                                             <option value="+1">+1(미국&캐나다)</option>
+                                            <option value="+7">+7(러시아)</option>
+                                            <option value="+33">+33(프랑스)</option>
+                                            <option value="+34">+34(스페인)</option>
+                                            <option value="+39">+39(이탈리아)</option>
+                                            <option value="+44">+44(영국)</option>
+                                            <option value="+49">+49(독일)</option>
+                                            <option value="+61">+61(호주)</option>
+                                            <option value="+62">+62(인도네시아)</option>
                                             <option value="+81">+81(일본)</option>
                                             <option value="+84">+84(베트남)</option>
+                                            <option value="+86">+86(중국)</option>
+                                            <option value="+886">+886(대만)</option>
 									    </select>
 									    <span class="input">
 		                                    <input type="text" name="mobile2" id="mobile2" placeholder="휴대폰 번호" oninput="autoPhoneCheck(this)" maxlength="13">
@@ -232,11 +242,8 @@
 	                            <div class="tr tr-bid-tel">
 	                                <label for="">휴대폰 번호</label>
 	                               	<div class="input-complex">
-		                                <select class="dropdown" name="vrsc_mobile1" id="vrsc_mobile1">
+		                                <select class="dropdown" name="vrsc_mobile1" id="vrsc_mobile1" readonly>
 									        <option value="+82">+82(대한민국)</option>
-									        <option value="+1">+1(미국&캐나다)</option>
-										    <option value="+81">+81(일본)</option>
-										    <option value="+84">+84(베트남)</option>
 									    </select>
 									    <span class="input">
 		                                    <input type="text" name="vrsc_mobile2" id="vrsc_mobile2" placeholder="휴대폰 번호" oninput="autoPhoneCheck(this)" maxlength="13">
@@ -431,7 +438,7 @@ function chkInfo(form){
     var idFilter2 = /^[a-zA-Z]{4,12}$/g;
     var pwdFilter = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,12}$/;
     // var mobileFilter = /^\d{10,11}$/;
-    var mobileFilter = /^\d{3}-\d{3,4}-\d{4}$/;
+    var mobileFilter = /^\d{3}-\d{3,4}-\d{3,4}$/;
 
     // 아이디
     if (form.bidMberId === null || form.bidMberId.length <= 0) {

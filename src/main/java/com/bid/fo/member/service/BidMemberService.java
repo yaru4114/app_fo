@@ -100,15 +100,13 @@ public class BidMemberService {
                 resultMap.put("success", false);
                 resultMap.put("message", "관리자 승인 대기상태입니다.\n" +
                         "승인 후 로그인 가능합니다.\n" +
-                        "고객센터에 문의해주세요.\n" +
-                        "(02-6952-5095)");
+                        "고객센터에 문의해주세요.");
                 break;
             case "02" :
                 resultMap.put("success", false);
                 resultMap.put("message", "승인 거절된 계정입니다.\n" +
 //                        "거절 사유 : " + "\n"+
-                        "고객센터에 문의해주세요.\n" +
-                        "(02-6952-5095)");
+                        "고객센터에 문의해주세요.");
                 break;
             case "03" :
                 // 회원 상태 판별 (정상 / 차단 / 승인대기)
@@ -127,15 +125,13 @@ public class BidMemberService {
                     case "02" :
                         resultMap.put("success", false);
                         resultMap.put("message", "투찰 취소 3회 초과로 로그인이 차단되었습니다.\n" +
-                                "자세한 사항은 고객센터로 문의해주세요.\n" +
-                                "(02-6952-5095)");
+                                "자세한 사항은 고객센터로 문의해주세요.");
                         break;
                     case "03" :
                         resultMap.put("success", false);
                         resultMap.put("message", "관리자 승인 대기상태입니다.\n" +
                                 "승인 후 로그인 가능합니다.\n" +
-                                "고객센터에 문의해주세요.\n" +
-                                "(02-6952-5095)");
+                                "고객센터에 문의해주세요.");
                         break;
                 }
                 break;

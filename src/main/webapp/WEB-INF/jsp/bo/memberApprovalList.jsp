@@ -571,6 +571,10 @@
 
         // Grid.Row 클릭시
         function showDetailPopup(bidMberId){
+            // 헤더 클릭시 파라메터 없는것 조건처리
+            if (bidMberId === "" || (typeof bidMberId) === "undefined" ) {
+                return
+            }
             var BidMemberVO = {
                 bidMberId: bidMberId // ID
             }
@@ -601,7 +605,7 @@
             $("#rejectBtn").show();
             $("#closeBtn").show();
 
-            $('#modalTitle').text(data.entrpsNm + "(" +data.bidConfmSttusCode +")");
+            $('#modalTitle').text("가입승인대기 > " + data.entrpsNm + " (" +data.bidConfmSttusCode +")");
 
             $('.modalUserId').val(data.bidMberId);
             $('#modalUserPwd').val(data.bidMberSecretNo);
@@ -656,8 +660,6 @@
             if (num === 1) {
                 name = doc1.docFileNm;
                 path = doc1.docFileCours;
-
-                console.log(doc1);
             } else if (num === 2) {
                 name = doc2.docFileNm;
                 path = doc2.docFileCours;
