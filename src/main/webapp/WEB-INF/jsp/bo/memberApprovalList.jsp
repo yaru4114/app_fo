@@ -370,14 +370,7 @@
             getMemberApprovalList();
 
             // 상태별 회원 수 Count
-            var statusParam = {
-                statusCode: []
-            };
-            $('.list-total .label').each(function (index, element) {
-                statusParam.statusCode.push($(element).text().trim());
-            });
-
-            getCountByStatus(statusParam);
+            countStatUpdate();
 
             // datepicker 초기화
             $('#datepicker1, #datepicker2').datepicker({
@@ -461,6 +454,7 @@
         $('#searchBtn').on('click', function () {
             gridView.setPage(0);
             getMemberApprovalList();
+            countStatUpdate();
         });
 
         var httpRequest;
@@ -742,13 +736,7 @@
         function modalClose(){
             $("#blockModal").hide();
 
-            var statusParam = {
-                statusCode: []
-            };
-            $('.list-total .label').each(function (index, element) {
-                statusParam.statusCode.push($(element).text().trim());
-            });
-            getCountByStatus(statusParam);
+            countStatUpdate();
         }
 
         /** /MODAL CONTROL */
@@ -798,6 +786,16 @@
             });
         }
         /* /상태별 회원 수 */
+
+        function countStatUpdate(){
+            var statusParam = {
+                statusCode: []
+            };
+            $('.list-total .label').each(function (index, element) {
+                statusParam.statusCode.push($(element).text().trim());
+            });
+            getCountByStatus(statusParam);
+        }
     </script>
 
 </div>
