@@ -72,14 +72,10 @@ public class BidModalService {
 
     public Map<String, Object> getBidNoticeDetail(BidNoticeVO vo) {
         Map<String, Object> resultMap = new HashMap<>();
-        List<BidNoticeVO> resultList = bidModalDAO.getBidDetail(vo);
+        BidNoticeVO resultList = bidModalDAO.getBidDetail(vo);
 
-        if (resultList.size() == 0) {
-            BidNoticeVO result = bidModalDAO.getBidDetailNoUpdt(vo);
-            resultMap.put("result", result);
-        } else {
-            resultMap.put("result", resultList.get(0));
-        }
+        resultMap.put("result", resultList);
+
         return resultMap;
     }
 

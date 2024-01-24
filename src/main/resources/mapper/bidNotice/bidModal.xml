@@ -139,24 +139,11 @@
     <!--  ================================== 입찰 공고 등록 관련 쿼리 ================================== -->
 
     <!--  ================================== 입찰 공고 수정 관련 쿼리 ================================== -->
-    <select id="getBidDetailNoUpdt" parameterType="com.bid.bo.bid.vo.BidNoticeVO" resultType="com.bid.bo.bid.vo.BidNoticeVO">
-        SELECT * FROM BD_BID_BAS
-        WHERE BID_PBLANC_ID = #{bidPblancId}
-    </select>
 
     <select id="getBidDetail" parameterType="com.bid.bo.bid.vo.BidNoticeVO" resultType="com.bid.bo.bid.vo.BidNoticeVO">
-        SELECT
-        B.*,
-        H.BID_UPDT_CN,
-        H.BID_UPDT_RESN
-        FROM
-        BD_BID_BAS B
-        INNER JOIN
-        BD_BID_UPDT_HST H
-        ON
-        B.BID_PBLANC_ID = H.BID_PBLANC_ID
-        WHERE
-        B.BID_PBLANC_ID = #{bidPblancId}
+        SELECT *
+        FROM BD_BID_BAS
+        WHERE BID_PBLANC_ID = #{bidPblancId}
     </select>
 
     <update id="chgBidNotice" parameterType="com.bid.bo.bid.vo.BidNoticeVO">

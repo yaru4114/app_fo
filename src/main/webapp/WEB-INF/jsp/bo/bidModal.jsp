@@ -518,7 +518,6 @@
                     contentType: 'application/json',
                     data: JSON.stringify(param),
                     success: function (response) {
-                        console.log('response : ', response);
                         var selectElement = $('#' + elementId);
 
                         selectElement.empty();
@@ -688,7 +687,6 @@
                 success: function (response) {
                     if (response.result) {
                         var data = response.result;
-                        console.log('수정할 공고 정보 data : ', data);
 
                         getOptions('brandGrp', 'brandGroupCode', 'codeNm', 'subCode', data.metalCode)
                             .then(function () {
@@ -900,8 +898,6 @@
                 udtCase: udtCase
             };
 
-            console.log('수정 param : ', param);
-
             $.ajax({
                 type: 'POST',
                 url: '/bo/bid/modal/chgBid',
@@ -909,7 +905,6 @@
                 data: JSON.stringify(param),
                 success: function (response) {
                     if (response.success) {
-                        console.log('result ', response);
                         showToastPopup('udtBidSuccess');
 
                         setTimeout(function () {
