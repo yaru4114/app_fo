@@ -46,7 +46,7 @@
 			AND BBB.BID_PBLANC_ID = #{bidPblancId}
     </select>
     
-    <select id="getBidDtlInfo" parameterType="com.bid.fo.bid.vo.BidBasVO" resultType="com.bid.fo.bid.vo.BidBddprDtlVO">
+    <select id="getBidDtlInfo" parameterType="com.bid.fo.bid.vo.BidBasVO" resultType="com.bid.fo.bid.vo.BidDtlVO">
     	SELECT BBB.BID_PBLANC_ID         																																	/* 입찰 공고 아이디 */
 			  , BBB.METAL_CODE            																																	/* 금속 코드 */ 
 			  , BBB.BRAND_CODE            																																	/* 브랜드 코드 */  
@@ -102,7 +102,7 @@
 			AND BBB.BID_PBLANC_ID = #{bidPblancId}
     </select>
     
-    <insert id="doBddpr" parameterType="com.bid.fo.bid.vo.BidBddprDtlVO">
+    <insert id="doBddpr" parameterType="com.bid.fo.bid.vo.BidDtlVO">
     	INSERT INTO BD_BDDPR_DTL (
 	    	  BID_ENTRPS_NO
 			, BID_PBLANC_ID

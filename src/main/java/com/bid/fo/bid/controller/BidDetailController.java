@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bid.fo.bid.service.BidDtlService;
 import com.bid.fo.bid.vo.BidBasVO;
-import com.bid.fo.bid.vo.BidBddprDtlVO;
+import com.bid.fo.bid.vo.BidDtlVO;
 import com.bid.fo.member.model.LoginVO;
 
 import lombok.extern.slf4j.Slf4j;
@@ -61,7 +61,7 @@ public class BidDetailController {
 	   public ResponseEntity<?> selectDtlInfo(@RequestBody BidBasVO bidBasVO) {
 		   Map<String, Object> map = new HashMap<>();
 		   
-		   BidBddprDtlVO dtlVO = bidDtlService.getBidDtlInfo(bidBasVO);
+		   BidDtlVO dtlVO = bidDtlService.getBidDtlInfo(bidBasVO);
 		   map.put("bidDtlInfo", dtlVO);
 		   
 		   return ResponseEntity.ok(map);
@@ -69,11 +69,10 @@ public class BidDetailController {
 
 	   @ResponseBody
 	   @PostMapping("/bid/detail/doBddpr")
-	   public ResponseEntity<?> doBddpr(@RequestBody BidBddprDtlVO bidBddprDtlVO) {
+	   public ResponseEntity<?> doBddpr(@RequestBody BidDtlVO bidBddprDtlVO) {
 		   Map<String, Object> map = new HashMap<>();
 		   
-		   BidBddprDtlVO result = bidDtlService.doBddpr(bidBddprDtlVO);
-		   map.put("result", result);
+		   map = bidDtlService.doBddpr(bidBddprDtlVO);
 		   
 		   return ResponseEntity.ok(map);
 	   }

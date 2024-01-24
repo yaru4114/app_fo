@@ -275,6 +275,41 @@
     </div>
 	<!--// Modal Popup : 구매입찰 상세 > 입력값 validate -->   
 
+	<!-- Modal Popup : 구매입찰 상세 > 투찰 성공 메시지 -->
+	<div class="popup modal alert" id="bddprSuccess">
+        <div class="modal-content w490px">
+            <div class="modal-header">
+                <h1>알림메세지</h1>
+                <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            </div>
+            <div class="max-width">
+                <div class="alert-con">정상 접수 되었습니다.<br/>내가 참여한 입찰 내역은<br/>[마이페이지]<br/>확인 가능합니다. 감사합니다.</div>
+            </div>
+            <div class="modal-btns">
+                <button type="button" class="btn-blue-big modal-x" onclick="location.reload(true)">확인</button>
+				<button type="button" class="btn-blue-big modal-x" onclick="toMyPage()">마이페이지</button>
+            </div>
+        </div>
+    </div>
+	<!--// Modal Popup : 구매입찰 상세 > 투찰 성공 메시지 -->   
+
+	<!-- Modal Popup : 구매입찰 상세 > 투찰 실패 메시지 -->
+	<div class="popup modal alert" id="bddprFail">
+        <div class="modal-content w490px">
+            <div class="modal-header">
+                <h1>알림메세지</h1>
+                <div class="modal-close"><button type="button" class="modal-x"><span class="hidden">팝업 닫기</span></button></div>
+            </div>
+            <div class="max-width">
+                <div class="alert-con">오류가 발생하였습니다.</div>
+            </div>
+            <div class="modal-btns">
+                <button type="button" class="btn-blue-big modal-x" onclick="location.reload(true)">확인</button>
+            </div>
+        </div>
+    </div>
+	<!--// Modal Popup : 구매입찰 상세 > 투찰 실패 메시지 -->   
+
     <!-- wrapper :: END -->
 
     <!-- script custom :: START -->
@@ -347,6 +382,15 @@
 		setBddpDtlInfo();
 	});
 
+	function toMyPage() {
+		const bidEntrpsNo = $("#bidEntrpsNo").val();
+		location.href=`/fo/mypage?bidEntrpsNo=\${bidEntrpsNo}`;
+	}
+	
+	function toBidList() {
+		location.href='/fo/bid'
+	}
+
 	function setBddpDtlInfo () {
 		const bidPblancId = $("#bidPblancId").val();
 		const bidEntrpsNo = $("#bidEntrpsNo").val();
@@ -379,8 +423,8 @@
 
 		const bidSttusCode = bidDtlInfo.bidSttusCode
 
-		const toListBtn = `<button type="button" class="btn-gray-big btn-list" onclick="location.href='/fo/bid'">공고 목록가기</button>`;
-		const toMyPageBtn = `<button type="button" class="btn-stroke-big blue" onclick="location.href='/fo/mypage?bidEntrpsNo=\${bidDtlInfo.bidEntrpsNo}'>마이페이지</button>`;
+		const toListBtn = `<button type="button" class="btn-gray-big btn-list" onclick="toBidList()">공고 목록가기</button>`;
+		const toMyPageBtn = `<button type="button" class="btn-stroke-big blue" onclick="toMyPage()">마이페이지</button>`;
 		const submitBtn = `<button type="button" class="btn-blue-big" onclick="handleSubmit()">투찰하기</button>`;
 		const canclBtn = `<button type="button" class="btn-black-big" onclick="">투찰취소</button>`;
 
@@ -576,13 +620,13 @@
 		if(!data) return;
 
 		var optionList = "";
-		if(data.delyCnd01ApplcAt != "Y") {
+		if(data.delyCnd01ApplcAt == "Y") {
 			optionList += `<option value="01" selected>서린상사 지정 보세창고 도착도 (FCA서린상사 지정 보세창고)</option>`;
 		}
-		if(data.delyCnd02ApplcAt != "Y") {
+		if(data.delyCnd02ApplcAt == "Y") {
 			optionList += `<option value="02">기타 부산/인천 보세창고 상차도(FCA BUSAN/INCHEON)</option>`;
 		}
-		if(data.delyCnd03ApplcAt != "Y") {
+		if(data.delyCnd03ApplcAt == "Y") {
 			optionList += `<option value="03">CIF INCHEON / CIF BUSAN</option>`;
 		}
 
@@ -629,7 +673,7 @@
 		const bddprPremiumPc = commaToNumber($("#bddprPremiumPc").val());
 		const cnvrsPremiumAmount = commaToNumber($("#cnvrsPremiumAmount").val());
 		const delyCndStdrPc = commaToNumber($("#delyCndStdrPc").val());
-		const shippingAddr = $("#shippingAddr option:selected").val();
+		const delyCndCd = $("#shippingAddr option:selected").val();
 		
 		var params = {
 				"bidPblancId" : bidPblancId,
@@ -638,7 +682,7 @@
 				"bddprPremiumPc" : bddprPremiumPc,
 				"cnvrsPremiumAmount" : cnvrsPremiumAmount,
 				"delyCndStdrPc" : delyCndStdrPc,
-				"shippingAddr" : shippingAddr,
+				"delyCndCd" : delyCndCd,
 		}
 
 		$.ajax({
@@ -648,10 +692,11 @@
 	 			data : JSON.stringify(params),
 	 			contentType : 'application/json',
 	 			success : function(res) {
-					location.reload(true);
+					const popupId = res.result == "success" ? "bddprSuccess" : "bddprFail";
+					popup(popupId, 'alert');
 	 			},
 	 			error : function(request, status, error) {
-	 				console.log("error")
+					popup("bddprFail", 'alert');
 	 			} 
 	 		});
 	});

@@ -1,11 +1,14 @@
 package com.bid.fo.bid.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bid.fo.bid.dao.BidDtlDAO;
 import com.bid.fo.bid.vo.BidBasVO;
-import com.bid.fo.bid.vo.BidBddprDtlVO;
+import com.bid.fo.bid.vo.BidDtlVO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,11 +22,20 @@ public class BidDtlService {
         return bidDtlDAO.getBidBasInfo(vo);
     }
 
-    public BidBddprDtlVO getBidDtlInfo(BidBasVO vo) {
+    public BidDtlVO getBidDtlInfo(BidBasVO vo) {
         return bidDtlDAO.getBidDtlInfo(vo);
     }
 
-    public BidBddprDtlVO doBddpr(BidBddprDtlVO vo) {
-        return bidDtlDAO.doBddpr(vo);
+    public Map<String, Object> doBddpr(BidDtlVO vo) {
+        Map<String, Object> resultMap = new HashMap<>();
+        int result = 0;
+        try {
+        	result = bidDtlDAO.doBddpr(vo);
+        }catch(Exception e) {
+        	resultMap.put("result", "fail");
+            return resultMap;
+        }
+    	resultMap.put("result", "success");
+        return resultMap;
     }
 }

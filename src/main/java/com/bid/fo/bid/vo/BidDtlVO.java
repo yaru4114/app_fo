@@ -3,7 +3,7 @@ package com.bid.fo.bid.vo;
 import lombok.Data;
 
 @Data
-public class BidBddprDtlVO {
+public class BidDtlVO {
 	private String bidPblancId;
     private String bidEntrpsNo;
     private String metalCodeShort;
@@ -14,6 +14,8 @@ public class BidBddprDtlVO {
     
     private int bidWt;
     private int permWtRate;
+    
+    private String delyCndCd;
     
     private String bddprAt;
     private String canclAt;
