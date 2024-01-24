@@ -1198,60 +1198,61 @@
             return year + '-' + mon + '-' + day;
         }
 
-        /* -=*/
-        // function formatDate2(date) {
-        //     return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-        // }
-        //
-        // // 투찰 기간에 따른 취소 기한일시 제한(수정 필요)
-        // function test(beginDt, endDt) {
-        //     var datesEnabled = [];
-        //     var startDate = new Date(beginDt);
-        //     var endDate = new Date(endDt);
-        //
-        //     while (startDate <= endDate) {
-        //         var formattedDate = formatDate2(startDate);
-        //         datesEnabled.push(formattedDate);
-        //         startDate.setDate(startDate.getDate() + 1);
-        //     }
-        //     return datesEnabled;
-        // }
-        //
-        // function updateCanclLmttDeRange() {
-        //     var beginDtStr = $('#bddprBeginDt').val();
-        //     var endDtStr = $('#bddprEndDt').val();
-        //
-        //     var beginDt = new Date(beginDtStr);
-        //     var endDt = new Date(endDtStr);
-            // var datesE1 = ['2024-1-22', '2024-1-23', '2024-1-24'];
-            // var datesE = test(beginDt, endDt); // ['2024-1-23', '2024-1-24', '2024-1-25']
-            // console.log('datesE ; ', datesE);
-            // console.log('datesE1 ; ', datesE1);
-            //
-            // $('#bddprCanclLmttDe').datepicker({
-            //     format: 'yyyy-mm-dd',
-            //     beforeShowDay: function(date) {
-            //         var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-            //
-            //         if(datesE.indexOf(allDates) !== -1) {
-            //             console.log('true 래요');
-            //             return true;
-            //         } else {
-            //             console.log('false 래요');
-            //             console.log(datesE.indexOf(allDates));
-            //             return false;
-            //         }
-            //     }
-            // });
-        // }
+        function formatDate2(date) {
+            return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+        }
 
-        // $('#bddprBeginDt').on('change', function () {
-        //     updateCanclLmttDeRange();
-        // });
-        //
-        // $('#bddprEndDt').on('change', function () {
-        //     updateCanclLmttDeRange();
-        // });
+        // 투찰 기간 날짜 배열 담기
+        function appendBddprDate(beginDt, endDt) {
+            var datesEnabled = [];
+            var startDate = new Date(beginDt);
+            var endDate = new Date(endDt);
+
+            while (startDate <= endDate) {
+                var formattedDate = formatDate2(startDate);
+                datesEnabled.push(formattedDate);
+                startDate.setDate(startDate.getDate() + 1);
+            }
+            return datesEnabled;
+        }
+
+        var isEndDtSet = false; // 마감일자가 설정 여부 확인용
+        var datesE;
+        function updateCanclLmttDeRange() {
+            var beginDtStr = $('#bddprBeginDt').val();
+            var endDtStr = $('#bddprEndDt').val();
+
+            var beginDt = new Date(beginDtStr);
+            var endDt = new Date(endDtStr);
+
+            if (endDtStr) {
+                console.log('들어갔는지 확인!');
+                datesE = appendBddprDate(beginDt, endDt); // ['2024-1-23', '2024-1-24', '2024-1-25']
+                isEndDtSet = true;
+            }
+
+            $('#bddprCanclLmttDe').datepicker({
+                format: 'yyyy-mm-dd',
+                beforeShowDay: function(date) {
+                    if (!isEndDtSet) {
+                        return true;
+                    }
+
+                    var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+
+                    if(datesE.indexOf(allDates) !== -1) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            });
+        }
+
+        $('#bddprBeginDt, #bddprEndDt').on('change', function () {
+            updateCanclLmttDeRange();
+        });
+
         /* ==================================== ❗기타❗ ==================================== */
     </script>
 </div>
