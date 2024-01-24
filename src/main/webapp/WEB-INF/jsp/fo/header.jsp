@@ -26,6 +26,7 @@
         <div class="util-list">
             <ul>
                 <li><a class="fc-lgray" href="/fo/bid">로그인</a></li>
+                <li><a href="/fo/member/create_1">회원가입</a></li>
             </ul>
         </div>
     </div>
