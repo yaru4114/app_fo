@@ -884,7 +884,12 @@
 
             bddprBeginDt = formatDate(bddprBeginDt, bddprBeginDt_ampm, bddprBeginDt_hour, bddprBeginDt_min, bddprBeginDt_sec);
             bddprEndDt = formatDate(bddprEndDt, bddprEndDt_ampm, bddprEndDt_hour, bddprEndDt_min, bddprEndDt_sec);
-            bddprCanclLmttDe = formatDate(bddprCanclLmttDe, bddprCanclLmttDe_ampm, bddprCanclLmttDe_hour, bddprCanclLmttDe_min, bddprCanclLmttDe_sec);
+
+            if (bddprCanclPossAt === 'Y') {
+                bddprCanclLmttDe = formatDate(bddprCanclLmttDe, bddprCanclLmttDe_ampm, bddprCanclLmttDe_hour, bddprCanclLmttDe_min, bddprCanclLmttDe_sec);
+            } else if (bddprCanclPossAt === 'N') {
+                bddprCanclLmttDe = '';
+            }
 
             var bidUpdtCn = $('#bidUpdtCn').val();
             var bidUpdtResn = $('#bidUpdtCn').val();
@@ -1014,19 +1019,24 @@
             var bddprEndDt_sec = $('#bddprEndDt_sec').val();
 
             // 투찰 취소기한
-            var bddprCanclLmttDe = $('#bddprCanclLmttDe').val();
-            var bddprCanclLmttDe_ampm = $('#bddprCanclLmttDe_ampm').val();
-            var bddprCanclLmttDe_hour = $('#bddprCanclLmttDe_hour').val();
-            var bddprCanclLmttDe_min = $('#bddprCanclLmttDe_min').val();
-            var bddprCanclLmttDe_sec = $('#bddprCanclLmttDe_sec').val();
+            var bddprCanclLmttDe;
+            var bddprCanclLmttDe_ampm;
+            var bddprCanclLmttDe_hour;
+            var bddprCanclLmttDe_min;
+            var bddprCanclLmttDe_sec;
+            if (bddprCanclPossAt === 'Y') {
+                bddprCanclLmttDe = $('#bddprCanclLmttDe').val();
+                bddprCanclLmttDe_ampm = $('#bddprCanclLmttDe_ampm').val();
+                bddprCanclLmttDe_hour = $('#bddprCanclLmttDe_hour').val();
+                bddprCanclLmttDe_min = $('#bddprCanclLmttDe_min').val();
+                bddprCanclLmttDe_sec = $('#bddprCanclLmttDe_sec').val();
+                bddprCanclLmttDe = formatDate(bddprCanclLmttDe, bddprCanclLmttDe_ampm, bddprCanclLmttDe_hour, bddprCanclLmttDe_min, bddprCanclLmttDe_sec);
+            } else {
+                bddprCanclLmttDe = '';
+            }
 
             bddprBeginDt = formatDate(bddprBeginDt, bddprBeginDt_ampm, bddprBeginDt_hour, bddprBeginDt_min, bddprBeginDt_sec);
             bddprEndDt = formatDate(bddprEndDt, bddprEndDt_ampm, bddprEndDt_hour, bddprEndDt_min, bddprEndDt_sec);
-            bddprCanclLmttDe = formatDate(bddprCanclLmttDe, bddprCanclLmttDe_ampm, bddprCanclLmttDe_hour, bddprCanclLmttDe_min, bddprCanclLmttDe_sec);
-
-            if (bddprCanclLmttDe === '000') {
-                bddprCanclLmttDe = '';
-            }
 
             var param = {
                 subCode: metalCode,
