@@ -76,5 +76,16 @@ public class BidDetailController {
 		   
 		   return ResponseEntity.ok(map);
 	   }
+
+
+	   @ResponseBody
+	   @PostMapping("/bid/detail/canclBddpr")
+	   public ResponseEntity<?> canclBddpr(@RequestBody BidDtlVO bidBddprDtlVO) {
+		   Map<String, Object> map = new HashMap<>();
+		   
+		   map = bidDtlService.canclBddpr(bidBddprDtlVO);
+		   
+		   return ResponseEntity.ok(map);
+	   }
 	   
 }

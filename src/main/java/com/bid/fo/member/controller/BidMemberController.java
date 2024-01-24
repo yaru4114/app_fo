@@ -83,4 +83,12 @@ public class BidMemberController {
         session.invalidate();
         return "redirect:/fo/bid";
     }
+
+    /** 회원 비밀번호 인증 */
+    @PostMapping("/auth")
+    public ResponseEntity<?> authBidMember(@RequestBody LoginVO vo, HttpSession session) {
+        Map<String,Object> resultMap = memberService.authBidMember(vo);
+        return ResponseEntity.ok(resultMap);
+    }
+    
 }

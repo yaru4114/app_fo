@@ -57,7 +57,7 @@
 			  , BBB.BID_STTUS_CODE         																																	/* 입찰 상태 코드 */
 			  , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'METAL_CODE' AND SUB_CODE = BBB.METAL_CODE) AS METAL_CODE_SHORT											/* 메탈명 영문 약어 */
 		      , IIF(BBD.BID_PBLANC_ID IS NULL,'N','Y') AS BDDPR_AT 																											/* 공고 입찰 여부 */
-		      , ISNULL(BBD.CANCL_AT, 'N') AS CANCL_AT 																														/* 공고 입찰 취소 여부 */
+		      , IIF(BBD.BID_PBLANC_ID IS NULL, 'N', BBD.CANCL_AT) AS CANCL_AT 																								/* 공고 입찰 취소 여부 */
 		      , FORMAT(CONVERT(DATETIME, dbo.fn_convertDate(BBB.DELY_BEGIN_DE + '000000', 'fo')), 'yyyy.MM.dd') AS DELY_BEGIN_DE											/* 인도 시작 일자 */
 		      , FORMAT(CONVERT(DATETIME, dbo.fn_convertDate(BBB.DELY_END_DE + '000000', 'fo')), 'yyyy.MM.dd') AS DELY_END_DE												/* 인도 종료 일자 */
 		      , FORMAT(CONVERT(DATETIME, dbo.fn_convertDate(BBB.PC_APPN_BEGIN_DE + '000000', 'fo')), 'yyyy.MM.dd') AS PC_APPN_BEGIN_DE										/* 가격 지정 시작 일자 */
@@ -68,13 +68,13 @@
 		      , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE='PC_APPN_MTH_CODE' AND SUB_CODE = BBB.SETLE_MTH_CODE) AS SETLE_MTH_CODE_NM								    /* 결제 방법 */
 		      , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE='PC_APPN_MTH_CODE' AND SUB_CODE = BBB.SETLE_PD_CODE) AS SETLE_PD_CODE_NM									/* 결제 기간 */
 		      , BBB.ETC_CN																																					/* 기타 내용 */
-		      , BBB.DELY_CND_01_APPLC_AT																																	/* 인도 조건 01 적용 여부 */
+		      , ISNULL(BBB.DELY_CND_01_APPLC_AT, 'Y') AS DELY_CND_01_APPLC_AT																								/* 인도 조건 01 적용 여부 */
 		      , BBB.DELY_CND_01_STDR_PC																																		/* 인도 조건 01 기준 가격 */
 		      , BBB.DELY_CND_01_PREMIUM_PC																																	/* 인도 조건 01 프리미엄 가격 */
-		      , BBB.DELY_CND_02_APPLC_AT																																	/* 인도 조건 02 적용 여부 */
+		      , ISNULL(BBB.DELY_CND_02_APPLC_AT, 'Y') AS DELY_CND_02_APPLC_AT																								/* 인도 조건 02 적용 여부 */
 		      , BBB.DELY_CND_02_STDR_PC																																		/* 인도 조건 02 기준 가격 */
 		      , BBB.DELY_CND_02_PREMIUM_PC																																	/* 인도 조건 02 프리미엄 가격 */
-		      , BBB.DELY_CND_03_APPLC_AT																																	/* 인도 조건 03 적용 여부 */
+		      , ISNULL(BBB.DELY_CND_03_APPLC_AT, 'Y') AS DELY_CND_03_APPLC_AT																								/* 인도 조건 03 적용 여부 */
 		      , BBB.DELY_CND_03_STDR_PC																																		/* 인도 조건 03 기준 가격 */
 		      , BBB.DELY_CND_03_PREMIUM_PC																																	/* 인도 조건 03 프리미엄 가격 */
 		      , ISNULL(BBD.DELY_CND_CODE, '01')	AS DELY_CND_CODE																											/* 인도 조건 코드 */
@@ -138,5 +138,29 @@
 		FROM BD_BID_BAS bbb
 		WHERE BBB.BID_PBLANC_ID = #{bidPblancId}
     </insert> 
+
+	<update id="canclBddpr" parameterType="com.bid.fo.bid.vo.BidDtlVO">
+		UPDATE BD_BDDPR_DTL
+		SET LAST_CHANGER_ID = #{bidMberId}
+			, LAST_CHANGE_DT = GETDATE()
+			, CANCL_AT = 'Y'
+			, CANCL_DT = FORMAT(GETDATE(), 'yyyy-MM-dd')
+		WHERE BID_ENTRPS_NO = #{bidEntrpsNo}
+			AND BID_PBLANC_ID = #{bidPblancId}
+	</update>
+
+	<update id="chgBddrCnt" parameterType="com.bid.fo.bid.vo.BidDtlVO">
+		UPDATE BD_BID_BAS 
+		SET LAST_CHANGER_ID = 'SYSTEM'
+			, LAST_CHANGE_DT = GETDATE()
+		<if test='canclAt == "N"'>
+			, PARTCPTN_ENTRPS_QY = ISNULL(PARTCPTN_ENTRPS_QY, 0) + 1
+		</if>
+		<if test='canclAt == "Y"'>
+			, PARTCPTN_ENTRPS_QY = ISNULL(PARTCPTN_ENTRPS_QY, 0) - 1
+		</if>
+		WHERE BID_PBLANC_ID = #{bidPblancId}
+	</update>
+
 
 </mapper>

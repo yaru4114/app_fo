@@ -138,7 +138,7 @@ public class BidMemberService {
         }
         return resultMap;
     }
-
+    
     private void fileUpload(List<MultipartFile> fileList, BidMemberVO vo){
         if (fileList != null) {
             int docNum = 0;
@@ -172,4 +172,34 @@ public class BidMemberService {
             }
         }
     }
+    
+    public Map<String,Object> authBidMember(LoginVO vo) {
+
+        Map<String,Object> resultMap = new HashMap<>();
+        // 암호화
+        if (!vo.getUserPwd().isEmpty()) {
+            String encryptPw = AesUtil.encrypt(vo.getUserPwd());
+            vo.setUserPwd(encryptPw);
+        }
+        BidMemberVO result = memberDAO.login(vo);
+
+        // 계정 불일치
+        if(result==null){
+            resultMap.put("success",false);
+            return resultMap;
+        }
+        
+        // 계정 일치
+        LoginVO loginUser = LoginVO.builder()
+                .userNo(result.getBidEntrpsNo())
+                .userId(result.getBidMberId())
+                .userNm(result.getEntrpsNm())
+                .build();
+
+        resultMap.put("success", true);
+        resultMap.put("loginUser",loginUser);
+        
+        return resultMap;
+    }
+    
 }
