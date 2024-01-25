@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/bo/bid")
 public class BidNoticeController {
-    private static Logger log = LoggerFactory.getLogger(BidNoticeController.class);
 
     @Autowired
     BidNoticeService bidNoticeService;

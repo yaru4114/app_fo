@@ -19,8 +19,6 @@ public class BidNoticeService{
     @Autowired
     BidNoticeDao bidNoticeDao;
 
-    private static Logger log = LoggerFactory.getLogger(BidNoticeService.class);
-
     /**
      입찰상태코드 목록 조회
     * @date : 2024-01-15
