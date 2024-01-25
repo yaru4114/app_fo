@@ -535,7 +535,16 @@
 
     if (typeof btnId === "string") {
           bidStat = btnId;
-      }
+    }
+
+    var dateCheck = checkDateVelid();
+
+    if(!dateCheck) {
+      alert("종료일시가 시작일시보다 이전일수 없습니다.");
+      $("#startDatepicker").datepicker("setDate" , "");
+      $("#endDatepiker").datepicker("setDate" , "");
+      return 0;
+    }
 
     var jsonData = getCreateJsonData(bidStat);
 
@@ -564,6 +573,20 @@
     ajaxBidNoticeMngStatCntList(jsonData , 'N');
     ajaxBidNoticeMngList(jsonData);
 
+  }
+
+  // 날짜 체크
+  function checkDateVelid(){
+
+    var result = true;
+    var startDate = new Date($("#startDatepicker").datepicker("getDate"));
+    var endDate = new Date($("#endDatepiker").datepicker("getDate"));
+
+    if(endDate - startDate < 0 ) {
+      result = false;
+    }
+
+    return result;
   }
 
   // 입찰상태코드별 공고 카운트 조회
