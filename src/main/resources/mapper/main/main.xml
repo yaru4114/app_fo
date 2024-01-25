@@ -126,6 +126,7 @@
               LEFT JOIN BD_BID_BAS AS BBB
                ON BBD.BID_PBLANC_ID = BBB.BID_PBLANC_ID
               WHERE 1=1
+               AND BBB.DSPY_AT = 'Y'
                AND ISNULL(BBD.CANCL_AT,'N') = 'N' 
                AND ISNULL(BBB.DELETE_AT,'N')='N' 
                AND BBD.BID_ENTRPS_NO = #{bidEntrpsNo}) AS BBD
@@ -191,7 +192,7 @@
    <update id="increIntrstEntrpsCnt" parameterType="com.bid.fo.main.model.MainVO">
     UPDATE dbo.BD_BID_BAS 
    	   SET 
-        INTRST_ENTRPS_QY = (SELECT INTRST_ENTRPS_QY FROM BD_BID_BAS WHERE BID_PBLANC_ID = #{bidPblancId}) + 1
+        INTRST_ENTRPS_QY = (SELECT ISNULL(INTRST_ENTRPS_QY,0) FROM BD_BID_BAS WHERE BID_PBLANC_ID = #{bidPblancId}) + 1
     WHERE BID_PBLANC_ID = #{bidPblancId}
    </update>
    <update id="decreIntrstEntrpsCnt" parameterType="com.bid.fo.main.model.MainVO">

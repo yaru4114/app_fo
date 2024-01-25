@@ -135,7 +135,7 @@ public class BidMainController {
    public ResponseEntity<?> deleteIntrstPblanc(@RequestBody MainVO mainVO, HttpSession session) {
       Map<String,Object> map = new HashMap<>();
       LoginVO loginVO = (LoginVO) session.getAttribute("loginUser");
-      
+
       int result = bidMainService.deleteIntrstPblanc(mainVO, loginVO);
       if (result > 0) {
          map.put("result", 'S');

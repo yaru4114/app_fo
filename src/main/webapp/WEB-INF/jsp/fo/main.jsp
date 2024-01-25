@@ -452,6 +452,7 @@ $(function(){
 	}
 	
 	function setFmtDate(startDate, endDate, id, bidSttusCode){
+		setTimeout(function(){$("#"+id).html(" ");} , 0);
 		setInterval(function(){
 			var now = new Date();
 			var startFmtDate = new Date(viewDateFmt2(startDate));

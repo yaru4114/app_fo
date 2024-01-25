@@ -41,6 +41,7 @@ public class BidMypageController {
 	   @ResponseBody
 	   public ResponseEntity<?> selectBidBddprList(@RequestBody MainVO mainVO) {
 	      Map<String,Object> map = new HashMap<>();
+	      
 	      List<MainVO> bidBddprList = bidMypageService.selectBidBddprList(mainVO);
 	      MainVO bidBddprCntList = bidMypageService.selectBidBddprCntList(mainVO);
 	      log.info("bidBddprList : {}",bidBddprList);
@@ -54,16 +55,25 @@ public class BidMypageController {
 	   @RequestMapping("/intrstList")
 	   public String intrstList(@RequestParam(value="bidEntrpsNo") String bidEntrpsNo, Model model) {
 		   log.info("bidEntrpsNo : {}",bidEntrpsNo);
-		   List<MainVO> bidIntrstList = bidMypageService.selectBidIntrstList(bidEntrpsNo);
-		   int bidIntrstCntList = bidMypageService.selectBidIntrstCntList(bidEntrpsNo);
 		   model.addAttribute("bidEntrpsNo",bidEntrpsNo);
-		   model.addAttribute("bidIntrstList",bidIntrstList);
-		   model.addAttribute("bidIntrstCntList",bidIntrstCntList);
-		   
-		   log.info("bidBddprList : {}",bidIntrstList);
-		   log.info("bidBddprListCnt : {}",bidIntrstCntList);
 		      
 	      return "fo/mypage/intrstList";
+	   }
+	   
+	   @RequestMapping("/selectIntrstList")
+	   @ResponseBody
+	   public ResponseEntity<?> selectIntrstList(@RequestBody MainVO mainVO) {
+		   Map<String,Object> map = new HashMap<>();
+		  
+		   List<MainVO> bidIntrstList = bidMypageService.selectBidIntrstList(mainVO);
+		   int bidIntrstCntList = bidMypageService.selectBidIntrstCntList(mainVO);
+
+		   log.info("bidIntrstList : {}",bidIntrstList);
+		   log.info("bidIntrstCntList : {}",bidIntrstCntList);
+		   
+		   map.put("bidIntrstList", bidIntrstList);
+	       map.put("bidIntrstCntList", bidIntrstCntList);
+	       return ResponseEntity.ok(map);
 	   }
 	   
 }

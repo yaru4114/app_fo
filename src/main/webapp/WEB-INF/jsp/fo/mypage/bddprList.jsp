@@ -133,7 +133,6 @@
 <!-- 	<script src="/guide/js/sorin-ma.js"></script>main js -->
 	<!-- script custom :: END -->
 	<script>
-	var loginYn = "Y";
 	var bidEntrpsNo = "${bidEntrpsNo}"; 
 	
 	$(function(){
@@ -327,7 +326,7 @@
 			$("#scsbidTotCnt").text(res.bidBddprCntList.scsbidTotCnt);
 			$("#defeatTotCnt").text(res.bidBddprCntList.defeatTotCnt);
 			$("#failTotCnt").text(res.bidBddprCntList.failTotCnt);
-			console.log("pageSubCode : "+pageSubCode)
+
 			if(pageCode == '01' ){
 				if(pageSubCode == '02'){
 					tabNm = "투찰 중"
@@ -428,6 +427,11 @@
 			
 		}
 		
+		$(document).on('click', "a[name='bidDetail']", function(e) {
+			var bidPblancId = $(this).attr('data-bid-id');
+			location.href="/fo/bid/detail/"+bidPblancId;
+		})
+		
 		function viewDateFmt(date){
 			return date.substring(2,4)+"."+date.substring(4,6)+"."+date.substring(6,8)+" "+date.substring(8,10)+":"+date.substring(10,12)+":"+date.substring(12,14);
 		}
@@ -437,7 +441,7 @@
 		}
 		
 		function setFmtDate(endDate, id, bidSttusCode){
-		
+			setTimeout(function(){$("#"+id).html(" ");} , 0);
 			setInterval(function(){
 				var now = new Date();
 				var endFmtDate = new Date(viewDateFmt2(endDate));
