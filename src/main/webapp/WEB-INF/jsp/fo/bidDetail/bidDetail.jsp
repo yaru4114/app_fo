@@ -71,14 +71,14 @@
 			                                            </li>
 			                                            <li>
 			                                                <span>관심기업</span>
-			                                                <span>${bidBasInfo.intrstEntrpsQy}</span>
+			                                                <span class="intrstEntrpsCnt">${bidBasInfo.intrstEntrpsQy}</span>
 			                                            </li>
 			                                        </ul>
 													<c:if test="${bidBasInfo.intrstAt eq 'N'}">
-			                                        	<a href="#" class="ico like active">
+			                                        	<a href="javascript:;" class="ico like active" data-bid-id="${bidBasInfo.bidPblancId}">
 													</c:if>
 													<c:if test="${bidBasInfo.intrstAt ne 'N'}">
-			                                        	<a href="#" class="ico like">
+			                                        	<a href="javascript:;" class="ico like" data-bid-id="${bidBasInfo.bidPblancId}">
 													</c:if>
 			                                            <span class="material-symbols-outlined">favorite</span>
 			                                            <span>관심추가</span>
@@ -119,10 +119,10 @@
  									</div>
 		                        	<p class="bid-d-day abs-info"> <!-- <p class="bid-d-day pre abs-info"> -->
 										<c:if test="${bidBasInfo.bidSttusCode == '12'}">
-											투찰 시작까지 <span class="time">- ${bidBasInfo.bidTimer}</span>
+											투찰 시작까지 <span class="time" id="time${bidBasInfo.bidPblancId}"></span>
 										</c:if>
 										<c:if test="${bidBasInfo.bidSttusCode == '13'}">
-											투찰 마감까지 <span class="time">- ${bidBasInfo.bidTimer}</span>
+											투찰 마감까지 <span class="time" id="time${bidBasInfo.bidPblancId}"></span>
 										</c:if>
 		                        	</p>
 			                    </div>
@@ -357,20 +357,18 @@
 
 	// =============== BTN.LIKE ==================
 	$(document).on('click', ".ico.like", function(e) {
-		const loginYn = $("#loginYn").val();
 		if(loginYn == 'N'){
 			alert("로그인이 필요한 화면입니다.");
 			return;
 		}
 		
-		const bidPblancId = $("#bidPblancId").val();
-		const bidEntrpsNo = $("#bidEntrpsNo").val();
-
+		var bidPblancId = $(this).attr('data-bid-id');
 		var params = {
 				"bidPblancId" : bidPblancId,
-				"bidEntrpsNo" : bidEntrpsNo
+				"bidEntrpsNo" : $("#bidEntrpsNo").val()
 		};
-		var like = $(this);
+		var likeBtn = $(this);
+
 	 	if(!$(this).hasClass('active')){
 	 		 $.ajax({
 	 			type : 'post',
@@ -379,10 +377,13 @@
 	 			data : JSON.stringify(params),
 	 			contentType : 'application/json',
 	 			success : function(res) {
-	 				like.toggleClass('active');
+	 				likeBtn.toggleClass('active');
+	 				var intrstEntrpsCnt = likeBtn.siblings().find(".intrstEntrpsCnt");
+	 				intrstEntrpsCnt.text(parseInt(intrstEntrpsCnt.text())+1);
 	 			},
 	 			error : function(request, status, error) {
-	 				console.log("error")
+	 				alert("오류가 발생했습니다")
+	 				location.href="/fo/bid";
 	 			} 
 	 		});
 	 	}else{
@@ -393,14 +394,16 @@
 	 			data : JSON.stringify(params),
 	 			contentType : 'application/json',
 	 			success : function(res) {
-	 				like.removeClass('active');
+	 				likeBtn.removeClass('active');
+	 				var intrstEntrpsCnt = likeBtn.siblings().find(".intrstEntrpsCnt");
+	 				intrstEntrpsCnt.text(parseInt(intrstEntrpsCnt.text())-1);
 	 			},
 	 			error : function(request, status, error) {
-	 				console.log("error")
+	 				alert("오류가 발생했습니다")
+	 				location.href="/fo/bid";
 	 			} 
 	 		});
 	 	}
-	  
 	    
 	})
 
@@ -416,8 +419,33 @@
 	<script>
 	$(function(){
 		setBddpDtlInfo();
+		
+		//타이머 설정
+		setFmtDate("${bidBasInfo.bddprBeginDt}","${bidBasInfo.bddprEndDt}","time${bidBasInfo.bidPblancId}", "${bidBasInfo.bidSttusCode}")
 	});
-
+	
+	function setFmtDate(startDate, endDate, id, bidSttusCode){
+		setTimeout(function(){$("#"+id).html(" ");} , 0);
+		setInterval(function(){
+			var now = new Date();
+			var startFmtDate = new Date((String)(new Date().getFullYear()).substring(0,2)+startDate);
+			var endFmtDate = new Date((String)(new Date().getFullYear()).substring(0,2)+endDate);
+			
+			$("#"+id).html("");
+			if(bidSttusCode == "12" && startFmtDate >= now){
+				$("#"+id).html(" - " + Math.floor((startFmtDate-now) / (1000*60*60*24)) +"일 "+Math.floor(((startFmtDate-now) / (1000*60*60)) % 24) +"시간 "
+						+Math.floor(((startFmtDate-now) / (1000*60)) % 60) +"분 "+Math.floor((startFmtDate-now) / 1000 % 60) + "초");
+			}else if(bidSttusCode == "13" && endFmtDate >= now){
+				$("#"+id).html(" - " + Math.floor((endFmtDate-now) / (1000*60*60*24)) +"일 "+Math.floor(((endFmtDate-now) / (1000*60*60)) % 24) +"시간 "
+						+Math.floor(((endFmtDate-now) / (1000*60)) % 60) +"분 "+Math.floor((endFmtDate-now) / 1000 % 60) + "초");
+			}else{
+				$("#"+id).html("");    
+			}
+        },1000); //1초마다 
+        
+	}
+	
+	
 	function toMyPage() {
 		const bidEntrpsNo = $("#bidEntrpsNo").val();
 		location.href=`/fo/mypage?bidEntrpsNo=\${bidEntrpsNo}`;
@@ -444,7 +472,7 @@
 	 			success : function(res) {
 					setBddrDtlTable(res);
 					setBtnContainer(res);
-					setFailBidContainer(res);
+					//setFailBidContainer(res);
 	 			},
 	 			error : function(request, status, error) {
 					popup("bddprAlert", 'alert', "오류가 발생하였습니다.");
