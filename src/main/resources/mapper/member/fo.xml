@@ -123,6 +123,16 @@
             getDate(),
             getDate(),
             getDate()
+<!--            CONVERT(CHAR(19), getDate(), 20),-->
+<!--            CONVERT(CHAR(19), getDate(), 20),-->
+<!--            CONVERT(CHAR(19), getDate(), 20),-->
+<!--            CONVERT(CHAR(19), getDate(), 20),-->
+<!--            CONVERT(CHAR(19), getDate(), 20),-->
+<!--            CONVERT(CHAR(19), getDate(), 20),-->
+<!--            CONVERT(CHAR(19), getDate(), 20),-->
+<!--            CONVERT(CHAR(19), getDate(), 20),-->
+<!--            CONVERT(CHAR(19), getDate(), 20),-->
+<!--            CONVERT(CHAR(19), getDate(), 20)-->
         )
     </insert>
 <!--    사업자등록증 문서 입력-->
@@ -148,6 +158,7 @@
             #{frstRegisterId},
             #{lastChangerId},
             getDate()
+<!--            CONVERT(CHAR(19), getDate(), 20)-->
         )
     </insert>
 

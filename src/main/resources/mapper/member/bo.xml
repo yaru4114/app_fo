@@ -17,9 +17,12 @@
                 WHEN FRNTN_ENTRPS_AT = 'N' THEN '-'
                 ELSE ''
             END) AS FRNTN_ENTRPS_AT,
-            ETR_CONFM_REQUST_DT,
-            ETR_CONFM_PROCESS_DT,
-            BID_MBER_INTRCP_DT,
+<!--            ETR_CONFM_REQUST_DT,-->
+            CONVERT(CHAR(19), ETR_CONFM_REQUST_DT, 20) AS ETR_CONFM_REQUST_DT,
+<!--            ETR_CONFM_PROCESS_DT,-->
+            CONVERT(CHAR(19), ETR_CONFM_PROCESS_DT, 20) AS ETR_CONFM_PROCESS_DT,
+<!--            BID_MBER_INTRCP_DT,-->
+            CONVERT(CHAR(19), BID_MBER_INTRCP_DT, 20) AS BID_MBER_INTRCP_DT,
             (CASE
                 WHEN BID_MBER_STTUS_CODE = '01' THEN '정상'
                 WHEN BID_MBER_STTUS_CODE = '02' THEN '차단'
@@ -98,9 +101,12 @@
         VRSC_BSNM_REGIST_NO,
         VRSC_BID_MBER_EMAIL,
         VRSC_MOBLPHON_NO,
-        ETR_CONFM_REQUST_DT,
-        ETR_CONFM_PROCESS_DT,
-        BID_MBER_INTRCP_DT,
+<!--        ETR_CONFM_REQUST_DT,-->
+        CONVERT(CHAR(19), ETR_CONFM_REQUST_DT, 20) AS ETR_CONFM_REQUST_DT,
+<!--        ETR_CONFM_PROCESS_DT,-->
+        CONVERT(CHAR(19), ETR_CONFM_PROCESS_DT, 20) AS ETR_CONFM_PROCESS_DT,
+<!--        BID_MBER_INTRCP_DT,-->
+        CONVERT(CHAR(19), BID_MBER_INTRCP_DT, 20) AS BID_MBER_INTRCP_DT,
         (CASE
         WHEN BID_MBER_STTUS_CODE = '01' THEN '정상'
         WHEN BID_MBER_STTUS_CODE = '02' THEN '차단'
@@ -173,7 +179,8 @@
                 WHEN FRNTN_ENTRPS_AT = 'N' THEN '-'
                 ELSE ''
             END) AS FRNTN_ENTRPS_AT,
-            ETR_CONFM_REQUST_DT,
+<!--            ETR_CONFM_REQUST_DT,-->
+            CONVERT(CHAR(19), ETR_CONFM_REQUST_DT, 20) AS ETR_CONFM_REQUST_DT,
             (
             CASE
                 WHEN BID_CONFM_STTUS_CODE = '01' THEN '대기'
@@ -224,8 +231,10 @@
         VRSC_BID_MBER_EMAIL,
         VRSC_MOBLPHON_NO,
         -- 요청상태
-        ETR_CONFM_REQUST_DT,
-        ETR_CONFM_PROCESS_DT,
+<!--        ETR_CONFM_REQUST_DT,-->
+        CONVERT(CHAR(19), ETR_CONFM_REQUST_DT, 20) AS ETR_CONFM_REQUST_DT,
+<!--        ETR_CONFM_PROCESS_DT,-->
+        CONVERT(CHAR(19), ETR_CONFM_PROCESS_DT, 20) AS ETR_CONFM_PROCESS_DT,
         (
         CASE
             WHEN BID_CONFM_STTUS_CODE = '01' THEN '승인대기'
@@ -251,6 +260,7 @@
         <if test="bidConfmSttusCode eq '03'">
             ,
             ETR_CONFM_PROCESS_DT = getDate()
+<!--            CONVERT(CHAR(19), getDate(), 20),-->
         </if>
         WHERE
             BID_MBER_ID = #{bidMberId}
