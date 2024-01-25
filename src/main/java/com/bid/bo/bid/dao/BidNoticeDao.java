@@ -65,4 +65,11 @@ public interface BidNoticeDao {
     * @author  xyzp1539
     **/
     void updateDelBidNotice(BidNoticeVO realParamVo);
+
+    /**
+     입찰공고 단일건 조회
+    * @date : 2024-01-25
+    * @author  xyzp1539
+    **/
+    BidNoticeVO getBidNoticeMngBidInfo(BidNoticeVO paramVo);
 }

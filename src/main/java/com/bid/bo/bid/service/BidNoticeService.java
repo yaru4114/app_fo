@@ -52,11 +52,9 @@ public class BidNoticeService{
     * @author  xyzp1539
     **/
     public BidNoticeVO getBidNoticeMngInfo(BidNoticeVO paramVo) {
-        List<BidNoticeVO> bidNoticeVoList = this.getBidNoticeMngBidList(paramVo);   // 입찰공고정보조회
+        BidNoticeVO resultVo = bidNoticeDao.getBidNoticeMngBidInfo(paramVo);// 입찰공고정보조회
         List<BidNoticeUpdtVO> updtVoList = bidNoticeDao.getBidNoticeMngBidUpdtList(paramVo);    // 입찰공고수정이력조회
         List<BidBddprDtlVO> bidBddprDtlVoList = bidNoticeDao.getBidNoticeMngBidBddprDtlList(paramVo);                          // 입찰공고투찰기업목록조회
-
-        BidNoticeVO resultVo = bidNoticeVoList.get(0);
 
         resultVo.setBidNoticeUpdtVoList(updtVoList);
         resultVo.setBidBddprDtlVoList(bidBddprDtlVoList);
