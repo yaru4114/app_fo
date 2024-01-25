@@ -1173,19 +1173,30 @@
             } else { // 입찰 수정 등록
                 // 케이스 별 처리
                 var todayDate = new Date();
-                todayDate = formatYyyymmdd(todayDate);
 
                 var bddprBeginDt = $('#bddprBeginDt').val();
-                var bddprEndDt = $('#bddprEndDt').val();
+                var bddprBeginDt_ampm = $('#bddprBeginDt_ampm').val();
+                var bddprBeginDt_hour = $('#bddprBeginDt_hour').val();
+                var bddprBeginDt_min = $('#bddprBeginDt_min').val();
+                var bddprBeginDt_sec = $('#bddprBeginDt_sec').val();
+                var beginDateObject = processDateAndTime(bddprBeginDt, bddprBeginDt_ampm, bddprBeginDt_hour, bddprBeginDt_min, bddprBeginDt_sec);
+                // ===========================================================================
+                var bddprEndDt = $('#bddprEndDt').val(); // yyyy-mm-dd
+                var bddprEndDt_ampm = $('#bddprEndDt_ampm').val(); // 'am' or 'pm'
+                var bddprEndDt_hour = $('#bddprEndDt_hour').val();
+                var bddprEndDt_min = $('#bddprEndDt_min').val();
+                var bddprEndDt_sec = $('#bddprEndDt_sec').val();
+                var endDateObject = processDateAndTime(bddprEndDt, bddprEndDt_ampm, bddprEndDt_hour, bddprEndDt_min, bddprEndDt_sec);
+
                 var dspyAt = $('input[name="dspyAt"]:checked').val();
 
-                if (todayDate >= bddprBeginDt && todayDate <= bddprEndDt && dspyAt === 'Y') {
+                if (todayDate >= beginDateObject && todayDate <= endDateObject && dspyAt === 'Y') {
                     // bddprBeginDt < 현재 날짜 < bddprEndDt && '활성'
                     $('#udtConfirm1').show();
-                } else if (todayDate < bddprBeginDt && dspyAt === 'Y') {
+                } else if (todayDate < beginDateObject && dspyAt === 'Y') {
                     // 현재 날짜 < bddprBeginDt ~ bddprEndDt && '활성'
                     $('#udtConfirm2').show();
-                } else if ((todayDate >= bddprBeginDt && todayDate <= bddprEndDt) || todayDate < bddprBeginDt) {
+                } else if ((todayDate >= beginDateObject && todayDate <= endDateObject) || todayDate < beginDateObject) {
                     if (dspyAt === 'N') {
                         // (bddprBeginDt < 현재 날짜 < bddprEndD ||  현재 날짜 < bddprBeginDt ~ bddprEndDt) && '비활성'
                         if (validateSubmitForm()) {
@@ -1204,11 +1215,34 @@
             }
         });
 
-        function formatYyyymmdd(date) {
-            var year = date.getFullYear();
-            var month = ('0' + (date.getMonth() + 1)).slice(-2);
-            var day = ('0' + date.getDate()).slice(-2);
-            return year + '-' + month + '-' + day;
+        function processDateAndTime(bddprEndDt, bddprEndDt_ampm, bddprEndDt_hour, bddprEndDt_min, bddprEndDt_sec) {
+            // 12시간제 => 24시간제
+            if (bddprEndDt_ampm === 'pm' && bddprEndDt_hour !== '12') {
+                bddprEndDt_hour = (parseInt(bddprEndDt_hour, 10) + 12).toString();
+            } else if (bddprEndDt_ampm === 'am' && bddprEndDt_hour === '12') {
+                bddprEndDt_hour = '00';
+            }
+
+            // 두 자리로 만들기
+            bddprEndDt_hour = String(bddprEndDt_hour).padStart(2, '0');
+            bddprEndDt_min = String(bddprEndDt_min).padStart(2, '0');
+            bddprEndDt_sec = String(bddprEndDt_sec).padStart(2, '0');
+
+            // 최종 날짜 형식 생성
+            var bddprEnd = bddprEndDt + '-' + bddprEndDt_hour + '-' + bddprEndDt_min + '-' + bddprEndDt_sec;
+
+            // 날짜 정보 추출
+            var endYear = bddprEnd.substring(0, 4);
+            var endMonth = bddprEnd.substr(5, 2) - 1;
+            var endDay = bddprEnd.substr(8, 2);
+            var endHour = bddprEnd.substr(11, 2);
+            var endMinute = bddprEnd.substr(14, 2);
+            var endSecond = bddprEnd.substr(16, 2);
+
+            // Date 객체 생성
+            var endDateObject = new Date(endYear, endMonth, endDay, endHour, endMinute, endSecond);
+
+            return endDateObject;
         }
 
         function formatYyyy_mm_dd(date) {
