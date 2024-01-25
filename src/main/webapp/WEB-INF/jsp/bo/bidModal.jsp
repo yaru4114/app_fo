@@ -722,10 +722,7 @@
                                 $('#dstrctLclsfCode').val(data.dstrctLclsfCode);
                                 $('#bidWt').val(data.bidWt);
                                 $('#permWtRate').val(data.permWtRate);
-                                $('#delyCnd01ApplcAt').val(data.delyCnd01ApplcAt);
-                                $('#delyCnd02ApplcAt').val(data.delyCnd02ApplcAt);
                                 $('#delyCnd02StdrPc').val(data.delyCnd02StdrPc);
-                                $('#delyCnd03ApplcAt').val(data.delyCnd03ApplcAt);
                                 $('#delyCnd03StdrPc').val(data.delyCnd03StdrPc);
                                 $('#delyPdCn').val(data.delyPdCn);
                                 $('#pcAppnMthCode').val(data.pcAppnMthCode);
@@ -733,6 +730,10 @@
                                 $('#setleMthCode').val(data.setleMthCode);
                                 $('#setlePdCode').val(data.setlePdCode);
                                 $('#etcCn').val(data.etcCn);
+
+                                $('#delyCnd01ApplcAt').prop('checked', data.delyCnd01ApplcAt === 'Y');
+                                $('#delyCnd02ApplcAt').prop('checked', data.delyCnd02ApplcAt === 'Y');
+                                $('#delyCnd03ApplcAt').prop('checked', data.delyCnd03ApplcAt === 'Y');
 
                                 $('#bddprCanclPossAt').prop('checked', data.bddprCanclPossAt === 'Y');
                                 if (data.bddprCanclPossAt === 'Y') {
