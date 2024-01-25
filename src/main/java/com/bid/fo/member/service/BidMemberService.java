@@ -116,6 +116,7 @@ public class BidMemberService {
                                 .userNo(result.getBidEntrpsNo())
                                 .userId(result.getBidMberId())
                                 .userNm(result.getEntrpsNm())
+                                .userStat(result.getBidMberSttusCode())
                                 .build();
 
                         resultMap.put("success", true);
@@ -201,5 +202,4 @@ public class BidMemberService {
         
         return resultMap;
     }
-    
 }

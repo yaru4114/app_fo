@@ -1,6 +1,7 @@
 package com.bid.fo.main.controller;
 
 import com.bid.fo.member.model.LoginVO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ public class HeaderController {
         if("Y".equals(loginYn) && loginVO != null){
             model.addAttribute("loginYn","Y");
             model.addAttribute("bidEntrpsNo",loginVO.getUserNo());
+            model.addAttribute("loginUserStat",loginVO.getUserStat());
         } else {
             session.setAttribute("loginYn","N");
             model.addAttribute("loginYn","N");

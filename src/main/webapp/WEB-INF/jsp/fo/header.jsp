@@ -35,16 +35,20 @@
 <script>
     // 로그인 세션 헤더에 등록
     var header_loginYn = "${loginYn}";
-
-    console.log(header_loginYn);
+    var header_loginUserStat = "${loginUserStat}"
 
     // 로그인 / 비로그인 메뉴
-	if(header_loginYn == 'N'){
+	if (header_loginYn == 'N'){
 		document.getElementById("header_loginY").style.display = "none";
 		document.getElementById("header_loginN").style.display = "block";
 	} else {
 		document.getElementById("header_loginY").style.display = "block";
 		document.getElementById("header_loginN").style.display = "none";
+	}
+
+	if (header_loginUserStat === '02') {
+        alert("투찰 3회 이상 취소로 차단되었습니다.")
+        location.href = "/fo/logout";
 	}
 
 	function header_toMyPage(){

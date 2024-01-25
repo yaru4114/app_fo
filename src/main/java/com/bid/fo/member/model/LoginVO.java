@@ -15,4 +15,5 @@ public class LoginVO {
     private String userId; // 회원 아이디
     private String userPwd; // 회원 비밀번호
     private String userNm; // 업체명
+    private String userStat; // 상태값
 }
