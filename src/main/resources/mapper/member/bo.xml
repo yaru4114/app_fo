@@ -84,6 +84,9 @@
                 WHEN '가입승인대기' THEN '03'
                 ELSE #{status}
             END
+        <if test="_parameter eq '가입승인대기'">
+            AND BID_CONFM_STTUS_CODE = '01'
+        </if>
     </select>
 
     <select id="getMemberInfo" parameterType="com.bid.common.model.BidMemberVO" resultType="com.bid.common.model.BidMemberVO">
