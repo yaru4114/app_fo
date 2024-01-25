@@ -119,4 +119,11 @@ public class BidBasVO {
 	private String intrstAt;
 	
 	private String bidTimer;
+	
+	private String failBidResn;
+	
+	private String failBidDt;
+	
+	private String pblancCanclDt;
+	
 }

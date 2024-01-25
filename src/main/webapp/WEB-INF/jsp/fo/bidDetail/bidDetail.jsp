@@ -30,7 +30,8 @@
 
         <!-- 23.10.16 | header include -->
         <div class="header bid"></div>
-        <script type="text/javascript"> $(".header.bid").load("/guide/html/bid/include/header.html");</script>
+        <!-- <script type="text/javascript"> $(".header.bid").load("/guide/html/bid/include/header.html");</script> -->
+        <script type="text/javascript"> $(".header.bid").load("/fo/header");</script>
         <!-- // 23.10.16 | header include -->
         
 		<!-- body-main :: START -->
@@ -211,8 +212,28 @@
 			                            </tr>
 			                        </tbody>
 			                    </table>
+								<div class="section fixes-wrap" id="failBidContainer" style="display: none;">
+									<div class="tbl-list-summary">
+										유찰 사유
+									</div>
+									<ul class="list t2">
+										<li>
+											<div class="balance-manage-result">
+												<div class="date">${bidBasInfo.failBidDt}</div>
+												<div class="figure-con">
+													<p class="pd-name fc-red">${bidBasInfo.failBidResn}</p>
+													<p class="pd-order">
+														<span>
+															오언은 내가 물건을 잃어버리는 방식에 관해, 잃어버리는 행위를 내 나름의 예술로 승화해나가는 방식에 관해 이야기하면서 나를 놀리곤 했다.
+														</span>
+													</p>
+												</div>
+											</div>
+										</li>                               
+									</ul>
+								</div>
 			                    <div class="btn-wrap" id="btnContainer">
-			                        <button type="button" class="btn-gray-big btn-list" onclick="location.href='/guide/html/bid/SOREC-SB-BID-001-2.html'">공고 목록가기</button>
+			                        <button type="button" class="btn-gray-big btn-list" onclick="toBidList()">공고 목록가기</button>
 			                    </div>
 			                </div>
 			                <!-- 투찰 정보 입력 TABLE :: END -->
@@ -423,11 +444,57 @@
 	 			success : function(res) {
 					setBddrDtlTable(res);
 					setBtnContainer(res);
+					setFailBidContainer(res);
 	 			},
 	 			error : function(request, status, error) {
 					popup("bddprAlert", 'alert', "오류가 발생하였습니다.");
 	 			} 
 	 		});
+	}
+
+	function formatDateString(date, format) {
+		const valid_date = date.toString().replace(/[^-0-9]/gi, '') || '';
+
+		if(!valid_date) return '';
+
+		var format_date = valid_date.replace(/(\d{4})(\d{2})(\d{2})(\d{2})?(\d{2})?(\d{2})?/, '$1.$2.$3');
+
+		return format_date;
+	}
+
+	function setFailBidContainer(res) {
+		const bidDtlInfo = res.bidDtlInfo;
+		
+		if(!bidDtlInfo || bidDtlInfo.bidSttusCode != '32') {
+			$("#failBidContainer").visible(false);
+			return;
+		}
+
+		var failBidContainer = "";
+
+		failBidContainer += `
+			<div class="tbl-list-summary">
+				유찰 사유
+			</div>
+			<ul class="list t2">
+				<li>
+					<div class="balance-manage-result">
+						<div class="date">\${formatDateString(bidDtlInfo.failBidDt)}</div>
+						<div class="figure-con">
+							<p class="pd-name fc-red">\${bidDtlInfo.failBidResn}</p>
+							<p class="pd-order">
+								<span>
+									오언은 내가 물건을 잃어버리는 방식에 관해, 잃어버리는 행위를 내 나름의 예술로 승화해나가는 방식에 관해 이야기하면서 나를 놀리곤 했다.
+								</span>
+							</p>
+						</div>
+					</div>
+				</li>                               
+			</ul>`;
+
+		$("#failBidContainer").html(failBidContainer);
+		$("#failBidContainer").visible(true);
+
 	}
 
 	function setBtnContainer(res) {
@@ -563,14 +630,14 @@
 		tbody += `
 			<tr>
 				<th class="multi" scope="row">인도 기한</th>
-				<td class="multi" colspan="3">\${bidDtlInfo.delyBeginDe} ~ \${bidDtlInfo.delyEndDe}<br>
+				<td class="multi" colspan="3">\${formatDateString(bidDtlInfo.delyBeginDe)} ~ \${formatDateString(bidDtlInfo.delyEndDe)}<br>
 					<span class="t-info">인도조건에서 제출한 인도지에 화물이 최종 입고된 기준으로 적용함.</span>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">가격지정기간</th>
 				<td>
-					<div class="read">\${bidDtlInfo.pcAppnBeginDe} ~ \${bidDtlInfo.pcAppnEndDe}</div>
+					<div class="read">\${formatDateString(bidDtlInfo.pcAppnBeginDe)} ~ \${formatDateString(bidDtlInfo.pcAppnEndDe)}</div>
 				</td>
 				<th scope="row">가격지정방법</th>
 				<td>

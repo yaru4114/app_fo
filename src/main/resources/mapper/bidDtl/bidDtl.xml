@@ -10,7 +10,7 @@
 			  SELECT CASE WHEN BBB.BID_STTUS_CODE = '12' /* 입찰예정 */
 			  			  THEN DATEDIFF(SECOND, GETDATE(), CONVERT(DATETIME, STUFF(STUFF(STUFF(BBB.BDDPR_BEGIN_DT,13,0,':'),11,0,':'),9,0,' ')))
 			  		 WHEN BBB.BID_STTUS_CODE = '13' /* 투찰중 */
-			  			  THEN DATEDIFF(SECOND, CONVERT(DATETIME, STUFF(STUFF(STUFF(BBB.BDDPR_END_DT,13,0,':'),11,0,':'),9,0,' ')), GETDATE())
+			  			  THEN DATEDIFF(SECOND, GETDATE(), CONVERT(DATETIME, STUFF(STUFF(STUFF(BBB.BDDPR_END_DT,13,0,':'),11,0,':'),9,0,' ')))
 			  		 END AS BID_TIMER
 			 FROM BD_BID_BAS BBB
 			 WHERE BBB.BID_PBLANC_ID = #{bidPblancId})
@@ -29,7 +29,7 @@
 			  , ISNULL(BBB.INTRST_ENTRPS_QY, 0)   AS INTRST_ENTRPS_QY         																								/* 관심 업체 수량 */
 			  , BBB.DSPY_AT               																																	/* 전시 여부 */
 			  , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'METAL_CODE' AND SUB_CODE = BBB.METAL_CODE) AS METAL_CODE_SHORT											/* 메탈명 영문 약어 */
-			  , (SELECT DELETE_AT FROM BD_INTRST_DTL WHERE BID_ENTRPS_NO = #{bidEntrpsNo} AND BID_PBLANC_ID = #{bidPblancId}) AS INTRST_AT   								/* 관심 여부 */ 
+			  , (SELECT DELETE_AT FROM BD_INTRST_DTL WHERE BID_ENTRPS_NO = #{bidEntrpsNo} AND BID_PBLANC_ID = #{bidPblancId}) AS INTRST_AT   								/* 관심 여부 */
 		      , CONCAT(@bidTimer / (60 * 60 * 24), '일 '
 				 	 , @bidTimer / 3600 % 24, '시간 '
 				 	 , @bidTimer % 3600 / 60, '분 '
@@ -58,10 +58,10 @@
 			  , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'METAL_CODE' AND SUB_CODE = BBB.METAL_CODE) AS METAL_CODE_SHORT											/* 메탈명 영문 약어 */
 		      , IIF(BBD.BID_PBLANC_ID IS NULL,'N','Y') AS BDDPR_AT 																											/* 공고 입찰 여부 */
 		      , IIF(BBD.BID_PBLANC_ID IS NULL, 'N', BBD.CANCL_AT) AS CANCL_AT 																								/* 공고 입찰 취소 여부 */
-		      , FORMAT(CONVERT(DATETIME, dbo.fn_convertDate(BBB.DELY_BEGIN_DE + '000000', 'fo')), 'yyyy.MM.dd') AS DELY_BEGIN_DE											/* 인도 시작 일자 */
-		      , FORMAT(CONVERT(DATETIME, dbo.fn_convertDate(BBB.DELY_END_DE + '000000', 'fo')), 'yyyy.MM.dd') AS DELY_END_DE												/* 인도 종료 일자 */
-		      , FORMAT(CONVERT(DATETIME, dbo.fn_convertDate(BBB.PC_APPN_BEGIN_DE + '000000', 'fo')), 'yyyy.MM.dd') AS PC_APPN_BEGIN_DE										/* 가격 지정 시작 일자 */
-		      , FORMAT(CONVERT(DATETIME, dbo.fn_convertDate(BBB.PC_APPN_END_DE + '000000', 'fo')), 'yyyy.MM.dd') AS PC_APPN_END_DE											/* 가격 지정 종료 일자 */
+		      , BBB.DELY_BEGIN_DE																																			/* 인도 시작 일자 */
+		      , BBB.DELY_END_DE																																				/* 인도 종료 일자 */
+		      , BBB.PC_APPN_BEGIN_DE																																		/* 가격 지정 시작 일자 */
+		      , BBB.PC_APPN_END_DE																																			/* 가격 지정 종료 일자 */
 		      , ISNULL(BBB.PERM_WT_RATE, 0) AS PERM_WT_RATE																													/* 허용 중량 비율 */
 		      , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE='PC_APPN_MTH_CODE' AND SUB_CODE = BBB.PC_APPN_MTH_CODE) AS PC_APPN_MTH_CODE_NM								/* 가격 지정 방법 */
 		      , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE='PC_APPN_MTH_CODE' AND SUB_CODE = BBB.SETLE_CRNCY_CODE) AS SETLE_CRNCY_CODE_NM							    /* 결제 통화 */
@@ -81,7 +81,10 @@
 		      , ISNULL(BBD.DELY_CND_STDR_PC, BBB.DELY_CND_01_STDR_PC) AS DELY_CND_STDR_PC																					/* 인도 조건 기준 가격 */
 		      , ISNULL(BBD.CNVRS_PREMIUM_AMOUNT, BBB.DELY_CND_01_PREMIUM_PC) AS CNVRS_PREMIUM_AMOUNT																		/* 전환 프리미엄 가격 */
 		      , ISNULL(BBD.BDDPR_PREMIUM_PC, 0) AS BDDPR_PREMIUM_PC																											/* 투찰 프리미엄 가격 */
-		      , ISNULL(BBD.BDDPR_WT * (BBD.DELY_CND_STDR_PC + BBD.CNVRS_PREMIUM_AMOUNT + BBD.BDDPR_PREMIUM_PC), 0) AS BDDPR_FINAL_AMOUNT									/* 투찰 최종 가격 */
+		      , ISNULL(BBD.BDDPR_WT * (BBD.DELY_CND_STDR_PC + BBD.CNVRS_PREMIUM_AMOUNT + BBD.BDDPR_PREMIUM_PC), 0) AS BDDPR_FINAL_AMOUNT									/* 투찰 최종 가격 */ 
+			  , BBB.FAIL_BID_RESN         																																	/* 유찰 사유 */
+			  , BBB.FAIL_BID_DT		         																																/* 유찰 일시 */
+			  , BBB.PBLANC_CANCL_DT         																																/* 취소 일시 */
 		      , CASE WHEN BBB.BID_STTUS_CODE = '12'
 		      			THEN '시작 전입니다.'
 	      			WHEN BBB.BID_STTUS_CODE = '21'

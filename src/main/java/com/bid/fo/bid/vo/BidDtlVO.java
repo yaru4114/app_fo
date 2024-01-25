@@ -57,4 +57,10 @@ public class BidDtlVO {
     
     private String bidMberId;
 
+	private String failBidResn;
+	
+	private String failBidDt;
+	
+	private String pblancCanclDt;
+
 }
