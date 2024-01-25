@@ -181,6 +181,7 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-full" role="document">
         <input type="hidden" id="modalBidStatCodeHidden">
         <input type="hidden" id="modalBidPblancIdHidden">
+        <input type="hidden" id="modalBddprCanclLmttDeHidden">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalTitle"></h5>
@@ -690,10 +691,11 @@
         $("#modalActiveAt2").text(data.activeAt);
         $("#modalBidStatCodeHidden").val(data.bidSttusCode);
         $("#modalBidPblancIdHidden").val(data.bidPblancId);
+        $("#modalBddprCanclLmttDeHidden").val(data.bddprCanclLmttDe);
         $("#modalPermWtRateP").text(data.permWtRateP + "%");
 
         // 공고취소 및 유찰하기 버튼
-        if(data.bidSttusCode == "31" || data.bidSttusCode == "32") {
+        if(data.bidSttusCode == "31" || data.bidSttusCode == "32" || data.bidSttusCode == "33") {
             $("#btn_bidCancel").css("display" , "none");
         } else {
             $("#btn_bidCancel").css("display" , "block");
@@ -789,143 +791,157 @@
     $("#overlay").show();
   }
 
-
   // 공고취소 버튼 클릭시
   function fnbidCancel(){
     var btnText = $("#btn_bidCancel").text();
     var bidSttusCode = $("#modalBidStatCodeHidden").val();
-    var canclResn = "";
     var confirmTxt = "";
     var afterText = "";
     var passingYn = "N";
+    var bddprCanclYn = "N";
+    var bddprCanclLmttDe = $("#modalBddprCanclLmttDeHidden").val();
+    var convertBddprCanclDate = new Date(bddprCanclLmttDe.replace(/-/g, '/'));
+    var toDate = new Date();
 
-    if(bidSttusCode == 12) {
-      confirmTxt = "해당 공고 건은 입찰 예정건 입니다. 공고 취소 시 노출되지 않습니다. 취소하시겠습니까?";
-      afterText = "공고 건이 삭제 되었습니다.";
-    } else if (bidSttusCode == 13 && btnText == "공고 취소") {
-      confirmTxt = "해당 공고 건은 투찰 진행중 입니다. 공고 취소 시, 비활성 상태로 전환되며 회원의 공고 목록에서 삭제 처리됩니다. 공고 취소 하시겠습니까?"
-      afterText = "공고 가 취소 되었습니다.";
-    } else if (bidSttusCode == 13 && btnText == "유찰하기") {
-      confirmTxt = "유찰할 경우, 유찰 사유 입력 후 유찰처리하기 클릭 시 모든과정이 무효처리됩니다. 정말로 유찰 처리 하시겠습니까?";
-      afterText = "유찰 처리 되었습니다.";
-      passingYn = "Y";
-    } else if( bidSttusCode == 11 && btnText == "공고 삭제") {
-      confirmTxt = "해당 공고 건을 삭제하시겠습니까?";
-      afterText = "공고 가 삭제 되었습니다.";
+    // 투찰취소제한 일자가 있으면 서버시간이랑 비교
+    if(bddprCanclLmttDe != null && bddprCanclLmttDe !== undefined && bddprCanclLmttDe != "") {
+        if(convertBddprCanclDate > toDate ) {
+          bddprCanclYn = "Y";
+        }
     }
 
-    // 공고 취소 인 경우
-    if(passingYn == "N") {
-      if (confirm(confirmTxt)) {
-        var jsonData = {
-          bidPblancId: $("#modalBidPblancIdHidden").val(),
-          bidSttusCode: $("#modalBidStatCodeHidden").val()
-        };
+    if(bidSttusCode != "13" || bddprCanclYn == "N") {
 
-        $.ajax({
-          url: "/bo/bid/noticeMngForm/bidCancel",
-          type: "POST",
-          contentType: "application/json; charset=utf-8",
-          data: JSON.stringify(jsonData),
-          dataType: "json",
-          success: function (data) {
+        if(bidSttusCode == 12) {
+          confirmTxt = "해당 공고 건은 입찰 예정건 입니다. 공고 취소 시 노출되지 않습니다. 취소하시겠습니까?";
+          afterText = "공고 건이 삭제 되었습니다.";
+        } else if (bidSttusCode == 13 && btnText == "공고 취소") {
+          confirmTxt = "해당 공고 건은 투찰 진행중 입니다. 공고 취소 시, 비활성 상태로 전환되며 회원의 공고 목록에서 삭제 처리됩니다. 공고 취소 하시겠습니까?"
+          afterText = "공고 가 취소 되었습니다.";
+        } else if (bidSttusCode == 13 && btnText == "유찰하기") {
+          confirmTxt = "유찰할 경우, 유찰 사유 입력 후 유찰처리하기 클릭 시 모든과정이 무효처리됩니다. 정말로 유찰 처리 하시겠습니까?";
+          afterText = "유찰 처리 되었습니다.";
+          passingYn = "Y";
+        } else if( bidSttusCode == 11 && btnText == "공고 삭제") {
+          confirmTxt = "해당 공고 건을 삭제하시겠습니까?";
+          afterText = "공고 가 삭제 되었습니다.";
+        }
 
-            if(data > 0) {
-                var jsonData = getCreateJsonData("");
-                ajaxBidNoticeMngStatCntList(jsonData , 'Y');
-                getBidStatList();
+        // 공고 취소 인 경우
+        if(passingYn == "N") {
+          if (confirm(confirmTxt)) {
+            var jsonData = {
+              bidPblancId: $("#modalBidPblancIdHidden").val(),
+              bidSttusCode: $("#modalBidStatCodeHidden").val()
+            };
 
-                $("#modalBidDtl").hide();
-                $("#overlay").hide();
+            $.ajax({
+              url: "/bo/bid/noticeMngForm/bidCancel",
+              type: "POST",
+              contentType: "application/json; charset=utf-8",
+              data: JSON.stringify(jsonData),
+              dataType: "json",
+              success: function (data) {
 
-                $("#toastText").text(afterText);
-                $('.pop-toast').fadeIn(300);
+                if(data > 0) {
+                    var jsonData = getCreateJsonData("");
+                    ajaxBidNoticeMngStatCntList(jsonData , 'Y');
+                    getBidStatList();
 
-                setTimeout(function(){
-                  $('.pop-toast').fadeOut(300);
-                },2000);
-            }
+                    $("#modalBidDtl").hide();
+                    $("#overlay").hide();
 
-          },
-          error: function (xhr, status, error) {
-            // 에러 처리 코드
-            console.error("에러 발생:", error);
+                    $("#toastText").text(afterText);
+                    $('.pop-toast').fadeIn(300);
 
-            $("#modalBidDtl").hide();
-            $("#overlay").hide();
+                    setTimeout(function(){
+                      $('.pop-toast').fadeOut(300);
+                    },2000);
+                }
 
-            $("#toastText").text("실패하였습니다.");
-            $('.pop-toast').fadeIn(300);
-
-            setTimeout(function(){
-              $('.pop-toast').fadeOut(300);
-            },2000);
-          }
-        });
-      }
-    } else {
-        var result = prompt(confirmTxt,"유찰 사유를 입력해주세요.(15자이내)");
-
-        if(result == null) {
-        } else if (result == "") {
-          $("#modalToastText").text("유찰 사유를 입력해주세요.");
-          $('#modalToast').fadeIn(300);
-
-          setTimeout(function(){
-            $('#modalToast').fadeOut(300);
-          },2000);
-
-        } else {
-
-          var jsonData = {
-            bidPblancId: $("#modalBidPblancIdHidden").val(),
-            bidSttusCode: $("#modalBidStatCodeHidden").val(),
-            failBidResn : result
-          };
-
-          $.ajax({
-            url: "/bo/bid/noticeMngForm/bidCancel",
-            type: "POST",
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify(jsonData),
-            dataType: "json",
-            success: function (data) {
-
-              if(data > 0) {
-
-                var jsonData = getCreateJsonData("");
-
-                ajaxBidNoticeMngStatCntList(jsonData , 'Y');
-                getBidStatList();
+              },
+              error: function (xhr, status, error) {
+                // 에러 처리 코드
+                console.error("에러 발생:", error);
 
                 $("#modalBidDtl").hide();
                 $("#overlay").hide();
 
-                $("#toastText").text(afterText);
+                $("#toastText").text("실패하였습니다.");
                 $('.pop-toast').fadeIn(300);
 
                 setTimeout(function(){
                   $('.pop-toast').fadeOut(300);
                 },2000);
               }
+            });
+          }
+        } else {
+            var result = prompt(confirmTxt,"유찰 사유를 입력해주세요.(15자이내)");
 
-            },
-            error: function (xhr, status, error) {
-              // 에러 처리 코드
-              console.error("에러 발생:", error);
-
-              $("#modalBidDtl").hide();
-              $("#overlay").hide();
-
-              $("#toastText").text("실패하였습니다.");
-              $('.pop-toast').fadeIn(300);
+            if(result == null) {
+            } else if (result == "") {
+              $("#modalToastText").text("유찰 사유를 입력해주세요.");
+              $('#modalToast').fadeIn(300);
 
               setTimeout(function(){
-                $('.pop-toast').fadeOut(300);
+                $('#modalToast').fadeOut(300);
               },2000);
+
+            } else {
+
+              var jsonData = {
+                bidPblancId: $("#modalBidPblancIdHidden").val(),
+                bidSttusCode: $("#modalBidStatCodeHidden").val(),
+                failBidResn : result
+              };
+
+              $.ajax({
+                url: "/bo/bid/noticeMngForm/bidCancel",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(jsonData),
+                dataType: "json",
+                success: function (data) {
+
+                  if(data > 0) {
+
+                    var jsonData = getCreateJsonData("");
+
+                    ajaxBidNoticeMngStatCntList(jsonData , 'Y');
+                    getBidStatList();
+
+                    $("#modalBidDtl").hide();
+                    $("#overlay").hide();
+
+                    $("#toastText").text(afterText);
+                    $('.pop-toast').fadeIn(300);
+
+                    setTimeout(function(){
+                      $('.pop-toast').fadeOut(300);
+                    },2000);
+                  }
+
+                },
+                error: function (xhr, status, error) {
+                  // 에러 처리 코드
+                  console.error("에러 발생:", error);
+
+                  $("#modalBidDtl").hide();
+                  $("#overlay").hide();
+
+                  $("#toastText").text("실패하였습니다.");
+                  $('.pop-toast').fadeIn(300);
+
+                  setTimeout(function(){
+                    $('.pop-toast').fadeOut(300);
+                  },2000);
+                }
+              });
             }
-          });
         }
+    } else {
+      alert("투찰 취소 제한중입니다");
     }
   }
 
