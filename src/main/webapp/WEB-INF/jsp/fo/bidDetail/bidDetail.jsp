@@ -568,7 +568,7 @@
 		const toListBtn = `<button type="button" class="btn-gray-big btn-list" onclick="toBidList()">공고 목록가기</button>`;
 		const toMyPageBtn = `<button type="button" class="btn-stroke-big blue" onclick="toMyPage()">마이페이지</button>`;
 		const submitBtn = `<button type="button" class="btn-blue-big" onclick="handleSubmit()">투찰하기</button>`;
-		const canclBtn = `<button type="button" class="btn-black-big" onclick="handleCancl(\${bidDtlInfo.pblancCanclDt})">투찰취소</button>`;
+		const canclBtn = `<button type="button" class="btn-black-big" onclick="handleCancl()">투찰취소</button>`;
 
 		if(bidSttusCode == "12") {
 			btnContainer += toListBtn;
@@ -796,8 +796,10 @@
 		popup('memberPwAuth', 'modal', '', doBddpr);
 	}
 
-	function handleCancl(pblancCanclDt) {
-		if(pblancCanclDt && canclDateValid(pblancCanclDt)) {
+	async function handleCancl() {
+		const dateValidPromise = await canclDateValid();
+		
+		if(!dateValidPromise.result) {
 			popup('bddprAlert', 'alert', '취소접수 기한이 지나 취소가 불가능합니다.')
 		}else {
 			popup('bddprCanclAlert', 'modal');
@@ -806,9 +808,18 @@
 
 	// 투찰취소 가능 기한 validation
 	function canclDateValid(date) {
-		const pblancCanclDt = new Date(formatDatetime(date)).getTime();
-		const curr = new Date().getTime();
-		return curr > pblancCanclDt;
+		const bidPblancId = $("#bidPblancId").val();
+		var params = {
+			"bidPblancId" : bidPblancId,
+		}
+
+		return $.ajax({
+	 			type : 'post',
+	 			url : '/fo/bid/detail/canclDateValid',
+	 			dataType : 'json',
+	 			data : JSON.stringify(params),
+	 			contentType : 'application/json'
+		});
 	}
 
 	// 취소 확인 체크여부 validation

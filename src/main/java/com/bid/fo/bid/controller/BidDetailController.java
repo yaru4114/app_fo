@@ -91,5 +91,15 @@ public class BidDetailController {
 		   
 		   return ResponseEntity.ok(map);
 	   }
-	   
+
+	   @ResponseBody
+	   @PostMapping("/bid/detail/canclDateValid")
+	   public ResponseEntity<?> canclDateValid(@RequestBody BidDtlVO bidDtlVO) {
+		   Map<String, Object> map = new HashMap<>();
+		   
+		   map.put("result", bidDtlService.canclDateValid(bidDtlVO));
+		   
+		   return ResponseEntity.ok(map);
+	   }
+
 }

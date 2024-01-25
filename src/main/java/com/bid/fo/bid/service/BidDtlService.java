@@ -56,9 +56,14 @@ public class BidDtlService {
     @Transactional
     public Map<String, Object> canclBddpr(BidDtlVO vo) {
         Map<String, Object> resultMap = new HashMap<>();
-        int result = 0;
+        if(!canclDateValid(vo)) {
+        	resultMap.put("result", "fail");
+        	resultMap.put("message", "취소접수 기한이 지나 취소가 불가능합니다.");
+            return resultMap;
+        }
+        
         try {
-        	result = bidDtlDAO.canclBddpr(vo);
+        	bidDtlDAO.canclBddpr(vo);
         	vo.setCanclAt("Y");
         	bidDtlDAO.chgBddrCnt(vo);
         	bidDtlDAO.chgEntrpsCanclCnt(vo);
@@ -71,5 +76,10 @@ public class BidDtlService {
         }
     	resultMap.put("result", "success");
         return resultMap;
+    }
+    
+    public boolean canclDateValid(BidDtlVO vo) {
+    	String canclDateValid = bidDtlDAO.canclDateValid(vo);
+    	return canclDateValid.equals("Y");
     }
 }

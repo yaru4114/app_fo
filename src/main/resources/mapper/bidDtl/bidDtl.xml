@@ -191,5 +191,15 @@
 			AND bbd.DELETE_AT = 'N'
 		ORDER BY bbd.BDDPR_PREMIUM_PC ASC
 	</select>
+	
+	<select id="canclDateValid"  parameterType="com.bid.fo.bid.vo.BidDtlVO" resultType="string">
+		SELECT CASE WHEN bbb.BDDPR_CANCL_LMTT_DE IS NULL OR bbb.BDDPR_CANCL_LMTT_DE = ''
+				THEN 'Y'
+			WHEN bbb.BDDPR_CANCL_POSS_AT = 'Y' AND bbb.BDDPR_CANCL_LMTT_DE > FORMAT(GETDATE(), 'yyyyMMddHHmmss')
+				THEN 'Y'
+			ELSE 'N' END AS CANCL_DATE_VALID
+		FROM BD_BID_BAS bbb
+		WHERE bbb.BID_PBLANC_ID = #{bidPblancId}
+	</select>
 
 </mapper>

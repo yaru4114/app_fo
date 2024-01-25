@@ -24,4 +24,7 @@ public interface BidDtlDAO {
 	public List<BddprEntrpsVO> getBddprEntrpsList(BidDtlVO dtlVO);
 	
 	public int chgEntrpsCanclCnt(BidDtlVO dtlVO);
+	
+	public String canclDateValid(BidDtlVO dtlVO);
+	
 }
