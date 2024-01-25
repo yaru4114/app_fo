@@ -56,11 +56,11 @@
             <div class="inner">
                 <h1>입찰 회원 관리</h1>
                 <div class="count-banner">
-                    <div class="list list-total">
+                    <div class="list list-total normal-count">
                         <span class="label">정상 회원</span>
                         <span class="count"></span>
                     </div>
-                    <div class="list list-total">
+                    <div class="list list-total block-count">
                         <span class="label">차단 회원</span>
                         <span class="count"></span>
                     </div>
@@ -73,7 +73,7 @@
                 <div class="search-control">
                     <div class="form-set">
                         <span class="label">상태</span>
-                        <select class="form-select">
+                        <select class="form-select select-st">
                             <option value="00">전체</option>
                             <option value="01">정상</option>
                             <option value="02">차단</option>
@@ -330,6 +330,11 @@
         </table>
     </div>
     <script type="text/javascript">
+
+        // 상단 카운트바 클릭 커서 변경
+        $(".normal-count").css("cursor","pointer");
+        $(".block-count").css("cursor","pointer");
+
         $(document).ready(function () {
             start();
             getMemberList();
@@ -729,6 +734,18 @@
             });
             getCountByStatus(statusParam);
         }
+
+        /* 상단 카운트바 클릭시 해당 상태값으로 검색 */
+        // 정상
+        $(".normal-count").on("click",function(){
+            $(".select-st").val("01");
+            $("#searchBtn").click();
+        });
+        // 차단
+        $(".block-count").on("click",function(){
+            $(".select-st").val("02");
+            $("#searchBtn").click();
+        });
 
     </script>
 </div>

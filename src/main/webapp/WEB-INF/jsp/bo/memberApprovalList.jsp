@@ -66,7 +66,7 @@
                         <span class="label">차단 회원</span>
                         <span class="count"></span>
                     </div>
-                    <div class="list list-total">
+                    <div class="list list-total approval-count">
                         <span class="label">가입승인대기</span>
                         <span class="count"></span>
                     </div>
@@ -75,7 +75,7 @@
                 <div class="search-control">
                     <div class="form-set">
                         <span class="label">상태</span>
-                        <select class="form-select">
+                        <select class="form-select select-st">
                             <option value="">전체</option>
                             <option value="01">대기</option>
                             <option value="02">거절</option>
@@ -371,6 +371,8 @@
 
             // 상태별 회원 수 Count
             countStatUpdate();
+
+            $(".approval-count").css("cursor","pointer");
 
             // datepicker 초기화
             $('#datepicker1, #datepicker2').datepicker({
@@ -796,6 +798,11 @@
             });
             getCountByStatus(statusParam);
         }
+
+        $(".approval-count").on("click",function(){
+            $(".select-st").val("02");
+            $("#searchBtn").click();
+        });
     </script>
 
 </div>
