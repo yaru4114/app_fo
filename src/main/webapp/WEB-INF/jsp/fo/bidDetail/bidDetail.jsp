@@ -119,10 +119,10 @@
  									</div>
 		                        	<p class="bid-d-day abs-info"> <!-- <p class="bid-d-day pre abs-info"> -->
 										<c:if test="${bidBasInfo.bidSttusCode == '12'}">
-											투찰 시작까지 <span class="time" id="time${bidBasInfo.bidPblancId}"></span>
+											투찰 시작까지 <span class="time" id="time${bidBasInfo.bidPblancId}">${bidBasInfo.bidTimer}</span>
 										</c:if>
 										<c:if test="${bidBasInfo.bidSttusCode == '13'}">
-											투찰 마감까지 <span class="time" id="time${bidBasInfo.bidPblancId}"></span>
+											투찰 마감까지 <span class="time" id="time${bidBasInfo.bidPblancId}">${bidBasInfo.bidTimer}</span>
 										</c:if>
 		                        	</p>
 			                    </div>
@@ -212,26 +212,7 @@
 			                            </tr>
 			                        </tbody>
 			                    </table>
-								<div class="section fixes-wrap" id="failBidContainer" style="display: none;">
-									<div class="tbl-list-summary">
-										유찰 사유
-									</div>
-									<ul class="list t2">
-										<li>
-											<div class="balance-manage-result">
-												<div class="date">${bidBasInfo.failBidDt}</div>
-												<div class="figure-con">
-													<p class="pd-name fc-red">${bidBasInfo.failBidResn}</p>
-													<p class="pd-order">
-														<span>
-															오언은 내가 물건을 잃어버리는 방식에 관해, 잃어버리는 행위를 내 나름의 예술로 승화해나가는 방식에 관해 이야기하면서 나를 놀리곤 했다.
-														</span>
-													</p>
-												</div>
-											</div>
-										</li>                               
-									</ul>
-								</div>
+								<div class="section fixes-wrap" id="bidResultContainer" style="display: none;"></div>
 			                    <div class="btn-wrap" id="btnContainer">
 			                        <button type="button" class="btn-gray-big btn-list" onclick="toBidList()">공고 목록가기</button>
 			                    </div>
@@ -472,7 +453,7 @@
 	 			success : function(res) {
 					setBddrDtlTable(res);
 					setBtnContainer(res);
-					//setFailBidContainer(res);
+					setBidResultContainer(res);
 	 			},
 	 			error : function(request, status, error) {
 					popup("bddprAlert", 'alert', "오류가 발생하였습니다.");
@@ -480,48 +461,100 @@
 	 		});
 	}
 
-	function formatDateString(date, format) {
+	function formatDateString(date) {
 		const valid_date = date.toString().replace(/[^-0-9]/gi, '') || '';
 
 		if(!valid_date) return '';
 
-		var format_date = valid_date.replace(/(\d{4})(\d{2})(\d{2})(\d{2})?(\d{2})?(\d{2})?/, '$1.$2.$3');
+		const format_date = valid_date.replace(/(\d{4})(\d{2})(\d{2})(\d{2})?(\d{2})?(\d{2})?/, '$1.$2.$3');
 
 		return format_date;
 	}
 
-	function setFailBidContainer(res) {
+	function formatDatetime(date) {
+		const valid_date = date.toString().replace(/[^-0-9]/gi, '') || '';
+
+		if(!valid_date) return '';
+
+		const format_date = valid_date.replace(/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/, '$1.$2.$3 $4:$5');
+
+		return format_date;
+	}
+
+	function maskingPrice(price) {
+		return price.toString().replace(/\d(?=\d)/g, '*');
+	}
+
+	function setBidResultContainer(res) {
 		const bidDtlInfo = res.bidDtlInfo;
 		
-		if(!bidDtlInfo || bidDtlInfo.bidSttusCode != '32') {
-			$("#failBidContainer").visible(false);
+		if(!bidDtlInfo || (bidDtlInfo.bidSttusCode != '30' && bidDtlInfo.bidSttusCode != '31' && bidDtlInfo.bidSttusCode != '32')) {
+			$("#bidResultContainer").hide();
 			return;
 		}
 
-		var failBidContainer = "";
+		var bidResultContainer = "";
 
-		failBidContainer += `
-			<div class="tbl-list-summary">
-				유찰 사유
-			</div>
-			<ul class="list t2">
-				<li>
-					<div class="balance-manage-result">
-						<div class="date">\${formatDateString(bidDtlInfo.failBidDt)}</div>
-						<div class="figure-con">
-							<p class="pd-name fc-red">\${bidDtlInfo.failBidResn}</p>
-							<p class="pd-order">
-								<span>
-									오언은 내가 물건을 잃어버리는 방식에 관해, 잃어버리는 행위를 내 나름의 예술로 승화해나가는 방식에 관해 이야기하면서 나를 놀리곤 했다.
-								</span>
-							</p>
+		if(bidDtlInfo.bidSttusCode == '32') {
+			bidResultContainer += `
+				<div class="tbl-list-summary">
+					유찰 사유
+				</div>
+				<ul class="list t2">
+					<li>
+						<div class="balance-manage-result">
+							<div class="date">\${formatDatetime(bidDtlInfo.failBidDt)}</div>
+							<div class="figure-con">
+								<p class="pd-name fc-red">\${bidDtlInfo.dspyGoodsNm}</p>
+								<p class="pd-order">
+									<span>
+										\${bidDtlInfo.failBidResn}
+									</span>
+								</p>
+							</div>
 						</div>
-					</div>
-				</li>                               
-			</ul>`;
-
-		$("#failBidContainer").html(failBidContainer);
-		$("#failBidContainer").visible(true);
+					</li>                               
+				</ul>`;
+		} else {
+			bidResultContainer += `
+			<div class="hgroup">
+				<h2 class="h3">투찰 결과</h2>
+			</div>
+			<table class="tbl t3 bid">
+				<caption>투찰 결과</caption>
+				<colgroup>
+					<col style="width:20%;">
+					<col style="width:20%;">
+					<col style="width:20%;">
+					<col style="width:20%;">
+					<col style="width:20%;">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col" class="rank">순위</th>
+						<th scope="col" class="company">기업명</th>
+						<th scope="col" class="date">접수일</th>
+						<th scope="col" class="premium">프리미엄가</th>
+						<th scope="col" class="result">결과</th>
+					</tr>
+				</thead>
+				<tbody>`
+			bidDtlInfo.bddprEntrpsList.forEach((bddprEntrps) => {
+				bidResultContainer += 
+					`<tr class="\${bddprEntrps.scsbidAt == 'Y' ? 'active' : ''}">
+						<td class="center">\${bddprEntrps.rank}</td>
+						<td class="center">\${bddprEntrps.entrpsNm}</td>
+						<td class="center">\${formatDatetime(bddprEntrps.bddprDt)}</td>
+						<td class="center">\${maskingPrice(bddprEntrps.bddprPremiumPc)}</td>
+						<td class="center">\${bddprEntrps.scsbidAt == 'Y' ? '낙찰' : '패찰'}</td>
+					</tr>`
+			});
+			bidResultContainer += 
+				`</tbody>
+			</table>`;
+		}
+		$("#bidResultContainer").html(bidResultContainer);
+		$("#bidResultContainer").show();
 
 	}
 
@@ -548,10 +581,8 @@
 			}else {
 				btnContainer +=  submitBtn;
 			}
-		}else if(bidSttusCode == "30") {
-			btnContainer += toListBtn + toMyPageBtn;
 		}else {
-			btnContainer += toListBtn;
+			btnContainer += toListBtn + toMyPageBtn;
 		}
 
 		$("#btnContainer").html(btnContainer);
@@ -628,9 +659,6 @@
 				<td class="right-narrow" colspan="2">
 					<div class="input-btn-wrap">
 						<div class="r-info">+전환 프리미엄가</div>
-						<div class="btns">
-							<a href="#" class="btn-navy-md">인도조건창고 목록</a>
-						</div>
 					</div>
 				</td>
 				<td colspan="1">

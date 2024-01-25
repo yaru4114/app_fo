@@ -1,6 +1,7 @@
 package com.bid.fo.bid.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bid.fo.bid.dao.BidDtlDAO;
 import com.bid.fo.bid.vo.BidBasVO;
 import com.bid.fo.bid.vo.BidDtlVO;
+import com.bid.fo.bid.vo.BddprEntrpsVO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,7 +27,11 @@ public class BidDtlService {
     }
 
     public BidDtlVO getBidDtlInfo(BidBasVO vo) {
-        return bidDtlDAO.getBidDtlInfo(vo);
+    	BidDtlVO dtlVO = bidDtlDAO.getBidDtlInfo(vo);
+    	if(dtlVO != null) {
+        	dtlVO.setBddprEntrpsList(bidDtlDAO.getBddprEntrpsList(dtlVO));	
+    	}
+        return dtlVO;
     }
 
     @Transactional
@@ -55,6 +61,7 @@ public class BidDtlService {
         	result = bidDtlDAO.canclBddpr(vo);
         	vo.setCanclAt("Y");
         	bidDtlDAO.chgBddrCnt(vo);
+        	bidDtlDAO.chgEntrpsCanclCnt(vo);
         }catch(Exception e) {
         	log.error(ExceptionUtils.getStackTrace(e));
         	

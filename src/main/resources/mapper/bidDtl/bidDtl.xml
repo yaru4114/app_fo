@@ -118,6 +118,7 @@
 			, BDDPR_DT
 			, DELETE_AT
 			, CANCL_AT
+			, SCSBID_AT
 			, FRST_REGISTER_ID
 			, FRST_REGIST_DT
 			, LAST_CHANGER_ID
@@ -131,9 +132,10 @@
 			 , #{bddprPremiumPc} AS BDDPR_PREMIUM_PC /* 사용자 입력한 프리미엄 값에 따라 */
 			 , BBB.BID_WT AS BDDPR_WT
 			 , 'Y' AS PARTCPTN_AGRE_AT /* 동의 여부 */
-			 , FORMAT(GETDATE(), 'yyyy-MM-dd') AS BDDPR_DT
+			 , FORMAT(GETDATE(), 'yyyyMMddHHmmss') AS BDDPR_DT
 			 , 'N' AS DELETE_AT
 			 , 'N' AS CANCL_AT
+			 , 'N' AS SCSBID_AT
 			 , #{bidMberId} AS FRST_REGISTER_ID
 			 , GETDATE() AS FRST_REGIST_DT 
 			 , #{bidMberId} AS LAST_CHANGER_ID 
@@ -147,7 +149,7 @@
 		SET LAST_CHANGER_ID = #{bidMberId}
 			, LAST_CHANGE_DT = GETDATE()
 			, CANCL_AT = 'Y'
-			, CANCL_DT = FORMAT(GETDATE(), 'yyyy-MM-dd')
+			, CANCL_DT = FORMAT(GETDATE(), 'yyyyMMddHHmmss')
 		WHERE BID_ENTRPS_NO = #{bidEntrpsNo}
 			AND BID_PBLANC_ID = #{bidPblancId}
 	</update>
@@ -164,6 +166,30 @@
 		</if>
 		WHERE BID_PBLANC_ID = #{bidPblancId}
 	</update>
-
+	
+	<update id="chgEntrpsCanclCnt" parameterType="com.bid.fo.bid.vo.BidDtlVO">
+		UPDATE BD_ENTRPS_INFO_BAS 
+		SET LAST_CHANGER_ID = 'SYSTEM'
+			, LAST_CHANGE_DT = GETDATE()
+			, BDDPR_CANCL_CO = ISNULL(BDDPR_CANCL_CO, 0) + 1
+		WHERE BID_ENTRPS_NO = #{bidEntrpsNo}
+	</update>
+	
+	<select id="getBddprEntrpsList" parameterType="com.bid.fo.bid.vo.BidDtlVO" resultType="com.bid.fo.bid.vo.BddprEntrpsVO">
+		SELECT ROW_NUMBER() OVER(ORDER BY bbd.BDDPR_PREMIUM_PC) AS RANK
+			, beib.ENTRPS_NM
+			, bbd.BDDPR_DT
+			, bbd.BDDPR_PREMIUM_PC
+			, ISNULL(bbd.SCSBID_AT, 'N') AS SCSBID_AT
+		FROM BD_BDDPR_DTL bbd
+		INNER JOIN BD_ENTRPS_INFO_BAS beib
+			ON bbd.BID_ENTRPS_NO = beib.BID_ENTRPS_NO
+			AND beib.DELETE_AT = 'N'
+		WHERE 1=1
+			AND bbd.BID_PBLANC_ID = #{bidPblancId}
+			AND bbd.CANCL_AT = 'N'
+			AND bbd.DELETE_AT = 'N'
+		ORDER BY bbd.BDDPR_PREMIUM_PC ASC
+	</select>
 
 </mapper>

@@ -1,5 +1,7 @@
 package com.bid.fo.bid.vo;
 
+import java.util.List;
+
 import lombok.Data;
 
 @Data
@@ -62,5 +64,7 @@ public class BidDtlVO {
 	private String failBidDt;
 	
 	private String pblancCanclDt;
+	
+	private List<BddprEntrpsVO> bddprEntrpsList;
 
 }
