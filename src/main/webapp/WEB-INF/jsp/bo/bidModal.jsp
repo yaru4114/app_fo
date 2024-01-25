@@ -418,6 +418,8 @@
                 <div class="modal-footer" id="bidNoticeModal">
                     <div class="btn-box">
                         <button type="button" class="btn" id="submitBid">입찰 공고 등록</button>
+                        <button type="button" class="btn btn-gray" id="cancelCreBid" data-dismiss="modal">등록 취소</button>
+                        <button type="button" class="btn btn-gray" id="cancelUdtBid" data-dismiss="modal">수정 취소</button>
                     </div>
                 </div>
             </div>
@@ -495,14 +497,18 @@
         function openBidModal(text, isEditMode) {
             if (isEditMode) { // 수정
                 $('#exampleModal h5.modal-title').text(text);
-                $('#bidNoticeModal button.btn').text(text);
+                $('#submitBid').text(text);
                 $('#udtBidTitle').show();
                 $('#udtBidContent').show();
+                $('#cancelCreBid').hide();
+                $('#cancelUdtBid').show();
             } else { // 등록
                 $('#exampleModal h5.modal-title').text(text);
-                $('#bidNoticeModal button.btn').text(text);
+                $('#submitBid').text(text);
                 $('#udtBidTitle').hide();
                 $('#udtBidContent').hide();
+                $('#cancelUdtBid').hide();
+                $('#cancelCreBid').show();
             }
         }
 

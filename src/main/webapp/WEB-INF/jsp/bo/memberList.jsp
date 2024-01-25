@@ -519,7 +519,7 @@
             createGrid("realgrid");
         }
 
-        window.onload = start;
+        // window.onload = start;
         window.onunload = function () {
             dataProvider.clearRows();
 
