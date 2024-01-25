@@ -170,7 +170,6 @@
 			                        <div class="opt_item">
 			                            <label for="brand">브랜드</label>
 			                            <select name="" id="brand" class="brand">
-			                             <option></option>
 			                                <option value="">브랜드(전체)</option>
 			                                <c:forEach var="list" items="${brandGroupList}">
 			                                	<option value="${list.subCode }">${list.codeDcone }</option>
@@ -287,18 +286,21 @@ var loginYn = "${loginYn}";
 var bidEntrpsNo = "${bidEntrpsNo}";
 
 $(function(){
+	
+	$("#bddprTab").trigger("click");
+	//리스트 조회
+	//selectBdList(-1);
+})
 
-	// =============== SELECT BOX ==================
+// =============== SELECT BOX ==================
 	$('.brand').select2({
 	    width: 'element',
 	    minimumResultsForSearch: Infinity,
-	    placeholder: '브랜드(전체)',
 	    selectOnClose: true
 	});
 	$('.area').select2({
 	    width: 'element',
 	    minimumResultsForSearch: Infinity,
-	    placeholder: '권역',
 	    selectOnClose: true
 	});
 	$('.filter').select2({
@@ -307,11 +309,6 @@ $(function(){
 	    minimumResultsForSearch: Infinity,
 	    selectOnClose: true
 	});
-	
-	$("#bddprTab").trigger("click");
-	//리스트 조회
-	//selectBdList(-1);
-})
 	
 	$("#filter, #brand, #area").change(function(){
 		//리스트 조회
