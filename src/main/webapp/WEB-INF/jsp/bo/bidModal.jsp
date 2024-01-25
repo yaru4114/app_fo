@@ -601,6 +601,11 @@
             $('#bddprCanclLmttDe_hour').val('');
             $('#bddprCanclLmttDe_min').val('');
             $('#bddprCanclLmttDe_sec').val('');
+            $('#bidUpdtCn').val('');
+            $('#bidUpdtResn').val('');
+            $('#delyCnd01ApplcAt').prop('checked', true);
+            $('#delyCnd02ApplcAt').prop('checked', true);
+            $('#delyCnd03ApplcAt').prop('checked', true);
         }
 
         function udtCheckboxValue(elementId) {
@@ -898,7 +903,7 @@
             }
 
             var bidUpdtCn = $('#bidUpdtCn').val();
-            var bidUpdtResn = $('#bidUpdtCn').val();
+            var bidUpdtResn = $('#bidUpdtResn').val();
 
             var param = {
                 subCode: metalCode,
