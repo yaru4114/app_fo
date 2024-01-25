@@ -201,5 +201,14 @@
 		FROM BD_BID_BAS bbb
 		WHERE bbb.BID_PBLANC_ID = #{bidPblancId}
 	</select>
+	
+	<select id="getBidHist"  parameterType="com.bid.fo.bid.vo.BidDtlVO" resultType="com.bid.fo.bid.vo.BidUpdtHistVO">
+		SELECT FORMAT(bbuh.FRST_REGIST_DT, 'yyyy.MM.dd HH:mm:ss') AS FRST_REGIST_DT 
+			, bbuh.BID_UPDT_CN
+			, bbuh.BID_UPDT_RESN
+		FROM BD_BID_UPDT_HST bbuh
+		WHERE bbuh.BID_PBLANC_ID = #{bidPblancId}
+		ORDER BY bbuh.FRST_REGIST_DT DESC
+	</select>
 
 </mapper>

@@ -29,7 +29,8 @@ public class BidDtlService {
     public BidDtlVO getBidDtlInfo(BidBasVO vo) {
     	BidDtlVO dtlVO = bidDtlDAO.getBidDtlInfo(vo);
     	if(dtlVO != null) {
-        	dtlVO.setBddprEntrpsList(bidDtlDAO.getBddprEntrpsList(dtlVO));	
+        	dtlVO.setBddprEntrpsList(bidDtlDAO.getBddprEntrpsList(dtlVO));
+        	dtlVO.setBidHistList(bidDtlDAO.getBidHist(vo));
     	}
         return dtlVO;
     }
@@ -66,7 +67,7 @@ public class BidDtlService {
         	bidDtlDAO.canclBddpr(vo);
         	vo.setCanclAt("Y");
         	bidDtlDAO.chgBddrCnt(vo);
-        	bidDtlDAO.chgEntrpsCanclCnt(vo);
+//        	bidDtlDAO.chgEntrpsCanclCnt(vo);
         }catch(Exception e) {
         	log.error(ExceptionUtils.getStackTrace(e));
         	

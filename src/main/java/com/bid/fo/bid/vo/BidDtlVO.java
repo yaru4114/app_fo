@@ -66,5 +66,7 @@ public class BidDtlVO {
 	private String pblancCanclDt;
 	
 	private List<BddprEntrpsVO> bddprEntrpsList;
+	
+	private List<BidUpdtHistVO> bidHistList;
 
 }

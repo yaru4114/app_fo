@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.bid.fo.bid.vo.BidBasVO;
 import com.bid.fo.bid.vo.BidDtlVO;
+import com.bid.fo.bid.vo.BidUpdtHistVO;
 import com.bid.fo.bid.vo.BddprEntrpsVO;
 
 @Mapper
@@ -26,5 +27,7 @@ public interface BidDtlDAO {
 	public int chgEntrpsCanclCnt(BidDtlVO dtlVO);
 	
 	public String canclDateValid(BidDtlVO dtlVO);
+	
+	public List<BidUpdtHistVO> getBidHist(BidBasVO basVO);
 	
 }

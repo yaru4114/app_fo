@@ -212,6 +212,36 @@
 			                            </tr>
 			                        </tbody>
 			                    </table>
+								<div class="section fixes-wrap" id="bidHistContainer" style="display: none;">
+									<div class="tbl-list-summary">
+										수정 사항
+									</div>
+									<ul class="list t2">
+										<li>
+											<div class="balance-manage-result">
+												<div class="date">2022.10.20 17:52</div>
+												<div class="figure-con">
+													<p class="pd-name">뮤지엄에서 마주한 고요와 아우성의 시간들</p>
+													<p class="pd-order">
+														<span>백 번의 전시는 백 번의 ‘케바케’ 내가 전시 기획이란 것을 처음 배운 곳은 책이다. 학예사 자격증을 받기 위해서 박물관학과 전시에 관한 책들을 읽고
+															교육을 받으면서 나는 전시 기획이 뭔지 알게 되었다.</span>
+													</p>
+												</div>
+											</div>
+										</li>                         
+										<li>
+											<div class="balance-manage-result">
+												<div class="date">2022.10.20 17:52</div>
+												<div class="figure-con">
+													<p class="pd-name">유찰사유에 대한 제목이 들어갑니다.</p>
+													<p class="pd-order">
+														<span>오언은 내가 물건을 잃어버리는 방식에 관해, 잃어버리는 행위를 내 나름의 예술로 승화해나가는 방식에 관해 이야기하면서 나를 놀리곤 했다.</span>
+													</p>
+												</div>
+											</div>
+										</li>                            
+									</ul>
+								</div>
 								<div class="section fixes-wrap" id="bidResultContainer" style="display: none;"></div>
 			                    <div class="btn-wrap" id="btnContainer">
 			                        <button type="button" class="btn-gray-big btn-list" onclick="toBidList()">공고 목록가기</button>
@@ -453,6 +483,7 @@
 					setBddrDtlTable(res);
 					setBtnContainer(res);
 					setBidResultContainer(res);
+					setBidHistContainer(res);
 	 			},
 	 			error : function(request, status, error) {
 					popup("bddprAlert", 'alert', "오류가 발생하였습니다.");
@@ -482,6 +513,52 @@
 
 	function maskingPrice(price) {
 		return price.toString().replace(/(^\d$)|\d(?=\d)/g, '*');
+	}
+
+	function setBidHistContainer(res) {
+		const bidDtlInfo = res.bidDtlInfo;
+		if(!bidDtlInfo || !bidDtlInfo.bidHistList) {
+			$("#bidHistContainer").hide();
+			return;
+		}
+
+		var bidHistContainer = "";
+
+		
+		bidHistContainer += `
+			<div class="hgroup">
+				<h2 class="h3">수정 사항</h2>
+			</div>
+			<table class="tbl t3 bid">
+				<caption>투찰 결과</caption>
+				<colgroup>
+					<col style="width:20%;">
+					<col style="width:20%;">
+					<col style="width:20%;">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col" class="rank">수정일</th>
+						<th scope="col" class="company">수정내용</th>
+						<th scope="col" class="date">수정사유</th>
+					</tr>
+				</thead>
+				<tbody>`;
+		
+		bidDtlInfo.bidHistList.forEach((bidHist) => {
+			bidHistContainer += `
+				<tr>
+					<td class="center">\${formatDatetime(bidHist.frstRegistDt)}</td>
+					<td class="center">\${bidHist.bidUpdtCn}</td>
+					<td class="center">\${bidHist.bidUpdtResn}</td>
+				</tr>`;
+		});
+		bidHistContainer += `
+			</tbody>
+		</table>`;
+
+		$("#bidHistContainer").html(bidHistContainer);
+		$("#bidHistContainer").show();
 	}
 
 	function setBidResultContainer(res) {
@@ -623,7 +700,7 @@
 					<div class="read">\${bidDtlInfo.permWtRate}%</div>
 				</td>
 			</tr>`;
-		if(bidDtlInfo.bidSttusCode != '13') {
+		if(bidDtlInfo.bidSttusCode == '12') {
 			tbody += `
 			<tr>
 				<th scope="row">인도 조건</th>
@@ -633,8 +710,9 @@
 				<th scope="row">프리미엄 가격(USD/MT)</th>
 				<td colspan="3"><span class="icon-info-txt">\${bidDtlInfo.bidSttusNotice}</span></td>
 			</tr>`;
-		}else if(bidDtlInfo.bidSttusCode == '13') {
-			let disabled = bidDtlInfo.bddprAt == 'Y' || bidDtlInfo.canclAt == 'Y' ? "disabled" : "";
+		}else {
+			let disabled = bidDtlInfo.bidSttusCode != '13' || bidDtlInfo.bddprAt == 'Y' 
+								|| bidDtlInfo.canclAt == 'Y' ? "disabled" : "";
 			tbody += `
 			<tr class="bid-condition">
 				<th class="fc-red" rowspan="2" scope="row">인도 조건</th>
