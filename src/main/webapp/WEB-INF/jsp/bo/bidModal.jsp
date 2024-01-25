@@ -591,6 +591,11 @@
             $('#bddprCanclLmttDe').val('');
             $('#bddprCanclPossAt').prop('checked', false);
             $('input[name="dspyAt"]').prop('checked', false);
+            $('#bddprCanclLmttDe').prop('disabled', true);
+            $('#bddprCanclLmttDe_ampm').prop('disabled', true);
+            $('#bddprCanclLmttDe_hour').prop('disabled', true);
+            $('#bddprCanclLmttDe_min').prop('disabled', true);
+            $('#bddprCanclLmttDe_sec').prop('disabled', true);
 
             $('#bddprBeginDt_hour').val('');
             $('#bddprBeginDt_min').val('');
@@ -955,8 +960,8 @@
 
                         setTimeout(function () {
                             $('#udtBidSuccess').fadeOut(300, function () {
-                                $('#exampleModal').modal('hide');
                                 resetForm();
+                                $('#exampleModal').modal('hide');
                                 getSearchBtn(response.location);
                             });
                         }, 2000);
@@ -1221,6 +1226,7 @@
         $('#exampleModal').on('hidden.bs.modal', function (e) {
             // .modal-backdrop.show 제거
             $('.modal-backdrop.show').remove();
+            resetForm();
         });
 
         function processDateAndTime(bddprEndDt, bddprEndDt_ampm, bddprEndDt_hour, bddprEndDt_min, bddprEndDt_sec) {
