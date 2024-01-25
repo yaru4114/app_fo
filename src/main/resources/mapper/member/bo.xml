@@ -27,11 +27,9 @@
             END) AS BID_MBER_STTUS_CODE,
             (
                 SELECT COUNT(*)
-                FROM BD_BDDPR_DTL a
-                INNER JOIN BD_SCSBID_DTL b ON a.BID_PBLANC_ID = b.BID_PBLANC_ID
-                WHERE a.SCSBID_AT = 'Y'
-                AND a.BID_ENTRPS_NO = BD_ENTRPS_INFO_BAS.BID_ENTRPS_NO
-                AND b.JDGMN_STTUS_CODE = '40'
+                FROM BD_BDDPR_DTL
+                WHERE SCSBID_AT = 'Y'
+                AND BID_ENTRPS_NO = BD_ENTRPS_INFO_BAS.BID_ENTRPS_NO
             ) AS SCSBID_CNT,
             (
                 SELECT COUNT(*)
