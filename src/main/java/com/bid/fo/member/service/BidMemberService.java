@@ -202,4 +202,8 @@ public class BidMemberService {
         
         return resultMap;
     }
+
+    public String getCurrentStatus(String userNo) {
+        return memberDAO.getCurrentStatus(userNo);
+    }
 }

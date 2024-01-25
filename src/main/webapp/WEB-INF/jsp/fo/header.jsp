@@ -47,8 +47,8 @@
 	}
 
 	if (header_loginUserStat === '02') {
-        alert("투찰 3회 이상 취소로 차단되었습니다.")
-        location.href = "/fo/logout";
+        alert("투찰 3회 이상 취소로 차단 처리되어 로그아웃 되었습니다.")
+        location.href = "/fo/member/logout";
 	}
 
 	function header_toMyPage(){
