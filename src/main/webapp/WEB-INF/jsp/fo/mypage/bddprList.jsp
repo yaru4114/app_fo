@@ -321,7 +321,7 @@
 		
 		function selectBdMyListGrid(res, pageCode, pageSubCode){
 			var tabNm = '';
- 			$("#bddprTotCnt").text(res.bidBddprCntList.bddprTotCnt);
+ 			$("#bddprTotCnt").text(res.bidBddprCntList.bddprAllTotCnt);
 			$("#scsbidTotCnt").text(res.bidBddprCntList.scsbidTotCnt);
 			$("#defeatTotCnt").text(res.bidBddprCntList.defeatTotCnt);
 			$("#failTotCnt").text(res.bidBddprCntList.failTotCnt);
@@ -329,12 +329,14 @@
 			if(pageCode == '01' ){
 				if(pageSubCode == '02'){
 					tabNm = "투찰 중"
+					$(".fc-red").text(res.bidBddprCntList.bddprTotCnt);
 				}else if(pageSubCode == '03'){
 					tabNm = "투찰접수 취소"
+					$(".fc-red").text(res.bidBddprCntList.bddprCanclTotCnt);
 				}else{
 					tabNm = "투찰"
+					$(".fc-red").text(res.bidBddprCntList.bddprAllTotCnt);
 				}
-				$(".fc-red").text(res.bidBddprCntList.bddprTotCnt);
 		    }else if(pageCode == '02' ){
 		    	tabNm = "낙찰"
 		    	$(".fc-red").text(res.bidBddprCntList.scsbidTotCnt);

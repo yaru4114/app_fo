@@ -24,14 +24,7 @@ public class BidMypageService {
 		return bidBddprList;
 	}
 	
-	public MainVO selectBidBddprCntList(MainVO mainVO){
-		String pageSubCode = mainVO.getPageSubCode();
-		if(pageSubCode.equals("03")) {
-			mainVO.setCanclAt("Y");
-		}else if(!pageSubCode.equals("01")){
-			mainVO.setCanclAt("N");
-		}
-		
+	public MainVO selectBidBddprCntList(MainVO mainVO){		
 		MainVO bidBddprCntList = bidMypageDAO.selectBidBddprCntList(mainVO);
 		return bidBddprCntList;
 	}

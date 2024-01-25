@@ -34,7 +34,9 @@ public class MainVO {
 	 private String deleteAt;
 	 private String loginYn;        /** 로그인 여부 */
 	 private int bidSttusCnt;    /** 입찰 상태코드별 공고 총 개수 */
-	 private String bddprTotCnt; 	  /** 투찰 총 개수 */
+	 private String bddprAllTotCnt; 	  /** 투찰 총 개수 */
+	 private String bddprTotCnt; 	  /** 투찰중 총 개수 */
+	 private String bddprCanclTotCnt; 	  /** 투찰취소 총 개수 */
 	 private String scsbidTotCnt; 	  /** 낙찰 총 개수 */
 	 private String defeatTotCnt; 	  /** 폐찰 총 개수 */
 	 private String failTotCnt; 	  /** 유찰 총 개수 */
