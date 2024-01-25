@@ -1058,30 +1058,6 @@
       };
   }
 
-  function start() {
-      // 오늘 날짜 가져오기
-      var today = new Date();
-      // Datepicker 초기화 및 오늘 날짜로 설정
-      $("#startDatepicker").datepicker({
-          format: 'yyyy-mm-dd'
-      });
-      $("#endDatepiker").datepicker({
-          format: 'yyyy-mm-dd'
-      });
-
-      var jsonData = getCreateJsonData("");
-      $(".form-period-set .btn-box .btn").on("click", getDatePickerButtonId);
-      $('#btn_search').on("click", getSearchBtn);
-      $(".tab-button .btn").on("click" , getBidStatList);
-      $("#btn_bidCancel").on("click" , fnbidCancel);
-      $("#btnClose").on("click" , fnClose);
-
-      realgridCredate();
-
-      ajaxBidNoticeMngStatCntList(jsonData , "Y");
-      ajaxBidNoticeMngList(jsonData);
-  }
-
   // 이전 페이지로 이동
   function setPrevPage() {
     var currentPage = gridView.getPage();
@@ -1120,7 +1096,6 @@
               $('#exampleModal').hide();
               $("#overlay").hide();
               resetForm();
-              start();
           });
       });
   });

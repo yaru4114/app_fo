@@ -721,6 +721,7 @@
                                 $('#bddprCanclPossAt').prop('checked', data.bddprCanclPossAt === 'Y');
                                 if (data.bddprCanclPossAt === 'Y') {
                                     $('#bddprCanclLmttDe, #bddprCanclLmttDe_ampm, #bddprCanclLmttDe_hour, #bddprCanclLmttDe_min, #bddprCanclLmttDe_sec').prop('disabled', false);
+                                    setDateTimeFields(data.bddprCanclLmttDe, 'bddprCanclLmttDe', 'bddprCanclLmttDe_ampm', 'bddprCanclLmttDe_hour', 'bddprCanclLmttDe_min', 'bddprCanclLmttDe_sec');
                                 } else {
                                     $('#bddprCanclLmttDe, #bddprCanclLmttDe_ampm, #bddprCanclLmttDe_hour, #bddprCanclLmttDe_min, #bddprCanclLmttDe_sec').prop('disabled', true);
                                 }
@@ -730,7 +731,6 @@
                                 /* ========================== 날짜(시,분,초) ========================== */
                                 setDateTimeFields(data.bddprBeginDt, 'bddprBeginDt', 'bddprBeginDt_ampm', 'bddprBeginDt_hour', 'bddprBeginDt_min', 'bddprBeginDt_sec');
                                 setDateTimeFields(data.bddprEndDt, 'bddprEndDt', 'bddprEndDt_ampm', 'bddprEndDt_hour', 'bddprEndDt_min', 'bddprEndDt_sec');
-                                setDateTimeFields(data.bddprCanclLmttDe, 'bddprCanclLmttDe', 'bddprCanclLmttDe_ampm', 'bddprCanclLmttDe_hour', 'bddprCanclLmttDe_min', 'bddprCanclLmttDe_sec');
                                 /* ========================== 날짜(시,분,초) ========================== */
 
                                 var delyBeginDe = data.delyBeginDe;
