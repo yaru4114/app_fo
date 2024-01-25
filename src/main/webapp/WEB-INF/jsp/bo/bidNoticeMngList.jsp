@@ -521,6 +521,7 @@
     }
 
     $("#"+buttonId).addClass('active');
+    $("#bidSttusCodeSelectBox").val(bidStat).prop("selected",true);
 
     var jsonData = getCreateJsonData(bidStat);
 
@@ -626,18 +627,23 @@
         var page = gridView.getPage();
         var pageCount = gridView.getPageCount()
         if(pageCount == 0) pageCount = 1;
-        $('#current-page-view').text(page + 1);
+
+        // 탭 이동시 그리드 페이지 1로 이동
+        $('#current-page-view').text(1);
         $('#total-page-view').text(pageCount);
+        gridView.setPage(0);
 
         gridView.onCellClicked = function (grid , clickData) {
           var rowIndex = clickData.itemIndex;
           var colIndex = clickData.column;
-          var bidPblancId = grid.getValue(rowIndex , colIndex);
+          var bidPblancId = grid.getValue(rowIndex , 0);
           chgPblancId = bidPblancId;
 
-          if(colIndex == "bidPblancId" || colIndex == "itmPrdlstKorean") {
-            ajaxBidNoticeMngInfo(bidPblancId);
-            chgModalOpen();
+          if(rowIndex !== undefined ) {
+              if(colIndex == "bidPblancId" || colIndex == "itmPrdlstKorean") {
+                ajaxBidNoticeMngInfo(bidPblancId);
+                chgModalOpen();
+              }
           }
         }
       },
@@ -1056,6 +1062,11 @@
       gridView.onPageCountChanged = function (grid, pageCount) {
         $('#total-page-view').text(pageCount);
       };
+
+      gridView.setDisplayOptions({
+        showEmptyMessage: true,
+        emptyMessage: "데이터가 존재하지 않습니다."
+      });
   }
 
   // 이전 페이지로 이동
@@ -1077,7 +1088,7 @@
 
           $('.close').click(function () {
               $('#exampleModal').hide();
-              // $("#overlay").hide();
+              $("#overlay").hide();
               resetForm();
           });
       });
@@ -1089,6 +1100,7 @@
 
       $('#myModalContainer').load("bidModal.jsp", function () {
           $('#modalBidDtl').hide();
+          $("#overlay").hide();
           $('#exampleModal').show();
           openBidModal('입찰 공고 수정', true);
 
