@@ -112,7 +112,7 @@
 											<c:when test="${bidBasInfo.bidSttusCode == '32'}">
 												<div class="btn-bid-black">유찰</div>
 											</c:when>
-											<c:when test="${bidBasInfo.bidSttusCode == '30'}">
+											<c:when test="${bidBasInfo.bidSttusCode == '30' || bidBasInfo.bidSttusCode == '31' }">
 												<div class="btn-bid-black">마감</div>
 											</c:when>
 										</c:choose>
@@ -335,7 +335,6 @@
 	<script src="/guide/js/sorin-ma.js"></script><!-- main js -->
 	<!-- script custom :: END -->
 	<script>
-
 	// =============== BTN.LIKE ==================
 	$(document).on('click', ".ico.like", function(e) {
 		if(loginYn == 'N'){
