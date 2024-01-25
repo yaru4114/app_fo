@@ -561,18 +561,11 @@
             }, 2000);
         }
 
-        function appendOpt(elementId) {
-            var selectElement = $('#' + elementId);
-            selectElement.val('').append($('<option>').text('선택').val('선택'));
-        }
-
         function resetForm() {
             startBidModal();
-            appendOpt('bidWt');
-            appendOpt('permWtRate');
-            appendOpt('itmSn');
-            appendOpt('brandGroupCode');
-            appendOpt('brandCode');
+            $('#itmSn').val('');
+            $('#brandGroupCode').val('');
+            $('#brandCode').val('');
             $('#delyCnd01PremiumPc').val('1000');
             $('#delyCnd02PremiumPc').val('1000');
             $('#delyCnd03PremiumPc').val('1000');
