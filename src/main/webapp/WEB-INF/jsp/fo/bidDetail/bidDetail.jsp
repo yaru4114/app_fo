@@ -539,8 +539,8 @@
 				<thead>
 					<tr>
 						<th scope="col" class="rank">수정일</th>
-						<th scope="col" class="company">수정내용</th>
-						<th scope="col" class="date">수정사유</th>
+						<th scope="col" class="company">수정사유</th>
+						<th scope="col" class="date">수정내용</th>
 					</tr>
 				</thead>
 				<tbody>`;
@@ -549,8 +549,8 @@
 			bidHistContainer += `
 				<tr>
 					<td class="center">\${formatDatetime(bidHist.frstRegistDt)}</td>
-					<td class="center">\${bidHist.bidUpdtCn}</td>
 					<td class="center">\${bidHist.bidUpdtResn}</td>
+					<td class="center">\${bidHist.bidUpdtCn}</td>
 				</tr>`;
 		});
 		bidHistContainer += `
