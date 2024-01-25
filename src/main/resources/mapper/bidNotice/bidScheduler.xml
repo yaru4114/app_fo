@@ -52,7 +52,6 @@
            WHERE BID_PBLANC_ID = #{bidPblancId}
              AND ISNULL(CANCL_AT , 'N') = 'N'
              AND ISNULL(DELETE_AT , 'N') = 'N'
-             AND ISNULL(BDDPR_PREMIUM_PC , 0) > 0
              AND ISNULL(BDDPR_NRMLT_AT , 'Y') = 'Y'
            ORDER BY BDDPR_PREMIUM_PC , FRST_REGIST_DT
   </select>

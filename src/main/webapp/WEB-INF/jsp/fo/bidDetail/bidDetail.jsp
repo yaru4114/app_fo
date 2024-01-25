@@ -481,7 +481,7 @@
 	}
 
 	function maskingPrice(price) {
-		return price.toString().replace(/\d(?=\d)/g, '*');
+		return price.toString().replace(/(^\d$)|\d(?=\d)/g, '*');
 	}
 
 	function setBidResultContainer(res) {
