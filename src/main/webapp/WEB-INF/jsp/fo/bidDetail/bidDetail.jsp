@@ -283,7 +283,7 @@
 						</div>
 						<div class="btn-wrap">
 							<button type="button" class="btn-gray-big modal-x">닫기</button>
-							<button type="button" class="btn-blue-big modal-x modal-ok" onclick="validCancl()">투찰 취소합니다.</button>
+							<button type="button" class="btn-blue-big modal-x modal-ok" onclick="canclAgreeValid()">투찰 취소합니다.</button>
 						</div>
 					</div>
 				</form>	        
@@ -568,7 +568,7 @@
 		const toListBtn = `<button type="button" class="btn-gray-big btn-list" onclick="toBidList()">공고 목록가기</button>`;
 		const toMyPageBtn = `<button type="button" class="btn-stroke-big blue" onclick="toMyPage()">마이페이지</button>`;
 		const submitBtn = `<button type="button" class="btn-blue-big" onclick="handleSubmit()">투찰하기</button>`;
-		const canclBtn = `<button type="button" class="btn-black-big" onclick="handleCancl()">투찰취소</button>`;
+		const canclBtn = `<button type="button" class="btn-black-big" onclick="handleCancl(\${bidDtlInfo.pblancCanclDt})">투찰취소</button>`;
 
 		if(bidSttusCode == "12") {
 			btnContainer += toListBtn;
@@ -796,11 +796,23 @@
 		popup('memberPwAuth', 'modal', '', doBddpr);
 	}
 
-	function handleCancl() {
-		popup('bddprCanclAlert', 'modal');
+	function handleCancl(pblancCanclDt) {
+		if(pblancCanclDt && canclDateValid(pblancCanclDt)) {
+			popup('bddprAlert', 'alert', '취소접수 기한이 지나 취소가 불가능합니다.')
+		}else {
+			popup('bddprCanclAlert', 'modal');
+		}
 	}
 
-	function validCancl() {
+	// 투찰취소 가능 기한 validation
+	function canclDateValid(date) {
+		const pblancCanclDt = new Date(formatDatetime(date)).getTime();
+		const curr = new Date().getTime();
+		return curr > pblancCanclDt;
+	}
+
+	// 취소 확인 체크여부 validation
+	function canclAgreeValid() {
 		if($("#agree_cancl").is(":checked")) {
 			popup('memberPwAuth', 'modal', '', canclBddpr);
 		}else {

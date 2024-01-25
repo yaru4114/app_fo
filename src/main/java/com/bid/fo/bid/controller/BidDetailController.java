@@ -40,6 +40,10 @@ public class BidDetailController {
 		   String loginYn = (String)session.getAttribute("loginYn");
 		   LoginVO loginVO = (LoginVO) session.getAttribute("loginUser");
 		   
+		   if(loginVO == null) {
+			   return "redirect:/fo/bid";
+		   }
+		   
 		   String loginUserNo = loginVO.getUserNo();
 		   String loginUserId = loginVO.getUserId();
 		   
