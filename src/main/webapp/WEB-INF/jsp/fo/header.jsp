@@ -35,7 +35,8 @@
 <script>
     // 로그인 세션 헤더에 등록
     var header_loginYn = "${loginYn}";
-    var header_loginUserStat = "${loginUserStat}"
+    var header_loginUserStat = "${loginUserStat}";
+    var header_loginUserNo = "${bidEntrpsNo}";
 
     // 로그인 / 비로그인 메뉴
 	if (header_loginYn == 'N'){
@@ -56,7 +57,7 @@
 	}
 	
 	function moveToMypage(){
-		location.href="/fo/mypage?bidEntrpsNo="+bidEntrpsNo
+		location.href="/fo/mypage?bidEntrpsNo="+header_loginUserNo
 	}
 </script>
 <!-- header :: END -->
