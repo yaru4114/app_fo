@@ -334,13 +334,7 @@
             start();
             getMemberList();
             // 상태별 회원 수!!
-            var statusParam = {
-                statusCode: []
-            };
-            $('.list-total .label').each(function (index, element) {
-                statusParam.statusCode.push($(element).text().trim());
-            });
-            getCountByStatus(statusParam);
+            countStatUpdate();
 
             // datepicker 초기화
             $('#datepicker1, #datepicker2').datepicker({
@@ -422,6 +416,7 @@
         $('#searchBtn').on('click', function () {
             gridView.setPage(0);
             getMemberList();
+            countStatUpdate();
         });
 
         /* 그리드 관련 함수 */
@@ -721,6 +716,11 @@
 
             getMemberList();
 
+            countStatUpdate();
+        });
+
+        // 상단 카운트바 초기화
+        function countStatUpdate(){
             var statusParam = {
                 statusCode: []
             };
@@ -728,7 +728,7 @@
                 statusParam.statusCode.push($(element).text().trim());
             });
             getCountByStatus(statusParam);
-        });
+        }
 
     </script>
 </div>
