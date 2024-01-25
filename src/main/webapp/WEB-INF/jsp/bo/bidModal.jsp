@@ -1267,67 +1267,52 @@
             return year + '-' + mon + '-' + day;
         }
 
-        // function formatDate2(date) {
-        //     return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-        // }
-        //
-        // // 투찰 기간 날짜 배열 담기
-        // function appendBddprDate(beginDt, endDt) {
-        //     var datesEnabled = [];
-        //     var startDate = new Date(beginDt);
-        //     var endDate = new Date(endDt);
-        //
-        //     while (startDate <= endDate) {
-        //         var formattedDate = formatDate2(startDate);
-        //         datesEnabled.push(formattedDate);
-        //         startDate.setDate(startDate.getDate() + 1);
-        //     }
-        //     return datesEnabled;
-        // }
-        //
-        // var isEndDtSet = false; // 마감일자가 설정 여부 확인용
-        // function updateCanclLmttDeRange() {
-        //     var datesE;
-        //     var endDt;
-        //
-        //     var beginDtStr = $('#bddprBeginDt').val();
-        //     var endDtStr = $('#bddprEndDt').val();
-        //     var beginDt = new Date(beginDtStr);
-        //
-        //     if (endDtStr) {
-        //         console.log('들어갔는지 확인!');
-        //         endDt = new Date(endDtStr);
-        //         datesE = appendBddprDate(beginDt, endDt); // ['2024-1-23', '2024-1-24', '2024-1-25']
-        //         console.log('datesE 들어갈 때 : ', datesE);
-        //         isEndDtSet = true;
-        //     }
-        //
-        //     console.log('datesE : ', datesE);
-        //     $('#bddprCanclLmttDe').datepicker({
-        //         format: 'yyyy-mm-dd',
-        //         beforeShowDay: function(date) {
-        //             if (!isEndDtSet) {
-        //                 return true;
-        //             }
-        //
-        //             console.log('isEndDtSet : ', isEndDtSet);
-        //
-        //             var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-        //
-        //             if(datesE.indexOf(allDates) !== -1) {
-        //                 console.log('true');
-        //                 return true;
-        //             } else {
-        //                 console.log('false');
-        //                 return false;
-        //             }
-        //         }
-        //     });
-        // }
-        //
-        // $('#bddprBeginDt, #bddprEndDt').on('change', function () {
-        //     updateCanclLmttDeRange();
-        // });
+        function formatDate2(date) {
+            return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+        }
+
+        // 투찰 기간 날짜 배열 담기
+        function appendBddprDate(beginDt, endDt) {
+            var datesEnabled = [];
+            var startDate = new Date(beginDt);
+            var endDate = new Date(endDt);
+
+            while (startDate <= endDate) {
+                var formattedDate = formatDate2(startDate);
+                datesEnabled.push(formattedDate);
+                startDate.setDate(startDate.getDate() + 1);
+            }
+            return datesEnabled;
+        }
+
+        function updateCanclLmttDeRange() {
+            var datesE;
+
+            var beginDtStr = $('#bddprBeginDt').val();
+            var endDtStr = $('#bddprEndDt').val();
+            var beginDt = new Date(beginDtStr);
+            var endDt = new Date(endDtStr);
+
+            datesE = appendBddprDate(beginDt, endDt); // ['2024-1-23', '2024-1-24', '2024-1-25']
+
+            $('#bddprCanclLmttDe').datepicker({
+                format: 'yyyy-mm-dd',
+                beforeShowDay: function(date) {
+                    var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+
+                    if(datesE.indexOf(allDates) !== -1) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            });
+        }
+
+        $('#bddprEndDt').on('change', function () {
+            console.log('확인!!!');
+            updateCanclLmttDeRange();
+        });
 
         /* ==================================== ❗기타❗ ==================================== */
     </script>
