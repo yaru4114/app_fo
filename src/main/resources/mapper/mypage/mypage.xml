@@ -19,6 +19,11 @@
           , (SELECT DOC_FILE_COURS FROM CO_DOC_BAS CDB WHERE DOC_NO = IIIB.PC_IMAGE_ONE_SN) AS PC_IMAGE_ONE_COURS
           , BBB.BDDPR_BEGIN_DT          /* 투찰 시작 일시 */
           , BBB.BDDPR_END_DT             /* 투찰 종료 일시 */
+          , CASE WHEN BBB.BID_STTUS_CODE = '12' /* 입찰예정 */
+			  			  THEN DATEDIFF(SECOND, GETDATE(), CONVERT(DATETIME, STUFF(STUFF(STUFF(BBB.BDDPR_BEGIN_DT,13,0,':'),11,0,':'),9,0,' ')))
+			  		 WHEN BBB.BID_STTUS_CODE = '13' /* 투찰중 */
+			  			  THEN DATEDIFF(SECOND, GETDATE(), CONVERT(DATETIME, STUFF(STUFF(STUFF(BBB.BDDPR_END_DT,13,0,':'),11,0,':'),9,0,' ')))
+			  		 END AS BID_TIMER
           , BBB.BID_STTUS_CODE         /* 입찰 상태 코드 */
           , ISNULL(BBB.PARTCPTN_ENTRPS_QY, 0)   AS PARTCPTN_ENTRPS_QY   /* 참여 업체 수량 */
           , ISNULL(BBB.INTRST_ENTRPS_QY, 0)   AS INTRST_ENTRPS_QY         /* 관심 업체 수량 */
@@ -76,7 +81,14 @@
          <if test="pageCode == '04'">
             AND BBB.BID_STTUS_CODE = '32' AND BBD.SCSBID_AT = 'N'
          </if>
-         ORDER BY BBB.BDDPR_BEGIN_DT DESC
+         <choose>
+         	<when test="pageCode == '01'">
+                ORDER BY BID_TIMER
+         	</when>
+         	<otherwise>
+         		ORDER BY BBB.BDDPR_BEGIN_DT DESC
+         	</otherwise>
+         </choose>
    </select>
    <select id="selectBidBddprCntList" parameterType="com.bid.fo.main.model.MainVO" resultType="com.bid.fo.main.model.MainVO">
       SELECT ISNULL(SUM(BBD.BDDPR_ALL_CNT), 0) AS BDDPR_ALL_TOT_CNT
