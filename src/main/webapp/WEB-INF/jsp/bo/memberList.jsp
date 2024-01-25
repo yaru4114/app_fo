@@ -320,7 +320,7 @@
                                 <label for="">비고</label>
                             </th>
                             <td colspan="5">
-                                <input type="text" id="" value="투찰 취소 3회 초과로 차단되었습니다." class="w300px" readonly>
+                                <input type="text" id="" value="차단되었습니다." class="w300px" readonly>
                             </td>
                         </tr>
                         </tbody>
