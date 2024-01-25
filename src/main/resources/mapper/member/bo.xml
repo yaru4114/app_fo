@@ -41,6 +41,7 @@
                 WHERE SCSBID_AT = 'N'
                 AND BID_ENTRPS_NO = BD_ENTRPS_INFO_BAS.BID_ENTRPS_NO
                 AND bas.BID_STTUS_CODE = '31'
+                AND CANCL_AT != 'Y'
             ) AS NON_SCSBID_CNT
         FROM BD_ENTRPS_INFO_BAS
         WHERE
