@@ -16,4 +16,6 @@ public interface BidMemberDAO {
     void creBsnmResistDoc(DocVO doc);
 
     int maxDocNo();
+
+    String getCurrentStatus(String userNo);
 }

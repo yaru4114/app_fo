@@ -39,8 +39,7 @@
                  ON BID.BID_PBLANC_ID = BBB.BID_PBLANC_ID
                 LEFT JOIN (SELECT BID_PBLANC_ID
                         FROM BD_BDDPR_DTL 
-                       WHERE BID_PBLANC_ID = #{bidPblancId}
-                        AND BID_ENTRPS_NO = #{bidEntrpsNo}
+                       WHERE BID_ENTRPS_NO = #{bidEntrpsNo}
                         AND CANCL_AT = 'N'
                         AND DELETE_AT = 'N') AS BBD
                 ON BBD.BID_PBLANC_ID = BBB.BID_PBLANC_ID
@@ -89,6 +88,7 @@
           AND DSPY_AT = 'Y'
            AND ISNULL(PBLANC_CANCL_AT, 'N') = 'N' 
           AND ISNULL(DELETE_AT, 'N') = 'N' 
+          AND BID_STTUS_CODE NOT IN('10','11')
           <if test="filter == '01'">
             <if test="startDate != null and startDate != ''" >
                AND BDDPR_BEGIN_DT > #{startDate} + '000000'

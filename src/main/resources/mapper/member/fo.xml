@@ -157,4 +157,13 @@
         FROM
             CO_DOC_BAS
     </select>
+
+    <select id="getCurrentStatus" parameterType="string" resultType="string">
+        SELECT
+            BID_MBER_STTUS_CODE
+        FROM
+            BD_ENTRPS_INFO_BAS
+        WHERE
+            BID_ENTRPS_NO = #{userNo}
+    </select>
 </mapper>

@@ -636,7 +636,7 @@ $(function(){
 		var bddprAt = $(this).attr('data-bddprAt');
 		
 		if(bddprAt == 'Y'){
-			location.href="/fo/mypage?bidPblancId="+bidPblancId;
+			location.href="/fo/mypage?bidEntrpsNo="+bidEntrpsNo;
 		}else if(bddprAt == undefined){
 			location.href="/fo/bid/detail/"+bidPblancId;
 		}else{
