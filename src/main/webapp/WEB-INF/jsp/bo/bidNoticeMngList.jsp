@@ -32,7 +32,7 @@
     <!-- Full calendar -->
     <script type="text/javascript" src="/bo/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script>
     <!-- Full calendar(한글) -->
-    <script type="text/javascript" src="/bo/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
+    <!-- <script type="text/javascript" src="/bo/guide/js/realgridCustom.js"></script> --><!-- 퍼블 작성 -->
     <script type="text/javascript" src="/bo/guide/js/common.js"></script><!-- 퍼블 작성 -->
     <link rel="stylesheet" type="text/css" href="/bo/guide/css/common.css" />
     <script src="bidModal.jsp"></script>

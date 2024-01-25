@@ -32,7 +32,7 @@
     <script type="text/javascript" src="/bo/guide/js/fullcalendar-5.7.0/lib/main.js"></script><!-- Full calendar -->
     <script type="text/javascript" src="/bo/guide/js/fullcalendar-5.7.0/lib/locales/ko.js"></script>
     <!-- Full calendar(한글) -->
-    <script type="text/javascript" src="/bo/guide/js/realgridCustom.js"></script><!-- 퍼블 작성 -->
+    <!-- <script type="text/javascript" src="/bo/guide/js/realgridCustom.js"></script> --><!-- 퍼블 작성 -->
 </head>
 
 <body>
