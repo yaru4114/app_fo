@@ -125,7 +125,7 @@ public class BidMemberService {
                         break;
                     case "02" :
                         resultMap.put("success", false);
-                        resultMap.put("message", "투찰 취소 3회 초과로 로그인이 차단되었습니다.\n" +
+                        resultMap.put("message", "로그인이 차단되었습니다.\n" +
                                 "자세한 사항은 고객센터로 문의해주세요.");
                         break;
                     case "03" :
