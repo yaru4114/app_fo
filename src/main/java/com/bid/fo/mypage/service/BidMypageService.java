@@ -5,11 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bid.fo.main.controller.BidMainController;
 import com.bid.fo.main.model.MainVO;
 import com.bid.fo.mypage.dao.BidMypageDAO;
 
+import lombok.extern.slf4j.Slf4j;
 
 
+@Slf4j
 @Service
 public class BidMypageService {
 	
@@ -22,6 +25,13 @@ public class BidMypageService {
 	}
 	
 	public MainVO selectBidBddprCntList(MainVO mainVO){
+		String pageSubCode = mainVO.getPageSubCode();
+		if(pageSubCode.equals("03")) {
+			mainVO.setCanclAt("Y");
+		}else if(!pageSubCode.equals("01")){
+			mainVO.setCanclAt("N");
+		}
+		
 		MainVO bidBddprCntList = bidMypageDAO.selectBidBddprCntList(mainVO);
 		return bidBddprCntList;
 	}

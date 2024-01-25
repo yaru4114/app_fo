@@ -38,7 +38,6 @@
           AND BBB.DSPY_AT = 'Y'
           AND BBD.BID_ENTRPS_NO = #{bidEntrpsNo}
           AND ISNULL(BBB.PBLANC_CANCL_AT, 'N') = 'N'
-          AND ISNULL(BBD.CANCL_AT, 'N') = 'N' 
           AND ISNULL(BBB.DELETE_AT, 'N') = 'N' 
           AND ISNULL(BBD.DELETE_AT, 'N') = 'N'
           <if test="filter == '01'">
@@ -62,21 +61,22 @@
 	            AND BBB.BID_STTUS_CODE = '13'
 	        </if>
 	        <if test="pageSubCode == '02'">
-	            AND BBB.BID_STTUS_CODE = '13' AND BBD.CANCL_AT != 'Y'
+	            AND BBB.BID_STTUS_CODE = '13' AND BBD.CANCL_AT = 'N'
 	        </if>
 	        <if test="pageSubCode == '03'">
-	            AND BBB.BID_STTUS_CODE = '13' AND BBD.CANCL_AT = 'Y'
+	            AND BBB.BID_STTUS_CODE = '31' AND BBD.CANCL_AT = 'Y'
 	        </if>
          </if>
          <if test="pageCode == '02'">
             AND BBB.BID_STTUS_CODE = '31' AND BBD.SCSBID_AT = 'Y' AND ISNULL(BBD.CANCL_AT,'N') = 'N'
          </if>
          <if test="pageCode == '03'">
-            AND BBB.BID_STTUS_CODE = '31' AND BBD.SCSBID_AT = 'N'
+            AND BBB.BID_STTUS_CODE = '31' AND BBD.SCSBID_AT = 'N' AND ISNULL(BBD.CANCL_AT,'N') = 'N'
          </if>
          <if test="pageCode == '04'">
-            AND BBB.BID_STTUS_CODE = '32' AND BBB.PBLANC_CANCL_AT = 'Y'
+            AND BBB.BID_STTUS_CODE = '32' AND BBB.PBLANC_CANCL_AT = 'Y' AND ISNULL(BBD.CANCL_AT,'N') = 'N'
          </if>
+         ORDER BY BBB.BDDPR_BEGIN_DT DESC
    </select>
    <select id="selectBidBddprCntList" parameterType="com.bid.fo.main.model.MainVO" resultType="com.bid.fo.main.model.MainVO">
       SELECT ISNULL(SUM(BBD.BDDPR_CNT), 0) AS BDDPR_TOT_CNT
@@ -92,9 +92,29 @@
                ON BBD.BID_PBLANC_ID = BBB.BID_PBLANC_ID
               WHERE 1=1
                AND BBB.DSPY_AT = 'Y'
-               AND ISNULL(BBD.CANCL_AT,'N') = 'N' 
+               <!-- AND ISNULL(BBD.CANCL_AT,'N') = 'N' --> 
                AND ISNULL(BBB.DELETE_AT,'N')='N' 
-               AND BBD.BID_ENTRPS_NO = #{bidEntrpsNo}) AS BBD
+               AND BBD.BID_ENTRPS_NO = #{bidEntrpsNo}
+               <if test="filter == '01'">
+	           	 <if test="startDate != null and startDate != ''" >
+	               AND BBB.BDDPR_BEGIN_DT > #{startDate} + '000000'
+	             </if>
+	             <if test="endDate != null and endDate != ''" >
+	               AND BBB.BDDPR_BEGIN_DT  <![CDATA[<]]> #{endDate} + '235959' 
+	             </if> 
+	         </if>
+	         <if test="filter == '02'">
+	             <if test="startDate != null and startDate != ''" >
+	               AND BBB.BDDPR_END_DT > #{startDate} + '000000'
+	             </if>
+	             <if test="endDate != null and endDate != ''" >
+	               AND BBB.BDDPR_END_DT  <![CDATA[<]]> #{endDate} + '235959' 
+	             </if>
+         	</if> 
+         	<if test="canclAt != null and canclAt != ''">
+	            AND ISNULL(BBD.CANCL_AT,'N') = #{canclAt}
+	         </if>
+         	) AS BBD
    </select>
    <select id="selectBidIntrstList" parameterType="String" resultType="com.bid.fo.main.model.MainVO">
    SELECT * 
@@ -129,6 +149,7 @@
 	AND BID.BID_ENTRPS_NO = #{bidEntrpsNo}
 	AND BBB.DSPY_AT = 'Y'
 	AND ISNULL(BID.DELETE_AT, 'N') = 'N'
+	ORDER BY BBB.BDDPR_BEGIN_DT DESC
    </select>
    <select id="selectBidIntrstCntList" parameterType="String" resultType="Integer">
    SELECT COUNT(*) 

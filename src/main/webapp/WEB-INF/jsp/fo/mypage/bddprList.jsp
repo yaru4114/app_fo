@@ -235,6 +235,12 @@
 			selectBdMyList(-1);
 		})
 		
+		$("input[name='featuredGroup1']").on('change', function(){
+		    pageCode = "01";
+		    pageSubCode = this.value; 
+		    selectBdMyList(pageCode, pageSubCode);
+		});
+		
 		function fnSetDate(period){
 			
 			var today = new Date();
@@ -276,13 +282,6 @@
 		}
 		
 
-		$("input[name='featuredGroup1']").on('change', function(){
-		    pageCode = "01";
-		    pageSubCode = this.value; 
-		    selectBdMyList(pageCode, pageSubCode);
-		});
-		
-
 		
 		// =============== 목록 조회 ==================
 		function selectBdMyList(pageCode,pageSubCode){
@@ -300,7 +299,7 @@
 				"pageSubCode" : pageSubCode,
 				"bidEntrpsNo" : bidEntrpsNo,
 			}
-			console.log(params)
+			//console.log(params)
 
 			$.ajax({
 				type : 'post',

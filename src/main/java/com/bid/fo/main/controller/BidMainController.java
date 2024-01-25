@@ -82,9 +82,9 @@ public class BidMainController {
       
       for(MainVO vo : bidListCnt) {
          // null 값 예외처리
-         if (vo.getBidSttusCode() == null) {
-            continue;
-         }
+//         if (vo.getBidSttusCode() == null) {
+//            continue;
+//         }
          
          if(vo.getBidSttusCode().equals("12")) {
             exceptCnt += vo.getBidSttusCnt();
@@ -113,10 +113,6 @@ public class BidMainController {
       Map<String,Object> map = new HashMap<>();
       
       LoginVO loginVO = (LoginVO) session.getAttribute("loginUser");
-
-//      if(loginVO == null) {
-//    	  return ResponseEntity.ok(map);
-//      }
       
       int result = bidMainService.insertIntrstPblanc(mainVO, loginVO);
 

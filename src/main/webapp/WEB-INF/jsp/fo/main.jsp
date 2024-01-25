@@ -155,7 +155,7 @@
 			                <li class="item" data-value="12">
 			                    <a href="javascript:;">입찰예정 (<span id="exceptCnt"></span>)</a>
 			                </li>
-			                <li class="item" data-value="13">
+			                <li class="item" data-value="13" id="bddprTab">
 			                    <a href="javascript:;">투찰중 (<span id="bddprCnt"></span>)</a>
 			                </li>
 			                <li class="item" data-value="30">
@@ -308,9 +308,9 @@ $(function(){
 	    selectOnClose: true
 	});
 	
-	
+	$("#bddprTab").trigger("click");
 	//리스트 조회
-	selectBdList(-1);
+	//selectBdList(-1);
 })
 	
 	$("#filter, #brand, #area").change(function(){

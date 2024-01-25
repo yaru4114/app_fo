@@ -79,6 +79,7 @@
          <if test="dstrctLclsfCode != null and dstrctLclsfCode != ''">
             AND BBB.DSTRCT_LCLSF_CODE = #{dstrctLclsfCode}
          </if>
+         ORDER BY BBB.BDDPR_BEGIN_DT DESC
    </select>
    <select id="selectBidListCnt" parameterType="com.bid.fo.main.model.MainVO" resultType="com.bid.fo.main.model.MainVO">
       SELECT BID_STTUS_CODE
