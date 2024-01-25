@@ -339,11 +339,11 @@
 			html += '           </div>';
 			html += ' 			<div class="btns">';
 			if(res.bidIntrstList[i].bidSttusCode == '12'){
-				html += '<a href="javascript:;" name="bidDetail" class="btn-bid-stroke">입찰예정</a>';
+				html += '<a href="javascript:;" name="bidDetail" class="btn-bid-stroke" data-bid-id="'+res.bidIntrstList[i].bidPblancId+'">입찰예정</a>';
 			}else if(res.bidIntrstList[i].bidSttusCode == '13'){
-				html += '<a href="javascript:;" name="bidDetail" class="btn-bid-blue">투찰중</a>';
+				html += '<a href="javascript:;" name="bidDetail" class="btn-bid-blue" data-bid-id="'+res.bidIntrstList[i].bidPblancId+'">투찰중</a>';
 			}else if(res.bidIntrstList[i].bidSttusCode == '30' || res.bidIntrstList[i].bidSttusCode == '31' || res.bidIntrstList[i].bidSttusCode == '32'){
-				html += '<a href="javascript:;" name="bidDetail" class="btn-bid-black" data-bddprAt="'+res.bidIntrstList[i].bddprAt+'">마감</a>';
+				html += '<a href="javascript:;" name="bidDetail" class="btn-bid-black" data-bddprAt="'+res.bidIntrstList[i].bddprAt+'" data-bid-id="'+res.bidIntrstList[i].bidPblancId+'">마감</a>';
 			}
 			html += ' 			</div>';
 			if(res.bidIntrstList[i].bidSttusCode == '12' || res.bidIntrstList[i].bidSttusCode == '13'){
@@ -372,7 +372,7 @@
 		var bddprAt = $(this).attr('data-bddprAt');
 
 		if(bddprAt == 'Y'){
-			location.href="/fo/mypage?bidPblancId="+bidPblancId;
+			location.href="/fo/mypage?bidEntrpsNo="+bidEntrpsNo;
 		}else if(bddprAt == undefined){
 			location.href="/fo/bid/detail/"+bidPblancId;
 		}else{
