@@ -58,11 +58,11 @@
                 <h1>가입 승인 대기</h1>
 
                 <div class="count-banner">
-                    <div class="list list-total">
+                    <div class="list list-total normal-count" onclick="location.href='/bo/member/list?stat=01'">
                         <span class="label">정상 회원</span>
                         <span class="count"></span>
                     </div>
-                    <div class="list list-total">
+                    <div class="list list-total block-count" onclick="location.href='/bo/member/list?stat=02'">
                         <span class="label">차단 회원</span>
                         <span class="count"></span>
                     </div>
@@ -366,13 +366,19 @@
             // 모달 - 사업자등록증 숨기기
             $(".hiddenTr").hide();
 
+            // 상단 카운트 버튼으로 넘어왔을때 검색 상태값 변경
+            var param = "${param.stat}"
+            if (param !== "") {
+                $(".select-st").val(param);
+            }
+
             start();
             getMemberApprovalList();
 
             // 상태별 회원 수 Count
             countStatUpdate();
 
-            $(".approval-count").css("cursor","pointer");
+            // $(".approval-count").css("cursor","pointer");
 
             // datepicker 초기화
             $('#datepicker1, #datepicker2').datepicker({
@@ -799,8 +805,10 @@
             getCountByStatus(statusParam);
         }
 
+        $(".list-total").css("cursor","pointer");
+
         $(".approval-count").on("click",function(){
-            $(".select-st").val("02");
+            $(".select-st").val("01");
             $("#searchBtn").click();
         });
     </script>

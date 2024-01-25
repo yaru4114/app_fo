@@ -64,7 +64,7 @@
                         <span class="label">차단 회원</span>
                         <span class="count"></span>
                     </div>
-                    <div class="list list-total">
+                    <div class="list list-total approval-count" onclick="location.href='/bo/member/approvalList?stat=01'">
                         <span class="label">가입승인대기</span>
                         <span class="count"></span>
                     </div>
@@ -330,12 +330,14 @@
         </table>
     </div>
     <script type="text/javascript">
-
-        // 상단 카운트바 클릭 커서 변경
-        $(".normal-count").css("cursor","pointer");
-        $(".block-count").css("cursor","pointer");
-
         $(document).ready(function () {
+
+            // 상단 카운트 버튼으로 넘어왔을때 검색 상태값 변경
+            var param = "${param.stat}"
+            if (param !== "") {
+                $(".select-st").val(param);
+            }
+
             start();
             getMemberList();
             // 상태별 회원 수!!
@@ -736,6 +738,10 @@
         }
 
         /* 상단 카운트바 클릭시 해당 상태값으로 검색 */
+
+        // 상단 카운트바 클릭 커서 변경
+        $(".list-total").css("cursor","pointer");
+
         // 정상
         $(".normal-count").on("click",function(){
             $(".select-st").val("01");
