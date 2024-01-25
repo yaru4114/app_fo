@@ -950,9 +950,7 @@
 
                         setTimeout(function () {
                             $('#udtBidSuccess').fadeOut(300, function () {
-                                $('#exampleModal').hide();
-                                $("#overlay").hide();
-                                $('.modal-backdrop').hide();
+                                $('#exampleModal').modal('hide');
                                 resetForm();
                                 getSearchBtn(response.location);
                             });
@@ -1213,6 +1211,11 @@
                     }
                 }
             }
+        });
+
+        $('#exampleModal').on('hidden.bs.modal', function (e) {
+            // .modal-backdrop.show 제거
+            $('.modal-backdrop.show').remove();
         });
 
         function processDateAndTime(bddprEndDt, bddprEndDt_ampm, bddprEndDt_hour, bddprEndDt_min, bddprEndDt_sec) {
