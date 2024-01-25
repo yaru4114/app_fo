@@ -427,7 +427,7 @@
                 <div class="sub-title">
                     <h3 class="">투찰 기업 목록</h3>
                 </div>
-                <div class="table table-view">
+                <div class="table table-view" style="margin-bottom: 10px">
                     <table>
                         <colgroup>
                             <col width="10%" />

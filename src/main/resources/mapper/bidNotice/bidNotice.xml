@@ -143,8 +143,8 @@
   <select id="getBidNoticeMngBidBddprDtlList" parameterType="com.bid.bo.bid.vo.BidNoticeVO" resultType="com.bid.bo.bid.vo.BidBddprDtlVO" >
     /* bidNotice.getBidNoticeMngBidBddprDtlList */
     SELECT T.*
-         , CASE WHEN T.BID_STTUS_CODE IN ('30','31') AND T.SCSBID_AT = 'Y' THEN '낙찰'
-                WHEN T.BID_STTUS_CODE IN ('30','31') AND T.SCSBID_AT = 'N' THEN '패찰'
+         , CASE WHEN T.BID_STTUS_CODE IN ('30','31') AND ISNULL(T.SCSBID_AT ,'N') = 'Y' THEN '낙찰'
+                WHEN T.BID_STTUS_CODE IN ('30','31') AND ISNULL(T.SCSBID_AT ,'N') = 'N' THEN '패찰'
                 ELSE dbo.fn_getCodeNm('BID_STAT_CODE' , T.BID_STTUS_CODE)
                  END AS BID_STAT_NM
       FROM (
@@ -162,6 +162,8 @@
                  , SCSBID_AT
               FROM BD_BDDPR_DTL A
              WHERE 1=1
+               AND ISNULL(DELETE_AT , 'N') = 'N'
+               AND ISNULL(CANCL_AT , 'N') = 'N'
             <if test='bidPblancId != null and bidPblancId !=""'>
                AND BID_PBLANC_ID = #{bidPblancId}
             </if>
