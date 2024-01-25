@@ -58,7 +58,7 @@
          </if>
          <if test="pageCode == '01'">
          	<if test="pageSubCode == '01'">
-	            AND BBB.BID_STTUS_CODE = '13'
+	            AND ((BBB.BID_STTUS_CODE = '13' AND BBD.CANCL_AT = 'N') OR (BBD.CANCL_AT = 'Y'))
 	        </if>
 	        <if test="pageSubCode == '02'">
 	            AND BBB.BID_STTUS_CODE = '13' AND BBD.CANCL_AT = 'N'
