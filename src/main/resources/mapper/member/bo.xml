@@ -36,9 +36,11 @@
             ) AS SCSBID_CNT,
             (
                 SELECT COUNT(*)
-                FROM BD_BDDPR_DTL
+                FROM BD_BDDPR_DTL dtl
+                INNER JOIN BD_BID_BAS bas ON dtl.BID_PBLANC_ID = bas.BID_PBLANC_ID
                 WHERE SCSBID_AT = 'N'
                 AND BID_ENTRPS_NO = BD_ENTRPS_INFO_BAS.BID_ENTRPS_NO
+                AND bas.BID_STTUS_CODE = '31'
             ) AS NON_SCSBID_CNT
         FROM BD_ENTRPS_INFO_BAS
         WHERE
