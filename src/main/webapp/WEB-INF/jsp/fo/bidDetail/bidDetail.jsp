@@ -50,7 +50,7 @@
 			                <li>
 			                    <div class="cart-item-wrap type4">
 			                        <figure class="figure figure1">	
-			                            <img src="/images/my/al_sum.jpg" alt="알루미늄" class="w">
+			                            <img src="${bidBasInfo.pcImageOneCours}" alt="알루미늄" class="w">
 			                        </figure>
 			                        <div class="figure-con">
 			                            <div class="pd-brand-info">
@@ -59,7 +59,7 @@
 			                                    <div class="pd-brand">
 			                                        <div class="pd-label">${bidBasInfo.metalCodeShort}</div>
 			                                        <div class="brand-nation">
-			                                            <img src="https://sorincorp.blob.core.windows.net/secs-t/odflag/flag_mcht_australia.png">
+			                                            <img src="${bidBasInfo.nationUrl}">
 			                                        </div>
 			                                        ${bidBasInfo.brandCode}
 			                                    </div>
@@ -119,10 +119,10 @@
  									</div>
 		                        	<p class="bid-d-day abs-info"> <!-- <p class="bid-d-day pre abs-info"> -->
 										<c:if test="${bidBasInfo.bidSttusCode == '12'}">
-											투찰 시작까지 <span class="time" id="time${bidBasInfo.bidPblancId}">${bidBasInfo.bidTimer}</span>
+											투찰 시작까지 <span class="time" id="time${bidBasInfo.bidPblancId}"></span>
 										</c:if>
 										<c:if test="${bidBasInfo.bidSttusCode == '13'}">
-											투찰 마감까지 <span class="time" id="time${bidBasInfo.bidPblancId}">${bidBasInfo.bidTimer}</span>
+											투찰 마감까지 <span class="time" id="time${bidBasInfo.bidPblancId}"></span>
 										</c:if>
 		                        	</p>
 			                    </div>
@@ -693,7 +693,7 @@
 			<tr>
 				<th scope="row">수량(개)</th>
 				<td>
-					<div class="read">\${bidDtlInfo.bidWt}</div>
+					<div class="read" id="bidWt">\${bidDtlInfo.bidWt}</div>
 				</td>
 				<th scope="row">중량허용공차(±)</th>
 				<td>
@@ -753,9 +753,7 @@
 			<tr>
 				<td class="center" colspan="2">
 					<input class="input-md" type="text" name="bddprPremiumPc" id="bddprPremiumPc" placeholder=""
-						value="\${formatNumberComma(bidDtlInfo.bddprPremiumPc)}"
-						onkeyup="handleChangePremiumPc(\${bidDtlInfo.cnvrsPremiumAmount}, \${bidDtlInfo.delyCndStdrPc}, \${bidDtlInfo.bidWt})"
-						\${disabled} >/MT
+						value="\${formatNumberComma(bidDtlInfo.bddprPremiumPc)}" \${disabled} >/MT
 				</td>
 				<td class="center" colspan="1"><span id="bddprFinalAmount">\${formatNumberComma(bidDtlInfo.bddprFinalAmount)}</span> 원</td>
 			</tr>`;
@@ -816,14 +814,6 @@
 		});
 	}
 
-	// 인도 조건 옵션 선택 이벤트
-	$(document).on('change', "#shippingAddr", function(e) {
-		const selected = e.target.value;
-
-		$("#delyCndStdrPc").val($(`#delyCnd\${selected}StdrPc`).val());
-		$("#cnvrsPremiumAmount").val($(`#delyCnd\${selected}PremiumPc`).val());
-	});
-
 	// 인도 조건 옵션 생성
 	function makeOption (data) {
 		if(!data) return;
@@ -842,16 +832,34 @@
 		return optionList;
 	}
 	
+	// 인도 조건 옵션 선택 이벤트
+	$(document).on('change', "#shippingAddr", function(e) {
+		const selected = e.target.value;
+
+		$("#delyCndStdrPc").val($(`#delyCnd\${selected}StdrPc`).val());
+		$("#cnvrsPremiumAmount").val($(`#delyCnd\${selected}PremiumPc`).val());
+
+		calculateFinalAmount();
+	});
+
 	// 투찰 프리미엄 가격 입력 이벤트
-	function handleChangePremiumPc(cnvrsPremiumAmount, delyCndStdrPc, bidWt) {
+	$(document).on('keyup', '#bddprPremiumPc', function(e) {
 		const inputValue = $("#bddprPremiumPc").val();
 		$("#bddprPremiumPc").val(formatNumberComma(inputValue));
 
-		// 투찰 최종 가격 수정
+		calculateFinalAmount();
+	});
+
+	// 투찰 최종 가격 계산
+	function calculateFinalAmount() {
+		const delyCndStdrPc = commaToNumber($("#delyCndStdrPc").val());
+		const cnvrsPremiumAmount = commaToNumber($("#cnvrsPremiumAmount").val());
+		const bidWt = parseInt($("#bidWt").text());
 		const bddprPremiumPc = commaToNumber($("#bddprPremiumPc").val());
+
 		var bddprFinalAmount = bidWt * (delyCndStdrPc + bddprPremiumPc + cnvrsPremiumAmount);
 		$("#bddprFinalAmount").text(formatNumberComma(bddprFinalAmount));
-	};
+	}
 
 	function formatNumberComma (number) {
 		var num = number.toString().replace(/[^-0-9]/gi, '') || 0;

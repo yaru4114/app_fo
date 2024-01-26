@@ -4,17 +4,6 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bid.fo.bid.dao.BidDtlDAO" >
     <select id="getBidBasInfo" parameterType="com.bid.fo.bid.vo.BidBasVO" resultType="com.bid.fo.bid.vo.BidBasVO">
-		DECLARE @bidTimer int
-		
-		SET @bidTimer = (
-			  SELECT CASE WHEN BBB.BID_STTUS_CODE = '12' /* 입찰예정 */
-			  			  THEN DATEDIFF(SECOND, GETDATE(), CONVERT(DATETIME, STUFF(STUFF(STUFF(BBB.BDDPR_BEGIN_DT,13,0,':'),11,0,':'),9,0,' ')))
-			  		 WHEN BBB.BID_STTUS_CODE = '13' /* 투찰중 */
-			  			  THEN DATEDIFF(SECOND, GETDATE(), CONVERT(DATETIME, STUFF(STUFF(STUFF(BBB.BDDPR_END_DT,13,0,':'),11,0,':'),9,0,' ')))
-			  		 END AS BID_TIMER
-			 FROM BD_BID_BAS BBB
-			 WHERE BBB.BID_PBLANC_ID = #{bidPblancId})
-			 
 		SELECT BBB.BID_PBLANC_ID         																																	/* 입찰 공고 아이디 */
 			  , FORMAT(CONVERT(DATETIME, dbo.fn_convertDate(BBB.BDDPR_BEGIN_DT, 'FO')), 'yy.MM.dd HH:mm:ss') AS BDDPR_BEGIN_DT												/* 투찰 시작 일시 */
 			  , FORMAT(CONVERT(DATETIME, dbo.fn_convertDate(BBB.BDDPR_END_DT, 'FO')), 'yy.MM.dd HH:mm:ss') AS BDDPR_END_DT													/* 투찰 종료 일시 */
@@ -30,10 +19,13 @@
 			  , BBB.DSPY_AT               																																	/* 전시 여부 */
 			  , (SELECT CODE_NM FROM CO_CMMN_CD WHERE MAIN_CODE = 'METAL_CODE' AND SUB_CODE = BBB.METAL_CODE) AS METAL_CODE_SHORT											/* 메탈명 영문 약어 */
 			  , (SELECT DELETE_AT FROM BD_INTRST_DTL WHERE BID_ENTRPS_NO = #{bidEntrpsNo} AND BID_PBLANC_ID = #{bidPblancId}) AS INTRST_AT   								/* 관심 여부 */
-		      , CONCAT(@bidTimer / (60 * 60 * 24), '일 '
-				 	 , @bidTimer / 3600 % 24, '시간 '
-				 	 , @bidTimer % 3600 / 60, '분 '
-				 	 , @bidTimer % 60, '초') AS BID_TIMER
+		      , ISNULL((SELECT CCC.CODE_REFRNONE FROM CO_CMMN_CD CCC
+				   LEFT JOIN IT_BRAND_INFO_BAS IBIB
+				     ON IBIB.NATION_CODE = CCC.SUB_CODE
+				    AND CCC.MAIN_CODE = 'NATION_CODE'
+				    AND CCC.DELETE_AT = 'N'
+				  WHERE IBIB.BRAND_CODE = BBB.BRAND_CODE), 'https://sorincorp.blob.core.windows.net/secs/odflag/flag_mcht_default.png') AS NATION_URL
+			  , ISNULL((SELECT DOC_FILE_COURS FROM CO_DOC_BAS CDB WHERE DOC_NO = IIIB.PC_IMAGE_ONE_SN), '/images/my/al_sum.jpg') AS PC_IMAGE_ONE_COURS
 		FROM BD_BID_BAS BBB
 		LEFT JOIN (SELECT BID_PBLANC_ID
 		        FROM BD_BDDPR_DTL 
@@ -42,6 +34,9 @@
 		        AND CANCL_AT = 'N'
 		        AND DELETE_AT = 'N') AS BBD
 		ON BBD.BID_PBLANC_ID = BBB.BID_PBLANC_ID
+		LEFT JOIN IT_ITM_INFO_BAS IIIB
+			  ON BBB.ITM_SN = IIIB.ITM_SN
+			 AND ISNULL(IIIB.DELETE_AT, 'N') = 'N'
 		WHERE 1=1
 			AND BBB.BID_PBLANC_ID = #{bidPblancId}
     </select>
