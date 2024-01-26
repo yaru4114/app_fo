@@ -517,7 +517,7 @@
 
 	function setBidHistContainer(res) {
 		const bidDtlInfo = res.bidDtlInfo;
-		if(!bidDtlInfo || !bidDtlInfo.bidHistList) {
+		if(!bidDtlInfo || !bidDtlInfo.bidHistList || bidDtlInfo.bidHistList.length == 0) {
 			$("#bidHistContainer").hide();
 			return;
 		}
