@@ -1292,6 +1292,7 @@
             $('#bddprCanclLmttDe').datepicker({
                 format: 'yyyy-mm-dd',
                 beforeShowDay: function(date) {
+                    console.log('확인');
                     var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
 
                     if(datesE.indexOf(allDates) !== -1) {
@@ -1303,7 +1304,7 @@
             });
         }
 
-        $('#bddprEndDt').on('change', function () {
+        $('#bddprBeginDt, #bddprEndDt').on('change', function () {
             updateCanclLmttDeRange();
         });
 
