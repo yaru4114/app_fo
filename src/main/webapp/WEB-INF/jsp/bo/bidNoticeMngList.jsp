@@ -573,6 +573,11 @@
     ajaxBidNoticeMngStatCntList(jsonData , 'N');
     ajaxBidNoticeMngList(jsonData);
 
+    // 입찰공고번호 입력 후 조회시 전체탭으로 이동하게 수정
+    if($("#in_pBidNo").val() != "") {
+        getBidStatList();
+    }
+
   }
 
   // 날짜 체크
