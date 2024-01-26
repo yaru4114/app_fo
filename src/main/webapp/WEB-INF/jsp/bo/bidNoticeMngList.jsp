@@ -1031,6 +1031,7 @@
       gridView.setRowIndicator({
         visible: false
       });
+      gridView.displayOptions.fitStyle = "even";
 
       var fields = [
         { fieldName: "bidPblancId" },
