@@ -1279,6 +1279,7 @@
         }
 
         function updateCanclLmttDeRange() {
+            $('#bddprCanclLmttDe').datepicker('destroy');
             var datesE;
 
             var beginDtStr = $('#bddprBeginDt').val();
@@ -1303,7 +1304,6 @@
         }
 
         $('#bddprEndDt').on('change', function () {
-            console.log('확인!!!');
             updateCanclLmttDeRange();
         });
 
