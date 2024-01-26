@@ -299,7 +299,7 @@
 				"pageSubCode" : pageSubCode,
 				"bidEntrpsNo" : bidEntrpsNo,
 			}
-			//console.log(params)
+			console.log(params)
 
 			$.ajax({
 				type : 'post',
@@ -379,10 +379,10 @@
 				html += '                   </div>';
 				html += '                   <p class="pd-unit-price">';
 				html += '                   	<span class="label-orange">투찰가</span>';	
-				html += '						<span class="u-price realTimePrice up">'+res.bidBddprList[i].bddprWt+'원/25MT</span>';
+				html += '						<span class="u-price realTimePrice up">'+addComma(res.bidBddprList[i].bddprWt)+'원/25MT</span>';
 				html += '                   </p>';
 				html += '                   <div class="pd-period">';
-				html += '                   	<span class="qty">수량 <span class="highlight">'+res.bidBddprList[i].bidWt+'MT</span></span>';	
+				html += '                   	<span class="qty">수량 <span class="highlight">'+addComma(res.bidBddprList[i].bidWt)+'MT</span></span>';	
 				html += '                       <span class="date">투찰기간 <span class="highlight">'+ viewDateFmt(res.bidBddprList[i].bddprBeginDt) +' ~ '+viewDateFmt(res.bidBddprList[i].bddprEndDt)+'</span></span>'; 
 				if(res.bidBddprList[i].bidSttusCode == '13'){
 					html += '                       <span class="t-info">개찰결과 : 투찰 기한 마감과 동시에 발표함</span>';
@@ -455,6 +455,10 @@
 				}
 	        },1000); //1초마다 
 	        
+		}
+		
+		function addComma(data) {
+			return data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		}
 		
 		function moveToMain(){

@@ -329,7 +329,7 @@
 			html += '                       <span class="brand-group">'+res.bidIntrstList[i].brandGroupCodeNm+'</span>';
 			html += '                   </div>';
 			html += '                   <div class="pd-period">';
-			html += '                   	<span class="qty">수량 <span class="highlight">'+res.bidIntrstList[i].bidWt+'MT</span></span>';	
+			html += '                   	<span class="qty">수량 <span class="highlight">'+addComma(res.bidIntrstList[i].bidWt)+'MT</span></span>';	
 			html += '                       <span class="date">투찰기간 <span class="highlight">'+ viewDateFmt(res.bidIntrstList[i].bddprBeginDt) +' ~ '+viewDateFmt(res.bidIntrstList[i].bddprEndDt)+'</span></span>'; 
 			if(res.bidIntrstList[i].bidSttusCode == '13'){
 				html += '                       <span class="t-info">개찰결과 : 투찰 기한 마감과 동시에 발표함</span>';
@@ -381,6 +381,10 @@
 	    
 	})
 	
+	
+	function addComma(data) {
+		return data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
 	
 	function moveToMain(){
 		location.href="/fo/bid";

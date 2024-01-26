@@ -570,7 +570,7 @@ $(function(){
 			html += '                       <span class="brand-group">'+res.bidList[i].brandGroupCodeNm+'</span>';
 			html += '                   </div>';
 			html += '                   <div class="pd-period">';
-			html += '                   	<span class="qty">수량 <span class="highlight">'+res.bidList[i].bidWt+'MT</span></span>';	
+			html += '                   	<span class="qty">수량 <span class="highlight">'+addComma(res.bidList[i].bidWt)+'MT</span></span>';	
 			//html += '                       <span class="date">투찰기간 <span class="highlight">'+ res.bidList[i].bddprBeginDt +' ~ '+ res.bidList[i].bddprBeginDt+'</span></span>';
 			html += '                       <span class="date">투찰기간 <span class="highlight">'+ viewDateFmt(res.bidList[i].bddprBeginDt) +' ~ '+ viewDateFmt(res.bidList[i].bddprEndDt)+'</span></span>'; 
 			if(res.bidList[i].bidSttusCode == '12' || res.bidList[i].bidSttusCode == '13'){
@@ -661,6 +661,10 @@ $(function(){
 			location.href="/fo/mypage?bidEntrpsNo="+bidEntrpsNo+"&tabCode="+tabCode;	
 		}
 	})
+	
+	function addComma(data) {
+		return data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
 
 	$("#inputLoginId, #inputLoginPwd").on('keydown',function(e){
 	    if(e.code == 'Enter'){
